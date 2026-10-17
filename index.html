@@ -226,13 +226,29 @@ function pinta(d) {
       `<p class="font">Piezòmetres a menys de ${p.radi} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p>`,
       "Agència Catalana de l'Aigua (Dades Obertes de Catalunya)");
   }
+
+  // 6. ☀️ RADIACIÓ ULTRAVIOLADA
+  if (b.uv && b.uv.valor !== undefined) {
+    const colors = { "baix": "#3a9d23", "moderat": "#f7c600", "alt": "#f18b00", "molt alt": "#e53210", "extrem": "#8a3ea0" };
+    const color = colors[b.uv.categoria] || "var(--accent)";
+    h += seccio("☀️ Radiació ultraviolada",
+      `<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">` +
+        `<div style="font-size:2.4rem;font-weight:700;line-height:1;color:#fff;background:${color};border-radius:12px;padding:10px 18px;min-width:72px;text-align:center">${esc(b.uv.valor)}</div>` +
+        `<div><b>Índex UV màxim previst per avui: ${esc(b.uv.categoria)}</b><br>` +
+        (b.uv.valor >= 3 && b.uv.proteccio
+          ? `Convé protegir-se del sol ${esc(b.uv.proteccio)}.`
+          : b.uv.valor >= 3 ? "Convé protegir-se del sol a les hores centrals del dia." : "No cal cap protecció especial.") +
+        `</div></div>` +
+      `<p class="font">Escala: 0-2 baix · 3-5 moderat · 6-7 alt · 8-10 molt alt · 11 o més extrem.</p>`,
+      "Open-Meteo, models de Copernicus");
+  }
   
-  // 6. 📈 EL CLIMA EN CONTEXT
+  // 7. 📈 EL CLIMA EN CONTEXT
   if (b.clima && b.clima.length) h += seccio("📈 El clima en context",
     "<ul>" + b.clima.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>",
     "Open-Meteo, reanàlisi ERA5 de Copernicus");
 
-  // 7. 😮‍💨 QUALITAT DE L'AIRE
+  // 8. 😮‍💨 QUALITAT DE L'AIRE
   if (b.airePrevist || (b.aire && b.aire.length)) h += seccio("😮‍💨 Qualitat de l'aire",
     (b.airePrevist
       ? `<h3>Previsió per avui</h3><p>${esc(b.airePrevist.charAt(0).toUpperCase() + b.airePrevist.slice(1))}</p>` +
@@ -244,11 +260,11 @@ function pinta(d) {
       : ""),
     "");
 
-  // 8. 🤧 NIVELLS DE PÒL·LENS
+  // 9. 🤧 NIVELLS DE PÒL·LENS
   if (b.pollen) h += seccio("🤧 Nivells de pòl·lens de la setmana",
     `<p>${esc(b.pollen)}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
 
-  // 9. ⛽ CARBURANTS (files = benzineres, de Celrà a Palafrugell; columnes = carburants)
+  // 10. ⛽ CARBURANTS (files = benzineres, de Celrà a Palafrugell; columnes = carburants)
   if (b.carburants && b.carburants.estacions && b.carburants.estacions.length) {
     const c = b.carburants;
     const preu = p => (p === null || p === undefined) ? "—" : p.toFixed(3).replace(".", ",") + " €";
@@ -277,11 +293,11 @@ function pinta(d) {
       "Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)");
   }
 
-  // 10. 🔌 PUNTS DE RECÀRREGA
+  // 11. 🔌 PUNTS DE RECÀRREGA
   if (b.recarrega) h += seccio("🔌 Punts de recàrrega per a vehicles elèctrics",
     agrupat(b.recarrega), "ICAEN i MITERD / DGT");
 
-  // 11. 📉 ATUR I AFILIACIÓ
+  // 12. 📉 ATUR I AFILIACIÓ
   if (b.atur && b.atur.municipis) {
     const vari = v => (v === null || v === undefined) ? "—" : (v > 0 ? "+" : "") + v;
     const nomMes = t => String(t || "").split(" de ")[0];
@@ -297,7 +313,7 @@ function pinta(d) {
       "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
   }
 
-  // 11 bis. 🏢 BORME (sota d'atur i afiliació)
+  // 13. 🏢 BORME (sota d'atur i afiliació)
   if (b.borme) {
     const bo = b.borme;
     let cos;
@@ -318,7 +334,7 @@ function pinta(d) {
     h += seccio("🏢 Registre Mercantil (BORME)", cos, "Boletín Oficial del Registro Mercantil (Agència Estatal BOE)");
   }
   
-  // 12. 🏆 CLASSIFICACIONS DELS EQUIPS
+  // 14. 🏆 CLASSIFICACIONS DELS EQUIPS
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
     b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
       taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
