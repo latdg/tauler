@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>La TdG redacció</title>
+<title>La TdG ampliada</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
 @media (prefers-color-scheme:dark){:root{--fons:#151514;--targeta:#1f1f1d;--text:#ecebe6;--suau:#a3a29b;--linia:#33322f;--accent:#e07a5f}}
@@ -15,32 +15,34 @@ header{padding-top:24px}
 h1{margin:0;font-size:1.6rem}
 .sub{color:var(--suau);margin:4px 0 12px}
 select{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
-.eines{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
-nav a{color:var(--text);text-decoration:none;font-size:.85rem;padding:3px 10px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);white-space:nowrap}
-nav a:hover{color:var(--accent);border-color:var(--accent)}
 main{display:grid;gap:16px;padding-top:16px;padding-bottom:32px}
-section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0;overflow-wrap:anywhere;scroll-margin-top:16px}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0}
 h2{margin:0 0 8px;font-size:1.1rem}
+h3{margin:12px 0 4px;font-size:1rem}
 a{color:var(--accent)}
-.font{color:var(--suau);font-size:.85rem;margin:0 0 8px}
-.targeta{border-top:1px solid var(--linia);padding:10px 0;white-space:pre-wrap}
-.targeta:first-of-type{border-top:0}
-.targeta .data{display:block;color:var(--suau);font-size:.8rem}
-.alerta{border-left:4px solid var(--accent);padding-left:10px}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+.taula{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);white-space:nowrap;vertical-align:top}
+td.ajust{white-space:normal;min-width:220px}
+td.num{text-align:right}
+td.ico{font-size:1.3rem;text-align:center}
+.coord{display:block;color:var(--suau);font-size:.8rem}
+th{color:var(--suau);font-weight:600}
+tr.propi td{font-weight:700;color:var(--accent)}
+ul{margin:0;padding-left:20px}
 .buit{color:var(--suau)}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
 .capcalera{display:flex;align-items:center;gap:16px}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
-/* El resum arriba amb els colors del correu: es manté sempre en clar. */
-#resum{background:#fff;color:#1d1d1b;color-scheme:light}
-#resum h2{color:#1d1d1b}
-#resum a{color:#b4462c}
-#resum .cos{overflow-x:auto}
-#resum .cos img{max-width:100%;height:auto}
-@keyframes tdgPulsacioAvui{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.72)}}
-.tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
+.podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
+.podcast .detall{font-size:.75rem;color:var(--suau)}
+.podcast:hover .nom{color:var(--accent)}
+figure.camera{margin:4px 0 8px}
+figure.camera img{display:block;width:50%;height:auto;border:1px solid var(--linia);border-radius:8px;background:var(--linia)}
+@media (max-width:700px){figure.camera img{width:100%}}
+figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 </style>
 </head>
 <body>
@@ -57,182 +59,377 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
         <path d="M9 21h6" stroke="currentColor"/>
       </svg>
     </a>
-    <h1>La TdG redacció</h1>
+    <h1>La TdG ampliada</h1>
   </div>
   <p class="sub" id="sub">Carregant…</p>
-  <div class="eines">
-    <label id="selector" hidden>Dia: <select id="dia"></select></label>
-    <a href="https://latdg.github.io/tauler/" target="_blank" rel="noopener">La TdG ampliada ↗</a>
-  </div>
-  <nav>
-    <a href="#resum">Resum</a>
-    <a href="#actes-ple">Actes del Ple</a>
-    <a href="#aigua-sinac">Aigua SINAC</a>
-    <a href="#aigua-mancomunitat">Mancomunitat</a>
-    <a href="#dades-municipals">Dades municipals</a>
-    <a href="#congres">Congrés</a>
-    <a href="#parlament">Parlament</a>
-    <a href="#loteries">Loteries</a>
-  </nav>
+  <label id="selector" hidden>Dia: <select id="dia"></select></label>
 </header>
-
-<main>
-  <section id="resum"><h2>📰 Resum informatiu</h2><p class="font"></p><div class="cos"><p class="buit">Carregant…</p></div></section>
-  <section id="actes-ple"><h2>🏛️ Actes del Ple</h2><p class="buit">Carregant…</p></section>
-  <section id="aigua-sinac"><h2>💧 Aigua potable — SINAC</h2><p class="buit">Carregant…</p></section>
-  <section id="aigua-mancomunitat"><h2>🧪 Aigua potable — Mancomunitat</h2><p class="buit">Carregant…</p></section>
-  <section id="dades-municipals"><h2>🏦 Dades municipals</h2><p class="buit">Carregant…</p></section>
-  <section id="congres"><h2>🏛️ Congrés dels Diputats</h2><p class="buit">Carregant…</p></section>
-  <section id="parlament"><h2>🏛️ Parlament de Catalunya</h2><p class="buit">Carregant…</p></section>
-  <section id="loteries"><h2>🍀 Loteries</h2><p class="buit">Carregant…</p></section>
-</main>
-<footer>La Torre de Guaita · Panell intern de la redacció.</footer>
-
+<main id="blocs"></main>
+<footer>La Torre de Guaita · Dades públiques de les fonts indicades a cada bloc.</footer>
 <script>
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dataCa = iso => iso.split("-").reverse().join(".");
-// "17.10.2026 15.01" -> "17.10.2026 a les 15.01 h"
-const quan = generat => String(generat || "").replace(/^(\d{2}\.\d{2}\.\d{4})\s+(\d{1,2}\.\d{2})$/, "$1 a les $2 h");
-const hora = generat => (String(generat || "").match(/(\d{1,2}\.\d{2})\s*h?$/) || [])[1] || "";
+const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
+const frase = t => { t = String(t || "").toLowerCase(); return t.charAt(0).toUpperCase() + t.slice(1); };
 
-// Icona de cada secció (els títols arriben de les dades sense icona).
-const ICONES = {
-  "actes-ple": "🏛️", "aigua-sinac": "💧", "aigua-mancomunitat": "🧪",
-  "dades-municipals": "🏦", "congres": "🏛️", "parlament": "🏛️", "loteries": "🍀"
+// Càmera de trànsit del Servei Català de Trànsit (en directe, es refresca cada minut).
+const CAMERA_TRANSIT = { nom: "Polígon de Forallac", fitxer: "cb25.jpg" };
+const urlCamera = () => "https://mct.gencat.cat/mct2bo/TransitCamera?nom=" + CAMERA_TRANSIT.fitxer +
+  "&time" + Date.now() + "&visualitzacio=imatge";
+const horaAra = () => {
+  const d = new Date();
+  return String(d.getHours()).padStart(2, "0") + "." + String(d.getMinutes()).padStart(2, "0");
 };
 
-const estat = {};
-
-async function obtenir(cami, tipus) {
+async function json(cami) {
   const r = await fetch(cami + "?v=" + Date.now());
   if (!r.ok) throw new Error(r.status);
-  return tipus === "text" ? r.text() : r.json();
+  return r.json();
 }
 
-// Text pla amb els enllaços clicables.
-function linkify(text) {
-  return esc(text).replace(/https?:\/\/[^\s<]+/g, u => {
-    const net = u.replace(/[).,;:]+$/, "");
-    return `<a href="${net}" target="_blank" rel="noopener">${net}</a>${u.slice(net.length)}`;
+function seccio(titol, cos, font) {
+  return `<section><h2>${titol}</h2>${cos}${font ? `<p class="font">Font: ${esc(font)}</p>` : ""}</section>`;
+}
+
+// "A | B | C" o línies -> llista
+function llista(text) {
+  const items = String(text || "").split(/\s\|\s|\n/).map(x => x.trim()).filter(Boolean);
+  return items.length ? "<ul>" + items.map(x => `<li>${esc(x)}</li>`).join("") + "</ul>" : "";
+}
+
+// Text agrupat per municipi: les línies amb "- " són elements; la resta, títols.
+function agrupat(text) {
+  let h = "", obert = false;
+  String(text || "").split("\n").forEach(l => {
+    l = l.trim();
+    if (!l) return;
+    if (l.startsWith("- ")) {
+      if (!obert) { h += "<ul>"; obert = true; }
+      h += `<li>${esc(l.slice(2))}</li>`;
+    } else {
+      if (obert) { h += "</ul>"; obert = false; }
+      h += `<h3>${esc(l)}</h3>`;
+    }
   });
+  return h + (obert ? "</ul>" : "");
 }
 
-// Al correu, molts enllaços van com a text; aquí es fan clicables.
-function enllacarTextos(arrel) {
-  const walker = document.createTreeWalker(arrel, NodeFilter.SHOW_TEXT);
-  const nodes = [];
-  while (walker.nextNode()) {
-    const n = walker.currentNode;
-    if (/https?:\/\//.test(n.nodeValue) && !n.parentElement.closest("a")) nodes.push(n);
+function taula(capcaleres, files, classeFila) {
+  return `<div class="taula"><table><thead><tr>${capcaleres.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>` +
+    files.map((f, i) => `<tr${classeFila && classeFila(i) ? ` class="${classeFila(i)}"` : ""}>${f.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("") +
+    "</tbody></table></div>";
+}
+
+// Icona segons la categoria del vigilant d'aeronaus.
+function iconaAeronau(categoria, model) {
+  const c = String(categoria || "").toUpperCase();
+  const m = String(model || "").toUpperCase();
+  if (/SANIT/.test(c)) return "🚑";
+  if (/BOMBER/.test(c)) return "🚒";
+  if (/POLIC/.test(c)) return "🚓";
+  if (/MILITAR/.test(c)) return "🎖️";
+  if (/DRON/.test(c)) return "🛸";
+  if (/HELIC/.test(c)) return "🚁";
+  if (/GLOBUS|PLANADOR|ULTRALLEUGER/.test(c)) return m === "BALL" ? "🎈" : "🪂";
+  if (/TREBALLS AERIS/.test(c)) return "📷";
+  if (/AVIONETA/.test(c)) return "🛩️";
+  if (/JET PRIVAT|AEROTAXI/.test(c)) return "✈️";
+  if (/SENSE IDENTIFICAR/.test(c)) return "❓";
+  return "✈️";
+}
+
+function taulaAeronaus(llista) {
+  const files = llista.map(a => {
+    const tenimCoord = a.lat !== null && a.lon !== null;
+    const coord = tenimCoord ? `${String(a.lat).replace(".", ",")}, ${String(a.lon).replace(".", ",")}` : "";
+    const lloc = tenimCoord
+      ? `<a href="https://www.google.com/maps?q=${a.lat},${a.lon}" target="_blank" rel="noopener">${esc(a.ubicacio || "Veure al mapa")}<span class="coord">${esc(coord)}</span></a>`
+      : esc(a.ubicacio);
+    return `<tr>
+      <td class="ico" title="${esc(frase(a.categoria))}">${iconaAeronau(a.categoria, a.model)}</td>
+      <td>${esc(a.hora)} h</td>
+      <td>${esc(a.model)}</td>
+      <td>${esc(a.descripcio)}</td>
+      <td>${esc(frase(a.categoria))}</td>
+      <td class="num">${num(a.altitud)} m</td>
+      <td class="num">${num(a.velocitat)}</td>
+      <td class="ajust">${lloc}</td>
+    </tr>`;
+  }).join("");
+  return `<div class="taula"><table><thead><tr>
+    <th></th><th>Hora</th><th>Model</th><th>Descripció</th><th>Categoria</th><th>Altitud</th><th>km/h</th><th>Ubicació</th>
+  </tr></thead><tbody>${files}</tbody></table></div>`;
+}
+
+function pinta(d) {
+  const b = d.blocs || {};
+  document.getElementById("sub").textContent = "Dades del " + dataCa(d.dia) + " · actualitzat el " + d.generat;
+  let h = "";
+
+  // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
+  h += seccio("🚦 Trànsit",
+    `<h3>Càmera: ${esc(CAMERA_TRANSIT.nom)}</h3>` +
+    `<figure class="camera"><img id="imgCamera" alt="Càmera de trànsit — ${esc(CAMERA_TRANSIT.nom)}" src="${urlCamera()}">` +
+    `<figcaption id="peuCamera">Imatge en directe · s'actualitza cada minut</figcaption></figure>` +
+    `<h3>Incidències viàries a la comarca</h3>` +
+    (b.incidencies && b.incidencies.length
+      ? "<ul>" + b.incidencies.map(i => `<li><b>${esc(i.municipi)}</b>: ${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}</li>`).join("") + "</ul>"
+      : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>'),
+    "Servei Català de Trànsit");
+
+  // 2. ✈️ AVIACIÓ NO COMERCIAL
+  if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els quatre municipis",
+    b.aeronaus.length
+      ? taulaAeronaus(b.aeronaus)
+      : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>',
+    "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
+
+  // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
+  if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
+    (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(b.plaAlfa) : "") +
+    (b.sequera ? "<h3>Estat de sequera</h3>" + llista(b.sequera) : "") +
+    (b.refugis ? "<h3>Refugis climàtics</h3>" + llista(b.refugis) : ""),
+    "Generalitat de Catalunya");
+
+    // 5. 🌊 RIU DARÓ
+  if (b.riu) h += seccio("🌊 Riu Daró",
+    `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : ""),
+    "Agència Catalana de l'Aigua");
+
+  // 5 bis. 💧 PIEZÒMETRES (després del riu Daró)
+  if (b.piezometres && b.piezometres.estacions && b.piezometres.estacions.length) {
+    const p = b.piezometres;
+    const m = n => (n === null || n === undefined) ? "—" : n.toFixed(2).replace(".", ",") + " m";
+    const data = iso => iso ? iso.split("-").reverse().join(".") : "";
+    const vari = (v, iso, avis) => {
+      if (v === null || v === undefined) return "—";
+      const t = Math.abs(v) < 0.005 ? "= sense canvis" : (v > 0 ? "▲ +" : "▼ −") + Math.abs(v).toFixed(2).replace(".", ",") + " m";
+      return (avis && Math.abs(v) >= 1.5 ? "⚠️ " : "") + t + `<span class="coord">${esc(data(iso))}</span>`;
+    };
+    const files = p.estacions.map(e => {
+      const nom = `<b>${esc(e.nom)}</b><span class="coord">${esc(e.municipi)}${e.municipi ? ", " : ""}a ${String(e.distancia).replace(".", ",")} km${e.massa ? " · " + esc(e.massa) : ""}</span>`;
+      const enllac = e.lat !== null && e.lon !== null
+        ? `<a href="https://www.google.com/maps?q=${e.lat},${e.lon}" target="_blank" rel="noopener">${nom}</a>`
+        : nom;
+      return `<tr><td class="ajust">${enllac}</td>` +
+        `<td style="text-align:center">${esc(data(e.data))}</td>` +
+        `<td style="text-align:center">${m(e.cota)}</td>` +
+        `<td style="text-align:center">${m(e.fondaria)}</td>` +
+        `<td style="text-align:center">${vari(e.varAnterior, e.dataAnterior, true)}</td>` +
+        `<td style="text-align:center">${vari(e.varFaUnAny, e.dataFaUnAny, false)}</td></tr>`;
+    }).join("");
+    h += seccio("💧 Aigües subterrànies (piezòmetres)",
+      `<div class="taula"><table><thead><tr><th>Piezòmetre</th>` +
+      `<th style="text-align:center">Darrera mesura</th><th style="text-align:center">Nivell (s.n.m.)</th>` +
+      `<th style="text-align:center">Fondària de l'aigua</th><th style="text-align:center">Respecte a l'anterior</th>` +
+      `<th style="text-align:center">Respecte a fa un any</th></tr></thead><tbody>${files}</tbody></table></div>` +
+      `<p class="font">Piezòmetres a menys de ${p.radi} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p>`,
+      "Agència Catalana de l'Aigua (Dades Obertes de Catalunya)");
   }
-  nodes.forEach(n => {
-    const span = document.createElement("span");
-    span.innerHTML = linkify(n.nodeValue);
-    n.replaceWith(span);
-  });
-}
 
-function pintaSub(dia) {
-  const parts = ["Dades del " + dataCa(dia)];
-  if (estat.resum) parts.push("resum de les " + estat.resum + " h");
-  if (estat.extres) parts.push("extres de les " + estat.extres + " h");
-  document.getElementById("sub").textContent = parts.join(" · ");
-}
+  // 6. ☀️ RADIACIÓ ULTRAVIOLADA
+  if (b.uv && b.uv.valor !== undefined) {
+    const colors = { "baix": "#3a9d23", "moderat": "#f7c600", "alt": "#f18b00", "molt alt": "#e53210", "extrem": "#8a3ea0" };
+    const color = colors[b.uv.categoria] || "var(--accent)";
+    h += seccio("☀️ Radiació ultraviolada",
+      `<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">` +
+        `<div style="font-size:2.4rem;font-weight:700;line-height:1;color:#fff;background:${color};border-radius:12px;padding:10px 18px;min-width:72px;text-align:center">${esc(b.uv.valor)}</div>` +
+        `<div><b>Índex UV màxim previst per avui: ${esc(b.uv.categoria)}</b><br>` +
+        (b.uv.valor >= 3 && b.uv.proteccio
+          ? `Convé protegir-se del sol ${esc(b.uv.proteccio)}.`
+          : b.uv.valor >= 3 ? "Convé protegir-se del sol a les hores centrals del dia." : "No cal cap protecció especial.") +
+        `</div></div>` +
+      `<p class="font">Escala: 0-2 baix · 3-5 moderat · 6-7 alt · 8-10 molt alt · 11 o més extrem.</p>`,
+      "Open-Meteo, models de Copernicus");
+  }
+  
+  // 7. 📈 EL CLIMA EN CONTEXT
+  if (b.clima && b.clima.length) h += seccio("📈 El clima en context",
+    "<ul>" + b.clima.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>",
+    "Open-Meteo, reanàlisi ERA5 de Copernicus");
 
-function pintaSeccio(s, generat) {
-  let el = document.getElementById(s.id);
-  if (!el) {
-    el = document.createElement("section");
-    el.id = s.id;
-    document.querySelector("main").appendChild(el);
+  // 8. 😮‍💨 QUALITAT DE L'AIRE
+  if (b.airePrevist || (b.aire && b.aire.length)) h += seccio("😮‍💨 Qualitat de l'aire",
+    (b.airePrevist
+      ? `<h3>Previsió per avui</h3><p>${esc(b.airePrevist.charAt(0).toUpperCase() + b.airePrevist.slice(1))}</p>` +
+        `<p class="font">Font: Open-Meteo, model CAMS de Copernicus (previsió en una quadrícula d'uns 10 km, no és una mesura a la Bisbal)</p>`
+      : "") +
+    (b.aire && b.aire.length
+      ? `<h3>Darrera mesura a la Bisbal</h3><ul>${b.aire.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` +
+        `<p class="font">Font: Generalitat de Catalunya, dades obertes (campanya de mesurament manual; la data de cada lectura s'indica al costat)</p>`
+      : ""),
+    "");
+
+  // 9. 🤧 NIVELLS DE PÒL·LENS
+  if (b.pollen) h += seccio("🤧 Nivells de pòl·lens de la setmana",
+    `<p>${esc(b.pollen)}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
+
+  // 10. ⛽ CARBURANTS (files = benzineres, de Celrà a Palafrugell; columnes = carburants)
+  if (b.carburants && b.carburants.estacions && b.carburants.estacions.length) {
+    const c = b.carburants;
+    const preu = p => (p === null || p === undefined) ? "—" : p.toFixed(3).replace(".", ",") + " €";
+    const minims = c.carburants.map(f => {
+      const v = f.preus.filter(p => p !== null && p !== undefined);
+      return v.length > 1 ? Math.min(...v) : null;
+    });
+    const cap = `<tr><th>Benzinera</th>${c.carburants.map(f => `<th style="text-align:center">${esc(f.nom)}</th>`).join("")}</tr>`;
+    const files = c.estacions.map((e, i) => {
+      const nom = `<b>${esc(e.nom)}</b><span class="coord">${esc(e.municipi)}</span>`;
+      const enllac = e.lat !== null && e.lon !== null
+        ? `<a href="https://www.google.com/maps?q=${e.lat},${e.lon}" target="_blank" rel="noopener">${nom}</a>`
+        : nom;
+      return `<tr${e.local ? ' style="background:var(--fons)"' : ""}>` +
+        `<td title="${esc(e.adreca)}${e.horari ? " · " + esc(e.horari) : ""}">${enllac}</td>` +
+        c.carburants.map((f, j) => {
+          const p = f.preus[i];
+          const millor = minims[j] !== null && p === minims[j];
+          return `<td style="text-align:center${millor ? ";font-weight:700;color:var(--accent)" : ""}">${preu(p)}</td>`;
+        }).join("") +
+        `</tr>`;
+    }).join("");
+    h += seccio("⛽ Preus dels carburants (els quatre municipis i la C-66)",
+      `<div class="taula"><table><thead>${cap}</thead><tbody>${files}</tbody></table></div>` +
+      `<p class="font">Preus declarats per les benzineres${c.data ? ", actualitzats el " + esc(c.data) : ""}. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
+      "Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)");
   }
 
-  let h = `<h2>${ICONES[s.id] ? ICONES[s.id] + " " : ""}${esc(s.titol)}</h2>`;
-  const peu = [];
-  if (generat) peu.push("Actualitzat el " + esc(quan(generat)));
-  if (s.font && s.font.url) peu.push(`Font: <a href="${esc(s.font.url)}" target="_blank" rel="noopener">${esc(s.font.nom)}</a>`);
-  if (peu.length) h += `<p class="font">${peu.join(" · ")}</p>`;
+  // 11. 🔌 PUNTS DE RECÀRREGA
+  if (b.recarrega) h += seccio("🔌 Punts de recàrrega per a vehicles elèctrics",
+    agrupat(b.recarrega), "ICAEN i MITERD / DGT");
 
-  if (s.nota) h += `<p class="buit">${linkify(s.nota)}</p>`;
-  if ((!s.items || !s.items.length) && !s.nota) h += '<p class="buit">Res a mostrar.</p>';
-
-  (s.items || []).forEach(it => {
-    h += `<div class="targeta${it.alerta ? " alerta" : ""}">` +
-      (it.data ? `<span class="data">${esc(it.data)}</span>` : "") +
-      linkify(String(it.text || "").trim()) + "</div>";
-  });
-
-  el.innerHTML = h;
-}
-
-function senseDades(ids, text) {
-  ids.forEach(id => {
-    const el = document.getElementById(id);
-    const p = el && el.querySelector(".buit");
-    if (p) p.textContent = text;
-  });
-}
-
-async function carregaResum(dia) {
-  const sec = document.getElementById("resum");
-  try {
-    const doc = new DOMParser().parseFromString(await obtenir(`dades/${dia}/resum.html`, "text"), "text/html");
-    const cos = sec.querySelector(".cos");
-    cos.innerHTML = doc.body.innerHTML;
-    enllacarTextos(cos);
-    const generat = doc.body.getAttribute("data-generat") || "";
-    sec.querySelector(".font").textContent = generat ? "Actualitzat el " + quan(generat) : "";
-    estat.resum = hora(generat);
-  } catch (e) {
-    sec.querySelector(".cos").innerHTML = '<p class="buit">Aquest dia no hi ha cap resum desat.</p>';
+  // 12. 📉 ATUR I AFILIACIÓ
+  if (b.atur && b.atur.municipis) {
+    const vari = v => (v === null || v === undefined) ? "—" : (v > 0 ? "+" : "") + v;
+    const nomMes = t => String(t || "").split(" de ")[0];
+    const ambAfiliacio = b.atur.municipis.some(m => m.afiliats !== null && m.afiliats !== undefined);
+    const mesAtur = nomMes(b.atur.mes);
+    const mesAfil = nomMes(b.atur.mesAfiliacio || b.atur.mes);
+    h += seccio("📉 Atur i afiliació",
+      ambAfiliacio
+        ? taula(["Municipi", `Atur (${mesAtur})`, "Variació", `Afiliats (${mesAfil})`, "Variació", "Homes", "Dones"],
+            b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio), num(m.afiliats), vari(m.variacioAfiliats), num(m.homes), num(m.dones)]))
+        : taula(["Municipi", `Atur (${mesAtur})`, "Variació"],
+            b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio)])),
+      "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
   }
-  pintaSub(dia);
-}
 
-async function carregaJSON(dia, fitxer, ids, clauEstat) {
-  try {
-    const d = await obtenir(`dades/${dia}/${fitxer}`);
-    (d.seccions || []).forEach(s => pintaSeccio(s, d.generat));
-    // Les seccions que no venen en aquest fitxer (dies antics, per exemple).
-    const pintades = (d.seccions || []).map(s => s.id);
-    senseDades(ids.filter(id => !pintades.includes(id)), "Aquest dia no hi ha dades desades.");
-    if (clauEstat) estat[clauEstat] = hora(d.generat);
-  } catch (e) {
-    senseDades(ids, fitxer === "parlament.json" || fitxer === "loteries.json"
-      ? "Aquest dia no hi ha hagut cap avís."
-      : "Aquest dia no hi ha dades desades.");
+  // 13. 🏢 BORME (sota d'atur i afiliació)
+  if (b.borme) {
+    const bo = b.borme;
+    let cos;
+    if (bo.estat === "ok") {
+      const quan = bo.avui ? "d'avui (" + bo.data + ")" : "del " + bo.data + " (el darrer publicat)";
+      cos = bo.entrades.length
+        ? `<p>BORME de Girona ${esc(quan)}:</p><ul>` +
+          bo.entrades.map(e => `<li style="margin-bottom:8px">` +
+            (e.empresa ? `<b>${esc(e.empresa)}</b>. ` : "") + esc(e.text) +
+            `<span class="coord">Cita: ${esc((e.cita || []).join(", "))} · <a href="${esc(e.link)}" target="_blank" rel="noopener">veure el BORME</a></span></li>`).join("") +
+          "</ul>"
+        : `<p class="buit">El BORME de Girona ${esc(quan)} no porta cap acte d'empreses dels quatre municipis.</p>`;
+    } else if (bo.estat === "error") {
+      cos = '<p class="buit">Ara mateix no s\'ha pogut consultar el BORME.</p>';
+    } else {
+      cos = '<p class="buit">No hi ha cap BORME publicat els últims dies.</p>';
+    }
+    h += seccio("🏢 Registre Mercantil (BORME)", cos, "Boletín Oficial del Registro Mercantil (Agència Estatal BOE)");
   }
-  pintaSub(dia);
+
+  // 14. 🔨 SUBHASTES
+  if (b.subhastes && b.subhastes.subhastes) {
+    const llista = b.subhastes.subhastes;
+    h += seccio("🔨 Subhastes públiques de béns de la zona",
+      llista.length
+        ? "<ul>" + llista.map(s =>
+            `<li style="margin-bottom:12px">` +
+            `<b>${esc(s.municipi)}</b>${s.origen || s.tipus ? " · " + esc([s.origen, s.tipus].filter(Boolean).join(" · ")) : ""}` +
+            (s.descripcio ? `<br>${esc(s.descripcio)}` : "") +
+            (s.lloc ? `<br>📍 ${esc(s.lloc)}` : "") +
+            `<span class="coord">` +
+              [s.valor ? "Valor de subhasta: " + esc(s.valor) : "",
+               s.taxacio ? "Taxació: " + esc(s.taxacio) : "",
+               s.inici || s.fi ? "📅 " + [s.inici ? "Inici: " + esc(s.inici) : "", s.fi ? "Final: " + esc(s.fi) : ""].filter(Boolean).join(" · ") : "",
+               s.estat ? "Estat: " + esc(s.estat) : "",
+               s.autoritat ? "Autoritat: " + esc(s.autoritat) : ""].filter(Boolean).join(" · ") +
+              ` · <a href="${esc(s.link)}" target="_blank" rel="noopener">fitxa al Portal de Subhastes</a>` +
+            `</span></li>`).join("") + "</ul>"
+        : '<p class="buit">Ara mateix no hi ha cap subhasta oberta ni pendent d\'obrir de béns dels quatre municipis.</p>',
+      "Portal de Subhastes de l'Agència Estatal BOE");
+  }
+  
+  // 15. 🏆 CLASSIFICACIONS DELS EQUIPS
+  if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
+    b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
+      taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
+        c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
+        i => c.files[i].propi ? "propi" : "")).join(""),
+    "FCF i FEB");
+
+  document.getElementById("blocs").innerHTML = h;
+
+  iniciaCamera();
+
+  if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
+    const css = getComputedStyle(document.documentElement);
+    const accent = css.getPropertyValue("--accent").trim(), suau = css.getPropertyValue("--suau").trim();
+    // Les dades arriben de la més recent a la més antiga: es giren perquè
+    // les hores vagin d'esquerra (més antiga) a dreta (més recent).
+    const hores = b.riu.hores.slice().reverse();
+    new Chart(document.getElementById("graficRiu"), {
+      type: "line",
+      data: {
+        labels: hores.map(x => x.hora),
+        datasets: [
+          { label: "Cabal (m³/s)", data: hores.map(x => x.cabal), borderColor: accent, backgroundColor: accent, yAxisID: "y", tension: .3 },
+          { label: "Nivell (cm)", data: hores.map(x => x.nivell), borderColor: suau, backgroundColor: suau, yAxisID: "y1", tension: .3 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { position: "left" }, y1: { position: "right", grid: { drawOnChartArea: false } } }
+      }
+    });
+  }
+}
+ 
+// La càmera mostra l'hora de la darrera imatge i es refresca cada minut.
+function iniciaCamera() {
+  const img = document.getElementById("imgCamera");
+  const peu = document.getElementById("peuCamera");
+  if (!img || !peu) return;
+
+  img.onload = () => {
+    img.hidden = false;
+    peu.textContent = "Imatge en directe de les " + horaAra() + " h · s'actualitza cada minut";
+  };
+  img.onerror = () => {
+    img.hidden = true;
+    peu.textContent = "La càmera no està disponible ara mateix. Es tornarà a provar d'aquí a un minut.";
+  };
+
+  setInterval(() => { img.src = urlCamera(); }, 60000);
 }
 
 async function inicia() {
-  const triat = new URLSearchParams(location.search).get("dia");
+  const params = new URLSearchParams(location.search);
+  const triat = params.get("dia");
   const sel = document.getElementById("dia");
-  let dies = [];
 
   try {
-    dies = await obtenir("dades/dies.json");
+    const dies = await json("dades/dies.json");
+    if (dies.length) {
+      sel.innerHTML = dies.map(x => `<option value="${x}">${dataCa(x)}</option>`).join("");
+      document.getElementById("selector").hidden = false;
+      sel.onchange = () => { location.search = "?dia=" + sel.value; };
+    }
   } catch (e) {}
 
-  if (!dies.length) {
-    document.getElementById("sub").textContent = "Encara no hi ha dades publicades.";
-    senseDades(["resum", "actes-ple", "aigua-sinac", "aigua-mancomunitat", "dades-municipals", "congres", "parlament", "loteries"], "");
-    document.querySelector("#resum .cos").innerHTML = "";
-    return;
+  try {
+    const d = await json(triat ? `dades/${triat}.json` : "dades/darrer.json");
+    sel.value = d.dia;
+    pinta(d);
+  } catch (e) {
+    document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
   }
-
-  sel.innerHTML = dies.map(x => `<option value="${x}">${dataCa(x)}</option>`).join("");
-  document.getElementById("selector").hidden = false;
-  sel.onchange = () => { location.search = "?dia=" + sel.value; };
-
-  const dia = triat && dies.includes(triat) ? triat : dies[0];
-  sel.value = dia;
-  pintaSub(dia);
-
-  carregaResum(dia);
-  carregaJSON(dia, "extres.json", ["actes-ple", "aigua-sinac", "aigua-mancomunitat", "dades-municipals", "congres"], "extres");
-  carregaJSON(dia, "parlament.json", ["parlament"]);
-  carregaJSON(dia, "loteries.json", ["loteries"]);
 }
 inicia();
 </script>
