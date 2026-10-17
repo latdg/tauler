@@ -166,7 +166,7 @@ function pinta(d) {
   document.getElementById("sub").textContent = "Dades del " + dataCa(d.dia) + " · actualitzat el " + d.generat;
   let h = "";
 
-  // 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
+  // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
   h += seccio("🚦 Trànsit",
     `<h3>Càmera: ${esc(CAMERA_TRANSIT.nom)}</h3>` +
     `<figure class="camera"><img id="imgCamera" alt="Càmera de trànsit — ${esc(CAMERA_TRANSIT.nom)}" src="${urlCamera()}">` +
@@ -177,20 +177,33 @@ function pinta(d) {
       : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>'),
     "Servei Català de Trànsit");
 
+  // 2. ✈️ AVIACIÓ NO COMERCIAL
   if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els quatre municipis",
     b.aeronaus.length
       ? taulaAeronaus(b.aeronaus)
       : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>',
     "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
 
+  // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
+  if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
+    (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(b.plaAlfa) : "") +
+    (b.sequera ? "<h3>Estat de sequera</h3>" + llista(b.sequera) : "") +
+    (b.refugis ? "<h3>Refugis climàtics</h3>" + llista(b.refugis) : ""),
+    "Generalitat de Catalunya");
+
+  // 4. 💧 PIEZÒMETRES (pendent: aquí anirà el bloc quan n'afegim les dades)
+
+  // 5. 🌊 RIU DARÓ
   if (b.riu) h += seccio("🌊 Riu Daró",
     `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : ""),
     "Agència Catalana de l'Aigua");
 
+  // 6. 📈 EL CLIMA EN CONTEXT
   if (b.clima && b.clima.length) h += seccio("📈 El clima en context",
     "<ul>" + b.clima.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>",
     "Open-Meteo, reanàlisi ERA5 de Copernicus");
 
+  // 7. 😮‍💨 QUALITAT DE L'AIRE
   if (b.airePrevist || (b.aire && b.aire.length)) h += seccio("😮‍💨 Qualitat de l'aire",
     (b.airePrevist
       ? `<h3>Previsió per avui</h3><p>${esc(b.airePrevist.charAt(0).toUpperCase() + b.airePrevist.slice(1))}</p>` +
@@ -202,18 +215,17 @@ function pinta(d) {
       : ""),
     "");
 
+  // 8. 🤧 NIVELLS DE PÒL·LENS
   if (b.pollen) h += seccio("🤧 Nivells de pòl·lens de la setmana",
     `<p>${esc(b.pollen)}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
 
-  if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
-    (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(b.plaAlfa) : "") +
-    (b.sequera ? "<h3>Estat de sequera</h3>" + llista(b.sequera) : "") +
-    (b.refugis ? "<h3>Refugis climàtics</h3>" + llista(b.refugis) : ""),
-    "Generalitat de Catalunya");
+  // 9. ⛽ CARBURANTS (pendent: aquí anirà el bloc quan n'afegim les dades)
 
+  // 10. 🔌 PUNTS DE RECÀRREGA
   if (b.recarrega) h += seccio("🔌 Punts de recàrrega per a vehicles elèctrics",
     agrupat(b.recarrega), "ICAEN i MITERD / DGT");
 
+  // 11. 📉 ATUR I AFILIACIÓ
   if (b.atur && b.atur.municipis) {
     const vari = v => (v === null || v === undefined) ? "—" : (v > 0 ? "+" : "") + v;
     const nomMes = t => String(t || "").split(" de ")[0];
@@ -229,7 +241,8 @@ function pinta(d) {
       "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
   }
 
-  if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions",
+  // 12. 🏆 CLASSIFICACIONS DELS EQUIPS
+  if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
     b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
       taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
         c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
@@ -262,7 +275,7 @@ function pinta(d) {
     });
   }
 }
-
+ 
 // La càmera mostra l'hora de la darrera imatge i es refresca cada minut.
 function iniciaCamera() {
   const img = document.getElementById("imgCamera");
