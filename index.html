@@ -198,18 +198,19 @@ function pinta(d) {
 
   if (b.atur && b.atur.municipis) {
     const vari = v => (v === null || v === undefined) ? "—" : (v > 0 ? "+" : "") + v;
+    const nomMes = t => String(t || "").split(" de ")[0];
     const ambAfiliacio = b.atur.municipis.some(m => m.afiliats !== null && m.afiliats !== undefined);
-    const mesDiferent = b.atur.mesAfiliacio && b.atur.mesAfiliacio !== b.atur.mes;
-    h += seccio("📉 Atur i afiliació (" + esc(b.atur.mes) + ")",
-      (ambAfiliacio
-        ? taula(["Municipi", "Atur", "Variació", "Afiliats", "Variació", "Homes", "Dones"],
+    const mesAtur = nomMes(b.atur.mes);
+    const mesAfil = nomMes(b.atur.mesAfiliacio || b.atur.mes);
+    h += seccio("📉 Atur i afiliació",
+      ambAfiliacio
+        ? taula(["Municipi", `Atur (${mesAtur})`, "Variació", `Afiliats (${mesAfil})`, "Variació", "Homes", "Dones"],
             b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio), num(m.afiliats), vari(m.variacioAfiliats), num(m.homes), num(m.dones)]))
-        : taula(["Municipi", "Atur", "Variació"],
-            b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio)]))) +
-      (mesDiferent ? `<p class="font">Les dades d'afiliació corresponen a ${esc(b.atur.mesAfiliacio)}.</p>` : ""),
+        : taula(["Municipi", `Atur (${mesAtur})`, "Variació"],
+            b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio)])),
       "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
   }
-
+    
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions",
     b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
       taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
