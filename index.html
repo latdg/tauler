@@ -43,6 +43,22 @@ figure.camera{margin:4px 0 8px}
 figure.camera img{display:block;width:50%;height:auto;border:1px solid var(--linia);border-radius:8px;background:var(--linia)}
 @media (max-width:700px){figure.camera img{width:100%}}
 figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
+/* PEU «LA TdG» (el mateix de la pàgina de talls d'àudio) */
+.peu-tdg{max-width:1100px;margin:0 auto;padding:0 16px 16px}
+.peu-tdg section p{margin:0 0 12px}
+.peu-tdg h2.seguent{margin-top:24px;padding-top:20px;border-top:1px solid var(--linia)}
+.botons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:4px 0 0;padding:0;list-style:none}
+.botons a{display:block;text-align:center;text-decoration:none;color:var(--text);padding:10px 4px;border-radius:10px}
+.botons a:hover{background:var(--fons)}
+.botons a:hover .nom{color:var(--accent)}
+.botons .ico{display:block;height:44px;width:44px;margin:0 auto}
+.botons .nom{display:block;margin-top:6px;font-weight:700;font-size:.95rem;line-height:1.3}
+.botons .detall{display:block;font-size:.85rem;color:var(--suau);line-height:1.3;overflow-wrap:anywhere}
+@media (max-width:600px){
+  .botons .ico{height:38px;width:38px}
+  .botons .nom{font-size:.9rem}
+  .botons .detall{font-size:.8rem}
+}
 </style>
 </head>
 <body>
@@ -65,6 +81,57 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
   <label id="selector" hidden>Dia: <select id="dia"></select></label>
 </header>
 <main id="blocs"></main>
+
+  <!-- PEU «LA TdG»: qui som, xarxes, contacte i suport -->
+<div class="peu-tdg">
+  <section>
+    <h2>La TdG</h2>
+    <p>
+      La TdG és un butlletí informatiu de la Bisbal d'Empordà i pobles veïns que edita i presenta <a href="https://ignasicorney.wixsite.com/quisoc">Ignasi Corney Oller</a>, vinculat a la comunicació local des que tenia 16 anys, primer a la revista <em>El Drac</em> i, uns mesos més tard, a <em>Ràdio Bisbal</em>. A més de col·laborar en diversos mitjans, va treballar a <em>Ràdio Costa Brava</em>, va ser corresponsal de <em>Diari de Girona</em> entre 2000 i 2007 i va ser editor de continguts des de 2005 a 2017 de <em>totbisbal.com</em>, un portal ciutadà amb informació i serveis que contenia un mitjà, una televisió i una ràdio digitals.
+    </p>
+    <p>
+      Aquest espai cerca que l'oient entengui en poc temps què ha passat i què passarà. Per analogia, una torre de guaita és un lloc de vigilància avançat que ocupa algú que alerta d'allò que veu.
+    </p>
+    <p>Trobaràs les nostres publicacions i actualitzacions a:</p>
+
+    <ul class="botons">
+      <li><a href="https://wa.me/channel/0029Vb7eGZSJZg4G6UhXkE2u" target="_blank" rel="noopener" title="Segueix-nos a WhatsApp">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span class="nom">WhatsApp</span><span class="detall">Canal</span></a></li>
+      <li><a href="https://t.me/laTdG_podcast" target="_blank" rel="noopener" title="Segueix-nos a Telegram">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#26A5E4" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.910.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="nom">Telegram</span><span class="detall">Canal</span></a></li>
+      <li><a href="https://x.com/latdeg" target="_blank" rel="noopener" title="Segueix-nos a X">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="currentColor" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg><span class="nom">X</span><span class="detall">@latdeg</span></a></li>
+      <li><a href="https://bsky.app/profile/latdg-podcast.bsky.social" target="_blank" rel="noopener" title="Segueix-nos a Bluesky">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#1185FE" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.370 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.280-1.304-7.847-2.970-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.970-2.667-2.737-1.432-5.473 3.422-6.300-2.777.473-5.899-.308-6.755-3.369C.42 10.040 0 4.615 0 3.883c0-3.670 3.217-2.517 5.202-1.026"/></svg><span class="nom">Bluesky</span><span class="detall">@latdg-podcast</span></a></li>
+      <li><a href="https://mastodon.social/@latdg" target="_blank" rel="noopener" title="Segueix-nos a Mastodon">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#6364FF" d="M23.268 5.313c-.35-2.578-2.617-4.610-5.304-5.004C17.510.242 15.792 0 11.813 0h-.03c-3.980 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.640 6.412.610 7.837.661 9.143c.074 1.874.088 3.745.260 5.611.118 1.240.325 2.470.620 3.680.550 2.237 2.777 4.098 4.960 4.857 2.336.792 4.849.923 7.256.380.265-.061.527-.132.786-.213.585-.184 1.270-.390 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.730 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .750 0 1.125-.01 1.570-.044 3.224-.124 4.768-.422.038-.008.077-.015.110-.024 2.435-.464 4.753-1.920 4.989-5.604.008-.145.030-1.520.030-1.670.002-.512.167-3.630-.024-5.545zm-3.748 9.195h-2.561V8.290c0-1.309-.550-1.976-1.670-1.976-1.230 0-1.846.790-1.846 2.350v3.403h-2.546V8.663c0-1.560-.617-2.350-1.848-2.350-1.112 0-1.668.668-1.670 1.977v6.218H4.822V8.102c0-1.310.337-2.350 1.011-3.120.696-.770 1.608-1.164 2.740-1.164 1.311 0 2.302.500 2.962 1.498l.638 1.060.638-1.060c.660-.999 1.650-1.498 2.960-1.498 1.130 0 2.043.395 2.740 1.164.675.770 1.012 1.810 1.012 3.120z"/></svg><span class="nom">Mastodon</span><span class="detall">@latdg</span></a></li>
+      <li><a href="https://www.facebook.com/latdg.podcast" target="_blank" rel="noopener" title="Segueix-nos a Facebook">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#0866FF" d="M9.101 23.691v-7.980H6.627v-3.667h2.474v-1.580c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.680 8.680 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.420-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.350 9.101 11.647Z"/></svg><span class="nom">Facebook</span><span class="detall">@latdg.podcast</span></a></li>
+    </ul>
+
+    <h2 class="seguent">Contacte</h2>
+    <p>
+      Ens pots trucar al telèfon <b>632 042 734</b> per fer-nos arribar informació,
+      i també ens pots enviar àudios, fotografies o vídeos per:
+    </p>
+    <ul class="botons">
+      <li><a href="mailto:latdg@laguait.cat" title="Escriu-nos al correu electrònic">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/></svg><span class="nom">Correu electrònic</span><span class="detall">latdg@laguait.cat</span></a></li>
+      <li><a href="https://wa.me/34632042734" target="_blank" rel="noopener" title="Escriu-nos a WhatsApp">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span class="nom">WhatsApp</span><span class="detall">Contacte</span></a></li>
+      <li><a href="https://t.me/laTdG_contacte" target="_blank" rel="noopener" title="Escriu-nos a Telegram">
+        <svg class="ico" viewBox="0 0 24 24" role="img" aria-hidden="true"><path fill="#26A5E4" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span class="nom">Telegram</span><span class="detall">Contacte</span></a></li>
+    </ul>
+
+    <h2 class="seguent">Anuncis i suport</h2>
+    <p style="margin:0">
+      Podem fer mencions publicitàries o introduir anuncis al pòdcast previ pagament.<br>
+      <span style="color:#c4161c">Si valores el projecte, ens pots ajudar a mantenir-lo via <strong>Bizum</strong> (632 042 734) o
+      <a href="https://wise.com/pay/me/ignasicorneyo" target="_blank" rel="noopener" style="color:#c4161c"><strong>Wise</strong></a>.</span>
+    </p>
+  </section>
+</div>
+
 <footer>La Torre de Guaita · Dades públiques de les fonts indicades a cada bloc.</footer>
 <script>
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
