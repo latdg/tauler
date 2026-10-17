@@ -134,13 +134,16 @@ function pinta(d) {
   if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
     const css = getComputedStyle(document.documentElement);
     const accent = css.getPropertyValue("--accent").trim(), suau = css.getPropertyValue("--suau").trim();
+    // Les dades arriben de la més recent a la més antiga: es giren perquè
+    // les hores vagin d'esquerra (més antiga) a dreta (més recent).
+    const hores = b.riu.hores.slice().reverse();
     new Chart(document.getElementById("graficRiu"), {
       type: "line",
       data: {
-        labels: b.riu.hores.map(x => x.hora),
+        labels: hores.map(x => x.hora),
         datasets: [
-          { label: "Cabal (m³/s)", data: b.riu.hores.map(x => x.cabal), borderColor: accent, backgroundColor: accent, yAxisID: "y", tension: .3 },
-          { label: "Nivell (cm)", data: b.riu.hores.map(x => x.nivell), borderColor: suau, backgroundColor: suau, yAxisID: "y1", tension: .3 }
+          { label: "Cabal (m³/s)", data: hores.map(x => x.cabal), borderColor: accent, backgroundColor: accent, yAxisID: "y", tension: .3 },
+          { label: "Nivell (cm)", data: hores.map(x => x.nivell), borderColor: suau, backgroundColor: suau, yAxisID: "y1", tension: .3 }
         ]
       },
       options: {
@@ -149,7 +152,6 @@ function pinta(d) {
       }
     });
   }
-}
 
 async function inicia() {
   const params = new URLSearchParams(location.search);
