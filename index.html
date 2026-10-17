@@ -173,9 +173,16 @@ function pinta(d) {
     "<ul>" + b.clima.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>",
     "Open-Meteo, reanàlisi ERA5 de Copernicus");
 
-  if (b.aire && b.aire.length) h += seccio("😮‍💨 Qualitat de l'aire a la Bisbal (darrera campanya de mesurament)",
-    "<ul>" + b.aire.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>",
-    "Generalitat de Catalunya, dades obertes");
+  if (b.airePrevist || (b.aire && b.aire.length)) h += seccio("😮‍💨 Qualitat de l'aire",
+    (b.airePrevist
+      ? `<h3>Previsió per avui</h3><p>${esc(b.airePrevist.charAt(0).toUpperCase() + b.airePrevist.slice(1))}</p>` +
+        `<p class="font">Font: Open-Meteo, model CAMS de Copernicus (previsió en una quadrícula d'uns 10 km, no és una mesura a la Bisbal)</p>`
+      : "") +
+    (b.aire && b.aire.length
+      ? `<h3>Darrera mesura a la Bisbal</h3><ul>${b.aire.map(f => `<li>${esc(f)}</li>`).join("")}</ul>` +
+        `<p class="font">Font: Generalitat de Catalunya, dades obertes (campanya de mesurament manual; la data de cada lectura s'indica al costat)</p>`
+      : ""),
+    "");
 
   if (b.pollen) h += seccio("🤧 Nivells de pòl·lens de la setmana",
     `<p>${esc(b.pollen)}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
