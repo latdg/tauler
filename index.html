@@ -333,8 +333,30 @@ function pinta(d) {
     }
     h += seccio("🏢 Registre Mercantil (BORME)", cos, "Boletín Oficial del Registro Mercantil (Agència Estatal BOE)");
   }
+
+  // 14. 🔨 SUBHASTES
+  if (b.subhastes && b.subhastes.subhastes) {
+    const llista = b.subhastes.subhastes;
+    h += seccio("🔨 Subhastes públiques de béns de la zona",
+      llista.length
+        ? "<ul>" + llista.map(s =>
+            `<li style="margin-bottom:12px">` +
+            `<b>${esc(s.municipi)}</b>${s.origen || s.tipus ? " · " + esc([s.origen, s.tipus].filter(Boolean).join(" · ")) : ""}` +
+            (s.descripcio ? `<br>${esc(s.descripcio)}` : "") +
+            (s.lloc ? `<br>📍 ${esc(s.lloc)}` : "") +
+            `<span class="coord">` +
+              [s.valor ? "Valor de subhasta: " + esc(s.valor) : "",
+               s.taxacio ? "Taxació: " + esc(s.taxacio) : "",
+               s.inici || s.fi ? "📅 " + [s.inici ? "Inici: " + esc(s.inici) : "", s.fi ? "Final: " + esc(s.fi) : ""].filter(Boolean).join(" · ") : "",
+               s.estat ? "Estat: " + esc(s.estat) : "",
+               s.autoritat ? "Autoritat: " + esc(s.autoritat) : ""].filter(Boolean).join(" · ") +
+              ` · <a href="${esc(s.link)}" target="_blank" rel="noopener">fitxa al Portal de Subhastes</a>` +
+            `</span></li>`).join("") + "</ul>"
+        : '<p class="buit">Ara mateix no hi ha cap subhasta oberta ni pendent d\'obrir de béns dels quatre municipis.</p>',
+      "Portal de Subhastes de l'Agència Estatal BOE");
+  }
   
-  // 14. 🏆 CLASSIFICACIONS DELS EQUIPS
+  // 15. 🏆 CLASSIFICACIONS DELS EQUIPS
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
     b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
       taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
