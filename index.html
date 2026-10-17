@@ -38,12 +38,15 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
 .podcast svg{display:block;width:50px;height:50px}
 .podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
 .podcast .detall{font-size:.75rem;color:var(--suau)}
-.podcast:hover .nom{color:var(--accent)}  
+.podcast:hover .nom{color:var(--accent)}
+figure.camera{margin:4px 0 8px}
+figure.camera img{display:block;width:100%;max-width:640px;height:auto;border:1px solid var(--linia);border-radius:8px;background:var(--linia)}
+figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 </style>
 </head>
 <body>
 <header>
-    <div class="capcalera">
+  <div class="capcalera">
     <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
         <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
@@ -54,6 +57,8 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
         <path d="M12 17v4" stroke="currentColor"/>
         <path d="M9 21h6" stroke="currentColor"/>
       </svg>
+      <span class="nom">La TdG</span>
+      <span class="detall">Pòdcast</span>
     </a>
     <h1>La TdG ampliada</h1>
   </div>
@@ -67,6 +72,15 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 const dataCa = iso => iso.split("-").reverse().join(".");
 const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
 const frase = t => { t = String(t || "").toLowerCase(); return t.charAt(0).toUpperCase() + t.slice(1); };
+
+// Càmera de trànsit del Servei Català de Trànsit (en directe, es refresca cada minut).
+const CAMERA_TRANSIT = { nom: "Polígon de Forallac", fitxer: "cb25.jpg" };
+const urlCamera = () => "https://mct.gencat.cat/mct2bo/TransitCamera?nom=" + CAMERA_TRANSIT.fitxer +
+  "&time" + Date.now() + "&visualitzacio=imatge";
+const horaAra = () => {
+  const d = new Date();
+  return String(d.getHours()).padStart(2, "0") + "." + String(d.getMinutes()).padStart(2, "0");
+};
 
 async function json(cami) {
   const r = await fetch(cami + "?v=" + Date.now());
@@ -153,6 +167,17 @@ function pinta(d) {
   document.getElementById("sub").textContent = "Dades del " + dataCa(d.dia) + " · actualitzat el " + d.generat;
   let h = "";
 
+  // 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
+  h += seccio("🚦 Trànsit",
+    `<h3>Càmera: ${esc(CAMERA_TRANSIT.nom)}</h3>` +
+    `<figure class="camera"><img id="imgCamera" alt="Càmera de trànsit — ${esc(CAMERA_TRANSIT.nom)}" src="${urlCamera()}">` +
+    `<figcaption id="peuCamera">Imatge en directe · s'actualitza cada minut</figcaption></figure>` +
+    `<h3>Incidències viàries a la comarca</h3>` +
+    (b.incidencies && b.incidencies.length
+      ? "<ul>" + b.incidencies.map(i => `<li><b>${esc(i.municipi)}</b>: ${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}</li>`).join("") + "</ul>"
+      : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>'),
+    "Servei Català de Trànsit");
+
   if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els quatre municipis",
     b.aeronaus.length
       ? taulaAeronaus(b.aeronaus)
@@ -162,12 +187,6 @@ function pinta(d) {
   if (b.riu) h += seccio("🌊 Riu Daró",
     `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : ""),
     "Agència Catalana de l'Aigua");
-
-  if (b.incidencies) h += seccio("⚠️ Incidències viàries a la comarca",
-    b.incidencies.length
-      ? "<ul>" + b.incidencies.map(i => `<li><b>${esc(i.municipi)}</b>: ${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}</li>`).join("") + "</ul>"
-      : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>',
-    "Servei Català de Trànsit");
 
   if (b.clima && b.clima.length) h += seccio("📈 El clima en context",
     "<ul>" + b.clima.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>",
@@ -210,7 +229,7 @@ function pinta(d) {
             b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio)])),
       "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
   }
-    
+
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions",
     b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
       taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
@@ -218,7 +237,9 @@ function pinta(d) {
         i => c.files[i].propi ? "propi" : "")).join(""),
     "FCF i FEB");
 
-  document.getElementById("blocs").innerHTML = h || '<section><p class="buit">No hi ha dades per a aquest dia.</p></section>';
+  document.getElementById("blocs").innerHTML = h;
+
+  iniciaCamera();
 
   if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
     const css = getComputedStyle(document.documentElement);
@@ -241,6 +262,24 @@ function pinta(d) {
       }
     });
   }
+}
+
+// La càmera mostra l'hora de la darrera imatge i es refresca cada minut.
+function iniciaCamera() {
+  const img = document.getElementById("imgCamera");
+  const peu = document.getElementById("peuCamera");
+  if (!img || !peu) return;
+
+  img.onload = () => {
+    img.hidden = false;
+    peu.textContent = "Imatge en directe de les " + horaAra() + " h · s'actualitza cada minut";
+  };
+  img.onerror = () => {
+    img.hidden = true;
+    peu.textContent = "La càmera no està disponible ara mateix. Es tornarà a provar d'aquí a un minut.";
+  };
+
+  setInterval(() => { img.src = urlCamera(); }, 60000);
 }
 
 async function inicia() {
