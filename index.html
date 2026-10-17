@@ -268,6 +268,27 @@ function pinta(d) {
       "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
   }
 
+  // 11 bis. 🏢 BORME (sota d'atur i afiliació)
+  if (b.borme) {
+    const bo = b.borme;
+    let cos;
+    if (bo.estat === "ok") {
+      const quan = bo.avui ? "d'avui (" + bo.data + ")" : "del " + bo.data + " (el darrer publicat)";
+      cos = bo.entrades.length
+        ? `<p>BORME de Girona ${esc(quan)}:</p><ul>` +
+          bo.entrades.map(e => `<li style="margin-bottom:8px">` +
+            (e.empresa ? `<b>${esc(e.empresa)}</b>. ` : "") + esc(e.text) +
+            `<span class="coord">Cita: ${esc((e.cita || []).join(", "))} · <a href="${esc(e.link)}" target="_blank" rel="noopener">veure el BORME</a></span></li>`).join("") +
+          "</ul>"
+        : `<p class="buit">El BORME de Girona ${esc(quan)} no porta cap acte d'empreses dels quatre municipis.</p>`;
+    } else if (bo.estat === "error") {
+      cos = '<p class="buit">Ara mateix no s\'ha pogut consultar el BORME.</p>';
+    } else {
+      cos = '<p class="buit">No hi ha cap BORME publicat els últims dies.</p>';
+    }
+    h += seccio("🏢 Registre Mercantil (BORME)", cos, "Boletín Oficial del Registro Mercantil (Agència Estatal BOE)");
+  }
+  
   // 12. 🏆 CLASSIFICACIONS DELS EQUIPS
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
     b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
