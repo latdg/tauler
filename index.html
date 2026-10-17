@@ -10,7 +10,7 @@
 @media (prefers-color-scheme:dark){:root{--fons:#151514;--targeta:#1f1f1d;--text:#ecebe6;--suau:#a3a29b;--linia:#33322f;--accent:#e07a5f}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-header,main,footer{max-width:960px;margin:0 auto;padding-left:16px;padding-right:16px}
+header,main,footer{max-width:1100px;margin:0 auto;padding-left:16px;padding-right:16px}
 header{padding-top:24px}
 h1{margin:0;font-size:1.6rem}
 .sub{color:var(--suau);margin:4px 0 12px}
@@ -19,10 +19,15 @@ main{display:grid;gap:16px;padding-top:16px;padding-bottom:32px}
 section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0}
 h2{margin:0 0 8px;font-size:1.1rem}
 h3{margin:12px 0 4px;font-size:1rem}
+a{color:var(--accent)}
 .font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
 .taula{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.9rem}
-th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);white-space:nowrap}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);white-space:nowrap;vertical-align:top}
+td.ajust{white-space:normal;min-width:220px}
+td.num{text-align:right}
+td.ico{font-size:1.3rem;text-align:center}
+.coord{display:block;color:var(--suau);font-size:.8rem}
 th{color:var(--suau);font-weight:600}
 tr.propi td{font-weight:700;color:var(--accent)}
 ul{margin:0;padding-left:20px}
@@ -42,6 +47,7 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dataCa = iso => iso.split("-").reverse().join(".");
 const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
+const frase = t => { t = String(t || "").toLowerCase(); return t.charAt(0).toUpperCase() + t.slice(1); };
 
 async function json(cami) {
   const r = await fetch(cami + "?v=" + Date.now());
@@ -82,10 +88,58 @@ function taula(capcaleres, files, classeFila) {
     "</tbody></table></div>";
 }
 
+// Icona segons la categoria del vigilant d'aeronaus.
+function iconaAeronau(categoria, model) {
+  const c = String(categoria || "").toUpperCase();
+  const m = String(model || "").toUpperCase();
+  if (/SANIT/.test(c)) return "🚑";
+  if (/BOMBER/.test(c)) return "🚒";
+  if (/POLIC/.test(c)) return "🚓";
+  if (/MILITAR/.test(c)) return "🎖️";
+  if (/DRON/.test(c)) return "🛸";
+  if (/HELIC/.test(c)) return "🚁";
+  if (/GLOBUS|PLANADOR|ULTRALLEUGER/.test(c)) return m === "BALL" ? "🎈" : "🪂";
+  if (/TREBALLS AERIS/.test(c)) return "📷";
+  if (/AVIONETA/.test(c)) return "🛩️";
+  if (/JET PRIVAT|AEROTAXI/.test(c)) return "✈️";
+  if (/SENSE IDENTIFICAR/.test(c)) return "❓";
+  return "✈️";
+}
+
+function taulaAeronaus(llista) {
+  const files = llista.map(a => {
+    const tenimCoord = a.lat !== null && a.lon !== null;
+    const coord = tenimCoord ? `${String(a.lat).replace(".", ",")}, ${String(a.lon).replace(".", ",")}` : "";
+    const lloc = tenimCoord
+      ? `<a href="https://www.google.com/maps?q=${a.lat},${a.lon}" target="_blank" rel="noopener">${esc(a.ubicacio || "Veure al mapa")}<span class="coord">${esc(coord)}</span></a>`
+      : esc(a.ubicacio);
+    return `<tr>
+      <td class="ico" title="${esc(frase(a.categoria))}">${iconaAeronau(a.categoria, a.model)}</td>
+      <td>${esc(a.hora)} h</td>
+      <td>${esc(a.matricula)}</td>
+      <td>${esc(a.model)}</td>
+      <td>${esc(a.descripcio)}</td>
+      <td>${esc(frase(a.categoria))}</td>
+      <td class="num">${num(a.altitud)} m</td>
+      <td class="num">${num(a.velocitat)}</td>
+      <td class="ajust">${lloc}</td>
+    </tr>`;
+  }).join("");
+  return `<div class="taula"><table><thead><tr>
+    <th></th><th>Hora</th><th>Matrícula</th><th>Model</th><th>Descripció</th><th>Categoria</th><th>Altitud</th><th>km/h</th><th>Ubicació</th>
+  </tr></thead><tbody>${files}</tbody></table></div>`;
+}
+
 function pinta(d) {
   const b = d.blocs || {};
   document.getElementById("sub").textContent = "Dades del " + dataCa(d.dia) + " · actualitzat el " + d.generat;
   let h = "";
+
+  if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els quatre municipis",
+    b.aeronaus.length
+      ? taulaAeronaus(b.aeronaus)
+      : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>',
+    "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
 
   if (b.riu) h += seccio("🌊 Riu Daró",
     `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : ""),
