@@ -219,7 +219,29 @@ function pinta(d) {
   if (b.pollen) h += seccio("🤧 Nivells de pòl·lens de la setmana",
     `<p>${esc(b.pollen)}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
 
-  // 9. ⛽ CARBURANTS (pendent: aquí anirà el bloc quan n'afegim les dades)
+   // 9. ⛽ CARBURANTS
+  if (b.carburants && b.carburants.estacions && b.carburants.estacions.length) {
+    const c = b.carburants;
+    const preu = p => (p === null || p === undefined) ? "—" : p.toFixed(3).replace(".", ",") + " €";
+    const cap = c.estacions.map(e => {
+      const nom = `<b>${esc(e.nom)}</b><span class="coord">${esc(e.municipi)}</span>`;
+      return `<th title="${esc(e.adreca)}${e.horari ? " · " + esc(e.horari) : ""}">` +
+        (e.lat !== null && e.lon !== null
+          ? `<a href="https://www.google.com/maps?q=${e.lat},${e.lon}" target="_blank" rel="noopener">${nom}</a>`
+          : nom) + `</th>`;
+    }).join("");
+    const files = c.carburants.map(f => {
+      const valids = f.preus.filter(p => p !== null && p !== undefined);
+      const min = valids.length > 1 ? Math.min(...valids) : null;
+      return `<tr><td>${esc(f.nom)}</td>` +
+        f.preus.map(p => `<td class="num"${min !== null && p === min ? ' style="font-weight:700;color:var(--accent)"' : ""}>${preu(p)}</td>`).join("") +
+        `</tr>`;
+    }).join("");
+    h += seccio("⛽ Preus dels carburants",
+      `<div class="taula"><table><thead><tr><th>Carburant</th>${cap}</tr></thead><tbody>${files}</tbody></table></div>` +
+      `<p class="font">Preus declarats per les benzineres${c.data ? ", actualitzats el " + esc(c.data) : ""}. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
+      "Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)");
+  }
 
   // 10. 🔌 PUNTS DE RECÀRREGA
   if (b.recarrega) h += seccio("🔌 Punts de recàrrega per a vehicles elèctrics",
