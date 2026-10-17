@@ -33,11 +33,32 @@ tr.propi td{font-weight:700;color:var(--accent)}
 ul{margin:0;padding-left:20px}
 .buit{color:var(--suau)}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
+.capcalera{display:flex;align-items:center;gap:16px}
+.podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
+.podcast svg{display:block;width:50px;height:50px}
+.podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
+.podcast .detall{font-size:.75rem;color:var(--suau)}
+.podcast:hover .nom{color:var(--accent)}  
 </style>
 </head>
 <body>
 <header>
-  <h1>La TdG ampliada</h1>
+    <div class="capcalera">
+    <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
+        <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
+        <path d="M22 11a10 10 0 00-5-8.662" stroke="#e30613"/>
+        <path d="M6 11a6 6 0 013-5.197" stroke="currentColor"/>
+        <path d="M18 11a6 6 0 00-3-5.197" stroke="currentColor"/>
+        <rect x="10" y="9" width="4" height="8" rx="2" stroke="currentColor"/>
+        <path d="M12 17v4" stroke="currentColor"/>
+        <path d="M9 21h6" stroke="currentColor"/>
+      </svg>
+      <span class="nom">La TdG</span>
+      <span class="detall">Pòdcast</span>
+    </a>
+    <h1>La TdG ampliada</h1>
+  </div>
   <p class="sub" id="sub">Carregant…</p>
   <label id="selector" hidden>Dia: <select id="dia"></select></label>
 </header>
