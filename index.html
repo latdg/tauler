@@ -116,7 +116,6 @@ function taulaAeronaus(llista) {
     return `<tr>
       <td class="ico" title="${esc(frase(a.categoria))}">${iconaAeronau(a.categoria, a.model)}</td>
       <td>${esc(a.hora)} h</td>
-      <td>${esc(a.matricula)}</td>
       <td>${esc(a.model)}</td>
       <td>${esc(a.descripcio)}</td>
       <td>${esc(frase(a.categoria))}</td>
@@ -126,7 +125,7 @@ function taulaAeronaus(llista) {
     </tr>`;
   }).join("");
   return `<div class="taula"><table><thead><tr>
-    <th></th><th>Hora</th><th>Matrícula</th><th>Model</th><th>Descripció</th><th>Categoria</th><th>Altitud</th><th>km/h</th><th>Ubicació</th>
+    <th></th><th>Hora</th><th>Model</th><th>Descripció</th><th>Categoria</th><th>Altitud</th><th>km/h</th><th>Ubicació</th>
   </tr></thead><tbody>${files}</tbody></table></div>`;
 }
 
