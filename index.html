@@ -418,10 +418,14 @@ function pinta(d) {
   
   // 15. 🏆 CLASSIFICACIONS DELS EQUIPS
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
-    b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` +
-      taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
-        c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
-        i => c.files[i].propi ? "propi" : "")).join(""),
+    b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` + (c.tipus === "basquet"
+      // Bàsquet (graella de la FEB): no hi ha empats.
+      ? taula(["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"],
+          c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.percent]),
+          i => c.files[i].propi ? "propi" : "")
+      : taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
+          c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
+          i => c.files[i].propi ? "propi" : ""))).join(""),
     "FCF i FEB");
 
   document.getElementById("blocs").innerHTML = h;
