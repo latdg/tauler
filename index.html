@@ -30,6 +30,10 @@ td.ico{font-size:1.3rem;text-align:center}
 .coord{display:block;color:var(--suau);font-size:.8rem}
 th{color:var(--suau);font-weight:600}
 tr.propi td{font-weight:700;color:var(--accent)}
+/* Classificacions: totes amb les mateixes columnes (18.10.2026) */
+.classif table{table-layout:fixed;min-width:620px}
+.classif th:nth-child(1),.classif td:nth-child(1){width:7%}
+.classif th:nth-child(2),.classif td:nth-child(2){width:37%;overflow:hidden;text-overflow:ellipsis}
 ul{margin:0;padding-left:20px}
 .buit{color:var(--suau)}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
@@ -418,14 +422,14 @@ function pinta(d) {
   
   // 15. 🏆 CLASSIFICACIONS DELS EQUIPS
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
-    b.classificacions.map(c => `<h3>${esc(c.equip)}</h3>` + (c.tipus === "basquet"
+    b.classificacions.map(c => `<div class="classif"><h3>${esc(c.equip)}</h3>` + (c.tipus === "basquet"
       // Bàsquet (graella de la FEB): no hi ha empats.
       ? taula(["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"],
           c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.percent]),
           i => c.files[i].propi ? "propi" : "")
       : taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
           c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
-          i => c.files[i].propi ? "propi" : ""))).join(""),
+          i => c.files[i].propi ? "propi" : "")) + `</div>`).join(""),
     "FCF i FEB");
 
   document.getElementById("blocs").innerHTML = h;
