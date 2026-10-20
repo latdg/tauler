@@ -257,6 +257,46 @@ function taulaAeronaus(llista) {
   </tr></thead><tbody>${files}</tbody></table></div>`;
 }
 
+// -----------------------------------------------------------------------------
+// DATES (CANVI, 20.10.2026): totes les dates que es veuen al panell surten en
+// format dd.mm.aaaa, arribin com arribin de les fonts (31/5/2026, 18-05-2026,
+// 2026-05-25, 14.10.26...). Només es toca el text que es llegeix: les adreces
+// web (http..., www...) es deixen tal com són perquè els enllaços funcionin.
+// -----------------------------------------------------------------------------
+function dataDdMmAaaa(d, m, a) {
+  d = Number(d); m = Number(m); a = Number(a);
+  if (a < 100) a += 2000;
+  if (!(d >= 1 && d <= 31 && m >= 1 && m <= 12)) return null;
+  return String(d).padStart(2, "0") + "." + String(m).padStart(2, "0") + "." + a;
+}
+
+function normalitzaDatesText(t) {
+  return t.split(/(https?:\/\/\S+|www\.\S+)/).map((tros, i) => i % 2 ? tros : tros
+    // 2026-05-25 -> 25.05.2026
+    .replace(/(^|[^\w\/.\-])((?:19|20)\d{2})-(\d{2})-(\d{2})(?![\w\/\-])/g,
+      (x, p, a, m, d) => { const r = dataDdMmAaaa(d, m, a); return r ? p + r : x; })
+    // 31/5/2026, 18-05-2026, 1.9.2026, 14.10.26 -> 31.05.2026, 18.05.2026...
+    .replace(/(^|[^\w\/.\-])(\d{1,2})([\/.\-])(\d{1,2})\3(\d{4}|\d{2})(?![\w\/\-]|[.,]\d)/g,
+      (x, p, d, s, m, a) => {
+        if (a.length === 2 && s !== ".") return x;   // l'any de 2 xifres, només amb punts (14.10.26)
+        const r = dataDdMmAaaa(d, m, a);
+        return r ? p + r : x;
+      })
+  ).join("");
+}
+
+function normalitzaDates(arrel) {
+  if (!arrel) return;
+  const walker = document.createTreeWalker(arrel, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) {
+    const n = walker.currentNode;
+    if (!/\d/.test(n.nodeValue)) continue;
+    if (n.parentElement && n.parentElement.closest("script,style")) continue;
+    const nou = normalitzaDatesText(n.nodeValue);
+    if (nou !== n.nodeValue) n.nodeValue = nou;
+  }
+}
+
 function pinta(d) {
   const b = d.blocs || {};
     ACTUALITZAT = d.generat || "";
@@ -468,6 +508,7 @@ function pinta(d) {
 
   document.getElementById("blocs").innerHTML = h;
   document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
+  normalitzaDates(document.getElementById("blocs")); // CANVI (20.10.2026): dates en dd.mm.aaaa
 
   iniciaCamera();
 
