@@ -135,6 +135,9 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 const dataCa = iso => iso.split("-").reverse().join(".");
 const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
 const frase = t => { t = String(t || "").toLowerCase(); return t.charAt(0).toUpperCase() + t.slice(1); };
+// "17.10.2026 15.01" -> "17.10.2026 a les 15.01 h" (com al panell de la redacció)
+const quan = generat => String(generat || "").replace(/^(\d{2}\.\d{2}\.\d{4})\s+(\d{1,2}\.\d{2})$/, "$1 a les $2 h");
+let ACTUALITZAT = "";
 
 // Càmera de trànsit del Servei Català de Trànsit (en directe, es refresca cada minut).
 const CAMERA_TRANSIT = { nom: "Polígon de Forallac", fitxer: "cb25.jpg" };
@@ -151,8 +154,11 @@ async function json(cami) {
   return r.json();
 }
 
-function seccio(titol, cos, font) {
-  return `<section><h2>${titol}</h2>${cos}${font ? `<p class="font">Font: ${esc(font)}</p>` : ""}</section>`;
+function seccio(titol, cos, font, ambData = true) {
+  const peu = [];
+  if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
+  if (font) peu.push("Font: " + esc(font));
+  return `<section><h2>${titol}</h2>${cos}${peu.length ? `<p class="font">${peu.join(" · ")}</p>` : ""}</section>`;
 }
 
 // "A | B | C" o línies -> llista
@@ -227,6 +233,7 @@ function taulaAeronaus(llista) {
 
 function pinta(d) {
   const b = d.blocs || {};
+  ACTUALITZAT = d.generat || "";
   document.getElementById("sub").textContent = "Dades del " + dataCa(d.dia) + " · actualitzat el " + d.generat;
   let h = "";
 
@@ -354,8 +361,8 @@ function pinta(d) {
     h += seccio("⛽ Preus dels carburants",
       `<div class="taula"><table><thead>${cap}</thead><tbody>${files}</tbody></table></div>` +
       `<p class="font">Preus declarats per les benzineres${c.data ? ", actualitzats el " + esc(c.data) : ""}. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
-      "Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)");
-  }
+       "Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)", false);
+         }
 
   // 11. 🔌 PUNTS DE RECÀRREGA
   if (b.recarrega) h += seccio("🔌 Punts de recàrrega per a vehicles elèctrics",
