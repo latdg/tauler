@@ -38,7 +38,9 @@ tr.propi td{font-weight:700;color:var(--accent)}
 ul{margin:0;padding-left:20px}
 .buit{color:var(--suau)}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
-.capcalera{display:flex;align-items:center;gap:16px}
+.capcalera{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.capcalera .dreta{margin-left:auto}
+.sub:empty{display:none}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
 .podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
@@ -81,10 +83,11 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
       </svg>
     </a>
     <h1>La TdG ampliada</h1>
+    <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>
   </div>
   <p class="sub" id="sub">Carregant…</p>
-  <label id="selector" hidden>Dia: <select id="dia"></select></label>
 </header>
+    
 <main id="blocs"></main>
 
   <!-- PEU «LA TdG»: qui som, xarxes, contacte i suport -->
@@ -235,7 +238,7 @@ function taulaAeronaus(llista) {
 function pinta(d) {
   const b = d.blocs || {};
   ACTUALITZAT = d.generat || "";
-  document.getElementById("sub").textContent = "Dades del " + dataCa(d.dia);
+  document.getElementById("sub").textContent = "";
   let h = "";
 
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
