@@ -21,6 +21,7 @@ h2{margin:0 0 8px;font-size:1.1rem}
 h3{margin:12px 0 4px;font-size:1rem}
 a{color:var(--accent)}
 .font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+.font.dalt{margin:0 0 8px}
 .taula{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.9rem}
 th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);white-space:nowrap;vertical-align:top}
@@ -158,7 +159,7 @@ function seccio(titol, cos, font, ambData = true) {
   const peu = [];
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
-  return `<section><h2>${titol}</h2>${cos}${peu.length ? `<p class="font">${peu.join(" · ")}</p>` : ""}</section>`;
+  return `<section><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
 }
 
 // "A | B | C" o línies -> llista
