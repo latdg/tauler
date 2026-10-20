@@ -41,6 +41,11 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
 .capcalera{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .capcalera .dreta{margin-left:auto}
 .sub:empty{display:none}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+nav:empty{display:none}
+nav a{color:var(--text);text-decoration:none;font-size:.85rem;padding:3px 10px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);white-space:nowrap}
+nav a:hover{color:var(--accent);border-color:var(--accent)}
+main section{scroll-margin-top:16px}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
 .podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
@@ -85,7 +90,8 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
     <h1>La TdG ampliada</h1>
     <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>
   </div>
-  <p class="sub" id="sub">Carregant…</p>
+    <p class="sub" id="sub">Carregant…</p>
+  <nav id="nav"></nav>
 </header>
     
 <main id="blocs"></main>
@@ -142,6 +148,7 @@ const frase = t => { t = String(t || "").toLowerCase(); return t.charAt(0).toUpp
 // "17.10.2026 15.01" -> "17.10.2026 a les 15.01 h" (com al panell de la redacció)
 const quan = generat => String(generat || "").replace(/^(\d{2}\.\d{2}\.\d{4})\s+(\d{1,2}\.\d{2})$/, "$1 a les $2 h");
 let ACTUALITZAT = "";
+let NAV = [];
 
 // Càmera de trànsit del Servei Català de Trànsit (en directe, es refresca cada minut).
 const CAMERA_TRANSIT = { nom: "Polígon de Forallac", fitxer: "cb25.jpg" };
@@ -158,13 +165,28 @@ async function json(cami) {
   return r.json();
 }
 
+// Nom curt de cada apartat per a la barra de navegació (com a la redacció).
+const NOMS_CURTS = [
+  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/incendi/i, "Incendis i sequera"],
+  [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
+  [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
+  [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/atur/i, "Atur"],
+  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"]
+];
+const nomCurt = titol => {
+  const trobat = NOMS_CURTS.find(([rx]) => rx.test(titol));
+  return trobat ? trobat[1] : titol.replace(/^[^\p{L}]+/u, "");
+};
+
 function seccio(titol, cos, font, ambData = true) {
+  const id = "apartat-" + (NAV.length + 1);
+  NAV.push({ id, nom: nomCurt(titol) });
   const peu = [];
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
-  return `<section><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
+  return `<section id="${id}"><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
 }
-
+  
 // "A | B | C" o línies -> llista
 function llista(text) {
   const items = String(text || "").split(/\s\|\s|\n/).map(x => x.trim()).filter(Boolean);
@@ -237,7 +259,8 @@ function taulaAeronaus(llista) {
 
 function pinta(d) {
   const b = d.blocs || {};
-  ACTUALITZAT = d.generat || "";
+    ACTUALITZAT = d.generat || "";
+  NAV = [];
   document.getElementById("sub").textContent = "";
   let h = "";
 
@@ -444,6 +467,7 @@ function pinta(d) {
     "FCF i FEB");
 
   document.getElementById("blocs").innerHTML = h;
+  document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
 
   iniciaCamera();
 
