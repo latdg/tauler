@@ -781,7 +781,7 @@ POLLEN_SETMANA = ""   # dia d'inici de la setmana de la previsió llegida
 
 
 def pollen():
-    r = requests.get(POLLEN_URL, headers=CAPCALERES, timeout=60)
+    r = requests.get(POLLEN_URL, headers={"User-Agent": CAPCALERES["User-Agent"], "Accept": "application/xml, text/xml, */*"}, timeout=60)
     r.raise_for_status()
     arrel = ET.fromstring(r.content)
 
