@@ -1,17 +1,19 @@
 # Tauler «La TdG ampliada» en directe — 21.10.2026
 # Cada 15 minuts calcula els blocs vius i els fusiona amb el que publica
-# l'Apps Script. Fitxer: .github/workflows/tauler-viu.yml
+# l'Apps Script. L'horari de GitHub no arriba (o arriba amb hores de retard):
+# el workflow fa un bucle de 5 h 30 min i es torna a llançar ell mateix.
+# L'horari queda com a reserva per reprendre la cadena si s'atura.
 
 name: Tauler en directe
 
 on:
   schedule:
-    # Minuts «estranys» perquè GitHub no endarrereixi l'execució (als :00 hi ha cua).
-    - cron: "7,22,37,52 * * * *"
+    - cron: "41 */2 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: tauler-viu
@@ -20,7 +22,7 @@ concurrency:
 jobs:
   actualitza:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -31,22 +33,32 @@ jobs:
       - name: Instal·la dependències
         run: pip install requests
 
-      - name: Calcula els blocs
-        run: python viu/tauler_viu.py calcula
-
-      - name: Fusiona i publica
+      - name: Bucle (cada 15 minuts, 5 h 30 min)
         run: |
           git config user.name "La TdG (tauler)"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Si l'Apps Script ha publicat just alhora, es torna a fusionar sobre el seu.
-          for intent in 1 2 3; do
-            git fetch origin main
-            git reset --hard origin/main
-            python viu/tauler_viu.py fusiona
-            git add dades
-            if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
-            git commit -m "Tauler en directe ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
-            if git push origin HEAD:main; then exit 0; fi
-            sleep 10
+          FI=$((SECONDS + 19800))
+          while :; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python viu/tauler_viu.py calcula || true
+            for intent in 1 2 3; do
+              git fetch -q origin main
+              git reset -q --hard origin/main
+              python viu/tauler_viu.py fusiona
+              git add dades
+              if git diff --cached --quiet; then echo "Sense canvis"; break; fi
+              git commit -qm "Tauler en directe ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
+              git push -q origin HEAD:main && break
+              sleep 10
+            done
+            ara=$(date +%s); espera=$(( 900 - (ara % 900) + 420 ))   # als minuts 7, 22, 37 i 52
+            [ $espera -gt 900 ] && espera=$((espera - 900))
+            [ $((SECONDS + espera + 120)) -ge $FI ] && break
+            sleep $espera
           done
-          exit 1
+
+      - name: Tornar-se a llançar
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run tauler-viu.yml -R "${{ github.repository }}"
