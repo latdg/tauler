@@ -708,6 +708,7 @@ async function inicia() {
     const d = await json(triat ? `dades/${triat}.json` : "dades/darrer.json");
     sel.value = d.dia;
     pinta(d);
+    carregaAgenda(d.dia);
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
   }
