@@ -570,8 +570,13 @@ function pinta(d) {
     "");
 
   // 9. 🤧 NIVELLS DE PÒL·LENS
-  if (b.pollen) h += seccio("🤧 Nivells de pòl·lens de la setmana",
-    `<p>${esc(b.pollen)}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
+  // CANVI 21.10.2026: les dates de la setmana van al títol (canvien cada setmana).
+  if (b.pollen) {
+    const mp = String(b.pollen).match(/^Previsió per a la setmana (del \S+ al \S+?):\s*/);
+    const cos = mp ? String(b.pollen).slice(mp[0].length) : String(b.pollen);
+    h += seccio("🤧 Nivells de pòl·lens de la setmana" + (mp ? " " + mp[1] : ""),
+      `<p>${esc(cos.charAt(0).toUpperCase() + cos.slice(1))}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
+  }
 
   // 10. ⛽ CARBURANTS (files = benzineres, de Celrà a Palafrugell; columnes = carburants)
   if (b.carburants && b.carburants.estacions && b.carburants.estacions.length) {
