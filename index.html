@@ -184,7 +184,7 @@ async function json(cami) {
 const NOMS_CURTS = [
   [/agenda/i, "Agenda"],
   [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/incendi/i, "Incendis i sequera"],
-  [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
+  [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/atur/i, "Atur"],
   [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"]
@@ -361,6 +361,30 @@ async function carregaAgenda(dia) {
   }
 }
 
+// -----------------------------------------------------------------------------
+// LLAMPS (21.10.2026): resum de la darrera revisió a demanda de l'XDDE.
+// -----------------------------------------------------------------------------
+async function carregaLlamps() {
+  const cos = document.getElementById("llampsCos");
+  if (!cos) return;
+  const enllac = '<p class="font"><a href="llamps/">Detall de les revisions, mapa i text per publicar</a></p>';
+  try {
+    const r = await fetch("https://raw.githubusercontent.com/latdg/bots/llamps-dades/darrer.json?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    const g = new Date(d.generat);
+    const quan = String(g.getDate()).padStart(2, "0") + "." + String(g.getMonth() + 1).padStart(2, "0") + "." + g.getFullYear() +
+      " a les " + String(g.getHours()).padStart(2, "0") + "." + String(g.getMinutes()).padStart(2, "0") + " h";
+    const a10 = d.llamps.filter(l => l.km <= 10).length, a30 = d.llamps.filter(l => l.km <= 30).length;
+    cos.innerHTML = `<p class="font dalt">Darrera revisió: ${esc(quan)}, de les ${d.hores} hores anteriors</p>` +
+      (d.textPublic
+        ? `<p style="white-space:pre-line">${esc(d.textPublic.split("\n").slice(1, 3).join("\n"))}</p>`
+        : `<p>No va caure cap llamp a menys de 10 km de la zona.${a30 ? " En van caure " + a30 + " a menys de 30 km." : ""}</p>`) + enllac;
+  } catch (e) {
+    cos.innerHTML = '<p class="buit">Encara no s\'ha fet cap revisió de llamps.</p>' + enllac;
+  }
+}
+
 function agendaEnTargetes(cos) {
   cos.querySelectorAll("table").forEach(taula => {
     const files = Array.from(taula.rows);
@@ -467,6 +491,12 @@ function pinta(d) {
     (b.sequera ? "<h3>Estat de sequera</h3>" + llista(b.sequera) : "") +
     (b.refugis ? "<h3>Refugis climàtics</h3>" + llista(b.refugis) : ""),
     "Generalitat de Catalunya");
+
+  // 4. ⚡ LLAMPS (21.10.2026): la darrera revisió a demanda (el contingut arriba
+  // després, de latdg/bots). El detall i el botó privat, a llamps/.
+  h += seccio("⚡ Llamps a la zona",
+    '<div id="llampsCos"><p class="buit">Carregant…</p></div>',
+    "Meteocat — Xarxa de Detecció de Descàrregues Elèctriques (XDDE)", false);
 
     // 5. 🌊 RIU DARÓ
   if (b.riu) h += seccio("🌊 Riu Daró",
@@ -716,6 +746,7 @@ async function inicia() {
     sel.value = d.dia;
     pinta(d);
     carregaAgenda(d.dia);
+    carregaLlamps();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
   }
