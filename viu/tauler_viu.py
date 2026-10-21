@@ -771,11 +771,13 @@ def aeronaus():
 
 
 # -----------------------------------------------------------------------------
-# POL·LEN (21.10.2026): previsió setmanal del PIA per a Girona. Es mira cada
-# hora (és una consulta petita) i el bloc només canvia quan el PIA publica la
-# setmana nova (<date><start>…</start>): així surt el mateix dia que s'actualitza.
+# POL·LEN (21.10.2026): previsió setmanal del PIA per a Girona (de dilluns a
+# diumenge, <date><start>…</start>). Quan ja es té la d'aquesta setmana no es
+# torna a consultar; a partir de dilluns es mira cada hora fins que surt la
+# nova. A la pràctica, una consulta bona per setmana.
 # -----------------------------------------------------------------------------
 POLLEN_URL = "https://aerobiologia.cat/api/v0/forecast/girona/ca/xml"
+POLLEN_SETMANA = ""   # dia d'inici de la setmana de la previsió llegida
 
 
 def pollen():
@@ -790,9 +792,11 @@ def pollen():
     actual = {v.text: v.get("ca") or v.text for v in arrel.findall("legend/current/value")}
     tendencia = {v.text: v.get("ca") or v.text for v in arrel.findall("legend/forecast/value")}
 
+    global POLLEN_SETMANA
     report = arrel.find("report")
     if report is None or report.find("current") is None:
         return None
+    POLLEN_SETMANA = (report.findtext("date/start") or "").strip()
     linies = []
     for grup in ("pollens", "spores"):
         for taxo in report.findall(f"current/{grup}/*"):
@@ -1086,6 +1090,12 @@ def calcula():
         if nom in UN_COP_AL_DIA and fets.get(nom) == avui:
             print(f"· {nom}: ja calculat avui")
             continue
+        # Pol·len (21.10.2026): un cop es té la previsió d'aquesta setmana, no es
+        # torna a mirar fins dilluns; a partir de dilluns, cada hora fins que surt la nova.
+        if nom == "pollen":
+            dilluns = (ara() - dt.timedelta(days=ara().weekday())).strftime("%Y-%m-%d")
+            if moments.get("pollen_setmana", "") >= dilluns:
+                continue
         if nom in CADA_MINUTS and moments.get(nom):
             try:
                 fa = (ara() - dt.datetime.fromisoformat(moments[nom])).total_seconds() / 60
@@ -1102,6 +1112,8 @@ def calcula():
                 if nom == "recarrega" and RECARREGA_NAP_FALLAT:
                     moment -= dt.timedelta(minutes=CADA_MINUTS[nom] - 24 * 60)
                 nous_moments[nom] = moment.isoformat()
+                if nom == "pollen" and POLLEN_SETMANA:
+                    nous_moments["pollen_setmana"] = POLLEN_SETMANA
         except Exception as e:
             print(f"❌ {nom}: {e}", file=sys.stderr)
     if nous_moments:
