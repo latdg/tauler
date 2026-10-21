@@ -379,7 +379,7 @@ async function carregaLlamps() {
     cos.innerHTML = `<p class="font dalt">Darrera revisió: ${esc(quan)}, de les ${d.hores} hores anteriors</p>` +
       (d.textPublic
         ? `<p style="white-space:pre-line">${esc(d.textPublic.split("\n").slice(1, 3).join("\n"))}</p>`
-        : `<p>No va caure cap llamp a menys de 10 km de la zona.${a30 ? " En van caure " + a30 + " a menys de 30 km." : ""}</p>`) + enllac;
+        : `<p>No ha caigut cap llamp a menys de 10 km.${a30 ? " N'han caigut " + a30 + " a menys de 30 km." : ""}</p>`) + enllac;
   } catch (e) {
     cos.innerHTML = '<p class="buit">Encara no s\'ha fet cap revisió de llamps.</p>' + enllac;
   }
