@@ -107,7 +107,7 @@ function pinta(d) {
   if (c) c.onclick = () => navigator.clipboard.writeText(d.textPublic).then(() => { c.textContent = "Copiat ✓"; });
 
   const franges = `<h2 style="margin-top:16px">Hora a hora</h2><table><thead><tr><th>Hora</th><th class="num">&lt;10 km</th><th class="num">&lt;30 km</th><th class="num">&lt;50 km</th><th class="num">Catalunya</th></tr></thead><tbody>` +
-    d.franges.slice().reverse().map(f => `<tr${f.a10 ? ' class="zona"' : ""}><td>${esc(f.inici)}-${esc(f.fi)} h</td>` +
+    d.franges.slice().reverse().map(f => `<tr${f.a10 ? ' class="zona"' : ""}><td>${esc(String(f.inici).replace(/^.*\s/, ""))}-${esc(String(f.fi).replace(/^.*\s/, ""))} h</td>` +
       (f.ok ? `<td class="num">${f.a10}</td><td class="num">${f.a30}</td><td class="num">${f.a50}</td><td class="num">${f.catalunya}</td>`
             : '<td colspan="4" class="buit">no s\'ha pogut consultar</td>') + "</tr>").join("") + "</tbody></table>";
   const llista = d.llamps.length ? `<h2 style="margin-top:16px">Llamps a menys de 50 km</h2><table><thead><tr><th>Hora</th><th>Lloc</th><th>Tipus</th><th class="num">kA</th></tr></thead><tbody>` +
