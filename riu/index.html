@@ -43,7 +43,7 @@ tr.alt td{color:#c0392b;font-weight:700}
   </section>
   <section>
     <div class="taula" id="taula"><p class="buit">Carregant…</p></div>
-    <p class="font">Mitjana i màxim de cada hora a partir de les lectures de l'Agència Catalana de l'Aigua.
+    <p class="font">L'ACA mesura el riu cada pocs minuts: per a cada hora es mostra el valor mitjà d'aquella hora.
       En vermell, les hores en què el nivell ha passat de 4 m (400 cm).
       S'actualitza cada 15 minuts. <a href="../">Tornar a La TdG ampliada</a></p>
   </section>
@@ -80,11 +80,11 @@ async function carrega(dia) {
     `<div class="xifra"><b>${n(maxN, 1)} cm</b><span>nivell màxim del dia</span></div>` +
     `<div class="xifra"><b>${n(maxC, 3)} m³/s</b><span>cabal màxim del dia</span></div>`;
 
-  document.getElementById("taula").innerHTML = `<table><thead><tr><th>Hora</th><th>Nivell (cm)</th><th>Nivell màx.</th>` +
-    `<th>Cabal (m³/s)</th><th>Cabal màx.</th><th>Lectures</th></tr></thead><tbody>` +
+  // 21.10.2026: només hora, nivell i cabal (la mitjana de les lectures de cada hora).
+  document.getElementById("taula").innerHTML = `<table><thead><tr><th>Hora</th><th>Nivell (cm)</th>` +
+    `<th>Cabal (m³/s)</th></tr></thead><tbody>` +
     hores.slice().reverse().map(h => `<tr${(h.nivellMax ?? 0) >= LLINDAR_CM ? ' class="alt"' : ""}><td>${h.hora} h</td>` +
-      `<td>${n(h.nivell, 1)}</td><td>${n(h.nivellMax, 1)}</td><td>${n(h.cabal, 3)}</td><td>${n(h.cabalMax, 3)}</td>` +
-      `<td>${h.lectures ?? "—"}</td></tr>`).join("") + "</tbody></table>";
+      `<td>${n(h.nivell, 1)}</td><td>${n(h.cabal, 3)}</td></tr>`).join("") + "</tbody></table>";
 
   if (grafic) grafic.destroy();
   grafic = new Chart(document.getElementById("grafic"), {

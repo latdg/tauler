@@ -472,7 +472,7 @@ function pinta(d) {
   if (b.riu) h += seccio("🌊 Riu Daró",
     `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : "") +
     // 21.10.2026: enllaç al registre hora a hora.
-    '<p class="font"><a href="riu/">Registre del riu hora a hora (cabal i nivell de cada dia)</a></p>',
+    '<p class="font">Darreres 6 hores · <a href="riu/">gràfica ampliada i registre hora a hora</a></p>',
     "Agència Catalana de l'Aigua");
 
   // 5 bis. 💧 PIEZÒMETRES (després del riu Daró)
@@ -660,7 +660,8 @@ function pinta(d) {
     const accent = css.getPropertyValue("--accent").trim(), suau = css.getPropertyValue("--suau").trim();
     // Les dades arriben de la més recent a la més antiga: es giren perquè
     // les hores vagin d'esquerra (més antiga) a dreta (més recent).
-    const hores = b.riu.hores.slice().reverse();
+    // 21.10.2026: a la portada, les 6 darreres hores (la resta, a riu/).
+    const hores = b.riu.hores.slice(0, 6).reverse();
     new Chart(document.getElementById("graficRiu"), {
       type: "line",
       data: {
