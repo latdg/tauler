@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Llamps a la Bisbal</title>
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+h2{margin:0 0 8px;font-size:1.1rem}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+select,input,button{font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
+button{background:var(--accent);color:#fff;border-color:var(--accent);cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.xifres{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:12px}
+.xifra b{display:block;font-size:1.5rem;line-height:1.1}
+.xifra span{color:var(--suau);font-size:.85rem}
+.taula{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:6px 8px;border-bottom:1px solid var(--linia);text-align:left;white-space:nowrap}
+td.num,th.num{text-align:right}
+th{color:var(--suau);font-weight:600}
+tr.zona td{color:#c0392b;font-weight:700}
+pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);border-radius:8px;padding:12px;margin:8px 0}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+.buit{color:var(--suau)}
+#gestio{display:none;border-color:var(--accent)}
+#estat{font-size:.9rem;color:var(--suau)}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ Llamps a la Bisbal</h1>
+  <p class="sub" id="sub">Carregant…</p>
+  <div class="fila"><label>Revisió: <select id="revisio"></select></label></div>
+</header>
+<main>
+  <!-- Panell privat: només surt si aquest navegador té el PIN desat o l'adreça acaba en #gestio -->
+  <section id="gestio">
+    <h2>🔒 Revisar ara</h2>
+    <div class="fila">
+      <label>Hores enrere: <select id="hores"></select></label>
+      <input type="password" id="pin" placeholder="PIN" autocomplete="current-password" size="8">
+      <button id="boto">Revisar</button>
+    </div>
+    <p id="estat"></p>
+    <details><summary class="font">Configuració</summary>
+      <div class="fila" style="margin-top:8px">
+        <input id="worker" placeholder="Adreça del Worker (https://latdg-llamps....workers.dev)" size="50">
+        <label class="check"><input type="checkbox" id="recorda"> Recorda el PIN en aquest navegador</label>
+        <button id="desa" type="button">Desa</button>
+        <button id="oblida" type="button">Oblida aquest navegador</button>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <div class="xifres" id="xifres"></div>
+    <div id="text"></div>
+    <div class="taula" id="taula"><p class="buit">Carregant…</p></div>
+    <p class="font">Llamps de la Xarxa de Detecció de Descàrregues Elèctriques (XDDE) del Meteocat a menys de 50 km
+      dels nuclis dels quatre municipis. En vermell, els de menys de 10 km. Les revisions només es fan a demanda
+      (cada hora revisada gasta 1 consulta de les 250 mensuals de l'XDDE).
+      <a href="https://www.meteo.cat/observacions/llamps" target="_blank" rel="noopener">Mapa del Meteocat</a> ·
+      <a href="../">La TdG ampliada</a></p>
+  </section>
+</main>
+<script>
+const BASE = "https://raw.githubusercontent.com/latdg/bots/llamps-dades/";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const llegeix = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
+const escriu = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+const quan = iso => { const d = new Date(iso); return d.toLocaleDateString("ca-ES", { day: "2-digit", month: "2-digit", year: "numeric" }).replace(/\//g, ".") + " a les " + d.toLocaleTimeString("ca-ES", { hour: "2-digit", minute: "2-digit" }).replace(":", ".") + " h"; };
+
+async function json(cami) {
+  const r = await fetch(BASE + cami + "?v=" + Date.now(), { cache: "no-store" });
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+function pinta(d) {
+  const zona = d.llamps.filter(l => l.km <= 10);
+  document.getElementById("sub").textContent = `Revisió del ${quan(d.generat)} · ${d.hores} h enrere · consultes de l'XDDE aquest mes: ${d.consultesDespres ?? "?"} de ${d.maxim}`;
+  document.getElementById("xifres").innerHTML =
+    `<div class="xifra"><b>${zona.length}</b><span>a menys de 10 km</span></div>` +
+    `<div class="xifra"><b>${d.llamps.filter(l => l.km <= 30).length}</b><span>a menys de 30 km</span></div>` +
+    `<div class="xifra"><b>${d.llamps.length}</b><span>a menys de 50 km</span></div>` +
+    `<div class="xifra"><b>${d.franges.reduce((s, f) => s + f.catalunya, 0)}</b><span>a tot Catalunya</span></div>`;
+  document.getElementById("text").innerHTML = d.textPublic
+    ? `<h2>Text per publicar</h2><pre id="tp">${esc(d.textPublic)}</pre><button type="button" id="copia">Copia el text</button>`
+    : '<p class="buit">No ha caigut cap llamp a menys de 10 km: no cal publicar res.</p>';
+  const c = document.getElementById("copia");
+  if (c) c.onclick = () => navigator.clipboard.writeText(d.textPublic).then(() => { c.textContent = "Copiat ✓"; });
+
+  const franges = `<h2 style="margin-top:16px">Hora a hora</h2><table><thead><tr><th>Hora</th><th class="num">&lt;10 km</th><th class="num">&lt;30 km</th><th class="num">&lt;50 km</th><th class="num">Catalunya</th></tr></thead><tbody>` +
+    d.franges.slice().reverse().map(f => `<tr${f.a10 ? ' class="zona"' : ""}><td>${esc(f.inici)}-${esc(f.fi)} h</td>` +
+      (f.ok ? `<td class="num">${f.a10}</td><td class="num">${f.a30}</td><td class="num">${f.a50}</td><td class="num">${f.catalunya}</td>`
+            : '<td colspan="4" class="buit">no s\'ha pogut consultar</td>') + "</tr>").join("") + "</tbody></table>";
+  const llista = d.llamps.length ? `<h2 style="margin-top:16px">Llamps a menys de 50 km</h2><table><thead><tr><th>Hora</th><th>Lloc</th><th>Tipus</th><th class="num">kA</th></tr></thead><tbody>` +
+    d.llamps.slice().reverse().map(l => `<tr${l.km <= 10 ? ' class="zona"' : ""}><td>${esc(l.hora)}</td>` +
+      `<td><a href="https://www.google.com/maps?q=${l.lat},${l.lon}" target="_blank" rel="noopener">${esc(l.lloc)}</a></td>` +
+      `<td>${l.nt ? "núvol-terra" : "núvol-núvol"}</td><td class="num">${l.kA ?? "—"}</td></tr>`).join("") + "</tbody></table>" : "";
+  document.getElementById("taula").innerHTML = franges + llista;
+}
+
+async function carrega(id) {
+  try { pinta(await json(id ? "historic/" + id + ".json" : "darrer.json")); }
+  catch (e) {
+    document.getElementById("sub").textContent = "Encara no s'ha fet cap revisió.";
+    document.getElementById("taula").innerHTML = "";
+  }
+}
+
+async function llistaRevisions(triar) {
+  const sel = document.getElementById("revisio");
+  try {
+    const idx = await json("index.json");
+    sel.innerHTML = idx.map(r => `<option value="${esc(r.id)}">${quan(r.generat)} · ${r.hores} h · ${r.a10} a la zona</option>`).join("");
+    if (triar) sel.value = triar;
+  } catch (e) { sel.innerHTML = ""; }
+  sel.onchange = () => carrega(sel.value);
+}
+
+// --- Panell privat ---
+function iniciaGestio() {
+  const visible = location.hash === "#gestio" || llegeix("llampsWorker");
+  if (!visible) return;
+  document.getElementById("gestio").style.display = "block";
+  const h = document.getElementById("hores");
+  h.innerHTML = [1, 2, 3, 4, 6, 8, 12, 18, 24].map(n => `<option value="${n}"${n === 6 ? " selected" : ""}>${n} h (${n} consult${n === 1 ? "a" : "es"})</option>`).join("");
+  document.getElementById("worker").value = llegeix("llampsWorker");
+  document.getElementById("pin").value = llegeix("llampsPin");
+  document.getElementById("recorda").checked = !!llegeix("llampsPin");
+  document.getElementById("desa").onclick = () => {
+    escriu("llampsWorker", document.getElementById("worker").value.trim());
+    escriu("llampsPin", document.getElementById("recorda").checked ? document.getElementById("pin").value : "");
+    document.getElementById("estat").textContent = "Desat en aquest navegador.";
+  };
+  document.getElementById("oblida").onclick = () => {
+    escriu("llampsWorker", ""); escriu("llampsPin", "");
+    document.getElementById("estat").textContent = "Oblidat. El panell ja no sortirà en aquest navegador (llevat que entris amb #gestio).";
+  };
+  document.getElementById("boto").onclick = demana;
+}
+
+async function demana() {
+  const worker = document.getElementById("worker").value.trim() || llegeix("llampsWorker");
+  const pin = document.getElementById("pin").value;
+  const hores = Number(document.getElementById("hores").value);
+  const estat = document.getElementById("estat");
+  const boto = document.getElementById("boto");
+  if (!worker) { estat.textContent = "Primer posa l'adreça del Worker a «Configuració» i desa-la."; return; }
+  boto.disabled = true;
+  estat.textContent = "Enviant la petició…";
+  try {
+    const r = await fetch(worker, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin, hores }) });
+    const d = await r.json();
+    if (!d.ok) throw new Error(d.error || ("HTTP " + r.status));
+    if (document.getElementById("recorda").checked) escriu("llampsPin", pin);
+    estat.textContent = `Petició feta (${d.hores} h). El resultat arriba en menys de 5 minuts…`;
+    const inici = Date.now();
+    const espera = setInterval(async () => {
+      try {
+        const nou = await json("darrer.json");
+        if (nou.id === d.id) {
+          clearInterval(espera); boto.disabled = false;
+          estat.textContent = "✅ Revisió feta.";
+          pinta(nou); llistaRevisions(nou.id);
+        } else if (Date.now() - inici > 12 * 60000) {
+          clearInterval(espera); boto.disabled = false;
+          estat.textContent = "Encara no ha arribat. Torna a carregar la pàgina d'aquí a uns minuts.";
+        }
+      } catch (e) {}
+    }, 20000);
+  } catch (e) {
+    boto.disabled = false;
+    estat.textContent = "❌ " + e.message;
+  }
+}
+
+iniciaGestio();
+llistaRevisions();
+carrega();
+</script>
+</body>
+</html>
