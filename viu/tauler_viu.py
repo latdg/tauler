@@ -771,6 +771,278 @@ def aeronaus():
 
 
 # -----------------------------------------------------------------------------
+# POL·LEN (21.10.2026): previsió setmanal del PIA per a Girona. Es mira cada
+# hora (és una consulta petita) i el bloc només canvia quan el PIA publica la
+# setmana nova (<date><start>…</start>): així surt el mateix dia que s'actualitza.
+# -----------------------------------------------------------------------------
+POLLEN_URL = "https://aerobiologia.cat/api/v0/forecast/girona/ca/xml"
+
+
+def pollen():
+    r = requests.get(POLLEN_URL, headers=CAPCALERES, timeout=60)
+    r.raise_for_status()
+    arrel = ET.fromstring(r.content)
+
+    noms = {}
+    for grup in ("pollens", "spores"):
+        for t in arrel.findall(f"taxons/{grup}/*"):
+            noms[t.tag] = t.get("ca") or t.tag
+    actual = {v.text: v.get("ca") or v.text for v in arrel.findall("legend/current/value")}
+    tendencia = {v.text: v.get("ca") or v.text for v in arrel.findall("legend/forecast/value")}
+
+    report = arrel.find("report")
+    if report is None or report.find("current") is None:
+        return None
+    linies = []
+    for grup in ("pollens", "spores"):
+        for taxo in report.findall(f"current/{grup}/*"):
+            valor = (taxo.text or "").strip()
+            if valor == "0" or not valor:
+                continue
+            text = f"{noms.get(taxo.tag, taxo.tag)}: {actual.get(valor, valor)}"
+            prev = report.find(f"forecast/{grup}/{taxo.tag}")
+            if prev is not None and tendencia.get((prev.text or "").strip()):
+                text += f" (tendència: {tendencia[prev.text.strip()].lower()})"
+            linies.append(text)
+    if not linies:
+        return "nivells nuls a totes les categories mesurades aquesta setmana"
+    return ", ".join(linies)
+
+
+# -----------------------------------------------------------------------------
+# PUNTS DE RECÀRREGA (21.10.2026): abans a l'Apps Script. Un cop per setmana
+# s'ajunten tres fonts, sense repetir punts a menys de 150 m:
+#   1. ICAEN (dades obertes de la Generalitat, estacions semiràpides o més).
+#   2. Registre estatal del MITERD (fitxer DATEX II de la DGT, molt gran).
+#   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
+# Si el registre estatal falla, es torna a provar l'endemà.
+# -----------------------------------------------------------------------------
+RECARREGA_MUNICIPIS = [
+    {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
+     "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
+    {"nom": "Corçà", "codi": "170577", "ine": "17057",
+     "termes": ["corca", "casavells", "matajudaica", "cassa de pelras"]},
+    {"nom": "Forallac", "codi": "179026", "ine": "17902",
+     "termes": ["forallac", "vulpellac", "peratallada", "fonteta", "canapost", "sant climent de peralta", "santa susanna de peralta"]},
+    {"nom": "Cruïlles, Monells i Sant Sadurní de l'Heura", "codi": "179011", "ine": "17901",
+     "termes": ["cruilles", "monells", "sant sadurni de l'heura"]},
+]
+RECARREGA_ICAEN_URL = "https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json"
+RECARREGA_NAP_URL = "https://infocar.dgt.es/datex2/v3/miterd/EnergyInfrastructureTablePublication/electrolineras.xml"
+OVERPASS = ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter"]
+CONNECTORS = {
+    "iec62196t2": "Tipus 2", "iec62196t2combo": "CCS2", "iec62196t1": "Tipus 1", "iec62196t1combo": "CCS1",
+    "iec62196t3a": "Tipus 3A", "iec62196t3c": "Tipus 3C", "chademo": "CHAdeMO", "domestic": "Schuko",
+    "domesticf": "Schuko", "domestice": "endoll domèstic", "teslar": "Tesla", "teslas": "Tesla",
+    "type2": "Tipus 2", "type2combo": "CCS2", "type1": "Tipus 1", "type1combo": "CCS1", "schuko": "Schuko",
+    "teslasupercharger": "Tesla",
+}
+RECARREGA_NAP_FALLAT = False
+
+
+def norm_minuscules(t):
+    t = unicodedata.normalize("NFD", str(t or "").lower())
+    return "".join(c for c in t if unicodedata.category(c) != "Mn").replace("’", "'")
+
+
+def format_normal(t):
+    t = str(t or "").strip()
+    if t and t == t.upper():
+        t = t.lower()
+        t = t[:1].upper() + t[1:]
+    return t
+
+
+def km_coma(x):
+    return str(round(x, 1)).replace(".0", "").replace(".", ",")
+
+
+def recarrega_icaen():
+    codis = ",".join(f"'{m['codi']}'" for m in RECARREGA_MUNICIPIS)
+    r = requests.get(RECARREGA_ICAEN_URL, params={"$limit": 500, "$where": f"codimun in({codis})"}, headers=CAPCALERES, timeout=60)
+    r.raise_for_status()
+    llocs = []
+    for f in r.json():
+        mun = next((m for m in RECARREGA_MUNICIPIS if m["codi"] == str(f.get("codimun", ""))), None)
+        if not mun:
+            continue
+        nom = str(f.get("designaci_descriptiva") or "").strip()
+        if re.fullmatch(r"[A-Z0-9]{10,}", nom):
+            nom = ""
+        adreca = re.sub(r"[,\s]+$", "", str(f.get("adre_a") or "").strip())
+        if re.match(r"^[A-Z0-9]{4}\+[A-Z0-9]{2,3}\b", adreca):
+            adreca = ""
+        linia = "- " + (nom or "Punt de recàrrega")
+        if adreca and adreca != nom:
+            linia += f" ({adreca})"
+        parts = []
+        conn = [CONNECTORS.get(re.sub(r"[^a-z0-9]", "", c.lower()), c.strip()) for c in re.split(r"[+,;/]", str(f.get("tipus_connexi") or "")) if c.strip()]
+        conn = list(dict.fromkeys(c.replace("MENNEKES.M", "Tipus 2").replace("MENNEKES", "Tipus 2") for c in conn))
+        if conn:
+            parts.append(", ".join(conn))
+        try:
+            kw = float(str(f.get("kw") or "").replace(",", "."))
+            if kw > 0:
+                parts.append(f"{km_coma(kw)} kW")
+        except ValueError:
+            pass
+        vel = str(f.get("tipus_velocitat") or "").strip().lower()
+        if vel:
+            parts.append("recàrrega " + vel.replace("semirapid", "semiràpida").replace("rapid", "ràpida").replace("superràpida", "superràpida"))
+        if f.get("acces"):
+            parts.append("accés amb " + str(f["acces"]).strip().lower())
+        gestor = re.sub(r"^Institut Català d'Energia\s*-\s*", "", str(f.get("promotor_gestor") or ""), flags=re.I).strip()
+        if gestor:
+            parts.append("gestor: " + gestor)
+        if parts:
+            linia += ": " + ", ".join(parts)
+        llocs.append({"m": mun["nom"], "n": nom or adreca, "t": linia + ".", "la": num(f.get("latitud")), "lo": num(f.get("longitud"))})
+    return llocs
+
+
+def recarrega_nap():
+    global RECARREGA_NAP_FALLAT
+    try:
+        r = requests.get(RECARREGA_NAP_URL, headers={"User-Agent": CAPCALERES["User-Agent"]}, timeout=600)
+        r.raise_for_status()
+        text = r.content.decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"⚠️ recàrrega: registre estatal no disponible ({e})", file=sys.stderr)
+        RECARREGA_NAP_FALLAT = True
+        return []
+
+    def valors(xml, etiqueta):
+        return [html.unescape(re.sub(r"<[^>]+>", " ", v)).strip()
+                for v in re.findall(rf"<(?:[\w-]+:)?{etiqueta}\b[^>]*>([\s\S]*?)</(?:[\w-]+:)?{etiqueta}>", xml)]
+
+    def etiquetada(xml, et):
+        m = re.search(et + r"\s*:\s*([^<]+)", xml, re.I)
+        return html.unescape(m.group(1)).strip() if m else ""
+
+    llocs, vistos, llegits = [], set(), 0
+    for m in re.finditer(r"<(?:[\w-]+:)?energyInfrastructureSite\b[\s\S]*?</(?:[\w-]+:)?energyInfrastructureSite>", text):
+        llegits += 1
+        bloc = m.group(0)
+        municipi_text = etiquetada(bloc, "Municipio")
+        if not municipi_text:
+            continue
+        prov = norm_minuscules(etiquetada(bloc, "Provincia"))
+        if prov and "girona" not in prov and "gerona" not in prov:
+            continue
+        mn = norm_minuscules(municipi_text)
+        mun = next((x for x in RECARREGA_MUNICIPIS if any(t in mn for t in x["termes"])), None)
+        if not mun:
+            continue
+        operador_bloc = (re.search(r"<(?:[\w-]+:)?operator\b[\s\S]*?</(?:[\w-]+:)?operator>", bloc) or [""])[0] if re.search(r"<(?:[\w-]+:)?operator\b", bloc) else ""
+        sense_op = bloc.replace(operador_bloc, " ") if operador_bloc else bloc
+        noms = valors(sense_op, "name")
+        nom = noms[0] if noms else ""
+        operador = (valors(operador_bloc, "name") or [""])[0] if operador_bloc else ""
+        adreca = etiquetada(bloc, "Direcci[oó]n")
+        codis = valors(bloc, "connectorType")
+        tipus = list(dict.fromkeys(CONNECTORS.get(re.sub(r"[^a-z0-9]", "", c.lower()), c) for c in codis if c))
+        pot = max([float(v) for v in valors(bloc, "maxPowerAtSocket") if re.fullmatch(r"[\d.]+", v)] or [0])
+        if pot > 1000:
+            pot /= 1000
+        horari = (re.search(r"<(?:[\w-]+:)?operatingHours\b[\s\S]*?</(?:[\w-]+:)?operatingHours>", bloc) or [""])[0] if re.search(r"operatingHours", bloc) else ""
+        obert24 = bool(re.search(r"openAllHours|24\s*h", horari, re.I))
+        la = num((valors(bloc, "latitude") or [""])[0])
+        lo = num((valors(bloc, "longitude") or [""])[0])
+        mid = re.search(r'\bid="([^"]+)"', bloc)
+        clau = mid.group(1) if mid else f"{mun['nom']}|{nom}|{adreca}"
+        if clau in vistos:
+            continue
+        vistos.add(clau)
+        linia = "- " + (format_normal(nom) or "Punt de recàrrega")
+        if adreca:
+            linia += f" ({format_normal(adreca)})"
+        parts = []
+        if codis:
+            parts.append(f"{len(codis)} connector{'s' if len(codis) > 1 else ''}" + (f" ({', '.join(tipus)})" if tipus else ""))
+        if pot > 0:
+            parts.append(f"fins a {km_coma(pot)} kW")
+        if obert24:
+            parts.append("obert 24 hores")
+        if operador:
+            parts.append("operador: " + operador)
+        if parts:
+            linia += ": " + ", ".join(parts)
+        llocs.append({"m": mun["nom"], "n": nom, "t": linia + ".", "la": la, "lo": lo})
+    if llegits == 0:
+        print("⚠️ recàrrega: el registre estatal no té cap punt reconegut (format canviat?)", file=sys.stderr)
+        RECARREGA_NAP_FALLAT = True
+    print(f"· recàrrega: registre estatal, {llegits} punts llegits, {len(llocs)} de la zona")
+    return llocs
+
+
+def recarrega_osm():
+    llocs = []
+    for mun in RECARREGA_MUNICIPIS:
+        q = (f'[out:json][timeout:90];area["ine:municipio"="{mun["ine"]}"]->.a;'
+             'nwr["amenity"="charging_station"](area.a);out center tags;')
+        dades = None
+        for url in OVERPASS:
+            try:
+                r = requests.get(url, params={"data": q}, headers={"User-Agent": CAPCALERES["User-Agent"]}, timeout=150)
+                if r.ok and r.text.lstrip().startswith("{"):
+                    dades = r.json()
+                    break
+            except Exception:
+                continue
+        if dades is None:
+            print(f"⚠️ recàrrega: OpenStreetMap no respon ({mun['nom']})", file=sys.stderr)
+            continue
+        for e in dades.get("elements", []):
+            t = e.get("tags", {})
+            la = e.get("lat", (e.get("center") or {}).get("lat"))
+            lo = e.get("lon", (e.get("center") or {}).get("lon"))
+            nom = t.get("name") or t.get("brand") or ""
+            adreca = " ".join(x for x in [t.get("addr:street", ""), t.get("addr:housenumber", "")] if x)
+            linia = "- " + (nom or "Punt de recàrrega")
+            if adreca:
+                linia += f" ({adreca})"
+            parts = []
+            sockets = [(k.split(":")[1], v) for k, v in t.items() if re.fullmatch(r"socket:[^:]+", k)]
+            if sockets:
+                tipus = list(dict.fromkeys(CONNECTORS.get(re.sub(r"[^a-z0-9]", "", k.lower()), k) for k, _ in sockets))
+                parts.append(", ".join(tipus))
+            if t.get("capacity"):
+                parts.append(f"{t['capacity']} places")
+            op = t.get("operator") or t.get("network") or ""
+            if op and op != nom:
+                parts.append("operador: " + op)
+            if t.get("opening_hours") == "24/7":
+                parts.append("obert 24 hores")
+            if parts:
+                linia += ": " + ", ".join(parts)
+            llocs.append({"m": mun["nom"], "n": nom or adreca, "t": linia + ".", "la": la, "lo": lo})
+    return llocs
+
+
+def recarrega():
+    global RECARREGA_NAP_FALLAT
+    RECARREGA_NAP_FALLAT = False
+    totes = []
+    try:
+        totes = recarrega_icaen()
+    except Exception as e:
+        print(f"⚠️ recàrrega: ICAEN ({e})", file=sys.stderr)
+    for llista in (recarrega_nap(), recarrega_osm()):
+        for p in llista:
+            if not any(distancia_km(p["la"], p["lo"], q["la"], q["lo"]) * 1000 < 150
+                       for q in totes if None not in (p["la"], p["lo"], q["la"], q["lo"])):
+                totes.append(p)
+    if not totes:
+        return None
+    text = []
+    for mun in RECARREGA_MUNICIPIS:
+        del_mun = sorted((l for l in totes if l["m"] == mun["nom"]), key=lambda l: norm_minuscules(l["n"]))
+        if del_mun:
+            text.append(mun["nom"] + "\n" + "\n".join(l["t"] for l in del_mun))
+    return "\n\n".join(text)
+
+
+# -----------------------------------------------------------------------------
 # CALCULA I FUSIONA
 # -----------------------------------------------------------------------------
 FUNCIONS = {
@@ -782,8 +1054,12 @@ FUNCIONS = {
     "airePrevist": aire_previst,
     "clima": clima,
     "aeronaus": aeronaus,
+    "pollen": pollen,
+    "recarrega": recarrega,
 }
 UN_COP_AL_DIA = {"clima"}
+# 21.10.2026: cada quants minuts com a mínim es torna a consultar un bloc.
+CADA_MINUTS = {"pollen": 60, "recarrega": 7 * 24 * 60}
 
 
 def llegeix(cami, defecte):
@@ -803,16 +1079,33 @@ def calcula():
     memoria = llegeix(MEMORIA, {})
     fets = memoria.get("dies") or {}
 
+    moments = memoria.get("moments") or {}
     resultat = {}
+    nous_moments = {}
     for nom, fn in FUNCIONS.items():
         if nom in UN_COP_AL_DIA and fets.get(nom) == avui:
             print(f"· {nom}: ja calculat avui")
             continue
+        if nom in CADA_MINUTS and moments.get(nom):
+            try:
+                fa = (ara() - dt.datetime.fromisoformat(moments[nom])).total_seconds() / 60
+                if fa < CADA_MINUTS[nom]:
+                    continue
+            except ValueError:
+                pass
         try:
             resultat[nom] = fn()   # None vol dir «aquest bloc avui no surt»
             print(f"✅ {nom}" if resultat[nom] is not None else f"— {nom}: sense dades (el bloc no surt)")
+            if nom in CADA_MINUTS:
+                moment = ara()
+                # Si el registre estatal ha fallat, la recàrrega es torna a provar l'endemà.
+                if nom == "recarrega" and RECARREGA_NAP_FALLAT:
+                    moment -= dt.timedelta(minutes=CADA_MINUTS[nom] - 24 * 60)
+                nous_moments[nom] = moment.isoformat()
         except Exception as e:
             print(f"❌ {nom}: {e}", file=sys.stderr)
+    if nous_moments:
+        resultat["_moments"] = nous_moments
     TMP.write_text(json.dumps(resultat, ensure_ascii=False), encoding="utf-8")
 
 
@@ -825,6 +1118,8 @@ def fusiona():
     memoria = llegeix(MEMORIA, {})
     blocs_vius = memoria.get("blocs") or {}
     dies = memoria.get("dies") or {}
+    moments = memoria.get("moments") or {}
+    moments.update(vius.pop("_moments", None) or {})
     # Registre horari del riu: un fitxer per dia, s'hi afegeixen o s'actualitzen les hores.
     if isinstance(vius.get("riu"), dict) and vius["riu"].get("_historic"):
         per_dia = {}
@@ -842,7 +1137,7 @@ def fusiona():
     for nom, valor in vius.items():
         blocs_vius[nom] = valor
         dies[nom] = dia
-    escriu(MEMORIA, {"blocs": blocs_vius, "dies": dies})
+    escriu(MEMORIA, {"blocs": blocs_vius, "dies": dies, "moments": moments})
 
     base = llegeix(DADES / "darrer.json", {})
     blocs = dict(base.get("blocs") or {})
