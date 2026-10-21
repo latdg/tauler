@@ -562,10 +562,12 @@ function pinta(d) {
         }).join("") +
         `</tr>`;
     }).join("");
+    // CANVI (21.10.2026): la data dels preus va a dalt, sota el títol, amb la font.
     h += seccio("⛽ Preus dels carburants",
+      `<p class="font dalt">${c.data ? "Preus actualitzats el " + esc(c.data) + " · " : ""}Font: Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)</p>` +
       `<div class="taula"><table><thead>${cap}</thead><tbody>${files}</tbody></table></div>` +
-      `<p class="font">Preus declarats per les benzineres${c.data ? ", actualitzats el " + esc(c.data) : ""}. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
-       "Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)", false);
+      `<p class="font">Preus declarats per les benzineres. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
+       "", false);
          }
 
   // 11. 🔌 PUNTS DE RECÀRREGA
