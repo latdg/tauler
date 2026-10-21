@@ -147,7 +147,7 @@ function iniciaGestio() {
   // Si aquest navegador ja té la clau desada (o s'entra amb #gestio), s'obre directament.
   if (location.hash === "#gestio" || llegeix("llampsPin")) setTimeout(obre, 0);
   const h = document.getElementById("hores");
-  h.innerHTML = [1, 2, 3, 4, 6, 8, 12, 18, 24].map(n => `<option value="${n}"${n === 6 ? " selected" : ""}>${n} h (${n} consult${n === 1 ? "a" : "es"})</option>`).join("");
+  h.innerHTML = Array.from({ length: 24 }, (_, i) => i + 1).map(n => `<option value="${n}"${n === 6 ? " selected" : ""}>${n} h (${n} consult${n === 1 ? "a" : "es"})</option>`).join("");
   document.getElementById("pin").value = llegeix("llampsPin");
   document.getElementById("recorda").checked = !!llegeix("llampsPin");
 
