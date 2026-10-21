@@ -1063,6 +1063,22 @@ def recarrega():
 
 
 # -----------------------------------------------------------------------------
+# BLOCS DE WEBS (21.10.2026): aire, Pla Alfa, sequera, refugis, BORME i
+# subhastes. Els calcula el bucle dels bots (latdg/bots, TaulerWebsGitHub.gs)
+# cada hora amb el codi de l'Apps Script i els deixa a la branca «tauler-webs».
+# -----------------------------------------------------------------------------
+TAULER_WEBS_URL = "https://raw.githubusercontent.com/latdg/bots/tauler-webs/webs.json"
+BLOCS_WEBS = ("aire", "plaAlfa", "sequera", "refugis", "borme", "subhastes")
+
+
+def blocs_webs():
+    r = requests.get(TAULER_WEBS_URL, params={"v": int(ara().timestamp())}, headers=CAPCALERES, timeout=30)
+    r.raise_for_status()
+    blocs = r.json().get("blocs") or {}
+    return {k: blocs[k] for k in BLOCS_WEBS if k in blocs}
+
+
+# -----------------------------------------------------------------------------
 # CALCULA I FUSIONA
 # -----------------------------------------------------------------------------
 FUNCIONS = {
@@ -1132,6 +1148,12 @@ def calcula():
                     nous_moments["pollen_setmana"] = POLLEN_SETMANA
         except Exception as e:
             print(f"❌ {nom}: {e}", file=sys.stderr)
+    try:
+        webs = blocs_webs()
+        resultat.update(webs)
+        print(f"✅ blocs de webs: {', '.join(webs) or 'cap'}")
+    except Exception as e:
+        print(f"❌ blocs de webs: {e}", file=sys.stderr)
     if nous_moments:
         resultat["_moments"] = nous_moments
     TMP.write_text(json.dumps(resultat, ensure_ascii=False), encoding="utf-8")
