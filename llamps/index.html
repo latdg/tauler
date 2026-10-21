@@ -33,7 +33,9 @@ tr.zona td{color:#c0392b;font-weight:700}
 pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);border-radius:8px;padding:12px;margin:8px 0}
 .font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
 .buit{color:var(--suau)}
-#gestio{display:none;border-color:var(--accent)}
+#gestio{border-color:var(--accent)}
+[hidden]{display:none !important}
+#obre{background:var(--targeta);color:var(--accent)}
 #estat{font-size:.9rem;color:var(--suau)}
 </style>
 </head>
@@ -44,23 +46,28 @@ pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);bo
   <div class="fila"><label>Revisió: <select id="revisio"></select></label></div>
 </header>
 <main>
-  <!-- Panell privat: només surt si aquest navegador té el PIN desat o l'adreça acaba en #gestio -->
+  <!-- Gestió (CANVI 21.10.2026): sempre a dalt; per encarregar una revisió cal la clau. -->
   <section id="gestio">
-    <h2>🔒 Revisar ara</h2>
+    <div class="fila" id="entrada">
+      <button type="button" id="obre">🔒 Encarregar una revisió (amb clau)</button>
+    </div>
+    <div id="formGestio" hidden>
+    <h2>🔒 Encarregar una revisió</h2>
     <div class="fila">
       <label>Hores enrere: <select id="hores"></select></label>
-      <input type="password" id="pin" placeholder="PIN" autocomplete="current-password" size="8">
+      <input type="password" id="pin" placeholder="Clau" autocomplete="current-password" size="8">
       <button id="boto">Revisar</button>
     </div>
     <p id="estat"></p>
     <details><summary class="font">Configuració</summary>
       <div class="fila" style="margin-top:8px">
         <input id="worker" placeholder="Adreça del Worker (https://latdg-llamps....workers.dev)" size="50">
-        <label class="check"><input type="checkbox" id="recorda"> Recorda el PIN en aquest navegador</label>
+        <label class="check"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
         <button id="desa" type="button">Desa</button>
         <button id="oblida" type="button">Oblida aquest navegador</button>
       </div>
     </details>
+    </div>
   </section>
 
   <section>
@@ -132,9 +139,16 @@ async function llistaRevisions(triar) {
 
 // --- Panell privat ---
 function iniciaGestio() {
-  const visible = location.hash === "#gestio" || llegeix("llampsWorker");
-  if (!visible) return;
-  document.getElementById("gestio").style.display = "block";
+  const form = document.getElementById("formGestio");
+  const obre = () => {
+    form.hidden = false;
+    document.getElementById("entrada").hidden = true;
+    if (!document.getElementById("worker").value) document.querySelector("#gestio details").open = true;
+    document.getElementById("pin").focus();
+  };
+  document.getElementById("obre").onclick = obre;
+  // Si aquest navegador ja té la clau desada (o s'entra amb #gestio), s'obre directament.
+  if (location.hash === "#gestio" || llegeix("llampsPin")) setTimeout(obre, 0);
   const h = document.getElementById("hores");
   h.innerHTML = [1, 2, 3, 4, 6, 8, 12, 18, 24].map(n => `<option value="${n}"${n === 6 ? " selected" : ""}>${n} h (${n} consult${n === 1 ? "a" : "es"})</option>`).join("");
   document.getElementById("worker").value = llegeix("llampsWorker");
@@ -147,7 +161,8 @@ function iniciaGestio() {
   };
   document.getElementById("oblida").onclick = () => {
     escriu("llampsWorker", ""); escriu("llampsPin", "");
-    document.getElementById("estat").textContent = "Oblidat. El panell ja no sortirà en aquest navegador (llevat que entris amb #gestio).";
+    document.getElementById("pin").value = "";
+    document.getElementById("estat").textContent = "Oblidat. La propera vegada caldrà tornar a posar la clau.";
   };
   document.getElementById("boto").onclick = demana;
 }
@@ -158,13 +173,15 @@ async function demana() {
   const hores = Number(document.getElementById("hores").value);
   const estat = document.getElementById("estat");
   const boto = document.getElementById("boto");
-  if (!worker) { estat.textContent = "Primer posa l'adreça del Worker a «Configuració» i desa-la."; return; }
+  if (!worker) { estat.textContent = "Primer posa l'adreça del Worker a «Configuració» i desa-la."; document.querySelector("#gestio details").open = true; return; }
+  if (!pin) { estat.textContent = "Escriu la clau."; document.getElementById("pin").focus(); return; }
+  if (document.getElementById("worker").value.trim()) escriu("llampsWorker", document.getElementById("worker").value.trim());
   boto.disabled = true;
   estat.textContent = "Enviant la petició…";
   try {
     const r = await fetch(worker, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin, hores }) });
     const d = await r.json();
-    if (!d.ok) throw new Error(d.error || ("HTTP " + r.status));
+    if (!d.ok) throw new Error(r.status === 401 || r.status === 403 ? "La clau no és correcta." : (d.error || ("HTTP " + r.status)));
     if (document.getElementById("recorda").checked) escriu("llampsPin", pin);
     estat.textContent = `Petició feta (${d.hores} h). El resultat arriba en menys de 5 minuts…`;
     const inici = Date.now();
