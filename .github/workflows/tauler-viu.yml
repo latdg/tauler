@@ -1,0 +1,52 @@
+# Tauler «La TdG ampliada» en directe — 21.10.2026
+# Cada 15 minuts calcula els blocs vius i els fusiona amb el que publica
+# l'Apps Script. Fitxer: .github/workflows/tauler-viu.yml
+
+name: Tauler en directe
+
+on:
+  schedule:
+    # Minuts «estranys» perquè GitHub no endarrereixi l'execució (als :00 hi ha cua).
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tauler-viu
+  cancel-in-progress: false
+
+jobs:
+  actualitza:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instal·la dependències
+        run: pip install requests
+
+      - name: Calcula els blocs
+        run: python viu/tauler_viu.py calcula
+
+      - name: Fusiona i publica
+        run: |
+          git config user.name "La TdG (tauler)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Si l'Apps Script ha publicat just alhora, es torna a fusionar sobre el seu.
+          for intent in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python viu/tauler_viu.py fusiona
+            git add dades
+            if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
+            git commit -m "Tauler en directe ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 10
+          done
+          exit 1
