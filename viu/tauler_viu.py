@@ -11,6 +11,7 @@
 #                                         darrer.json, AAAA-MM-DD.json i dies.json
 #
 # FASE 1: piezòmetres (10,6 km), carburants i índex UV.
+# FASE 3 (21.10.2026): l'aviació no comercial, del registre del vigilant d'aeronaus a GitHub.
 # FASE 2 (21.10.2026): trànsit (incidències del SCT), riu Daró (directament de
 #   l'ACA, sense passar pel Google Sheet), qualitat de l'aire prevista i el
 #   clima en context (Open-Meteo). El clima només es calcula un cop al dia,
@@ -734,6 +735,34 @@ def clima():
 
 
 # -----------------------------------------------------------------------------
+# AVIACIÓ NO COMERCIAL (21.10.2026): del registre del vigilant d'aeronaus, que
+# ara corre a GitHub (repo latdg/vigilant-aeronaus, branca dades), en lloc del
+# Google Sheet. Hi entren les aeronaus no comercials de la zona d'avisos d'avui.
+# -----------------------------------------------------------------------------
+AERONAUS_URL = "https://raw.githubusercontent.com/latdg/vigilant-aeronaus/dades/registre/{dia}.json"
+
+
+def aeronaus():
+    r = requests.get(AERONAUS_URL.format(dia=ara().strftime("%Y-%m-%d")), headers=CAPCALERES, timeout=30)
+    if r.status_code == 404:
+        return []          # encara no hi ha cap pas avui
+    r.raise_for_status()
+    sortida = [{
+        "hora": f["hora"],
+        "matricula": f.get("matricula") or "—",
+        "model": f.get("model", ""),
+        "descripcio": f.get("descripcio", ""),
+        "categoria": f.get("categoria", ""),
+        "altitud": f.get("altitud"),
+        "velocitat": f.get("velocitat"),
+        "ubicacio": f.get("ubicacio", ""),
+        "lat": f.get("lat"),
+        "lon": f.get("lon"),
+    } for f in r.json() if f.get("alerta") and f.get("clau") != "comercial"]
+    return sorted(sortida, key=lambda x: x["hora"])
+
+
+# -----------------------------------------------------------------------------
 # CALCULA I FUSIONA
 # -----------------------------------------------------------------------------
 FUNCIONS = {
@@ -744,6 +773,7 @@ FUNCIONS = {
     "riu": riu,
     "airePrevist": aire_previst,
     "clima": clima,
+    "aeronaus": aeronaus,
 }
 UN_COP_AL_DIA = {"clima"}
 

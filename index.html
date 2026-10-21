@@ -454,9 +454,11 @@ function pinta(d) {
 
   // 2. ✈️ AVIACIÓ NO COMERCIAL
   if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els quatre municipis",
-    b.aeronaus.length
+    (b.aeronaus.length
       ? taulaAeronaus(b.aeronaus)
-      : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>',
+      : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>') +
+    // 21.10.2026: enllaç al registre complet (actualitzat cada 5 minuts).
+    '<p class="font"><a href="aeronaus/">Registre complet de les aeronaus que passen a menys de 40 km</a></p>',
     "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
 
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS

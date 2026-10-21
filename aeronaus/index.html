@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Registre d'aeronaus</title>
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1300px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 16px}
+select,input{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
+input[type=search]{min-width:220px}
+label.check{display:flex;gap:6px;align-items:center;font-size:.95rem}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.xifres{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:8px}
+.xifra b{display:block;font-size:1.5rem;line-height:1.1}
+.xifra span{color:var(--suau);font-size:.85rem}
+.taula{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);vertical-align:top;white-space:nowrap}
+th{color:var(--suau);font-weight:600;position:sticky;top:0;background:var(--targeta)}
+td.ajust{white-space:normal;min-width:200px}
+td.num{text-align:right}
+tr.alerta td:first-child{box-shadow:inset 4px 0 0 var(--accent)}
+.coord{display:block;color:var(--suau);font-size:.78rem}
+.buit{color:var(--suau)}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>✈️ Registre d'aeronaus</h1>
+  <p class="sub" id="sub">Carregant…</p>
+  <div class="controls">
+    <label>Dia: <select id="dia"></select></label>
+    <input type="search" id="cerca" placeholder="Cerca model, categoria, lloc…">
+    <select id="categoria"><option value="">Totes les categories</option></select>
+    <label class="check"><input type="checkbox" id="zona"> Només la zona d'avisos (8 km)</label>
+    <label class="check"><input type="checkbox" id="comercials" checked> Vols comercials</label>
+  </div>
+</header>
+<main>
+  <section>
+    <div class="xifres" id="xifres"></div>
+    <div class="taula" id="taula"><p class="buit">Carregant…</p></div>
+    <p class="font">Una fila per cada pas d'una aeronau a menys de 40 km de la Bisbal, amb el punt on ha passat més a prop.
+      Marcades amb una barra, les que entren a la zona d'avisos (aviació no comercial a menys de 8 km).
+      La matrícula, l'indicatiu i el codi icao24 només es mostren dels vols comercials i dels serveis públics.
+      Dades: adsb.lol, adsb.fi i OpenSky (dades ADS-B obertes), vigilant d'aeronaus de La TdG.
+      <a href="../">Tornar a La TdG ampliada</a></p>
+  </section>
+</main>
+<script>
+const BASE = "https://raw.githubusercontent.com/latdg/vigilant-aeronaus/dades/";
+const COLORS = {
+  vermell: ["#f4cccc", "#990000"], taronja: ["#fce5cd", "#b45f06"], groc: ["#fff2cc", "#7f6000"],
+  verd: ["#d9ead3", "#274e13"], blau: ["#cfe2f3", "#073763"], lila: ["#d9d2e9", "#20124d"], gris: ["#efefef", "#434343"]
+};
+const ICONES = { sanitari: "🚑", extincio: "🚒", seguretat: "🚓", salvament: "🛟", militar: "🎖️", estat: "🏛️", dron: "🛸",
+  jet: "💼", treballs: "📷", helicopter: "🚁", vol_lliure: "🪂", general: "🛩️", desconegut: "❓", comercial: "✈️" };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
+const dataCa = iso => iso.split("-").reverse().join(".");
+let FILES = [];
+
+async function json(cami) {
+  const r = await fetch(BASE + cami + "?v=" + Date.now());
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+function pinta() {
+  const cerca = document.getElementById("cerca").value.trim().toLowerCase();
+  const cat = document.getElementById("categoria").value;
+  const zona = document.getElementById("zona").checked;
+  const comercials = document.getElementById("comercials").checked;
+
+  const files = FILES.filter(f =>
+    (!cat || f.clau === cat) && (!zona || f.alerta) && (comercials || f.clau !== "comercial") &&
+    (!cerca || [f.model, f.descripcio, f.categoria, f.ubicacio, f.indicatiu, f.matricula, f.operador, f.avis]
+      .join(" ").toLowerCase().includes(cerca)));
+
+  const noCom = FILES.filter(f => f.clau !== "comercial").length;
+  document.getElementById("xifres").innerHTML =
+    `<div class="xifra"><b>${FILES.length}</b><span>passos registrats</span></div>` +
+    `<div class="xifra"><b>${noCom}</b><span>no comercials</span></div>` +
+    `<div class="xifra"><b>${FILES.filter(f => f.alerta).length}</b><span>a la zona d'avisos</span></div>` +
+    `<div class="xifra"><b>${files.length}</b><span>es mostren</span></div>`;
+
+  if (!files.length) {
+    document.getElementById("taula").innerHTML = '<p class="buit">Cap aeronau amb aquests filtres.</p>';
+    return;
+  }
+
+  const filesHtml = files.slice().sort((a, b) => a.hora < b.hora ? 1 : -1).map(f => {
+    const c = COLORS[f.color];
+    const estil = c ? ` style="background:${c[0]};color:${c[1]};font-weight:600"` : "";
+    const ident = [f.indicatiu, f.matricula].filter(Boolean).join(" · ") || (f.icao24 ? f.icao24 : "—");
+    const lloc = `<a href="https://www.google.com/maps?q=${f.lat},${f.lon}" target="_blank" rel="noopener">${esc(f.ubicacio)}</a>` +
+      `<span class="coord">a ${num(f.distancia)} km de la Bisbal</span>`;
+    return `<tr class="${f.alerta ? "alerta" : ""}"${estil}>` +
+      `<td>${esc(f.hora)} h</td>` +
+      `<td title="${esc(f.motiu)}">${ICONES[f.clau] || "✈️"} ${esc(f.categoria.charAt(0) + f.categoria.slice(1).toLowerCase())}</td>` +
+      `<td>${esc(ident)}${f.operador ? `<span class="coord">${esc(f.operador)}</span>` : ""}</td>` +
+      `<td>${esc(f.descripcio || f.model || "—")}${f.descripcio && f.model ? `<span class="coord">${esc(f.model)}</span>` : ""}</td>` +
+      `<td class="num">${f.aTerra ? "a terra" : num(f.altitud) + " m"}</td>` +
+      `<td class="num">${num(f.velocitat)}</td>` +
+      `<td class="ajust">${lloc}</td>` +
+      `<td class="ajust">${esc([f.esdeveniment, f.avis].filter(Boolean).join(" · "))}</td>` +
+      `</tr>`;
+  }).join("");
+
+  document.getElementById("taula").innerHTML = `<table><thead><tr><th>Hora</th><th>Categoria</th><th>Identificació</th>` +
+    `<th>Model</th><th>Altitud</th><th>km/h</th><th>Lloc més proper</th><th>Esdeveniment i avís</th></tr></thead>` +
+    `<tbody>${filesHtml}</tbody></table>`;
+}
+
+async function carregaDia(dia) {
+  document.getElementById("taula").innerHTML = '<p class="buit">Carregant…</p>';
+  try {
+    FILES = await json("registre/" + dia + ".json");
+  } catch (e) {
+    FILES = [];
+  }
+  const cats = [...new Set(FILES.map(f => f.clau + "|" + f.categoria))].sort();
+  document.getElementById("categoria").innerHTML = '<option value="">Totes les categories</option>' +
+    cats.map(c => { const [k, n] = c.split("|"); return `<option value="${esc(k)}">${ICONES[k] || ""} ${esc(n.charAt(0) + n.slice(1).toLowerCase())}</option>`; }).join("");
+  pinta();
+}
+
+async function inicia() {
+  const sel = document.getElementById("dia");
+  try {
+    const dies = await json("dies.json");
+    sel.innerHTML = dies.map(d => `<option value="${d}">${dataCa(d)}</option>`).join("");
+    const estat = await json("estat-public.json").catch(() => null);
+    document.getElementById("sub").textContent = estat
+      ? `Actualitzat el ${estat.generat.replace(" ", " a les ")} h · s'actualitza cada 5 minuts`
+      : "S'actualitza cada 5 minuts";
+    sel.onchange = () => carregaDia(sel.value);
+    ["cerca", "categoria", "zona", "comercials"].forEach(id => document.getElementById(id).addEventListener("input", pinta));
+    if (dies.length) carregaDia(dies[0]);
+  } catch (e) {
+    document.getElementById("sub").textContent = "Encara no hi ha registre publicat.";
+    document.getElementById("taula").innerHTML = "";
+  }
+}
+inicia();
+</script>
+</body>
+</html>
