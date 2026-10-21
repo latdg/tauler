@@ -71,6 +71,21 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
   .botons .nom{font-size:.9rem}
   .botons .detall{font-size:.8rem}
 }
+/* AGENDA D'ACTES EN TARGETES (21.10.2026) */
+.agenda{display:grid;gap:20px}
+.ag-data{margin:0 0 8px;font-size:1rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ag-llista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.ag-acte{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.ag-cap{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.88rem}
+.ag-hora{font-weight:700;color:var(--accent);white-space:nowrap}
+.ag-mun{font-weight:600}
+.ag-text{font-size:.95rem;line-height:1.45}
+.ag-avui,.ag-dema{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:2px 9px;border-radius:999px}
+.ag-avui{background:#fde8e6;color:#c0392b}
+.ag-dema{background:#efece6;color:var(--suau)}
+.ag-dia-avui .ag-acte{border-left-color:#e53935}
+@keyframes tdgPulsacioAvui{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.72)}}
+.tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
 </style>
 </head>
 <body>
@@ -167,6 +182,7 @@ async function json(cami) {
 
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
+  [/agenda/i, "Agenda"],
   [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/incendi/i, "Incendis i sequera"],
   [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
@@ -297,6 +313,122 @@ function normalitzaDates(arrel) {
   }
 }
 
+// -----------------------------------------------------------------------------
+// AGENDA D'ACTES (21.10.2026): es llegeix l'apartat «AGENDA…» del resum que es
+// desa a La TdG redacció (mateix domini, latdg.github.io) i es mostra en
+// targetes agrupades per dia. Si el resum del dia encara no hi és, s'agafa el
+// darrer anterior.
+// -----------------------------------------------------------------------------
+const DIES_SETMANA = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"];
+const RX_CAPCALERA = /^\s*(?:\d\uFE0F?\u20E3)+\s*\S/;
+
+async function carregaAgenda(dia) {
+  const cos = document.getElementById("agendaCos");
+  const peu = document.getElementById("agendaPeu");
+  if (!cos) return;
+
+  try {
+    const dies = await json("/redaccio/dades/dies.json");
+    const triat = dies.filter(x => x <= dia).sort().pop();
+    if (!triat) throw new Error("sense resum");
+
+    const r = await fetch(`/redaccio/dades/${triat}/resum.html?v=${Date.now()}`);
+    if (!r.ok) throw new Error(r.status);
+    const doc = new DOMParser().parseFromString(await r.text(), "text/html");
+
+    // Només els nodes que hi ha entre la capçalera «AGENDA…» i la següent.
+    const nodes = [];
+    let dins = false;
+    Array.from(doc.body.childNodes).forEach(n => {
+      const t = (n.textContent || "").trim();
+      if (n.nodeType === 1 && n.tagName === "DIV" && t.length < 200 && RX_CAPCALERA.test(t)) {
+        dins = /^\s*(?:\d\uFE0F?\u20E3)+\s*AGENDA/i.test(t);
+        return;
+      }
+      if (dins && t && !/^Generat per a La TdG/.test(t)) nodes.push(n);
+    });
+    if (!nodes.length) throw new Error("sense agenda");
+
+    cos.innerHTML = "";
+    nodes.forEach(n => cos.appendChild(document.importNode(n, true)));
+    agendaEnTargetes(cos);
+    normalitzaDates(cos);
+
+    const generat = doc.body.getAttribute("data-generat");
+    if (peu && generat) peu.textContent = "Actualitzat el " + quan(generat);
+  } catch (e) {
+    cos.innerHTML = '<p class="buit">Ara mateix no hi ha cap agenda d\'actes publicada.</p>';
+  }
+}
+
+function agendaEnTargetes(cos) {
+  cos.querySelectorAll("table").forEach(taula => {
+    const files = Array.from(taula.rows);
+    if (files.length < 2) return;
+
+    const cap = Array.from(files[0].cells).map(c => c.textContent.trim().toLowerCase());
+    const col = rx => cap.findIndex(t => rx.test(t));
+    const iMun = col(/^municipi/), iData = col(/^data/), iHora = col(/^hora/), iAct = col(/^activitat/);
+    if (iData === -1 || iAct === -1) return;
+
+    const grups = [];
+    files.slice(1).forEach(tr => {
+      const c = tr.cells;
+      if (c.length <= Math.max(iData, iAct)) return;
+      const data = c[iData].textContent.trim();
+      let g = grups[grups.length - 1];
+      if (!g || g.data !== data) { g = { data, actes: [] }; grups.push(g); }
+      g.actes.push({
+        municipi: iMun > -1 && c[iMun] ? c[iMun].textContent.trim() : "",
+        hora: iHora > -1 && c[iHora] ? c[iHora].textContent.trim() : "",
+        act: c[iAct]
+      });
+    });
+    if (!grups.length) return;
+
+    const avui = new Date();
+    avui.setHours(0, 0, 0, 0);
+
+    const agenda = document.createElement("div");
+    agenda.className = "agenda";
+
+    grups.forEach(g => {
+      let titol = g.data, etiqueta = "", esAvui = false;
+      const m = g.data.match(/(\d{1,2})\D(\d{1,2})\D(\d{2,4})/);
+      if (m) {
+        const any = Number(m[3]) < 100 ? 2000 + Number(m[3]) : Number(m[3]);
+        const d = new Date(any, Number(m[2]) - 1, Number(m[1]));
+        const dif = Math.round((d - avui) / 86400000);
+        titol = DIES_SETMANA[d.getDay()] + " " + String(d.getDate()).padStart(2, "0") + "." +
+          String(d.getMonth() + 1).padStart(2, "0") + "." + any;
+        if (dif === 0) { esAvui = true; etiqueta = '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>'; }
+        else if (dif === 1) etiqueta = '<span class="ag-dema">Demà</span>';
+      }
+
+      const dia = document.createElement("div");
+      dia.className = "ag-dia" + (esAvui ? " ag-dia-avui" : "");
+      dia.innerHTML = `<h3 class="ag-data">${esc(titol)} ${etiqueta}</h3><div class="ag-llista"></div>`;
+      const llista = dia.querySelector(".ag-llista");
+
+      g.actes.forEach(x => {
+        const acte = document.createElement("article");
+        acte.className = "ag-acte";
+        acte.innerHTML = '<div class="ag-cap">' +
+          (x.hora ? `<span class="ag-hora">🕒 ${esc(x.hora)}</span>` : "") +
+          (x.municipi ? `<span class="ag-mun">📍 ${esc(x.municipi)}</span>` : "") +
+          '</div><div class="ag-text"></div>';
+        const text = acte.querySelector(".ag-text");
+        Array.from(x.act.childNodes).forEach(n => text.appendChild(n));
+        llista.appendChild(acte);
+      });
+
+      agenda.appendChild(dia);
+    });
+
+    taula.replaceWith(agenda);
+  });
+}
+  
 function pinta(d) {
   const b = d.blocs || {};
     ACTUALITZAT = d.generat || "";
@@ -304,6 +436,11 @@ function pinta(d) {
   document.getElementById("sub").textContent = "";
   let h = "";
 
+  // 0. 📅 AGENDA D'ACTES (21.10.2026): el contingut arriba després (carregaAgenda).
+  h += seccio("📅 Agenda d'actes per a la pròxima setmana",
+    '<p class="font dalt" id="agendaPeu"></p><div id="agendaCos"><p class="buit">Carregant…</p></div>',
+    "", false);
+  
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
   h += seccio("🚦 Trànsit",
     `<h3>Càmera: ${esc(CAMERA_TRANSIT.nom)}</h3>` +
