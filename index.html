@@ -470,7 +470,9 @@ function pinta(d) {
 
     // 5. 🌊 RIU DARÓ
   if (b.riu) h += seccio("🌊 Riu Daró",
-    `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : ""),
+    `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : "") +
+    // 21.10.2026: enllaç al registre hora a hora.
+    '<p class="font"><a href="riu/">Registre del riu hora a hora (cabal i nivell de cada dia)</a></p>',
     "Agència Catalana de l'Aigua");
 
   // 5 bis. 💧 PIEZÒMETRES (després del riu Daró)

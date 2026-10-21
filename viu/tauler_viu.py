@@ -376,7 +376,7 @@ def data_aca(t):
 
 def riu():
     fi = dt.datetime.now(dt.timezone.utc)
-    inici = fi - dt.timedelta(hours=13)
+    inici = fi - dt.timedelta(hours=26)   # 21.10.2026: 26 h, perquè el registre horari no perdi cap hora
     formata = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
     r = requests.get(RIU_URL, params={"from": formata(inici), "to": formata(fi)},
                      headers=CAPCALERES, timeout=60)
@@ -406,7 +406,7 @@ def riu():
             h = moment.replace(minute=0, second=0, microsecond=0)
             hores.setdefault(h, {"cabal": [], "nivell": []})[clau].append(valor)
     mitjana = lambda v: round(sum(v) / len(v), 3) if v else None
-    ordenades = sorted(hores, reverse=True)[:12]
+    ordenades = sorted(hores, reverse=True)[:12]   # el tauler continua mostrant les 12 darreres
     llista_hores = [{"hora": h.strftime("%H.00 h"),
                      "cabal": mitjana(hores[h]["cabal"]),
                      "nivell": mitjana(hores[h]["nivell"])} for h in ordenades]
@@ -423,7 +423,15 @@ def riu():
         trossos.append(f"un nivell de {coma(cm, 0) if cm == int(cm) else coma(cm, 1)} cm ({coma(cm / 100, 2)} m)")
     text = f"{quan} el riu Daró porta {' i '.join(trossos)}."
 
-    return {"text": text, "hores": llista_hores}
+    # 21.10.2026: totes les hores amb lectures (mitjana i màxim), per al registre
+    # horari del riu (dades/riu/AAAA-MM-DD.json). No va al tauler.
+    maxim = lambda v: round(max(v), 3) if v else None
+    historic = [{"dia": h.strftime("%Y-%m-%d"), "hora": h.strftime("%H.00"),
+                 "cabal": mitjana(hores[h]["cabal"]), "cabalMax": maxim(hores[h]["cabal"]),
+                 "nivell": mitjana(hores[h]["nivell"]), "nivellMax": maxim(hores[h]["nivell"]),
+                 "lectures": max(len(hores[h]["cabal"]), len(hores[h]["nivell"]))} for h in sorted(hores)]
+
+    return {"text": text, "hores": llista_hores, "_historic": historic}
 
 
 # -----------------------------------------------------------------------------
@@ -817,6 +825,20 @@ def fusiona():
     memoria = llegeix(MEMORIA, {})
     blocs_vius = memoria.get("blocs") or {}
     dies = memoria.get("dies") or {}
+    # Registre horari del riu: un fitxer per dia, s'hi afegeixen o s'actualitzen les hores.
+    if isinstance(vius.get("riu"), dict) and vius["riu"].get("_historic"):
+        per_dia = {}
+        for h in vius["riu"].pop("_historic"):
+            per_dia.setdefault(h.pop("dia"), []).append(h)
+        for d, noves in per_dia.items():
+            cami = DADES / "riu" / f"{d}.json"
+            registre = {x["hora"]: x for x in llegeix(cami, [])}
+            registre.update({x["hora"]: x for x in noves})
+            escriu(cami, [registre[k] for k in sorted(registre)])
+        cami_dies = DADES / "riu" / "dies.json"
+        llista = sorted(set(llegeix(cami_dies, [])) | set(per_dia), reverse=True)[:400]
+        escriu(cami_dies, llista)
+
     for nom, valor in vius.items():
         blocs_vius[nom] = valor
         dies[nom] = dia
