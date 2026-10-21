@@ -861,6 +861,10 @@ def fusiona():
         "generat": moment.strftime("%d.%m.%Y a les %H.%M h"),
         "blocs": blocs,
     }
+    # 21.10.2026: es conserva quan l'Apps Script va consultar cada bloc de webs
+    # (publicarTaulerTdG decideix així si li toca tornar-lo a consultar).
+    if base.get("actualitzat"):
+        dades["actualitzat"] = base["actualitzat"]
     escriu(DADES / f"{dia}.json", dades)
     escriu(DADES / "darrer.json", dades)
 
