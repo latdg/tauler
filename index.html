@@ -498,7 +498,7 @@ function pinta(d) {
       `<th style="text-align:center">Darrera mesura</th><th style="text-align:center">Nivell (s.n.m.)</th>` +
       `<th style="text-align:center">Fondària de l'aigua</th><th style="text-align:center">Respecte a l'anterior</th>` +
       `<th style="text-align:center">Respecte a fa un any</th></tr></thead><tbody>${files}</tbody></table></div>` +
-      `<p class="font">Piezòmetres a menys de ${p.radi} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p>`,
+      `<p class="font">Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p>`,
       "Agència Catalana de l'Aigua (Dades Obertes de Catalunya)");
   }
 
