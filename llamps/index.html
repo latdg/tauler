@@ -59,14 +59,10 @@ pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);bo
       <button id="boto">Revisar</button>
     </div>
     <p id="estat"></p>
-    <details><summary class="font">Configuració</summary>
-      <div class="fila" style="margin-top:8px">
-        <input id="worker" placeholder="Adreça del Worker (https://latdg-llamps....workers.dev)" size="50">
-        <label class="check"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
-        <button id="desa" type="button">Desa</button>
-        <button id="oblida" type="button">Oblida aquest navegador</button>
-      </div>
-    </details>
+    <div class="fila" style="margin-top:8px">
+      <label class="check"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
+      <button id="oblida" type="button">Oblida aquest navegador</button>
+    </div>
     </div>
   </section>
 
@@ -83,6 +79,8 @@ pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);bo
 </main>
 <script>
 const BASE = "https://raw.githubusercontent.com/latdg/bots/llamps-dades/";
+// CANVI 21.10.2026: adreça del Worker fixada (sense la clau no serveix de res).
+const WORKER_LLAMPS = "https://latdg-llamps.ignasicorney.workers.dev";
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const llegeix = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
 const escriu = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
@@ -143,7 +141,6 @@ function iniciaGestio() {
   const obre = () => {
     form.hidden = false;
     document.getElementById("entrada").hidden = true;
-    if (!document.getElementById("worker").value) document.querySelector("#gestio details").open = true;
     document.getElementById("pin").focus();
   };
   document.getElementById("obre").onclick = obre;
@@ -151,14 +148,9 @@ function iniciaGestio() {
   if (location.hash === "#gestio" || llegeix("llampsPin")) setTimeout(obre, 0);
   const h = document.getElementById("hores");
   h.innerHTML = [1, 2, 3, 4, 6, 8, 12, 18, 24].map(n => `<option value="${n}"${n === 6 ? " selected" : ""}>${n} h (${n} consult${n === 1 ? "a" : "es"})</option>`).join("");
-  document.getElementById("worker").value = llegeix("llampsWorker");
   document.getElementById("pin").value = llegeix("llampsPin");
   document.getElementById("recorda").checked = !!llegeix("llampsPin");
-  document.getElementById("desa").onclick = () => {
-    escriu("llampsWorker", document.getElementById("worker").value.trim());
-    escriu("llampsPin", document.getElementById("recorda").checked ? document.getElementById("pin").value : "");
-    document.getElementById("estat").textContent = "Desat en aquest navegador.";
-  };
+
   document.getElementById("oblida").onclick = () => {
     escriu("llampsWorker", ""); escriu("llampsPin", "");
     document.getElementById("pin").value = "";
@@ -168,21 +160,19 @@ function iniciaGestio() {
 }
 
 async function demana() {
-  const worker = document.getElementById("worker").value.trim() || llegeix("llampsWorker");
+  const worker = WORKER_LLAMPS;
   const pin = document.getElementById("pin").value;
   const hores = Number(document.getElementById("hores").value);
   const estat = document.getElementById("estat");
   const boto = document.getElementById("boto");
-  if (!worker) { estat.textContent = "Primer posa l'adreça del Worker a «Configuració» i desa-la."; document.querySelector("#gestio details").open = true; return; }
   if (!pin) { estat.textContent = "Escriu la clau."; document.getElementById("pin").focus(); return; }
-  if (document.getElementById("worker").value.trim()) escriu("llampsWorker", document.getElementById("worker").value.trim());
   boto.disabled = true;
   estat.textContent = "Enviant la petició…";
   try {
     const r = await fetch(worker, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin, hores }) });
     const d = await r.json();
     if (!d.ok) throw new Error(r.status === 401 || r.status === 403 ? "La clau no és correcta." : (d.error || ("HTTP " + r.status)));
-    if (document.getElementById("recorda").checked) escriu("llampsPin", pin);
+    escriu("llampsPin", document.getElementById("recorda").checked ? pin : "");
     estat.textContent = `Petició feta (${d.hores} h). El resultat arriba en menys de 5 minuts…`;
     const inici = Date.now();
     const espera = setInterval(async () => {
@@ -200,7 +190,7 @@ async function demana() {
     }, 20000);
   } catch (e) {
     boto.disabled = false;
-    estat.textContent = "❌ " + e.message;
+    estat.textContent = "❌ " + (e instanceof TypeError ? "No s'ha pogut connectar amb el Worker (latdg-llamps). No s'ha gastat cap consulta." : e.message);
   }
 }
 
