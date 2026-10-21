@@ -28,6 +28,7 @@ import json
 import math
 import re
 import sys
+import time
 import unicodedata
 import xml.etree.ElementTree as ET
 import datetime as dt
@@ -993,15 +994,22 @@ def recarrega_osm():
         q = (f'[out:json][timeout:90];area["ine:municipio"="{mun["ine"]}"]->.a;'
              'nwr["amenity"="charging_station"](area.a);out center tags;')
         dades = None
-        for url in OVERPASS:
-            try:
-                r = requests.get(url, params={"data": q}, headers={"User-Agent": CAPCALERES["User-Agent"]}, timeout=150)
-                if r.ok and r.text.lstrip().startswith("{"):
-                    dades = r.json()
-                    break
-            except Exception:
-                continue
+        # El servidor d'Overpass sovint va saturat (502): es reintenta amb esperes creixents.
+        for espera in (0, 15, 45, 90):
+            time.sleep(espera)
+            for url in OVERPASS:
+                try:
+                    r = requests.get(url, params={"data": q}, headers={"User-Agent": CAPCALERES["User-Agent"]}, timeout=150)
+                    if r.ok and r.text.lstrip().startswith("{"):
+                        dades = r.json()
+                        break
+                except Exception:
+                    continue
+            if dades is not None:
+                break
         if dades is None:
+            global RECARREGA_NAP_FALLAT
+            RECARREGA_NAP_FALLAT = True     # es tornarà a provar l'endemà
             print(f"⚠️ recàrrega: OpenStreetMap no respon ({mun['nom']})", file=sys.stderr)
             continue
         for e in dades.get("elements", []):
