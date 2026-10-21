@@ -808,9 +808,17 @@ def pollen():
             if prev is not None and tendencia.get((prev.text or "").strip()):
                 text += f" (tendència: {tendencia[prev.text.strip()].lower()})"
             linies.append(text)
+    # 21.10.2026: es diu de quina setmana és la previsió.
+    def dma(iso):
+        try:
+            return dt.date.fromisoformat(iso).strftime("%d.%m.%Y")
+        except ValueError:
+            return ""
+    inici, fi = dma(POLLEN_SETMANA), dma((report.findtext("date/end") or "").strip())
+    cap = f"Previsió per a la setmana del {inici} al {fi}: " if inici and fi else ""
     if not linies:
-        return "nivells nuls a totes les categories mesurades aquesta setmana"
-    return ", ".join(linies)
+        return cap + "nivells nuls a totes les categories mesurades"
+    return cap + ", ".join(linies) + "."
 
 
 # -----------------------------------------------------------------------------
