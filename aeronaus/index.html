@@ -66,6 +66,13 @@ const COLORS = {
 };
 const ICONES = { sanitari: "🚑", extincio: "🚒", seguretat: "🚓", salvament: "🛟", militar: "🎖️", estat: "🏛️", dron: "🛸",
   jet: "💼", treballs: "📷", helicopter: "🚁", vol_lliure: "🪂", general: "🛩️", desconegut: "❓", comercial: "✈️" };
+const CATEGORIES = [
+  ["sanitari", "Aeronau sanitària"], ["extincio", "Mitjà aeri d'extinció"], ["seguretat", "Policia, trànsit o seguretat"],
+  ["salvament", "Salvament marítim"], ["militar", "Aeronau militar"], ["estat", "Aeronau militar o d'estat"],
+  ["helicopter", "Helicòpter (servei sense identificar)"], ["dron", "Dron"], ["treballs", "Treballs aeris"],
+  ["jet", "Jet privat o aerotaxi"], ["general", "Avioneta (aviació general)"], ["vol_lliure", "Planador, ultralleuger o globus"],
+  ["desconegut", "Aeronau sense identificar"], ["comercial", "Vol comercial"]
+];
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
 const dataCa = iso => iso.split("-").reverse().join(".");
@@ -130,9 +137,12 @@ async function carregaDia(dia) {
   } catch (e) {
     FILES = [];
   }
-  const cats = [...new Set(FILES.map(f => f.clau + "|" + f.categoria))].sort();
-  document.getElementById("categoria").innerHTML = '<option value="">Totes les categories</option>' +
-    cats.map(c => { const [k, n] = c.split("|"); return `<option value="${esc(k)}">${ICONES[k] || ""} ${esc(n.charAt(0) + n.slice(1).toLowerCase())}</option>`; }).join("");
+  // 21.10.2026: sempre totes les categories, amb el nombre de passos del dia.
+  const sel = document.getElementById("categoria");
+  const triada = sel.value;
+  sel.innerHTML = `<option value="">Totes les categories (${FILES.length})</option>` +
+    CATEGORIES.map(([k, n]) => `<option value="${k}">${ICONES[k]} ${esc(n)} (${FILES.filter(f => f.clau === k).length})</option>`).join("");
+  sel.value = triada;
   pinta();
 }
 
