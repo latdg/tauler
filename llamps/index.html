@@ -94,7 +94,7 @@ async function json(cami) {
 
 function pinta(d) {
   const zona = d.llamps.filter(l => l.km <= 10);
-  document.getElementById("sub").textContent = `Revisió del ${quan(d.generat)} · ${d.hores} h enrere · consultes de l'XDDE aquest mes: ${d.consultesDespres ?? "?"} de ${d.maxim}`;
+  document.getElementById("sub").textContent = `Revisió del ${quan(d.generat)} · ${d.hores} h enrere;
   document.getElementById("xifres").innerHTML =
     `<div class="xifra"><b>${zona.length}</b><span>a menys de 10 km</span></div>` +
     `<div class="xifra"><b>${d.llamps.filter(l => l.km <= 30).length}</b><span>a menys de 30 km</span></div>` +
