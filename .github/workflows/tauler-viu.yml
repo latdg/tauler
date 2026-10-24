@@ -46,7 +46,8 @@ jobs:
               git reset -q --hard origin/main
               python viu/tauler_viu.py fusiona
               python esports/esports.py || true      # esports (24.10.2026)
-              git add dades
+              python viu/tv.py || true               # tv.json per a la TV (24.10.2026)
+              git add dades tv.json
               if git diff --cached --quiet; then echo "Sense canvis"; break; fi
               git commit -qm "Tauler en directe ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
               git push -q origin HEAD:main && break
