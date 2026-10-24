@@ -13,7 +13,10 @@
      "localVisitant": "Local",
      "rival": "CB Benicarló",
      "resultat": "66 - 62",
-     "camp": "Girona-Fontajau"
+     "estat": "",
+     "camp": "Girona-Fontajau",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "esco0uuuhv",
@@ -26,8 +29,9 @@
      "rival": "CB Prat",
      "resultat": "",
      "estat": "Ajornat",
+     "camp": "Sant Feliu de Llobregat",
      "nota": "27-41 AJORNAT",
-     "camp": "Sant Feliu de Llobregat"
+     "substitueix": ""
     },
     {
      "id": "truhyeq6xe",
@@ -39,7 +43,10 @@
      "localVisitant": "Local",
      "rival": "Amics Castelló",
      "resultat": "68 - 66",
-     "camp": "Mollet del Vallès"
+     "estat": "",
+     "camp": "Mollet del Vallès",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "y44ua022n2",
@@ -51,7 +58,10 @@
      "localVisitant": "Visitant",
      "rival": "CB Prat",
      "resultat": "79 - 71",
-     "camp": "El Prat de Llobregat"
+     "estat": "",
+     "camp": "El Prat de Llobregat",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "tv7wa6uqbx",
@@ -63,80 +73,129 @@
      "localVisitant": "Local",
      "rival": "Insolac Caja 87",
      "resultat": "61 - 76",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)"
+     "estat": "",
+     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "nota": "",
+     "substitueix": ""
     }
-   ]
+   ],
+   "classificacio": []
   },
   "sol_girones_sots25": {
    "partits": [
     {
      "id": "zbkug3jpji",
+     "competicio": "",
+     "grup": "",
      "jornada": "3",
      "data": "2026-10-10",
      "hora": "16:00",
      "localVisitant": "Visitant",
      "rival": "CB SARRIÀ DE TER",
      "resultat": "66 - 51",
-     "camp": "PAVELLO MUNICIPAL DE SARRIÀ DE TER"
+     "estat": "",
+     "camp": "PAVELLO MUNICIPAL DE SARRIÀ DE TER",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "2900ebm0kq",
+     "competicio": "",
+     "grup": "",
      "jornada": "4",
      "data": "2026-10-17",
      "hora": "20:15",
      "localVisitant": "Local",
      "rival": "AE FORNELLS",
      "resultat": "62 - 43",
-     "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA"
+     "estat": "",
+     "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "m7bmnx5bj3",
+     "competicio": "",
+     "grup": "",
      "jornada": "5",
      "data": "2026-10-23",
      "hora": "20:00",
      "localVisitant": "Visitant",
      "rival": "C.B. FONTCOBERTA",
      "resultat": "81 - 64",
-     "camp": "PAVELLO MUNICIPAL FONTCOBERTA"
+     "estat": "",
+     "camp": "PAVELLO MUNICIPAL FONTCOBERTA",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "p43l9k4ue5",
+     "competicio": "",
+     "grup": "",
      "jornada": "2",
      "data": "2026-10-31",
      "hora": "19:30",
      "localVisitant": "Visitant",
      "rival": "CBU LLORET RECREATIVOS",
      "resultat": "",
-     "camp": "PAVELLO MUNICIPAL EL MOLI DE LLORET DE MAR"
+     "estat": "",
+     "camp": "PAVELLO MUNICIPAL EL MOLI DE LLORET DE MAR",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "w38drx3zyv",
+     "competicio": "",
+     "grup": "",
      "jornada": "6",
      "data": "2026-11-07",
      "hora": "17:45",
      "localVisitant": "Local",
      "rival": "BC MAÇANET",
      "resultat": "",
-     "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA"
+     "estat": "",
+     "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA",
+     "nota": "",
+     "substitueix": ""
     },
     {
      "id": "tzeult1j9j",
+     "competicio": "",
+     "grup": "",
      "jornada": "1",
      "data": "2026-12-11",
      "hora": "20:30",
      "localVisitant": "Visitant",
      "rival": "UNIÓ MARISTES GIRONA",
      "resultat": "",
-     "camp": "PAVELLO MARISTES DE GIRONA"
+     "estat": "",
+     "camp": "PAVELLO MARISTES DE GIRONA",
+     "nota": "",
+     "substitueix": ""
+    },
+    {
+     "id": "lq2jvn0a26",
+     "competicio": "",
+     "grup": "",
+     "jornada": "7",
+     "data": "2026-11-14",
+     "hora": "17:45",
+     "localVisitant": "Visitant",
+     "rival": "CB VALL D’EN BAS SUB25",
+     "resultat": "",
+     "estat": "",
+     "camp": "CENTRE ESPORTIU D'EN BAS",
+     "nota": "",
+     "substitueix": ""
     }
    ],
-   "classificacioActualitzada": "2026-10-24T11:22:00+02:00",
    "classificacio": [
     {
      "pos": 1,
      "equip": "CB BANYOLES",
      "pj": 4,
      "pg": 4,
+     "pe": 0,
      "pp": 0,
      "pf": 352,
      "pc": 151,
@@ -147,6 +206,7 @@
      "equip": "UNIÓ MARISTES GIRONA",
      "pj": 3,
      "pg": 3,
+     "pe": 0,
      "pp": 0,
      "pf": 187,
      "pc": 130,
@@ -157,6 +217,7 @@
      "equip": "CB VALL D'EN BAS SUB25",
      "pj": 3,
      "pg": 3,
+     "pe": 0,
      "pp": 0,
      "pf": 182,
      "pc": 126,
@@ -167,6 +228,7 @@
      "equip": "SOL GIRONÈS BISBAL BÀSQUET",
      "pj": 3,
      "pg": 3,
+     "pe": 0,
      "pp": 0,
      "pf": 209,
      "pc": 158,
@@ -177,6 +239,7 @@
      "equip": "CBU LLORET RECREATIVOS LLORET",
      "pj": 3,
      "pg": 2,
+     "pe": 0,
      "pp": 1,
      "pf": 183,
      "pc": 147,
@@ -187,6 +250,7 @@
      "equip": "AE FORNELLS",
      "pj": 4,
      "pg": 1,
+     "pe": 0,
      "pp": 3,
      "pf": 170,
      "pc": 194,
@@ -197,6 +261,7 @@
      "equip": "BC MAÇANET",
      "pj": 3,
      "pg": 2,
+     "pe": 0,
      "pp": 1,
      "pf": 169,
      "pc": 200,
@@ -207,6 +272,7 @@
      "equip": "CB SARRIÀ DE TER",
      "pj": 3,
      "pg": 1,
+     "pe": 0,
      "pp": 2,
      "pf": 179,
      "pc": 168,
@@ -217,6 +283,7 @@
      "equip": "CB VILOBÍ",
      "pj": 3,
      "pg": 1,
+     "pe": 0,
      "pp": 2,
      "pf": 136,
      "pc": 150,
@@ -227,6 +294,7 @@
      "equip": "C.B. FONTCOBERTA",
      "pj": 4,
      "pg": 0,
+     "pe": 0,
      "pp": 4,
      "pf": 166,
      "pc": 269,
@@ -237,6 +305,7 @@
      "equip": "CB.ROSES",
      "pj": 3,
      "pg": 0,
+     "pe": 0,
      "pp": 3,
      "pf": 112,
      "pc": 208,
@@ -247,6 +316,7 @@
      "equip": "CE CALDES U25F",
      "pj": 2,
      "pg": 0,
+     "pe": 0,
      "pp": 2,
      "pf": 88,
      "pc": 143,
@@ -257,12 +327,14 @@
      "equip": "CB GRIFEU LLANÇÀ U 25",
      "pj": 2,
      "pg": 0,
+     "pe": 0,
      "pp": 2,
      "pf": 58,
      "pc": 147,
      "punts": 2
     }
-   ]
+   ],
+   "classificacioActualitzada": "2026-10-24T11:22:00+02:00"
   }
  }
 }
