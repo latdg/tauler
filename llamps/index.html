@@ -207,7 +207,8 @@ function pintaMapa(d) {
   const tram = t => Math.max(0, Math.min(COLORS.length - 1, Math.floor((t - inici) / (fi - inici) * COLORS.length)));
   llista.sort((a, b) => a.t - b.t).forEach(l => {
     const tipus = !l.nt ? "nn" : (Number(l.kA) < 0 ? "neg" : "pos");
-    const hora = new Date(l.t).toLocaleString("ca-ES", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" }).replace(/\//g, ".");
+    const dl = new Date(l.t), z2 = n => String(n).padStart(2, "0");
+    const hora = z2(dl.getDate()) + "." + z2(dl.getMonth() + 1) + "." + dl.getFullYear() + " " + z2(dl.getHours()) + "." + z2(dl.getMinutes()) + "." + z2(dl.getSeconds()) + " h";
     L.marker([l.lat, l.lon], { icon: iconaLlamp(COLORS[tram(l.t)], tipus), keyboard: false })
       .bindTooltip(`${hora} · ${l.nt ? "núvol-terra" : "núvol-núvol"}${l.kA !== null && l.kA !== undefined ? " · " + l.kA + " kA" : ""}`)
       .addTo(CAPA);
@@ -309,5 +310,6 @@ iniciaMapa();
 llistaRevisions();
 carrega();
 </script>
+<script src="../dates-ca.js?v=1"></script>
 </body>
 </html>
