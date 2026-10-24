@@ -7,5 +7,5 @@ jobs:
       - run: |
           for g in 58161891 58161893 58162320; do
             c=$(curl -s -o /tmp/r.json -w "%{http_code}" -A "Mozilla/5.0" "https://www.fcf.cat/api/competition/classificacio?grupId=$g")
-            echo "grup $g -> HTTP $c, $(wc -c </tmp/r.json) bytes, $(head -c 80 /tmp/r.json)"
+            echo "::notice::grup $g -> HTTP $c, $(wc -c </tmp/r.json) bytes, $(head -c 60 /tmp/r.json | tr -d '\n')"
           done
