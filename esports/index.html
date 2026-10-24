@@ -177,10 +177,19 @@ function pinta() {
   const llista = filtre => eqs.flatMap(e => e.partits.filter(filtre).map(p => [e, p]))
     .sort((a, b) => ((a[1].data || "") + (a[1].hora || "")).localeCompare((b[1].data || "") + (b[1].hora || "")));
 
+  // 24.10.2026: amb un sol equip, els partits de la lliga van per número de
+  // jornada (un partit ajornat surt al lloc de la seva jornada); els d'altres
+  // competicions (Copa, amistosos…), després, per data.
+  const perJornada = (files, desc) => tots ? files : files.slice().sort((a, b) => {
+    const la = a[1].competicio === a[0].competicio && +a[1].jornada, lb = b[1].competicio === b[0].competicio && +b[1].jornada;
+    if (la && lb) return desc ? lb - la : la - lb;
+    if (la || lb) return la ? -1 : 1;
+    return 0;   // es manté l'ordre per data
+  });
   if (VISTA === "propers") {
-    h = taulaPartits(llista(p => p.data && p.data >= avui && !p.resultat && !/descans/i.test(p.rival)).slice(0, tots ? 40 : 200), tots);
+    h = taulaPartits(perJornada(llista(p => p.data && p.data >= avui && !p.resultat && !/descans/i.test(p.rival)).slice(0, tots ? 40 : 200), false), tots);
   } else if (VISTA === "resultats") {
-    h = taulaPartits(llista(p => p.resultat || (p.data && p.data < avui && !/descans/i.test(p.rival))).reverse(), tots);
+    h = taulaPartits(perJornada(llista(p => p.resultat || (p.data && p.data < avui && !/descans/i.test(p.rival))).reverse(), true), tots);
   } else if (VISTA === "jornades") {
     const jornades = Array.from(new Set(eqs.flatMap(e => e.partits.map(p => p.jornada).filter(Boolean)))).sort((a, b) => (+a || 999) - (+b || 999));
     const sel = $("jornada");
