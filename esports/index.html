@@ -91,6 +91,14 @@ tr.avui td{background:#fdf3ef}
       <p class="font">Al llistat de partits, ✏️ edita (o corregeix un partit de la federació) i 🗑️ esborra un partit entrat a mà.
         Els canvis surten a tot arreu (tauler, guió i avisador) en 1 o 2 minuts.</p>
       <div id="edcls"></div>
+      <div id="fcbq">
+        <h3>📄 Sots-25: pujar la pàgina de la Federació Catalana de Basquetbol</h3>
+        <p class="font">Obre al navegador la pàgina de <b>resultats del grup</b> (la que té «Última jornada jugada» i la classificació)
+          o el <b>calendari de l'equip</b>, desa-la amb Ctrl+S («Pàgina web, només HTML») i tria-la aquí. S'hi llegeixen el resultat
+          del Sol Gironès, la classificació i els canvis de data i hora. Abans de desar, veuràs què canvia.</p>
+        <div class="fila"><input type="file" id="fFcbq" accept=".html,.htm,text/html"></div>
+        <div id="fcbqResum"></div>
+      </div>
     </div>
     <p id="estat"></p>
   </section>
@@ -367,6 +375,116 @@ function pintaEdicioClassificacio() {
   };
   $("clsCos").onclick = ev => { if (ev.target.closest("[data-treu-cls]")) ev.target.closest("tr").remove(); };
 }
+
+// -----------------------------------------------------------------------------
+// PÀGINA DE LA FEDERACIÓ CATALANA DE BASQUETBOL (24.10.2026). La web bloqueja
+// GitHub, Google i Cloudflare, però l'Ignasi la pot desar des del navegador i
+// pujar-la aquí. Se'n llegeix (al navegador mateix):
+//   · resultats del grup: la jornada jugada (resultat del Sol Gironès), la
+//     classificació i la jornada següent (data i hora);
+//   · calendari de l'equip: data, hora i camp de tots els partits.
+// -----------------------------------------------------------------------------
+const FCBQ_EQUIP = "sol_girones_sots25";
+const esNostre = t => /SOL GIRON/i.test(t || "");
+const normNom = t => String(t || "").toUpperCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+const dataFcbq = t => { const m = String(t || "").match(/(\d{2})[-\/](\d{2})[-\/](\d{4})(?:\s+(\d{1,2}):(\d{2}))?/); return m ? { data: `${m[3]}-${m[2]}-${m[1]}`, hora: m[4] ? m[4].padStart(2, "0") + ":" + m[5] : "" } : null; };
+const netText = el => (el ? el.textContent : "").replace(/\s+/g, " ").trim();
+
+function llegeixPaginaFcbq(text) {
+  const doc = new DOMParser().parseFromString(text, "text/html");
+  const r = { jornada: "", partits: [], classificacio: [], calendari: [] };
+  // Resultats del grup: «Jornada 5 (Última jornada jugada)».
+  const nav = Array.from(doc.querySelectorAll("div")).find(d => /^Jornada\s+\d+\s*\(Última jornada jugada\)$/i.test(netText(d)));
+  if (nav) r.jornada = netText(nav).match(/\d+/)[0];
+  const llegeixFiles = (contenidor, jornada) => Array.from(contenidor.querySelectorAll(".row.rowJornada, div.rowJornada.row")).forEach(f => {
+    const noms = f.querySelectorAll("a.teamNameLink");
+    if (noms.length < 2) return;
+    const local = netText(noms[0]), visitant = netText(noms[1]);
+    if (!esNostre(local) && !esNostre(visitant)) return;
+    const quan = dataFcbq(netText(f.querySelector("[id^=time]")) || netText(f));
+    const marcador = f.querySelector(".fs-38");
+    let pl = "", pv = "";
+    if (marcador) { const c = marcador.querySelectorAll(":scope > div"); pl = netText(c[0]).replace(/\D/g, ""); pv = netText(c[c.length - 1]).replace(/\D/g, ""); }
+    const casa = esNostre(local);
+    r.partits.push({ jornada, local, visitant, casa, rival: casa ? visitant : local, ...(quan || {}),
+      resultat: pl && pv ? (casa ? pl + " - " + pv : pv + " - " + pl) : "" });
+  });
+  if (r.jornada) {
+    const actual = doc.querySelector(".rowsJornada");
+    if (actual) llegeixFiles(actual, r.jornada);
+    const seg = doc.querySelector("#nexround");
+    if (seg) llegeixFiles(seg, String(+r.jornada + 1));
+    doc.querySelectorAll(".numRanking").forEach(n => {
+      const fila = n.closest("#fila") || n.closest(".row");
+      const nums = Array.from(fila.querySelectorAll(".textRanking")).map(netText).filter(x => /^\d+$/.test(x));
+      const equip = netText(n.parentElement.querySelector("a"));
+      if (nums.length < 7 || !equip) return;
+      const [pj, pg, pp, np, pf, pc, punts] = nums.map(Number);
+      r.classificacio.push({ pos: Number(netText(n)), equip, pj, pg, pe: 0, pp, pf, pc, punts });
+    });
+  }
+  // Calendari de l'equip: taula amb data, hora, local, visitant, competició i camp.
+  doc.querySelectorAll("tr").forEach(tr => {
+    const c = Array.from(tr.querySelectorAll("td")).map(netText);
+    if (c.length < 6 || !/SOTS-25/i.test(c[4] || "") || !dataFcbq(c[0])) return;
+    const casa = esNostre(c[2]);
+    r.calendari.push({ ...dataFcbq(c[0] + " " + c[1]), local: c[2], visitant: c[3], casa, rival: casa ? c[3] : c[2], camp: c[5] });
+  });
+  return r;
+}
+
+function aplicaFcbq(r) {
+  const m = manualDe(FCBQ_EQUIP);
+  const canvis = [];
+  const desc = p => `J${p.jornada || "?"} ${p.localVisitant === "Local" ? "vs" : "a"} ${p.rival}`;
+  const posa = (p, camp, valor, etiqueta) => {
+    if (valor && String(p[camp] || "") !== valor) { canvis.push(`${desc(p)}: ${etiqueta} ${p[camp] || "—"} → ${valor}`); p[camp] = valor; }
+  };
+  // 1. Partits de la jornada jugada i de la següent (per número de jornada).
+  r.partits.forEach(x => {
+    let p = m.partits.find(y => y.jornada === x.jornada && !y.substitueix);
+    if (!p) {
+      p = { id: nouId(), competicio: "", grup: "", jornada: x.jornada, data: x.data, hora: x.hora, localVisitant: x.casa ? "Local" : "Visitant",
+        rival: x.rival, resultat: "", estat: "", camp: "", nota: "", substitueix: "" };
+      m.partits.push(p);
+      canvis.push(`${desc(p)}: partit nou`);
+    }
+    posa(p, "data", x.data, "data"); posa(p, "hora", x.hora, "hora"); posa(p, "resultat", x.resultat, "resultat");
+  });
+  // 2. Calendari: cada rival hi surt un cop a casa i un cop a fora.
+  r.calendari.forEach(x => {
+    const p = m.partits.find(y => !y.substitueix && (y.localVisitant === "Local") === x.casa && normNom(x.rival).startsWith(normNom(y.rival).slice(0, 12)));
+    if (!p) return;
+    posa(p, "data", x.data, "data"); posa(p, "hora", x.hora, "hora");
+  });
+  // 3. Classificació.
+  if (r.classificacio.length) {
+    const abans = JSON.stringify((m.classificacio || []).map(f => [f.pos, f.equip, +f.pj, +f.punts]));
+    const ara = JSON.stringify(r.classificacio.map(f => [f.pos, f.equip, f.pj, f.punts]));
+    if (abans !== ara) { m.classificacio = r.classificacio; canvis.push(`Classificació a la jornada ${r.jornada} (${r.classificacio.length} equips)`); }
+    m.classificacioActualitzada = new Date().toISOString();
+  }
+  m.partits.sort((a, b) => (a.data || "").localeCompare(b.data || ""));
+  return canvis;
+}
+
+$("fFcbq").onchange = async ev => {
+  const f = ev.target.files[0];
+  if (!f) return;
+  const r = llegeixPaginaFcbq(await f.text());
+  const caixa = $("fcbqResum");
+  if (!r.partits.length && !r.classificacio.length && !r.calendari.length) {
+    caixa.innerHTML = '<p class="buit">No hi he trobat ni resultats, ni classificació, ni calendari del sots-25. Comprova que sigui la pàgina de la Federació Catalana de Basquetbol.</p>';
+    return;
+  }
+  const copia = JSON.parse(JSON.stringify(MANUAL));
+  const canvis = aplicaFcbq(r);
+  if (!canvis.length) { MANUAL = copia; caixa.innerHTML = '<p class="font">✅ Tot coincideix: no hi ha res a canviar.</p>'; ev.target.value = ""; return; }
+  caixa.innerHTML = `<p class="font">${r.jornada ? "Resultats de la jornada " + esc(r.jornada) + ". " : ""}${r.calendari.length ? "Calendari de " + r.calendari.length + " partits. " : ""}Canvis:</p>` +
+    `<ul>${canvis.map(c => `<li>${esc(c)}</li>`).join("")}</ul><div class="fila"><button type="button" id="fcbqDesa">Desa aquests canvis</button><button type="button" class="suau" id="fcbqNo">Descarta</button></div>`;
+  $("fcbqNo").onclick = () => { MANUAL = copia; caixa.innerHTML = ""; ev.target.value = ""; };
+  $("fcbqDesa").onclick = async () => { caixa.innerHTML = ""; ev.target.value = ""; await desa("Pàgina de la Federació aplicada (" + canvis.length + " canvis)."); };
+};
 
 // ---------------- Esdeveniments ----------------
 $("xips").onclick = ev => { const b = ev.target.closest("button[data-e]"); if (!b) return; EQUIP = b.dataset.e; pintaXips(); pinta(); if (PIN && EQUIP !== "tots" && !EDITANT) { $("fEquip").value = EQUIP; pintaEdicioClassificacio(); } };
