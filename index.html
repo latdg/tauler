@@ -79,7 +79,7 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .ag-cap{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.88rem}
 .ag-hora{font-weight:700;color:var(--accent);white-space:nowrap}
 .ag-mun{font-weight:600}
-.ag-text{font-size:.95rem;line-height:1.45}
+.ag-text{font-size:.95rem;line-height:1.45;white-space:pre-line}
 .ag-avui,.ag-dema{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:2px 9px;border-radius:999px}
 .ag-avui{background:#fde8e6;color:#c0392b}
 .ag-dema{background:#efece6;color:var(--suau)}
@@ -314,50 +314,64 @@ function normalitzaDates(arrel) {
 }
 
 // -----------------------------------------------------------------------------
-// AGENDA D'ACTES (21.10.2026): es llegeix l'apartat «AGENDA…» del resum que es
-// desa a La TdG redacció (mateix domini, latdg.github.io) i es mostra en
-// targetes agrupades per dia. Si el resum del dia encara no hi és, s'agafa el
-// darrer anterior.
+// AGENDA D'ACTES (CANVI 24.10.2026): l'agenda ja no es llegeix del resum de La
+// TdG redacció. Té dades pròpies (dades/agenda.json d'aquest repo), que s'editen
+// amb clau a la pàgina agenda/. Aquí surten els actes d'avui i dels set dies
+// vinents, en targetes agrupades per dia.
 // -----------------------------------------------------------------------------
 const DIES_SETMANA = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"];
-const RX_CAPCALERA = /^\s*(?:\d\uFE0F?\u20E3)+\s*\S/;
+const AGENDA_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/agenda.json";
+const AGENDA_NOMS = { "LB": "La Bisbal", "CMSS": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
+const AGENDA_DIES = 7;
 
-async function carregaAgenda(dia) {
+async function carregaAgenda() {
   const cos = document.getElementById("agendaCos");
   const peu = document.getElementById("agendaPeu");
   if (!cos) return;
+  const enllac = '<p class="font"><a href="agenda/">Tota l\'agenda i edició amb clau</a></p>';
+  const dos = n => String(n).padStart(2, "0");
+  const iso = d => d.getFullYear() + "-" + dos(d.getMonth() + 1) + "-" + dos(d.getDate());
 
   try {
-    const dies = await json("/redaccio/dades/dies.json");
-    const triat = dies.filter(x => x <= dia).sort().pop();
-    if (!triat) throw new Error("sense resum");
-
-    const r = await fetch(`/redaccio/dades/${triat}/resum.html?v=${Date.now()}`);
+    let r = await fetch(AGENDA_FONT + "?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) r = await fetch("dades/agenda.json?v=" + Date.now());
     if (!r.ok) throw new Error(r.status);
-    const doc = new DOMParser().parseFromString(await r.text(), "text/html");
+    const ag = await r.json();
 
-    // Només els nodes que hi ha entre la capçalera «AGENDA…» i la següent.
-    const nodes = [];
-    let dins = false;
-    Array.from(doc.body.childNodes).forEach(n => {
-      const t = (n.textContent || "").trim();
-      if (n.nodeType === 1 && n.tagName === "DIV" && t.length < 200 && RX_CAPCALERA.test(t)) {
-        dins = /^\s*(?:\d\uFE0F?\u20E3)+\s*AGENDA/i.test(t);
-        return;
-      }
-      if (dins && t && !/^Generat per a La TdG/.test(t)) nodes.push(n);
+    const t0 = new Date(); t0.setHours(0, 0, 0, 0);
+    const fi = new Date(t0); fi.setDate(fi.getDate() + AGENDA_DIES);
+    const desde = iso(t0), fins = iso(fi);
+    const actes = (ag.actes || []).filter(a => a.data >= desde && a.data <= fins)
+      .sort((a, b) => (a.data + (a.hora || "99")).localeCompare(b.data + (b.hora || "99")));
+
+    if (peu && ag.actualitzat) {
+      const g = new Date(ag.actualitzat);
+      peu.textContent = "Actualitzat el " + dos(g.getDate()) + "." + dos(g.getMonth() + 1) + "." + g.getFullYear() +
+        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h";
+    }
+    if (!actes.length) { cos.innerHTML = '<p class="buit">No hi ha cap acte previst els pròxims dies.</p>' + enllac; return; }
+
+    const grups = [];
+    actes.forEach(a => {
+      let g = grups[grups.length - 1];
+      if (!g || g.data !== a.data) { g = { data: a.data, actes: [] }; grups.push(g); }
+      g.actes.push(a);
     });
-    if (!nodes.length) throw new Error("sense agenda");
 
-    cos.innerHTML = "";
-    nodes.forEach(n => cos.appendChild(document.importNode(n, true)));
-    agendaEnTargetes(cos);
-    normalitzaDates(cos);
-
-    const generat = doc.body.getAttribute("data-generat");
-    if (peu && generat) peu.textContent = "Actualitzat el " + quan(generat);
+    cos.innerHTML = '<div class="agenda">' + grups.map(g => {
+      const d = new Date(g.data + "T00:00:00");
+      const dif = Math.round((d - t0) / 86400000);
+      const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>'
+        : dif === 1 ? '<span class="ag-dema">Demà</span>' : "";
+      return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES_SETMANA[d.getDay()]} ` +
+        `${g.data.split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
+        g.actes.map(a => '<article class="ag-acte"><div class="ag-cap">' +
+          (a.hora ? `<span class="ag-hora">🕒 ${esc(a.hora)}</span>` : "") +
+          (a.municipi ? `<span class="ag-mun">📍 ${esc(AGENDA_NOMS[a.municipi] || a.municipi)}</span>` : "") +
+          `</div><div class="ag-text">${esc(a.text)}</div></article>`).join("") + "</div></div>";
+    }).join("") + "</div>" + enllac;
   } catch (e) {
-    cos.innerHTML = '<p class="buit">Ara mateix no hi ha cap agenda d\'actes publicada.</p>';
+    cos.innerHTML = '<p class="buit">Ara mateix no s\'ha pogut carregar l\'agenda.</p>' + enllac;
   }
 }
 
@@ -385,73 +399,6 @@ async function carregaLlamps() {
   }
 }
 
-function agendaEnTargetes(cos) {
-  cos.querySelectorAll("table").forEach(taula => {
-    const files = Array.from(taula.rows);
-    if (files.length < 2) return;
-
-    const cap = Array.from(files[0].cells).map(c => c.textContent.trim().toLowerCase());
-    const col = rx => cap.findIndex(t => rx.test(t));
-    const iMun = col(/^municipi/), iData = col(/^data/), iHora = col(/^hora/), iAct = col(/^activitat/);
-    if (iData === -1 || iAct === -1) return;
-
-    const grups = [];
-    files.slice(1).forEach(tr => {
-      const c = tr.cells;
-      if (c.length <= Math.max(iData, iAct)) return;
-      const data = c[iData].textContent.trim();
-      let g = grups[grups.length - 1];
-      if (!g || g.data !== data) { g = { data, actes: [] }; grups.push(g); }
-      g.actes.push({
-        municipi: iMun > -1 && c[iMun] ? c[iMun].textContent.trim() : "",
-        hora: iHora > -1 && c[iHora] ? c[iHora].textContent.trim() : "",
-        act: c[iAct]
-      });
-    });
-    if (!grups.length) return;
-
-    const avui = new Date();
-    avui.setHours(0, 0, 0, 0);
-
-    const agenda = document.createElement("div");
-    agenda.className = "agenda";
-
-    grups.forEach(g => {
-      let titol = g.data, etiqueta = "", esAvui = false;
-      const m = g.data.match(/(\d{1,2})\D(\d{1,2})\D(\d{2,4})/);
-      if (m) {
-        const any = Number(m[3]) < 100 ? 2000 + Number(m[3]) : Number(m[3]);
-        const d = new Date(any, Number(m[2]) - 1, Number(m[1]));
-        const dif = Math.round((d - avui) / 86400000);
-        titol = DIES_SETMANA[d.getDay()] + " " + String(d.getDate()).padStart(2, "0") + "." +
-          String(d.getMonth() + 1).padStart(2, "0") + "." + any;
-        if (dif === 0) { esAvui = true; etiqueta = '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>'; }
-        else if (dif === 1) etiqueta = '<span class="ag-dema">Demà</span>';
-      }
-
-      const dia = document.createElement("div");
-      dia.className = "ag-dia" + (esAvui ? " ag-dia-avui" : "");
-      dia.innerHTML = `<h3 class="ag-data">${esc(titol)} ${etiqueta}</h3><div class="ag-llista"></div>`;
-      const llista = dia.querySelector(".ag-llista");
-
-      g.actes.forEach(x => {
-        const acte = document.createElement("article");
-        acte.className = "ag-acte";
-        acte.innerHTML = '<div class="ag-cap">' +
-          (x.hora ? `<span class="ag-hora">🕒 ${esc(x.hora)}</span>` : "") +
-          (x.municipi ? `<span class="ag-mun">📍 ${esc(x.municipi)}</span>` : "") +
-          '</div><div class="ag-text"></div>';
-        const text = acte.querySelector(".ag-text");
-        Array.from(x.act.childNodes).forEach(n => text.appendChild(n));
-        llista.appendChild(acte);
-      });
-
-      agenda.appendChild(dia);
-    });
-
-    taula.replaceWith(agenda);
-  });
-}
   
 function pinta(d) {
   const b = d.blocs || {};
@@ -750,7 +697,7 @@ async function inicia() {
     const d = await json(triat ? `dades/${triat}.json` : "dades/darrer.json");
     sel.value = d.dia;
     pinta(d);
-    carregaAgenda(d.dia);
+    carregaAgenda();
     carregaLlamps();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";

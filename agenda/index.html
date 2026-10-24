@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Agenda d'actes</title>
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+h2{margin:0 0 8px;font-size:1.1rem}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+select,input,textarea,button{font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
+textarea{width:100%;min-height:110px;resize:vertical}
+button{background:var(--accent);color:#fff;border-color:var(--accent);cursor:pointer}
+button.suau{background:var(--targeta);color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.camps{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:10px}
+.camps label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+.buit{color:var(--suau)}
+#gestio{border-color:var(--accent)}
+#estat{font-size:.9rem;color:var(--suau);margin:8px 0 0}
+[hidden]{display:none !important}
+.pestanyes{display:flex;gap:6px;margin-bottom:12px}
+.pestanyes button{background:var(--targeta);color:var(--text);border-radius:999px;font-size:.85rem;padding:3px 12px}
+.pestanyes button.actiu{background:var(--accent);color:#fff;border-color:var(--accent)}
+.agenda{display:grid;gap:20px}
+.ag-data{margin:0 0 8px;font-size:1rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ag-llista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.ag-acte{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.ag-cap{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.88rem;align-items:center}
+.ag-hora{font-weight:700;color:var(--accent);white-space:nowrap}
+.ag-mun{font-weight:600}
+.ag-text{font-size:.95rem;line-height:1.45;white-space:pre-line}
+.ag-eines{margin-left:auto;display:flex;gap:4px}
+.ag-eines button{padding:2px 8px;font-size:.85rem;background:var(--targeta);color:var(--text);border-color:var(--linia)}
+.ag-avui,.ag-dema{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:2px 9px;border-radius:999px}
+.ag-avui{background:#fde8e6;color:#c0392b}
+.ag-dema{background:#efece6;color:var(--suau)}
+.ag-dia-avui .ag-acte{border-left-color:#e53935}
+.ag-acte.editant{outline:2px solid var(--accent)}
+@keyframes tdgPulsacioAvui{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.72)}}
+.tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
+</style>
+</head>
+<body>
+<header>
+  <h1>📅 Agenda d'actes</h1>
+  <p class="sub" id="sub">Carregant…</p>
+</header>
+<main>
+  <!-- Gestió: per afegir, editar o esborrar actes cal la clau (la mateixa dels llamps). -->
+  <section id="gestio">
+    <div class="fila" id="entrada">
+      <button type="button" id="obre" class="suau">🔒 Afegir o editar actes (amb clau)</button>
+    </div>
+    <div id="clau" hidden>
+      <div class="fila">
+        <input type="password" id="pin" placeholder="Clau" autocomplete="current-password" size="10">
+        <button type="button" id="entra">Entra</button>
+        <label class="fila" style="gap:4px"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
+      </div>
+    </div>
+    <div id="form" hidden>
+      <h2 id="titolForm">➕ Nou acte</h2>
+      <div class="camps">
+        <label>Data <input type="date" id="fData" required></label>
+        <label>Hora (si en té) <input type="time" id="fHora"></label>
+        <label>Municipi o nucli <input type="text" id="fMun" list="municipis" placeholder="LB, Corçà, Monells…"></label>
+      </div>
+      <label class="font" for="fText" style="display:block;margin:0 0 4px">Activitat</label>
+      <textarea id="fText" placeholder="Què, on i qualsevol detall (preu, inscripcions…)"></textarea>
+      <div class="fila" style="margin-top:10px">
+        <button type="button" id="desa">Desa l'acte</button>
+        <button type="button" id="cancel" class="suau" hidden>Cancel·la</button>
+        <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
+      </div>
+    </div>
+    <p id="estat"></p>
+  </section>
+
+  <section>
+    <div class="pestanyes">
+      <button type="button" data-vista="proxims" class="actiu">Pròxims</button>
+      <button type="button" data-vista="passats">Passats</button>
+    </div>
+    <div id="llista"><p class="buit">Carregant…</p></div>
+    <p class="font">Els actes d'aquesta agenda surten a <a href="../">La TdG ampliada</a> (els dels set dies vinents),
+      al guió del pòdcast i als avisos de la redacció.</p>
+  </section>
+</main>
+<datalist id="municipis">
+  <option value="LB"><option value="La Bisbal"><option value="Corçà"><option value="Forallac"><option value="CMSS">
+  <option value="Cruïlles"><option value="Monells"><option value="Sant Sadurní de l'Heura"><option value="Vulpellac">
+  <option value="Peratallada"><option value="Canapost"><option value="Sant Climent de Peralta"><option value="Casavells">
+  <option value="Cassà de Pelràs"><option value="Fonteta">
+</datalist>
+<script>
+const FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/agenda.json";
+const WORKER = "https://latdg-agenda.ignasicorney.workers.dev";
+const CLAU_DESADA = "llampsPin";   // la mateixa clau que es desa a la pàgina dels llamps
+const DIES = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"];
+const NOMS = { "LB": "La Bisbal", "CMSS": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const llegeix = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
+const escriu = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+const $ = id => document.getElementById(id);
+const avuiISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+const dataCa = iso => iso.split("-").reverse().join(".");
+const dos = n => String(n).padStart(2, "0");
+const quan = iso => { const d = new Date(iso); return dos(d.getDate()) + "." + dos(d.getMonth() + 1) + "." + d.getFullYear() + " a les " + dos(d.getHours()) + "." + dos(d.getMinutes()) + " h"; };
+
+let AGENDA = { actes: [] }, SHA = null, PIN = "", EDITANT = null, VISTA = "proxims";
+
+async function carregaPublica() {
+  try {
+    const r = await fetch(FONT + "?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    AGENDA = await r.json();
+    pinta();
+  } catch (e) {
+    $("llista").innerHTML = '<p class="buit">No s\'ha pogut carregar l\'agenda.</p>';
+  }
+}
+
+function pinta() {
+  const avui = avuiISO();
+  $("sub").textContent = AGENDA.actualitzat ? "Actualitzada el " + quan(AGENDA.actualitzat) : "";
+  let actes = (AGENDA.actes || []).filter(a => VISTA === "proxims" ? a.data >= avui : a.data < avui);
+  actes.sort((a, b) => (a.data + (a.hora || "99")).localeCompare(b.data + (b.hora || "99")));
+  if (VISTA === "passats") actes.reverse();
+  if (!actes.length) { $("llista").innerHTML = `<p class="buit">${VISTA === "proxims" ? "No hi ha cap acte previst." : "No hi ha actes passats."}</p>`; return; }
+
+  const grups = [];
+  actes.forEach(a => {
+    let g = grups[grups.length - 1];
+    if (!g || g.data !== a.data) { g = { data: a.data, actes: [] }; grups.push(g); }
+    g.actes.push(a);
+  });
+
+  const t0 = new Date(avui + "T00:00:00");
+  $("llista").innerHTML = '<div class="agenda">' + grups.map(g => {
+    const d = new Date(g.data + "T00:00:00");
+    const dif = Math.round((d - t0) / 86400000);
+    const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>'
+      : dif === 1 ? '<span class="ag-dema">Demà</span>' : "";
+    return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES[d.getDay()]} ${dataCa(g.data)} ${etiqueta}</h3><div class="ag-llista">` +
+      g.actes.map(a => `<article class="ag-acte${EDITANT === a.id ? " editant" : ""}"><div class="ag-cap">` +
+        (a.hora ? `<span class="ag-hora">🕒 ${esc(a.hora)}</span>` : "") +
+        (a.municipi ? `<span class="ag-mun">📍 ${esc(NOMS[a.municipi] || a.municipi)}</span>` : "") +
+        (PIN ? `<span class="ag-eines"><button type="button" data-edita="${esc(a.id)}" title="Edita">✏️</button><button type="button" data-esborra="${esc(a.id)}" title="Esborra">🗑️</button></span>` : "") +
+        `</div><div class="ag-text">${esc(a.text)}</div></article>`).join("") +
+      "</div></div>";
+  }).join("") + "</div>";
+}
+
+// --- Gestió amb clau ---
+async function crida(cos) {
+  const r = await fetch(WORKER, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin: PIN, ...cos }) });
+  let d = {};
+  try { d = await r.json(); } catch (e) {}
+  if (!r.ok || !d.ok) { const err = new Error(d.error || ("HTTP " + r.status)); err.estat = r.status; err.conflicte = d.conflicte; throw err; }
+  return d;
+}
+
+async function entra() {
+  PIN = $("pin").value.trim();
+  if (!PIN) { $("estat").textContent = "Escriu la clau."; return; }
+  $("estat").textContent = "Comprovant la clau…";
+  try {
+    const d = await crida({ accio: "llegeix" });
+    AGENDA = d.agenda; SHA = d.sha;
+    escriu(CLAU_DESADA, $("recorda").checked ? PIN : "");
+    $("clau").hidden = true; $("form").hidden = false;
+    $("estat").textContent = "";
+    nouActe();
+    pinta();
+  } catch (e) {
+    PIN = "";
+    $("estat").textContent = "❌ " + (e instanceof TypeError ? "No s'ha pogut connectar amb el Worker de l'agenda." : e.message);
+  }
+}
+
+function nouActe() {
+  EDITANT = null;
+  $("titolForm").textContent = "➕ Nou acte";
+  $("fData").value = avuiISO(); $("fHora").value = ""; $("fMun").value = ""; $("fText").value = "";
+  $("cancel").hidden = true;
+}
+
+function edita(id) {
+  const a = AGENDA.actes.find(x => x.id === id);
+  if (!a) return;
+  EDITANT = id;
+  $("titolForm").textContent = "✏️ Editant l'acte";
+  $("fData").value = a.data;
+  const m = String(a.hora || "").match(/(\d{1,2})[.:](\d{2})/);
+  $("fHora").value = m ? m[1].padStart(2, "0") + ":" + m[2] : "";
+  $("fMun").value = a.municipi || ""; $("fText").value = a.text || "";
+  $("cancel").hidden = false;
+  pinta();
+  $("gestio").scrollIntoView({ behavior: "smooth" });
+}
+
+async function desaLlista(actes, missatge) {
+  $("desa").disabled = true;
+  $("estat").textContent = "Desant…";
+  try {
+    const d = await crida({ accio: "desa", agenda: { actes }, sha: SHA });
+    AGENDA = d.agenda; SHA = d.sha;
+    $("estat").textContent = "✅ " + missatge + " Al tauler hi surt en uns minuts.";
+    nouActe(); pinta();
+  } catch (e) {
+    if (e.conflicte) {
+      const d = await crida({ accio: "llegeix" }); AGENDA = d.agenda; SHA = d.sha; pinta();
+    }
+    $("estat").textContent = "❌ " + (e instanceof TypeError ? "No s'ha pogut connectar amb el Worker de l'agenda." : e.message);
+  } finally { $("desa").disabled = false; }
+}
+
+function desa() {
+  const data = $("fData").value, text = $("fText").value.trim();
+  if (!data || !text) { $("estat").textContent = "Cal la data i el text de l'activitat."; return; }
+  const hora = $("fHora").value ? $("fHora").value.replace(":", ".") + " h" : "";
+  const acte = { id: EDITANT || Math.random().toString(36).slice(2, 12), data, hora, municipi: $("fMun").value.trim(), text };
+  const actes = (AGENDA.actes || []).filter(a => a.id !== acte.id).concat(acte);
+  desaLlista(actes, EDITANT ? "Acte modificat." : "Acte afegit.");
+}
+
+function esborra(id) {
+  const a = AGENDA.actes.find(x => x.id === id);
+  if (!a || !confirm("Vols esborrar aquest acte?\n\n" + dataCa(a.data) + " · " + a.text.slice(0, 80))) return;
+  desaLlista(AGENDA.actes.filter(x => x.id !== id), "Acte esborrat.");
+}
+
+$("obre").onclick = () => { $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };
+$("entra").onclick = entra;
+$("pin").onkeydown = e => { if (e.key === "Enter") entra(); };
+$("desa").onclick = desa;
+$("cancel").onclick = () => { nouActe(); pinta(); };
+$("oblida").onclick = () => { escriu(CLAU_DESADA, ""); $("estat").textContent = "Clau oblidada en aquest navegador."; };
+$("llista").onclick = e => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  if (b.dataset.edita) edita(b.dataset.edita);
+  if (b.dataset.esborra) esborra(b.dataset.esborra);
+};
+document.querySelectorAll(".pestanyes button").forEach(b => b.onclick = () => {
+  VISTA = b.dataset.vista;
+  document.querySelectorAll(".pestanyes button").forEach(x => x.classList.toggle("actiu", x === b));
+  pinta();
+});
+
+// Si el navegador ja té la clau desada (o s'entra amb #gestio), s'obre directament.
+const desada = llegeix(CLAU_DESADA);
+$("recorda").checked = !!desada;
+if (desada) { $("pin").value = desada; $("entrada").hidden = true; $("clau").hidden = false; entra(); }
+else if (location.hash === "#gestio") $("obre").click();
+carregaPublica();
+</script>
+</body>
+</html>

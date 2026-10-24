@@ -1,0 +1,153 @@
+{
+ "actualitzat": "2026-10-24T09:00:00+02:00",
+ "nota": "Importat del full «informació» (pestanya agenda) el 24.10.2026.",
+ "actes": [
+  {
+   "id": "28b3370050",
+   "data": "2026-10-22",
+   "hora": "19.00 h",
+   "municipi": "Cassà de pelràs i Planils",
+   "text": "Consell veïnal a la pl. de l'església."
+  },
+  {
+   "id": "8bbc9fb444",
+   "data": "2026-10-24",
+   "hora": "09.00 h",
+   "municipi": "Sant Climent de Peralta",
+   "text": "II Cuita de pega a la peguera de Can Frigola. Trossejat i recollida de la pega negra."
+  },
+  {
+   "id": "2d1294e353",
+   "data": "2026-10-24",
+   "hora": "10.00 h",
+   "municipi": "LB",
+   "text": "Al Teatre Mundial, Conferència de Mary Nash Ciutadanes en armes i a la reraguarda, a les 12.00 h presentació del documental Milicianes i debat posterior amb el seu guionista, Gonzalo Berger, a les 16.30 h, conferència Dolors Marin, Dones de foc. Internacionalistes a Catalunya i concert final de Clàudia Cabero a les 19.00 h amb cançons de la Guerra Civil."
+  },
+  {
+   "id": "c73cb666a7",
+   "data": "2026-10-24",
+   "hora": "12.00 h",
+   "municipi": "CMSS",
+   "text": "Actuació al monestir de Sant Miquel de Cruïlles amb Oli en un llum, una proposta que uneix poesia i música amb Rosa Pou, Josep Pedrals i Xavier Lloses, en el marc del festival Brots. L'activitat es traslladarà a l'ermita d'Esperança a les 14.00 h amb l'Aplec Brots, una trobada que combinarà gastronomia, productes de la terra i cançons. Hi haurà Coi els Montgrons."
+  },
+  {
+   "id": "a3b1651133",
+   "data": "2026-10-24",
+   "hora": "15.00 h",
+   "municipi": "Monells",
+   "text": "Campionat de botifarra de la penya blaugrana. Inscripcions des de mitja hora abans al pati exterior del local de l'entitat. El preu és de 20€ per parella i hi haurà obsequis per a cada parella participant i premis espcials per als guanyadors."
+  },
+  {
+   "id": "ec18f00003",
+   "data": "2026-10-24",
+   "hora": "16.00 h",
+   "municipi": "LB",
+   "text": "Fins a les 24.00 h, Oktobeerfest a l'espai Tretze15 amb DJ Calvins, Munyi i Ivanote."
+  },
+  {
+   "id": "bb252331e0",
+   "data": "2026-10-24",
+   "hora": "20.00 h",
+   "municipi": "Corçà",
+   "text": "Dançà, festival de dansa de Corçà. Cia. Bragacadavra. Espectacle Caiguda lliure amb persones amb vertigen. Es tracta d'una exploració que utilitza la teoria de la caiguda lliure per endinsar-se en les complexitats de les relacions humanes. Es durà a terme a la sala municipa. Preu: 5€ i abonament a aquest i al següent espctacle per 8€. Les entrades es poden adquirir al Punt de trobada de Corçà i a la web corca,cat."
+  },
+  {
+   "id": "a9fbf18545",
+   "data": "2026-10-25",
+   "hora": "09.00 h",
+   "municipi": "CMSS",
+   "text": "Actuació a la plaça Jaume I de Monells amb Brots i ReBrots, una caminada per les Gavarres per redescobrir intervencions artístiques integrades en el paisatge i reglexionar sobre com el pas del temps i la natura les han transformat. I, a les 11.00 h, concert de Toti Soler a l'església de Sant Genís. A més, a la plaça Jaume I hi actuaran Goig a les 11.30 h, Alosa a les 13.00 h, hi haurà sessió musical de Diego Armando, a les 14.00 h i l'actuació d'Up Quintent a les 16.00 h. La programació inclou també les actuacions de Momi Maiga i Extraño Weys Orquestra. A més, la plaça de l'Oli acollirà tastos de productes de proximitat durant tot el dia."
+  },
+  {
+   "id": "9ec22e1373",
+   "data": "2026-10-25",
+   "hora": "18.00 h",
+   "municipi": "Corçà",
+   "text": "Ball amb Liberty a la sala municipal."
+  },
+  {
+   "id": "794c16c079",
+   "data": "2026-10-28",
+   "hora": "",
+   "municipi": "Corçà",
+   "text": "Marató de 3Cat."
+  },
+  {
+   "id": "a5c427cb66",
+   "data": "2026-10-31",
+   "hora": "12.30 h",
+   "municipi": "LB",
+   "text": "Vermut musical al Bar Muntanya amb Dj Afrosam."
+  },
+  {
+   "id": "201662fa20",
+   "data": "2026-10-31",
+   "hora": "19.00 h",
+   "municipi": "Peratallada",
+   "text": "Concert dels 25 anys del paisatge musical empordanès, amb Mazoni, Sanjosex, Di-versiones, Fetus, Jofre Bardagí, Neus Mar, Els Cremats, Cobla Bisbal Jove, Cloe Riembau i Joan Rubau."
+  },
+  {
+   "id": "4e31fe190f",
+   "data": "2026-10-31",
+   "hora": "19.00 h",
+   "municipi": "LB",
+   "text": "Joventuts Musicals de la Bisbal. Actuació de Port Bo al teatre Mundial, amb havaneres, valsets mariners, boleros, cançons de taverna i sardanes."
+  },
+  {
+   "id": "9e5ff8864d",
+   "data": "2026-11-01",
+   "hora": "",
+   "municipi": "Sant Climent de Peralta",
+   "text": "XXXII Carbonera de Forallac: desempilar i recollir el carbó."
+  },
+  {
+   "id": "3ce444c2fa",
+   "data": "2026-11-07",
+   "hora": "11.00 h",
+   "municipi": "Vulpellac",
+   "text": "A la sala d'actes de l'ajuntament de Forallac, conferència: 'La volta catalana, de la tradició a la innovació', a càrrec de Marta Domènech Rodríguez, arquitecta i especialista en la reutilització d'edificis existents i innovació tecnològica amb tï"
+  },
+  {
+   "id": "d20f7b02ee",
+   "data": "2026-11-08",
+   "hora": "08.30 h",
+   "municipi": "LB",
+   "text": "Sortida des de l'aparcament del camp de futbol vell per ser a les 10.00 h a la Jonquera i visitar el Museu Memorial de l'Exili (MUME) i, a les 15.00 h, el camp de Ribesaltes, a Salses-le-Château. El retorn a la Bisbal està previst a les 19.00 h. El cost de la sortida és de 15€ i cadascú s'ha de portar el seu dinar."
+  },
+  {
+   "id": "b2598f5d35",
+   "data": "2026-11-21",
+   "hora": "17.00 h",
+   "municipi": "Vulpellac",
+   "text": "A la sala d'actes de l'ajuntament de Forallac, projecció del documental\"La Costa Brava. La mirada del viatger\"."
+  },
+  {
+   "id": "d2a5b432c7",
+   "data": "2026-11-22",
+   "hora": "16.00 h",
+   "municipi": "Monells",
+   "text": "Fins a les 18.00 h, festa del 20è aniversari de l'escola bressol El Molinet, amb espai de joc familiar per a la primera infància i concert amb Els atrapasomnis a les sis de la tarda."
+  },
+  {
+   "id": "9d95d168c9",
+   "data": "2026-11-28",
+   "hora": "",
+   "municipi": "Peratallada",
+   "text": "Mercat de Nadal solidari, al nucli antic."
+  },
+  {
+   "id": "1324e125bc",
+   "data": "2026-12-11",
+   "hora": "",
+   "municipi": "Vulpellac",
+   "text": "Festival de Nadal de l'escola de Forallac."
+  },
+  {
+   "id": "419880b18d",
+   "data": "2026-12-25",
+   "hora": "12.00 h",
+   "municipi": "La Bisbal",
+   "text": "Visita guiada al convent per descobrir la casa d'acollida de la Fundació acollida i esperança."
+  }
+ ]
+}
