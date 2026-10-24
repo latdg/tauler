@@ -33,6 +33,17 @@ th{color:var(--suau);font-weight:600}
 tr.propi td{font-weight:700;color:var(--accent)}
 /* Classificacions: totes amb les mateixes columnes (18.10.2026) */
 .classif table{table-layout:fixed;min-width:620px}
+/* Classificacions desplegables (24.10.2026) */
+details.classif{border-top:1px solid var(--linia);padding:2px 0}
+details.classif:first-of-type{border-top:0}
+details.classif>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 0}
+details.classif>summary::-webkit-details-marker{display:none}
+details.classif>summary::before{content:"▸";color:var(--suau);transition:transform .15s}
+details.classif[open]>summary::before{transform:rotate(90deg)}
+details.classif>summary h3{margin:0;font-size:1rem}
+details.classif>summary .pos{color:var(--accent);font-weight:600;font-size:.9rem}
+.classif-botons{margin:0 0 4px;font-size:.85rem}
+.classif-botons button{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font:inherit}
 .classif th:nth-child(1),.classif td:nth-child(1){width:7%}
 .classif th:nth-child(2),.classif td:nth-child(2){width:37%;overflow:hidden;text-overflow:ellipsis}
 ul{margin:0;padding-left:20px}
@@ -403,6 +414,12 @@ function esportsGuanyat(res) {
   return a > b ? "G" : a < b ? "P" : "E";
 }
 
+function ordinalCa(n) {
+  const x = parseInt(n, 10);
+  if (!x) return String(n || "");
+  return x + ({ 1: "r", 2: "n", 3: "r", 4: "t" }[x] || "è");
+}
+
 async function carregaEsports() {
   const cosP = document.getElementById("esportsPartits");
   const cosC = document.getElementById("esportsClass");
@@ -431,18 +448,27 @@ async function carregaEsports() {
     if (cosC) {
       cosC.innerHTML = d.equips.filter(e => e.classificacio && e.classificacio.files.length).map(e => {
         const c = e.classificacio;
-        const titol = `<h3>${esc(e.nom)} (${esc(e.categoria)})</h3>`;
+        const propi = c.files.find(f => f.propi);
+        const titol = `<summary><h3>${esc(e.nom)} (${esc(e.categoria)})</h3>` +
+          (propi ? `<span class="pos">${esc(ordinalCa(propi.pos))} de ${c.files.length}` +
+            (propi.punts !== undefined && propi.punts !== "" && propi.punts !== null ? ` · ${esc(propi.punts)} ${String(propi.punts) === "1" ? "punt" : "punts"}`
+              : (propi.pg !== undefined ? ` · ${esc(propi.pg)}-${esc(propi.pp)}` : "")) + `</span>` : "") + `</summary>`;
         if (c.tipus === "basquet") {
           const ambPunts = c.files.some(f => f.punts !== undefined && f.punts !== "");
-          return `<div class="classif">${titol}` + taula(
+          return `<details class="classif">${titol}` + taula(
             ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []),
             c.files.map(f => [f.pos, String(f.equip ?? "").toUpperCase(), f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])),
-            i => c.files[i].propi ? "propi" : "") + "</div>";
+            i => c.files[i].propi ? "propi" : "") + "</details>";
         }
-        return `<div class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
+        return `<details class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
           c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]),
-          i => c.files[i].propi ? "propi" : "") + "</div>";
+          i => c.files[i].propi ? "propi" : "") + "</details>";
       }).join("");
+      if (cosC.querySelector("details.classif")) {
+        cosC.insertAdjacentHTML("afterbegin", '<p class="classif-botons"><button type="button" data-obre="1">Desplega-les totes</button> · <button type="button">Plega-les totes</button></p>');
+        cosC.querySelectorAll(".classif-botons button").forEach(b => b.onclick = () =>
+          cosC.querySelectorAll("details.classif").forEach(x => x.open = !!b.dataset.obre));
+      }
       const peu = document.getElementById("esportsPeu");
       if (peu && d.actualitzat) {
         const g = new Date(d.actualitzat), z = n => String(n).padStart(2, "0");
