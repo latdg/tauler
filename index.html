@@ -620,8 +620,19 @@ function pinta(d) {
   }
   
   // 15. 🏆 CLASSIFICACIONS DELS EQUIPS
+  // CANVI 24.10.2026: la categoria de cada equip, entre parèntesis, al títol.
+  const CATEGORIES = [
+    [/femen.*sots|sots.*femen|sub.?25/i, "sots-25 femení"],
+    [/sol giron|basquet|bàsquet/i, "2a FEB"],
+    [/pera.*femen/i, "2a Divisió femenina"],
+    [/pera/i, "4a Catalana, grup 2"],
+    [/monells b/i, "4a Catalana, grup 5"],
+    [/monells/i, "4a Catalana, grup 2"],
+    [/atl[eè]tic/i, "2a Catalana, grup 1"]
+  ];
+  const ambCategoria = nom => { const c = CATEGORIES.find(([rx]) => rx.test(nom)); return c ? `${nom} (${c[1]})` : nom; };
   if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
-    b.classificacions.map(c => `<div class="classif"><h3>${esc(c.equip)}</h3>` + (c.tipus === "basquet"
+    b.classificacions.map(c => `<div class="classif"><h3>${esc(ambCategoria(c.equip))}</h3>` + (c.tipus === "basquet"
       // Bàsquet (graella de la FEB): no hi ha empats.
       ? taula(["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"],
                   c.files.map(f => [f.pos, String(f.equip ?? "").toUpperCase(), f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.percent]),
