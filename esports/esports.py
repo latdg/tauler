@@ -423,7 +423,7 @@ def feb_pot_esperar(prev):
         return False
     avui = ara().date().isoformat()
     juga_avui = any(p.get("data") == avui and not p.get("manual") for p in prev.get("partits", []))
-    return fa < 3600 and not juga_avui
+    return fa < 3600 and not juga_avui and "--forca" not in sys.argv
 
 
 # -----------------------------------------------------------------------------
