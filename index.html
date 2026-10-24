@@ -347,7 +347,7 @@ async function carregaAgenda() {
   const cos = document.getElementById("agendaCos");
   const peu = document.getElementById("agendaPeu");
   if (!cos) return;
-  const enllac = '<p class="font"><a href="agenda/">Tota l\'agenda i edició amb clau</a></p>';
+  const enllac = "";   // 24.10.2026: l'enllaç a tota l'agenda va a dalt, al costat de l'hora
   const dos = n => String(n).padStart(2, "0");
   const iso = d => d.getFullYear() + "-" + dos(d.getMonth() + 1) + "-" + dos(d.getDate());
 
@@ -730,8 +730,7 @@ function pinta(d) {
   // classificació que porta el tauler del dia.
   h += seccio("⚽ Partits i resultats",
     '<p class="font dalt"><a href="esports/">Tots els partits, per jornades i dates, i edició amb clau</a></p>' +
-    '<div id="esportsPartits"><p class="buit">Carregant…</p></div>' +
-    '<p class="font"><a href="esports/">Tots els partits, per jornades i dates, i edició amb clau</a></p>', "", false);
+    '<div id="esportsPartits"><p class="buit">Carregant…</p></div>', "", false);
   h += seccio("🏆 Classificacions dels equips",
     '<p class="font dalt" id="esportsPeu"></p><div id="esportsClass">' +
     ((b.classificacions || []).map(c => `<div class="classif"><h3>${esc(c.equip)}</h3>` + (c.tipus === "basquet"
