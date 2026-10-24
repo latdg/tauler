@@ -6,14 +6,15 @@ jobs:
   prova:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: |
           mkdir -p out && cd out
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
-          curl -s -A "$UA" -c c1 -o feb_partits.html -w "feb_partits %{http_code}\n" "https://www.feb.es/segundafeb/Inicio.aspx?tabid=4" >> estat.txt
-          curl -s -A "$UA" -c c2 -o feb_class.html -w "feb_class %{http_code}\n" "https://www.feb.es/segundafeb/Inicio.aspx?tabid=5" >> estat.txt
-          curl -s -A "$UA" -o feb_copa.html -w "feb_copa %{http_code}\n" "https://www.feb.es/competiciones/resultados/copaespaa/73/2026" >> estat.txt
-          curl -s -o fcf_p.json -w "fcf_worker %{http_code}\n" "https://latdg-fcf.ignasicorney.workers.dev/?tipus=partidos&grupId=58161891" >> estat.txt
-          curl -s -o fcf_c.json -w "fcf_worker_c %{http_code}\n" "https://latdg-fcf.ignasicorney.workers.dev/?tipus=classificacio&grupId=58162320" >> estat.txt
+          curl -s -A "$UA" -c c1 -o feb_partits.html -w "feb_partits %{http_code}\n" "https://www.feb.es/segundafeb/Inicio.aspx?tabid=4" >> estat.txt || echo "fallada $?" >> estat.txt
+          curl -s -A "$UA" -c c2 -o feb_class.html -w "feb_class %{http_code}\n" "https://www.feb.es/segundafeb/Inicio.aspx?tabid=5" >> estat.txt || echo "fallada $?" >> estat.txt
+          curl -s -A "$UA" -o feb_copa.html -w "feb_copa %{http_code}\n" "https://www.feb.es/competiciones/resultados/copaespaa/73/2026" >> estat.txt || echo "fallada $?" >> estat.txt
+          curl -s -o fcf_p.json -w "fcf_worker %{http_code}\n" "https://latdg-fcf.ignasicorney.workers.dev/?tipus=partidos&grupId=58161891" >> estat.txt || echo "fallada $?" >> estat.txt
+          curl -s -o fcf_c.json -w "fcf_worker_c %{http_code}\n" "https://latdg-fcf.ignasicorney.workers.dev/?tipus=classificacio&grupId=58162320" >> estat.txt || echo "fallada $?" >> estat.txt
           cat estat.txt
           cd .. && git config user.name "La TdG" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan prova-esports && git rm -rq --cached . && git add out && git commit -qm prova && git push -fq origin prova-esports
+          cp -r out /tmp/out && git checkout -q --orphan prova-esports && git rm -rqf . && rm -rf out && cp -r /tmp/out out && git add out && git commit -qm prova && git push -fq origin prova-esports
