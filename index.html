@@ -365,8 +365,8 @@ async function carregaAgenda() {
 
     if (peu && ag.actualitzat) {
       const g = new Date(ag.actualitzat);
-      peu.textContent = "Actualitzat el " + dos(g.getDate()) + "." + dos(g.getMonth() + 1) + "." + g.getFullYear() +
-        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h";
+      peu.innerHTML = "Actualitzat el " + dos(g.getDate()) + "." + dos(g.getMonth() + 1) + "." + g.getFullYear() +
+        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h · <a href=\"agenda/\">Tota l'agenda i edició amb clau</a>";
     }
     if (!actes.length) { cos.innerHTML = '<p class="buit">No hi ha cap acte previst els pròxims dies.</p>' + enllac; return; }
 
