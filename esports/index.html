@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Esports de La TdG</title>
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c;--ok:#2e7d32;--ko:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+h2{margin:0 0 8px;font-size:1.1rem}
+h3{margin:14px 0 6px;font-size:1rem}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+main{display:grid;gap:16px;padding-bottom:40px}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0}
+input,select,textarea,button{font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);max-width:100%}
+button{background:var(--accent);color:#fff;border-color:var(--accent);cursor:pointer}
+button.suau{background:var(--targeta);color:var(--accent)}
+button.icona{background:var(--targeta);color:var(--text);border-color:var(--linia);padding:2px 8px;font-size:.85rem}
+button:disabled{opacity:.5;cursor:default}
+.fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+.buit{color:var(--suau)}
+[hidden]{display:none !important}
+.xips{display:flex;gap:6px;flex-wrap:wrap}
+.xips button{background:var(--targeta);color:var(--text);border-color:var(--linia);border-radius:999px;font-size:.85rem;padding:3px 12px}
+.xips button.actiu{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pestanyes{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.pestanyes button{background:var(--targeta);color:var(--text);border-color:var(--linia);border-radius:8px;font-size:.9rem}
+.pestanyes button.actiu{border-color:var(--accent);color:var(--accent);font-weight:700}
+.taula{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);white-space:nowrap;vertical-align:top}
+th{color:var(--suau);font-weight:600}
+td.camp{white-space:normal;min-width:180px;color:var(--suau);font-size:.85rem}
+tr.propi td{font-weight:700;color:var(--accent)}
+tr.avui td{background:#fdf3ef}
+.res{font-weight:700;white-space:nowrap}
+.G{color:var(--ok)}.P{color:var(--ko)}.E{color:var(--suau)}
+.etq{font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 8px;background:#efece6;color:var(--suau);white-space:nowrap}
+.etq.ma{background:#fde8e6;color:var(--accent)}
+#gestio{border-color:var(--accent)}
+.camps{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.camps label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)}
+.edcls input{width:70px;padding:4px 6px}
+.edcls input.nom{width:240px}
+#estat{font-size:.9rem;color:var(--suau);margin:8px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚽🏀 Esports de La TdG</h1>
+  <p class="sub" id="sub">Carregant…</p>
+  <div class="xips" id="xips"></div>
+</header>
+<main>
+  <section id="gestio">
+    <div class="fila" id="entrada"><button type="button" id="obre" class="suau">🔒 Afegir o corregir partits i classificacions (amb clau)</button></div>
+    <div id="clau" hidden>
+      <div class="fila">
+        <input type="password" id="pin" placeholder="Clau" autocomplete="current-password" size="10">
+        <button type="button" id="entra">Entra</button>
+        <label class="fila" style="gap:4px"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
+      </div>
+    </div>
+    <div id="editor" hidden>
+      <h2 id="titolForm">➕ Partit nou</h2>
+      <div class="camps">
+        <label>Equip <select id="fEquip"></select></label>
+        <label>Competició <input id="fCompeticio" list="competicions" placeholder="la de l'equip, si és buida"></label>
+        <label>Grup o fase <input id="fGrup"></label>
+        <label>Jornada <input id="fJornada" inputmode="numeric"></label>
+        <label>Data <input type="date" id="fData"></label>
+        <label>Hora <input type="time" id="fHora"></label>
+        <label>Local o visitant <select id="fLV"><option>Local</option><option>Visitant</option><option value="">—</option></select></label>
+        <label>Rival <input id="fRival"></label>
+        <label>Resultat (els nostres primer) <input id="fResultat" placeholder="81 - 64"></label>
+        <label>Estat <select id="fEstat"><option value="">automàtic</option><option>Ajornat</option><option>Suspès</option></select></label>
+        <label style="grid-column:1/-1">Camp o pavelló <input id="fCamp"></label>
+      </div>
+      <div class="fila" style="margin-top:10px">
+        <button type="button" id="desaPartit">Desa el partit</button>
+        <button type="button" id="cancel" class="suau" hidden>Cancel·la</button>
+        <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
+      </div>
+      <p class="font">Al llistat de partits, ✏️ edita (o corregeix un partit de la federació) i 🗑️ esborra un partit entrat a mà.
+        Els canvis surten a tot arreu (tauler, guió i avisador) en 1 o 2 minuts.</p>
+      <div id="edcls"></div>
+    </div>
+    <p id="estat"></p>
+  </section>
+
+  <section>
+    <div class="pestanyes" id="vistes">
+      <button type="button" data-v="propers" class="actiu">📅 Pròxims</button>
+      <button type="button" data-v="resultats">🏁 Resultats</button>
+      <button type="button" data-v="jornades">🔢 Per jornades</button>
+      <button type="button" data-v="classificacio">🏆 Classificació</button>
+    </div>
+    <div class="fila" id="triaJornada" hidden><label>Jornada <select id="jornada"></select></label></div>
+    <div id="vista"><p class="buit">Carregant…</p></div>
+    <p class="font">Futbol: Federació Catalana de Futbol. Bàsquet sènior: FEB. El sots-25 femení, la Copa, la Lliga Catalana i
+      els amistosos s'entren a mà. <a href="../">Tornar a La TdG ampliada</a></p>
+  </section>
+</main>
+<datalist id="competicions"><option value="Copa España"><option value="Lliga Catalana"><option value="Amistós"><option value="Copa Catalunya"></datalist>
+<script>
+const FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/esports.json";
+const WORKER = "https://latdg-agenda.ignasicorney.workers.dev";
+const CLAU_DESADA = "llampsPin";
+const ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
+const DIES = ["dg", "dl", "dt", "dc", "dj", "dv", "ds"];
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const llegeix = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
+const escriu = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+const z = n => String(n).padStart(2, "0");
+const avuiIso = () => { const d = new Date(); return d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate()); };
+const dataCa = iso => iso ? DIES[new Date(iso + "T00:00:00").getDay()] + " " + iso.slice(8, 10) + "." + iso.slice(5, 7) + "." + iso.slice(0, 4) : "—";
+const gpe = r => { const m = String(r || "").match(/(\d+)\s*-\s*(\d+)/); if (!m) return ""; const a = +m[1], b = +m[2]; return a > b ? "G" : a < b ? "P" : "E"; };
+const nouId = () => Math.random().toString(36).slice(2, 12);
+
+let D = null, EQUIP = "tots", VISTA = "propers", PIN = "", MANUAL = null, SHA = null, EDITANT = null;
+
+async function carrega() {
+  try {
+    const r = await fetch(FONT + "?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    D = await r.json();
+    const g = new Date(D.actualitzat);
+    $("sub").textContent = "Actualitzat el " + z(g.getDate()) + "." + z(g.getMonth() + 1) + "." + g.getFullYear() + " a les " + z(g.getHours()) + "." + z(g.getMinutes()) + " h";
+    const avisos = D.equips.filter(e => e.estatFont && e.estatFont.ok === false);
+    if (avisos.length) $("sub").textContent += " · ⚠️ sense dades noves de: " + avisos.map(e => e.nom).join(", ");
+    pintaXips(); pinta();
+    if (PIN) omplirEquips();
+  } catch (e) { $("vista").innerHTML = '<p class="buit">No s\'han pogut carregar els partits.</p>'; }
+}
+
+function equipsTriats() { return EQUIP === "tots" ? D.equips : D.equips.filter(e => e.id === EQUIP); }
+
+function pintaXips() {
+  $("xips").innerHTML = [`<button type="button" data-e="tots" class="${EQUIP === "tots" ? "actiu" : ""}">Tots</button>`]
+    .concat(D.equips.map(e => `<button type="button" data-e="${e.id}" class="${EQUIP === e.id ? "actiu" : ""}">${ICONA[e.esport] || ""} ${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</button>`)).join("");
+}
+
+function filaPartit(e, p, ambEquip) {
+  const g = gpe(p.resultat);
+  const eines = PIN ? `<td>${p.manual ? `<button type="button" class="icona" data-ed="${esc(e.id)}|${esc(p.idFont)}">✏️</button> <button type="button" class="icona" data-esb="${esc(e.id)}|${esc(p.idFont)}">🗑️</button>`
+    : `<button type="button" class="icona" data-corr="${esc(e.id)}|${esc(p.clau)}" title="Corregeix aquest partit">✏️</button>`}</td>` : "";
+  return `<tr class="${p.data === avuiIso() ? "avui" : ""}">` +
+    (ambEquip ? `<td>${ICONA[e.esport] || ""} ${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</td>` : "") +
+    `<td>${esc(dataCa(p.data))}</td><td>${esc(p.hora ? p.hora.replace(":", ".") + " h" : "")}</td>` +
+    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${esc(p.rival)}</td>` +
+    `<td class="res ${g}">${esc(p.resultat || (p.estat && p.estat !== "Programat" ? p.estat : ""))}</td>` +
+    `<td>${esc(p.jornada ? "J" + p.jornada : "")} ${p.competicio !== e.competicio ? `<span class="etq">${esc(p.competicio)}</span>` : ""}` +
+    `${p.manual ? ' <span class="etq ma">a mà</span>' : p.corregit ? ' <span class="etq ma">corregit</span>' : ""}</td>` +
+    `<td class="camp">${esc(p.camp)}</td>${eines}</tr>`;
+}
+
+function taulaPartits(files, ambEquip) {
+  if (!files.length) return '<p class="buit">No hi ha partits.</p>';
+  return `<div class="taula"><table><thead><tr>${ambEquip ? "<th>Equip</th>" : ""}<th>Data</th><th>Hora</th><th>Partit</th><th>Resultat</th><th>Jornada</th><th>Camp</th>${PIN ? "<th></th>" : ""}</tr></thead><tbody>` +
+    files.map(([e, p]) => filaPartit(e, p, ambEquip)).join("") + "</tbody></table></div>";
+}
+
+function pinta() {
+  if (!D) return;
+  const eqs = equipsTriats(), avui = avuiIso(), tots = EQUIP === "tots";
+  $("triaJornada").hidden = VISTA !== "jornades";
+  let h = "";
+  const llista = filtre => eqs.flatMap(e => e.partits.filter(filtre).map(p => [e, p]))
+    .sort((a, b) => ((a[1].data || "") + (a[1].hora || "")).localeCompare((b[1].data || "") + (b[1].hora || "")));
+
+  if (VISTA === "propers") {
+    h = taulaPartits(llista(p => p.data && p.data >= avui && !p.resultat && !/descans/i.test(p.rival)).slice(0, tots ? 40 : 200), tots);
+  } else if (VISTA === "resultats") {
+    h = taulaPartits(llista(p => p.resultat || (p.data && p.data < avui && !/descans/i.test(p.rival))).reverse(), tots);
+  } else if (VISTA === "jornades") {
+    const jornades = Array.from(new Set(eqs.flatMap(e => e.partits.map(p => p.jornada).filter(Boolean)))).sort((a, b) => (+a || 999) - (+b || 999));
+    const sel = $("jornada");
+    const actual = sel.value && jornades.includes(sel.value) ? sel.value
+      : (jornades.find(j => eqs.some(e => e.partits.some(p => p.jornada === j && p.data >= avui))) || jornades[jornades.length - 1] || "");
+    sel.innerHTML = jornades.map(j => `<option value="${esc(j)}"${j === actual ? " selected" : ""}>Jornada ${esc(j)}</option>`).join("");
+    h = taulaPartits(llista(p => p.jornada === actual), tots);
+  } else {
+    h = eqs.map(e => {
+      const c = e.classificacio;
+      if (!c || !c.files.length) return `<h3>${esc(e.nom)}</h3><p class="buit">Sense classificació.</p>`;
+      const bas = c.tipus === "basquet", ambPunts = bas && c.files.some(f => f.punts !== undefined && f.punts !== "");
+      const cap = bas ? ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []) : ["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"];
+      return `<h3>${ICONA[e.esport] || ""} ${esc(e.nom)} (${esc(e.categoria)})</h3><div class="taula"><table><thead><tr>${cap.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>` +
+        c.files.map(f => `<tr class="${f.propi ? "propi" : ""}">` + (bas ? [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])
+          : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map(x => `<td>${esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
+        (e.classificacioManual ? `<p class="font">Entrada a mà.</p>` : "");
+    }).join("");
+  }
+  $("vista").innerHTML = h;
+}
+
+// ---------------- Edició amb clau ----------------
+async function crida(cos) {
+  const r = await fetch(WORKER, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin: PIN, ...cos }) });
+  let d = {}; try { d = await r.json(); } catch (e) {}
+  if (!r.ok || !d.ok) { const e = new Error(d.error || ("HTTP " + r.status)); e.conflicte = d.conflicte; throw e; }
+  return d;
+}
+
+async function entra() {
+  PIN = $("pin").value.trim();
+  if (!PIN) { $("estat").textContent = "Escriu la clau."; return; }
+  $("estat").textContent = "Comprovant la clau…";
+  try {
+    const d = await crida({ accio: "esports-llegeix" });
+    MANUAL = d.manual || { equips: {} }; MANUAL.equips = MANUAL.equips || {}; SHA = d.sha;
+    escriu(CLAU_DESADA, $("recorda").checked ? PIN : "");
+    $("clau").hidden = true; $("entrada").hidden = true; $("editor").hidden = false; $("estat").textContent = "";
+    omplirEquips(); nouPartit(); pinta();
+  } catch (e) { PIN = ""; $("estat").textContent = "❌ " + (e instanceof TypeError ? "No s'ha pogut connectar amb el Worker." : e.message); }
+}
+
+function omplirEquips() {
+  if (!D) return;
+  const actual = $("fEquip").value || (EQUIP !== "tots" ? EQUIP : "sol_girones_sots25");
+  $("fEquip").innerHTML = D.equips.map(e => `<option value="${e.id}"${e.id === actual ? " selected" : ""}>${esc(e.nom)}</option>`).join("");
+  pintaEdicioClassificacio();
+}
+
+function manualDe(id) { return (MANUAL.equips[id] = MANUAL.equips[id] || { partits: [], classificacio: [] }); }
+
+function nouPartit() {
+  EDITANT = null;
+  $("titolForm").textContent = "➕ Partit nou";
+  ["fCompeticio", "fGrup", "fJornada", "fData", "fHora", "fRival", "fResultat", "fCamp"].forEach(id => $(id).value = "");
+  $("fLV").value = "Local"; $("fEstat").value = ""; $("cancel").hidden = true; $("fEquip").disabled = false;
+}
+
+function omplirForm(p) {
+  $("fCompeticio").value = p.competicio || ""; $("fGrup").value = p.grup || ""; $("fJornada").value = p.jornada || "";
+  $("fData").value = p.data || ""; $("fHora").value = (p.hora || "").replace(".", ":"); $("fLV").value = p.localVisitant || "";
+  $("fRival").value = p.rival || ""; $("fResultat").value = p.resultat || "";
+  $("fEstat").value = ["Ajornat", "Suspès"].includes(p.estat) ? p.estat : ""; $("fCamp").value = p.camp || "";
+  $("cancel").hidden = false; $("gestio").scrollIntoView({ behavior: "smooth" });
+}
+
+function editaManual(eqId, id) {
+  const m = manualDe(eqId).partits.find(x => x.id === id);
+  if (!m) return;
+  EDITANT = { eqId, id }; $("fEquip").value = eqId; $("fEquip").disabled = true;
+  $("titolForm").textContent = "✏️ Editant el partit"; omplirForm(m);
+}
+
+function corregeix(eqId, clau) {
+  const e = D.equips.find(x => x.id === eqId), p = e && e.partits.find(x => x.clau === clau);
+  if (!p) return;
+  const existent = manualDe(eqId).partits.find(x => x.substitueix === clau);
+  EDITANT = { eqId, id: existent ? existent.id : nouId(), substitueix: clau };
+  $("fEquip").value = eqId; $("fEquip").disabled = true;
+  $("titolForm").textContent = "✏️ Corregint un partit de la federació"; omplirForm(existent ? { ...p, ...Object.fromEntries(Object.entries(existent).filter(([, v]) => v)) } : p);
+}
+
+async function desa(missatge) {
+  $("estat").textContent = "Desant…";
+  try {
+    const d = await crida({ accio: "esports-desa", manual: MANUAL, sha: SHA });
+    MANUAL = d.manual; SHA = d.sha;
+    $("estat").textContent = "✅ " + missatge + " Surt a tot arreu en 1 o 2 minuts.";
+    nouPartit(); pintaEdicioClassificacio();
+    setTimeout(carrega, 90000);
+  } catch (e) {
+    if (e.conflicte) { const d = await crida({ accio: "esports-llegeix" }); MANUAL = d.manual; SHA = d.sha; }
+    $("estat").textContent = "❌ " + e.message;
+  }
+}
+
+function desaPartit() {
+  const eqId = EDITANT ? EDITANT.eqId : $("fEquip").value;
+  const data = $("fData").value;
+  if (!data && !(EDITANT && EDITANT.substitueix)) { $("estat").textContent = "Cal la data."; return; }
+  const res = $("fResultat").value.trim();
+  if (res && !/^\d+\s*[-–]\s*\d+$/.test(res)) { $("estat").textContent = "El resultat ha de ser com 81 - 64 (els nostres punts primer)."; return; }
+  const p = {
+    id: EDITANT ? EDITANT.id : nouId(), competicio: $("fCompeticio").value.trim(), grup: $("fGrup").value.trim(),
+    jornada: $("fJornada").value.trim(), data, hora: $("fHora").value, localVisitant: $("fLV").value,
+    rival: $("fRival").value.trim(), resultat: res.replace(/\s*[-–]\s*/, " - "), estat: $("fEstat").value, camp: $("fCamp").value.trim()
+  };
+  if (EDITANT && EDITANT.substitueix) p.substitueix = EDITANT.substitueix;
+  const m = manualDe(eqId);
+  m.partits = m.partits.filter(x => x.id !== p.id).concat(p);
+  desa(EDITANT ? "Partit modificat." : "Partit afegit.");
+}
+
+function esborra(eqId, id) {
+  const m = manualDe(eqId);
+  const p = m.partits.find(x => x.id === id);
+  if (!p || !confirm("Vols esborrar aquest partit entrat a mà?\n\n" + dataCa(p.data) + " · " + p.rival)) return;
+  m.partits = m.partits.filter(x => x.id !== id);
+  desa("Partit esborrat.");
+}
+
+// Classificació a mà: per als equips sense classificació automàtica (sots-25).
+function pintaEdicioClassificacio() {
+  if (!PIN || !D) return;
+  const eqId = $("fEquip").value;
+  const e = D.equips.find(x => x.id === eqId);
+  if (!e || e.font !== "manual") { $("edcls").innerHTML = ""; return; }
+  const files = (manualDe(eqId).classificacio || []).slice().sort((a, b) => (a.pos || 99) - (b.pos || 99));
+  const camps = ["pos", "equip", "pj", "pg", "pp", "pf", "pc", "punts"];
+  const fila = f => `<tr>${camps.map(c => `<td><input class="${c === "equip" ? "nom" : ""}" data-c="${c}" value="${esc(f[c] ?? "")}"></td>`).join("")}<td><button type="button" class="icona" data-treu-cls>🗑️</button></td></tr>`;
+  $("edcls").innerHTML = `<h3>🏆 Classificació de ${esc(e.nom)} (a mà)</h3><div class="taula edcls"><table><thead><tr>` +
+    ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Punts", ""].map(x => `<th>${x}</th>`).join("") + `</tr></thead><tbody id="clsCos">` +
+    files.map(fila).join("") + `</tbody></table></div><div class="fila" style="margin-top:8px"><button type="button" class="suau" id="afegeixCls">➕ Fila</button>` +
+    `<button type="button" id="desaCls">Desa la classificació</button></div><p class="font">DIF i % es calculen sols.</p>`;
+  $("afegeixCls").onclick = () => $("clsCos").insertAdjacentHTML("beforeend", fila({}));
+  $("desaCls").onclick = () => {
+    const llista = Array.from($("clsCos").rows).map(tr => Object.fromEntries(Array.from(tr.querySelectorAll("input")).map(i => [i.dataset.c, i.value.trim()]))).filter(f => f.equip);
+    const m = manualDe(eqId); m.classificacio = llista; m.classificacioActualitzada = new Date().toISOString();
+    desa("Classificació desada.");
+  };
+  $("clsCos").onclick = ev => { if (ev.target.closest("[data-treu-cls]")) ev.target.closest("tr").remove(); };
+}
+
+// ---------------- Esdeveniments ----------------
+$("xips").onclick = ev => { const b = ev.target.closest("button[data-e]"); if (!b) return; EQUIP = b.dataset.e; pintaXips(); pinta(); if (PIN && EQUIP !== "tots" && !EDITANT) { $("fEquip").value = EQUIP; pintaEdicioClassificacio(); } };
+$("vistes").onclick = ev => { const b = ev.target.closest("button[data-v]"); if (!b) return; VISTA = b.dataset.v; document.querySelectorAll("#vistes button").forEach(x => x.classList.toggle("actiu", x === b)); pinta(); };
+$("jornada").onchange = pinta;
+$("vista").onclick = ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  if (b.dataset.ed) editaManual(...b.dataset.ed.split("|"));
+  if (b.dataset.esb) esborra(...b.dataset.esb.split("|"));
+  if (b.dataset.corr) corregeix(...b.dataset.corr.split("|"));
+};
+$("fEquip").onchange = pintaEdicioClassificacio;
+$("obre").onclick = () => { $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };
+$("entra").onclick = entra;
+$("pin").onkeydown = e => { if (e.key === "Enter") entra(); };
+$("desaPartit").onclick = desaPartit;
+$("cancel").onclick = nouPartit;
+$("oblida").onclick = () => { escriu(CLAU_DESADA, ""); $("estat").textContent = "Clau oblidada en aquest navegador."; };
+
+const desada = llegeix(CLAU_DESADA);
+$("recorda").checked = !!desada;
+carrega().then(() => { if (desada) { $("pin").value = desada; $("entrada").hidden = true; $("clau").hidden = false; entra(); } else if (location.hash === "#gestio") $("obre").click(); });
+</script>
+</body>
+</html>

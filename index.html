@@ -71,6 +71,14 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
   .botons .nom{font-size:.9rem}
   .botons .detall{font-size:.8rem}
 }
+/* ESPORTS (24.10.2026) */
+.esp-graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.esp-equip{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px}
+.esp-equip h3{margin:0;font-size:1rem}
+.esp-linia{margin:4px 0 0;font-size:.92rem}
+.esp-etq{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--suau);min-width:58px}
+.esp-res{white-space:nowrap}
+.esp-G{color:#2e7d32}.esp-P{color:#c0392b}.esp-E{color:var(--suau)}
 /* AGENDA D'ACTES EN TARGETES (21.10.2026) */
 .agenda{display:grid;gap:20px}
 .ag-data{margin:0 0 8px;font-size:1rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -376,6 +384,78 @@ async function carregaAgenda() {
 }
 
 // -----------------------------------------------------------------------------
+// ESPORTS (24.10.2026): dades/esports.json, que genera GitHub cada 15 minuts
+// (FCF, FEB i el que s'entra a mà a la pàgina esports/).
+// -----------------------------------------------------------------------------
+const ESPORTS_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/esports.json";
+const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
+
+function esportsDataCurta(iso) {
+  if (!iso) return "";
+  const d = new Date(iso + "T00:00:00");
+  return ["dg", "dl", "dt", "dc", "dj", "dv", "ds"][d.getDay()] + " " + iso.slice(8, 10) + "." + iso.slice(5, 7);
+}
+
+function esportsGuanyat(res) {
+  const m = String(res || "").match(/(\d+)\s*-\s*(\d+)/);
+  if (!m) return "";
+  const a = Number(m[1]), b = Number(m[2]);
+  return a > b ? "G" : a < b ? "P" : "E";
+}
+
+async function carregaEsports() {
+  const cosP = document.getElementById("esportsPartits");
+  const cosC = document.getElementById("esportsClass");
+  if (!cosP && !cosC) return;
+  try {
+    let r = await fetch(ESPORTS_FONT + "?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) r = await fetch("dades/esports.json?v=" + Date.now());
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    const avui = new Date(); const avuiIso = avui.getFullYear() + "-" + String(avui.getMonth() + 1).padStart(2, "0") + "-" + String(avui.getDate()).padStart(2, "0");
+
+    if (cosP) cosP.innerHTML = '<div class="esp-graella">' + d.equips.map(e => {
+      const jugats = e.partits.filter(p => p.resultat && p.data);
+      const darrer = jugats[jugats.length - 1];
+      const proper = e.partits.find(p => p.data && p.data >= avuiIso && !p.resultat && !/descans/i.test(p.rival));
+      const g = darrer ? esportsGuanyat(darrer.resultat) : "";
+      return `<article class="esp-equip"><h3>${ESPORTS_ICONA[e.esport] || ""} ${esc(e.nom)}</h3>
+        <p class="font dalt">${esc(e.categoria)}</p>` +
+        (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
+          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${esc(darrer.rival)} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
+        (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
+          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${esc(proper.rival)}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
+          '<p class="esp-linia buit">Sense partits programats.</p>') + "</article>";
+    }).join("") + "</div>";
+
+    if (cosC) {
+      cosC.innerHTML = d.equips.filter(e => e.classificacio && e.classificacio.files.length).map(e => {
+        const c = e.classificacio;
+        const titol = `<h3>${esc(e.nom)} (${esc(e.categoria)})</h3>`;
+        if (c.tipus === "basquet") {
+          const ambPunts = c.files.some(f => f.punts !== undefined && f.punts !== "");
+          return `<div class="classif">${titol}` + taula(
+            ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []),
+            c.files.map(f => [f.pos, String(f.equip ?? "").toUpperCase(), f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])),
+            i => c.files[i].propi ? "propi" : "") + "</div>";
+        }
+        return `<div class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
+          c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]),
+          i => c.files[i].propi ? "propi" : "") + "</div>";
+      }).join("");
+      const peu = document.getElementById("esportsPeu");
+      if (peu && d.actualitzat) {
+        const g = new Date(d.actualitzat), z = n => String(n).padStart(2, "0");
+        peu.textContent = "Actualitzat el " + z(g.getDate()) + "." + z(g.getMonth() + 1) + "." + g.getFullYear() +
+          " a les " + z(g.getHours()) + "." + z(g.getMinutes()) + " h";
+      }
+    }
+  } catch (e) {
+    if (cosP) cosP.innerHTML = '<p class="buit">Ara mateix no s\'han pogut carregar els partits.</p>';
+  }
+}
+
+// -----------------------------------------------------------------------------
 // LLAMPS (21.10.2026): resum de la darrera revisió a demanda de l'XDDE.
 // -----------------------------------------------------------------------------
 async function carregaLlamps() {
@@ -619,28 +699,22 @@ function pinta(d) {
       "Portal de Subhastes de l'Agència Estatal BOE");
   }
   
-  // 15. 🏆 CLASSIFICACIONS DELS EQUIPS
-  // CANVI 24.10.2026: la categoria de cada equip, entre parèntesis, al títol.
-  const CATEGORIES = [
-    [/femen.*sots|sots.*femen|sub.?25/i, "Copa Catalunya sots-25 femení"],
-    [/sol giron|basquet|bàsquet/i, "2a FEB"],
-    [/pera.*femen/i, "2a Divisió femenina"],
-    [/pera/i, "4a Catalana, grup 2"],
-    [/monells b/i, "4a Catalana, grup 5"],
-    [/monells/i, "4a Catalana, grup 2"],
-    [/atl[eè]tic/i, "2a Catalana, grup 1"]
-  ];
-  const ambCategoria = nom => { const c = CATEGORIES.find(([rx]) => rx.test(nom)); return c ? `${nom} (${c[1]})` : nom; };
-  if (b.classificacions && b.classificacions.length) h += seccio("🏆 Classificacions dels equips",
-    b.classificacions.map(c => `<div class="classif"><h3>${esc(ambCategoria(c.equip))}</h3>` + (c.tipus === "basquet"
-      // Bàsquet (graella de la FEB): no hi ha empats.
+  // 15. ⚽ PARTITS I 🏆 CLASSIFICACIONS (CANVI 24.10.2026): es llegeixen en
+  // directe de dades/esports.json (carregaEsports). Mentre no arriba, la
+  // classificació que porta el tauler del dia.
+  h += seccio("⚽ Partits i resultats",
+    '<div id="esportsPartits"><p class="buit">Carregant…</p></div>' +
+    '<p class="font"><a href="esports/">Tots els partits, per jornades i dates, i edició amb clau</a></p>', "", false);
+  h += seccio("🏆 Classificacions dels equips",
+    '<p class="font dalt" id="esportsPeu"></p><div id="esportsClass">' +
+    ((b.classificacions || []).map(c => `<div class="classif"><h3>${esc(c.equip)}</h3>` + (c.tipus === "basquet"
       ? taula(["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"],
-                  c.files.map(f => [f.pos, String(f.equip ?? "").toUpperCase(), f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.percent]),
+          c.files.map(f => [f.pos, String(f.equip ?? "").toUpperCase(), f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.percent]),
           i => c.files[i].propi ? "propi" : "")
       : taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
           c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
-          i => c.files[i].propi ? "propi" : "")) + `</div>`).join(""),
-    "FCF i FEB");
+          i => c.files[i].propi ? "propi" : "")) + `</div>`).join("") || '<p class="buit">Carregant…</p>') + "</div>",
+    "FCF, FEB i Federació Catalana de Basquetbol", false);
 
   document.getElementById("blocs").innerHTML = h;
   document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
@@ -710,6 +784,7 @@ async function inicia() {
     pinta(d);
     carregaAgenda();
     carregaLlamps();
+    carregaEsports();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
   }

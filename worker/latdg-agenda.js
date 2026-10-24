@@ -7,6 +7,10 @@
 //    al repo PRIVAT latdg/noticies (dies/AAAA-MM-DD.json), des de la pàgina
 //    latdg.github.io/redaccio/noticies/. El guió les llegeix d'aquí mateix.
 //
+// 3) ESPORTS (afegit el 24.10.2026): desa els partits i classificacions que
+//    s'entren a mà (dades/esports-manual.json del repo latdg/tauler) des de la
+//    pàgina latdg.github.io/tauler/esports/.
+//
 // Sempre amb la mateixa clau que els llamps.
 //
 // Variables secretes del Worker (Settings > Variables and Secrets):
@@ -20,11 +24,15 @@
 //   { accio: "noticies-dies" }                    → { dies: ["2026-10-27", …] }
 //   { accio: "noticies-llegeix", dia }            → { noticies: [...], sha }
 //   { accio: "noticies-desa", dia, noticies, sha } → desa (o esborra si és buit)
+//   { accio: "esports-llegeix" }                  → { manual, sha }
+//   { accio: "esports-desa", manual, sha }        → desa dades/esports-manual.json
 // Si algú altre ha desat entremig (el sha no coincideix), respon 409.
 // =============================================================================
 
 const AGENDA = { repo: "latdg/tauler", cami: "dades/agenda.json" };
 const NOTICIES_REPO = "latdg/noticies";
+const ESPORTS = { repo: "latdg/tauler", cami: "dades/esports-manual.json" };
+const EQUIPS_ESPORTS = ["atletic_bisbalenc", "monells_a", "monells_b", "la_pera", "la_pera_femeni", "sol_girones", "sol_girones_sots25"];
 const ORIGENS = ["https://latdg.github.io"];
 
 export default {
@@ -98,6 +106,19 @@ export default {
         const dades = { dia, actualitzat: new Date().toISOString(), noticies };
         const sha = await gh.desa(NOTICIES_REPO, cami, dades, cos.sha, "Notícies del " + dia + " (" + noticies.length + ")", "La TdG (redacció)");
         return resposta({ ok: true, dia, noticies, actualitzat: dades.actualitzat, sha });
+      }
+
+      // ---------------- ESPORTS ----------------
+      if (cos.accio === "esports-llegeix") {
+        const { dades, sha } = await gh.llegeix(ESPORTS.repo, ESPORTS.cami, { equips: {} });
+        return resposta({ ok: true, manual: dades, sha });
+      }
+
+      if (cos.accio === "esports-desa") {
+        const manual = netejaEsports(cos.manual);
+        if (!manual) return resposta({ ok: false, error: "Hi ha dades d'esports que no són vàlides." }, 400);
+        const sha = await gh.desa(ESPORTS.repo, ESPORTS.cami, manual, cos.sha, "Esports: canvis fets a mà", "La TdG (esports)");
+        return resposta({ ok: true, manual, sha });
       }
 
       return resposta({ ok: false, error: "Acció desconeguda" }, 400);
@@ -219,4 +240,34 @@ function netejaNoticies(llista) {
     surt.push(x);
   }
   return surt;
+}
+
+function netejaEsports(m) {
+  if (!m || typeof m !== "object" || !m.equips || typeof m.equips !== "object") return null;
+  const t = (v, n) => String(v ?? "").trim().slice(0, n);
+  const sortida = { nota: t(m.nota, 500), equips: {} };
+  for (const id of Object.keys(m.equips)) {
+    if (!EQUIPS_ESPORTS.includes(id)) return null;
+    const e = m.equips[id] || {};
+    const partits = Array.isArray(e.partits) ? e.partits : [];
+    const cls = Array.isArray(e.classificacio) ? e.classificacio : [];
+    if (partits.length > 300 || cls.length > 40) return null;
+    const ne = {
+      partits: partits.map(p => ({
+        id: t(p.id, 20) || Math.random().toString(36).slice(2, 12),
+        competicio: t(p.competicio, 80), grup: t(p.grup, 80), jornada: t(p.jornada, 20),
+        data: t(p.data, 10), hora: t(p.hora, 5), localVisitant: t(p.localVisitant, 10),
+        rival: t(p.rival, 120), resultat: t(p.resultat, 20), estat: t(p.estat, 30),
+        camp: t(p.camp, 200), nota: t(p.nota, 300), substitueix: t(p.substitueix, 40)
+      })).filter(p => /^\d{4}-\d{2}-\d{2}$/.test(p.data) || p.substitueix),
+      classificacio: cls.map(f => ({
+        pos: Number(f.pos) || "", equip: t(f.equip, 120),
+        pj: Number(f.pj) || 0, pg: Number(f.pg) || 0, pe: Number(f.pe) || 0, pp: Number(f.pp) || 0,
+        pf: Number(f.pf) || 0, pc: Number(f.pc) || 0, punts: f.punts === "" || f.punts == null ? "" : Number(f.punts) || 0
+      })).filter(f => f.equip)
+    };
+    if (e.classificacioActualitzada) ne.classificacioActualitzada = t(e.classificacioActualitzada, 40);
+    sortida.equips[id] = ne;
+  }
+  return sortida;
 }
