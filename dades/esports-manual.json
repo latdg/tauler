@@ -1,0 +1,268 @@
+{
+ "nota": "Partits i classificacions entrats a mà. S'editen a latdg.github.io/tauler/esports/ (amb clau). Importat del Google Sheet «esport» el 24.10.2026.",
+ "equips": {
+  "sol_girones": {
+   "partits": [
+    {
+     "id": "ztk865nkbx",
+     "competicio": "Copa España",
+     "grup": "Grup C",
+     "jornada": "",
+     "data": "2026-09-13",
+     "hora": "18:00",
+     "localVisitant": "Local",
+     "rival": "CB Benicarló",
+     "resultat": "66 - 62",
+     "camp": "Girona-Fontajau"
+    },
+    {
+     "id": "esco0uuuhv",
+     "competicio": "Lliga Catalana",
+     "grup": "",
+     "jornada": "",
+     "data": "2026-09-16",
+     "hora": "18:00",
+     "localVisitant": "",
+     "rival": "CB Prat",
+     "resultat": "",
+     "estat": "Ajornat",
+     "nota": "27-41 AJORNAT",
+     "camp": "Sant Feliu de Llobregat"
+    },
+    {
+     "id": "truhyeq6xe",
+     "competicio": "Copa España",
+     "grup": "Grup C",
+     "jornada": "",
+     "data": "2026-09-19",
+     "hora": "18:00",
+     "localVisitant": "Local",
+     "rival": "Amics Castelló",
+     "resultat": "68 - 66",
+     "camp": "Mollet del Vallès"
+    },
+    {
+     "id": "y44ua022n2",
+     "competicio": "Copa España",
+     "grup": "Grup C",
+     "jornada": "",
+     "data": "2026-09-26",
+     "hora": "18:00",
+     "localVisitant": "Visitant",
+     "rival": "CB Prat",
+     "resultat": "79 - 71",
+     "camp": "El Prat de Llobregat"
+    },
+    {
+     "id": "tv7wa6uqbx",
+     "competicio": "Copa España",
+     "grup": "1/16 de final",
+     "jornada": "",
+     "data": "2026-10-20",
+     "hora": "19:30",
+     "localVisitant": "Local",
+     "rival": "Insolac Caja 87",
+     "resultat": "61 - 76",
+     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)"
+    }
+   ]
+  },
+  "sol_girones_sots25": {
+   "partits": [
+    {
+     "id": "zbkug3jpji",
+     "jornada": "3",
+     "data": "2026-10-10",
+     "hora": "16:00",
+     "localVisitant": "Visitant",
+     "rival": "CB SARRIÀ DE TER",
+     "resultat": "66 - 51",
+     "camp": "PAVELLO MUNICIPAL DE SARRIÀ DE TER"
+    },
+    {
+     "id": "2900ebm0kq",
+     "jornada": "4",
+     "data": "2026-10-17",
+     "hora": "20:15",
+     "localVisitant": "Local",
+     "rival": "AE FORNELLS",
+     "resultat": "62 - 43",
+     "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA"
+    },
+    {
+     "id": "m7bmnx5bj3",
+     "jornada": "5",
+     "data": "2026-10-23",
+     "hora": "20:00",
+     "localVisitant": "Visitant",
+     "rival": "C.B. FONTCOBERTA",
+     "resultat": "81 - 64",
+     "camp": "PAVELLO MUNICIPAL FONTCOBERTA"
+    },
+    {
+     "id": "p43l9k4ue5",
+     "jornada": "2",
+     "data": "2026-10-31",
+     "hora": "19:30",
+     "localVisitant": "Visitant",
+     "rival": "CBU LLORET RECREATIVOS",
+     "resultat": "",
+     "camp": "PAVELLO MUNICIPAL EL MOLI DE LLORET DE MAR"
+    },
+    {
+     "id": "w38drx3zyv",
+     "jornada": "6",
+     "data": "2026-11-07",
+     "hora": "17:45",
+     "localVisitant": "Local",
+     "rival": "BC MAÇANET",
+     "resultat": "",
+     "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA"
+    },
+    {
+     "id": "tzeult1j9j",
+     "jornada": "1",
+     "data": "2026-12-11",
+     "hora": "20:30",
+     "localVisitant": "Visitant",
+     "rival": "UNIÓ MARISTES GIRONA",
+     "resultat": "",
+     "camp": "PAVELLO MARISTES DE GIRONA"
+    }
+   ],
+   "classificacioActualitzada": "2026-10-24T11:22:00+02:00",
+   "classificacio": [
+    {
+     "pos": 1,
+     "equip": "CB BANYOLES",
+     "pj": 4,
+     "pg": 4,
+     "pp": 0,
+     "pf": 352,
+     "pc": 151,
+     "punts": 8
+    },
+    {
+     "pos": 2,
+     "equip": "UNIÓ MARISTES GIRONA",
+     "pj": 3,
+     "pg": 3,
+     "pp": 0,
+     "pf": 187,
+     "pc": 130,
+     "punts": 6
+    },
+    {
+     "pos": 3,
+     "equip": "CB VALL D'EN BAS SUB25",
+     "pj": 3,
+     "pg": 3,
+     "pp": 0,
+     "pf": 182,
+     "pc": 126,
+     "punts": 6
+    },
+    {
+     "pos": 4,
+     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
+     "pj": 3,
+     "pg": 3,
+     "pp": 0,
+     "pf": 209,
+     "pc": 158,
+     "punts": 6
+    },
+    {
+     "pos": 5,
+     "equip": "CBU LLORET RECREATIVOS LLORET",
+     "pj": 3,
+     "pg": 2,
+     "pp": 1,
+     "pf": 183,
+     "pc": 147,
+     "punts": 5
+    },
+    {
+     "pos": 6,
+     "equip": "AE FORNELLS",
+     "pj": 4,
+     "pg": 1,
+     "pp": 3,
+     "pf": 170,
+     "pc": 194,
+     "punts": 5
+    },
+    {
+     "pos": 7,
+     "equip": "BC MAÇANET",
+     "pj": 3,
+     "pg": 2,
+     "pp": 1,
+     "pf": 169,
+     "pc": 200,
+     "punts": 5
+    },
+    {
+     "pos": 8,
+     "equip": "CB SARRIÀ DE TER",
+     "pj": 3,
+     "pg": 1,
+     "pp": 2,
+     "pf": 179,
+     "pc": 168,
+     "punts": 4
+    },
+    {
+     "pos": 9,
+     "equip": "CB VILOBÍ",
+     "pj": 3,
+     "pg": 1,
+     "pp": 2,
+     "pf": 136,
+     "pc": 150,
+     "punts": 4
+    },
+    {
+     "pos": 10,
+     "equip": "C.B. FONTCOBERTA",
+     "pj": 4,
+     "pg": 0,
+     "pp": 4,
+     "pf": 166,
+     "pc": 269,
+     "punts": 4
+    },
+    {
+     "pos": 11,
+     "equip": "CB.ROSES",
+     "pj": 3,
+     "pg": 0,
+     "pp": 3,
+     "pf": 112,
+     "pc": 208,
+     "punts": 3
+    },
+    {
+     "pos": 12,
+     "equip": "CE CALDES U25F",
+     "pj": 2,
+     "pg": 0,
+     "pp": 2,
+     "pf": 88,
+     "pc": 143,
+     "punts": 2
+    },
+    {
+     "pos": 13,
+     "equip": "CB GRIFEU LLANÇÀ U 25",
+     "pj": 2,
+     "pg": 0,
+     "pp": 2,
+     "pf": 58,
+     "pc": 147,
+     "punts": 2
+    }
+   ]
+  }
+ }
+}

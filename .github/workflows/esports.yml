@@ -1,0 +1,44 @@
+# Esports de La TdG — 24.10.2026
+# Torna a generar dades/esports.json just després que es desin canvis fets a mà
+# (pàgina esports/ del tauler, amb clau). La resta del temps ho fa el bucle del
+# tauler en directe, cada 15 minuts.
+name: Esports
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dades/esports-manual.json"
+      - "esports/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: esports
+  cancel-in-progress: false
+
+jobs:
+  esports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          git config user.name "La TdG (esports)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for intent in 1 2 3; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python esports/esports.py
+            git add dades/esports.json
+            if git diff --cached --quiet; then echo "Sense canvis"; break; fi
+            git commit -qm "Esports ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
+            git push -q origin HEAD:main && break
+            sleep 10
+          done
