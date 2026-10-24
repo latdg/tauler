@@ -404,7 +404,11 @@ def feb_classificacio(h):
             "pc": num(val("pc")), "dif": num(val("dif")), "pct": val("pct"), "ratxa": val("racha"),
             "propi": link.group(1) == FEB["idBisbal"],
         })
-    files.sort(key=lambda f: f["pos"] if isinstance(f["pos"], (int, float)) else 999)
+    # Si la FEB no dona la posició, és l'ordre de la taula.
+    for i, f in enumerate(files):
+        if not isinstance(f["pos"], (int, float)):
+            f["pos"] = i + 1
+    files.sort(key=lambda f: f["pos"])
     return files
 
 
