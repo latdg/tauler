@@ -6,6 +6,9 @@
 <meta name="color-scheme" content="light only">
 <meta name="robots" content="noindex, nofollow">
 <title>Llamps a la Bisbal</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
 *{box-sizing:border-box}
@@ -37,6 +40,16 @@ pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);bo
 [hidden]{display:none !important}
 #obre{background:var(--targeta);color:var(--accent)}
 #estat{font-size:.9rem;color:var(--suau)}
+/* MAPA (24.10.2026) */
+#mapa{height:560px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4}
+@media (max-width:600px){#mapa{height:420px}}
+.llegenda{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:.85rem;color:var(--suau);margin-top:8px}
+.llegenda .esc{display:inline-flex;align-items:center;gap:4px}
+.llegenda .esc i{display:inline-block;width:22px;height:10px;border-radius:2px}
+.llegenda svg{vertical-align:middle}
+.etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
+.etiq-mun::before{display:none}
+.nomes-clau{}
 </style>
 </head>
 <body>
@@ -68,11 +81,15 @@ pre{white-space:pre-wrap;background:var(--fons);border:1px solid var(--linia);bo
 
   <section>
     <div class="xifres" id="xifres"></div>
+    <h2>Mapa de la demarcació de Girona</h2>
+    <div id="mapa"></div>
+    <div class="llegenda" id="llegenda"></div>
+    <p class="font" id="notaMapa"></p>
     <div id="text"></div>
     <div class="taula" id="taula"><p class="buit">Carregant…</p></div>
     <p class="font">Llamps de la Xarxa de Detecció de Descàrregues Elèctriques (XDDE) del Meteocat a menys de 50 km
-      dels nuclis dels quatre municipis. En vermell, els de menys de 10 km. Les revisions només es fan a demanda
-      (cada hora revisada gasta 1 consulta de les 250 mensuals de l'XDDE).
+      dels nuclis dels quatre municipis. En vermell, els de menys de 10 km. Les revisions només es fan a demanda<span class="nomes-clau" hidden>
+      (cada hora revisada gasta 1 consulta de les mensuals de l'XDDE)</span>.
       <a href="https://www.meteo.cat/observacions/llamps" target="_blank" rel="noopener">Mapa del Meteocat</a> ·
       <a href="../">Tornar a La TdG ampliada</a></p>
   </section>
@@ -94,7 +111,10 @@ async function json(cami) {
 
 function pinta(d) {
   const zona = d.llamps.filter(l => l.km <= 10);
-  document.getElementById("sub").textContent = `Revisió del ${quan(d.generat)} · ${d.hores} h enrere · consultes de l'XDDE aquest mes: ${d.consultesDespres ?? "?"} de ${d.maxim}`;
+  // 24.10.2026: el comptador de consultes de l'XDDE només es veu amb la clau.
+  document.getElementById("sub").textContent = `Revisió del ${quan(d.generat)} · ${d.hores} h enrere` +
+    (ambClau() ? ` · consultes de l'XDDE aquest mes: ${d.consultesDespres ?? "?"} de ${d.maxim}` : "");
+  pintaMapa(d);
   document.getElementById("xifres").innerHTML =
     `<div class="xifra"><b>${zona.length}</b><span>a menys de 10 km</span></div>` +
     `<div class="xifra"><b>${d.llamps.filter(l => l.km <= 30).length}</b><span>a menys de 30 km</span></div>` +
@@ -115,6 +135,93 @@ function pinta(d) {
       `<td><a href="https://www.google.com/maps?q=${l.lat},${l.lon}" target="_blank" rel="noopener">${esc(l.lloc)}</a></td>` +
       `<td>${l.nt ? "núvol-terra" : "núvol-núvol"}</td><td class="num">${l.kA ?? "—"}</td></tr>`).join("") + "</tbody></table>" : "";
   document.getElementById("taula").innerHTML = franges + llista;
+}
+
+// Amb clau: si aquest navegador la té desada o s'ha fet servir en aquesta visita.
+let clauUsada = false;
+const ambClau = () => clauUsada || !!llegeix("llampsPin");
+function mostraNomesClau() {
+  document.querySelectorAll(".nomes-clau").forEach(e => e.hidden = !ambClau());
+  if (DARRER) document.getElementById("sub").textContent = `Revisió del ${quan(DARRER.generat)} · ${DARRER.hores} h enrere` +
+    (ambClau() ? ` · consultes de l'XDDE aquest mes: ${DARRER.consultesDespres ?? "?"} de ${DARRER.maxim}` : "");
+}
+
+// -----------------------------------------------------------------------------
+// MAPA (24.10.2026): demarcació de Girona amb els municipis, els cercles de 10,
+// 30 i 50 km des de la Bisbal i cada llamp a les seves coordenades, acolorit
+// segons quan va caure dins la revisió (com el mapa del Meteocat).
+//  + / − núvol-terra (positiu / negatiu) · • núvol-núvol
+// -----------------------------------------------------------------------------
+const BISBAL = [41.9597, 3.0386];
+const COLORS = ["#ffe066", "#ffb703", "#fb8500", "#e85d04", "#d00000", "#7b0000"];   // del més antic al més recent
+const ETIQUETES = [["17022", "la Bisbal"], ["17079", "Girona"], ["17066", "Figueres"], ["17114", "Olot"], ["17117", "Palafrugell"], ["17118", "Palamós"],
+  ["17023", "Blanes"], ["17141", "Puigcerdà"], ["17147", "Ripoll"], ["17095", "Lloret de Mar"], ["17032", "Cadaqués"],
+  ["17160", "Sant Feliu de Guíxols"], ["17180", "Santa Coloma de Farners"], ["17015", "Banyoles"], ["17152", "Roses"], ["17062", "l'Escala"]];
+let MAPA = null, CAPA = null, DARRER = null, GEO = null;
+
+async function iniciaMapa() {
+  if (typeof L === "undefined") { document.getElementById("mapa").innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return; }
+  MAPA = L.map("mapa", { zoomSnap: 0.25, attributionControl: true, preferCanvas: true }).setView([42.05, 2.65], 8.75);
+  MAPA.attributionControl.setPrefix("").addAttribution("Llamps: XDDE del Meteocat · Límits: es-atlas (INE)");
+  try {
+    GEO = await (await fetch("girona.json")).json();
+    const prov = topojson.feature(GEO, GEO.objects.provincies);
+    const mun = topojson.feature(GEO, GEO.objects.municipis);
+    L.geoJSON(prov, { style: f => ({ color: "#9a958a", weight: f.id === "17" ? 2 : 1, fillColor: f.id === "17" ? "#ffffff" : "#f6f5f2", fillOpacity: 1 }), interactive: false }).addTo(MAPA);
+    L.geoJSON(mun, {
+      style: f => ({ color: "#d6d2c8", weight: .6, fillColor: ["17022", "17057", "17902", "17901"].includes(f.id) ? "#f8e6df" : "#fff", fillOpacity: ["17022", "17057", "17902", "17901"].includes(f.id) ? 1 : 0 }),
+      onEachFeature: (f, l) => l.bindTooltip(f.properties.n, { sticky: true })
+    }).addTo(MAPA);
+    const vora = L.geoJSON(prov.features.filter(f => f.id === "17"), { style: { color: "#6b6b66", weight: 2, fill: false }, interactive: false }).addTo(MAPA);
+    MAPA.fitBounds(vora.getBounds(), { padding: [10, 10] });
+    const centres = {};
+    mun.features.forEach(f => { centres[f.id] = L.geoJSON(f).getBounds().getCenter(); });
+    ETIQUETES.forEach(([id, nom]) => { if (centres[id]) L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false }).setLatLng(centres[id]).setContent(nom).addTo(MAPA); });
+  } catch (e) {}
+  [[10, "#c0392b"], [30, "#e67e22"], [50, "#8a857a"]].forEach(([km, c]) =>
+    L.circle(BISBAL, { radius: km * 1000, color: c, weight: 1.2, dashArray: "5 5", fill: false, interactive: false }).addTo(MAPA)
+      .bindTooltip(km + " km", { permanent: false }));
+  L.circleMarker(BISBAL, { radius: 4, color: "#1d1d1b", weight: 1, fillColor: "#fff", fillOpacity: 1 }).addTo(MAPA).bindTooltip("la Bisbal d'Empordà");
+  if (DARRER) pintaMapa(DARRER);
+}
+
+function iconaLlamp(color, tipus) {
+  const ombra = 'stroke="#1d1d1b" stroke-width="3.6" stroke-linecap="round"', traç = `stroke="${color}" stroke-width="2" stroke-linecap="round"`;
+  const sv = tipus === "nn"
+    ? `<circle cx="8" cy="8" r="3.4" fill="${color}" stroke="#1d1d1b" stroke-width="1"/>`
+    : `<line x1="3" y1="8" x2="13" y2="8" ${ombra}/>` + (tipus === "pos" ? `<line x1="8" y1="3" x2="8" y2="13" ${ombra}/>` : "") +
+      `<line x1="3" y1="8" x2="13" y2="8" ${traç}/>` + (tipus === "pos" ? `<line x1="8" y1="3" x2="8" y2="13" ${traç}/>` : "");
+  return L.divIcon({ className: "", iconSize: [16, 16], iconAnchor: [8, 8], html: `<svg width="16" height="16" viewBox="0 0 16 16">${sv}</svg>` });
+}
+
+function pintaMapa(d) {
+  DARRER = d;
+  if (!MAPA) return;
+  if (CAPA) CAPA.remove();
+  CAPA = L.layerGroup().addTo(MAPA);
+  // Llamps: tots els de la demarcació (revisions des del 24.10.2026) i, a més, els de menys de 50 km.
+  const vistos = {}, llista = [];
+  (d.demarcacio || []).forEach(x => { const k = x[0] + "|" + x[1] + "|" + x[2]; vistos[k] = 1; llista.push({ t: x[0], lat: x[1], lon: x[2], nt: !!x[3], kA: x[4] }); });
+  (d.llamps || []).forEach(l => { const k = l.t + "|" + l.lat + "|" + l.lon; if (!vistos[k]) llista.push(l); });
+  const fi = new Date(d.generat).getTime(), inici = fi - d.hores * 3600000;
+  const tram = t => Math.max(0, Math.min(COLORS.length - 1, Math.floor((t - inici) / (fi - inici) * COLORS.length)));
+  llista.sort((a, b) => a.t - b.t).forEach(l => {
+    const tipus = !l.nt ? "nn" : (Number(l.kA) < 0 ? "neg" : "pos");
+    const hora = new Date(l.t).toLocaleString("ca-ES", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" }).replace(/\//g, ".");
+    L.marker([l.lat, l.lon], { icon: iconaLlamp(COLORS[tram(l.t)], tipus), keyboard: false })
+      .bindTooltip(`${hora} · ${l.nt ? "núvol-terra" : "núvol-núvol"}${l.kA !== null && l.kA !== undefined ? " · " + l.kA + " kA" : ""}`)
+      .addTo(CAPA);
+  });
+  // Llegenda amb les franges horàries d'aquesta revisió.
+  const pas = (fi - inici) / COLORS.length, hh = t => new Date(t).toLocaleTimeString("ca-ES", { hour: "2-digit", minute: "2-digit" }).replace(":", ".");
+  document.getElementById("llegenda").innerHTML =
+    COLORS.map((c, i) => `<span class="esc"><i style="background:${c}"></i>${hh(inici + i * pas)}</span>`).join("") +
+    `<span class="esc"><svg width="16" height="16"><line x1="3" y1="8" x2="13" y2="8" stroke="#1d1d1b" stroke-width="2"/><line x1="8" y1="3" x2="8" y2="13" stroke="#1d1d1b" stroke-width="2"/></svg>núvol-terra positiu</span>` +
+    `<span class="esc"><svg width="16" height="16"><line x1="3" y1="8" x2="13" y2="8" stroke="#1d1d1b" stroke-width="2"/></svg>negatiu</span>` +
+    `<span class="esc"><svg width="16" height="16"><circle cx="8" cy="8" r="3.4" fill="#fff" stroke="#1d1d1b"/></svg>núvol-núvol</span>`;
+  document.getElementById("notaMapa").textContent = llista.length
+    ? `${llista.length} llamp${llista.length === 1 ? "" : "s"} al mapa.` + (d.demarcacio ? "" : " Aquesta revisió és anterior al mapa: només hi surten els de menys de 50 km.")
+    : "Cap llamp en aquesta revisió.";
 }
 
 async function carrega(id) {
@@ -155,6 +262,7 @@ function iniciaGestio() {
     escriu("llampsWorker", ""); escriu("llampsPin", "");
     document.getElementById("pin").value = "";
     document.getElementById("estat").textContent = "Oblidat. La propera vegada caldrà tornar a posar la clau.";
+    clauUsada = false; mostraNomesClau();
   };
   document.getElementById("boto").onclick = demana;
 }
@@ -173,6 +281,7 @@ async function demana() {
     const d = await r.json();
     if (!d.ok) throw new Error(r.status === 401 || r.status === 403 ? "La clau no és correcta." : (d.error || ("HTTP " + r.status)));
     escriu("llampsPin", document.getElementById("recorda").checked ? pin : "");
+    clauUsada = true; mostraNomesClau();
     estat.textContent = `Petició feta (${d.hores} h). El resultat arriba en menys de 5 minuts…`;
     const inici = Date.now();
     const espera = setInterval(async () => {
@@ -195,6 +304,8 @@ async function demana() {
 }
 
 iniciaGestio();
+mostraNomesClau();
+iniciaMapa();
 llistaRevisions();
 carrega();
 </script>
