@@ -142,6 +142,39 @@ async function carrega() {
   } catch (e) { $("vista").innerHTML = '<p class="buit">No s\'han pogut carregar els partits.</p>'; }
 }
 
+// 24.10.2026: en desar, el canvi es veu a l'acte (sense esperar que GitHub
+// torni a generar esports.json): els partits entrats a mà es refan des de
+// MANUAL. Després la pàgina va mirant si ja hi ha les dades noves.
+function aplicaManualAra() {
+  if (!D || !MANUAL || !MANUAL.equips) return;
+  D.equips.forEach(e => {
+    const m = MANUAL.equips[e.id];
+    if (!m) return;
+    const nous = (m.partits || []).filter(p => !p.substitueix).map(p => ({
+      clau: "MAN-" + p.id, competicio: p.competicio || e.competicio, grup: p.grup || "", jornada: p.jornada || "",
+      data: p.data, hora: p.hora || "", localVisitant: p.localVisitant || "", rival: p.rival || "", resultat: p.resultat || "",
+      estat: p.estat || (p.resultat ? "Finalitzat" : "Programat"), camp: p.camp || "", font: "A mà", idFont: p.id, manual: true, nota: p.nota || ""
+    }));
+    e.partits = e.partits.filter(p => !p.manual).concat(nous)
+      .sort((a, b) => ((a.data || "") + (a.hora || "")).localeCompare((b.data || "") + (b.hora || "")));
+  });
+}
+
+let ESPERA = null;
+function esperaDadesNoves() {
+  const abans = D && D.actualitzat;
+  let intents = 0;
+  clearInterval(ESPERA);
+  ESPERA = setInterval(async () => {
+    intents++;
+    try {
+      const r = await fetch(FONT + "?v=" + Date.now(), { cache: "no-store" });
+      const nou = r.ok ? await r.json() : null;
+      if ((nou && nou.actualitzat !== abans) || intents >= 12) { clearInterval(ESPERA); carrega(); }
+    } catch (e) {}
+  }, 20000);
+}
+
 function equipsTriats() { return EQUIP === "tots" ? D.equips : D.equips.filter(e => e.id === EQUIP); }
 
 function pintaXips() {
@@ -280,7 +313,8 @@ async function desa(missatge) {
     MANUAL = d.manual; SHA = d.sha;
     $("estat").textContent = "✅ " + missatge + " Surt a tot arreu en 1 o 2 minuts.";
     nouPartit(); pintaEdicioClassificacio();
-    setTimeout(carrega, 90000);
+    aplicaManualAra(); pinta();
+    esperaDadesNoves();
   } catch (e) {
     if (e.conflicte) { const d = await crida({ accio: "esports-llegeix" }); MANUAL = d.manual; SHA = d.sha; }
     $("estat").textContent = "❌ " + e.message;
