@@ -36,12 +36,12 @@ tr.propi td{font-weight:700;color:var(--accent)}
 /* Classificacions desplegables (24.10.2026) */
 details.classif{border-top:1px solid var(--linia);padding:2px 0}
 details.classif:first-of-type{border-top:0}
-details.classif>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 0}
+details.classif>summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;gap:4px 10px;padding:10px 0}
 details.classif>summary::-webkit-details-marker{display:none}
 details.classif>summary::before{content:"▸";color:var(--suau);transition:transform .15s}
 details.classif[open]>summary::before{transform:rotate(90deg)}
 details.classif>summary h3{margin:0;font-size:1rem}
-details.classif>summary .pos{color:var(--accent);font-weight:600;font-size:.9rem}
+details.classif>summary .pos{color:var(--accent);font-weight:600;font-size:.9rem;grid-column:1 / -1}
 .classif-botons{margin:0 0 4px;font-size:.85rem}
 .classif-botons button{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font:inherit}
 .classif th:nth-child(1),.classif td:nth-child(1){width:7%}
