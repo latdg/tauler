@@ -366,7 +366,7 @@ async function carregaAgenda() {
     if (peu && ag.actualitzat) {
       const g = new Date(ag.actualitzat);
       peu.innerHTML = "Actualitzat el " + dos(g.getDate()) + "." + dos(g.getMonth() + 1) + "." + g.getFullYear() +
-        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h · <a href=\"agenda/\">Tota l'agenda i edició amb clau</a>";
+        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h · <a href=\"agenda/\">Tota l'agenda</a>";
     }
     if (!actes.length) { cos.innerHTML = '<p class="buit">No hi ha cap acte previst els pròxims dies.</p>' + enllac; return; }
 
@@ -729,7 +729,7 @@ function pinta(d) {
   // directe de dades/esports.json (carregaEsports). Mentre no arriba, la
   // classificació que porta el tauler del dia.
   h += seccio("⚽ Partits i resultats",
-    '<p class="font dalt"><a href="esports/">Tots els partits, per jornades i dates, i edició amb clau</a></p>' +
+    '<p class="font dalt"><a href="esports/">Tots els partits, per jornades i dates</a></p>' +
     '<div id="esportsPartits"><p class="buit">Carregant…</p></div>', "", false);
   h += seccio("🏆 Classificacions dels equips",
     '<p class="font dalt" id="esportsPeu"></p><div id="esportsClass">' +
