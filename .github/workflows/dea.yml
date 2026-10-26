@@ -1,0 +1,40 @@
+# Desfibril·ladors (DEA) — La TdG · 26.10.2026
+# Baixa del registre del Departament de Salut els DEA dels quatre municipis i
+# desa dades/dea.json. Un cop per setmana (dilluns); també es pot llançar a mà.
+name: Desfibril·ladors
+
+on:
+  schedule:
+    - cron: "37 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dea
+  cancel-in-progress: false
+
+jobs:
+  dea:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          python dea/dea.py
+          git config user.name "La TdG (desfibril·ladors)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for intent in 1 2 3; do
+            git add dades/dea.json
+            if git diff --cached --quiet; then echo "Sense canvis"; break; fi
+            git commit -qm "Desfibril·ladors ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+            git push -q origin HEAD:main && break
+            git pull -q --rebase origin main
+            sleep 10
+          done
