@@ -598,7 +598,6 @@ function pinta(d) {
   const b = d.blocs || {};
     ACTUALITZAT = d.generat || "";
   NAV = [];
-  CARBURANTS = null;
   document.getElementById("sub").textContent = "";
   let h = "";
 
@@ -761,12 +760,8 @@ function pinta(d) {
     h += seccio("⛽ Preus dels carburants",
       `<p class="font dalt">${c.data ? "Preus actualitzats el " + esc(c.data) + " · " : ""}Font: Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)</p>` +
       `<div class="taula"><table><thead>${cap}</thead><tbody>${files}</tbody></table></div>` +
-      `<p class="font">Preus declarats per les benzineres. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>` +
-      // MAPA (26.10.2026): on és cada benzinera de la taula.
-      `<div id="mapaCarburants" style="margin-top:12px"></div>` +
-      `<div class="llegenda"><span><i style="background:#b4462c"></i>als quatre municipis</span><span><i style="background:#8a857a"></i>resta de la C-66</span><span>Toca un punt per veure'n els preus i l'horari.</span></div>`,
+      `<p class="font">Preus declarats per les benzineres. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
        "", false);
-    CARBURANTS = c;
          }
 
   // 11. 🔌 PUNTS DE RECÀRREGA
@@ -854,7 +849,6 @@ function pinta(d) {
   normalitzaDates(document.getElementById("blocs")); // CANVI (20.10.2026): dates en dd.mm.aaaa
 
   iniciaCamera();
-  pintaMapaCarburants();
 
   if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
     const css = getComputedStyle(document.documentElement);
@@ -958,48 +952,6 @@ async function carregaDea() {
       }).filter((t, i, a) => a.indexOf(t) === i).join("<hr style='border:0;border-top:1px solid #e3e1db;margin:6px 0'>");
     L.marker([g[0].lat, g[0].lon], { icon: icona }).bindTooltip(majuscules(g[0].nom) + (g.length > 1 ? ` (${g.length})` : ""))
       .bindPopup(html, { maxWidth: 290, maxHeight: 300 }).addTo(mapa);
-  });
-}
-
-// -----------------------------------------------------------------------------
-// MAPA DE LES BENZINERES (26.10.2026): les mateixes de la taula, amb els preus
-// a la finestra de cada punt. Les dades ja porten les coordenades (Geoportal).
-// -----------------------------------------------------------------------------
-let CARBURANTS = null;
-async function pintaMapaCarburants() {
-  const c = CARBURANTS, div = document.getElementById("mapaCarburants");
-  if (!c || !div) return;
-  const est = c.estacions.filter(e => e.lat !== null && e.lon !== null);
-  if (!est.length || typeof L === "undefined") { div.remove(); return; }
-  div.id = "mapaCarburants"; div.style.height = "420px"; div.style.borderRadius = "10px"; div.style.border = "1px solid var(--linia)";
-  const mapa = L.map(div, { zoomSnap: 0.25, scrollWheelZoom: false });
-  mapa.fitBounds(est.map(e => [e.lat, e.lon]), { padding: [24, 24] });
-  mapa.attributionControl.setPrefix("").addAttribution("Benzineres: Geoportal del Ministeri · Límits: es-atlas (INE)");
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, opacity: .55, attribution: "© OpenStreetMap" }).addTo(mapa);
-  try {
-    const geo = await (await fetch("llamps/girona.json")).json();
-    const mun = topojson.feature(geo, geo.objects.municipis);
-    L.geoJSON(mun.features.filter(f => MUN_ANTENES.includes(f.id)), {
-      style: { color: "#b4462c", weight: 1.2, fillColor: "#f8e6df", fillOpacity: .2 }, interactive: false
-    }).addTo(mapa);
-  } catch (e) {}
-  const preu = p => (p === null || p === undefined) ? null : p.toFixed(3).replace(".", ",") + " €";
-  const minims = c.carburants.map(f => { const v = f.preus.filter(p => p !== null && p !== undefined); return v.length > 1 ? Math.min(...v) : null; });
-  c.estacions.forEach((e, i) => {
-    if (e.lat === null || e.lon === null) return;
-    const preus = c.carburants.map((f, j) => {
-      const p = f.preus[i];
-      if (preu(p) === null) return "";
-      const millor = minims[j] !== null && p === minims[j];
-      return `<li>${esc(f.nom)}: <b${millor ? ' style="color:#b4462c"' : ""}>${preu(p)}</b>${millor ? " (el més barat)" : ""}</li>`;
-    }).join("");
-    L.circleMarker([e.lat, e.lon], { radius: e.local ? 8 : 6, color: "#fff", weight: 1.5, fillColor: e.local ? "#b4462c" : "#8a857a", fillOpacity: .95 })
-      .bindTooltip(`${e.nom} · ${e.municipi}`)
-      .bindPopup(`<b>${esc(e.nom)}</b> · ${esc(e.municipi)}<br>${esc(e.adreca)}` +
-        (e.horari ? `<br><span style="color:#6b6b66">${esc(e.horari)}</span>` : "") +
-        (preus ? `<ul style="margin-top:6px">${preus}</ul>` : "") +
-        `<a href="https://www.google.com/maps?q=${e.lat},${e.lon}" target="_blank" rel="noopener">Obre-ho a Google Maps</a>`, { maxWidth: 280 })
-      .addTo(mapa);
   });
 }
 
