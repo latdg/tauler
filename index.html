@@ -6,6 +6,10 @@
 <meta name="color-scheme" content="light only">
 <title>La TdG ampliada</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<!-- ANTENES (26.10.2026): mapa com el de llamps/ -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
 *{box-sizing:border-box}
@@ -57,6 +61,18 @@ nav:empty{display:none}
 nav a{color:var(--text);text-decoration:none;font-size:.85rem;padding:3px 10px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);white-space:nowrap}
 nav a:hover{color:var(--accent);border-color:var(--accent)}
 main section{scroll-margin-top:16px}
+/* ANTENES (26.10.2026) */
+#mapaAntenes{height:480px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4}
+@media (max-width:600px){#mapaAntenes{height:380px}}
+.llegenda{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:.85rem;color:var(--suau);margin-top:8px}
+.llegenda i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:1px solid #1d1d1b}
+.xifres{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:12px}
+.xifra b{display:block;font-size:1.5rem;line-height:1.1}
+.xifra span{color:var(--suau);font-size:.85rem}
+.etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
+.etiq-mun::before{display:none}
+.leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:10px 12px}
+.leaflet-popup-content ul{padding-left:16px}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
 .podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
@@ -202,7 +218,7 @@ async function json(cami) {
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
   [/agenda/i, "Agenda"],
-  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/incendi/i, "Incendis i sequera"],
+  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/atur/i, "Atur"],
@@ -505,6 +521,78 @@ async function carregaLlamps() {
   }
 }
 
+// -----------------------------------------------------------------------------
+// ANTENES (26.10.2026): emplaçaments de telefonia mòbil dels quatre municipis,
+// de l'API de Celda (dades d'Infoantenas). Les baixa un cop al mes el workflow
+// «Antenes» (antenes/antenes.py) a dades/antenes.json.
+// -----------------------------------------------------------------------------
+const OPERADORS = {
+  movistar: ["Movistar", "#0b6fbf"], vodafone: ["Vodafone", "#e60000"], orange: ["Orange", "#ff7900"],
+  digi: ["Digi", "#2a9d8f"], yoigo: ["Yoigo", "#8e44ad"]
+};
+const MUN_ANTENES = ["17022", "17057", "17902", "17901"];
+const dataDMA = iso => { const d = new Date(iso), z = n => String(n).padStart(2, "0"); return z(d.getDate()) + "." + z(d.getMonth() + 1) + "." + d.getFullYear(); };
+const uw = v => String(Math.round(v * 1000) / 1000).replace(".", ",");
+
+async function carregaAntenes() {
+  const peu = document.getElementById("antenesPeu"), nota = document.getElementById("antenesNota");
+  if (!peu) return;
+  let d;
+  try { d = await json("dades/antenes.json"); }
+  catch (e) { peu.textContent = "Encara no s'han baixat les dades de les antenes."; document.getElementById("mapaAntenes").hidden = true; return; }
+  const em = d.emplacaments || [];
+  peu.textContent = `Dades de Celda del ${d.dataCelda ? dataDMA(d.dataCelda) : "—"} · baixades el ${dataDMA(d.generat)} · s'actualitzen cada mes`;
+
+  const perOp = {};
+  em.forEach(e => e.operadors.forEach(o => { perOp[o.op] = (perOp[o.op] || 0) + 1; }));
+  const amb5G = em.filter(e => e.operadors.some(o => o.mhz.includes(3500) || o.mhz.includes(700))).length;
+  document.getElementById("antenesXifres").innerHTML =
+    `<div class="xifra"><b>${em.length}</b><span>emplaçaments</span></div>` +
+    `<div class="xifra"><b>${amb5G}</b><span>amb bandes de 5G (700 o 3.500 MHz)</span></div>` +
+    `<p class="font" style="flex-basis:100%;margin:0">Per municipis: ` +
+    MUN_ANTENES.map(c => `${esc((d.municipis || {})[c] || c)}, <b>${em.filter(e => e.mun === c).length}</b>`).join(" · ") + "</p>";
+
+  document.getElementById("antenesLlegenda").innerHTML =
+    Object.entries(OPERADORS).filter(([k]) => perOp[k]).map(([k, [nom, c]]) => `<span><i style="background:${c}"></i>${nom} (${perOp[k]})</span>`).join("") +
+    `<span><i style="background:#3a3a36"></i>emplaçament compartit</span>`;
+  nota.innerHTML = "Un emplaçament no és una antena: és un lloc (un terrat, una torre) on una o més companyies tenen equips. " +
+    "Les mesures d'exposició del Ministeri no tenen data i sumen totes les fonts properes; el nivell de referència més baix de la norma és 200 µW/cm². " +
+    `Font: <a href="https://celda.elies.site/" target="_blank" rel="noopener">Celda</a>. ${esc(d.credit || "")}.`;
+
+  if (typeof L === "undefined") { document.getElementById("mapaAntenes").innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return; }
+  const mapa = L.map("mapaAntenes", { zoomSnap: 0.25, preferCanvas: true, scrollWheelZoom: false }).setView([41.95, 3.0], 11.5);
+  mapa.attributionControl.setPrefix("").addAttribution("Antenes: Celda · Infoantenas (Ministeri) · Límits: es-atlas (INE)");
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, opacity: .55, attribution: "© OpenStreetMap" }).addTo(mapa);
+  try {
+    const geo = await (await fetch("llamps/girona.json")).json();
+    const mun = topojson.feature(geo, geo.objects.municipis);
+    const nostres = L.geoJSON(mun.features.filter(f => MUN_ANTENES.includes(f.id)), {
+      style: { color: "#b4462c", weight: 1.5, fillColor: "#f8e6df", fillOpacity: .25 }, interactive: false
+    }).addTo(mapa);
+    mapa.fitBounds(nostres.getBounds(), { padding: [10, 10] });
+    nostres.eachLayer(l => L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false })
+      .setLatLng(l.getBounds().getCenter()).setContent(l.feature.properties.n).addTo(mapa));
+  } catch (e) {}
+
+  em.forEach(e => {
+    const ops = e.operadors.map(o => o.op);
+    const color = ops.length === 1 && OPERADORS[ops[0]] ? OPERADORS[ops[0]][1] : "#3a3a36";
+    const totes = e.operadors.flatMap(o => o.mesures || []);
+    const max = totes.length ? Math.max(...totes.map(m => m.uw)) : null;
+    const html = `<b>${esc(e.adreca || (d.municipis || {})[e.mun] || "")}</b>` +
+      "<ul>" + e.operadors.map(o => `<li><b>${esc((OPERADORS[o.op] || [o.op])[0])}</b>: ` +
+        (o.mhz.length ? o.mhz.map(m => m.toLocaleString("ca-ES")).join(", ") + " MHz" : "bandes no publicades") +
+        (o.senseLlegir ? " (pot ser que en faltin)" : "") +
+        (o.registre ? ` · <a href="${esc(o.registre)}" target="_blank" rel="noopener">fitxa oficial</a>` : "") + "</li>").join("") + "</ul>" +
+      (max !== null ? `Mesura d'exposició més alta: <b>${uw(max)} µW/cm²</b> (${totes.length} punt${totes.length === 1 ? "" : "s"} de mesura)<br>` :
+        e.operadors.some(o => o.mesures) ? "El registre no hi publica mesures d'exposició.<br>" : "") +
+      (e.estat && e.estat !== "verificado" ? `<i>Dada ${e.estat === "corregido" ? "corregida" : "afegida"} per la comunitat de Celda.</i><br>` : "") +
+      (e.enllac ? `<a href="${esc(e.enllac)}" target="_blank" rel="noopener">Obre-ho a Celda</a>` : "");
+    L.circleMarker([e.lat, e.lon], { radius: 5 + ops.length * 1.5, color: "#fff", weight: 1.5, fillColor: color, fillOpacity: .95 })
+      .bindTooltip(ops.map(o => (OPERADORS[o] || [o])[0]).join(", ")).bindPopup(html, { maxWidth: 300 }).addTo(mapa);
+  });
+}
+
   
 function pinta(d) {
   const b = d.blocs || {};
@@ -537,6 +625,13 @@ function pinta(d) {
     // 21.10.2026: enllaç al registre complet (actualitzat cada 5 minuts).
     '<p class="font"><a href="aeronaus/">Registre complet de les aeronaus que passen a menys de 40 km</a></p>',
     "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
+
+  // 2b. 📡 ANTENES DE TELEFONIA MÒBIL (26.10.2026): el contingut arriba després (carregaAntenes).
+  h += seccio("📡 Antenes de telefonia mòbil als quatre municipis",
+    '<p class="font dalt" id="antenesPeu"></p><div class="xifres" id="antenesXifres"></div>' +
+    '<div id="mapaAntenes"></div><div class="llegenda" id="antenesLlegenda"></div>' +
+    '<p class="font" id="antenesNota"></p>',
+    "", false);
 
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
   if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
@@ -810,6 +905,7 @@ async function inicia() {
     pinta(d);
     carregaAgenda();
     carregaLlamps();
+    carregaAntenes();
     carregaEsports();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";

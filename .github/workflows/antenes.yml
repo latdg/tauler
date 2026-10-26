@@ -1,0 +1,41 @@
+# Antenes de telefonia mòbil — La TdG · 26.10.2026
+# Baixa de l'API de Celda els emplaçaments dels quatre municipis i desa
+# dades/antenes.json. Celda refà les dades el primer cap de setmana de cada
+# mes; això va el dia 10 per anar segurs. També es pot llançar a mà.
+name: Antenes
+
+on:
+  schedule:
+    - cron: "23 5 10 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: antenes
+  cancel-in-progress: false
+
+jobs:
+  antenes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          python antenes/antenes.py
+          git config user.name "La TdG (antenes)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for intent in 1 2 3; do
+            git add dades/antenes.json
+            if git diff --cached --quiet; then echo "Sense canvis"; break; fi
+            git commit -qm "Antenes ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+            git push -q origin HEAD:main && break
+            git pull -q --rebase origin main
+            sleep 10
+          done
