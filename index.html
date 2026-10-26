@@ -613,7 +613,14 @@ function pinta(d) {
     `<figcaption id="peuCamera">Imatge en directe · s'actualitza cada minut</figcaption></figure>` +
     `<h3>Incidències viàries a la comarca</h3>` +
     (b.incidencies && b.incidencies.length
-      ? "<ul>" + b.incidencies.map(i => `<li><b>${esc(i.municipi)}</b>: ${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}</li>`).join("") + "</ul>"
+      // 26.10.2026: agrupades per població (un sol títol per municipi i les afectacions a sota).
+      ? "<ul>" + Object.entries(b.incidencies.reduce((g, i) => { (g[i.municipi] = g[i.municipi] || []).push(i); return g; }, {}))
+          .map(([mun, llista]) => {
+            const linia = i => `${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}`;
+            return llista.length === 1
+              ? `<li><b>${esc(mun)}</b>: ${linia(llista[0])}</li>`
+              : `<li><b>${esc(mun)}</b> (${llista.length})<ul>${llista.map(i => `<li>${linia(i)}</li>`).join("")}</ul></li>`;
+          }).join("") + "</ul>"
       : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>'),
     "Servei Català de Trànsit");
 
