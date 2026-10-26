@@ -1,0 +1,894 @@
+{
+ "generat": "2026-10-26T21:38:55+00:00",
+ "actualitzatFont": "2026-10-21T02:15:32+00:00",
+ "municipis": {
+  "17022": "la Bisbal d'Empordà",
+  "17057": "Corçà",
+  "17902": "Forallac",
+  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
+ },
+ "font": "Registre de desfibril·ladors instal·lats a Catalunya fora de l'àmbit sanitari (Departament de Salut)",
+ "fixos": [
+  {
+   "num": "15648",
+   "nom": "ANGEL MIR",
+   "adreca": "Carretera C-66 PK 11,5, SN",
+   "espai": "INTERIOR NAU 3",
+   "mun": "17022",
+   "titular": "PORTES BISBALS.L.-ANGEL MIR",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "07:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dilluns",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "15:00",
+     "fi": "17:30"
+    }
+   ],
+   "lat": 41.972917,
+   "lon": 3.030017,
+   "aprox": false
+  },
+  {
+   "num": "2621",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "8365",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça DEL CASTELL, SN",
+   "espai": "Vehicle policial",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "2632",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "2627",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "2629",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "2638",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "2637",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÃ¿BLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "16699",
+   "nom": "CONSELL COMARCAL DEL BAIX EMPORDÀ",
+   "adreca": "Carrer Tarongers, 12",
+   "espai": "ENTRADA OFICINES",
+   "mun": "17022",
+   "titular": "CONSELL COMARCAL DEL BAIX EMPORDÀ",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "09:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "09:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "09:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "09:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "09:00",
+     "fi": "14:00"
+    }
+   ],
+   "lat": 41.95865,
+   "lon": 3.0396,
+   "aprox": false
+  },
+  {
+   "num": "14639",
+   "nom": "FUNDACIÓ EDUCATIVA COR DE MARIA",
+   "adreca": "Carrer 1 d'octubre de 2017, 2",
+   "espai": "ENTRADA COL·LEGI",
+   "mun": "17022",
+   "titular": "FUNDACIÓ EDUCATIVA COR DE MARIA",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "08:00",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:00",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:00",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "08:00",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "08:00",
+     "fi": "17:00"
+    }
+   ],
+   "lat": 41.960165,
+   "lon": 3.040487,
+   "aprox": false
+  },
+  {
+   "num": "7416",
+   "nom": "INSTITUT DE LA BISBAL",
+   "adreca": "Carrer Eusebi Díaz Costa, 16-38",
+   "espai": "HALL",
+   "mun": "17022",
+   "titular": "INSTITUT DE LA BISBAL",
+   "horari": [],
+   "lat": 41.957413,
+   "lon": 3.043596,
+   "aprox": false
+  },
+  {
+   "num": "9380",
+   "nom": "JUTJAT DE 1ª INSTÀNCIA I INSTRUCCIÓ",
+   "adreca": "Carrer TEATRE VELL, 12",
+   "espai": "ENTRADA AL COSTAT DEL VIGILANT DE SEGURETAT.",
+   "mun": "17022",
+   "titular": "SABICO SEGURITAT S.A.",
+   "horari": [],
+   "lat": 41.956355,
+   "lon": 3.041,
+   "aprox": false
+  },
+  {
+   "num": "90000531",
+   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
+   "adreca": "Carretera Peixateries, 1",
+   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959296,
+   "lon": 3.037355,
+   "aprox": false
+  },
+  {
+   "num": "90000532",
+   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
+   "adreca": "Carretera Peixateries, 1",
+   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959296,
+   "lon": 3.037355,
+   "aprox": false
+  },
+  {
+   "num": "10974",
+   "nom": "SOC Bisbal d'Empordà",
+   "adreca": "Carrer de Catalunya, 9",
+   "espai": "En un espai visible i accesible.",
+   "mun": "17022",
+   "titular": "Servei Públic d¿Ocupació de Catalunya",
+   "horari": [],
+   "lat": 41.962698,
+   "lon": 3.041025,
+   "aprox": false
+  },
+  {
+   "num": "14141",
+   "nom": "TERRACOTTA MUSEU DE CERÀMICA LA BISBAL D'EMPORDÀ",
+   "adreca": "Carrer Sis d'Octubre de 1869, 97",
+   "espai": "RECEPCIÓ ARMARI",
+   "mun": "17022",
+   "titular": "TERRACOTTA MUSEU DE CERÀMICA DE LA BISBAL D'EMPORDÀ",
+   "horari": [
+    {
+     "dia": "Dimarts",
+     "inici": "",
+     "fi": ""
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "",
+     "fi": ""
+    },
+    {
+     "dia": "Dijous",
+     "inici": "",
+     "fi": ""
+    },
+    {
+     "dia": "Divendres",
+     "inici": "",
+     "fi": ""
+    },
+    {
+     "dia": "Dissabte",
+     "inici": "",
+     "fi": ""
+    },
+    {
+     "dia": "Diumenge",
+     "inici": "",
+     "fi": ""
+    }
+   ],
+   "lat": 41.958834,
+   "lon": 3.044198,
+   "aprox": false
+  },
+  {
+   "num": "15646",
+   "nom": "ANGEL MIR",
+   "adreca": "Carretera C-66 PK 12,8, SN",
+   "espai": "NAU 5/ EXPEDICIONS",
+   "mun": "17057",
+   "titular": "PORTES BISBALS.L.-ANGEL MIR",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dilluns",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "07:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "15:00",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "15:00",
+     "fi": "17:30"
+    }
+   ],
+   "lat": 41.972917,
+   "lon": 3.030017,
+   "aprox": false
+  },
+  {
+   "num": "15645",
+   "nom": "ANGEL MIR",
+   "adreca": "Carretera C-66 PK12,8, SN",
+   "espai": "NAU N8 DESPATX ENCARREGAT",
+   "mun": "17057",
+   "titular": "PORTES BISBALS.L.-ANGEL MIR",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dilluns",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "15:00",
+     "fi": "15:30"
+    }
+   ],
+   "lat": 41.982042,
+   "lon": 3.022508,
+   "aprox": false
+  },
+  {
+   "num": "15647",
+   "nom": "ANGEL MIR",
+   "adreca": "Carretera C-66 PK 12,8, SN",
+   "espai": "NAU 4 / OFICINES",
+   "mun": "17057",
+   "titular": "PORTES BISBALS.L.-ANGEL MIR",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dilluns",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "15:00",
+     "fi": "17:30"
+    }
+   ],
+   "lat": 41.982042,
+   "lon": 3.022508,
+   "aprox": false
+  },
+  {
+   "num": "2418",
+   "nom": "Ajuntament de Corçà",
+   "adreca": "Plaça Espanya, 1",
+   "espai": "Via pública",
+   "mun": "17057",
+   "titular": "Ajuntament de Corçà",
+   "horari": [],
+   "lat": 41.989403,
+   "lon": 3.01896,
+   "aprox": false
+  },
+  {
+   "num": "2417",
+   "nom": "Ajuntament de Corçà",
+   "adreca": "Plaça Espanya, 1",
+   "espai": "Via pública",
+   "mun": "17057",
+   "titular": "Ajuntament de Corçà",
+   "horari": [],
+   "lat": 41.989403,
+   "lon": 3.01896,
+   "aprox": false
+  },
+  {
+   "num": "2384",
+   "nom": "AJUNTAMENT DE FORALLAC",
+   "adreca": "Carrer Unió, 3",
+   "espai": "Via pública",
+   "mun": "17902",
+   "titular": "AJUNTAMENT DE FORALLAC",
+   "horari": [],
+   "lat": 41.959087,
+   "lon": 3.055441,
+   "aprox": false
+  },
+  {
+   "num": "2379",
+   "nom": "AJUNTAMENT DE FORALLAC",
+   "adreca": "Carrer Unió, 3",
+   "espai": "Via pública",
+   "mun": "17902",
+   "titular": "AJUNTAMENT DE FORALLAC",
+   "horari": [],
+   "lat": 41.959087,
+   "lon": 3.055441,
+   "aprox": false
+  },
+  {
+   "num": "14866",
+   "nom": "NEXES",
+   "adreca": "Carrer dels Oms, 10",
+   "espai": "Exterior d'un viver d'empreses",
+   "mun": "17902",
+   "titular": "FORALLAC PROGRES SAM",
+   "horari": [],
+   "lat": 41.953979,
+   "lon": 3.068629,
+   "aprox": false
+  },
+  {
+   "num": "90000519",
+   "nom": "Vigilància Local - FORALLAC",
+   "adreca": "Carretera Unió (Vulpellac), 6",
+   "espai": "Vehicle - Vigilància Local - FORALLAC, CARRER Unió (Vulpellac), 6",
+   "mun": "17902",
+   "titular": "AJUNTAMENT DE FORALLAC",
+   "horari": [],
+   "lat": 41.9594,
+   "lon": 3.054982,
+   "aprox": false
+  },
+  {
+   "num": "3263",
+   "nom": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
+   "adreca": "Plaça FONT, 1",
+   "espai": "VIA PÚBLICA",
+   "mun": "17901",
+   "titular": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
+   "horari": [],
+   "lat": 41.953057,
+   "lon": 3.011099,
+   "aprox": false
+  },
+  {
+   "num": "3266",
+   "nom": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
+   "adreca": "Plaça FONT, 1",
+   "espai": "VIA PÚBLICA",
+   "mun": "17901",
+   "titular": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
+   "horari": [],
+   "lat": 41.953057,
+   "lon": 3.011099,
+   "aprox": false
+  },
+  {
+   "num": "3261",
+   "nom": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
+   "adreca": "Plaça FONT, 1",
+   "espai": "VIA PÚBLICA",
+   "mun": "17901",
+   "titular": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
+   "horari": [],
+   "lat": 41.953057,
+   "lon": 3.011099,
+   "aprox": false
+  },
+  {
+   "num": "15649",
+   "nom": "ANGEL MIR",
+   "adreca": "Barri BORDETA, SN",
+   "espai": "INTERIOR NAU 1",
+   "mun": "17901",
+   "titular": "PORTES BISBALS.L.-ANGEL MIR",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dilluns",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "15:00",
+     "fi": "17:30"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "08:00",
+     "fi": "14:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "15:00",
+     "fi": "17:30"
+    }
+   ],
+   "lat": 41.955948,
+   "lon": 3.012703,
+   "aprox": false
+  },
+  {
+   "num": "15660",
+   "nom": "Edifici IRTA Monells C: Centre d¿Avaluació del Por",
+   "adreca": "Lloc Finca Camps i Armet- Veïnat de Sies, 0",
+   "espai": "Entrada",
+   "mun": "17901",
+   "titular": "Institut de recerca i tecnologia agroalimentaries",
+   "horari": [
+    {
+     "dia": "Dilluns",
+     "inici": "08:30",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Dimarts",
+     "inici": "08:30",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Dimecres",
+     "inici": "08:30",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Dijous",
+     "inici": "08:30",
+     "fi": "17:00"
+    },
+    {
+     "dia": "Divendres",
+     "inici": "09:00",
+     "fi": "14:00"
+    }
+   ],
+   "lat": 41.979694,
+   "lon": 2.989817,
+   "aprox": false
+  },
+  {
+   "num": "10802",
+   "nom": "IRTA",
+   "adreca": "Carrer de l'Esglesia, 13",
+   "espai": "Pati interior de la planta baixa de Edifici B de IRTA de Monells, accedint per la porta entrada de mercaderies que dona a estacionament i a Escola Agrària.",
+   "mun": "17901",
+   "titular": "Institut de recerca i tecnologia agroalimentaries",
+   "horari": [],
+   "lat": 41.975944,
+   "lon": 2.997762,
+   "aprox": false
+  }
+ ],
+ "vehicles": [
+  {
+   "num": "12517",
+   "nom": "8031HVL",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "12516",
+   "nom": "6601HVL",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "12354",
+   "nom": "4424KGK",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "12515",
+   "nom": "7832HTY",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "12514",
+   "nom": "8579BYM",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "13040",
+   "nom": "1133KSR",
+   "adreca": "Carrer de la Unió, 3",
+   "espai": "VEHICLE VIGILANTS MUNICIPALS",
+   "mun": "17902",
+   "titular": "AJUNTAMENT DE FORALLAC",
+   "horari": []
+  }
+ ],
+ "mostraCrua": [
+  {
+   "numero_inscripcio": "2621",
+   "fabricant": "Altre fabricant",
+   "marca_model": "Altre Marca/Model Altre fabricant",
+   "numero_serie": "4409001",
+   "vehicle": "No",
+   "nom_centre": "Ajuntament de la Bisbal d'Empordà",
+   "tipus_via": "Plaça",
+   "nom_via": "del Castell",
+   "numero_via": "s/n",
+   "espai_fisic": "VIA PÚBLICA",
+   "codi_postal": "17100",
+   "municipi": "Bisbal d'Empordà, la",
+   "codi_municipi": "17022",
+   "comarca": "Baix Empordà",
+   "codi_comarca": "10",
+   "provincia": "Girona",
+   "codi_provincia": "17",
+   "longitud": "3.037603902",
+   "latitud": "41.95959721",
+   "georeferencia": {
+    "type": "Point",
+    "coordinates": [
+     3.037603902,
+     41.95959721
+    ]
+   },
+   "titular": "Ajuntament de la Bisbal d'Empordà"
+  },
+  {
+   "numero_inscripcio": "90000531",
+   "fabricant": "Cardiac Science",
+   "marca_model": "Powerheart G3 Elite",
+   "numero_serie": "4352145",
+   "vehicle": "No",
+   "nom_centre": "Policia Local - LA BISBAL D'EMPORDÀ",
+   "tipus_via": "Carretera",
+   "nom_via": "Peixateries",
+   "numero_via": "1",
+   "espai_fisic": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
+   "codi_postal": "17100",
+   "municipi": "Bisbal d'Empordà, la",
+   "codi_municipi": "17022",
+   "comarca": "Baix Empordà",
+   "codi_comarca": "10",
+   "provincia": "Girona",
+   "codi_provincia": "17",
+   "longitud": "3.037354663",
+   "latitud": "41.95929618",
+   "georeferencia": {
+    "type": "Point",
+    "coordinates": [
+     3.037354663,
+     41.95929618
+    ]
+   },
+   "titular": "Ajuntament de la Bisbal d'Empordà"
+  },
+  {
+   "numero_inscripcio": "8365",
+   "fabricant": "Altre fabricant",
+   "marca_model": "Altre Marca/Model Altre fabricant",
+   "numero_serie": "D00000030292",
+   "vehicle": "No",
+   "nom_centre": "Ajuntament de la Bisbal d'Empordà",
+   "tipus_via": "Plaça",
+   "nom_via": "DEL CASTELL",
+   "numero_via": "SN",
+   "espai_fisic": "Vehicle policial",
+   "codi_postal": "17100",
+   "municipi": "Bisbal d'Empordà, la",
+   "codi_municipi": "17022",
+   "comarca": "Baix Empordà",
+   "codi_comarca": "10",
+   "provincia": "Girona",
+   "codi_provincia": "17",
+   "longitud": "3.037603902",
+   "latitud": "41.95959721",
+   "georeferencia": {
+    "type": "Point",
+    "coordinates": [
+     3.037603902,
+     41.95959721
+    ]
+   },
+   "titular": "Ajuntament de la Bisbal d'Empordà"
+  }
+ ]
+}
