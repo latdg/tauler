@@ -85,18 +85,6 @@
    "aprox": false
   },
   {
-   "num": "8365",
-   "nom": "Ajuntament de la Bisbal d'Empordà",
-   "adreca": "Plaça DEL CASTELL, SN",
-   "espai": "Vehicle policial",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": [],
-   "lat": 41.959597,
-   "lon": 3.037604,
-   "aprox": false
-  },
-  {
    "num": "2632",
    "nom": "Ajuntament de la Bisbal d'Empordà",
    "adreca": "Plaça del Castell, s/n",
@@ -148,7 +136,7 @@
    "num": "2637",
    "nom": "Ajuntament de la Bisbal d'Empordà",
    "adreca": "Plaça del Castell, s/n",
-   "espai": "VIA PÃ¿BLICA",
+   "espai": "VIA PÚBLICA",
    "mun": "17022",
    "titular": "Ajuntament de la Bisbal d'Empordà",
    "horari": [],
@@ -257,36 +245,12 @@
    "aprox": false
   },
   {
-   "num": "90000531",
-   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
-   "adreca": "Carretera Peixateries, 1",
-   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": [],
-   "lat": 41.959296,
-   "lon": 3.037355,
-   "aprox": false
-  },
-  {
-   "num": "90000532",
-   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
-   "adreca": "Carretera Peixateries, 1",
-   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": [],
-   "lat": 41.959296,
-   "lon": 3.037355,
-   "aprox": false
-  },
-  {
    "num": "10974",
    "nom": "SOC Bisbal d'Empordà",
    "adreca": "Carrer de Catalunya, 9",
    "espai": "En un espai visible i accesible.",
    "mun": "17022",
-   "titular": "Servei Públic d¿Ocupació de Catalunya",
+   "titular": "Servei Públic d'Ocupació de Catalunya",
    "horari": [],
    "lat": 41.962698,
    "lon": 3.041025,
@@ -585,18 +549,6 @@
    "aprox": false
   },
   {
-   "num": "90000519",
-   "nom": "Vigilància Local - FORALLAC",
-   "adreca": "Carretera Unió (Vulpellac), 6",
-   "espai": "Vehicle - Vigilància Local - FORALLAC, CARRER Unió (Vulpellac), 6",
-   "mun": "17902",
-   "titular": "AJUNTAMENT DE FORALLAC",
-   "horari": [],
-   "lat": 41.9594,
-   "lon": 3.054982,
-   "aprox": false
-  },
-  {
    "num": "3263",
    "nom": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
    "adreca": "Plaça FONT, 1",
@@ -697,7 +649,7 @@
   },
   {
    "num": "15660",
-   "nom": "Edifici IRTA Monells C: Centre d¿Avaluació del Por",
+   "nom": "Edifici IRTA Monells C: Centre d'Avaluació del Por",
    "adreca": "Lloc Finca Camps i Armet- Veïnat de Sies, 0",
    "espai": "Entrada",
    "mun": "17901",
@@ -800,95 +752,54 @@
    "mun": "17902",
    "titular": "AJUNTAMENT DE FORALLAC",
    "horari": []
-  }
- ],
- "mostraCrua": [
-  {
-   "numero_inscripcio": "2621",
-   "fabricant": "Altre fabricant",
-   "marca_model": "Altre Marca/Model Altre fabricant",
-   "numero_serie": "4409001",
-   "vehicle": "No",
-   "nom_centre": "Ajuntament de la Bisbal d'Empordà",
-   "tipus_via": "Plaça",
-   "nom_via": "del Castell",
-   "numero_via": "s/n",
-   "espai_fisic": "VIA PÚBLICA",
-   "codi_postal": "17100",
-   "municipi": "Bisbal d'Empordà, la",
-   "codi_municipi": "17022",
-   "comarca": "Baix Empordà",
-   "codi_comarca": "10",
-   "provincia": "Girona",
-   "codi_provincia": "17",
-   "longitud": "3.037603902",
-   "latitud": "41.95959721",
-   "georeferencia": {
-    "type": "Point",
-    "coordinates": [
-     3.037603902,
-     41.95959721
-    ]
-   },
-   "titular": "Ajuntament de la Bisbal d'Empordà"
   },
   {
-   "numero_inscripcio": "90000531",
-   "fabricant": "Cardiac Science",
-   "marca_model": "Powerheart G3 Elite",
-   "numero_serie": "4352145",
-   "vehicle": "No",
-   "nom_centre": "Policia Local - LA BISBAL D'EMPORDÀ",
-   "tipus_via": "Carretera",
-   "nom_via": "Peixateries",
-   "numero_via": "1",
-   "espai_fisic": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
-   "codi_postal": "17100",
-   "municipi": "Bisbal d'Empordà, la",
-   "codi_municipi": "17022",
-   "comarca": "Baix Empordà",
-   "codi_comarca": "10",
-   "provincia": "Girona",
-   "codi_provincia": "17",
-   "longitud": "3.037354663",
-   "latitud": "41.95929618",
-   "georeferencia": {
-    "type": "Point",
-    "coordinates": [
-     3.037354663,
-     41.95929618
-    ]
-   },
-   "titular": "Ajuntament de la Bisbal d'Empordà"
+   "num": "8365",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça DEL CASTELL, SN",
+   "espai": "Vehicle policial",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
   },
   {
-   "numero_inscripcio": "8365",
-   "fabricant": "Altre fabricant",
-   "marca_model": "Altre Marca/Model Altre fabricant",
-   "numero_serie": "D00000030292",
-   "vehicle": "No",
-   "nom_centre": "Ajuntament de la Bisbal d'Empordà",
-   "tipus_via": "Plaça",
-   "nom_via": "DEL CASTELL",
-   "numero_via": "SN",
-   "espai_fisic": "Vehicle policial",
-   "codi_postal": "17100",
-   "municipi": "Bisbal d'Empordà, la",
-   "codi_municipi": "17022",
-   "comarca": "Baix Empordà",
-   "codi_comarca": "10",
-   "provincia": "Girona",
-   "codi_provincia": "17",
-   "longitud": "3.037603902",
-   "latitud": "41.95959721",
-   "georeferencia": {
-    "type": "Point",
-    "coordinates": [
-     3.037603902,
-     41.95959721
-    ]
-   },
-   "titular": "Ajuntament de la Bisbal d'Empordà"
+   "num": "90000531",
+   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
+   "adreca": "Carretera Peixateries, 1",
+   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959296,
+   "lon": 3.037355,
+   "aprox": false
+  },
+  {
+   "num": "90000532",
+   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
+   "adreca": "Carretera Peixateries, 1",
+   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959296,
+   "lon": 3.037355,
+   "aprox": false
+  },
+  {
+   "num": "90000519",
+   "nom": "Vigilància Local - FORALLAC",
+   "adreca": "Carretera Unió (Vulpellac), 6",
+   "espai": "Vehicle - Vigilància Local - FORALLAC, CARRER Unió (Vulpellac), 6",
+   "mun": "17902",
+   "titular": "AJUNTAMENT DE FORALLAC",
+   "horari": [],
+   "lat": 41.9594,
+   "lon": 3.054982,
+   "aprox": false
   }
  ]
 }

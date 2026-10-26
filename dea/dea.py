@@ -30,7 +30,15 @@ CAPCALERES = {"User-Agent": "LaTdG-tauler (https://latdg.github.io/tauler/)"}
 
 
 def net(v):
-    return re.sub(r"\s+", " ", str(v or "")).strip()
+    t = str(v or "")
+    if "Ã" in t:  # text desat dues vegades en UTF-8 (VIA PÃ\u00bfBLICA)
+        t = t.replace("Ã¿", "Ú").replace("Ã\u00bf", "Ú")
+        try:
+            t = t.encode("latin-1").decode("utf-8")
+        except Exception:
+            pass
+    t = re.sub(r"(\w)¿(\w)", r"\1'\2", t)  # d¿Avaluació -> d'Avaluació
+    return re.sub(r"\s+", " ", t).strip()
 
 
 def adreca(r):
@@ -89,7 +97,8 @@ def main():
             "titular": net(x.get("titular")),
             "horari": horari(x),
         }
-        if net(x.get("vehicle")).lower().startswith("s"):
+        # Alguns van en cotxes de policia encara que el registre no els marqui com a vehicle.
+        if net(x.get("vehicle")).lower().startswith("s") or "vehicle" in d["espai"].lower():
             vehicles.append(d)
             continue
         lat, lon = x.get("latitud"), x.get("longitud")
@@ -112,7 +121,6 @@ def main():
         "font": "Registre de desfibril·ladors instal·lats a Catalunya fora de l'àmbit sanitari (Departament de Salut)",
         "fixos": fixos,
         "vehicles": vehicles,
-        "mostraCrua": files[:3],
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(fixos)} fixos ({sum(1 for f in fixos if f.get('aprox'))} localitzats amb l'ICGC, "
           f"{sum(1 for f in fixos if 'lat' not in f)} sense posició) i {len(vehicles)} en vehicles")

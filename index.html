@@ -218,7 +218,7 @@ async function json(cami) {
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
   [/agenda/i, "Agenda"],
-  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/incendi/i, "Incendis i sequera"],
+  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/atur/i, "Atur"],
@@ -634,6 +634,13 @@ function pinta(d) {
     '<p class="font" id="antenesNota"></p>',
     "", false);
 
+  // 2c. ❤️ DESFIBRIL·LADORS (26.10.2026): el contingut arriba després (carregaDea).
+  h += seccio("❤️ Desfibril·ladors (DEA) als quatre municipis",
+    '<p class="font dalt" id="deaPeu"></p><div class="xifres" id="deaXifres"></div>' +
+    '<div id="mapaDea" style="height:440px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4"></div>' +
+    '<div class="llegenda" id="deaLlegenda"></div><div id="deaAvis"></div><p class="font" id="deaNota"></p>',
+    "", false);
+
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
   if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
     (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(b.plaAlfa) : "") +
@@ -874,6 +881,87 @@ function pinta(d) {
 }
  
 // -----------------------------------------------------------------------------
+// DESFIBRIL·LADORS (26.10.2026): registre del Departament de Salut (dades
+// obertes, wpud-ukyg), baixat cada dilluns pel workflow «Desfibril·ladors»
+// (dea/dea.py) a dades/dea.json. Els que el registre situa al mateix punt
+// s'agrupen: els ajuntaments declaren els de via pública a l'adreça de la casa
+// de la vila, no al carrer on són.
+// -----------------------------------------------------------------------------
+const DIES_DEA = ["Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge"];
+const majuscules = t => /[a-zà-ú]/.test(t) ? t : t.toLowerCase().replace(/(^|[\s'(·-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase())
+  .replace(/\b(De|Del|Dels|La|Les|El|Els|I|D'|L')\b/g, s => s.toLowerCase());
+const alCarrer = e => /via p[úu]blica|exterior|al carrer/i.test(e.espai);
+
+function textHorari(fr) {
+  const amb = fr.filter(f => f.inici && f.fi);
+  if (!amb.length) return "";
+  const perDia = {};
+  amb.forEach(f => { (perDia[f.dia] = perDia[f.dia] || []).push(f.inici.replace(":", ".") + "-" + f.fi.replace(":", ".")); });
+  const grups = [];
+  DIES_DEA.filter(d => perDia[d]).forEach(d => {
+    const h = perDia[d].join(" i "), g = grups[grups.length - 1];
+    if (g && g.h === h && DIES_DEA.indexOf(d) === DIES_DEA.indexOf(g.fi) + 1) g.fi = d; else grups.push({ ini: d, fi: d, h });
+  });
+  return grups.map(g => (g.ini === g.fi ? g.ini : g.ini + " a " + g.fi.toLowerCase()) + ": " + g.h + " h").join("<br>");
+}
+
+async function carregaDea() {
+  const peu = document.getElementById("deaPeu");
+  if (!peu) return;
+  let d;
+  try { d = await json("dades/dea.json"); }
+  catch (e) { peu.textContent = "Encara no s'han baixat les dades dels desfibril·ladors."; document.getElementById("mapaDea").hidden = true; return; }
+  const fx = d.fixos || [], ve = d.vehicles || [], noms = d.municipis || {};
+  peu.textContent = (d.actualitzatFont ? `Registre actualitzat el ${dataDMA(d.actualitzatFont)} · ` : "") + `revisat el ${dataDMA(d.generat)} · es revisa cada setmana`;
+  document.getElementById("deaXifres").innerHTML =
+    `<div class="xifra"><b>${fx.length}</b><span>en llocs fixos</span></div>` +
+    `<div class="xifra"><b>${fx.filter(alCarrer).length}</b><span>al carrer o a l'exterior</span></div>` +
+    `<div class="xifra"><b>${ve.length}</b><span>en vehicles policials</span></div>` +
+    `<p class="font" style="flex-basis:100%;margin:0">Per municipis: ` +
+    MUN_ANTENES.map(c => `${esc(noms[c] || c)}, <b>${fx.filter(e => e.mun === c).length}</b>${ve.some(v => v.mun === c) ? ` (+${ve.filter(v => v.mun === c).length} en vehicles)` : ""}`).join(" · ") + "</p>";
+
+  // Agrupa els que comparteixen coordenades.
+  const llocs = {};
+  fx.filter(e => e.lat != null && e.lon != null).forEach(e => { const k = e.lat.toFixed(5) + "," + e.lon.toFixed(5); (llocs[k] = llocs[k] || []).push(e); });
+  const agrupats = Object.values(llocs).filter(g => g.length > 1 && g.some(alCarrer));
+  document.getElementById("deaLlegenda").innerHTML =
+    `<span><i style="background:#2e8b57"></i>al carrer o a l'exterior</span><span><i style="background:#2b6cb0"></i>dins d'un edifici (amb horari)</span>` +
+    `<span>El número indica quants n'hi ha declarats al mateix punt.</span>`;
+  document.getElementById("deaAvis").innerHTML = agrupats.length
+    ? `<p class="font"><b>Atenció:</b> els desfibril·ladors municipals de via pública consten al registre amb les coordenades de l'ajuntament ` +
+      `(${agrupats.map(g => `${esc(noms[g[0].mun] || g[0].mun)}, ${g.length}`).join(" · ")}). Són al carrer, però el registre no diu on: al mapa surten a la casa de la vila.</p>` : "";
+  document.getElementById("deaNota").innerHTML =
+    (ve.length ? `En vehicles: ${MUN_ANTENES.filter(c => ve.some(v => v.mun === c)).map(c => `${esc(noms[c])}, ${ve.filter(v => v.mun === c).length}`).join(" · ")} (cotxes de la policia o la vigilància local). ` : "") +
+    `En una emergència, truca al 112: el telefonista et diu on és el desfibril·lador més proper. Font: ${esc(d.font || "Departament de Salut")}, dades obertes de la Generalitat.`;
+
+  if (typeof L === "undefined") { document.getElementById("mapaDea").innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return; }
+  const mapa = L.map("mapaDea", { zoomSnap: 0.25, scrollWheelZoom: false });
+  const tots = Object.values(llocs).map(g => [g[0].lat, g[0].lon]);
+  if (tots.length) mapa.fitBounds(tots, { padding: [24, 24] }); else mapa.setView([41.96, 3.03], 12);
+  mapa.attributionControl.setPrefix("").addAttribution("DEA: Departament de Salut · Límits: es-atlas (INE)");
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .6, attribution: "© OpenStreetMap" }).addTo(mapa);
+  try {
+    const geo = await (await fetch("llamps/girona.json")).json();
+    L.geoJSON(topojson.feature(geo, geo.objects.municipis).features.filter(f => MUN_ANTENES.includes(f.id)), {
+      style: { color: "#b4462c", weight: 1.2, fill: false }, interactive: false
+    }).addTo(mapa);
+  } catch (e) {}
+  Object.values(llocs).forEach(g => {
+    const carrer = g.some(alCarrer), color = carrer ? "#2e8b57" : "#2b6cb0";
+    const icona = L.divIcon({ className: "", iconSize: [24, 24], iconAnchor: [12, 12],
+      html: `<div style="width:24px;height:24px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 0 0 1px #1d1d1b55;color:#fff;font:700 12px/20px system-ui;text-align:center">${g.length > 1 ? g.length : "♥"}</div>` });
+    const html = (g.length > 1 && carrer ? `<p style="margin:0 0 6px;color:#b4462c"><b>${g.length} desfibril·ladors declarats en aquest punt.</b> És l'adreça de l'ajuntament: són al carrer, però el registre no diu on.</p>` : "") +
+      g.map(e => {
+        const hr = textHorari(e.horari);
+        return `<b>${esc(majuscules(e.nom))}</b><br>${esc(e.adreca)}` + (e.espai ? `<br><i>${esc(majuscules(e.espai))}</i>` : "") +
+          `<br><span style="color:#6b6b66">${hr || (alCarrer(e) ? "Al carrer: accessible a qualsevol hora" : "Horari no declarat")}</span>`;
+      }).filter((t, i, a) => a.indexOf(t) === i).join("<hr style='border:0;border-top:1px solid #e3e1db;margin:6px 0'>");
+    L.marker([g[0].lat, g[0].lon], { icon: icona }).bindTooltip(majuscules(g[0].nom) + (g.length > 1 ? ` (${g.length})` : ""))
+      .bindPopup(html, { maxWidth: 290, maxHeight: 300 }).addTo(mapa);
+  });
+}
+
+// -----------------------------------------------------------------------------
 // MAPA DE LES BENZINERES (26.10.2026): les mateixes de la taula, amb els preus
 // a la finestra de cada punt. Les dades ja porten les coordenades (Geoportal).
 // -----------------------------------------------------------------------------
@@ -954,6 +1042,7 @@ async function inicia() {
     carregaAgenda();
     carregaLlamps();
     carregaAntenes();
+    carregaDea();
     carregaEsports();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
