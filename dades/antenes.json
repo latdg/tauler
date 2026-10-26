@@ -1,0 +1,592 @@
+{
+ "generat": "2026-10-26T15:42:53+00:00",
+ "versioCelda": "sitios@2026-10-21T22:30:02Z",
+ "dataCelda": "2026-10-21T22:30:02.000Z",
+ "municipis": {
+  "17022": "la Bisbal d'Empordà",
+  "17057": "Corçà",
+  "17902": "Forallac",
+  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
+ },
+ "credit": "Origen de los datos: Ministerio para la Transformación Digital y de la Función Pública (Infoantenas)",
+ "licencies": {
+  "propios": {
+   "licencia": "CC0-1.0",
+   "enlace": "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
+   "alcance": "Las correcciones aceptadas, las corroboraciones, los agregados de medidas y lo que Celda calcula sobre los datos de otros: el estado, la confianza, las zonas y las simulaciones."
+  },
+  "terceros": [
+   {
+    "datos": "Registro oficial de estaciones (Infoantenas)",
+    "condiciones": "Ley 37/2007 y condiciones generales de reutilización del Ministerio: citar la fuente, no desnaturalizar los datos, dar la fecha y no sugerir que el Ministerio apoya este uso.",
+    "credito": "Origen de los datos: Ministerio para la Transformación Digital y de la Función Pública (Infoantenas)",
+    "enlace": "https://geoportal.minetur.gob.es/VCTEL/vcne.do"
+   },
+   {
+    "datos": "Límites de provincias y municipios del IGN",
+    "condiciones": "CC BY 4.0",
+    "credito": "Obra derivada de las líneas límite del IGN (scne.es)",
+    "enlace": "https://www.scne.es/"
+   },
+   {
+    "datos": "Capitales de municipio del Nomenclátor Geográfico Básico de España del IGN",
+    "condiciones": "CC BY 4.0",
+    "credito": "Obra derivada del Nomenclátor Geográfico Básico de España del IGN (ign.es)",
+    "enlace": "https://www.ign.es/"
+   },
+   {
+    "datos": "Padrón del INE",
+    "condiciones": "CC BY 4.0",
+    "credito": "Elaboración propia con datos extraídos del sitio web del INE: www.ine.es",
+    "enlace": "https://www.ine.es/"
+   },
+   {
+    "datos": "Barrios de Barcelona (Open Data BCN)",
+    "condiciones": "CC BY 4.0",
+    "credito": "Ajuntament de Barcelona",
+    "enlace": "https://opendata-ajuntament.barcelona.cat/"
+   },
+   {
+    "datos": "Mapa base y búsqueda de direcciones",
+    "condiciones": "ODbL",
+    "credito": "© OpenStreetMap",
+    "enlace": "https://www.openstreetmap.org/copyright"
+   },
+   {
+    "datos": "Ortofoto PNOA del IGN, en la foto aérea",
+    "condiciones": "CC BY 4.0",
+    "credito": "PNOA · CC BY 4.0 scne.es",
+    "enlace": "https://www.scne.es/"
+   }
+  ]
+ },
+ "emplacaments": [
+  {
+   "clau": "movistar-1700923",
+   "lat": 41.971359,
+   "lon": 3.031447,
+   "mun": "17022",
+   "adreca": "CL LAigüeta, 244. BISBAL DEMPORDÀ (LA), GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "movistar",
+     "mhz": [
+      1800,
+      2100
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 51,
+       "az": 65,
+       "uw": 0.06112
+      },
+      {
+       "m": 75,
+       "az": 100,
+       "uw": 0.03631
+      },
+      {
+       "m": 90,
+       "az": 120,
+       "uw": 0.02231
+      },
+      {
+       "m": 80,
+       "az": 140,
+       "uw": 0.0383
+      },
+      {
+       "m": 60,
+       "az": 180,
+       "uw": 0.04244
+      },
+      {
+       "m": 60,
+       "az": 220,
+       "uw": 0.05371
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700923&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700923"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700923&provincia=17"
+  },
+  {
+   "clau": "digi-1700045",
+   "lat": 41.961338,
+   "lon": 3.040069,
+   "mun": "17022",
+   "adreca": "CL SOLIDARITAT, 33. BISBAL DEMPORDÀ (LA), GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "digi",
+     "mhz": [
+      1800,
+      2100
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 53,
+       "az": 77,
+       "uw": 0.09234
+      },
+      {
+       "m": 32,
+       "az": 91,
+       "uw": 0.14136
+      },
+      {
+       "m": 43,
+       "az": 137,
+       "uw": 0.15727
+      },
+      {
+       "m": 12,
+       "az": 208,
+       "uw": 0.3094
+      },
+      {
+       "m": 45,
+       "az": 280,
+       "uw": 0.3094
+      },
+      {
+       "m": 40,
+       "az": 327,
+       "uw": 0.13372
+      },
+      {
+       "m": 43,
+       "az": 356,
+       "uw": 0.10865
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700045&codEmplazamiento=DS%20MOBILE%20NETWORKS%2C%20S.L.%20-%201700045"
+    },
+    {
+     "op": "movistar",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800,
+      2100,
+      2600,
+      3500
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 53,
+       "az": 77,
+       "uw": 0.09234
+      },
+      {
+       "m": 32,
+       "az": 91,
+       "uw": 0.14136
+      },
+      {
+       "m": 43,
+       "az": 137,
+       "uw": 0.15727
+      },
+      {
+       "m": 12,
+       "az": 208,
+       "uw": 0.3094
+      },
+      {
+       "m": 45,
+       "az": 280,
+       "uw": 0.3094
+      },
+      {
+       "m": 40,
+       "az": 327,
+       "uw": 0.13372
+      },
+      {
+       "m": 43,
+       "az": 356,
+       "uw": 0.10865
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700045&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700045"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=digi-1700045&provincia=17"
+  },
+  {
+   "clau": "movistar-1700349",
+   "lat": 41.962004,
+   "lon": 3.0363,
+   "mun": "17022",
+   "adreca": "JR PAU CASALS, 9. BISBAL DEMPORDÀ (LA), GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "movistar",
+     "mhz": [
+      700,
+      900,
+      1800,
+      3500
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 27,
+       "az": 30,
+       "uw": 0.04905
+      },
+      {
+       "m": 30,
+       "az": 100,
+       "uw": 0.03066
+      },
+      {
+       "m": 58,
+       "az": 170,
+       "uw": 0.03066
+      },
+      {
+       "m": 54,
+       "az": 241,
+       "uw": 0.2869
+      },
+      {
+       "m": 99,
+       "az": 303,
+       "uw": 0.04035
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700349&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700349"
+    },
+    {
+     "op": "orange",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800,
+      2100
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 52,
+       "az": 251,
+       "uw": 0.37563
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=CATR5105A&codEmplazamiento=ORANGE%20ESPAGNE%2C%20S.A.U.%20-%20CATR5105A"
+    },
+    {
+     "op": "vodafone",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 52,
+       "az": 251,
+       "uw": 0.37563
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=007415&codEmplazamiento=VODAFONE%20ESPA%C3%91A%2C%20S.A.U.%20-%20007415"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700349&provincia=17"
+  },
+  {
+   "clau": "movistar-1700394",
+   "lat": 41.994038,
+   "lon": 3.012069,
+   "mun": "17057",
+   "adreca": "CR C-66, KM. 14,5. CORÇÀ, GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "movistar",
+     "mhz": [
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 10,
+       "az": 35,
+       "uw": 0.15727
+      },
+      {
+       "m": 13,
+       "az": 104,
+       "uw": 0.06369
+      },
+      {
+       "m": 12,
+       "az": 186,
+       "uw": 0.14921
+      },
+      {
+       "m": 12,
+       "az": 266,
+       "uw": 0.08923
+      },
+      {
+       "m": 13,
+       "az": 325,
+       "uw": 0.07451
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700394&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700394"
+    },
+    {
+     "op": "orange",
+     "mhz": [
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 46,
+       "az": 40,
+       "uw": 0.02716
+      },
+      {
+       "m": 76,
+       "az": 109,
+       "uw": 0.03249
+      },
+      {
+       "m": 56,
+       "az": 245,
+       "uw": 0.01284
+      },
+      {
+       "m": 29,
+       "az": 300,
+       "uw": 0.04035
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=CATR5218B&codEmplazamiento=ORANGE%20ESPAGNE%2C%20S.A.U.%20-%20CATR5218B"
+    },
+    {
+     "op": "vodafone",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800,
+      3500
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 45,
+       "az": 7,
+       "uw": 0.07735
+      },
+      {
+       "m": 12,
+       "az": 138,
+       "uw": 0.10528
+      },
+      {
+       "m": 48,
+       "az": 244,
+       "uw": 0.12998
+      },
+      {
+       "m": 9,
+       "az": 267,
+       "uw": 0.09234
+      },
+      {
+       "m": 17,
+       "az": 311,
+       "uw": 0.10865
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=055989&codEmplazamiento=VODAFONE%20ESPA%C3%91A%2C%20S.A.U.%20-%20055989"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700394&provincia=17"
+  },
+  {
+   "clau": "movistar-1700395",
+   "lat": 41.954777,
+   "lon": 3.068167,
+   "mun": "17902",
+   "adreca": "CL VULPELLAC. FORALLAC, GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "movistar",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800,
+      2100
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 18,
+       "az": 3,
+       "uw": 0.10528
+      },
+      {
+       "m": 42,
+       "az": 76,
+       "uw": 0.08024
+      },
+      {
+       "m": 18,
+       "az": 151,
+       "uw": 0.11555
+      },
+      {
+       "m": 14,
+       "az": 226,
+       "uw": 0.06631
+      },
+      {
+       "m": 20,
+       "az": 294,
+       "uw": 0.09234
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700395&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700395"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700395&provincia=17"
+  },
+  {
+   "clau": "movistar-1700183",
+   "lat": 41.949078,
+   "lon": 3.065522,
+   "mun": "17902",
+   "adreca": "ZN MAS ANGLADA (CAMP DE FUTBOL), S/N. FORALLAC, GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "movistar",
+     "mhz": [
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 36,
+       "az": 200,
+       "uw": 0.03438
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700183&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700183"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700183&provincia=17"
+  },
+  {
+   "clau": "orange-CATR5763A",
+   "lat": 41.979008,
+   "lon": 2.997978,
+   "mun": "17901",
+   "adreca": "CM POLIGONO 1 PARCELA 101, S/N. CRUÏLLES, MONELLS I SANT SADURNÍ DE LHEURA, GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "orange",
+     "mhz": [
+      800,
+      900
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 100,
+       "az": 8,
+       "uw": 0.18717
+      },
+      {
+       "m": 54,
+       "az": 62,
+       "uw": 0.0208
+      },
+      {
+       "m": 73,
+       "az": 100,
+       "uw": 0.18717
+      },
+      {
+       "m": 100,
+       "az": 160,
+       "uw": 0.17836
+      },
+      {
+       "m": 100,
+       "az": 237,
+       "uw": 0.65384
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=CATR5763A&codEmplazamiento=ORANGE%20ESPAGNE%2C%20S.A.U.%20-%20CATR5763A"
+    },
+    {
+     "op": "vodafone",
+     "mhz": [
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 23,
+       "az": 90,
+       "uw": 0.06899
+      },
+      {
+       "m": 20,
+       "az": 120,
+       "uw": 0.0987
+      },
+      {
+       "m": 19,
+       "az": 150,
+       "uw": 0.10528
+      },
+      {
+       "m": 20,
+       "az": 180,
+       "uw": 0.07173
+      },
+      {
+       "m": 28,
+       "az": 210,
+       "uw": 0.06631
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=140430&codEmplazamiento=VODAFONE%20ESPA%C3%91A%2C%20S.A.%20-%20140430"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=orange-CATR5763A&provincia=17"
+  }
+ ]
+}
