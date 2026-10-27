@@ -1201,7 +1201,7 @@ function pintaEnergia() {
   cos.innerHTML = `<p class="pista-plega">Clica el nom d'un municipi per veure'n el detall.</p>` +
     MUN_ANTENES.map(c => {
       const a = au[c];
-      return `<details class="plegable" data-mun="${c}"><summary><img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()"><b>${esc(NOMS_LLARGS_MUN[c])}</b>` +
+      return `<details class="plegable" data-mun="${c}"><summary><img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()"><b>${esc(NOMS_LLARGS_MUN[c].replace(/^./, x => x.toUpperCase()))}</b>` +
         `<span class="resum-mun">${a ? `${nCa(a.n)} instal·lacions · ${dec(a.kw / 1000, 2)} MW` : ""}</span></summary><div class="cos-plega"></div></details>`;
     }).join("") +
     `<p class="font">Autoconsum: registre d'instal·lacions d'autoconsum d'energia elèctrica (actualitzat el ${esc(dataDMA((SERV.autoconsum || {}).actualitzat))}). ` +
