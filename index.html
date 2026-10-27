@@ -1118,24 +1118,44 @@ function pintaFarmacies() {
   if (!f || !f.dies) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les guàrdies.</p>'; return; }
   const fq = new Date(f.quan), z = n => String(n).padStart(2, "0");
   peu.innerHTML = `Actualitzat el ${dataDMA(f.quan)} a les ${z(fq.getHours())}.${z(fq.getMinutes())} h · Font: <a href="${esc(f.font)}" target="_blank" rel="noopener">Col·legi de Farmacèutics de Girona</a>`;
-  const t0 = new Date(); t0.setHours(0, 0, 0, 0);
-  const dies = f.dies.filter(d => new Date(d.data + "T00:00:00") >= t0);
-  if (!dies.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
-  const pintaDia = g => {
-    const d = new Date(g.data + "T00:00:00"), dif = Math.round((d - t0) / 86400000);
-    const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>' : dif === 1 ? '<span class="ag-dema">Demà</span>' : "";
-    return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES_SETMANA[d.getDay()]} ${g.data.split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
-      (g.farmacies.length ? g.farmacies.map(x => `<article class="ag-acte"><div class="ag-cap"><span class="ag-hora">🕒 ${esc(x.horari)}</span>` +
+  // 27.10.2026: la guàrdia és de nit, de les 21 h fins a les 9 h de l'endemà. Cada
+  // «nit» es desa amb la data del vespre en què comença. Fins a les 9 h del matí,
+  // la que és de guàrdia és la de la nit anterior.
+  const ISO = d => d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate());
+  const mesDies = (iso, n) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return ISO(d); };
+  const nits = {};
+  f.dies.forEach(g => g.farmacies.forEach(x => {
+    // «Avui fins les 9:00»: és la nit que va començar el vespre anterior.
+    const vespre = /^avui fins/i.test(x.horari) ? mesDies(g.data, -1) : g.data;
+    // Només les guàrdies que cobreixen la nit (acaben l'endemà); les de dia, fora.
+    if (!/dia seg|^avui fins/i.test(x.horari)) return;
+    const llista = nits[vespre] = nits[vespre] || [];
+    if (!llista.some(y => y.farmacia === x.farmacia)) llista.push(x);
+  }));
+  const ara = new Date(), avui = ISO(ara);
+  const actual = ara.getHours() < 9 ? mesDies(avui, -1) : avui;
+  const dates = Object.keys(nits).filter(d => d >= actual).sort();
+  if (!dates.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
+  const DIES_MIN = DIES_SETMANA.map(x => x.toLowerCase());
+  const horari = h => /^09:00 - 09:00/.test(h) || /^avui fins/i.test(h) ? "De 21 h a 9 h de l'endemà"
+    : "De " + h.replace(/\s*\(dia seg\.\)/, "").replace(/(\d{2}):(\d{2})/g, (m, a, b) => Number(a) + (b === "00" ? "" : "." + b)).replace(" - ", " h a ") + " h de l'endemà";
+  const pintaNit = vespre => {
+    const d = new Date(vespre + "T12:00:00"), e = new Date(mesDies(vespre, 1) + "T12:00:00");
+    const etiqueta = vespre === actual ? `<span class="ag-avui"><span class="tdg-boleta-avui"></span>${vespre === avui ? "Aquesta nit" : "Ara"}</span>`
+      : vespre === mesDies(actual, 1) ? '<span class="ag-dema">Pròxima nit</span>' : "";
+    return `<div class="ag-dia${vespre === actual ? " ag-dia-avui" : ""}"><h3 class="ag-data">Nit del ${DIES_MIN[d.getDay()]} ${vespre.split("-").reverse().join(".")} ` +
+      `al ${DIES_MIN[e.getDay()]} ${ISO(e).split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
+      nits[vespre].map(x => `<article class="ag-acte"><div class="ag-cap"><span class="ag-hora">🕒 ${esc(horari(x.horari))}</span>` +
         `<span class="ag-mun">📍 ${esc(poblacioFarm(x.poblacio))}</span></div><div class="ag-text"><b>${esc(majFrase(x.farmacia))}</b><br>` +
         `<a href="https://www.google.com/maps/search/${encodeURIComponent(x.adreca + ", " + x.poblacio)}" target="_blank" rel="noopener">${esc(x.adreca)}</a>` +
         (x.telefon ? `<br><a class="fa-tel" href="tel:${esc(x.telefon.replace(/\s/g, ""))}">📞 ${esc(x.telefon.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3"))}</a>` : "") +
-        `</div></article>`).join("") : '<p class="buit">El Col·legi no en dona cap per a aquest dia.</p>') + "</div></div>";
+        `</div></article>`).join("") + "</div></div>";
   };
-  // 27.10.2026: es veu la guàrdia del dia; la resta de la setmana s'obre clicant.
-  const resta = dies.slice(1);
-  cos.innerHTML = '<div class="agenda">' + pintaDia(dies[0]) + "</div>" +
-    (resta.length ? `<details class="fa-setmana"><summary>Veure les guàrdies de tota la setmana</summary><div class="agenda">${resta.map(pintaDia).join("")}</div></details>` : "") +
-    `<p class="font">Guàrdies del grup de la Bisbal d'Empordà. L'horari de cada dia comença a les 9 h del matí i acaba a la mateixa hora de l'endemà, llevat que s'indiqui un altre. Abans d'anar-hi de nit, val la pena trucar.</p>`;
+  // Es veu la guàrdia d'ara (o la d'aquesta nit); la resta de la setmana s'obre clicant.
+  const resta = dates.slice(1);
+  cos.innerHTML = '<div class="agenda">' + pintaNit(dates[0]) + "</div>" +
+    (resta.length ? `<details class="fa-setmana"><summary>Veure les guàrdies de tota la setmana</summary><div class="agenda">${resta.map(pintaNit).join("")}</div></details>` : "") +
+    `<p class="font">Farmàcies de guàrdia del grup de la Bisbal d'Empordà. La guàrdia és de nit, de les 21 h fins a les 9 h del matí de l'endemà; de dia, cada farmàcia obre en el seu horari. Abans d'anar-hi, val la pena trucar.</p>`;
 }
 
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
