@@ -1,0 +1,42 @@
+# Turistes que hi arriben (telefonia mòbil) — La TdG · 27.10.2026
+# Turistes que arriben als quatre municipis i veïns que viatgen, segons l'INE
+# (dades/turisme.json). L'INE ho actualitza cada mes: va el dia 20.
+name: Turistes que hi arriben
+
+on:
+  schedule:
+    - cron: "29 5 20 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: turisme
+  cancel-in-progress: false
+
+jobs:
+  turisme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          python turisme/turisme.py 2>&1 | tee turisme/registre.txt
+          git config user.name "La TdG (turisme)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 27.10.2026: si un altre procés ha pujat canvis alhora, es torna a provar; si no hi ha manera, el workflow falla (no es perd en silenci).
+          git add turisme/registre.txt; git add dades/turisme.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
+          git commit -qm "Turistes que hi arriben ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+          for intent in 1 2 3 4 5 6; do
+            git push -q origin HEAD:main && exit 0
+            sleep $((intent * 10))
+            git fetch -q origin main && git rebase -q origin/main || { git rebase --abort; exit 1; }
+          done
+          echo "No s'han pogut pujar els canvis"; exit 1

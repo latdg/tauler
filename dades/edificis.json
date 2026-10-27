@@ -1,0 +1,443 @@
+{
+ "generat": "2026-10-26T23:01:08+00:00",
+ "font": "Direcció General del Cadastre (servei INSPIRE d'edificis)",
+ "epoques": [
+  "abans de 1900",
+  "1900-1939",
+  "1940-1959",
+  "1960-1979",
+  "1980-1999",
+  "2000-2009",
+  "des de 2010"
+ ],
+ "municipis": {
+  "17022": {
+   "nom": "la Bisbal d'Empordà",
+   "actualitzatCadastre": "2026-08-21",
+   "zip": "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/17/17025-LA BISBAL D EMPORDA/A.ES.SDGC.BU.17025.zip",
+   "edificis": 2718,
+   "ambAny": 2716,
+   "habitatges": 4972,
+   "mediana": 1975,
+   "epoques": [
+    {
+     "epoca": "abans de 1900",
+     "edificis": 66,
+     "habitatges": 58
+    },
+    {
+     "epoca": "1900-1939",
+     "edificis": 536,
+     "habitatges": 524
+    },
+    {
+     "epoca": "1940-1959",
+     "edificis": 414,
+     "habitatges": 485
+    },
+    {
+     "epoca": "1960-1979",
+     "edificis": 598,
+     "habitatges": 1247
+    },
+    {
+     "epoca": "1980-1999",
+     "edificis": 643,
+     "habitatges": 1190
+    },
+    {
+     "epoca": "2000-2009",
+     "edificis": 397,
+     "habitatges": 1320
+    },
+    {
+     "epoca": "des de 2010",
+     "edificis": 62,
+     "habitatges": 148
+    }
+   ],
+   "usos": [
+    [
+     "Residencial",
+     2396
+    ],
+    [
+     "Industrial",
+     148
+    ],
+    [
+     "Agrari",
+     71
+    ],
+    [
+     "Comercial",
+     48
+    ],
+    [
+     "Serveis públics",
+     36
+    ],
+    [
+     "Oficines",
+     15
+    ],
+    [
+     "Altres",
+     4
+    ]
+   ],
+   "mesAntics": [
+    {
+     "ref": "002400300EG04C",
+     "any": 1420,
+     "us": "Residencial"
+    },
+    {
+     "ref": "3255701EG0435N",
+     "any": 1600,
+     "us": "Serveis públics"
+    },
+    {
+     "ref": "000400500EG04A",
+     "any": 1700,
+     "us": "Serveis públics"
+    },
+    {
+     "ref": "000401500EG04A",
+     "any": 1700,
+     "us": "Residencial"
+    },
+    {
+     "ref": "000800400EG04A",
+     "any": 1700,
+     "us": "Residencial"
+    }
+   ],
+   "any1900": 170,
+   "ultims10anys": 34,
+   "ruina": 10,
+   "plantesMax": 13
+  },
+  "17057": {
+   "nom": "Corçà",
+   "actualitzatCadastre": "2026-08-21",
+   "zip": "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/17/17062-COR A/A.ES.SDGC.BU.17062.zip",
+   "edificis": 871,
+   "ambAny": 870,
+   "habitatges": 699,
+   "mediana": 1974,
+   "epoques": [
+    {
+     "epoca": "abans de 1900",
+     "edificis": 4,
+     "habitatges": 3
+    },
+    {
+     "epoca": "1900-1939",
+     "edificis": 240,
+     "habitatges": 223
+    },
+    {
+     "epoca": "1940-1959",
+     "edificis": 60,
+     "habitatges": 47
+    },
+    {
+     "epoca": "1960-1979",
+     "edificis": 304,
+     "habitatges": 241
+    },
+    {
+     "epoca": "1980-1999",
+     "edificis": 147,
+     "habitatges": 97
+    },
+    {
+     "epoca": "2000-2009",
+     "edificis": 92,
+     "habitatges": 72
+    },
+    {
+     "epoca": "des de 2010",
+     "edificis": 23,
+     "habitatges": 16
+    }
+   ],
+   "usos": [
+    [
+     "Residencial",
+     726
+    ],
+    [
+     "Agrari",
+     71
+    ],
+    [
+     "Industrial",
+     44
+    ],
+    [
+     "Serveis públics",
+     21
+    ],
+    [
+     "Comercial",
+     7
+    ],
+    [
+     "Oficines",
+     1
+    ],
+    [
+     "Altres",
+     1
+    ]
+   ],
+   "mesAntics": [
+    {
+     "ref": "000600200EG04G",
+     "any": 1800,
+     "us": "Residencial"
+    },
+    {
+     "ref": "000900100EG04G",
+     "any": 1800,
+     "us": "Residencial"
+    },
+    {
+     "ref": "002000300EG95B",
+     "any": 1800,
+     "us": "Serveis públics"
+    },
+    {
+     "ref": "17062A00500067",
+     "any": 1890,
+     "us": "Residencial"
+    },
+    {
+     "ref": "000500500EG94H",
+     "any": 1900,
+     "us": "Residencial"
+    }
+   ],
+   "any1900": 187,
+   "ultims10anys": 13,
+   "ruina": 0,
+   "plantesMax": 5
+  },
+  "17902": {
+   "nom": "Forallac",
+   "actualitzatCadastre": "2026-08-21",
+   "zip": "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/17/17077-FORALLAC/A.ES.SDGC.BU.17077.zip",
+   "edificis": 1349,
+   "ambAny": 1348,
+   "habitatges": 1026,
+   "mediana": 1976,
+   "epoques": [
+    {
+     "epoca": "abans de 1900",
+     "edificis": 7,
+     "habitatges": 3
+    },
+    {
+     "epoca": "1900-1939",
+     "edificis": 353,
+     "habitatges": 335
+    },
+    {
+     "epoca": "1940-1959",
+     "edificis": 63,
+     "habitatges": 51
+    },
+    {
+     "epoca": "1960-1979",
+     "edificis": 346,
+     "habitatges": 205
+    },
+    {
+     "epoca": "1980-1999",
+     "edificis": 348,
+     "habitatges": 273
+    },
+    {
+     "epoca": "2000-2009",
+     "edificis": 174,
+     "habitatges": 130
+    },
+    {
+     "epoca": "des de 2010",
+     "edificis": 57,
+     "habitatges": 29
+    }
+   ],
+   "usos": [
+    [
+     "Residencial",
+     929
+    ],
+    [
+     "Agrari",
+     248
+    ],
+    [
+     "Industrial",
+     134
+    ],
+    [
+     "Serveis públics",
+     27
+    ],
+    [
+     "Comercial",
+     9
+    ],
+    [
+     "Oficines",
+     1
+    ],
+    [
+     "Altres",
+     1
+    ]
+   ],
+   "mesAntics": [
+    {
+     "ref": "000801000EG04D",
+     "any": 1600,
+     "us": "Serveis públics"
+    },
+    {
+     "ref": "000400100EG03H",
+     "any": 1700,
+     "us": "Residencial"
+    },
+    {
+     "ref": "6072602EG0467S",
+     "any": 1700,
+     "us": "Serveis públics"
+    },
+    {
+     "ref": "4844201EG0444S",
+     "any": 1750,
+     "us": "Serveis públics"
+    },
+    {
+     "ref": "4844203EG0444S",
+     "any": 1750,
+     "us": "Residencial"
+    }
+   ],
+   "any1900": 329,
+   "ultims10anys": 29,
+   "ruina": 5,
+   "plantesMax": 5
+  },
+  "17901": {
+   "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+   "actualitzatCadastre": "2026-08-21",
+   "zip": "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/17/17064-CRUILLES MONELLS ST SAD/A.ES.SDGC.BU.17064.zip",
+   "edificis": 997,
+   "ambAny": 995,
+   "habitatges": 548,
+   "mediana": 1972,
+   "epoques": [
+    {
+     "epoca": "abans de 1900",
+     "edificis": 5,
+     "habitatges": 3
+    },
+    {
+     "epoca": "1900-1939",
+     "edificis": 314,
+     "habitatges": 181
+    },
+    {
+     "epoca": "1940-1959",
+     "edificis": 81,
+     "habitatges": 41
+    },
+    {
+     "epoca": "1960-1979",
+     "edificis": 180,
+     "habitatges": 80
+    },
+    {
+     "epoca": "1980-1999",
+     "edificis": 283,
+     "habitatges": 142
+    },
+    {
+     "epoca": "2000-2009",
+     "edificis": 100,
+     "habitatges": 76
+    },
+    {
+     "epoca": "des de 2010",
+     "edificis": 32,
+     "habitatges": 25
+    }
+   ],
+   "usos": [
+    [
+     "Residencial",
+     569
+    ],
+    [
+     "Agrari",
+     376
+    ],
+    [
+     "Industrial",
+     28
+    ],
+    [
+     "Serveis públics",
+     20
+    ],
+    [
+     "Altres",
+     2
+    ],
+    [
+     "Comercial",
+     1
+    ],
+    [
+     "Oficines",
+     1
+    ]
+   ],
+   "mesAntics": [
+    {
+     "ref": "17064A01100160",
+     "any": 1700,
+     "us": "Agrari"
+    },
+    {
+     "ref": "17064A01100156",
+     "any": 1730,
+     "us": "Residencial"
+    },
+    {
+     "ref": "002500500DG94F",
+     "any": 1800,
+     "us": "Residencial"
+    },
+    {
+     "ref": "17064A00500130",
+     "any": 1800,
+     "us": "Residencial"
+    },
+    {
+     "ref": "17064A01000184",
+     "any": 1884,
+     "us": "Agrari"
+    }
+   ],
+   "any1900": 232,
+   "ultims10anys": 17,
+   "ruina": 4,
+   "plantesMax": 5
+  }
+ }
+}

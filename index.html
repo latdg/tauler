@@ -69,6 +69,19 @@ main section{scroll-margin-top:16px}
 .xifres{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:12px}
 .xifra b{display:block;font-size:1.5rem;line-height:1.1}
 .xifra span{color:var(--suau);font-size:.85rem}
+/* Edificis i turistes (27.10.2026) */
+.tria-mun{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
+.tria-mun button{display:flex;align-items:center;gap:6px;font:inherit;font-size:.85rem;padding:4px 10px 4px 6px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer}
+.tria-mun button.actiu{border-color:var(--accent);color:var(--accent);font-weight:600}
+.tria-mun img{height:22px;width:auto}
+.barres{display:grid;grid-template-columns:auto minmax(40px,1fr) auto;gap:4px 8px;align-items:center;font-size:.85rem}
+.barres .barra{height:12px;background:var(--accent);border-radius:3px;min-width:2px}
+.barres .num{text-align:right;white-space:nowrap}
+.serie{display:flex;align-items:flex-end;gap:2px;height:90px;margin:6px 0 2px}
+.serie span{flex:1;background:var(--accent);border-radius:2px 2px 0 0;min-height:1px;opacity:.85}
+.serie span.ant{background:#c9c4b8}
+.serie-eix{display:flex;justify-content:space-between;font-size:.75rem;color:var(--suau)}
+.puja{color:#1e7b34}.baixa{color:#c0392b}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
 .leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:10px 12px}
@@ -220,7 +233,8 @@ async function json(cami) {
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
   [/agenda/i, "Agenda"],
-  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"], [/incendi/i, "Incendis i sequera"],
+  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"],
+  [/edat dels edificis/i, "Edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/atur/i, "Atur"],
@@ -652,6 +666,10 @@ function pinta(d) {
     '<div class="llegenda" id="deaLlegenda"></div><div id="deaAvis"></div><p class="font" id="deaNota"></p>',
     "", false);
 
+  // 2d. 🏘️ EDAT DELS EDIFICIS i 2e. 🧳 TURISTES (27.10.2026, abans a La TdG redacció).
+  h += seccio("🏘️ Edat dels edificis", '<div id="edificisCos"><p class="buit">Carregant…</p></div>', "", false);
+  h += seccio("🧳 Turistes que hi arriben", '<div id="turismeCos"><p class="buit">Carregant…</p></div>', "", false);
+
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
   if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
     (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(b.plaAlfa) : "") +
@@ -967,6 +985,105 @@ async function carregaDea() {
   });
 }
 
+// -----------------------------------------------------------------------------
+// EDAT DELS EDIFICIS i TURISTES QUE HI ARRIBEN (27.10.2026; abans eren a La TdG
+// redacció). Dades: dades/edificis.json i dades/edificis/<codi>.geojson
+// (Cadastre, workflow «Edat dels edificis») i dades/turisme.json (INE,
+// workflow «Turistes que hi arriben»).
+// -----------------------------------------------------------------------------
+const NOMS_CURTS_MUN = { "17022": "la Bisbal", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i SSH" };
+const NOMS_LLARGS_MUN = { "17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
+const ESCUT_MUN = { "17022": "escuts/17022.svg", "17057": "escuts/17057.svg", "17902": "escuts/17902.svg", "17901": "escuts/17901.png" };
+const nCa = n => Number(n || 0).toLocaleString("ca-ES");
+const triadorMun = (codis, actiu) => `<div class="tria-mun">` + codis.map(c => `<button type="button" data-mun="${c}" class="${c === actiu ? "actiu" : ""}">` +
+  `<img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()">${esc(NOMS_CURTS_MUN[c])}</button>`).join("") + `</div>`;
+const MESOS_CA = ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"];
+const nomMes = ym => { if (!ym) return "—"; const [a, m] = ym.split("-").map(Number); return MESOS_CA[m - 1] + " de " + a; };
+const periodeCa = p => { if (!p) return "—"; const t0 = nomMes(p[0]); const t = (/^[aeiouàèéíòóú]/i.test(t0) ? "d'" : "de ") + t0 + " a " + nomMes(p[1]); return t.charAt(0).toUpperCase() + t.slice(1); };
+
+// --- Edat dels edificis ---
+const EPOQUES_ED = ["abans de 1900", "1900-1939", "1940-1959", "1960-1979", "1980-1999", "2000-2009", "des de 2010"];
+const COLORS_EP = ["#4a1f14", "#7a2e1d", "#b4462c", "#d9774a", "#ecb27a", "#8fb8c4", "#2f6f8a"];
+const colorAny = any => { if (!any) return "#9a958a"; const lim = [1900, 1940, 1960, 1980, 2000, 2010]; let i = lim.findIndex(l => any < l); return COLORS_EP[i === -1 ? lim.length : i]; };
+const fitxaCadastre = ref => ref && ref.length >= 14 ? `https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=${encodeURIComponent(ref.slice(0, 7))}&rc2=${encodeURIComponent(ref.slice(7, 14))}` : null;
+let EDIF = null, MAPA_EDIF = null;
+async function pintaEdificis(codi) {
+  const cos = document.getElementById("edificisCos");
+  const m = EDIF.municipis[codi];
+  const maxE = Math.max(1, ...m.epoques.map(e => e.edificis));
+  cos.innerHTML = `<p class="font dalt">Cadastre actualitzat el ${m.actualitzatCadastre ? dataCa(m.actualitzatCadastre) : "—"} · revisat el ${dataDMA(EDIF.generat)} · Font: Direcció General del Cadastre</p>` +
+    triadorMun(MUN_ANTENES.filter(c => EDIF.municipis[c]), codi) +
+    `<div class="xifres"><div class="xifra"><b>${nCa(m.edificis)}</b><span>edificis (${nCa(m.habitatges)} habitatges)</span></div>` +
+    `<div class="xifra"><b>${m.mediana || "—"}</b><span>any mitjà de construcció</span></div>` +
+    `<div class="xifra"><b>${nCa(m.ultims10anys)}</b><span>construïts els últims 10 anys</span></div></div>` +
+    `<h3>Edificis per època de construcció</h3><div class="barres">` +
+    m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
+      `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>` +
+    `<div id="mapaEdificis" style="height:420px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
+    `<div class="llegenda">${EPOQUES_ED.map((e, i) => `<span><i style="background:${COLORS_EP[i]};border-radius:2px"></i>${esc(e)}</span>`).join("")}</div>` +
+    `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
+    (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
+    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre.</p>`;
+  cos.querySelectorAll(".tria-mun button").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
+  if (typeof L === "undefined") return;
+  if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
+  MAPA_EDIF = L.map("mapaEdificis", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.25 }).setView([41.96, 3.04], 14);
+  MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · © OpenStreetMap");
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .45 }).addTo(MAPA_EDIF);
+  try {
+    const geo = await json(`dades/edificis/${codi}.geojson`);
+    const capa = L.geoJSON(geo, {
+      style: f => ({ color: colorAny(f.properties.any), weight: .4, fillColor: colorAny(f.properties.any), fillOpacity: .85 }),
+      onEachFeature: (f, l) => {
+        const p = f.properties, url = fitxaCadastre(p.ref);
+        l.bindPopup(`<b>${p.any ? "Construït el " + p.any : "Sense any al Cadastre"}</b>` + (p.us ? `<br>${esc(p.us)}` : "") +
+          (p.hab ? ` · ${nCa(p.hab)} habitatge${p.hab === 1 ? "" : "s"}` : "") + (p.plantes ? ` · ${p.plantes} planta${p.plantes === 1 ? "" : "s"}` : "") +
+          (url ? `<br><a href="${url}" target="_blank" rel="noopener">Fitxa del Cadastre</a>` : ""));
+      }
+    }).addTo(MAPA_EDIF);
+    MAPA_EDIF.fitBounds(capa.getBounds(), { padding: [10, 10] });
+  } catch (e) {}
+}
+async function carregaEdificis() {
+  const cos = document.getElementById("edificisCos");
+  if (!cos) return;
+  try { EDIF = await json("dades/edificis.json"); } catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades del Cadastre.</p>'; return; }
+  pintaEdificis(EDIF.municipis["17022"] ? "17022" : Object.keys(EDIF.municipis)[0]);
+}
+
+// --- Turistes que hi arriben ---
+let TUR = null;
+function serieBarres(serie, n = 24) {
+  const s = serie.slice(-n), max = Math.max(1, ...s.map(x => x[1]));
+  return `<div class="serie">${s.map((x, i) => `<span class="${i < s.length - 12 ? "ant" : ""}" style="height:${(x[1] / max * 100).toFixed(0)}%" title="${esc(nomMes(x[0]))}: ${nCa(x[1])}"></span>`).join("")}</div>` +
+    `<div class="serie-eix"><span>${esc(nomMes(s[0] && s[0][0]))}</span><span>${esc(nomMes(s[s.length - 1] && s[s.length - 1][0]))}</span></div>`;
+}
+function pintaTurisme(codi) {
+  const cos = document.getElementById("turismeCos");
+  const t = TUR.taules.nacionals, d = t && t.ok ? (t.municipis || {})[codi] : null;
+  const codis = MUN_ANTENES.filter(c => t && t.municipis && t.municipis[c]);
+  let h = `<p class="font dalt">Revisat el ${dataDMA(TUR.generat)} · Font: <a href="https://www.ine.es/experimental/turismo_moviles/experimental_turismo_moviles.htm" target="_blank" rel="noopener">INE</a></p>` +
+    triadorMun(codis.length ? codis : ["17022"], codi);
+  if (d) {
+    const var12 = d.totalAbans12 ? (d.total12 - d.totalAbans12) / d.totalAbans12 * 100 : null;
+    const max = Math.max(1, ...d.llocs.map(x => x[1]));
+    h += `<p>${esc(periodeCa(d.periode))}, ${esc(NOMS_LLARGS_MUN[codi])} ha rebut <b>${nCa(d.total12)}</b> turistes de la resta de l'Estat` +
+      (var12 !== null ? ` (<span class="${var12 >= 0 ? "puja" : "baixa"}">${var12 >= 0 ? "+" : "−"}${Math.abs(var12).toLocaleString("ca-ES", { maximumFractionDigits: 0 })} %</span> respecte als 12 mesos anteriors)` : "") + `.</p>` +
+      `<h3>Cada mes</h3>${serieBarres(d.serie)}` +
+      (d.llocs.length ? `<h3>D'on vénen</h3><div class="barres" style="grid-template-columns:minmax(0,1.3fr) minmax(40px,1fr) auto">` +
+        d.llocs.filter(x => x[1] > 0).slice(0, 8).map(([n, v]) => `<span>${esc(String(n).replace(/^\d+\s+/, ""))}</span><span class="barra" style="width:${(v / max * 100).toFixed(0)}%"></span><span class="num">${nCa(v)}</span>`).join("") + `</div>` : "");
+  } else h += '<p class="buit">L\'INE no dona dades d\'aquest municipi.</p>';
+  h += `<p class="font">L'INE compta com a turista qui passa almenys una nit fora del seu municipi habitual (en un hotel, un pis turístic, una segona residència o a casa de família), a partir de les dades anònimes de les companyies de telefonia mòbil. Les barres grises són l'any anterior.</p>`;
+  cos.innerHTML = h;
+  cos.querySelectorAll(".tria-mun button").forEach(b => b.onclick = () => pintaTurisme(b.dataset.mun));
+}
+async function carregaTurisme() {
+  const cos = document.getElementById("turismeCos");
+  if (!cos) return;
+  try { TUR = await json("dades/turisme.json"); } catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades de l\'INE.</p>'; return; }
+  pintaTurisme("17022");
+}
+
 // La càmera mostra l'hora de la darrera imatge i es refresca cada minut.
 function iniciaCamera() {
   const img = document.getElementById("imgCamera");
@@ -1007,6 +1124,8 @@ async function inicia() {
     carregaLlamps();
     carregaAntenes();
     carregaDea();
+    carregaEdificis();
+    carregaTurisme();
     carregaEsports();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
