@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-27T06:21:58+00:00",
+ "generat": "2026-10-27T06:24:21+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -7,62 +7,107 @@
   "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
  },
  "farmacies": {
-  "quan": "2026-10-27T06:22:00+00:00",
-  "titol": "TOTES LES FARMÀCIES DE GUÀRDIA (Fins avui 27/10/2026 a les 09:00 o 09:30 del matí)",
-  "columnes": [
-   "Farmàcia",
-   "Població",
-   "Horari",
-   "",
-   "Adreça",
-   "Telèfon",
-   ""
-  ],
-  "zona": [
+  "quan": "2026-10-27T06:24:42+00:00",
+  "dies": [
    {
-    "farmacia": "A. LAGUILLO SALA",
-    "poblacio": "CASSA DE LA SELVA",
-    "horari": "Avui fins les 09:00",
-    "adreca": "Ctra. Provincial, 289",
-    "telefon": "972464555"
+    "data": "2026-10-27",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ (Fins avui 27/10/2026 a les 09:00 o 09:30 del matí)",
+    "farmacies": [
+     {
+      "farmacia": "C. CECILIA NEDEA",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "Avui fins les 09:00",
+      "adreca": "C/Jaume II, 14",
+      "telefon": "674038640"
+     }
+    ]
    },
    {
-    "farmacia": "C. CECILIA NEDEA",
-    "poblacio": "LA BISBAL D'EMPORDA",
-    "horari": "Avui fins les 09:00",
-    "adreca": "C/Jaume II, 14",
-    "telefon": "674038640"
+    "data": "2026-10-28",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 28/10/2026",
+    "farmacies": [
+     {
+      "farmacia": "C. CECILIA NEDEA",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "C/Jaume II, 14",
+      "telefon": "674038640"
+     }
+    ]
    },
    {
-    "farmacia": "M. LLUISA DORCA GARCIA",
-    "poblacio": "PALAFRUGELL",
-    "horari": "Avui fins les 09:00",
-    "adreca": "C/Cavallers, 38",
-    "telefon": "972300736"
+    "data": "2026-10-29",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 29/10/2026",
+    "farmacies": [
+     {
+      "farmacia": "C. CECILIA NEDEA",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "C/Jaume II, 14",
+      "telefon": "674038640"
+     }
+    ]
    },
    {
-    "farmacia": "CARMEN M. GOMEZ MAESTRE",
-    "poblacio": "PALAMOS",
-    "horari": "Avui fins les 09:00",
-    "adreca": "Avgda. Catalunya, 3",
-    "telefon": "972316197"
+    "data": "2026-10-30",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 30/10/2026",
+    "farmacies": [
+     {
+      "farmacia": "C. CECILIA NEDEA",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 20:00",
+      "adreca": "C/Jaume II, 14",
+      "telefon": "674038640"
+     },
+     {
+      "farmacia": "PIERA DE CIURANA, C.B.",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "20:00 - 09:15 (dia seg.)",
+      "adreca": "Avgda. Les Voltes, 1",
+      "telefon": "674038640"
+     }
+    ]
    },
    {
-    "farmacia": "R. PRAT CORTIELLA",
-    "poblacio": "SANT FELIU DE GUIXOLS",
-    "horari": "Avui fins les 09:00",
-    "adreca": "C/Rufo, 27",
-    "telefon": "972320429"
+    "data": "2026-10-31",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 31/10/2026",
+    "farmacies": [
+     {
+      "farmacia": "PIERA DE CIURANA, C.B.",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "Avgda. Les Voltes, 1",
+      "telefon": "674038640"
+     }
+    ]
    },
    {
-    "farmacia": "C. ALABALL RADRESA",
-    "poblacio": "L'ESTARTIT",
-    "horari": "Avui fins les 09:30",
-    "adreca": "Avgda. de Grècia, 14",
-    "telefon": "972750524"
+    "data": "2026-11-01",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 01/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "J. GISPERT DOMÈNECH",
+      "poblacio": "VULPELLAC",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "C/Carme Carles, 16",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-11-02",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 02/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "PIERA DE CIURANA, C.B.",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "Avgda. Les Voltes, 1",
+      "telefon": "674038640"
+     }
+    ]
    }
   ],
-  "total": 20,
   "font": "https://www.cofgi.org/farmacies/farmacies-de-guardia"
  },
  "autoconsum": {
