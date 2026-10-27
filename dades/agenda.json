@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-10-27T19:11:52.430Z",
+ "actualitzat": "2026-10-27T19:15:26.803Z",
  "actes": [
   {
    "id": "28b3370050",
@@ -231,6 +231,13 @@
    "hora": "14.50 h",
    "municipi": "Casavells",
    "text": "Fins a les 16.10 h, banca mòbil de Caixa d'enginyers, a la pl. Major."
+  },
+  {
+   "id": "1r88vlqu88",
+   "data": "2026-11-20",
+   "hora": "19.00 h",
+   "municipi": "Corçà",
+   "text": "A la sala municipal, xerrada informativa a càrrec del Consell Comarcal del Baix Emprodà sobre canvis en el servei de la recollida porta a porta, sobretot pel que fa a dies de recollida i fraccions, així com informació sobre els nous cubells i targetes."
   },
   {
    "id": "b2598f5d35",
