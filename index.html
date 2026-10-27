@@ -121,6 +121,7 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .ag-dia-avui .ag-acte{border-left-color:#e53935}
 @keyframes tdgPulsacioAvui{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.72)}}
 .tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
+.esc-club{height:1.25em;width:1.25em;object-fit:contain;vertical-align:-.28em;margin-right:.3em}
 </style>
 </head>
 <body>
@@ -261,9 +262,11 @@ function agrupat(text) {
   return h + (obert ? "</ul>" : "");
 }
 
+// 27.10.2026: escut del club (FCF/FEB), petit, davant del nom. Si la imatge falla, desapareix.
+const escClub = u => u ? `<img class="esc-club" src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
 function taula(capcaleres, files, classeFila) {
   return `<div class="taula"><table><thead><tr>${capcaleres.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>` +
-    files.map((f, i) => `<tr${classeFila && classeFila(i) ? ` class="${classeFila(i)}"` : ""}>${f.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("") +
+    files.map((f, i) => `<tr${classeFila && classeFila(i) ? ` class="${classeFila(i)}"` : ""}>${f.map(c => `<td>${c && typeof c === "object" && "html" in c ? c.html : esc(c)}</td>`).join("")}</tr>`).join("") +
     "</tbody></table></div>";
 }
 
@@ -452,12 +455,12 @@ async function carregaEsports() {
       const darrer = jugats[jugats.length - 1];
       const proper = e.partits.find(p => p.data && p.data >= avuiIso && !p.resultat && !/descans/i.test(p.rival));
       const g = darrer ? esportsGuanyat(darrer.resultat) : "";
-      return `<article class="esp-equip"><h3>${ESPORTS_ICONA[e.esport] || ""} ${esc(e.nom)}</h3>
+      return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
         <p class="font dalt">${esc(e.categoria)}</p>` +
         (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
-          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${esc(darrer.rival)} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
+          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${escClub(darrer.escutRival)}${esc(darrer.rival)} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
         (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
-          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${esc(proper.rival)}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
+          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${escClub(proper.escutRival)}${esc(proper.rival)}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
           '<p class="esp-linia buit">Sense partits programats.</p>') + "</article>";
     }).join("") + "</div>";
 
@@ -465,7 +468,7 @@ async function carregaEsports() {
       cosC.innerHTML = d.equips.filter(e => e.classificacio && e.classificacio.files.length).map(e => {
         const c = e.classificacio;
         const propi = c.files.find(f => f.propi);
-        const titol = `<summary><h3>${esc(e.nom)} (${esc(e.categoria)})</h3>` +
+        const titol = `<summary><h3>${escClub(e.escut)}${esc(e.nom)} (${esc(e.categoria)})</h3>` +
           (propi ? `<span class="pos">${esc(ordinalCa(propi.pos))} de ${c.files.length}` +
             (propi.punts !== undefined && propi.punts !== "" && propi.punts !== null ? ` · ${esc(propi.punts)} ${String(propi.punts) === "1" ? "punt" : "punts"}`
               : (propi.pg !== undefined ? ` · ${esc(propi.pg)}-${esc(propi.pp)}` : "")) + `</span>` : "") + `</summary>`;
@@ -473,11 +476,11 @@ async function carregaEsports() {
           const ambPunts = c.files.some(f => f.punts !== undefined && f.punts !== "");
           return `<details class="classif">${titol}` + taula(
             ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []),
-            c.files.map(f => [f.pos, String(f.equip ?? "").toUpperCase(), f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])),
+            c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(String(f.equip ?? "").toUpperCase()) }, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])),
             i => c.files[i].propi ? "propi" : "") + "</details>";
         }
         return `<details class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
-          c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]),
+          c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(f.equip) }, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]),
           i => c.files[i].propi ? "propi" : "") + "</details>";
       }).join("");
       if (cosC.querySelector("details.classif")) {

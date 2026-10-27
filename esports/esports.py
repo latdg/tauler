@@ -26,6 +26,7 @@ import html as htmlmod
 import json
 import os
 import re
+from urllib.parse import urljoin
 import sys
 import time
 import unicodedata
@@ -38,6 +39,13 @@ ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SORTIDA = os.path.join(ARREL, "dades", "esports.json")
 MANUAL = os.path.join(ARREL, "dades", "esports-manual.json")
 WORKER_FCF = "https://latdg-fcf.ignasicorney.workers.dev/"
+# 27.10.2026: escuts dels clubs. La FCF dona el nom del fitxer; les imatges són aquí.
+ESCUTS_FCF = "https://files.fcf.cat/escudos/clubes/escudos/"
+
+
+def escut_fcf(fitxer):
+    f = str(fitxer or "").strip()
+    return ESCUTS_FCF + f if f and f.lower() != "none" else ""
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 
 # Equips seguits. «full» és el nom de la pestanya que tenia al Sheet: el guió i
@@ -180,6 +188,8 @@ def llegeix_futbol(eq):
                 "resultat": resultat, "estat": "Finalitzat" if jugat else "Programat",
                 "camp": str(m.get("CAMPO") or "").strip(), "font": "FCF (via latdg-fcf)",
                 "idFont": str(m.get("CODACTA") or ""),
+                "escutRival": escut_fcf(m.get("ESCUDO_FUERA") if local else m.get("ESCUDO_CASA")),
+                "escutPropi": escut_fcf(m.get("ESCUDO_CASA") if local else m.get("ESCUDO_FUERA")),
             })
     if not partits:
         raise RuntimeError("la FCF no ha donat cap partit de l'equip")
@@ -193,7 +203,7 @@ def llegeix_futbol(eq):
             "pj": num(r.get("played")), "pg": num(r.get("won")), "pe": num(r.get("drawn")),
             "pp": num(r.get("lost")), "pf": num(r.get("goalsFor")), "pc": num(r.get("goalsAgainst")),
             "punts": num(r.get("points")), "ratxa": ratxa_fcf(r.get("form")),
-            "propi": str(team.get("teamId")) == eq["codi"],
+            "propi": str(team.get("teamId")) == eq["codi"], "escut": escut_fcf(team.get("logo")),
         })
     return partits, {"tipus": "futbol", "files": files} if files else None
 
@@ -301,12 +311,19 @@ def feb_partits_pagina(h):
             if rm and not (int(rm.group(1)) == 0 and int(rm.group(2)) == 0):
                 resultat = (int(rm.group(1)), int(rm.group(2)))
         camp = re.search(r'class="cancha"><label>Campo</label>\s*([^<]*)<', b)
+        # 27.10.2026: logotip de cada equip, si la FEB el posa dins del bloc.
+        i_loc, i_vis = b.find('class="equipo local"'), b.find('class="equipo visitante"')
+        img = lambda t: (re.search(r'<img[^>]+src="([^"]+)"', t) or [None, ""])[1]
+        logo_loc = img(b[i_loc:i_vis]) if 0 <= i_loc < i_vis else ""
+        logo_vis = img(b[i_vis:i_vis + 3000]) if i_vis >= 0 else ""
         sortida.append({
             "id": pid.group(1), "data": f"{f.group(3)}-{f.group(2)}-{f.group(1)}",
             "hora": hora_neta(f"{f.group(4)}:{f.group(5)}") if f.group(4) else "",
             "local": (loc.group(1), htmlmod.unescape(loc.group(2)).strip()),
             "visitant": (vis.group(1), htmlmod.unescape(vis.group(2)).strip()),
             "camp": htmlmod.unescape(camp.group(1)).strip() if camp else "", "resultat": resultat,
+            "logoLocal": urljoin(FEB["url"], logo_loc) if logo_loc else "",
+            "logoVisitant": urljoin(FEB["url"], logo_vis) if logo_vis else "",
         })
     return sortida
 
@@ -348,6 +365,8 @@ def llegeix_feb(eq):
                 "rival": NOMS_FEB.get(rival_id) or rival_nom.title(),
                 "resultat": res, "estat": "Finalitzat" if res else "Programat",
                 "camp": pavello_net(p["camp"]), "font": "FEB (feb.es)", "idFont": p["id"],
+                "escutRival": p["logoVisitant"] if local else p["logoLocal"],
+                "escutPropi": p["logoLocal"] if local else p["logoVisitant"],
             })
     if not partits:
         raise RuntimeError("la FEB no ha donat cap partit del Sol Gironès")
@@ -398,11 +417,13 @@ def feb_classificacio(h):
         if not link:
             continue
         val = lambda k: text_html(cel[col[k]]) if col[k] is not None and col[k] < len(cel) else ""
+        logo = re.search(r'<img[^>]+src="([^"]+)"', tr)
         files.append({
             "pos": num(val("pos")), "equip": NOMS_FEB.get(link.group(1)) or htmlmod.unescape(link.group(2)).strip(),
             "pj": num(val("pj")), "pg": num(val("pg")), "pp": num(val("pp")), "pf": num(val("pf")),
             "pc": num(val("pc")), "dif": num(val("dif")), "pct": val("pct"), "ratxa": val("racha"),
             "propi": link.group(1) == FEB["idBisbal"],
+            "escut": urljoin(FEB["urlClassificacio"], logo.group(1)) if logo else "",
         })
     # Si la FEB no dona la posició, és l'ordre de la taula.
     for i, f in enumerate(files):
@@ -545,8 +566,12 @@ def main():
             cls = cls_manual
         partits.sort(key=lambda p: (p.get("data") or "9999", p.get("hora") or "99"))
 
+        # 27.10.2026: escut del club (el dels partits o el de la classificació).
+        escut = next((p.get("escutPropi") for p in partits if p.get("escutPropi")), "") or \
+            next((f.get("escut") for f in (cls or {}).get("files", []) if f.get("propi") and f.get("escut")), "") or \
+            prev.get("escut", "")
         sortida.append({
-            "id": eq["id"], "nom": eq["nom"], "esport": eq["esport"], "categoria": eq["categoria"],
+            "id": eq["id"], "nom": eq["nom"], "esport": eq["esport"], "categoria": eq["categoria"], "escut": escut,
             "competicio": eq["competicio"], "grup": eq["grup"], "font": eq["font"], "estatFont": estat,
             "partits": partits, "classificacio": cls, "classificacioManual": bool(cls_manual and cls is cls_manual),
             "classificacioActualitzada": man.get("classificacioActualitzada") if cls is cls_manual else quan_iso,

@@ -50,6 +50,7 @@ tr.avui td{background:#fdf3ef}
 .edcls input{width:70px;padding:4px 6px}
 .edcls input.nom{width:240px}
 #estat{font-size:.9rem;color:var(--suau);margin:8px 0 0}
+.esc-club{height:1.25em;width:1.25em;object-fit:contain;vertical-align:-.28em;margin-right:.3em}
 </style>
 </head>
 <body>
@@ -190,14 +191,16 @@ function pintaXips() {
     .concat(D.equips.map(e => `<button type="button" data-e="${e.id}" class="${EQUIP === e.id ? "actiu" : ""}">${ICONA[e.esport] || ""} ${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</button>`)).join("");
 }
 
+// 27.10.2026: escut del club (FCF/FEB), petit, davant del nom. Si la imatge falla, desapareix.
+const escClub = u => u ? `<img class="esc-club" src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
 function filaPartit(e, p, ambEquip) {
   const g = gpe(p.resultat);
   const eines = PIN ? `<td>${p.manual ? `<button type="button" class="icona" data-ed="${esc(e.id)}|${esc(p.idFont)}">✏️</button> <button type="button" class="icona" data-esb="${esc(e.id)}|${esc(p.idFont)}">🗑️</button>`
     : `<button type="button" class="icona" data-corr="${esc(e.id)}|${esc(p.clau)}" title="Corregeix aquest partit">✏️</button>`}</td>` : "";
   return `<tr class="${p.data === avuiIso() ? "avui" : ""}">` +
-    (ambEquip ? `<td>${ICONA[e.esport] || ""} ${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</td>` : "") +
+    (ambEquip ? `<td>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</td>` : "") +
     `<td>${esc(dataCa(p.data))}</td><td>${esc(p.hora ? p.hora.replace(":", ".") + " h" : "")}</td>` +
-    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${esc(p.rival)}</td>` +
+    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${escClub(p.escutRival)}${esc(p.rival)}</td>` +
     `<td class="res ${g}">${esc(p.resultat || (p.estat && p.estat !== "Programat" ? p.estat : ""))}</td>` +
     `<td>${esc(p.jornada ? "J" + p.jornada : "")} ${p.competicio !== e.competicio ? `<span class="etq">${esc(p.competicio)}</span>` : ""}` +
     `${p.manual ? ' <span class="etq ma">a mà</span>' : p.corregit ? ' <span class="etq ma">corregit</span>' : ""}</td>` +
@@ -244,9 +247,9 @@ function pinta() {
       if (!c || !c.files.length) return `<h3>${esc(e.nom)}</h3><p class="buit">Sense classificació.</p>`;
       const bas = c.tipus === "basquet", ambPunts = bas && c.files.some(f => f.punts !== undefined && f.punts !== "");
       const cap = bas ? ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []) : ["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"];
-      return `<h3>${ICONA[e.esport] || ""} ${esc(e.nom)} (${esc(e.categoria)})</h3><div class="taula"><table><thead><tr>${cap.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>` +
+      return `<h3>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom)} (${esc(e.categoria)})</h3><div class="taula"><table><thead><tr>${cap.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>` +
         c.files.map(f => `<tr class="${f.propi ? "propi" : ""}">` + (bas ? [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])
-          : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map(x => `<td>${esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
+          : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map((x, i) => `<td>${i === 1 ? escClub(f.escut) : ""}${esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
         (e.classificacioManual ? `<p class="font">Entrada a mà.</p>` : "");
     }).join("");
   }
