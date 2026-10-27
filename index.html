@@ -122,6 +122,7 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 @keyframes tdgPulsacioAvui{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.72)}}
 .tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
 .esc-club{height:1.25em;width:1.25em;object-fit:contain;vertical-align:-.28em;margin-right:.3em}
+.esc-club-feb{transform:scale(1.45);margin-right:.45em;margin-left:.1em}
 </style>
 </head>
 <body>
@@ -263,7 +264,8 @@ function agrupat(text) {
 }
 
 // 27.10.2026: escut del club (FCF/FEB), petit, davant del nom. Si la imatge falla, desapareix.
-const escClub = u => u ? `<img class="esc-club" src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
+// Els logotips de la FEB són rodons i amb marge: es fan una mica més grans perquè igualin els escuts de futbol.
+const escClub = u => u ? `<img class="esc-club${/feb\.es/i.test(u) ? " esc-club-feb" : ""}" src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
 function taula(capcaleres, files, classeFila) {
   return `<div class="taula"><table><thead><tr>${capcaleres.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>` +
     files.map((f, i) => `<tr${classeFila && classeFila(i) ? ` class="${classeFila(i)}"` : ""}>${f.map(c => `<td>${c && typeof c === "object" && "html" in c ? c.html : esc(c)}</td>`).join("")}</tr>`).join("") +
