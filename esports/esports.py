@@ -163,6 +163,9 @@ def num(v):
 
 def llegeix_futbol(eq):
     dades = fcf("partidos", eq["grupId"])
+    # 27.10.2026: des del 26.10.2026 la FCF embolcalla les jornades dins de «partidos».
+    if isinstance(dades, dict) and isinstance(dades.get("partidos"), dict):
+        dades = dades["partidos"]
     partits = []
     for jornada, llista in (dades or {}).items():
         if not isinstance(llista, list):
