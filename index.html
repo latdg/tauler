@@ -1129,10 +1129,9 @@ function pintaFarmacies() {
   if (!f || !f.dies) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les guàrdies.</p>'; return; }
   const fq = new Date(f.quan), z = n => String(n).padStart(2, "0");
   peu.innerHTML = `Actualitzat el ${dataDMA(f.quan)} a les ${z(fq.getHours())}.${z(fq.getMinutes())} h · Font: <a href="${esc(f.font)}" target="_blank" rel="noopener">Col·legi de Farmacèutics de Girona</a>`;
-  // 27.10.2026: la guàrdia és de nit, de les 20 h fins a les 9.15 h de l'endemà. Cada
-  // «nit» es desa amb la data del vespre en què comença. Fins a les 9.15 h del matí,
-  // la que és de guàrdia és la de la nit anterior. Les de dia (p. ex. «09:00 - 20:00»)
-  // són l'horari habitual de la farmàcia i no surten.
+  // 27.10.2026: la guàrdia és de nit, de les 21 h fins a les 9 h de l'endemà. Cada
+  // «nit» es desa amb la data del vespre en què comença. Fins a les 9 h del matí,
+  // la que és de guàrdia és la de la nit anterior.
   const ISO = d => d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate());
   const mesDies = (iso, n) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return ISO(d); };
   const nits = {};
@@ -1145,11 +1144,12 @@ function pintaFarmacies() {
     if (!llista.some(y => y.farmacia === x.farmacia)) llista.push(x);
   }));
   const ara = new Date(), avui = ISO(ara);
-  const actual = ara.getHours() * 60 + ara.getMinutes() < 9 * 60 + 15 ? mesDies(avui, -1) : avui;
+  const actual = ara.getHours() < 9 ? mesDies(avui, -1) : avui;
   const dates = Object.keys(nits).filter(d => d >= actual).sort();
   if (!dates.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
   const DIES_MIN = DIES_SETMANA.map(x => x.toLowerCase());
-  const horari = () => "De 20.00 h a 9.15 h de l'endemà";
+  const horari = h => /^09:00 - 09:00/.test(h) || /^avui fins/i.test(h) ? "De 21 h a 9 h de l'endemà"
+    : "De " + h.replace(/\s*\(dia seg\.\)/, "").replace(/(\d{2}):(\d{2})/g, (m, a, b) => Number(a) + (b === "00" ? "" : "." + b)).replace(" - ", " h a ") + " h de l'endemà";
   const pintaNit = vespre => {
     const d = new Date(vespre + "T12:00:00"), e = new Date(mesDies(vespre, 1) + "T12:00:00");
     const etiqueta = vespre === actual ? `<span class="ag-avui"><span class="tdg-boleta-avui"></span>${vespre === avui ? "Aquesta nit" : "Ara"}</span>`
