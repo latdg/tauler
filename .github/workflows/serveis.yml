@@ -39,6 +39,6 @@ jobs:
           for intent in 1 2 3 4 5 6; do
             git push -q origin HEAD:main && exit 0
             sleep $((intent * 10))
-            git fetch -q origin main && git rebase -q origin/main || { git rebase --abort; exit 1; }
+            git fetch -q origin main && git rebase -q -X theirs origin/main || { git rebase --abort; exit 1; }
           done
           echo "No s'han pogut pujar els canvis"; exit 1
