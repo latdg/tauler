@@ -83,6 +83,16 @@ def llocs(detall, darrers):
                   key=lambda x: -x[1])[:15]
 
 
+def llocs_anys(detall):
+    """27.10.2026: d'on vénen, any per any (any natural; el primer i l'últim poden ser incomplets)."""
+    if not detall:
+        return {}
+    fons = max(n for n, _ in detall)
+    anys = sorted({m[:4] for (n, _), s in detall.items() if n == fons for m in s})
+    return {a: sorted(([nom, sum(v for m, v in s.items() if m.startswith(a))] for (n, nom), s in detall.items() if n == fons),
+                      key=lambda x: -x[1])[:15] for a in anys}
+
+
 def processa(taula, info):
     url, cap, files, errors = llegeix(taula)
     if not url:
@@ -122,6 +132,7 @@ def processa(taula, info):
             "total12": sum(total[m] for m in darrers),
             "totalAbans12": sum(total.get(m, 0) for m in abans) if all(m in total for m in abans) else None,
             "llocs": llocs(detall, darrers),
+            "llocsAnys": llocs_anys(detall),
         }
     print(taula, url, "→", {c: (d["total12"], d["darrerMes"]) for c, d in per_mun.items()})
     return {"ok": True, "nom": info["nom"], "rol": info["rol"], "url": url, "municipis": per_mun}
