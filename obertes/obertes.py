@@ -29,7 +29,7 @@ COFGI = "https://www.cofgi.org/farmacies/farmacies-de-guardia"
 CAPCALERES = {"User-Agent": "Mozilla/5.0 (LaTdG-tauler; latdg@laguait.cat)"}
 MUNICIPIS = {"17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac",
              "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"}
-CODI6 = {"17022": "170221", "17057": "170577", "17902": "179026", "17901": "179013"}
+CODI6 = {"17022": "170221", "17057": "170577", "17902": "179026", "17901": "179011"}
 # Poblacions de la zona per a les farmàcies de guàrdia (els quatre municipis i
 # els veïns on sovint hi ha la de guàrdia més propera).
 ZONA_FARMACIES = ["BISBAL", "CORCA", "FORALLAC", "VULPELLAC", "PERATALLADA", "CRUILLES", "MONELLS", "SANT SADURNI",
@@ -111,9 +111,10 @@ def farmacies():
         cel = re.findall(r"<td[^>]*>([\s\S]*?)</td>", tr)
         if not cel:
             continue
-        vals = [text(c) for c in cel]
-        fila = {(caps[i] if i < len(caps) and caps[i] else f"c{i}"): v for i, v in enumerate(vals)}
-        fila["_telefon"] = "telefon" in tr.lower() and "no presencial" in tr.lower()
+        vals = [text(c) for c in cel] + [""] * 5
+        # Les capçaleres de la taula no quadren amb les cel·les (n'hi ha de buides):
+        # l'ordre de les cel·les és farmàcia, població, horari, adreça i telèfon.
+        fila = {"farmacia": vals[0], "poblacio": vals[1], "horari": vals[2], "adreca": vals[3], "telefon": vals[4]}
         mapa = re.search(r'href="(https?://[^"]*(?:maps|google)[^"]*)"', tr)
         if mapa:
             fila["_mapa"] = htmlmod.unescape(mapa.group(1))
@@ -177,8 +178,9 @@ def aigua():
                          for x in f if x.get("codi_municipi") == c6), key=lambda z: z["any"])
     try:
         darrer = max(a["any"] for v in per.values() for a in v)
-        cat = baixa("6st4-ptsi", f"any='{darrer}'", "avg(preu_aigua)")
-        mitjana = {"any": darrer, "preu": round(float(cat[0]["avg_preu_aigua"]), 3)}
+        # El preu és un camp de text i l'API no en pot fer la mitjana: es fa aquí.
+        preus = [v for v in (num(x.get("preu_aigua")) for x in baixa("6st4-ptsi", f"any='{darrer}'", "preu_aigua")) if v]
+        mitjana = {"any": darrer, "preu": round(sum(preus) / len(preus), 3), "municipis": len(preus)} if preus else None
     except Exception as err:
         print("Mitjana de Catalunya:", err)
         mitjana = None
