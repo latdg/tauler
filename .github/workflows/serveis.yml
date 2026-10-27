@@ -1,0 +1,42 @@
+# Serveis i energia — La TdG · 27.10.2026
+# Farmàcies de guàrdia, autoconsum, consum elèctric i preu de l'aigua
+# (dades/serveis.json). Cada dia després de les 9.00, quan canvien les
+# guàrdies de les farmàcies; també a mà.
+name: Serveis i energia
+
+on:
+  schedule:
+    - cron: "35 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: serveis
+  cancel-in-progress: false
+
+jobs:
+  serveis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          python obertes/obertes.py 2>&1 | tee obertes/registre.txt
+          git config user.name "La TdG (serveis)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add obertes/registre.txt; git add dades/serveis.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
+          git commit -qm "Serveis i energia ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
+          for intent in 1 2 3 4 5 6; do
+            git push -q origin HEAD:main && exit 0
+            sleep $((intent * 10))
+            git fetch -q origin main && git rebase -q origin/main || { git rebase --abort; exit 1; }
+          done
+          echo "No s'han pogut pujar els canvis"; exit 1
