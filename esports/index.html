@@ -193,6 +193,8 @@ function pintaXips() {
 }
 
 // 27.10.2026: escut del club (FCF/FEB), petit, davant del nom. Si la imatge falla, desapareix.
+// 27.10.2026: els rivals del Sol Gironès (FEB) en majúscules, com els del futbol.
+const rivalEq = (e, p) => e.id === "sol_girones" ? String(p.rival || "").toLocaleUpperCase("ca") : p.rival;
 // Els logotips de la FEB són rodons i amb marge: es fan una mica més grans perquè igualin els escuts de futbol.
 const escClub = u => u ? `<img class="esc-club${/feb\.es/i.test(u) ? " esc-club-feb" : ""}" src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
 function filaPartit(e, p, ambEquip) {
@@ -202,7 +204,7 @@ function filaPartit(e, p, ambEquip) {
   return `<tr class="${p.data === avuiIso() ? "avui" : ""}">` +
     (ambEquip ? `<td>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</td>` : "") +
     `<td>${esc(dataCa(p.data))}</td><td>${esc(p.hora ? p.hora.replace(":", ".") + " h" : "")}</td>` +
-    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${esc(p.rival)}</td>` +
+    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${esc(rivalEq(e, p))}</td>` +
     `<td class="res ${g}">${esc(p.resultat || (p.estat && p.estat !== "Programat" ? p.estat : ""))}</td>` +
     `<td>${esc(p.jornada ? "J" + p.jornada : "")} ${p.competicio !== e.competicio ? `<span class="etq">${esc(p.competicio)}</span>` : ""}` +
     `${p.manual ? ' <span class="etq ma">a mà</span>' : p.corregit ? ' <span class="etq ma">corregit</span>' : ""}</td>` +

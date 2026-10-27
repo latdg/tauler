@@ -449,6 +449,8 @@ async function carregaAgenda() {
 // (FCF, FEB i el que s'entra a mà a la pàgina esports/).
 // -----------------------------------------------------------------------------
 const ESPORTS_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/esports.json";
+// 27.10.2026: els rivals del Sol Gironès (FEB) en majúscules, com els del futbol.
+const rivalEq = (e, p) => e.id === "sol_girones" ? String(p.rival || "").toLocaleUpperCase("ca") : p.rival;
 const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
 
 function esportsDataCurta(iso) {
@@ -489,9 +491,9 @@ async function carregaEsports() {
       return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
         <p class="font dalt">${esc(e.categoria)}</p>` +
         (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
-          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${esc(darrer.rival)} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
+          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${esc(rivalEq(e, darrer))} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
         (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
-          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${esc(proper.rival)}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
+          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${esc(rivalEq(e, proper))}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
           '<p class="esp-linia buit">Sense partits programats.</p>') + "</article>";
     }).join("") + "</div>";
 
