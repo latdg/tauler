@@ -6,6 +6,8 @@ name: Serveis i energia
 
 on:
   schedule:
+    # 9.05 h (hivern i estiu) i 9.35 h: les guàrdies del dia es publiquen a les 9 h.
+    - cron: "5 7,8 * * *"
     - cron: "35 8 * * *"
   workflow_dispatch:
 

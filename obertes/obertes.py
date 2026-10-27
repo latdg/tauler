@@ -219,6 +219,16 @@ def main():
     for nom, funcio in [("farmacies", farmacies), ("autoconsum", autoconsum), ("consum", consum), ("aigua", aigua)]:
         try:
             sortida[nom] = funcio()
+            # 27.10.2026: abans de les 9 h el Col·legi només dona la guàrdia en curs, i
+            # no la de la nit que comença aquell vespre. Es conserven els dies que ja es
+            # tenien de la revisió anterior i que ara no han vingut.
+            if nom == "farmacies" and nom in anterior:
+                nous = {d["data"] for d in sortida[nom]["dies"] if d["farmacies"]}
+                vells = [d for d in anterior[nom].get("dies", []) if d["data"] not in nous and d.get("farmacies")]
+                if vells:
+                    tots = {d["data"]: d for d in sortida[nom]["dies"]}
+                    tots.update({d["data"]: d for d in vells})
+                    sortida[nom]["dies"] = [tots[k] for k in sorted(tots)][-10:]
             print(nom, "fet")
         except Exception:
             print(nom, "ha fallat:")
