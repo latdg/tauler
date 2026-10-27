@@ -70,7 +70,7 @@ EQUIPS = [
      "categoria": "2a FEB", "competicio": "2a FEB", "grup": "Lliga regular B"},
     {"id": "sol_girones_sots25", "nom": "Sol Gironès Bisbal Bàsquet sots-25 femení", "esport": "Bàsquet",
      "font": "manual", "categoria": "Copa Catalunya sots-25 femení", "competicio": "C.C. Sots-25 Femení",
-     "grup": "U25 Femení 01"},
+     "grup": "U25 Femení 01", "escutDe": "sol_girones"},   # 27.10.2026: mateix escut que el sènior
 ]
 
 CAP_PARTITS = ["CLAU_PARTIT", "Equip", "Competició", "Grup", "Jornada", "Data", "Hora", "Local/Visitant",
@@ -583,6 +583,18 @@ def main():
         })
         print(f"  {len(partits)} partits, {len((cls or {}).get('files', []))} equips a la classificació"
               + ("" if estat["ok"] else " (dades anteriors)"))
+
+    # 27.10.2026: equips que fan servir l'escut d'un altre del mateix club (el
+    # sots-25 femení, el del Sol Gironès sènior): l'equip i la seva fila de la classificació.
+    per_id = {e["id"]: e for e in sortida}
+    for eq in EQUIPS:
+        orig = per_id.get(eq.get("escutDe") or "")
+        if orig and orig.get("escut"):
+            e = per_id[eq["id"]]
+            e["escut"] = orig["escut"]
+            for f in (e.get("classificacio") or {}).get("files", []):
+                if f.get("propi") and not f.get("escut"):
+                    f["escut"] = orig["escut"]
 
     dades = {"actualitzat": quan_iso, "equips": sortida}
     if prova:
