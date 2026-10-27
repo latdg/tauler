@@ -1,20 +1,20 @@
 {
- "actualitzat": "2026-10-27T05:53:02+01:00",
+ "actualitzat": "2026-10-27T05:54:44+01:00",
  "equips": [
   {
    "id": "atletic_bisbalenc",
    "nom": "Atlètic Bisbalenc",
    "esport": "Futbol",
    "categoria": "2a Catalana, grup 1",
-   "escut": "",
+   "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png",
    "competicio": "2a Catalana",
    "grup": "Grup 1",
    "font": "fcf",
    "estatFont": {
-    "ok": false,
-    "missatge": "la FCF no ha donat cap partit de l'equip",
-    "quan": "2026-10-27T05:53:02+01:00",
-    "darrerOk": "2026-10-26T09:08:07+01:00"
+    "ok": true,
+    "missatge": "",
+    "quan": "2026-10-27T05:54:44+01:00",
+    "darrerOk": "2026-10-27T05:54:44+01:00"
    },
    "partits": [
     {
@@ -30,7 +30,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109393"
+     "idFont": "4109393",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001381418_Arbucies_CF_HD.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109402",
@@ -45,7 +47,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. NOU DE BANYOLES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109402"
+     "idFont": "4109402",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651540_cebanyoles_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109419",
@@ -60,7 +64,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL.  LA MARGINERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109419"
+     "idFont": "4109419",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651394_besalu_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109427",
@@ -75,7 +81,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE TORDERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109427"
+     "idFont": "4109427",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001128592_Untitled.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4378515",
@@ -90,7 +98,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4378515"
+     "idFont": "4378515",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000665452_vidrerenca_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109435",
@@ -105,7 +115,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109435"
+     "idFont": "4109435",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001043270_nou_escut_empuriabrava_castello.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109442",
@@ -120,7 +132,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. JOAN BUSÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109442"
+     "idFont": "4109442",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000967680_00100_0000946029_escutuef200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109450",
@@ -135,7 +149,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109450"
+     "idFont": "4109450",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000745012_stgregori_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109457",
@@ -150,7 +166,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SANT JOAN LES FONTS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109457"
+     "idFont": "4109457",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000684891_santjoanenc_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109465",
@@ -165,7 +183,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109465"
+     "idFont": "4109465",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001021755_ESCUTPNGCALITAT__1_.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109472",
@@ -180,7 +200,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE BEGUR",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109472"
+     "idFont": "4109472",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654695_begur_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109480",
@@ -195,7 +217,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109480"
+     "idFont": "4109480",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000739644_bescano_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109487",
@@ -210,7 +234,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. NOVA CIUTAT ESPORTIVA BLANES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109487"
+     "idFont": "4109487",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000808744_cdblanes_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109495",
@@ -225,7 +251,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109495"
+     "idFont": "4109495",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000002734_clip_image001.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109502",
@@ -240,7 +268,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. MAS OLIVA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109502"
+     "idFont": "4109502",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000816719_aer_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109513",
@@ -255,7 +285,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL ZEM CAN PONS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109513"
+     "idFont": "4109513",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001381418_Arbucies_CF_HD.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109522",
@@ -270,7 +302,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109522"
+     "idFont": "4109522",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651540_cebanyoles_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109530",
@@ -285,7 +319,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL ZEM DE VIDRERES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109530"
+     "idFont": "4109530",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000665452_vidrerenca_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109539",
@@ -300,7 +336,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109539"
+     "idFont": "4109539",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651394_besalu_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109547",
@@ -315,7 +353,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109547"
+     "idFont": "4109547",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001128592_Untitled.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109555",
@@ -330,7 +370,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. IÑAKI FERNÁNDEZ ORJALES, BÚFALO",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109555"
+     "idFont": "4109555",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001043270_nou_escut_empuriabrava_castello.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109562",
@@ -345,7 +387,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109562"
+     "idFont": "4109562",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000967680_00100_0000946029_escutuef200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109570",
@@ -360,7 +404,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SANT GREGORI",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109570"
+     "idFont": "4109570",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000745012_stgregori_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109577",
@@ -375,7 +421,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109577"
+     "idFont": "4109577",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000684891_santjoanenc_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109585",
@@ -390,7 +438,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SANT JAUME DE LLIERCA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109585"
+     "idFont": "4109585",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001021755_ESCUTPNGCALITAT__1_.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109592",
@@ -405,7 +455,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109592"
+     "idFont": "4109592",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654695_begur_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109600",
@@ -420,7 +472,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE BESCANÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109600"
+     "idFont": "4109600",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000739644_bescano_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109607",
@@ -435,7 +489,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109607"
+     "idFont": "4109607",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000808744_cdblanes_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109615",
@@ -450,7 +506,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SANTA COLOMA DE FARNERS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109615"
+     "idFont": "4109615",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000002734_clip_image001.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     },
     {
      "clau": "FCF-4109622",
@@ -465,7 +523,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4109622"
+     "idFont": "4109622",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000816719_aer_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
     }
    ],
    "classificacio": {
@@ -482,7 +542,8 @@
       "pc": 6,
       "punts": 15,
       "ratxa": "G-G-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654695_begur_200x200.png"
      },
      {
       "pos": 2,
@@ -495,7 +556,8 @@
       "pc": 5,
       "punts": 10,
       "ratxa": "P-G-P-G-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000684891_santjoanenc_200x200.png"
      },
      {
       "pos": 3,
@@ -508,7 +570,8 @@
       "pc": 5,
       "punts": 10,
       "ratxa": "G-G-E-E-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651540_cebanyoles_200x200.png"
      },
      {
       "pos": 4,
@@ -521,7 +584,8 @@
       "pc": 7,
       "punts": 10,
       "ratxa": "P-G-G-G-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000739644_bescano_200x200.png"
      },
      {
       "pos": 5,
@@ -534,7 +598,8 @@
       "pc": 11,
       "punts": 10,
       "ratxa": "G-P-G-E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000816719_aer_200.png"
      },
      {
       "pos": 6,
@@ -546,8 +611,9 @@
       "pf": 16,
       "pc": 16,
       "punts": 9,
-      "ratxa": "G-P-E-G-G",
-      "propi": false
+      "ratxa": "P-G-P-G-G",
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000665452_vidrerenca_200x200.png"
      },
      {
       "pos": 7,
@@ -560,7 +626,8 @@
       "pc": 14,
       "punts": 9,
       "ratxa": "G-P-G-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001381418_Arbucies_CF_HD.png"
      },
      {
       "pos": 8,
@@ -573,7 +640,8 @@
       "pc": 11,
       "punts": 8,
       "ratxa": "G-G-P-E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000745012_stgregori_200x200.png"
      },
      {
       "pos": 9,
@@ -586,7 +654,8 @@
       "pc": 5,
       "punts": 8,
       "ratxa": "E-G-G-P-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000808744_cdblanes_200x200.png"
      },
      {
       "pos": 10,
@@ -599,7 +668,8 @@
       "pc": 10,
       "punts": 8,
       "ratxa": "P-E-G-G-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651394_besalu_200x200.png"
      },
      {
       "pos": 11,
@@ -612,7 +682,8 @@
       "pc": 12,
       "punts": 7,
       "ratxa": "P-G-P-E-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001043270_nou_escut_empuriabrava_castello.png"
      },
      {
       "pos": 12,
@@ -625,7 +696,8 @@
       "pc": 7,
       "punts": 7,
       "ratxa": "P-P-G-P-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000002734_clip_image001.png"
      },
      {
       "pos": 13,
@@ -638,7 +710,8 @@
       "pc": 11,
       "punts": 6,
       "ratxa": "P-E-P-E-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001128592_Untitled.png"
      },
      {
       "pos": 14,
@@ -650,8 +723,9 @@
       "pf": 6,
       "pc": 7,
       "punts": 6,
-      "ratxa": "P-G-P-E-G",
-      "propi": false
+      "ratxa": "P-P-G-P-G",
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000967680_00100_0000946029_escutuef200.png"
      },
      {
       "pos": 15,
@@ -664,7 +738,8 @@
       "pc": 12,
       "punts": 4,
       "ratxa": "P-P-P-E-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001021755_ESCUTPNGCALITAT__1_.png"
      },
      {
       "pos": 16,
@@ -677,12 +752,13 @@
       "pc": 16,
       "punts": 1,
       "ratxa": "P-P-E-P-P",
-      "propi": true
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651530_atbisbalenc_200x200.png"
      }
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-27T05:53:02+01:00",
+   "classificacioActualitzada": "2026-10-27T05:54:44+01:00",
    "full": [
     [
      "FCF-4109393",
@@ -699,7 +775,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109393",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109402",
@@ -716,7 +792,7 @@
      "CAMP DE FUTBOL MPAL. NOU DE BANYOLES",
      "FCF (via latdg-fcf)",
      "4109402",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109419",
@@ -733,7 +809,7 @@
      "CAMP DE FUTBOL MPAL.  LA MARGINERA",
      "FCF (via latdg-fcf)",
      "4109419",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109427",
@@ -750,7 +826,7 @@
      "CAMP D´ESPORTS MPAL. DE TORDERA",
      "FCF (via latdg-fcf)",
      "4109427",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4378515",
@@ -767,7 +843,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4378515",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109435",
@@ -784,7 +860,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109435",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109442",
@@ -801,7 +877,7 @@
      "CAMP DE FUTBOL MPAL. JOAN BUSÓ",
      "FCF (via latdg-fcf)",
      "4109442",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109450",
@@ -818,7 +894,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109450",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109457",
@@ -835,7 +911,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT JOAN LES FONTS",
      "FCF (via latdg-fcf)",
      "4109457",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109465",
@@ -852,7 +928,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109465",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109472",
@@ -869,7 +945,7 @@
      "CAMP DE FUTBOL MPAL. DE BEGUR",
      "FCF (via latdg-fcf)",
      "4109472",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109480",
@@ -886,7 +962,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109480",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109487",
@@ -903,7 +979,7 @@
      "CAMP DE FUTBOL MPAL. NOVA CIUTAT ESPORTIVA BLANES",
      "FCF (via latdg-fcf)",
      "4109487",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109495",
@@ -920,7 +996,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109495",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109502",
@@ -937,7 +1013,7 @@
      "CAMP D´ESPORTS MPAL. MAS OLIVA",
      "FCF (via latdg-fcf)",
      "4109502",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109513",
@@ -954,7 +1030,7 @@
      "CAMP DE FUTBOL ZEM CAN PONS",
      "FCF (via latdg-fcf)",
      "4109513",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109522",
@@ -971,7 +1047,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109522",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109530",
@@ -988,7 +1064,7 @@
      "CAMP DE FUTBOL ZEM DE VIDRERES",
      "FCF (via latdg-fcf)",
      "4109530",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109539",
@@ -1005,7 +1081,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109539",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109547",
@@ -1022,7 +1098,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109547",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109555",
@@ -1039,7 +1115,7 @@
      "CAMP DE FUTBOL MPAL. IÑAKI FERNÁNDEZ ORJALES, BÚFALO",
      "FCF (via latdg-fcf)",
      "4109555",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109562",
@@ -1056,7 +1132,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109562",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109570",
@@ -1073,7 +1149,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT GREGORI",
      "FCF (via latdg-fcf)",
      "4109570",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109577",
@@ -1090,7 +1166,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109577",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109585",
@@ -1107,7 +1183,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT JAUME DE LLIERCA",
      "FCF (via latdg-fcf)",
      "4109585",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109592",
@@ -1124,7 +1200,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109592",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109600",
@@ -1141,7 +1217,7 @@
      "CAMP DE FUTBOL MPAL. DE BESCANÓ",
      "FCF (via latdg-fcf)",
      "4109600",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109607",
@@ -1158,7 +1234,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109607",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109615",
@@ -1175,7 +1251,7 @@
      "CAMP DE FUTBOL MPAL. DE SANTA COLOMA DE FARNERS",
      "FCF (via latdg-fcf)",
      "4109615",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4109622",
@@ -1192,7 +1268,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109622",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -1226,7 +1302,7 @@
      15,
      "G-G-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1242,7 +1318,7 @@
      10,
      "P-G-P-G-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1258,7 +1334,7 @@
      10,
      "G-G-E-E-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1274,7 +1350,7 @@
      10,
      "P-G-G-G-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1290,7 +1366,7 @@
      10,
      "G-P-G-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1304,9 +1380,9 @@
      16,
      16,
      9,
-     "G-P-E-G-G",
+     "P-G-P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1322,7 +1398,7 @@
      9,
      "G-P-G-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1338,7 +1414,7 @@
      8,
      "G-G-P-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1354,7 +1430,7 @@
      8,
      "E-G-G-P-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1370,7 +1446,7 @@
      8,
      "P-E-G-G-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1386,7 +1462,7 @@
      7,
      "P-G-P-E-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1402,7 +1478,7 @@
      7,
      "P-P-G-P-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1418,7 +1494,7 @@
      6,
      "P-E-P-E-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1432,9 +1508,9 @@
      6,
      7,
      6,
-     "P-G-P-E-G",
+     "P-P-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1450,7 +1526,7 @@
      4,
      "P-P-P-E-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Catalana",
@@ -1466,7 +1542,7 @@
      1,
      "P-P-E-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   },
@@ -1475,15 +1551,15 @@
    "nom": "Monells A",
    "esport": "Futbol",
    "categoria": "4a Catalana, grup 2",
-   "escut": "",
+   "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png",
    "competicio": "4a Catalana",
    "grup": "Grup 2",
    "font": "fcf",
    "estatFont": {
-    "ok": false,
-    "missatge": "la FCF no ha donat cap partit de l'equip",
-    "quan": "2026-10-27T05:53:02+01:00",
-    "darrerOk": "2026-10-26T09:08:07+01:00"
+    "ok": true,
+    "missatge": "",
+    "quan": "2026-10-27T05:54:44+01:00",
+    "darrerOk": "2026-10-27T05:54:44+01:00"
    },
    "partits": [
     {
@@ -1499,7 +1575,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139781"
+     "idFont": "4139781",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001227200_ALBONS.jpg",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139910",
@@ -1514,7 +1592,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139910"
+     "idFont": "4139910",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001420673_siura.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139807",
@@ -1529,7 +1609,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE FORTIÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139807"
+     "idFont": "4139807",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000897912_fortia_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139815",
@@ -1544,7 +1626,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139815"
+     "idFont": "4139815",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651338_uejafre_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139824",
@@ -1559,7 +1643,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE L´ESTARTIT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139824"
+     "idFont": "4139824",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000830135_medes_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139832",
@@ -1574,7 +1660,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139832"
+     "idFont": "4139832",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654599_cefla_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4144232",
@@ -1589,7 +1677,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE BORRASSÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4144232"
+     "idFont": "4144232",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001239318_borras_.PNG",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139849",
@@ -1604,7 +1694,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139849"
+     "idFont": "4139849",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486021_VILADAMAT_C.F._copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139858",
@@ -1619,7 +1711,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CAMALLERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139858"
+     "idFont": "4139858",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000813042_5026_Camallera_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139866",
@@ -1634,7 +1728,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139866"
+     "idFont": "4139866",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139875",
@@ -1649,7 +1745,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VERGES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139875"
+     "idFont": "4139875",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000102854_vergescf.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139883",
@@ -1664,7 +1762,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139883"
+     "idFont": "4139883",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001166991_ArmenteraPNG.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139892",
@@ -1679,7 +1779,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VILAFANT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139892"
+     "idFont": "4139892",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486031_VILAFANT_F.C..jpeg_copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139900",
@@ -1694,7 +1796,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139900"
+     "idFont": "4139900",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139901",
@@ -1709,7 +1813,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. D'ALBONS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139901"
+     "idFont": "4139901",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001227200_ALBONS.jpg",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139790",
@@ -1724,7 +1830,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139790"
+     "idFont": "4139790",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001420673_siura.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139927",
@@ -1739,7 +1847,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139927"
+     "idFont": "4139927",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000897912_fortia_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139935",
@@ -1754,7 +1864,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DEL PADRÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139935"
+     "idFont": "4139935",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651338_uejafre_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139944",
@@ -1769,7 +1881,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139944"
+     "idFont": "4139944",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000830135_medes_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139952",
@@ -1784,7 +1898,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139952"
+     "idFont": "4139952",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654599_cefla_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4144255",
@@ -1799,7 +1915,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4144255"
+     "idFont": "4144255",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001239318_borras_.PNG",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139969",
@@ -1814,7 +1932,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VILADAMAT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139969"
+     "idFont": "4139969",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486021_VILADAMAT_C.F._copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139978",
@@ -1829,7 +1949,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139978"
+     "idFont": "4139978",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000813042_5026_Camallera_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139986",
@@ -1844,7 +1966,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VENTALLÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139986"
+     "idFont": "4139986",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139995",
@@ -1859,7 +1983,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139995"
+     "idFont": "4139995",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000102854_vergescf.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140003",
@@ -1874,7 +2000,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. D´ARMENTERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140003"
+     "idFont": "4140003",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001166991_ArmenteraPNG.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140012",
@@ -1889,7 +2017,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140012"
+     "idFont": "4140012",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486031_VILAFANT_F.C..jpeg_copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140020",
@@ -1904,7 +2034,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140020"
+     "idFont": "4140020",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139798",
@@ -1919,7 +2051,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139798"
+     "idFont": "4139798",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/https://www.fcf.cat/img/escutbase.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4139918",
@@ -1934,7 +2068,9 @@
      "estat": "Programat",
      "camp": "",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139918"
+     "idFont": "4139918",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/https://www.fcf.cat/img/escutbase.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     }
    ],
    "classificacio": {
@@ -1951,7 +2087,8 @@
       "pc": 3,
       "punts": 15,
       "ratxa": "G-G-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486021_VILADAMAT_C.F._copia.png"
      },
      {
       "pos": 2,
@@ -1964,7 +2101,8 @@
       "pc": 6,
       "punts": 13,
       "ratxa": "G-E-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001166991_ArmenteraPNG.png"
      },
      {
       "pos": 3,
@@ -1977,7 +2115,8 @@
       "pc": 5,
       "punts": 12,
       "ratxa": "G-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
      },
      {
       "pos": 4,
@@ -1990,7 +2129,8 @@
       "pc": 4,
       "punts": 12,
       "ratxa": "G-G-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001420673_siura.png"
      },
      {
       "pos": 5,
@@ -2003,7 +2143,8 @@
       "pc": 10,
       "punts": 12,
       "ratxa": "G-P-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000813042_5026_Camallera_200.png"
      },
      {
       "pos": 6,
@@ -2016,7 +2157,8 @@
       "pc": 7,
       "punts": 9,
       "ratxa": "G-P-P-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000830135_medes_200.png"
      },
      {
       "pos": 7,
@@ -2029,7 +2171,8 @@
       "pc": 10,
       "punts": 9,
       "ratxa": "G-P-G-G-P",
-      "propi": true
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
      },
      {
       "pos": 8,
@@ -2042,7 +2185,8 @@
       "pc": 6,
       "punts": 8,
       "ratxa": "G-E-G-E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000102854_vergescf.png"
      },
      {
       "pos": 9,
@@ -2055,7 +2199,8 @@
       "pc": 9,
       "punts": 6,
       "ratxa": "P-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486031_VILAFANT_F.C..jpeg_copia.png"
      },
      {
       "pos": 10,
@@ -2068,7 +2213,8 @@
       "pc": 10,
       "punts": 6,
       "ratxa": "P-P-P-G-G",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 11,
@@ -2081,7 +2227,8 @@
       "pc": 16,
       "punts": 5,
       "ratxa": "E-E-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651338_uejafre_200x200.png"
      },
      {
       "pos": 12,
@@ -2094,7 +2241,8 @@
       "pc": 13,
       "punts": 4,
       "ratxa": "P-G-P-E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001239318_borras_.PNG"
      },
      {
       "pos": 13,
@@ -2107,7 +2255,8 @@
       "pc": 13,
       "punts": 0,
       "ratxa": "P-P-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000897912_fortia_200.png"
      },
      {
       "pos": 14,
@@ -2120,7 +2269,8 @@
       "pc": 18,
       "punts": 0,
       "ratxa": "P-P-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654599_cefla_200x200.png"
      },
      {
       "pos": 15,
@@ -2133,12 +2283,13 @@
       "pc": 18,
       "punts": 0,
       "ratxa": "P-P-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": ""
      }
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-27T05:53:02+01:00",
+   "classificacioActualitzada": "2026-10-27T05:54:44+01:00",
    "full": [
     [
      "FCF-4139781",
@@ -2155,7 +2306,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139781",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139910",
@@ -2172,7 +2323,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139910",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139807",
@@ -2189,7 +2340,7 @@
      "CAMP D´ESPORTS MPAL. DE FORTIÀ",
      "FCF (via latdg-fcf)",
      "4139807",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139815",
@@ -2206,7 +2357,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139815",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139824",
@@ -2223,7 +2374,7 @@
      "CAMP DE FUTBOL MPAL. DE L´ESTARTIT",
      "FCF (via latdg-fcf)",
      "4139824",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139832",
@@ -2240,7 +2391,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139832",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4144232",
@@ -2257,7 +2408,7 @@
      "CAMP DE FUTBOL MPAL. DE BORRASSÀ",
      "FCF (via latdg-fcf)",
      "4144232",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139849",
@@ -2274,7 +2425,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139849",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139858",
@@ -2291,7 +2442,7 @@
      "CAMP DE FUTBOL MPAL. DE CAMALLERA",
      "FCF (via latdg-fcf)",
      "4139858",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139866",
@@ -2308,7 +2459,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139866",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139875",
@@ -2325,7 +2476,7 @@
      "CAMP DE FUTBOL MPAL. DE VERGES",
      "FCF (via latdg-fcf)",
      "4139875",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139883",
@@ -2342,7 +2493,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139883",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139892",
@@ -2359,7 +2510,7 @@
      "CAMP DE FUTBOL MPAL. DE VILAFANT",
      "FCF (via latdg-fcf)",
      "4139892",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139900",
@@ -2376,7 +2527,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139900",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139901",
@@ -2393,7 +2544,7 @@
      "CAMP DE FUTBOL MPAL. D'ALBONS",
      "FCF (via latdg-fcf)",
      "4139901",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139790",
@@ -2410,7 +2561,7 @@
      "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
      "FCF (via latdg-fcf)",
      "4139790",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139927",
@@ -2427,7 +2578,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139927",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139935",
@@ -2444,7 +2595,7 @@
      "CAMP DE FUTBOL MPAL. DEL PADRÓ",
      "FCF (via latdg-fcf)",
      "4139935",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139944",
@@ -2461,7 +2612,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139944",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139952",
@@ -2478,7 +2629,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139952",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4144255",
@@ -2495,7 +2646,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4144255",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139969",
@@ -2512,7 +2663,7 @@
      "CAMP DE FUTBOL MPAL. DE VILADAMAT",
      "FCF (via latdg-fcf)",
      "4139969",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139978",
@@ -2529,7 +2680,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139978",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139986",
@@ -2546,7 +2697,7 @@
      "CAMP DE FUTBOL MPAL. DE VENTALLÓ",
      "FCF (via latdg-fcf)",
      "4139986",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139995",
@@ -2563,7 +2714,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139995",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140003",
@@ -2580,7 +2731,7 @@
      "CAMP DE FUTBOL MPAL. D´ARMENTERA",
      "FCF (via latdg-fcf)",
      "4140003",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140012",
@@ -2597,7 +2748,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140012",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140020",
@@ -2614,7 +2765,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4140020",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139798",
@@ -2631,7 +2782,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139798",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139918",
@@ -2648,7 +2799,7 @@
      "",
      "FCF (via latdg-fcf)",
      "4139918",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -2682,7 +2833,7 @@
      15,
      "G-G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2698,7 +2849,7 @@
      13,
      "G-E-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2714,7 +2865,7 @@
      12,
      "G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2730,7 +2881,7 @@
      12,
      "G-G-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2746,7 +2897,7 @@
      12,
      "G-P-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2762,7 +2913,7 @@
      9,
      "G-P-P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2778,7 +2929,7 @@
      9,
      "G-P-G-G-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2794,7 +2945,7 @@
      8,
      "G-E-G-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2810,7 +2961,7 @@
      6,
      "P-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2826,7 +2977,7 @@
      6,
      "P-P-P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2842,7 +2993,7 @@
      5,
      "E-E-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2858,7 +3009,7 @@
      4,
      "P-G-P-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2874,7 +3025,7 @@
      0,
      "P-P-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2890,7 +3041,7 @@
      0,
      "P-P-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -2906,7 +3057,7 @@
      0,
      "P-P-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   },
@@ -2915,15 +3066,15 @@
    "nom": "Monells B",
    "esport": "Futbol",
    "categoria": "4a Catalana, grup 5",
-   "escut": "",
+   "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png",
    "competicio": "4a Catalana",
    "grup": "Grup 5",
    "font": "fcf",
    "estatFont": {
-    "ok": false,
-    "missatge": "la FCF no ha donat cap partit de l'equip",
-    "quan": "2026-10-27T05:53:02+01:00",
-    "darrerOk": "2026-10-26T09:08:07+01:00"
+    "ok": true,
+    "missatge": "",
+    "quan": "2026-10-27T05:54:44+01:00",
+    "darrerOk": "2026-10-27T05:54:44+01:00"
    },
    "partits": [
     {
@@ -2939,7 +3090,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE VILOBÍ D´ONYAR",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140449"
+     "idFont": "4140449",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001163070_VilobiPNG2.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140456",
@@ -2954,7 +3107,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140456"
+     "idFont": "4140456",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000956159_5282_GironaFC_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140462",
@@ -2969,7 +3124,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE LLAGOSTERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140462"
+     "idFont": "4140462",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001107669_Escutuellagostera.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140469",
@@ -2984,7 +3141,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140469"
+     "idFont": "4140469",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654696_palamos_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140475",
@@ -2999,7 +3158,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE RIUDELLOTS DE LA SELVA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140475"
+     "idFont": "4140475",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001025623_RIUDELLOTSCE_LOGOS.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140482",
@@ -3014,7 +3175,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140482"
+     "idFont": "4140482",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001098683_sn.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140488",
@@ -3029,7 +3192,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CASTELL D´ARO",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140488"
+     "idFont": "4140488",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000037181_escut_aro.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140495",
@@ -3044,7 +3209,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140495"
+     "idFont": "4140495",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000748761_udcassa_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140501",
@@ -3059,7 +3226,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SANTA CRISTINA D´ARO",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140501"
+     "idFont": "4140501",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001232555_cri.jpg",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140508",
@@ -3074,7 +3243,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140508"
+     "idFont": "4140508",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000956155_5327_ClobalPalamosCF_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140514",
@@ -3089,7 +3260,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. EL GREGAL",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140514"
+     "idFont": "4140514",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001222354_Sin_t_tulo__11_.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140521",
@@ -3104,7 +3277,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140521"
+     "idFont": "4140521",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000665462_uniogirona_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140527",
@@ -3119,7 +3294,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. EL GREGAL",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140527"
+     "idFont": "4140527",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000816144_punxa_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140540",
@@ -3134,7 +3311,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140540"
+     "idFont": "4140540",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001163070_VilobiPNG2.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140547",
@@ -3149,7 +3328,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. TORRES DE PALAU",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140547"
+     "idFont": "4140547",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000956159_5282_GironaFC_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140553",
@@ -3164,7 +3345,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140553"
+     "idFont": "4140553",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001107669_Escutuellagostera.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140560",
@@ -3179,7 +3362,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140560"
+     "idFont": "4140560",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654696_palamos_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140566",
@@ -3194,7 +3379,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140566"
+     "idFont": "4140566",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001025623_RIUDELLOTSCE_LOGOS.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140573",
@@ -3209,7 +3396,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. VILA-ROJA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140573"
+     "idFont": "4140573",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001098683_sn.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140579",
@@ -3224,7 +3413,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140579"
+     "idFont": "4140579",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000037181_escut_aro.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140586",
@@ -3239,7 +3430,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140586"
+     "idFont": "4140586",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000748761_udcassa_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140592",
@@ -3254,7 +3447,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140592"
+     "idFont": "4140592",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001232555_cri.jpg",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140599",
@@ -3269,7 +3464,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140599"
+     "idFont": "4140599",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000956155_5327_ClobalPalamosCF_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140605",
@@ -3284,7 +3481,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140605"
+     "idFont": "4140605",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001222354_Sin_t_tulo__11_.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140612",
@@ -3299,7 +3498,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL CLUB CENTRE ESPORTIU VEDRUNA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140612"
+     "idFont": "4140612",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000665462_uniogirona_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     },
     {
      "clau": "FCF-4140618",
@@ -3314,7 +3515,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140618"
+     "idFont": "4140618",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000816144_punxa_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     }
    ],
    "classificacio": {
@@ -3331,7 +3534,8 @@
       "pc": 0,
       "punts": 12,
       "ratxa": "G-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001163070_VilobiPNG2.png"
      },
      {
       "pos": 2,
@@ -3344,7 +3548,8 @@
       "pc": 1,
       "punts": 9,
       "ratxa": "G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000037181_escut_aro.png"
      },
      {
       "pos": 3,
@@ -3357,7 +3562,8 @@
       "pc": 7,
       "punts": 7,
       "ratxa": "G-E-G-P",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 4,
@@ -3370,7 +3576,8 @@
       "pc": 8,
       "punts": 7,
       "ratxa": "G-G-P-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000665462_uniogirona_200x200.png"
      },
      {
       "pos": 5,
@@ -3383,7 +3590,8 @@
       "pc": 7,
       "punts": 6,
       "ratxa": "P-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654696_palamos_200x200.png"
      },
      {
       "pos": 6,
@@ -3396,7 +3604,8 @@
       "pc": 8,
       "punts": 6,
       "ratxa": "P-G-P-P",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 7,
@@ -3409,7 +3618,8 @@
       "pc": 3,
       "punts": 6,
       "ratxa": "G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000956159_5282_GironaFC_200.png"
      },
      {
       "pos": 8,
@@ -3422,7 +3632,8 @@
       "pc": 11,
       "punts": 6,
       "ratxa": "P-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000956155_5327_ClobalPalamosCF_200.png"
      },
      {
       "pos": 9,
@@ -3435,7 +3646,8 @@
       "pc": 9,
       "punts": 3,
       "ratxa": "P-P-G",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 10,
@@ -3448,7 +3660,8 @@
       "pc": 10,
       "punts": 3,
       "ratxa": "G-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001232555_cri.jpg"
      },
      {
       "pos": 11,
@@ -3461,7 +3674,8 @@
       "pc": 15,
       "punts": 3,
       "ratxa": "P-P-G-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000748761_udcassa_200x200.png"
      },
      {
       "pos": 12,
@@ -3474,7 +3688,8 @@
       "pc": 9,
       "punts": 2,
       "ratxa": "P-P-E-E",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 13,
@@ -3487,7 +3702,8 @@
       "pc": 11,
       "punts": 2,
       "ratxa": "E-E-P",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 14,
@@ -3500,12 +3716,13 @@
       "pc": 25,
       "punts": 0,
       "ratxa": "P-P-G-P",
-      "propi": true
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
      }
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-27T05:53:02+01:00",
+   "classificacioActualitzada": "2026-10-27T05:54:44+01:00",
    "full": [
     [
      "FCF-4140449",
@@ -3522,7 +3739,7 @@
      "CAMP DE FUTBOL MPAL. DE VILOBÍ D´ONYAR",
      "FCF (via latdg-fcf)",
      "4140449",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140456",
@@ -3539,7 +3756,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140456",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140462",
@@ -3556,7 +3773,7 @@
      "CAMP D´ESPORTS MPAL. DE LLAGOSTERA",
      "FCF (via latdg-fcf)",
      "4140462",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140469",
@@ -3573,7 +3790,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140469",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140475",
@@ -3590,7 +3807,7 @@
      "CAMP DE FUTBOL MPAL. DE RIUDELLOTS DE LA SELVA",
      "FCF (via latdg-fcf)",
      "4140475",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140482",
@@ -3607,7 +3824,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140482",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140488",
@@ -3624,7 +3841,7 @@
      "CAMP DE FUTBOL MPAL. DE CASTELL D´ARO",
      "FCF (via latdg-fcf)",
      "4140488",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140495",
@@ -3641,7 +3858,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140495",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140501",
@@ -3658,7 +3875,7 @@
      "CAMP DE FUTBOL MPAL. DE SANTA CRISTINA D´ARO",
      "FCF (via latdg-fcf)",
      "4140501",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140508",
@@ -3675,7 +3892,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140508",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140514",
@@ -3692,7 +3909,7 @@
      "CAMP DE FUTBOL MPAL. EL GREGAL",
      "FCF (via latdg-fcf)",
      "4140514",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140521",
@@ -3709,7 +3926,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140521",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140527",
@@ -3726,7 +3943,7 @@
      "CAMP DE FUTBOL MPAL. EL GREGAL",
      "FCF (via latdg-fcf)",
      "4140527",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140540",
@@ -3743,7 +3960,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140540",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140547",
@@ -3760,7 +3977,7 @@
      "CAMP DE FUTBOL MPAL. TORRES DE PALAU",
      "FCF (via latdg-fcf)",
      "4140547",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140553",
@@ -3777,7 +3994,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140553",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140560",
@@ -3794,7 +4011,7 @@
      "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
      "FCF (via latdg-fcf)",
      "4140560",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140566",
@@ -3811,7 +4028,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140566",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140573",
@@ -3828,7 +4045,7 @@
      "CAMP DE FUTBOL MPAL. VILA-ROJA",
      "FCF (via latdg-fcf)",
      "4140573",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140579",
@@ -3845,7 +4062,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140579",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140586",
@@ -3862,7 +4079,7 @@
      "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
      "FCF (via latdg-fcf)",
      "4140586",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140592",
@@ -3879,7 +4096,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140592",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140599",
@@ -3896,7 +4113,7 @@
      "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
      "FCF (via latdg-fcf)",
      "4140599",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140605",
@@ -3913,7 +4130,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140605",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140612",
@@ -3930,7 +4147,7 @@
      "CAMP DE FUTBOL CLUB CENTRE ESPORTIU VEDRUNA",
      "FCF (via latdg-fcf)",
      "4140612",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140618",
@@ -3947,7 +4164,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140618",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -3981,7 +4198,7 @@
      12,
      "G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -3997,7 +4214,7 @@
      9,
      "G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4013,7 +4230,7 @@
      7,
      "G-E-G-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4029,7 +4246,7 @@
      7,
      "G-G-P-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4045,7 +4262,7 @@
      6,
      "P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4061,7 +4278,7 @@
      6,
      "P-G-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4077,7 +4294,7 @@
      6,
      "G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4093,7 +4310,7 @@
      6,
      "P-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4109,7 +4326,7 @@
      3,
      "P-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4125,7 +4342,7 @@
      3,
      "G-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4141,7 +4358,7 @@
      3,
      "P-P-G-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4157,7 +4374,7 @@
      2,
      "P-P-E-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4173,7 +4390,7 @@
      2,
      "E-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -4189,7 +4406,7 @@
      0,
      "P-P-G-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   },
@@ -4198,15 +4415,15 @@
    "nom": "La Pera",
    "esport": "Futbol",
    "categoria": "4a Catalana, grup 2",
-   "escut": "",
+   "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png",
    "competicio": "4a Catalana",
    "grup": "Grup 2",
    "font": "fcf",
    "estatFont": {
-    "ok": false,
-    "missatge": "la FCF no ha donat cap partit de l'equip",
-    "quan": "2026-10-27T05:53:02+01:00",
-    "darrerOk": "2026-10-26T09:08:07+01:00"
+    "ok": true,
+    "missatge": "",
+    "quan": "2026-10-27T05:54:44+01:00",
+    "darrerOk": "2026-10-27T05:54:44+01:00"
    },
    "partits": [
     {
@@ -4222,7 +4439,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4144244"
+     "idFont": "4144244",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001239318_borras_.PNG",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139789",
@@ -4237,7 +4456,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. SPOTIFY ALBONS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139789"
+     "idFont": "4139789",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001227200_ALBONS.jpg",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139925",
@@ -4252,7 +4473,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139925"
+     "idFont": "4139925",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001420673_siura.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139820",
@@ -4267,7 +4490,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139820"
+     "idFont": "4139820",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000813042_5026_Camallera_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139836",
@@ -4282,7 +4507,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139836"
+     "idFont": "4139836",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4377451",
@@ -4297,7 +4524,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4377451"
+     "idFont": "4377451",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486021_VILADAMAT_C.F._copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139837",
@@ -4312,7 +4541,9 @@
      "estat": "Programat",
      "camp": "CAMP D´ESPORTS MPAL. DE FORTIÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139837"
+     "idFont": "4139837",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000897912_fortia_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139852",
@@ -4327,7 +4558,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139852"
+     "idFont": "4139852",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000102854_vergescf.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139853",
@@ -4342,7 +4575,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DEL PADRÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139853"
+     "idFont": "4139853",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651338_uejafre_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139868",
@@ -4357,7 +4592,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139868"
+     "idFont": "4139868",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001166991_ArmenteraPNG.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139869",
@@ -4372,7 +4609,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE L´ESTARTIT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139869"
+     "idFont": "4139869",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000830135_medes_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139884",
@@ -4387,7 +4626,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139884"
+     "idFont": "4139884",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486031_VILAFANT_F.C..jpeg_copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139885",
@@ -4402,7 +4643,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139885"
+     "idFont": "4139885",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654599_cefla_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139900",
@@ -4417,7 +4660,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139900"
+     "idFont": "4139900",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4144236",
@@ -4432,7 +4677,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE BORRASSÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4144236"
+     "idFont": "4144236",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001239318_borras_.PNG",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139909",
@@ -4447,7 +4694,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139909"
+     "idFont": "4139909",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001227200_ALBONS.jpg",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139924",
@@ -4462,7 +4711,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VILADAMAT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139924"
+     "idFont": "4139924",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486021_VILADAMAT_C.F._copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139805",
@@ -4477,7 +4728,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139805"
+     "idFont": "4139805",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001420673_siura.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139940",
@@ -4492,7 +4745,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CAMALLERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139940"
+     "idFont": "4139940",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000813042_5026_Camallera_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139956",
@@ -4507,7 +4762,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VENTALLÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139956"
+     "idFont": "4139956",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139957",
@@ -4522,7 +4779,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139957"
+     "idFont": "4139957",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000897912_fortia_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139972",
@@ -4537,7 +4796,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VERGES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139972"
+     "idFont": "4139972",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000102854_vergescf.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139973",
@@ -4552,7 +4813,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139973"
+     "idFont": "4139973",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651338_uejafre_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139988",
@@ -4567,7 +4830,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. D´ARMENTERA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139988"
+     "idFont": "4139988",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001166991_ArmenteraPNG.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139989",
@@ -4582,7 +4847,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139989"
+     "idFont": "4139989",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000830135_medes_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4140004",
@@ -4597,7 +4864,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE VILAFANT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140004"
+     "idFont": "4140004",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486031_VILAFANT_F.C..jpeg_copia.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4140005",
@@ -4612,7 +4881,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140005"
+     "idFont": "4140005",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654599_cefla_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4140020",
@@ -4627,7 +4898,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4140020"
+     "idFont": "4140020",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139821",
@@ -4642,7 +4915,9 @@
      "estat": "Programat",
      "camp": "",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139821"
+     "idFont": "4139821",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/https://www.fcf.cat/img/escutbase.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4139941",
@@ -4657,7 +4932,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4139941"
+     "idFont": "4139941",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/https://www.fcf.cat/img/escutbase.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     }
    ],
    "classificacio": {
@@ -4674,7 +4951,8 @@
       "pc": 3,
       "punts": 15,
       "ratxa": "G-G-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486021_VILADAMAT_C.F._copia.png"
      },
      {
       "pos": 2,
@@ -4687,7 +4965,8 @@
       "pc": 6,
       "punts": 13,
       "ratxa": "G-E-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001166991_ArmenteraPNG.png"
      },
      {
       "pos": 3,
@@ -4700,7 +4979,8 @@
       "pc": 5,
       "punts": 12,
       "ratxa": "G-G-G-G",
-      "propi": true
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
      },
      {
       "pos": 4,
@@ -4713,7 +4993,8 @@
       "pc": 4,
       "punts": 12,
       "ratxa": "G-G-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001420673_siura.png"
      },
      {
       "pos": 5,
@@ -4726,7 +5007,8 @@
       "pc": 10,
       "punts": 12,
       "ratxa": "G-P-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000813042_5026_Camallera_200.png"
      },
      {
       "pos": 6,
@@ -4739,7 +5021,8 @@
       "pc": 7,
       "punts": 9,
       "ratxa": "G-P-P-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000830135_medes_200.png"
      },
      {
       "pos": 7,
@@ -4752,7 +5035,8 @@
       "pc": 10,
       "punts": 9,
       "ratxa": "G-P-G-G-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
      },
      {
       "pos": 8,
@@ -4765,7 +5049,8 @@
       "pc": 6,
       "punts": 8,
       "ratxa": "G-E-G-E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000102854_vergescf.png"
      },
      {
       "pos": 9,
@@ -4778,7 +5063,8 @@
       "pc": 9,
       "punts": 6,
       "ratxa": "P-G-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000486031_VILAFANT_F.C..jpeg_copia.png"
      },
      {
       "pos": 10,
@@ -4791,7 +5077,8 @@
       "pc": 10,
       "punts": 6,
       "ratxa": "P-P-P-G-G",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 11,
@@ -4804,7 +5091,8 @@
       "pc": 16,
       "punts": 5,
       "ratxa": "E-E-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000651338_uejafre_200x200.png"
      },
      {
       "pos": 12,
@@ -4817,7 +5105,8 @@
       "pc": 13,
       "punts": 4,
       "ratxa": "P-G-P-E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001239318_borras_.PNG"
      },
      {
       "pos": 13,
@@ -4830,7 +5119,8 @@
       "pc": 13,
       "punts": 0,
       "ratxa": "P-P-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000897912_fortia_200.png"
      },
      {
       "pos": 14,
@@ -4843,7 +5133,8 @@
       "pc": 18,
       "punts": 0,
       "ratxa": "P-P-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000654599_cefla_200x200.png"
      },
      {
       "pos": 15,
@@ -4856,12 +5147,13 @@
       "pc": 18,
       "punts": 0,
       "ratxa": "P-P-P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": ""
      }
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-27T05:53:02+01:00",
+   "classificacioActualitzada": "2026-10-27T05:54:44+01:00",
    "full": [
     [
      "FCF-4144244",
@@ -4878,7 +5170,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4144244",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139789",
@@ -4895,7 +5187,7 @@
      "CAMP DE FUTBOL MPAL. SPOTIFY ALBONS",
      "FCF (via latdg-fcf)",
      "4139789",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139925",
@@ -4912,7 +5204,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139925",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139820",
@@ -4929,7 +5221,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139820",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139836",
@@ -4946,7 +5238,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139836",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4377451",
@@ -4963,7 +5255,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4377451",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139837",
@@ -4980,7 +5272,7 @@
      "CAMP D´ESPORTS MPAL. DE FORTIÀ",
      "FCF (via latdg-fcf)",
      "4139837",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139852",
@@ -4997,7 +5289,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139852",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139853",
@@ -5014,7 +5306,7 @@
      "CAMP DE FUTBOL MPAL. DEL PADRÓ",
      "FCF (via latdg-fcf)",
      "4139853",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139868",
@@ -5031,7 +5323,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139868",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139869",
@@ -5048,7 +5340,7 @@
      "CAMP DE FUTBOL MPAL. DE L´ESTARTIT",
      "FCF (via latdg-fcf)",
      "4139869",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139884",
@@ -5065,7 +5357,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139884",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139885",
@@ -5082,7 +5374,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139885",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139900",
@@ -5099,7 +5391,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139900",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4144236",
@@ -5116,7 +5408,7 @@
      "CAMP DE FUTBOL MPAL. DE BORRASSÀ",
      "FCF (via latdg-fcf)",
      "4144236",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139909",
@@ -5133,7 +5425,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139909",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139924",
@@ -5150,7 +5442,7 @@
      "CAMP DE FUTBOL MPAL. DE VILADAMAT",
      "FCF (via latdg-fcf)",
      "4139924",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139805",
@@ -5167,7 +5459,7 @@
      "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
      "FCF (via latdg-fcf)",
      "4139805",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139940",
@@ -5184,7 +5476,7 @@
      "CAMP DE FUTBOL MPAL. DE CAMALLERA",
      "FCF (via latdg-fcf)",
      "4139940",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139956",
@@ -5201,7 +5493,7 @@
      "CAMP DE FUTBOL MPAL. DE VENTALLÓ",
      "FCF (via latdg-fcf)",
      "4139956",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139957",
@@ -5218,7 +5510,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139957",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139972",
@@ -5235,7 +5527,7 @@
      "CAMP DE FUTBOL MPAL. DE VERGES",
      "FCF (via latdg-fcf)",
      "4139972",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139973",
@@ -5252,7 +5544,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139973",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139988",
@@ -5269,7 +5561,7 @@
      "CAMP DE FUTBOL MPAL. D´ARMENTERA",
      "FCF (via latdg-fcf)",
      "4139988",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139989",
@@ -5286,7 +5578,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139989",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140004",
@@ -5303,7 +5595,7 @@
      "CAMP DE FUTBOL MPAL. DE VILAFANT",
      "FCF (via latdg-fcf)",
      "4140004",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140005",
@@ -5320,7 +5612,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4140005",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4140020",
@@ -5337,7 +5629,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4140020",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139821",
@@ -5354,7 +5646,7 @@
      "",
      "FCF (via latdg-fcf)",
      "4139821",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4139941",
@@ -5371,7 +5663,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139941",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -5405,7 +5697,7 @@
      15,
      "G-G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5421,7 +5713,7 @@
      13,
      "G-E-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5437,7 +5729,7 @@
      12,
      "G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5453,7 +5745,7 @@
      12,
      "G-G-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5469,7 +5761,7 @@
      12,
      "G-P-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5485,7 +5777,7 @@
      9,
      "G-P-P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5501,7 +5793,7 @@
      9,
      "G-P-G-G-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5517,7 +5809,7 @@
      8,
      "G-E-G-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5533,7 +5825,7 @@
      6,
      "P-G-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5549,7 +5841,7 @@
      6,
      "P-P-P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5565,7 +5857,7 @@
      5,
      "E-E-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5581,7 +5873,7 @@
      4,
      "P-G-P-E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5597,7 +5889,7 @@
      0,
      "P-P-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5613,7 +5905,7 @@
      0,
      "P-P-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "4a Catalana",
@@ -5629,7 +5921,7 @@
      0,
      "P-P-P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   },
@@ -5638,15 +5930,15 @@
    "nom": "La Pera femení",
    "esport": "Futbol",
    "categoria": "2a Divisió femenina",
-   "escut": "",
+   "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png",
    "competicio": "2a Divisió femenina",
    "grup": "",
    "font": "fcf",
    "estatFont": {
-    "ok": false,
-    "missatge": "la FCF no ha donat cap partit de l'equip",
-    "quan": "2026-10-27T05:53:02+01:00",
-    "darrerOk": "2026-10-26T09:08:07+01:00"
+    "ok": true,
+    "missatge": "",
+    "quan": "2026-10-27T05:54:44+01:00",
+    "darrerOk": "2026-10-27T05:54:44+01:00"
    },
    "partits": [
     {
@@ -5662,7 +5954,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP D´ESPORTS MPAL. DE MONTAGUT",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245215"
+     "idFont": "4245215",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000656112_pemontagut_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245231",
@@ -5677,7 +5971,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245231"
+     "idFont": "4245231",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001186244_5006_PONTENC.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245232",
@@ -5692,22 +5988,9 @@
      "estat": "Finalitzat",
      "camp": "CAMP DE FUTBOL MPAL. LA VINYASSA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245232"
-    },
-    {
-     "clau": "FCF-4378626",
-     "competicio": "2a Divisió femenina",
-     "grup": "",
-     "jornada": "1",
-     "data": "2026-10-27",
-     "hora": "20:00",
-     "localVisitant": "Local",
-     "rival": "BESCANO, C.E. A",
-     "resultat": "",
-     "estat": "Programat",
-     "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
-     "font": "FCF (via latdg-fcf)",
-     "idFont": "4378626"
+     "idFont": "4245232",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000511684_rosescity.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245247",
@@ -5722,7 +6005,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245247"
+     "idFont": "4245247",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000963508_00100_0000954468_escut_sils.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245248",
@@ -5737,7 +6022,26 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE SANT ESTEVE D´EN BAS",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245248"
+     "idFont": "4245248",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000573792_valldenbas_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
+    },
+    {
+     "clau": "FCF-4378626",
+     "competicio": "2a Divisió femenina",
+     "grup": "",
+     "jornada": "1",
+     "data": "2026-11-13",
+     "hora": "21:00",
+     "localVisitant": "Local",
+     "rival": "BESCANO, C.E. A",
+     "resultat": "",
+     "estat": "Programat",
+     "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
+     "font": "FCF (via latdg-fcf)",
+     "idFont": "4378626",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000739644_bescano_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245263",
@@ -5752,7 +6056,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245263"
+     "idFont": "4245263",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000000258_img83152074.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245264",
@@ -5767,7 +6073,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245264"
+     "idFont": "4245264",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000748761_udcassa_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245279",
@@ -5782,7 +6090,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245279"
+     "idFont": "4245279",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000649646_cornellaterri_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245280",
@@ -5797,7 +6107,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245280"
+     "idFont": "4245280",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001021751_00100_0000820832_fcle_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245295",
@@ -5812,7 +6124,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245295"
+     "idFont": "4245295",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000674209_porqueres_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245416",
@@ -5827,7 +6141,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245416"
+     "idFont": "4245416",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000272464_13095933_1731439670402369_8477283711072030434_n.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245311",
@@ -5842,7 +6158,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245311"
+     "idFont": "4245311",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000817313_guixols_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245312",
@@ -5857,7 +6175,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245312"
+     "idFont": "4245312",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001022042_pixlr_bg_result.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245327",
@@ -5872,7 +6192,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CABANES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245327"
+     "idFont": "4245327",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000012280_escanear0001.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245335",
@@ -5887,7 +6209,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE BESCANÓ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245335"
+     "idFont": "4245335",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000739644_bescano_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245336",
@@ -5902,7 +6226,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245336"
+     "idFont": "4245336",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000656112_pemontagut_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245351",
@@ -5917,7 +6243,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE PONT MAJOR",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245351"
+     "idFont": "4245351",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001186244_5006_PONTENC.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245352",
@@ -5932,7 +6260,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245352"
+     "idFont": "4245352",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000511684_rosescity.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245367",
@@ -5947,7 +6277,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE LES MALLORQUINES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245367"
+     "idFont": "4245367",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000963508_00100_0000954468_escut_sils.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245368",
@@ -5962,7 +6294,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245368"
+     "idFont": "4245368",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000573792_valldenbas_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245383",
@@ -5977,7 +6311,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. CA LA GUIDÓ-PEDRO ALIA DORADO",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245383"
+     "idFont": "4245383",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000000258_img83152074.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245384",
@@ -5992,7 +6328,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245384"
+     "idFont": "4245384",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000748761_udcassa_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245399",
@@ -6007,7 +6345,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE CORNELLÀ DE TERRI",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245399"
+     "idFont": "4245399",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000649646_cornellaterri_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245400",
@@ -6022,7 +6362,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245400"
+     "idFont": "4245400",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001021751_00100_0000820832_fcle_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245415",
@@ -6037,7 +6379,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE MIÀNIGUES",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245415"
+     "idFont": "4245415",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000674209_porqueres_200x200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245296",
@@ -6052,7 +6396,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL ZEM DE RIPOLL (1)",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245296"
+     "idFont": "4245296",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000272464_13095933_1731439670402369_8477283711072030434_n.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245431",
@@ -6067,7 +6413,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. JOSEP SUNYER I ARXER",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245431"
+     "idFont": "4245431",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000817313_guixols_200.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245432",
@@ -6082,7 +6430,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. D´AMER",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245432"
+     "idFont": "4245432",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001022042_pixlr_bg_result.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     },
     {
      "clau": "FCF-4245447",
@@ -6097,7 +6447,9 @@
      "estat": "Programat",
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "font": "FCF (via latdg-fcf)",
-     "idFont": "4245447"
+     "idFont": "4245447",
+     "escutRival": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000012280_escanear0001.png",
+     "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     }
    ],
    "classificacio": {
@@ -6114,7 +6466,8 @@
       "pc": 2,
       "punts": 12,
       "ratxa": "G-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000674209_porqueres_200x200.png"
      },
      {
       "pos": 2,
@@ -6127,7 +6480,8 @@
       "pc": 2,
       "punts": 12,
       "ratxa": "G-G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001186244_5006_PONTENC.png"
      },
      {
       "pos": 3,
@@ -6140,7 +6494,8 @@
       "pc": 0,
       "punts": 9,
       "ratxa": "G-G-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000012280_escanear0001.png"
      },
      {
       "pos": 4,
@@ -6153,7 +6508,8 @@
       "pc": 9,
       "punts": 9,
       "ratxa": "G-P-G-G",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 5,
@@ -6166,7 +6522,8 @@
       "pc": 2,
       "punts": 7,
       "ratxa": "G-E-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000649646_cornellaterri_200x200.png"
      },
      {
       "pos": 6,
@@ -6179,7 +6536,8 @@
       "pc": 8,
       "punts": 6,
       "ratxa": "G-G-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000963508_00100_0000954468_escut_sils.png"
      },
      {
       "pos": 7,
@@ -6192,7 +6550,8 @@
       "pc": 5,
       "punts": 4,
       "ratxa": "P-G-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000739644_bescano_200x200.png"
      },
      {
       "pos": 8,
@@ -6205,7 +6564,8 @@
       "pc": 8,
       "punts": 4,
       "ratxa": "P-G-E",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000000258_img83152074.png"
      },
      {
       "pos": 9,
@@ -6218,7 +6578,8 @@
       "pc": 7,
       "punts": 3,
       "ratxa": "G-P-P",
-      "propi": true
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
      },
      {
       "pos": 10,
@@ -6231,7 +6592,8 @@
       "pc": 11,
       "punts": 3,
       "ratxa": "P-G-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000272464_13095933_1731439670402369_8477283711072030434_n.png"
      },
      {
       "pos": 11,
@@ -6244,7 +6606,8 @@
       "pc": 11,
       "punts": 3,
       "ratxa": "P-P-G",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000656112_pemontagut_200x200.png"
      },
      {
       "pos": 12,
@@ -6257,7 +6620,8 @@
       "pc": 4,
       "punts": 1,
       "ratxa": "E-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001021751_00100_0000820832_fcle_200.png"
      },
      {
       "pos": 13,
@@ -6270,7 +6634,8 @@
       "pc": 12,
       "punts": 0,
       "ratxa": "P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0001022042_pixlr_bg_result.png"
      },
      {
       "pos": 14,
@@ -6283,7 +6648,8 @@
       "pc": 14,
       "punts": 0,
       "ratxa": "P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000573792_valldenbas_200x200.png"
      },
      {
       "pos": 15,
@@ -6296,7 +6662,8 @@
       "pc": 14,
       "punts": 0,
       "ratxa": "P",
-      "propi": false
+      "propi": false,
+      "escut": ""
      },
      {
       "pos": 16,
@@ -6309,12 +6676,13 @@
       "pc": 26,
       "punts": 0,
       "ratxa": "P-P-P",
-      "propi": false
+      "propi": false,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000748761_udcassa_200x200.png"
      }
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-27T05:53:02+01:00",
+   "classificacioActualitzada": "2026-10-27T05:54:44+01:00",
    "full": [
     [
      "FCF-4245215",
@@ -6331,7 +6699,7 @@
      "CAMP D´ESPORTS MPAL. DE MONTAGUT",
      "FCF (via latdg-fcf)",
      "4245215",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245231",
@@ -6348,7 +6716,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245231",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245232",
@@ -6365,24 +6733,7 @@
      "CAMP DE FUTBOL MPAL. LA VINYASSA",
      "FCF (via latdg-fcf)",
      "4245232",
-     "27/10/2026 05:53"
-    ],
-    [
-     "FCF-4378626",
-     "La Pera femení",
-     "2a Divisió femenina",
-     "",
-     "1",
-     "27/10/2026",
-     "20:00",
-     "Local",
-     "BESCANO, C.E. A",
-     "",
-     "Programat",
-     "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
-     "FCF (via latdg-fcf)",
-     "4378626",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245247",
@@ -6399,7 +6750,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245247",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245248",
@@ -6416,7 +6767,24 @@
      "CAMP DE FUTBOL MPAL. DE SANT ESTEVE D´EN BAS",
      "FCF (via latdg-fcf)",
      "4245248",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
+    ],
+    [
+     "FCF-4378626",
+     "La Pera femení",
+     "2a Divisió femenina",
+     "",
+     "1",
+     "13/11/2026",
+     "21:00",
+     "Local",
+     "BESCANO, C.E. A",
+     "",
+     "Programat",
+     "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
+     "FCF (via latdg-fcf)",
+     "4378626",
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245263",
@@ -6433,7 +6801,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245263",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245264",
@@ -6450,7 +6818,7 @@
      "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
      "FCF (via latdg-fcf)",
      "4245264",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245279",
@@ -6467,7 +6835,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245279",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245280",
@@ -6484,7 +6852,7 @@
      "CAMP DE FUTBOL MPAL. DE L´ESCALA",
      "FCF (via latdg-fcf)",
      "4245280",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245295",
@@ -6501,7 +6869,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245295",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245416",
@@ -6518,7 +6886,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245416",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245311",
@@ -6535,7 +6903,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245311",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245312",
@@ -6552,7 +6920,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245312",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245327",
@@ -6569,7 +6937,7 @@
      "CAMP DE FUTBOL MPAL. DE CABANES",
      "FCF (via latdg-fcf)",
      "4245327",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245335",
@@ -6586,7 +6954,7 @@
      "CAMP DE FUTBOL MPAL. DE BESCANÓ",
      "FCF (via latdg-fcf)",
      "4245335",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245336",
@@ -6603,7 +6971,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245336",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245351",
@@ -6620,7 +6988,7 @@
      "CAMP DE FUTBOL MPAL. DE PONT MAJOR",
      "FCF (via latdg-fcf)",
      "4245351",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245352",
@@ -6637,7 +7005,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245352",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245367",
@@ -6654,7 +7022,7 @@
      "CAMP DE FUTBOL MPAL. DE LES MALLORQUINES",
      "FCF (via latdg-fcf)",
      "4245367",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245368",
@@ -6671,7 +7039,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245368",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245383",
@@ -6688,7 +7056,7 @@
      "CAMP DE FUTBOL MPAL. CA LA GUIDÓ-PEDRO ALIA DORADO",
      "FCF (via latdg-fcf)",
      "4245383",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245384",
@@ -6705,7 +7073,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245384",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245399",
@@ -6722,7 +7090,7 @@
      "CAMP DE FUTBOL MPAL. DE CORNELLÀ DE TERRI",
      "FCF (via latdg-fcf)",
      "4245399",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245400",
@@ -6739,7 +7107,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245400",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245415",
@@ -6756,7 +7124,7 @@
      "CAMP DE FUTBOL MPAL. DE MIÀNIGUES",
      "FCF (via latdg-fcf)",
      "4245415",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245296",
@@ -6773,7 +7141,7 @@
      "CAMP DE FUTBOL ZEM DE RIPOLL (1)",
      "FCF (via latdg-fcf)",
      "4245296",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245431",
@@ -6790,7 +7158,7 @@
      "CAMP DE FUTBOL MPAL. JOSEP SUNYER I ARXER",
      "FCF (via latdg-fcf)",
      "4245431",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245432",
@@ -6807,7 +7175,7 @@
      "CAMP DE FUTBOL MPAL. D´AMER",
      "FCF (via latdg-fcf)",
      "4245432",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FCF-4245447",
@@ -6824,7 +7192,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245447",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -6858,7 +7226,7 @@
      12,
      "G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6874,7 +7242,7 @@
      12,
      "G-G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6890,7 +7258,7 @@
      9,
      "G-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6906,7 +7274,7 @@
      9,
      "G-P-G-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6922,7 +7290,7 @@
      7,
      "G-E-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6938,7 +7306,7 @@
      6,
      "G-G-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6954,7 +7322,7 @@
      4,
      "P-G-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6970,7 +7338,7 @@
      4,
      "P-G-E",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -6986,7 +7354,7 @@
      3,
      "G-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7002,7 +7370,7 @@
      3,
      "P-G-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7018,7 +7386,7 @@
      3,
      "P-P-G",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7034,7 +7402,7 @@
      1,
      "E-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7050,7 +7418,7 @@
      0,
      "P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7066,7 +7434,7 @@
      0,
      "P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7082,7 +7450,7 @@
      0,
      "P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a Divisió femenina",
@@ -7098,7 +7466,7 @@
      0,
      "P-P-P",
      "FCF",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   },
@@ -7848,7 +8216,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-27T05:53:02+01:00",
+   "classificacioActualitzada": "2026-10-27T05:54:44+01:00",
    "full": [
     [
      "MAN-ztk865nkbx",
@@ -7865,7 +8233,7 @@
      "Girona-Fontajau",
      "A mà",
      "ztk865nkbx",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-esco0uuuhv",
@@ -7882,7 +8250,7 @@
      "Sant Feliu de Llobregat",
      "A mà",
      "esco0uuuhv",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-truhyeq6xe",
@@ -7899,7 +8267,7 @@
      "Mollet del Vallès",
      "A mà",
      "truhyeq6xe",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-y44ua022n2",
@@ -7916,7 +8284,7 @@
      "El Prat de Llobregat",
      "A mà",
      "y44ua022n2",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536303",
@@ -7933,7 +8301,7 @@
      "PABELLÃN SIGLO XXI - Zaragoza (Zaragoza)",
      "FEB (feb.es)",
      "2536303",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536304",
@@ -7950,7 +8318,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536304",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536317",
@@ -7967,7 +8335,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536317",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-tv7wa6uqbx",
@@ -7984,7 +8352,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "A mà",
      "tv7wa6uqbx",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536319",
@@ -8001,7 +8369,7 @@
      "POL. MUNICIPAL DE AZPEITIA - Azpeitia (GuipÃºzcoa)",
      "FEB (feb.es)",
      "2536319",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536330",
@@ -8018,7 +8386,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536330",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536334",
@@ -8035,7 +8403,7 @@
      "Pavelló Joan Busquets - CEM Estruch (el Prat de Llobregat)",
      "FEB (feb.es)",
      "2536334",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536343",
@@ -8052,7 +8420,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536343",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536349",
@@ -8069,7 +8437,7 @@
      "PABELLON MUNICIPAL DE BENICARLO - BenicarlÃ³ (CastellÃ³n)",
      "FEB (feb.es)",
      "2536349",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536356",
@@ -8086,7 +8454,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536356",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536364",
@@ -8103,7 +8471,7 @@
      "Palacio de los Deportes de La Rioja - LogroÃ±o (La Rioja)",
      "FEB (feb.es)",
      "2536364",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536369",
@@ -8120,7 +8488,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536369",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536379",
@@ -8137,7 +8505,7 @@
      "Palacio de los Deportes de Cartagena",
      "FEB (feb.es)",
      "2536379",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536382",
@@ -8154,7 +8522,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536382",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536394",
@@ -8171,7 +8539,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536394",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536395",
@@ -8188,7 +8556,7 @@
      "Polideportivo Siroko Sa Pedrera (Sant Antoni de Portmany)",
      "FEB (feb.es)",
      "2536395",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536408",
@@ -8205,7 +8573,7 @@
      "PAB MUNI CIUTAT CASTELLO - CastellÃ³n de la Plana/CastellÃ³ (CastellÃ³n)",
      "FEB (feb.es)",
      "2536408",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536410",
@@ -8222,7 +8590,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536410",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536421",
@@ -8239,7 +8607,7 @@
      "POL. LOBETE - LogroÃ±o (La Rioja)",
      "FEB (feb.es)",
      "2536421",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536425",
@@ -8256,7 +8624,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536425",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536434",
@@ -8273,7 +8641,7 @@
      "Palacio Municipal de los Deportes (Osca)",
      "FEB (feb.es)",
      "2536434",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536440",
@@ -8290,7 +8658,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536440",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536447",
@@ -8307,7 +8675,7 @@
      "PABELLÃN PLA DEL ARC - Lliria (Valencia)",
      "FEB (feb.es)",
      "2536447",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536455",
@@ -8324,7 +8692,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536455",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536460",
@@ -8341,7 +8709,7 @@
      "Pabellón Serrerías (Molina de Segura)",
      "FEB (feb.es)",
      "2536460",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536470",
@@ -8358,7 +8726,7 @@
      "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536470",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "FEB-2536473",
@@ -8375,7 +8743,7 @@
      "PABELLON MUNICIPAL DE GANDIA - GandÃ­a (Valencia)",
      "FEB (feb.es)",
      "2536473",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -8409,7 +8777,7 @@
      "100,0%",
      "4",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8425,7 +8793,7 @@
      "100,0%",
      "3",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8441,7 +8809,7 @@
      "75,0%",
      "1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8457,7 +8825,7 @@
      "75,0%",
      "3",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8473,7 +8841,7 @@
      "75,0%",
      "-1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8489,7 +8857,7 @@
      "66,7%",
      "1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8505,7 +8873,7 @@
      "50,0%",
      "-1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8521,7 +8889,7 @@
      "50,0%",
      "-2",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8537,7 +8905,7 @@
      "50,0%",
      "-1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8553,7 +8921,7 @@
      "25,0%",
      "-1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8569,7 +8937,7 @@
      "25,0%",
      "1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8585,7 +8953,7 @@
      "25,0%",
      "1",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8601,7 +8969,7 @@
      "0,0%",
      "-4",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "2a FEB",
@@ -8617,7 +8985,7 @@
      "0,0%",
      "-4",
      "FEB (feb.es)",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   },
@@ -8633,8 +9001,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-27T05:53:02+01:00",
-    "darrerOk": "2026-10-27T05:53:02+01:00"
+    "quan": "2026-10-27T05:54:44+01:00",
+    "darrerOk": "2026-10-27T05:54:44+01:00"
    },
    "partits": [
     {
@@ -9251,7 +9619,7 @@
      "PAVELLO MUNICIPAL DE SARRIÀ DE TER",
      "A mà",
      "zbkug3jpji",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-2900ebm0kq",
@@ -9268,7 +9636,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "2900ebm0kq",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-m7bmnx5bj3",
@@ -9285,7 +9653,7 @@
      "PAVELLO MUNICIPAL FONTCOBERTA",
      "A mà",
      "m7bmnx5bj3",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-p43l9k4ue5",
@@ -9302,7 +9670,7 @@
      "PAVELLO MUNICIPAL EL MOLI DE LLORET DE MAR",
      "A mà",
      "p43l9k4ue5",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-w38drx3zyv",
@@ -9319,7 +9687,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "w38drx3zyv",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-lq2jvn0a26",
@@ -9336,7 +9704,7 @@
      "CENTRE ESPORTIU D'EN BAS",
      "A mà",
      "lq2jvn0a26",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-h0cmyocjk7",
@@ -9353,7 +9721,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "h0cmyocjk7",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-elzg1cp5og",
@@ -9370,7 +9738,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "elzg1cp5og",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-tzeult1j9j",
@@ -9387,7 +9755,7 @@
      "PAVELLO MARISTES DE GIRONA",
      "A mà",
      "tzeult1j9j",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-bjshcm6lke",
@@ -9404,7 +9772,7 @@
      "PAVELLO POLIESPORTIU DE VILOBI D'ONYAR",
      "A mà",
      "bjshcm6lke",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-y05um31ryj",
@@ -9421,7 +9789,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "y05um31ryj",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-785bckg3ck",
@@ -9438,7 +9806,7 @@
      "PAVELLO MUNICIPAL DE LLANÇA",
      "A mà",
      "785bckg3ck",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-bpr6lf1yjr",
@@ -9455,7 +9823,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "bpr6lf1yjr",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-ymvpbv9uan",
@@ -9472,7 +9840,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "ymvpbv9uan",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-gpxpmnixzc",
@@ -9489,7 +9857,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "gpxpmnixzc",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-yaz4yy10io",
@@ -9506,7 +9874,7 @@
      "PAVELLO POLIESPORTIU MUNICIPAL DE FORNELLS DE LA SELVA",
      "A mà",
      "yaz4yy10io",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-fdf96h1hz2",
@@ -9523,7 +9891,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "fdf96h1hz2",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-ivwa2yvklg",
@@ -9540,7 +9908,7 @@
      "PAVELLÓ POLIVALENT DE MAÇANET",
      "A mà",
      "ivwa2yvklg",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-au9gtmafgb",
@@ -9557,7 +9925,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "au9gtmafgb",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-ks22ovve3v",
@@ -9574,7 +9942,7 @@
      "PAVELLO LA FARGA DE BANYOLES",
      "A mà",
      "ks22ovve3v",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-0s54xwqks8",
@@ -9591,7 +9959,7 @@
      "PAVELLO MUNICIPAL ROSES",
      "A mà",
      "0s54xwqks8",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-wq71xqc18b",
@@ -9608,7 +9976,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "wq71xqc18b",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-r55n8zvxqr",
@@ -9625,7 +9993,7 @@
      "POLIESPORTIU MUNICIPAL DE CALDES DE MALAVELLA",
      "A mà",
      "r55n8zvxqr",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "MAN-kefb6m9y7p",
@@ -9642,7 +10010,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "kefb6m9y7p",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ],
    "fullClassificacio": [
@@ -9676,7 +10044,7 @@
      "100,00%",
      8,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9692,7 +10060,7 @@
      "100,00%",
      8,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9708,7 +10076,7 @@
      "100,00%",
      8,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9724,7 +10092,7 @@
      "100,00%",
      6,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9740,7 +10108,7 @@
      "50,00%",
      6,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9756,7 +10124,7 @@
      "50,00%",
      6,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9772,7 +10140,7 @@
      "50,00%",
      6,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9788,7 +10156,7 @@
      "25,00%",
      5,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9804,7 +10172,7 @@
      "25,00%",
      5,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9820,7 +10188,7 @@
      "33,33%",
      4,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9836,7 +10204,7 @@
      "0,00%",
      4,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9852,7 +10220,7 @@
      "0,00%",
      3,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -9868,7 +10236,7 @@
      "0,00%",
      3,
      "A mà",
-     "27/10/2026 05:53"
+     "27/10/2026 05:54"
     ]
    ]
   }
