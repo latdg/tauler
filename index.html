@@ -1194,24 +1194,27 @@ function pintaEnergia(codi) {
   cos.querySelectorAll(".tria-mun button").forEach(b => b.onclick = () => pintaEnergia(b.dataset.mun));
 }
 
+// 27.10.2026: el registre de l'ACA encara porta el nom antic d'alguna gestora.
+const GESTORA_ACTUAL = { "17022": "Aqlara" };
 function pintaAigua() {
   const cos = document.getElementById("aiguaCos"), w = SERV.aigua;
   if (!w || !w.municipis) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades.</p>'; return; }
   const files = MUN_ANTENES.map(c => [c, (w.municipis[c] || []).slice(-1)[0], (w.municipis[c] || [])]).filter(x => x[1]);
+  const anyP = files.length ? files[0][1].any : "—";
   const cat = w.catalunya;
   const cel = v => v === null || v === undefined ? "—" : dec(v, 3);
   let h = `<p class="font dalt">Actualitzat el ${esc(dataDMA(w.actualitzat))} · Font: Agència Catalana de l'Aigua, dades obertes de la Generalitat</p>` +
-    `<div class="taula"><table class="compara"><thead><tr><th>Municipi</th><th>Preu total</th><th>Subministrament</th><th>Cànon de l'aigua</th><th>Clavegueram</th><th>Qui la gestiona</th></tr></thead><tbody>` +
+    `<div class="taula"><table class="compara"><thead><tr><th>Municipi</th><th>Preu total ${anyP}</th><th>Subministrament</th><th>Cànon de l'aigua</th><th>Clavegueram</th><th>Qui la gestiona</th></tr></thead><tbody>` +
     files.map(([c, x, s]) => {
       const pri = s.find(y => y.any === x.any - 5);
       return `<tr><td class="nostre">${esc(NOMS_CURTS_MUN[c])}</td><td class="num"><b>${cel(x.preu)} €</b>` +
-        (pri && pri.preu ? `<br><span class="font">${pri.preu === x.preu ? "igual" : (x.preu > pri.preu ? "+" : "−") + dec(Math.abs((x.preu - pri.preu) / pri.preu * 100), 0) + " %"} des del ${pri.any}</span>` : "") +
+        (pri && pri.preu ? `<br><span class="font">el ${pri.any}, ${cel(pri.preu)} €</span>` : "") +
         `</td><td class="num">${cel(x.subministrament)} €</td><td class="num">${cel(x.canon)} €</td><td class="num">${cel(x.clavegueram)} €</td>` +
-        `<td>${esc(majFrase(x.gestora))}${x.gestio ? `<br><span class="font">Gestió ${esc(String(x.gestio).toLowerCase())}${x.tarifesSocials === "Sí" ? " · té tarifes socials" : ""}</span>` : ""}</td></tr>`;
+        `<td>${esc(GESTORA_ACTUAL[c] || majFrase(x.gestora))}${x.gestio ? `<br><span class="font">Gestió ${esc(String(x.gestio).toLowerCase())}${x.tarifesSocials === "Sí" ? " · té tarifes socials" : ""}</span>` : ""}</td></tr>`;
     }).join("") +
     (cat ? `<tr><td>Mitjana de Catalunya</td><td class="num"><b>${cel(cat.preu)} €</b></td><td colspan="4" class="font">${nCa(cat.municipis || 0)} municipis</td></tr>` : "") +
     `</tbody></table></div>` +
-    `<p class="font">Preu per metre cúbic (1.000 litres) del ${files.length ? files[0][1].any : "—"}, amb impostos, per a un consum domèstic de referència. ` +
+    `<p class="font">Preu per metre cúbic (1.000 litres) del ${anyP}, el darrer any publicat per l'ACA, amb impostos, per a un consum domèstic de referència. ` +
     `El preu total suma el subministrament, el cànon de l'Agència Catalana de l'Aigua i el clavegueram.</p>`;
   cos.innerHTML = h;
 }
