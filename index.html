@@ -405,7 +405,9 @@ async function carregaAgenda() {
     const desde = iso(t0);
     const vinents = (ag.actes || []).filter(a => a.data >= desde)
       .sort((a, b) => (a.data + (a.hora || "99")).localeCompare(b.data + (b.hora || "99")));
-    const actes = vinents.length ? vinents.filter(a => a.data === vinents[0].data) : [];
+    // 27.10.2026: es veu el primer dia amb actes; la resta de la setmana s'obre clicant (com a les farmàcies).
+    const fiSetmana = new Date(t0); fiSetmana.setDate(fiSetmana.getDate() + 7);
+    const actes = vinents.filter(a => a.data <= iso(fiSetmana) || a.data === (vinents[0] && vinents[0].data));
 
     if (peu && ag.actualitzat) {
       const g = new Date(ag.actualitzat);
@@ -421,10 +423,11 @@ async function carregaAgenda() {
       g.actes.push(a);
     });
 
-    cos.innerHTML = '<div class="agenda">' + grups.map(g => {
+    const pintaDia = (g, primer) => {
       const d = new Date(g.data + "T00:00:00");
       const dif = Math.round((d - t0) / 86400000);
       const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>'
+        : !primer ? (dif === 1 ? '<span class="ag-dema">Demà</span>' : "")
         : dif === 1 ? '<span class="ag-dema">Demà · pròxims actes</span>' : '<span class="ag-dema">Pròxims actes</span>';
       return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES_SETMANA[d.getDay()]} ` +
         `${g.data.split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
@@ -432,7 +435,10 @@ async function carregaAgenda() {
           (a.hora ? `<span class="ag-hora">🕒 ${esc(a.hora)}</span>` : "") +
           (a.municipi ? `<span class="ag-mun">📍 ${esc(AGENDA_NOMS[a.municipi] || a.municipi)}</span>` : "") +
           `</div><div class="ag-text">${esc(a.text)}</div></article>`).join("") + "</div></div>";
-    }).join("") + "</div>" + enllac;
+    };
+    const resta = grups.slice(1);
+    cos.innerHTML = '<div class="agenda">' + pintaDia(grups[0], true) + "</div>" +
+      (resta.length ? `<details class="fa-setmana"><summary>Veure els actes de tota la setmana</summary><div class="agenda">${resta.map(g => pintaDia(g, false)).join("")}</div></details>` : "") + enllac;
   } catch (e) {
     cos.innerHTML = '<p class="buit">Ara mateix no s\'ha pogut carregar l\'agenda.</p>' + enllac;
   }
@@ -635,7 +641,7 @@ function pinta(d) {
     "", false);
   
   // 0b. 💊 FARMÀCIES DE GUÀRDIA (27.10.2026): dades/serveis.json, cada dia a les 9.35 h.
-  h += seccio("💊 Farmàcies de guàrdia de la setmana",
+  h += seccio("💊 Farmàcies de guàrdia",
     '<p class="font dalt" id="farmPeu"></p><div id="farmCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
@@ -1160,7 +1166,7 @@ function pintaFarmacies() {
   const resta = dates.slice(1);
   cos.innerHTML = '<div class="agenda">' + pintaNit(dates[0]) + "</div>" +
     (resta.length ? `<details class="fa-setmana"><summary>Veure les guàrdies de tota la setmana</summary><div class="agenda">${resta.map(pintaNit).join("")}</div></details>` : "") +
-    `<p class="font">Farmàcies de guàrdia del grup de la Bisbal d'Empordà. La guàrdia és de nit, de les 20.00 h fins a les 9.15 h del matí de l'endemà; de dia, cada farmàcia obre en el seu horari. Abans d'anar-hi, val la pena trucar.</p>`;
+    `<p class="font">De dia, cada farmàcia obre en el seu horari. Abans d'anar-hi, val la pena trucar.</p>`;
 }
 
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
