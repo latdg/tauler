@@ -458,9 +458,9 @@ async function carregaEsports() {
       return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
         <p class="font dalt">${esc(e.categoria)}</p>` +
         (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
-          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${escClub(darrer.escutRival)}${esc(darrer.rival)} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
+          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${esc(darrer.rival)} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
         (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
-          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${escClub(proper.escutRival)}${esc(proper.rival)}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
+          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${esc(proper.rival)}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
           '<p class="esp-linia buit">Sense partits programats.</p>') + "</article>";
     }).join("") + "</div>";
 

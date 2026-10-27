@@ -200,7 +200,7 @@ function filaPartit(e, p, ambEquip) {
   return `<tr class="${p.data === avuiIso() ? "avui" : ""}">` +
     (ambEquip ? `<td>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom.replace("Sol Gironès Bisbal Bàsquet", "Sol Gironès"))}</td>` : "") +
     `<td>${esc(dataCa(p.data))}</td><td>${esc(p.hora ? p.hora.replace(":", ".") + " h" : "")}</td>` +
-    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${escClub(p.escutRival)}${esc(p.rival)}</td>` +
+    `<td>${p.localVisitant === "Visitant" ? "a " : p.localVisitant === "Local" ? "vs " : ""}${esc(p.rival)}</td>` +
     `<td class="res ${g}">${esc(p.resultat || (p.estat && p.estat !== "Programat" ? p.estat : ""))}</td>` +
     `<td>${esc(p.jornada ? "J" + p.jornada : "")} ${p.competicio !== e.competicio ? `<span class="etq">${esc(p.competicio)}</span>` : ""}` +
     `${p.manual ? ' <span class="etq ma">a mà</span>' : p.corregit ? ' <span class="etq ma">corregit</span>' : ""}</td>` +

@@ -191,7 +191,6 @@ def llegeix_futbol(eq):
                 "resultat": resultat, "estat": "Finalitzat" if jugat else "Programat",
                 "camp": str(m.get("CAMPO") or "").strip(), "font": "FCF (via latdg-fcf)",
                 "idFont": str(m.get("CODACTA") or ""),
-                "escutRival": escut_fcf(m.get("ESCUDO_FUERA") if local else m.get("ESCUDO_CASA")),
                 "escutPropi": escut_fcf(m.get("ESCUDO_CASA") if local else m.get("ESCUDO_FUERA")),
             })
     if not partits:
@@ -206,7 +205,9 @@ def llegeix_futbol(eq):
             "pj": num(r.get("played")), "pg": num(r.get("won")), "pe": num(r.get("drawn")),
             "pp": num(r.get("lost")), "pf": num(r.get("goalsFor")), "pc": num(r.get("goalsAgainst")),
             "punts": num(r.get("points")), "ratxa": ratxa_fcf(r.get("form")),
-            "propi": str(team.get("teamId")) == eq["codi"], "escut": escut_fcf(team.get("logo")),
+            "propi": str(team.get("teamId")) == eq["codi"],
+            # 27.10.2026: només l'escut dels nostres equips, no el dels rivals.
+            "escut": escut_fcf(team.get("logo")) if str(team.get("teamId")) == eq["codi"] else "",
         })
     return partits, {"tipus": "futbol", "files": files} if files else None
 
@@ -368,7 +369,6 @@ def llegeix_feb(eq):
                 "rival": NOMS_FEB.get(rival_id) or rival_nom.title(),
                 "resultat": res, "estat": "Finalitzat" if res else "Programat",
                 "camp": pavello_net(p["camp"]), "font": "FEB (feb.es)", "idFont": p["id"],
-                "escutRival": p["logoVisitant"] if local else p["logoLocal"],
                 "escutPropi": p["logoLocal"] if local else p["logoVisitant"],
             })
     if not partits:
@@ -426,7 +426,7 @@ def feb_classificacio(h):
             "pj": num(val("pj")), "pg": num(val("pg")), "pp": num(val("pp")), "pf": num(val("pf")),
             "pc": num(val("pc")), "dif": num(val("dif")), "pct": val("pct"), "ratxa": val("racha"),
             "propi": link.group(1) == FEB["idBisbal"],
-            "escut": urljoin(FEB["urlClassificacio"], logo.group(1)) if logo else "",
+            "escut": urljoin(FEB["urlClassificacio"], logo.group(1)) if logo and link.group(1) == FEB["idBisbal"] else "",
         })
     # Si la FEB no dona la posició, és l'ordre de la taula.
     for i, f in enumerate(files):
