@@ -82,6 +82,10 @@ main section{scroll-margin-top:16px}
 .serie span.ant{background:#c9c4b8}
 .serie-eix{display:flex;justify-content:space-between;font-size:.75rem;color:var(--suau)}
 .puja{color:#1e7b34}.baixa{color:#c0392b}
+/* Farmàcies, energia i aigua (27.10.2026) */
+.fa-tel{font-weight:600;white-space:nowrap}
+.serie-anys span{position:relative}
+.compara td.nostre{font-weight:600}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
 .leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:10px 12px}
@@ -237,7 +241,8 @@ const NOMS_CURTS = [
   [/edat dels edificis/i, "Edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
-  [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/atur/i, "Atur"],
+  [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Energia"], [/preu de l'aigua/i, "Aigua"],
+  [/farm[àa]cies/i, "Farmàcies"], [/atur/i, "Atur"],
   [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"]
 ];
 const nomCurt = titol => {
@@ -625,6 +630,10 @@ function pinta(d) {
     '<p class="font dalt" id="agendaPeu"></p><div id="agendaCos"><p class="buit">Carregant…</p></div>',
     "", false);
   
+  // 0b. 💊 FARMÀCIES DE GUÀRDIA (27.10.2026): dades/serveis.json, cada dia a les 9.35 h.
+  h += seccio("💊 Farmàcies de guàrdia de la setmana",
+    '<p class="font dalt" id="farmPeu"></p><div id="farmCos"><p class="buit">Carregant…</p></div>', "", false);
+
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
   h += seccio("🚦 Trànsit",
     `<h3>Càmera: ${esc(CAMERA_TRANSIT.nom)}</h3>` +
@@ -797,6 +806,10 @@ function pinta(d) {
   // 11. 🔌 PUNTS DE RECÀRREGA
   if (b.recarrega) h += seccio("🔌 Punts de recàrrega per a vehicles elèctrics",
     agrupat(b.recarrega), "ICAEN i MITERD / DGT");
+
+  // 11b. ☀️ PLAQUES SOLARS I CONSUM ELÈCTRIC i 🚰 PREU DE L'AIGUA (27.10.2026): dades/serveis.json.
+  h += seccio("☀️ Plaques solars i consum elèctric", '<div id="energiaCos"><p class="buit">Carregant…</p></div>', "", false);
+  h += seccio("🚰 Preu de l'aigua", '<div id="aiguaCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 12. 📉 ATUR I AFILIACIÓ
   if (b.atur && b.atur.municipis) {
@@ -1084,6 +1097,107 @@ async function carregaTurisme() {
   pintaTurisme("17022");
 }
 
+// -----------------------------------------------------------------------------
+// FARMÀCIES DE GUÀRDIA, PLAQUES SOLARS I CONSUM ELÈCTRIC, PREU DE L'AIGUA
+// (27.10.2026). Dades: dades/serveis.json (workflow «Serveis i energia»).
+// -----------------------------------------------------------------------------
+let SERV = null;
+const majFrase = t => String(t || "").toLowerCase().replace(/(^|[\s'(\-])(\p{L})/gu, (x, a, b) => a + b.toUpperCase())
+  .replace(/\b(De|Del|Dels|La|Les|El|Els|I|D'|L')\b/g, m => m.toLowerCase()).replace(/^./, c => c.toUpperCase());
+const dec = (n, d = 2) => Number(n).toLocaleString("ca-ES", { minimumFractionDigits: d, maximumFractionDigits: d });
+
+const POBLACIONS_FARM = { "LA BISBAL D'EMPORDA": "la Bisbal d'Empordà", "CORCA": "Corçà", "CRUILLES": "Cruïlles", "PALAMOS": "Palamós",
+  "SANT FELIU DE GUIXOLS": "Sant Feliu de Guíxols", "CASSA DE LA SELVA": "Cassà de la Selva", "CELRA": "Celrà", "L'ESTARTIT": "l'Estartit" };
+const poblacioFarm = t => POBLACIONS_FARM[String(t || "").toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")] || majFrase(t);
+function pintaFarmacies() {
+  const cos = document.getElementById("farmCos"), peu = document.getElementById("farmPeu");
+  const f = SERV && SERV.farmacies;
+  if (!f || !f.dies) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les guàrdies.</p>'; return; }
+  const fq = new Date(f.quan), z = n => String(n).padStart(2, "0");
+  peu.innerHTML = `Actualitzat el ${dataDMA(f.quan)} a les ${z(fq.getHours())}.${z(fq.getMinutes())} h · Font: <a href="${esc(f.font)}" target="_blank" rel="noopener">Col·legi de Farmacèutics de Girona</a>`;
+  const t0 = new Date(); t0.setHours(0, 0, 0, 0);
+  const dies = f.dies.filter(d => new Date(d.data + "T00:00:00") >= t0);
+  if (!dies.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
+  cos.innerHTML = '<div class="agenda">' + dies.map(g => {
+    const d = new Date(g.data + "T00:00:00"), dif = Math.round((d - t0) / 86400000);
+    const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>' : dif === 1 ? '<span class="ag-dema">Demà</span>' : "";
+    return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES_SETMANA[d.getDay()]} ${g.data.split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
+      (g.farmacies.length ? g.farmacies.map(x => `<article class="ag-acte"><div class="ag-cap"><span class="ag-hora">🕒 ${esc(x.horari)}</span>` +
+        `<span class="ag-mun">📍 ${esc(poblacioFarm(x.poblacio))}</span></div><div class="ag-text"><b>${esc(majFrase(x.farmacia))}</b><br>` +
+        `<a href="https://www.google.com/maps/search/${encodeURIComponent(x.adreca + ", " + x.poblacio)}" target="_blank" rel="noopener">${esc(x.adreca)}</a>` +
+        (x.telefon ? `<br><a class="fa-tel" href="tel:${esc(x.telefon.replace(/\s/g, ""))}">📞 ${esc(x.telefon.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3"))}</a>` : "") +
+        `</div></article>`).join("") : '<p class="buit">El Col·legi no en dona cap per a aquest dia.</p>') + "</div></div>";
+  }).join("") + "</div>" +
+    `<p class="font">Guàrdies del grup de la Bisbal d'Empordà. L'horari de cada dia comença a les 9 h del matí i acaba a la mateixa hora de l'endemà, llevat que s'indiqui un altre. Abans d'anar-hi de nit, val la pena trucar.</p>`;
+}
+
+const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
+function serieAnys(serie, valor, etiq) {
+  const max = Math.max(1, ...serie.map(valor));
+  return `<div class="serie serie-anys">${serie.map(x => `<span style="height:${(valor(x) / max * 100).toFixed(0)}%" title="${esc(etiq(x))}"></span>`).join("")}</div>` +
+    `<div class="serie-eix"><span>${esc(serie[0] ? (serie[0].any || serie[0][0]) : "")}</span><span>${esc(serie.length ? (serie[serie.length - 1].any || serie[serie.length - 1][0]) : "")}</span></div>`;
+}
+function pintaEnergia(codi) {
+  const cos = document.getElementById("energiaCos");
+  const a = ((SERV.autoconsum || {}).municipis || {})[codi], c = ((SERV.consum || {}).municipis || {})[codi] || [];
+  let h = triadorMun(MUN_ANTENES, codi);
+  if (a) {
+    const anys = a.perAny.filter(x => Number(x[0]) >= 2015);
+    const darrerComplet = anys.filter(x => Number(x[0]) < new Date().getFullYear()).slice(-1)[0];
+    h += `<h3>Instal·lacions d'autoconsum (plaques solars)</h3>` +
+      `<div class="xifres"><div class="xifra"><b>${nCa(a.n)}</b><span>instal·lacions inscrites</span></div>` +
+      `<div class="xifra"><b>${dec(a.kw / 1000, 2)} MW</b><span>de potència en total</span></div>` +
+      (darrerComplet ? `<div class="xifra"><b>${nCa(darrerComplet[1])}</b><span>de noves el ${esc(darrerComplet[0])}</span></div>` : "") + `</div>` +
+      (anys.length ? `<p class="font" style="margin:0">Noves instal·lacions cada any</p>` + serieAnys(anys, x => x[1], x => `${x[0]}: ${x[1]} instal·lacions, ${dec(x[2], 1)} kW`) : "") +
+      (a.darreres && a.darreres.length ? `<p class="font">Darreres inscrites: ${a.darreres.slice(0, 5).map(x => `${esc(dataDMA(x.data))} (${dec(x.kw, 1)} kW)`).join(" · ")}.</p>` : "");
+  }
+  const u = c[c.length - 1];
+  if (u) {
+    const sec = Object.entries(u.sectors).filter(([, v]) => v > 0).sort((x, y) => y[1] - x[1]), max = Math.max(1, ...sec.map(x => x[1]));
+    const ant = c.find(x => x.any === u.any - 5);
+    const v5 = ant && ant.total ? (u.total - ant.total) / ant.total * 100 : null;
+    h += `<h3>Consum d'electricitat el ${u.any}</h3><p><b>${dec(u.total / 1e6, 1)} GWh</b> en tot el municipi` +
+      (v5 !== null ? ` (<span class="${v5 <= 0 ? "puja" : "baixa"}">${v5 >= 0 ? "+" : "−"}${dec(Math.abs(v5), 0)} %</span> respecte al ${ant.any})` : "") + `.</p>` +
+      `<div class="barres">${sec.map(([k, v]) => `<span>${esc(SECTORS[k] || majFrase(k))}</span><span class="barra" style="width:${(v / max * 100).toFixed(0)}%"></span><span class="num">${dec(v / 1e6, 2)} GWh · ${dec(v / u.total * 100, 0)} %</span>`).join("")}</div>` +
+      `<p class="font" style="margin:10px 0 0">Evolució del consum total</p>` + serieAnys(c, x => x.total, x => `${x.any}: ${dec(x.total / 1e6, 1)} GWh`);
+  }
+  h += `<p class="font">Autoconsum: registre d'instal·lacions d'autoconsum d'energia elèctrica (actualitzat el ${esc(dataDMA((SERV.autoconsum || {}).actualitzat))}). ` +
+    `Consum: Institut Català d'Energia (actualitzat el ${esc(dataDMA((SERV.consum || {}).actualitzat))}); el darrer any publicat és el ${u ? u.any : "—"}. Dades obertes de la Generalitat.</p>`;
+  cos.innerHTML = h;
+  cos.querySelectorAll(".tria-mun button").forEach(b => b.onclick = () => pintaEnergia(b.dataset.mun));
+}
+
+function pintaAigua() {
+  const cos = document.getElementById("aiguaCos"), w = SERV.aigua;
+  if (!w || !w.municipis) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades.</p>'; return; }
+  const files = MUN_ANTENES.map(c => [c, (w.municipis[c] || []).slice(-1)[0], (w.municipis[c] || [])]).filter(x => x[1]);
+  const cat = w.catalunya;
+  const cel = v => v === null || v === undefined ? "—" : dec(v, 3);
+  let h = `<p class="font dalt">Actualitzat el ${esc(dataDMA(w.actualitzat))} · Font: Agència Catalana de l'Aigua, dades obertes de la Generalitat</p>` +
+    `<div class="taula"><table class="compara"><thead><tr><th>Municipi</th><th>Preu total</th><th>Subministrament</th><th>Cànon de l'aigua</th><th>Clavegueram</th><th>Qui la gestiona</th></tr></thead><tbody>` +
+    files.map(([c, x, s]) => {
+      const pri = s.find(y => y.any === x.any - 5);
+      return `<tr><td class="nostre">${esc(NOMS_CURTS_MUN[c])}</td><td class="num"><b>${cel(x.preu)} €</b>` +
+        (pri && pri.preu ? `<br><span class="font">${pri.preu === x.preu ? "igual" : (x.preu > pri.preu ? "+" : "−") + dec(Math.abs((x.preu - pri.preu) / pri.preu * 100), 0) + " %"} des del ${pri.any}</span>` : "") +
+        `</td><td class="num">${cel(x.subministrament)} €</td><td class="num">${cel(x.canon)} €</td><td class="num">${cel(x.clavegueram)} €</td>` +
+        `<td>${esc(majFrase(x.gestora))}${x.gestio ? `<br><span class="font">Gestió ${esc(String(x.gestio).toLowerCase())}${x.tarifesSocials === "Sí" ? " · té tarifes socials" : ""}</span>` : ""}</td></tr>`;
+    }).join("") +
+    (cat ? `<tr><td>Mitjana de Catalunya</td><td class="num"><b>${cel(cat.preu)} €</b></td><td colspan="4" class="font">${nCa(cat.municipis || 0)} municipis</td></tr>` : "") +
+    `</tbody></table></div>` +
+    `<p class="font">Preu per metre cúbic (1.000 litres) del ${files.length ? files[0][1].any : "—"}, amb impostos, per a un consum domèstic de referència. ` +
+    `El preu total suma el subministrament, el cànon de l'Agència Catalana de l'Aigua i el clavegueram.</p>`;
+  cos.innerHTML = h;
+}
+
+async function carregaServeis() {
+  try { SERV = await json("dades/serveis.json"); }
+  catch (e) { ["farmCos", "energiaCos", "aiguaCos"].forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = '<p class="buit">Ara mateix no s\'han pogut carregar les dades.</p>'; }); return; }
+  try { pintaFarmacies(); } catch (e) { console.error(e); }
+  try { pintaEnergia("17022"); } catch (e) { console.error(e); }
+  try { pintaAigua(); } catch (e) { console.error(e); }
+  normalitzaDates(document.querySelector("main"));
+}
+
 // La càmera mostra l'hora de la darrera imatge i es refresca cada minut.
 function iniciaCamera() {
   const img = document.getElementById("imgCamera");
@@ -1126,6 +1240,7 @@ async function inicia() {
     carregaDea();
     carregaEdificis();
     carregaTurisme();
+    carregaServeis();
     carregaEsports();
   } catch (e) {
     document.getElementById("sub").textContent = triat ? "No hi ha dades d'aquest dia." : "Encara no hi ha dades publicades.";
