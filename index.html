@@ -385,7 +385,7 @@ const DIES_SETMANA = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "D
 const AGENDA_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/agenda.json";
 const AGENDA_NOMS = { "LB": "La Bisbal", "CMSS": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
 // 27.10.2026: només els actes d'avui; si avui no n'hi ha, els del pròxim dia que en tingui.
-// La resta, a «Tota l'agenda».
+// La resta, a «Editar l'agenda».
 
 async function carregaAgenda() {
   const cos = document.getElementById("agendaCos");
@@ -412,7 +412,7 @@ async function carregaAgenda() {
     if (peu && ag.actualitzat) {
       const g = new Date(ag.actualitzat);
       peu.innerHTML = "Actualitzat el " + dos(g.getDate()) + "." + dos(g.getMonth() + 1) + "." + g.getFullYear() +
-        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h · <a href=\"agenda/\">Tota l'agenda</a>";
+        " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h · <a href=\"agenda/\">Editar l'agenda</a>";
     }
     if (!actes.length) { cos.innerHTML = '<p class="buit">No hi ha cap acte previst.</p>' + enllac; return; }
 
