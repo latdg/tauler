@@ -84,6 +84,9 @@ main section{scroll-margin-top:16px}
 .puja{color:#1e7b34}.baixa{color:#c0392b}
 /* Farmàcies, energia i aigua (27.10.2026) */
 .fa-tel{font-weight:600;white-space:nowrap}
+.fa-setmana{margin-top:10px}
+.fa-setmana summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:.92rem;padding:4px 0}
+.fa-setmana[open] summary{margin-bottom:10px}
 .serie-anys span{position:relative}
 .compara td.nostre{font-weight:600}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
@@ -1118,7 +1121,7 @@ function pintaFarmacies() {
   const t0 = new Date(); t0.setHours(0, 0, 0, 0);
   const dies = f.dies.filter(d => new Date(d.data + "T00:00:00") >= t0);
   if (!dies.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
-  cos.innerHTML = '<div class="agenda">' + dies.map(g => {
+  const pintaDia = g => {
     const d = new Date(g.data + "T00:00:00"), dif = Math.round((d - t0) / 86400000);
     const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>' : dif === 1 ? '<span class="ag-dema">Demà</span>' : "";
     return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES_SETMANA[d.getDay()]} ${g.data.split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
@@ -1127,7 +1130,11 @@ function pintaFarmacies() {
         `<a href="https://www.google.com/maps/search/${encodeURIComponent(x.adreca + ", " + x.poblacio)}" target="_blank" rel="noopener">${esc(x.adreca)}</a>` +
         (x.telefon ? `<br><a class="fa-tel" href="tel:${esc(x.telefon.replace(/\s/g, ""))}">📞 ${esc(x.telefon.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3"))}</a>` : "") +
         `</div></article>`).join("") : '<p class="buit">El Col·legi no en dona cap per a aquest dia.</p>') + "</div></div>";
-  }).join("") + "</div>" +
+  };
+  // 27.10.2026: es veu la guàrdia del dia; la resta de la setmana s'obre clicant.
+  const resta = dies.slice(1);
+  cos.innerHTML = '<div class="agenda">' + pintaDia(dies[0]) + "</div>" +
+    (resta.length ? `<details class="fa-setmana"><summary>Veure les guàrdies de tota la setmana</summary><div class="agenda">${resta.map(pintaDia).join("")}</div></details>` : "") +
     `<p class="font">Guàrdies del grup de la Bisbal d'Empordà. L'horari de cada dia comença a les 9 h del matí i acaba a la mateixa hora de l'endemà, llevat que s'indiqui un altre. Abans d'anar-hi de nit, val la pena trucar.</p>`;
 }
 
