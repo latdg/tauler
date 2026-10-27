@@ -1,0 +1,1309 @@
+{
+ "generat": "2026-10-27T06:06:40+00:00",
+ "municipis": {
+  "17022": "la Bisbal d'Empordà",
+  "17057": "Corçà",
+  "17902": "Forallac",
+  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
+ },
+ "farmacies": {
+  "quan": "2026-10-27T06:06:42+00:00",
+  "titol": "TOTES LES FARMÀCIES DE GUÀRDIA (Fins avui 27/10/2026 a les 09:00 o 09:30 del matí)",
+  "columnes": [
+   "Farmàcia",
+   "Població",
+   "Horari",
+   "",
+   "Adreça",
+   "Telèfon",
+   ""
+  ],
+  "zona": [
+   {
+    "Farmàcia": "A. LAGUILLO SALA",
+    "Població": "CASSA DE LA SELVA",
+    "Horari": "Avui fins les 09:00",
+    "c3": "Ctra. Provincial, 289",
+    "Adreça": "972464555",
+    "Telèfon": "",
+    "_telefon": true
+   },
+   {
+    "Farmàcia": "C. CECILIA NEDEA",
+    "Població": "LA BISBAL D'EMPORDA",
+    "Horari": "Avui fins les 09:00",
+    "c3": "C/Jaume II, 14",
+    "Adreça": "674038640",
+    "Telèfon": "",
+    "_telefon": true
+   },
+   {
+    "Farmàcia": "M. LLUISA DORCA GARCIA",
+    "Població": "PALAFRUGELL",
+    "Horari": "Avui fins les 09:00",
+    "c3": "C/Cavallers, 38",
+    "Adreça": "972300736",
+    "Telèfon": "",
+    "_telefon": false
+   },
+   {
+    "Farmàcia": "CARMEN M. GOMEZ MAESTRE",
+    "Població": "PALAMOS",
+    "Horari": "Avui fins les 09:00",
+    "c3": "Avgda. Catalunya, 3",
+    "Adreça": "972316197",
+    "Telèfon": "",
+    "_telefon": false
+   },
+   {
+    "Farmàcia": "R. PRAT CORTIELLA",
+    "Població": "SANT FELIU DE GUIXOLS",
+    "Horari": "Avui fins les 09:00",
+    "c3": "C/Rufo, 27",
+    "Adreça": "972320429",
+    "Telèfon": "",
+    "_telefon": false
+   },
+   {
+    "Farmàcia": "C. ALABALL RADRESA",
+    "Població": "L'ESTARTIT",
+    "Horari": "Avui fins les 09:30",
+    "c3": "Avgda. de Grècia, 14",
+    "Adreça": "972750524",
+    "Telèfon": "",
+    "_telefon": true
+   }
+  ],
+  "total": 20,
+  "font": "https://www.cofgi.org/farmacies/farmacies-de-guardia"
+ },
+ "autoconsum": {
+  "actualitzat": "2026-06-01T08:13:44+00:00",
+  "municipis": {
+   "17022": {
+    "n": 191,
+    "kw": 1362.9,
+    "tecnologia": [
+     [
+      "Fotovoltaica",
+      191
+     ]
+    ],
+    "perAny": [
+     [
+      "2019",
+      3,
+      14.9
+     ],
+     [
+      "2020",
+      5,
+      21.0
+     ],
+     [
+      "2021",
+      16,
+      75.3
+     ],
+     [
+      "2022",
+      41,
+      195.9
+     ],
+     [
+      "2023",
+      76,
+      575.3
+     ],
+     [
+      "2024",
+      30,
+      309.9
+     ],
+     [
+      "2025",
+      20,
+      170.7
+     ]
+    ],
+    "darreres": [
+     {
+      "data": "2025-12-13",
+      "kw": 6.3,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-11-26",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-11-23",
+      "kw": 6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-11-15",
+      "kw": 5.75,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-11-13",
+      "kw": 6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-11-04",
+      "kw": 6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-10-28",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-10-14",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-10-08",
+      "kw": 25,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-10-05",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     }
+    ]
+   },
+   "17057": {
+    "n": 87,
+    "kw": 1923.5,
+    "tecnologia": [
+     [
+      "Fotovoltaica",
+      87
+     ]
+    ],
+    "perAny": [
+     [
+      "2019",
+      1,
+      5.0
+     ],
+     [
+      "2020",
+      5,
+      17.6
+     ],
+     [
+      "2021",
+      8,
+      58.4
+     ],
+     [
+      "2022",
+      17,
+      97.5
+     ],
+     [
+      "2023",
+      36,
+      1024.4
+     ],
+     [
+      "2024",
+      13,
+      568.0
+     ],
+     [
+      "2025",
+      7,
+      152.5
+     ]
+    ],
+    "darreres": [
+     {
+      "data": "2025-12-07",
+      "kw": 6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-12-07",
+      "kw": 8.5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-11-03",
+      "kw": 100,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-09-10",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-08-30",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-04-22",
+      "kw": 3,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-02-08",
+      "kw": 25,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-10-08",
+      "kw": 6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-08-18",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-08-05",
+      "kw": 3.8,
+      "tecnologia": "Fotovoltaica"
+     }
+    ]
+   },
+   "17902": {
+    "n": 105,
+    "kw": 1196.3,
+    "tecnologia": [
+     [
+      "Fotovoltaica",
+      105
+     ]
+    ],
+    "perAny": [
+     [
+      "2014",
+      1,
+      45.0
+     ],
+     [
+      "2019",
+      2,
+      7.5
+     ],
+     [
+      "2020",
+      3,
+      28.0
+     ],
+     [
+      "2021",
+      13,
+      93.0
+     ],
+     [
+      "2022",
+      22,
+      241.5
+     ],
+     [
+      "2023",
+      35,
+      304.4
+     ],
+     [
+      "2024",
+      20,
+      388.6
+     ],
+     [
+      "2025",
+      9,
+      88.2
+     ]
+    ],
+    "darreres": [
+     {
+      "data": "2025-11-11",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-08-12",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-08-10",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-07-14",
+      "kw": 25,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-06-23",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-03-03",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-02-09",
+      "kw": 3,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-01-27",
+      "kw": 9.2,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-01-26",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-12-24",
+      "kw": 2.4,
+      "tecnologia": "Fotovoltaica"
+     }
+    ]
+   },
+   "17901": {
+    "n": 95,
+    "kw": 726.7,
+    "tecnologia": [
+     [
+      "Fotovoltaica",
+      95
+     ]
+    ],
+    "perAny": [
+     [
+      "2019",
+      1,
+      5.0
+     ],
+     [
+      "2020",
+      4,
+      18.1
+     ],
+     [
+      "2021",
+      11,
+      73.0
+     ],
+     [
+      "2022",
+      23,
+      180.6
+     ],
+     [
+      "2023",
+      34,
+      217.6
+     ],
+     [
+      "2024",
+      16,
+      196.9
+     ],
+     [
+      "2025",
+      6,
+      35.5
+     ]
+    ],
+    "darreres": [
+     {
+      "data": "2025-08-31",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-05-25",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-05-06",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-04-29",
+      "kw": 2,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-02-16",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2025-01-21",
+      "kw": 3.5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-12-23",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-10-28",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-10-12",
+      "kw": 5,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-10-05",
+      "kw": 15,
+      "tecnologia": "Fotovoltaica"
+     }
+    ]
+   }
+  }
+ },
+ "consum": {
+  "actualitzat": "2025-12-17T17:26:09+00:00",
+  "municipis": {
+   "17022": [
+    {
+     "any": 2013,
+     "total": 29016058,
+     "sectors": {
+      "PRIMARI": 63262,
+      "INDUSTRIAL": 2643680,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 124227,
+      "SERVEIS": 13129203,
+      "USOS DOMESTICS": 13055686
+     }
+    },
+    {
+     "any": 2014,
+     "total": 27690713,
+     "sectors": {
+      "PRIMARI": 58195,
+      "INDUSTRIAL": 2670266,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 124802,
+      "SERVEIS": 12622599,
+      "USOS DOMESTICS": 12214851
+     }
+    },
+    {
+     "any": 2015,
+     "total": 27369679,
+     "sectors": {
+      "PRIMARI": 62782,
+      "INDUSTRIAL": 1352770,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 122952,
+      "SERVEIS": 13112608,
+      "USOS DOMESTICS": 12718567
+     }
+    },
+    {
+     "any": 2016,
+     "total": 27645854,
+     "sectors": {
+      "PRIMARI": 70886,
+      "INDUSTRIAL": 1383708,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 107072,
+      "SERVEIS": 13191144,
+      "USOS DOMESTICS": 12893044
+     }
+    },
+    {
+     "any": 2017,
+     "total": 27868404,
+     "sectors": {
+      "PRIMARI": 75178,
+      "INDUSTRIAL": 1624430,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 68700,
+      "SERVEIS": 13193748,
+      "USOS DOMESTICS": 12906348
+     }
+    },
+    {
+     "any": 2018,
+     "total": 28368745,
+     "sectors": {
+      "PRIMARI": 74855,
+      "INDUSTRIAL": 1692566,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 123736,
+      "SERVEIS": 13331017,
+      "USOS DOMESTICS": 13146571
+     }
+    },
+    {
+     "any": 2019,
+     "total": 28159436,
+     "sectors": {
+      "PRIMARI": 73199,
+      "INDUSTRIAL": 1695154,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 161906,
+      "SERVEIS": 13217452,
+      "USOS DOMESTICS": 13011725
+     }
+    },
+    {
+     "any": 2020,
+     "total": 27286691,
+     "sectors": {
+      "PRIMARI": 59651,
+      "INDUSTRIAL": 1388413,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 159149,
+      "SERVEIS": 12092213,
+      "USOS DOMESTICS": 13587265
+     }
+    },
+    {
+     "any": 2021,
+     "total": 27302075,
+     "sectors": {
+      "PRIMARI": 66459,
+      "INDUSTRIAL": 1481933,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 178948,
+      "SERVEIS": 12467963,
+      "USOS DOMESTICS": 13106772
+     }
+    },
+    {
+     "any": 2022,
+     "total": 26931253,
+     "sectors": {
+      "PRIMARI": 64324,
+      "INDUSTRIAL": 1447464,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 163471,
+      "SERVEIS": 12366202,
+      "USOS DOMESTICS": 12889792
+     }
+    },
+    {
+     "any": 2023,
+     "total": 26685161,
+     "sectors": {
+      "PRIMARI": 53347,
+      "INDUSTRIAL": 1383170,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 160150,
+      "SERVEIS": 12169969,
+      "USOS DOMESTICS": 12918525
+     }
+    },
+    {
+     "any": 2024,
+     "total": 26684164,
+     "sectors": {
+      "PRIMARI": 46513,
+      "INDUSTRIAL": 1149701,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 145488,
+      "SERVEIS": 12141976,
+      "USOS DOMESTICS": 13200486
+     }
+    }
+   ],
+   "17057": [
+    {
+     "any": 2013,
+     "total": 6269350,
+     "sectors": {
+      "PRIMARI": 40544,
+      "INDUSTRIAL": 1415368,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 2672675,
+      "USOS DOMESTICS": 2140763
+     }
+    },
+    {
+     "any": 2014,
+     "total": 6502054,
+     "sectors": {
+      "PRIMARI": 45540,
+      "INDUSTRIAL": 1529804,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 2893253,
+      "USOS DOMESTICS": 2033457
+     }
+    },
+    {
+     "any": 2015,
+     "total": 6933894,
+     "sectors": {
+      "PRIMARI": 37825,
+      "INDUSTRIAL": 1657123,
+      "SERVEIS": 3211948,
+      "USOS DOMESTICS": 2026998
+     }
+    },
+    {
+     "any": 2016,
+     "total": 7441473,
+     "sectors": {
+      "PRIMARI": 47847,
+      "INDUSTRIAL": 1751218,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 4507,
+      "SERVEIS": 3473428,
+      "USOS DOMESTICS": 2164473
+     }
+    },
+    {
+     "any": 2017,
+     "total": 7847007,
+     "sectors": {
+      "PRIMARI": 29003,
+      "INDUSTRIAL": 1810070,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 3550,
+      "SERVEIS": 3758772,
+      "USOS DOMESTICS": 2245612
+     }
+    },
+    {
+     "any": 2018,
+     "total": 8453525,
+     "sectors": {
+      "PRIMARI": 14968,
+      "INDUSTRIAL": 1929941,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 2742,
+      "SERVEIS": 4210911,
+      "USOS DOMESTICS": 2294963
+     }
+    },
+    {
+     "any": 2019,
+     "total": 8746902,
+     "sectors": {
+      "PRIMARI": 0,
+      "INDUSTRIAL": 1891003,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 10304,
+      "SERVEIS": 4686698,
+      "USOS DOMESTICS": 2158897
+     }
+    },
+    {
+     "any": 2020,
+     "total": 6983660,
+     "sectors": {
+      "PRIMARI": 4520,
+      "INDUSTRIAL": 1904976,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 21510,
+      "SERVEIS": 2810017,
+      "USOS DOMESTICS": 2242637
+     }
+    },
+    {
+     "any": 2021,
+     "total": 7736867,
+     "sectors": {
+      "PRIMARI": 20994,
+      "INDUSTRIAL": 2161090,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 10985,
+      "SERVEIS": 3455229,
+      "USOS DOMESTICS": 2088569
+     }
+    },
+    {
+     "any": 2022,
+     "total": 9115234,
+     "sectors": {
+      "PRIMARI": 40660,
+      "INDUSTRIAL": 2125169,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 4024,
+      "SERVEIS": 4771136,
+      "USOS DOMESTICS": 2174245
+     }
+    },
+    {
+     "any": 2023,
+     "total": 8947595,
+     "sectors": {
+      "PRIMARI": 47341,
+      "INDUSTRIAL": 2007929,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 6144,
+      "SERVEIS": 4620385,
+      "USOS DOMESTICS": 2265796
+     }
+    },
+    {
+     "any": 2024,
+     "total": 8950714,
+     "sectors": {
+      "PRIMARI": 60591,
+      "INDUSTRIAL": 1922590,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 8416,
+      "SERVEIS": 4630914,
+      "USOS DOMESTICS": 2328203
+     }
+    }
+   ],
+   "17902": [
+    {
+     "any": 2013,
+     "total": 10467971,
+     "sectors": {
+      "PRIMARI": 118014,
+      "INDUSTRIAL": 2422711,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 45428,
+      "SERVEIS": 3644233,
+      "USOS DOMESTICS": 4237585
+     }
+    },
+    {
+     "any": 2014,
+     "total": 10169549,
+     "sectors": {
+      "PRIMARI": 106815,
+      "INDUSTRIAL": 2399805,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 23098,
+      "SERVEIS": 3528760,
+      "USOS DOMESTICS": 4111071
+     }
+    },
+    {
+     "any": 2015,
+     "total": 10551223,
+     "sectors": {
+      "PRIMARI": 121920,
+      "INDUSTRIAL": 2556650,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 54811,
+      "SERVEIS": 3504054,
+      "USOS DOMESTICS": 4313788
+     }
+    },
+    {
+     "any": 2016,
+     "total": 10429566,
+     "sectors": {
+      "PRIMARI": 113019,
+      "INDUSTRIAL": 2600561,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 3382,
+      "SERVEIS": 3400248,
+      "USOS DOMESTICS": 4312356
+     }
+    },
+    {
+     "any": 2017,
+     "total": 10868529,
+     "sectors": {
+      "PRIMARI": 118720,
+      "INDUSTRIAL": 2948458,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 3910,
+      "SERVEIS": 3503386,
+      "USOS DOMESTICS": 4294055
+     }
+    },
+    {
+     "any": 2018,
+     "total": 10987742,
+     "sectors": {
+      "PRIMARI": 149752,
+      "INDUSTRIAL": 2750468,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 6052,
+      "SERVEIS": 3638875,
+      "USOS DOMESTICS": 4442595
+     }
+    },
+    {
+     "any": 2019,
+     "total": 11028846,
+     "sectors": {
+      "PRIMARI": 150641,
+      "INDUSTRIAL": 2815335,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 30934,
+      "SERVEIS": 3448706,
+      "USOS DOMESTICS": 4583230
+     }
+    },
+    {
+     "any": 2020,
+     "total": 10456108,
+     "sectors": {
+      "PRIMARI": 120802,
+      "INDUSTRIAL": 2369194,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 38799,
+      "SERVEIS": 3140719,
+      "USOS DOMESTICS": 4786594
+     }
+    },
+    {
+     "any": 2021,
+     "total": 10796319,
+     "sectors": {
+      "PRIMARI": 121761,
+      "INDUSTRIAL": 2623971,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 30280,
+      "SERVEIS": 3375321,
+      "USOS DOMESTICS": 4644986
+     }
+    },
+    {
+     "any": 2022,
+     "total": 11379742,
+     "sectors": {
+      "PRIMARI": 87163,
+      "INDUSTRIAL": 2697904,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 71394,
+      "SERVEIS": 3603682,
+      "USOS DOMESTICS": 4919599
+     }
+    },
+    {
+     "any": 2023,
+     "total": 10570334,
+     "sectors": {
+      "PRIMARI": 81799,
+      "INDUSTRIAL": 1990720,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 30108,
+      "SERVEIS": 3500469,
+      "USOS DOMESTICS": 4967238
+     }
+    },
+    {
+     "any": 2024,
+     "total": 10917249,
+     "sectors": {
+      "PRIMARI": 76857,
+      "INDUSTRIAL": 1975512,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 65553,
+      "SERVEIS": 3776721,
+      "USOS DOMESTICS": 5022606
+     }
+    }
+   ],
+   "17901": [
+    {
+     "any": 2013,
+     "total": 5085121,
+     "sectors": {
+      "PRIMARI": 35045,
+      "INDUSTRIAL": 196004,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 112701,
+      "SERVEIS": 2022091,
+      "USOS DOMESTICS": 2719280
+     }
+    },
+    {
+     "any": 2014,
+     "total": 4898950,
+     "sectors": {
+      "PRIMARI": 29297,
+      "INDUSTRIAL": 188673,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 115705,
+      "SERVEIS": 1951551,
+      "USOS DOMESTICS": 2613724
+     }
+    },
+    {
+     "any": 2015,
+     "total": 4976661,
+     "sectors": {
+      "PRIMARI": 39715,
+      "INDUSTRIAL": 221428,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 47292,
+      "SERVEIS": 1974524,
+      "USOS DOMESTICS": 2693702
+     }
+    },
+    {
+     "any": 2016,
+     "total": 5131166,
+     "sectors": {
+      "PRIMARI": 45818,
+      "INDUSTRIAL": 224124,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 40046,
+      "SERVEIS": 2093758,
+      "USOS DOMESTICS": 2727420
+     }
+    },
+    {
+     "any": 2017,
+     "total": 5222201,
+     "sectors": {
+      "PRIMARI": 47685,
+      "INDUSTRIAL": 255746,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 53072,
+      "SERVEIS": 2084679,
+      "USOS DOMESTICS": 2781019
+     }
+    },
+    {
+     "any": 2018,
+     "total": 5412106,
+     "sectors": {
+      "PRIMARI": 48777,
+      "INDUSTRIAL": 217826,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 18982,
+      "SERVEIS": 2100321,
+      "USOS DOMESTICS": 3026200
+     }
+    },
+    {
+     "any": 2019,
+     "total": 5349871,
+     "sectors": {
+      "PRIMARI": 62719,
+      "INDUSTRIAL": 199219,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 19247,
+      "SERVEIS": 2078209,
+      "USOS DOMESTICS": 2990477
+     }
+    },
+    {
+     "any": 2020,
+     "total": 5361940,
+     "sectors": {
+      "PRIMARI": 62988,
+      "INDUSTRIAL": 182052,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 20155,
+      "SERVEIS": 2008508,
+      "USOS DOMESTICS": 3088237
+     }
+    },
+    {
+     "any": 2021,
+     "total": 5444349,
+     "sectors": {
+      "PRIMARI": 59852,
+      "INDUSTRIAL": 286136,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 19239,
+      "SERVEIS": 2158349,
+      "USOS DOMESTICS": 2920773
+     }
+    },
+    {
+     "any": 2022,
+     "total": 5298245,
+     "sectors": {
+      "PRIMARI": 55119,
+      "INDUSTRIAL": 219931,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 20958,
+      "SERVEIS": 2063581,
+      "USOS DOMESTICS": 2938656
+     }
+    },
+    {
+     "any": 2023,
+     "total": 5305787,
+     "sectors": {
+      "PRIMARI": 48519,
+      "INDUSTRIAL": 200977,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 24467,
+      "SERVEIS": 2130183,
+      "USOS DOMESTICS": 2901641
+     }
+    },
+    {
+     "any": 2024,
+     "total": 5641621,
+     "sectors": {
+      "PRIMARI": 56176,
+      "INDUSTRIAL": 211393,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 42023,
+      "SERVEIS": 2306708,
+      "USOS DOMESTICS": 3025321
+     }
+    }
+   ]
+  }
+ },
+ "aigua": {
+  "actualitzat": "2026-09-17T10:39:29+00:00",
+  "municipis": {
+   "17022": [
+    {
+     "any": 2017,
+     "preu": 1.368,
+     "subministrament": 0.543,
+     "canon": 0.645,
+     "clavegueram": 0.18,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2018,
+     "preu": 1.377,
+     "subministrament": 0.543,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2019,
+     "preu": 1.376,
+     "subministrament": 0.542,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2020,
+     "preu": 1.376,
+     "subministrament": 0.542,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2021,
+     "preu": 1.376,
+     "subministrament": 0.542,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2022,
+     "preu": 1.392,
+     "subministrament": 0.558,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2023,
+     "preu": 1.392,
+     "subministrament": 0.558,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2024,
+     "preu": 1.392,
+     "subministrament": 0.558,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2025,
+     "preu": 1.392,
+     "subministrament": 0.558,
+     "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    }
+   ],
+   "17057": [
+    {
+     "any": 2017,
+     "preu": 1.696,
+     "subministrament": 0.918,
+     "canon": 0.645,
+     "clavegueram": 0.133,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2018,
+     "preu": 1.737,
+     "subministrament": 0.944,
+     "canon": 0.654,
+     "clavegueram": 0.139,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2019,
+     "preu": 1.785,
+     "subministrament": 0.964,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2020,
+     "preu": 1.785,
+     "subministrament": 0.964,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2021,
+     "preu": 1.785,
+     "subministrament": 0.964,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2022,
+     "preu": 1.838,
+     "subministrament": 1.003,
+     "canon": 0.654,
+     "clavegueram": 0.181,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2023,
+     "preu": 1.838,
+     "subministrament": 1.003,
+     "canon": 0.654,
+     "clavegueram": 0.181,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2024,
+     "preu": 1.888,
+     "subministrament": 1.046,
+     "canon": 0.654,
+     "clavegueram": 0.188,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2025,
+     "preu": 2.034,
+     "subministrament": 1.163,
+     "canon": 0.654,
+     "clavegueram": 0.217,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    }
+   ],
+   "17902": [
+    {
+     "any": 2017,
+     "preu": 1.974,
+     "subministrament": 1.212,
+     "canon": 0.645,
+     "clavegueram": 0.117,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2018,
+     "preu": 1.983,
+     "subministrament": 1.212,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2019,
+     "preu": 1.983,
+     "subministrament": 1.212,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2020,
+     "preu": 2.02,
+     "subministrament": 1.249,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sorea, Sdad Reg Abastecimiento Aguas, Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2021,
+     "preu": 2.02,
+     "subministrament": 1.249,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2022,
+     "preu": 2.02,
+     "subministrament": 1.249,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2023,
+     "preu": 2.117,
+     "subministrament": 1.346,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2024,
+     "preu": 2.117,
+     "subministrament": 1.346,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2025,
+     "preu": 2.178,
+     "subministrament": 1.407,
+     "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    }
+   ],
+   "17901": []
+  },
+  "catalunya": null
+ }
+}
