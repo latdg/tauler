@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-27T06:06:40+00:00",
+ "generat": "2026-10-27T06:21:58+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -7,7 +7,7 @@
   "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
  },
  "farmacies": {
-  "quan": "2026-10-27T06:06:42+00:00",
+  "quan": "2026-10-27T06:22:00+00:00",
   "titol": "TOTES LES FARMÀCIES DE GUÀRDIA (Fins avui 27/10/2026 a les 09:00 o 09:30 del matí)",
   "columnes": [
    "Farmàcia",
@@ -20,58 +20,46 @@
   ],
   "zona": [
    {
-    "Farmàcia": "A. LAGUILLO SALA",
-    "Població": "CASSA DE LA SELVA",
-    "Horari": "Avui fins les 09:00",
-    "c3": "Ctra. Provincial, 289",
-    "Adreça": "972464555",
-    "Telèfon": "",
-    "_telefon": true
+    "farmacia": "A. LAGUILLO SALA",
+    "poblacio": "CASSA DE LA SELVA",
+    "horari": "Avui fins les 09:00",
+    "adreca": "Ctra. Provincial, 289",
+    "telefon": "972464555"
    },
    {
-    "Farmàcia": "C. CECILIA NEDEA",
-    "Població": "LA BISBAL D'EMPORDA",
-    "Horari": "Avui fins les 09:00",
-    "c3": "C/Jaume II, 14",
-    "Adreça": "674038640",
-    "Telèfon": "",
-    "_telefon": true
+    "farmacia": "C. CECILIA NEDEA",
+    "poblacio": "LA BISBAL D'EMPORDA",
+    "horari": "Avui fins les 09:00",
+    "adreca": "C/Jaume II, 14",
+    "telefon": "674038640"
    },
    {
-    "Farmàcia": "M. LLUISA DORCA GARCIA",
-    "Població": "PALAFRUGELL",
-    "Horari": "Avui fins les 09:00",
-    "c3": "C/Cavallers, 38",
-    "Adreça": "972300736",
-    "Telèfon": "",
-    "_telefon": false
+    "farmacia": "M. LLUISA DORCA GARCIA",
+    "poblacio": "PALAFRUGELL",
+    "horari": "Avui fins les 09:00",
+    "adreca": "C/Cavallers, 38",
+    "telefon": "972300736"
    },
    {
-    "Farmàcia": "CARMEN M. GOMEZ MAESTRE",
-    "Població": "PALAMOS",
-    "Horari": "Avui fins les 09:00",
-    "c3": "Avgda. Catalunya, 3",
-    "Adreça": "972316197",
-    "Telèfon": "",
-    "_telefon": false
+    "farmacia": "CARMEN M. GOMEZ MAESTRE",
+    "poblacio": "PALAMOS",
+    "horari": "Avui fins les 09:00",
+    "adreca": "Avgda. Catalunya, 3",
+    "telefon": "972316197"
    },
    {
-    "Farmàcia": "R. PRAT CORTIELLA",
-    "Població": "SANT FELIU DE GUIXOLS",
-    "Horari": "Avui fins les 09:00",
-    "c3": "C/Rufo, 27",
-    "Adreça": "972320429",
-    "Telèfon": "",
-    "_telefon": false
+    "farmacia": "R. PRAT CORTIELLA",
+    "poblacio": "SANT FELIU DE GUIXOLS",
+    "horari": "Avui fins les 09:00",
+    "adreca": "C/Rufo, 27",
+    "telefon": "972320429"
    },
    {
-    "Farmàcia": "C. ALABALL RADRESA",
-    "Població": "L'ESTARTIT",
-    "Horari": "Avui fins les 09:30",
-    "c3": "Avgda. de Grècia, 14",
-    "Adreça": "972750524",
-    "Telèfon": "",
-    "_telefon": true
+    "farmacia": "C. ALABALL RADRESA",
+    "poblacio": "L'ESTARTIT",
+    "horari": "Avui fins les 09:30",
+    "adreca": "Avgda. de Grècia, 14",
+    "telefon": "972750524"
    }
   ],
   "total": 20,
@@ -1302,8 +1290,103 @@
      "tarifesSocials": "Sí"
     }
    ],
-   "17901": []
+   "17901": [
+    {
+     "any": 2017,
+     "preu": 1.696,
+     "subministrament": 0.918,
+     "canon": 0.645,
+     "clavegueram": 0.133,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2018,
+     "preu": 1.737,
+     "subministrament": 0.944,
+     "canon": 0.654,
+     "clavegueram": 0.139,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2019,
+     "preu": 1.785,
+     "subministrament": 0.964,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2020,
+     "preu": 1.785,
+     "subministrament": 0.964,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2021,
+     "preu": 1.785,
+     "subministrament": 0.964,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2022,
+     "preu": 1.838,
+     "subministrament": 1.003,
+     "canon": 0.654,
+     "clavegueram": 0.181,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2023,
+     "preu": 1.838,
+     "subministrament": 1.003,
+     "canon": 0.654,
+     "clavegueram": 0.181,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2024,
+     "preu": 1.888,
+     "subministrament": 1.046,
+     "canon": 0.654,
+     "clavegueram": 0.188,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2025,
+     "preu": 2.034,
+     "subministrament": 1.163,
+     "canon": 0.654,
+     "clavegueram": 0.217,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    }
+   ]
   },
-  "catalunya": null
+  "catalunya": {
+   "any": 2025,
+   "preu": 1.801,
+   "municipis": 947
+  }
  }
 }

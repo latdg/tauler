@@ -2,10 +2,4 @@ Farmàcies: 20 de guàrdia a la demarcació; 6 a la zona
 farmacies fet
 autoconsum fet
 consum fet
-6st4-ptsi: intent 1 fallit (400 Client Error: Bad Request for url: https://analisi.transparenciacatalunya.cat/resource/6st4-ptsi.json?%24limit=5000&%24offset=0&%24order=%3Aid&%24where=any%3D%272025%27&%24select=avg%28preu_aigua%29)
-6st4-ptsi: intent 2 fallit (400 Client Error: Bad Request for url: https://analisi.transparenciacatalunya.cat/resource/6st4-ptsi.json?%24limit=5000&%24offset=0&%24order=%3Aid&%24where=any%3D%272025%27&%24select=avg%28preu_aigua%29)
-6st4-ptsi: intent 3 fallit (400 Client Error: Bad Request for url: https://analisi.transparenciacatalunya.cat/resource/6st4-ptsi.json?%24limit=5000&%24offset=0&%24order=%3Aid&%24where=any%3D%272025%27&%24select=avg%28preu_aigua%29)
-6st4-ptsi: intent 4 fallit (400 Client Error: Bad Request for url: https://analisi.transparenciacatalunya.cat/resource/6st4-ptsi.json?%24limit=5000&%24offset=0&%24order=%3Aid&%24where=any%3D%272025%27&%24select=avg%28preu_aigua%29)
-6st4-ptsi: intent 5 fallit (400 Client Error: Bad Request for url: https://analisi.transparenciacatalunya.cat/resource/6st4-ptsi.json?%24limit=5000&%24offset=0&%24order=%3Aid&%24where=any%3D%272025%27&%24select=avg%28preu_aigua%29)
-Mitjana de Catalunya: 6st4-ptsi: el servidor no respon
 aigua fet
