@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-27T06:24:21+00:00",
+ "generat": "2026-10-27T08:15:25+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -7,16 +7,16 @@
   "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
  },
  "farmacies": {
-  "quan": "2026-10-27T06:24:42+00:00",
+  "quan": "2026-10-27T08:15:46+00:00",
   "dies": [
    {
     "data": "2026-10-27",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ (Fins avui 27/10/2026 a les 09:00 o 09:30 del matí)",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 27/10/2026",
     "farmacies": [
      {
       "farmacia": "C. CECILIA NEDEA",
       "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "Avui fins les 09:00",
+      "horari": "09:00 - 09:00 (dia seg.)",
       "adreca": "C/Jaume II, 14",
       "telefon": "674038640"
      }
