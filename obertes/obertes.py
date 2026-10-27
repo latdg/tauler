@@ -97,15 +97,17 @@ def text(h):
 
 
 # --- Farmàcies de guàrdia ------------------------------------------------------------
-def farmacies():
-    r = requests.get(COFGI, headers=CAPCALERES, timeout=60)
-    r.raise_for_status()
-    h = r.text
+# El cercador del COFGi (formulari POST) dona les guàrdies d'un dia concret. Es
+# demanen els set dies a partir d'avui, del grup de la Bisbal d'Empordà, i se'n
+# queden les poblacions de la zona.
+GRUP_BISBAL = "10010000000018"
+
+
+def taula_farmacies(h):
     titol = re.search(r'pharmacies-of-guard-title">\s*([^<]+)<', h)
     t = re.search(r'<table[^>]*id="pharmacies-of-guard-data[^"]*"[^>]*>([\s\S]*?)</table>', h)
     if not t:
-        raise RuntimeError("no hi ha la taula de farmàcies de guàrdia")
-    caps = [text(x) for x in re.findall(r"<th[^>]*>([\s\S]*?)</th>", t.group(1))]
+        return None, []
     files = []
     for tr in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", t.group(1)):
         cel = re.findall(r"<td[^>]*>([\s\S]*?)</td>", tr)
@@ -114,15 +116,39 @@ def farmacies():
         vals = [text(c) for c in cel] + [""] * 5
         # Les capçaleres de la taula no quadren amb les cel·les (n'hi ha de buides):
         # l'ordre de les cel·les és farmàcia, població, horari, adreça i telèfon.
-        fila = {"farmacia": vals[0], "poblacio": vals[1], "horari": vals[2], "adreca": vals[3], "telefon": vals[4]}
-        mapa = re.search(r'href="(https?://[^"]*(?:maps|google)[^"]*)"', tr)
-        if mapa:
-            fila["_mapa"] = htmlmod.unescape(mapa.group(1))
-        files.append(fila)
-    zona = [f for f in files if any(k in pla(" ".join(str(v) for v in f.values())) for k in ZONA_FARMACIES)]
-    print(f"Farmàcies: {len(files)} de guàrdia a la demarcació; {len(zona)} a la zona")
-    return {"quan": datetime.now(timezone.utc).isoformat(timespec="seconds"), "titol": text(titol.group(1)) if titol else "",
-            "columnes": caps, "zona": zona, "total": len(files), "font": COFGI}
+        files.append({"farmacia": vals[0], "poblacio": vals[1], "horari": vals[2], "adreca": vals[3], "telefon": vals[4]})
+    return (text(titol.group(1)) if titol else ""), files
+
+
+def farmacies():
+    ses = requests.Session()
+    ses.headers.update(CAPCALERES)
+    r = ses.get(COFGI, timeout=60)
+    r.raise_for_status()
+    h = r.text
+    camp_data = re.search(r'<input[^>]*type="date"[^>]*>', h)
+    nom_data = re.search(r'name="([^"]+)"', camp_data.group(0)).group(1) if camp_data else "date"
+    nom_mun = (re.search(r'<select[^>]*id="city-select"[^>]*name="([^"]+)"', h) or [None, "city"])[1]
+    print(f"Farmàcies: camps del formulari «{nom_mun}» i «{nom_data}»")
+    avui = datetime.now(timezone.utc).astimezone().date()
+    from datetime import timedelta
+    dies = []
+    for n in range(7):
+        dia = avui + timedelta(days=n)
+        try:
+            r = ses.post(COFGI, data={"city-group": GRUP_BISBAL, nom_mun: "0", nom_data: dia.isoformat()}, timeout=60)
+            r.raise_for_status()
+            titol, files = taula_farmacies(r.text)
+        except Exception as err:
+            print(f"Farmàcies {dia}: {err}")
+            titol, files = None, []
+        zona = [f for f in files if any(k in pla(f["poblacio"]) for k in ZONA_FARMACIES)]
+        print(f"Farmàcies {dia}: {len(files)} de guàrdia; {len(zona)} a la zona · {titol}")
+        dies.append({"data": dia.isoformat(), "titol": titol, "farmacies": zona})
+        time.sleep(2)
+    if not any(d["farmacies"] for d in dies):
+        raise RuntimeError("cap dia amb farmàcies de guàrdia")
+    return {"quan": datetime.now(timezone.utc).isoformat(timespec="seconds"), "dies": dies, "font": COFGI}
 
 
 # --- Autoconsum ----------------------------------------------------------------------
