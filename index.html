@@ -384,7 +384,8 @@ function normalitzaDates(arrel) {
 const DIES_SETMANA = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"];
 const AGENDA_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/agenda.json";
 const AGENDA_NOMS = { "LB": "La Bisbal", "CMSS": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
-const AGENDA_DIES = 7;
+// 27.10.2026: només els actes d'avui; si avui no n'hi ha, els del pròxim dia que en tingui.
+// La resta, a «Tota l'agenda».
 
 async function carregaAgenda() {
   const cos = document.getElementById("agendaCos");
@@ -401,17 +402,17 @@ async function carregaAgenda() {
     const ag = await r.json();
 
     const t0 = new Date(); t0.setHours(0, 0, 0, 0);
-    const fi = new Date(t0); fi.setDate(fi.getDate() + AGENDA_DIES);
-    const desde = iso(t0), fins = iso(fi);
-    const actes = (ag.actes || []).filter(a => a.data >= desde && a.data <= fins)
+    const desde = iso(t0);
+    const vinents = (ag.actes || []).filter(a => a.data >= desde)
       .sort((a, b) => (a.data + (a.hora || "99")).localeCompare(b.data + (b.hora || "99")));
+    const actes = vinents.length ? vinents.filter(a => a.data === vinents[0].data) : [];
 
     if (peu && ag.actualitzat) {
       const g = new Date(ag.actualitzat);
       peu.innerHTML = "Actualitzat el " + dos(g.getDate()) + "." + dos(g.getMonth() + 1) + "." + g.getFullYear() +
         " a les " + dos(g.getHours()) + "." + dos(g.getMinutes()) + " h · <a href=\"agenda/\">Tota l'agenda</a>";
     }
-    if (!actes.length) { cos.innerHTML = '<p class="buit">No hi ha cap acte previst els pròxims dies.</p>' + enllac; return; }
+    if (!actes.length) { cos.innerHTML = '<p class="buit">No hi ha cap acte previst.</p>' + enllac; return; }
 
     const grups = [];
     actes.forEach(a => {
@@ -424,7 +425,7 @@ async function carregaAgenda() {
       const d = new Date(g.data + "T00:00:00");
       const dif = Math.round((d - t0) / 86400000);
       const etiqueta = dif === 0 ? '<span class="ag-avui"><span class="tdg-boleta-avui"></span>Avui</span>'
-        : dif === 1 ? '<span class="ag-dema">Demà</span>' : "";
+        : dif === 1 ? '<span class="ag-dema">Demà · pròxims actes</span>' : '<span class="ag-dema">Pròxims actes</span>';
       return `<div class="ag-dia${dif === 0 ? " ag-dia-avui" : ""}"><h3 class="ag-data">${DIES_SETMANA[d.getDay()]} ` +
         `${g.data.split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
         g.actes.map(a => '<article class="ag-acte"><div class="ag-cap">' +
@@ -629,7 +630,7 @@ function pinta(d) {
   let h = "";
 
   // 0. 📅 AGENDA D'ACTES (21.10.2026): el contingut arriba després (carregaAgenda).
-  h += seccio("📅 Agenda d'actes per a la pròxima setmana",
+  h += seccio("📅 Agenda d'actes",
     '<p class="font dalt" id="agendaPeu"></p><div id="agendaCos"><p class="buit">Carregant…</p></div>',
     "", false);
   
@@ -678,9 +679,9 @@ function pinta(d) {
     '<div class="llegenda" id="deaLlegenda"></div><div id="deaAvis"></div><p class="font" id="deaNota"></p>',
     "", false);
 
-  // 2d. 🏘️ EDAT DELS EDIFICIS i 2e. 🧳 TURISTES (27.10.2026, abans a La TdG redacció).
+  // 2d. 🏘️ EDAT DELS EDIFICIS (27.10.2026, abans a La TdG redacció). Els turistes
+  // tornen a La TdG redacció (27.10.2026); les dades es continuen desant aquí.
   h += seccio("🏘️ Edat dels edificis", '<div id="edificisCos"><p class="buit">Carregant…</p></div>', "", false);
-  h += seccio("🧳 Turistes que hi arriben", '<div id="turismeCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
   if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
@@ -1111,6 +1112,10 @@ const dec = (n, d = 2) => Number(n).toLocaleString("ca-ES", { minimumFractionDig
 
 const POBLACIONS_FARM = { "LA BISBAL D'EMPORDA": "la Bisbal d'Empordà", "CORCA": "Corçà", "CRUILLES": "Cruïlles", "PALAMOS": "Palamós",
   "SANT FELIU DE GUIXOLS": "Sant Feliu de Guíxols", "CASSA DE LA SELVA": "Cassà de la Selva", "CELRA": "Celrà", "L'ESTARTIT": "l'Estartit" };
+// 27.10.2026: noms i adreces com els escrivim a La TdG.
+const NOMS_FARM = { "J. GISPERT DOMENECH": "Jordi Gispert Domènech" };
+const nomFarm = t => NOMS_FARM[String(t || "").toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim()] || majFrase(t).replace(/\bC\.b\./g, "C.B.");
+const adrecaFarm = t => String(t || "").replace(/\bC\/\s*/g, "C. ").replace(/\bAvgda\.\s*/gi, "Av. ").replace(/\s+/g, " ").trim();
 const poblacioFarm = t => POBLACIONS_FARM[String(t || "").toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")] || majFrase(t);
 function pintaFarmacies() {
   const cos = document.getElementById("farmCos"), peu = document.getElementById("farmPeu");
@@ -1118,9 +1123,10 @@ function pintaFarmacies() {
   if (!f || !f.dies) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les guàrdies.</p>'; return; }
   const fq = new Date(f.quan), z = n => String(n).padStart(2, "0");
   peu.innerHTML = `Actualitzat el ${dataDMA(f.quan)} a les ${z(fq.getHours())}.${z(fq.getMinutes())} h · Font: <a href="${esc(f.font)}" target="_blank" rel="noopener">Col·legi de Farmacèutics de Girona</a>`;
-  // 27.10.2026: la guàrdia és de nit, de les 21 h fins a les 9 h de l'endemà. Cada
-  // «nit» es desa amb la data del vespre en què comença. Fins a les 9 h del matí,
-  // la que és de guàrdia és la de la nit anterior.
+  // 27.10.2026: la guàrdia és de nit, de les 20 h fins a les 9.15 h de l'endemà. Cada
+  // «nit» es desa amb la data del vespre en què comença. Fins a les 9.15 h del matí,
+  // la que és de guàrdia és la de la nit anterior. Les de dia (p. ex. «09:00 - 20:00»)
+  // són l'horari habitual de la farmàcia i no surten.
   const ISO = d => d.getFullYear() + "-" + z(d.getMonth() + 1) + "-" + z(d.getDate());
   const mesDies = (iso, n) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return ISO(d); };
   const nits = {};
@@ -1133,12 +1139,11 @@ function pintaFarmacies() {
     if (!llista.some(y => y.farmacia === x.farmacia)) llista.push(x);
   }));
   const ara = new Date(), avui = ISO(ara);
-  const actual = ara.getHours() < 9 ? mesDies(avui, -1) : avui;
+  const actual = ara.getHours() * 60 + ara.getMinutes() < 9 * 60 + 15 ? mesDies(avui, -1) : avui;
   const dates = Object.keys(nits).filter(d => d >= actual).sort();
   if (!dates.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
   const DIES_MIN = DIES_SETMANA.map(x => x.toLowerCase());
-  const horari = h => /^09:00 - 09:00/.test(h) || /^avui fins/i.test(h) ? "De 21 h a 9 h de l'endemà"
-    : "De " + h.replace(/\s*\(dia seg\.\)/, "").replace(/(\d{2}):(\d{2})/g, (m, a, b) => Number(a) + (b === "00" ? "" : "." + b)).replace(" - ", " h a ") + " h de l'endemà";
+  const horari = () => "De 20.00 h a 9.15 h de l'endemà";
   const pintaNit = vespre => {
     const d = new Date(vespre + "T12:00:00"), e = new Date(mesDies(vespre, 1) + "T12:00:00");
     const etiqueta = vespre === actual ? `<span class="ag-avui"><span class="tdg-boleta-avui"></span>${vespre === avui ? "Aquesta nit" : "Ara"}</span>`
@@ -1146,8 +1151,8 @@ function pintaFarmacies() {
     return `<div class="ag-dia${vespre === actual ? " ag-dia-avui" : ""}"><h3 class="ag-data">Nit del ${DIES_MIN[d.getDay()]} ${vespre.split("-").reverse().join(".")} ` +
       `al ${DIES_MIN[e.getDay()]} ${ISO(e).split("-").reverse().join(".")} ${etiqueta}</h3><div class="ag-llista">` +
       nits[vespre].map(x => `<article class="ag-acte"><div class="ag-cap"><span class="ag-hora">🕒 ${esc(horari(x.horari))}</span>` +
-        `<span class="ag-mun">📍 ${esc(poblacioFarm(x.poblacio))}</span></div><div class="ag-text"><b>${esc(majFrase(x.farmacia))}</b><br>` +
-        `<a href="https://www.google.com/maps/search/${encodeURIComponent(x.adreca + ", " + x.poblacio)}" target="_blank" rel="noopener">${esc(x.adreca)}</a>` +
+        `<span class="ag-mun">📍 ${esc(poblacioFarm(x.poblacio))}</span></div><div class="ag-text"><b>${esc(nomFarm(x.farmacia))}</b><br>` +
+        `<a href="https://www.google.com/maps/search/${encodeURIComponent(adrecaFarm(x.adreca) + ", " + x.poblacio)}" target="_blank" rel="noopener">${esc(adrecaFarm(x.adreca))}</a>` +
         (x.telefon ? `<br><a class="fa-tel" href="tel:${esc(x.telefon.replace(/\s/g, ""))}">📞 ${esc(x.telefon.replace(/^(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3"))}</a>` : "") +
         `</div></article>`).join("") + "</div></div>";
   };
@@ -1155,7 +1160,7 @@ function pintaFarmacies() {
   const resta = dates.slice(1);
   cos.innerHTML = '<div class="agenda">' + pintaNit(dates[0]) + "</div>" +
     (resta.length ? `<details class="fa-setmana"><summary>Veure les guàrdies de tota la setmana</summary><div class="agenda">${resta.map(pintaNit).join("")}</div></details>` : "") +
-    `<p class="font">Farmàcies de guàrdia del grup de la Bisbal d'Empordà. La guàrdia és de nit, de les 21 h fins a les 9 h del matí de l'endemà; de dia, cada farmàcia obre en el seu horari. Abans d'anar-hi, val la pena trucar.</p>`;
+    `<p class="font">Farmàcies de guàrdia del grup de la Bisbal d'Empordà. La guàrdia és de nit, de les 20.00 h fins a les 9.15 h del matí de l'endemà; de dia, cada farmàcia obre en el seu horari. Abans d'anar-hi, val la pena trucar.</p>`;
 }
 
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
@@ -1269,7 +1274,6 @@ async function inicia() {
     carregaAntenes();
     carregaDea();
     carregaEdificis();
-    carregaTurisme();
     carregaServeis();
     carregaEsports();
   } catch (e) {
