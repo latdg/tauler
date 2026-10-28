@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-10-28T22:54:19+01:00",
+ "actualitzat": "2026-10-28T22:54:35+01:00",
  "equips": [
   {
    "id": "atletic_bisbalenc",
@@ -13,8 +13,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-28T22:54:19+01:00",
-    "darrerOk": "2026-10-28T22:54:19+01:00"
+    "quan": "2026-10-28T22:54:35+01:00",
+    "darrerOk": "2026-10-28T22:54:35+01:00"
    },
    "partits": [
     {
@@ -728,7 +728,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-28T22:54:19+01:00",
+   "classificacioActualitzada": "2026-10-28T22:54:35+01:00",
    "full": [
     [
      "FCF-4109393",
@@ -1528,8 +1528,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-28T22:54:19+01:00",
-    "darrerOk": "2026-10-28T22:54:19+01:00"
+    "quan": "2026-10-28T22:54:35+01:00",
+    "darrerOk": "2026-10-28T22:54:35+01:00"
    },
    "partits": [
     {
@@ -2229,7 +2229,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-28T22:54:19+01:00",
+   "classificacioActualitzada": "2026-10-28T22:54:35+01:00",
    "full": [
     [
      "FCF-4139781",
@@ -3013,8 +3013,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-28T22:54:19+01:00",
-    "darrerOk": "2026-10-28T22:54:19+01:00"
+    "quan": "2026-10-28T22:54:35+01:00",
+    "darrerOk": "2026-10-28T22:54:35+01:00"
    },
    "partits": [
     {
@@ -3469,13 +3469,13 @@
       "pos": 3,
       "equip": "PALAMOS CLUB DE FUTBOL B",
       "pj": 4,
-      "pg": 3,
-      "pe": 0,
+      "pg": 2,
+      "pe": 1,
       "pp": 1,
-      "pf": 18,
-      "pc": 8,
-      "punts": 9,
-      "ratxa": "P-G-G-G",
+      "pf": 14,
+      "pc": 7,
+      "punts": 7,
+      "ratxa": "P-G-G",
       "propi": false,
       "escut": ""
      },
@@ -3565,6 +3565,20 @@
      },
      {
       "pos": 10,
+      "equip": "MAS MASCORT DE PALAFRUGELL,F.C. A",
+      "pj": 4,
+      "pg": 0,
+      "pe": 3,
+      "pp": 1,
+      "pf": 6,
+      "pc": 11,
+      "punts": 3,
+      "ratxa": "E-E-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 11,
       "equip": "CASSA, U.D. B",
       "pj": 4,
       "pg": 1,
@@ -3578,7 +3592,7 @@
       "escut": ""
      },
      {
-      "pos": 11,
+      "pos": 12,
       "equip": "CRISTINENC C.E B",
       "pj": 4,
       "pg": 1,
@@ -3592,7 +3606,7 @@
       "escut": ""
      },
      {
-      "pos": 12,
+      "pos": 13,
       "equip": "SANT NARCIS, CLUB ATLÈTIC  A",
       "pj": 4,
       "pg": 0,
@@ -3602,20 +3616,6 @@
       "pc": 9,
       "punts": 2,
       "ratxa": "P-P-E-E",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 13,
-      "equip": "MAS MASCORT DE PALAFRUGELL,F.C. A",
-      "pj": 4,
-      "pg": 0,
-      "pe": 2,
-      "pp": 2,
-      "pf": 7,
-      "pc": 15,
-      "punts": 2,
-      "ratxa": "E-E-P-P",
       "propi": false,
       "escut": ""
      },
@@ -3636,7 +3636,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-28T22:54:19+01:00",
+   "classificacioActualitzada": "2026-10-28T22:54:35+01:00",
    "full": [
     [
      "FCF-4140449",
@@ -4136,13 +4136,13 @@
      3,
      "PALAMOS CLUB DE FUTBOL B",
      4,
-     3,
-     0,
+     2,
      1,
-     18,
-     8,
-     9,
-     "P-G-G-G",
+     1,
+     14,
+     7,
+     7,
+     "P-G-G",
      "FCF",
      "28/10/2026 22:54"
     ],
@@ -4246,6 +4246,22 @@
      "4a Catalana",
      "Grup 5",
      10,
+     "MAS MASCORT DE PALAFRUGELL,F.C. A",
+     4,
+     0,
+     3,
+     1,
+     6,
+     11,
+     3,
+     "E-E-P",
+     "FCF",
+     "28/10/2026 22:54"
+    ],
+    [
+     "4a Catalana",
+     "Grup 5",
+     11,
      "CASSA, U.D. B",
      4,
      1,
@@ -4261,7 +4277,7 @@
     [
      "4a Catalana",
      "Grup 5",
-     11,
+     12,
      "CRISTINENC C.E B",
      4,
      1,
@@ -4277,7 +4293,7 @@
     [
      "4a Catalana",
      "Grup 5",
-     12,
+     13,
      "SANT NARCIS, CLUB ATLÈTIC  A",
      4,
      0,
@@ -4287,22 +4303,6 @@
      9,
      2,
      "P-P-E-E",
-     "FCF",
-     "28/10/2026 22:54"
-    ],
-    [
-     "4a Catalana",
-     "Grup 5",
-     13,
-     "MAS MASCORT DE PALAFRUGELL,F.C. A",
-     4,
-     0,
-     2,
-     2,
-     7,
-     15,
-     2,
-     "E-E-P-P",
      "FCF",
      "28/10/2026 22:54"
     ],
@@ -4336,8 +4336,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-28T22:54:19+01:00",
-    "darrerOk": "2026-10-28T22:54:19+01:00"
+    "quan": "2026-10-28T22:54:35+01:00",
+    "darrerOk": "2026-10-28T22:54:35+01:00"
    },
    "partits": [
     {
@@ -5037,7 +5037,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-28T22:54:19+01:00",
+   "classificacioActualitzada": "2026-10-28T22:54:35+01:00",
    "full": [
     [
      "FCF-4144244",
@@ -5821,8 +5821,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-28T22:54:19+01:00",
-    "darrerOk": "2026-10-28T22:54:19+01:00"
+    "quan": "2026-10-28T22:54:35+01:00",
+    "darrerOk": "2026-10-28T22:54:35+01:00"
    },
    "partits": [
     {
@@ -6536,7 +6536,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-28T22:54:19+01:00",
+   "classificacioActualitzada": "2026-10-28T22:54:35+01:00",
    "full": [
     [
      "FCF-4245215",
@@ -8044,7 +8044,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-28T22:54:19+01:00",
+   "classificacioActualitzada": "2026-10-28T22:54:35+01:00",
    "full": [
     [
      "MAN-ztk865nkbx",
@@ -8829,8 +8829,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-28T22:54:19+01:00",
-    "darrerOk": "2026-10-28T22:54:19+01:00"
+    "quan": "2026-10-28T22:54:35+01:00",
+    "darrerOk": "2026-10-28T22:54:35+01:00"
    },
    "partits": [
     {
