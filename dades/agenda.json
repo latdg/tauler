@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-10-29T13:16:43.503Z",
+ "actualitzat": "2026-10-29T13:17:31.873Z",
  "actes": [
   {
    "id": "28b3370050",
@@ -77,13 +77,6 @@
    "hora": "18.00 h",
    "municipi": "Corçà",
    "text": "Ball amb Liberty a la sala municipal."
-  },
-  {
-   "id": "31froix0ug",
-   "data": "2026-10-27",
-   "hora": "",
-   "municipi": "Corçà",
-   "text": "Corçà amb la Marató de 3Cat al vespre a la sala municipal."
   },
   {
    "id": "ps3g62jgyq",
@@ -336,6 +329,13 @@
    "hora": "18.00 h",
    "municipi": "Corçà",
    "text": "Ball amb 'Mil notes' a la sala municipal."
+  },
+  {
+   "id": "31froix0ug",
+   "data": "2026-11-27",
+   "hora": "",
+   "municipi": "Corçà",
+   "text": "Corçà amb la Marató de 3Cat al vespre a la sala municipal."
   },
   {
    "id": "ca1wvjklrl",
