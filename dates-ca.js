@@ -9,12 +9,12 @@
 //    format del navegador (24/10/2026). S'hi pot escriure la data o triar-la
 //    al calendari amb 📅. Per dins continuen donant AAAA-MM-DD.
 // 3. (01.11.2026) Davant de l'1 i de l'11, article apostrofat: «l'01.11.2026»,
-//    «de l'11.11.2026», «a l'01.11.2026».
+//    «de l'11.11.2026», «a l'01.11.2026»; també als percentatges: «fins a l'11 %».
 // =============================================================================
 (function () {
   const z = n => String(n).padStart(2, "0");
   const valida = (d, m, a) => d >= 1 && d <= 31 && m >= 1 && m <= 12 && a >= 1900 && a <= 2100;
-  const ART_DATA = /(^|[^0-9A-Za-zÀ-ÿ·'’])([Ee]l|[Dd]el|[Aa]l) (?=(?:01|11)\.\d\d\.(?:19|20)\d\d)/g;
+  const ART_DATA = /(^|[^0-9A-Za-zÀ-ÿ·'’])([Ee]l|[Dd]el|[Aa]l) (?=(?:01|11)\.\d\d\.(?:19|20)\d\d|1{1,2}(?:[.,]\d+)?\s?%)/g;
   const APOSTROF = { el: "l'", El: "L'", del: "de l'", Del: "De l'", al: "a l'", Al: "A l'" };
 
   function normalitza(text) {
@@ -26,7 +26,7 @@
       .replace(/(^|[^\d\/.-])((?:19|20)\d\d)([\/-])(\d{1,2})\3(\d{1,2})(?![\d\/-])/g, (t, ab, a, sep, m, d) =>
         valida(+d, +m, +a) ? ab + z(d) + "." + z(m) + "." + a : t)
       // 3. (01.11.2026) L'1 i l'11 comencen per vocal: «el 01.11» → «l'01.11»,
-      //    «del 11.11» → «de l'11.11», «al 01.11» → «a l'01.11».
+      //    «del 11.11» → «de l'11.11», «al 01.11» → «a l'01.11»; i «al 11 %» → «a l'11 %».
       .replace(ART_DATA, (t, ab, art) => ab + (APOSTROF[art] || art));
   }
 
@@ -39,7 +39,7 @@
       acceptNode: n => {
         const p = n.parentElement;
         if (!p || SALTA.test(p.tagName) || p.isContentEditable) return NodeFilter.FILTER_REJECT;
-        return /\d[\/.-]\d/.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+        return /\d[\/.-]\d|\d\s?%/.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
       }
     });
     const nodes = [];
