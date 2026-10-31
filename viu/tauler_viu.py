@@ -375,28 +375,53 @@ def data_aca(t):
     return d.astimezone(TZ) if d.tzinfo else d.replace(tzinfo=TZ)
 
 
-def riu():
-    fi = dt.datetime.now(dt.timezone.utc)
-    inici = fi - dt.timedelta(hours=26)   # 21.10.2026: 26 h, perquè el registre horari no perdi cap hora
-    formata = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    r = requests.get(RIU_URL, params={"from": formata(inici), "to": formata(fi)},
-                     headers=CAPCALERES, timeout=60)
+# 31.10.2026: el visor de l'ACA (RIU_URL) no respon des de GitHub des del 22.10.2026
+# (el bloc s'havia quedat aturat). Ara les lectures surten de l'API Sentilo de
+# l'ACA (la mateixa que fa servir l'avisador), que sí que respon.
+SENTILO = "https://aplicacions.aca.gencat.cat/sdim2/apirest"
+_SENTILO_CATALEG = {}
+
+
+def sentilo_sensors(component):
+    """{"cabal": (proveïdor, sensor), "nivell": (...)} d'una estació d'aforament."""
+    if not _SENTILO_CATALEG:
+        r = requests.get(f"{SENTILO}/catalog", params={"componentType": "aforament"}, headers=CAPCALERES, timeout=60)
+        r.raise_for_status()
+        for pr in r.json().get("providers") or []:
+            for se in pr.get("sensors") or []:
+                desc = norm(se.get("description"))
+                clau = "cabal" if "cabal" in desc else "nivell" if "nivell" in desc else None
+                if clau:
+                    _SENTILO_CATALEG.setdefault(se.get("component"), {}).setdefault(
+                        clau, (pr.get("provider"), se.get("sensor"), se.get("unit") or ""))
+    return _SENTILO_CATALEG.get(component) or {}
+
+
+def sentilo_serie(sensor, hores=26):
+    """[(datetime, valor)] de les darreres hores (mostres cada 15 minuts)."""
+    if not sensor:
+        return []
+    pr, se, unitat = sensor
+    r = requests.get(f"{SENTILO}/data/{pr}/{se}", params={"limit": hores * 4 + 8}, headers=CAPCALERES, timeout=60)
     r.raise_for_status()
-    dades = r.json()
+    sortida = []
+    for o in r.json().get("observations") or []:
+        v, t = num(o.get("value")), o.get("time")
+        if v is None or not isinstance(t, (int, float)):
+            continue
+        u = unitat.replace(" ", "").lower()
+        if u == "l/s":
+            v = v / 1000          # cabal sempre en m³/s
+        elif u == "m":
+            v = v * 100           # nivell sempre en cm
+        sortida.append((dt.datetime.fromtimestamp(t / 1000, TZ), v))
+    limit = ara() - dt.timedelta(hours=hores)
+    return sorted(x for x in sortida if x[0] >= limit)
 
-    def serie(sensor):
-        sortida = []
-        for t, v in (dades.get(sensor) or {}).items():
-            valor = num(v)
-            if valor is None:
-                continue
-            try:
-                sortida.append((data_aca(t), valor))
-            except ValueError:
-                continue
-        return sorted(sortida)
 
-    nivell, cabal = serie(RIU_SENSOR_NIVELL), serie(RIU_SENSOR_CABAL)
+def riu():
+    sensors = sentilo_sensors(RIU_ESTACIO)
+    nivell, cabal = sentilo_serie(sensors.get("nivell")), sentilo_serie(sensors.get("cabal"))
     if not nivell and not cabal:
         raise ValueError("l'ACA no ha retornat cap lectura")
 
@@ -1664,41 +1689,14 @@ RIUS_ESTATS = ["normalitat", "activació", "moderat", "alt", "molt alt", "excepc
 
 
 def rius():
-    fi = dt.datetime.now(dt.timezone.utc)
-    formata = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    sortida, errors = [], 0
+    sortida = []
     for e in RIUS_ESTACIONS:
         try:
-            r = requests.get(RIU_URL.replace(RIU_ESTACIO, e["codi"]),
-                             params={"from": formata(fi - dt.timedelta(hours=25)), "to": formata(fi)},
-                             headers=CAPCALERES, timeout=60)
-            r.raise_for_status()
-            dades = r.json() or {}
+            sensors = sentilo_sensors(e["codi"])
+            cabal, nivell = sentilo_serie(sensors.get("cabal"), 25), sentilo_serie(sensors.get("nivell"), 25)
         except Exception as ex:
             print(f"   riu {e['codi']}: {ex}", file=sys.stderr)
-            errors += 1
             continue
-        claus = list(dades)
-        cabal_k = next((k for k in claus if k.upper().startswith("CALC")), None)
-        nivell_k = next((k for k in claus if k.upper().endswith("ANA001")), None) or \
-            next((k for k in claus if "ANA" in k.upper()), None)
-        if not (cabal_k or nivell_k):
-            print(f"   riu {e['codi']}: sensors desconeguts {claus[:6]}", file=sys.stderr)
-            continue
-
-        def serie(k):
-            s = []
-            for t, v in ((dades.get(k) or {}).items() if k else []):
-                x = num(v)
-                if x is None:
-                    continue
-                try:
-                    s.append((data_aca(t), x))
-                except ValueError:
-                    pass
-            return sorted(s)
-
-        cabal, nivell = serie(cabal_k), serie(nivell_k)
         if not cabal and not nivell:
             continue
         darrer = max(cabal[-1:] + nivell[-1:], key=lambda x: x[0])[0]

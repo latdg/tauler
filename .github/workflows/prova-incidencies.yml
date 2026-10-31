@@ -21,7 +21,7 @@ jobs:
           # Sensors del visor de l'ACA
           out = open("resultat.txt", "w")
           def nota(t): out.write(t + "\n\n"); out.flush(); print(t[:300])
-          for u in ["https://aplicacions.aca.gencat.cat/sdim2/apirest/catalog?componentType=aforament",
+          for u in [] and ["https://aplicacions.aca.gencat.cat/sdim2/apirest/catalog?componentType=aforament",
                     "https://aplicacions.aca.gencat.cat/sdim2/apirest/data/AFORAMENT-EST/CALC001204",
                     "https://analisi.transparenciacatalunya.cat/resource/3yr3-vq6y.json?$where=codi_estacio%20in%20('EA131','EA132','EA010','EA121_C4121_E09','EA080')&$order=dia%20DESC,hora%20DESC&$limit=12"]:
               try:
@@ -29,7 +29,7 @@ jobs:
                   nota(f"URL {u}: HTTP {r.status_code} {r.text[:1500]}")
               except Exception as e:
                   nota(f"URL {u}: ERROR {e}")
-          for nom in ["v16", "tallsLlum", "tallsAigua", "terratremols", "avisosMeteo"]:
+          for nom in ["riu", "rius"]:
               try:
                   v = tv.FUNCIONS[nom]()
                   nota(f"{nom}: OK {json.dumps(v, ensure_ascii=False)[:850]}")
