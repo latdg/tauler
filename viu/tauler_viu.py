@@ -830,7 +830,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "5-municipis"
+RECARREGA_VERSIO = "5-municipis-gestor"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -907,6 +907,10 @@ def recarrega_icaen():
         if f.get("acces"):
             parts.append("accés amb " + str(f["acces"]).strip().lower())
         gestor = re.sub(r"^Institut Català d'Energia\s*-\s*", "", str(f.get("promotor_gestor") or ""), flags=re.I).strip()
+        # 31.10.2026: si el gestor és l'ajuntament, n'hi ha prou amb «gestor: ajuntament»
+        # (el municipi ja surt al títol).
+        if re.match(r"^ajuntament\b", gestor, flags=re.I):
+            gestor = "ajuntament"
         if gestor:
             parts.append("gestor: " + gestor)
         if parts:
