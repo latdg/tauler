@@ -1,12 +1,13 @@
 {
- "generat": "2026-10-26T15:42:53+00:00",
+ "generat": "2026-10-31T06:36:48+00:00",
  "versioCelda": "sitios@2026-10-21T22:30:02Z",
  "dataCelda": "2026-10-21T22:30:02.000Z",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
   "17902": "Forallac",
-  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
+  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+  "17205": "Ullastret"
  },
  "credit": "Origen de los datos: Ministerio para la Transformación Digital y de la Función Pública (Infoantenas)",
  "licencies": {
@@ -587,6 +588,143 @@
     }
    ],
    "enllac": "https://celda.elies.site/?emplazamiento=orange-CATR5763A&provincia=17"
+  },
+  {
+   "clau": "orange-CATR5756A",
+   "lat": 41.99395,
+   "lon": 3.071225,
+   "mun": "17205",
+   "adreca": "CR GI-644, KM. 4,5. ULLASTRET, GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "orange",
+     "mhz": [
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 87,
+       "az": 103,
+       "uw": 0.17836
+      },
+      {
+       "m": 65,
+       "az": 235,
+       "uw": 0.17404
+      },
+      {
+       "m": 71,
+       "az": 286,
+       "uw": 0.06631
+      },
+      {
+       "m": 100,
+       "az": 320,
+       "uw": 0.09549
+      },
+      {
+       "m": 34,
+       "az": 334,
+       "uw": 0.14921
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=CATR5756A&codEmplazamiento=ORANGE%20ESPAGNE%2C%20S.A.U.%20-%20CATR5756A"
+    },
+    {
+     "op": "vodafone",
+     "mhz": [
+      700,
+      800,
+      900
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 87,
+       "az": 103,
+       "uw": 0.17836
+      },
+      {
+       "m": 65,
+       "az": 235,
+       "uw": 0.17404
+      },
+      {
+       "m": 71,
+       "az": 286,
+       "uw": 0.06631
+      },
+      {
+       "m": 100,
+       "az": 320,
+       "uw": 0.09549
+      },
+      {
+       "m": 34,
+       "az": 334,
+       "uw": 0.14921
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=101491&codEmplazamiento=VODAFONE%20ESPA%C3%91A%2C%20S.A.%20-%20101491"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=orange-CATR5756A&provincia=17"
+  },
+  {
+   "clau": "movistar-1700367",
+   "lat": 41.99408,
+   "lon": 3.071022,
+   "mun": "17205",
+   "adreca": "VP Polígono 6 Parcela 102 GARRIGA, S/N. ULLASTRET, GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "movistar",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800,
+      2100,
+      2600,
+      3500
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 27,
+       "az": 10,
+       "uw": 0.27597
+      },
+      {
+       "m": 19,
+       "az": 60,
+       "uw": 0.14921
+      },
+      {
+       "m": 36,
+       "az": 108,
+       "uw": 0.09549
+      },
+      {
+       "m": 22,
+       "az": 180,
+       "uw": 0.3094
+      },
+      {
+       "m": 15,
+       "az": 300,
+       "uw": 0.07735
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700367&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700367"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700367&provincia=17"
   }
  ]
 }
