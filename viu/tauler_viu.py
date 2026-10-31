@@ -830,13 +830,14 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
+RECARREGA_VERSIO = "5-municipis"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
-    {"nom": "Corçà", "codi": "170577", "ine": "17057",
-     "termes": ["corca", "casavells", "matajudaica", "cassa de pelras"]},
     {"nom": "Forallac", "codi": "179026", "ine": "17902",
      "termes": ["forallac", "vulpellac", "peratallada", "fonteta", "canapost", "sant climent de peralta", "santa susanna de peralta"]},
+    {"nom": "Corçà", "codi": "170577", "ine": "17057",
+     "termes": ["corca", "casavells", "matajudaica", "cassa de pelras"]},
     {"nom": "Cruïlles, Monells i Sant Sadurní de l'Heura", "codi": "179011", "ine": "17901",
      "termes": ["cruilles", "monells", "sant sadurni de l'heura"]},
     {"nom": "Ullastret", "codi": "172057", "ine": "17205", "termes": ["ullastret"]},   # 31.10.2026
@@ -1060,6 +1061,8 @@ def recarrega():
         del_mun = sorted((l for l in totes if l["m"] == mun["nom"]), key=lambda l: norm_minuscules(l["n"]))
         if del_mun:
             text.append(mun["nom"] + "\n" + "\n".join(l["t"] for l in del_mun))
+        else:   # 31.10.2026: tots els municipis hi surten, també els que no en tenen cap
+            text.append(mun["nom"] + "\n- Cap punt de recàrrega registrat.")
     return "\n\n".join(text)
 
 
@@ -1129,6 +1132,10 @@ def calcula():
             dilluns = (ara() - dt.timedelta(days=ara().weekday())).strftime("%Y-%m-%d")
             if moments.get("pollen_setmana", "") >= dilluns:
                 continue
+        # 31.10.2026: amb Ullastret, la recàrrega es torna a calcular ja (sense esperar la setmana).
+        if nom == "recarrega" and moments.get("recarrega_versio") != RECARREGA_VERSIO:
+            moments.pop(nom, None)
+            nous_moments["recarrega_versio"] = RECARREGA_VERSIO
         if nom in CADA_MINUTS and moments.get(nom):
             try:
                 fa = (ara() - dt.datetime.fromisoformat(moments[nom])).total_seconds() / 60
