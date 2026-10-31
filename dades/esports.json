@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-10-31T06:36:24+01:00",
+ "actualitzat": "2026-10-31T06:36:52+01:00",
  "equips": [
   {
    "id": "atletic_bisbalenc",
@@ -13,8 +13,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
@@ -728,7 +728,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-31T06:36:24+01:00",
+   "classificacioActualitzada": "2026-10-31T06:36:52+01:00",
    "full": [
     [
      "FCF-4109393",
@@ -1528,8 +1528,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
@@ -2229,7 +2229,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-31T06:36:24+01:00",
+   "classificacioActualitzada": "2026-10-31T06:36:52+01:00",
    "full": [
     [
      "FCF-4139781",
@@ -3013,8 +3013,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
@@ -3714,7 +3714,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-31T06:36:24+01:00",
+   "classificacioActualitzada": "2026-10-31T06:36:52+01:00",
    "full": [
     [
      "FCF-4144244",
@@ -4498,8 +4498,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
@@ -5121,7 +5121,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-31T06:36:24+01:00",
+   "classificacioActualitzada": "2026-10-31T06:36:52+01:00",
    "full": [
     [
      "FCF-4140449",
@@ -5821,8 +5821,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
@@ -6536,7 +6536,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-31T06:36:24+01:00",
+   "classificacioActualitzada": "2026-10-31T06:36:52+01:00",
    "full": [
     [
      "FCF-4245215",
@@ -7336,8 +7336,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
@@ -7419,7 +7419,7 @@
      "rival": "C.B. Zaragoza",
      "resultat": "71 - 93",
      "estat": "Finalitzat",
-     "camp": "Pabellón Siglo XXI (Saragossa)",
+     "camp": "PABELLÃN SIGLO XXI - Zaragoza (Zaragoza)",
      "font": "FEB (feb.es)",
      "idFont": "2536303",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7435,7 +7435,7 @@
      "rival": "Class Bàsquet Sant Antoni",
      "resultat": "64 - 88",
      "estat": "Finalitzat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536304",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7451,7 +7451,7 @@
      "rival": "Amics Castelló",
      "resultat": "55 - 68",
      "estat": "Finalitzat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536317",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7484,7 +7484,7 @@
      "rival": "Biele ISB",
      "resultat": "80 - 85",
      "estat": "Finalitzat",
-     "camp": "Polideportivo Municipal de Azpeitia",
+     "camp": "POL. MUNICIPAL DE AZPEITIA - Azpeitia (GuipÃºzcoa)",
      "font": "FEB (feb.es)",
      "idFont": "2536319",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7500,7 +7500,7 @@
      "rival": "Logrobasket Logi",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536330",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7532,7 +7532,7 @@
      "rival": "Lobe tu provincia Huesca la magia",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536343",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7548,7 +7548,7 @@
      "rival": "Intermaquinas Benicarló",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pabellón Municipal de Benicarló",
+     "camp": "PABELLON MUNICIPAL DE BENICARLO - BenicarlÃ³ (CastellÃ³n)",
      "font": "FEB (feb.es)",
      "idFont": "2536349",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7564,7 +7564,7 @@
      "rival": "C.E. Bàsquet Llíria",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536356",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7580,7 +7580,7 @@
      "rival": "Reina Proteínas Clavijo",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Palacio de los Deportes de La Rioja (Logronyo)",
+     "camp": "Palacio de los Deportes de La Rioja - LogroÃ±o (La Rioja)",
      "font": "FEB (feb.es)",
      "idFont": "2536364",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7596,7 +7596,7 @@
      "rival": "Ciudad Molina Basket",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536369",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7628,7 +7628,7 @@
      "rival": "Proinbeni UPB Gandía",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536382",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7644,7 +7644,7 @@
      "rival": "C.B. Zaragoza",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536394",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7676,7 +7676,7 @@
      "rival": "Amics Castelló",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pabellón Municipal Ciutat Castelló (Castelló de la Plana)",
+     "camp": "PAB MUNI CIUTAT CASTELLO - CastellÃ³n de la Plana/CastellÃ³ (CastellÃ³n)",
      "font": "FEB (feb.es)",
      "idFont": "2536408",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7692,7 +7692,7 @@
      "rival": "Biele ISB",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536410",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7708,7 +7708,7 @@
      "rival": "Logrobasket Logi",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Polideportivo Lobete (Logronyo)",
+     "camp": "POL. LOBETE - LogroÃ±o (La Rioja)",
      "font": "FEB (feb.es)",
      "idFont": "2536421",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7724,7 +7724,7 @@
      "rival": "TQ-CB Prat",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536425",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7756,7 +7756,7 @@
      "rival": "Intermaquinas Benicarló",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536440",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7772,7 +7772,7 @@
      "rival": "C.E. Bàsquet Llíria",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pabellón Pla del Arc (Llíria)",
+     "camp": "PABELLÃN PLA DEL ARC - Lliria (Valencia)",
      "font": "FEB (feb.es)",
      "idFont": "2536447",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7788,7 +7788,7 @@
      "rival": "Reina Proteínas Clavijo",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536455",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7820,7 +7820,7 @@
      "rival": "Basket Cartagena",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "camp": "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "font": "FEB (feb.es)",
      "idFont": "2536470",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -7836,7 +7836,7 @@
      "rival": "Proinbeni UPB Gandía",
      "resultat": "",
      "estat": "Programat",
-     "camp": "Pabellón Municipal de Gandía",
+     "camp": "PABELLON MUNICIPAL DE GANDIA - GandÃ­a (Valencia)",
      "font": "FEB (feb.es)",
      "idFont": "2536473",
      "escutPropi": "https://imagenes.feb.es/Imagen.aspx?i=1009441&ti=1"
@@ -8058,7 +8058,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-10-31T06:36:24+01:00",
+   "classificacioActualitzada": "2026-10-31T06:36:52+01:00",
    "full": [
     [
      "MAN-ztk865nkbx",
@@ -8140,7 +8140,7 @@
      "C.B. Zaragoza",
      "71 - 93",
      "Finalitzat",
-     "Pabellón Siglo XXI (Saragossa)",
+     "PABELLÃN SIGLO XXI - Zaragoza (Zaragoza)",
      "FEB (feb.es)",
      "2536303",
      "31/10/2026 06:36"
@@ -8157,7 +8157,7 @@
      "Class Bàsquet Sant Antoni",
      "64 - 88",
      "Finalitzat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536304",
      "31/10/2026 06:36"
@@ -8174,7 +8174,7 @@
      "Amics Castelló",
      "55 - 68",
      "Finalitzat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536317",
      "31/10/2026 06:36"
@@ -8208,7 +8208,7 @@
      "Biele ISB",
      "80 - 85",
      "Finalitzat",
-     "Polideportivo Municipal de Azpeitia",
+     "POL. MUNICIPAL DE AZPEITIA - Azpeitia (GuipÃºzcoa)",
      "FEB (feb.es)",
      "2536319",
      "31/10/2026 06:36"
@@ -8225,7 +8225,7 @@
      "Logrobasket Logi",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536330",
      "31/10/2026 06:36"
@@ -8259,7 +8259,7 @@
      "Lobe tu provincia Huesca la magia",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536343",
      "31/10/2026 06:36"
@@ -8276,7 +8276,7 @@
      "Intermaquinas Benicarló",
      "",
      "Programat",
-     "Pabellón Municipal de Benicarló",
+     "PABELLON MUNICIPAL DE BENICARLO - BenicarlÃ³ (CastellÃ³n)",
      "FEB (feb.es)",
      "2536349",
      "31/10/2026 06:36"
@@ -8293,7 +8293,7 @@
      "C.E. Bàsquet Llíria",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536356",
      "31/10/2026 06:36"
@@ -8310,7 +8310,7 @@
      "Reina Proteínas Clavijo",
      "",
      "Programat",
-     "Palacio de los Deportes de La Rioja (Logronyo)",
+     "Palacio de los Deportes de La Rioja - LogroÃ±o (La Rioja)",
      "FEB (feb.es)",
      "2536364",
      "31/10/2026 06:36"
@@ -8327,7 +8327,7 @@
      "Ciudad Molina Basket",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536369",
      "31/10/2026 06:36"
@@ -8361,7 +8361,7 @@
      "Proinbeni UPB Gandía",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536382",
      "31/10/2026 06:36"
@@ -8378,7 +8378,7 @@
      "C.B. Zaragoza",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536394",
      "31/10/2026 06:36"
@@ -8412,7 +8412,7 @@
      "Amics Castelló",
      "",
      "Programat",
-     "Pabellón Municipal Ciutat Castelló (Castelló de la Plana)",
+     "PAB MUNI CIUTAT CASTELLO - CastellÃ³n de la Plana/CastellÃ³ (CastellÃ³n)",
      "FEB (feb.es)",
      "2536408",
      "31/10/2026 06:36"
@@ -8429,7 +8429,7 @@
      "Biele ISB",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536410",
      "31/10/2026 06:36"
@@ -8446,7 +8446,7 @@
      "Logrobasket Logi",
      "",
      "Programat",
-     "Polideportivo Lobete (Logronyo)",
+     "POL. LOBETE - LogroÃ±o (La Rioja)",
      "FEB (feb.es)",
      "2536421",
      "31/10/2026 06:36"
@@ -8463,7 +8463,7 @@
      "TQ-CB Prat",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536425",
      "31/10/2026 06:36"
@@ -8497,7 +8497,7 @@
      "Intermaquinas Benicarló",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536440",
      "31/10/2026 06:36"
@@ -8514,7 +8514,7 @@
      "C.E. Bàsquet Llíria",
      "",
      "Programat",
-     "Pabellón Pla del Arc (Llíria)",
+     "PABELLÃN PLA DEL ARC - Lliria (Valencia)",
      "FEB (feb.es)",
      "2536447",
      "31/10/2026 06:36"
@@ -8531,7 +8531,7 @@
      "Reina Proteínas Clavijo",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536455",
      "31/10/2026 06:36"
@@ -8565,7 +8565,7 @@
      "Basket Cartagena",
      "",
      "Programat",
-     "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
+     "PAVELLÃ MUNICIPAL D'ESPORTS - Bisbal d'EmpordÃ , La (Girona)",
      "FEB (feb.es)",
      "2536470",
      "31/10/2026 06:36"
@@ -8582,7 +8582,7 @@
      "Proinbeni UPB Gandía",
      "",
      "Programat",
-     "Pabellón Municipal de Gandía",
+     "PABELLON MUNICIPAL DE GANDIA - GandÃ­a (Valencia)",
      "FEB (feb.es)",
      "2536473",
      "31/10/2026 06:36"
@@ -8843,8 +8843,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-10-31T06:36:24+01:00",
-    "darrerOk": "2026-10-31T06:36:24+01:00"
+    "quan": "2026-10-31T06:36:52+01:00",
+    "darrerOk": "2026-10-31T06:36:52+01:00"
    },
    "partits": [
     {
