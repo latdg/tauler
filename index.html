@@ -975,7 +975,7 @@ const APARTATS = [
   ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
   ["🌿 Temps, aigua i natura", ["Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
-  ["⚽ Esports", ["Partits i resultats", "Classificacions"]]
+  ["🏅 Esports", ["Partits i resultats", "Classificacions"]]
 ];
 function ordenaApartats() {
   if (MODE_SLOW) return;
@@ -1275,10 +1275,10 @@ function pinta(d) {
       "Portal de Subhastes de l'Agència Estatal BOE");
   }
   
-  // 15. ⚽ PARTITS I 🏆 CLASSIFICACIONS (CANVI 24.10.2026): es llegeixen en
+  // 15. 🗓️ PARTITS I 🏆 CLASSIFICACIONS (CANVI 24.10.2026): es llegeixen en
   // directe de dades/esports.json (carregaEsports). Mentre no arriba, la
   // classificació que porta el tauler del dia.
-  h += seccio("⚽ Partits i resultats",
+  h += seccio("🗓️ Partits i resultats",
     '<p class="font dalt"><a href="esports/">Tots els partits, per jornades i dates</a></p>' +
     '<div id="esportsPartits"><p class="buit">Carregant…</p></div>', "", false);
   h += seccio("🏆 Classificacions dels equips",
