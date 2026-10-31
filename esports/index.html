@@ -466,6 +466,21 @@ function aplicaFcbq(r) {
   });
   // 3. Classificació.
   if (r.classificacio.length) {
+    // 31.10.2026: un partit ajornat (jugat fora del seu ordre de jornada) no surt a
+    // «Última jornada jugada», i la classificació s'actualitzava sense el resultat.
+    // Si el Sol Gironès suma exactament un partit jugat i només hi ha un partit passat
+    // sense resultat, el resultat es dedueix dels punts a favor i en contra.
+    const vella = (m.classificacio || []).find(f => esNostre(f.equip));
+    const nova = r.classificacio.find(f => esNostre(f.equip));
+    const avuiIso = new Date().toISOString().slice(0, 10);
+    const pendents = m.partits.filter(p => !p.substitueix && !p.resultat && !/ajorn|descans/i.test((p.estat || "") + " " + p.rival) && p.data && p.data <= avuiIso);
+    if (vella && nova && +nova.pj === +vella.pj + 1 && pendents.length === 1) {
+      const fa = +nova.pf - +vella.pf, ec = +nova.pc - +vella.pc;
+      if (fa > 0 && ec > 0) posa(pendents[0], "resultat", fa + " - " + ec, "resultat (deduït de la classificació)");
+    } else if (nova && pendents.length) {
+      const ambResultat = m.partits.filter(p => !p.substitueix && p.resultat).length;
+      if (+nova.pj > ambResultat) canvis.push(`⚠️ La classificació diu ${nova.pj} partits jugats però només n'hi ha ${ambResultat} amb resultat: entra a mà el de ${pendents.map(desc).join(", ")}`);
+    }
     const abans = JSON.stringify((m.classificacio || []).map(f => [f.pos, f.equip, +f.pj, +f.punts]));
     const ara = JSON.stringify(r.classificacio.map(f => [f.pos, f.equip, f.pj, f.punts]));
     if (abans !== ara) { m.classificacio = r.classificacio; canvis.push(`Classificació a la jornada ${r.jornada} (${r.classificacio.length} equips)`); }
