@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-26T23:01:08+00:00",
+ "generat": "2026-10-31T05:32:39+00:00",
  "font": "Direcció General del Cadastre (servei INSPIRE d'edificis)",
  "epoques": [
   "abans de 1900",
@@ -438,6 +438,113 @@
    "ultims10anys": 17,
    "ruina": 4,
    "plantesMax": 5
+  },
+  "17205": {
+   "nom": "Ullastret",
+   "actualitzatCadastre": "2026-08-21",
+   "zip": "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/17/17218-ULLASTRET/A.ES.SDGC.BU.17218.zip",
+   "edificis": 243,
+   "ambAny": 242,
+   "habitatges": 179,
+   "mediana": 1975,
+   "epoques": [
+    {
+     "epoca": "abans de 1900",
+     "edificis": 20,
+     "habitatges": 17
+    },
+    {
+     "epoca": "1900-1939",
+     "edificis": 32,
+     "habitatges": 30
+    },
+    {
+     "epoca": "1940-1959",
+     "edificis": 22,
+     "habitatges": 16
+    },
+    {
+     "epoca": "1960-1979",
+     "edificis": 58,
+     "habitatges": 52
+    },
+    {
+     "epoca": "1980-1999",
+     "edificis": 58,
+     "habitatges": 27
+    },
+    {
+     "epoca": "2000-2009",
+     "edificis": 28,
+     "habitatges": 19
+    },
+    {
+     "epoca": "des de 2010",
+     "edificis": 24,
+     "habitatges": 18
+    }
+   ],
+   "usos": [
+    [
+     "Residencial",
+     182
+    ],
+    [
+     "Agrari",
+     35
+    ],
+    [
+     "Industrial",
+     15
+    ],
+    [
+     "Serveis públics",
+     5
+    ],
+    [
+     "Altres",
+     2
+    ],
+    [
+     "Comercial",
+     2
+    ],
+    [
+     "Oficines",
+     2
+    ]
+   ],
+   "mesAntics": [
+    {
+     "ref": "5798201EG0459N",
+     "any": 1500,
+     "us": null
+    },
+    {
+     "ref": "17218A01200065",
+     "any": 1700,
+     "us": "Residencial"
+    },
+    {
+     "ref": "5401702EG0550S",
+     "any": 1700,
+     "us": "Residencial"
+    },
+    {
+     "ref": "5701106EG0550S",
+     "any": 1700,
+     "us": "Residencial"
+    },
+    {
+     "ref": "5400603EG0550S",
+     "any": 1750,
+     "us": "Comercial"
+    }
+   ],
+   "any1900": 16,
+   "ultims10anys": 13,
+   "ruina": 0,
+   "plantesMax": 4
   }
  }
 }
