@@ -440,7 +440,7 @@ def riu():
     # Text: la darrera lectura.
     darrer = max(nivell[-1:] + cabal[-1:], key=lambda x: x[0])[0]
     quan = f"A les {darrer.strftime('%H.%M')} h d'avui" if darrer.date() == ara().date() \
-        else f"El {darrer.strftime('%d.%m.%Y')} a les {darrer.strftime('%H.%M')} h"
+        else f"{el_dia(darrer)} a les {darrer.strftime('%H.%M')} h"
     trossos = []
     if cabal:
         trossos.append(f"un cabal de {coma(cabal[-1][1], 3)} m³/s")
@@ -1251,11 +1251,22 @@ def tradueix(text):
     return re.sub(r"\*(?=\w)", "", str(t)).strip()
 
 
+def apostrofa(d):
+    """«l'» davant de l'1 i de l'11 (dies que comencen per vocal), «el» davant de la resta."""
+    return d.astimezone(TZ).day in (1, 11)
+
+
+def el_dia(d):
+    """«L'01.11.2026» o «El 02.11.2026» (inici de frase)."""
+    return ("L'" if apostrofa(d) else "El ") + d.astimezone(TZ).strftime('%d.%m.%Y')
+
+
 def periode_text(ini, fi):
     ini, fi = ini.astimezone(TZ), fi.astimezone(TZ)
     if ini.date() == fi.date():
-        return f"El {ini.strftime('%d.%m.%Y')}, de {ini.strftime('%H.%M')} a {fi.strftime('%H.%M')} h"
-    return f"Del {dh(ini)} al {dh(fi)}"
+        return f"{el_dia(ini)}, de {ini.strftime('%H.%M')} a {fi.strftime('%H.%M')} h"
+    return (("De l'" if apostrofa(ini) else "Del ") + dh(ini) +
+            (" a l'" if apostrofa(fi) else " al ") + dh(fi))
 
 
 def aemet_avisos(traduccions):
