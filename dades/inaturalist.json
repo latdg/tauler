@@ -1,57 +1,135 @@
 {
- "actualitzat": "2026-10-31T05:46:53+00:00",
- "dies": 90,
+ "actualitzat": "2026-10-31T05:53:22+00:00",
+ "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
   "17022": {
    "nom": "la Bisbal d'Empordà",
-   "observacions": 7,
-   "especies": 5,
-   "observadors": 5,
+   "observacions": 177,
+   "especies": 131,
+   "observadors": 15,
    "grups": [
     [
-     "🐟 Peixos",
-     3
-    ],
-    [
      "🌿 Plantes",
-     3
+     107
     ],
     [
      "🦋 Insectes",
+     47
+    ],
+    [
+     "🕷️ Aranyes",
+     5
+    ],
+    [
+     "🍄 Fongs",
+     5
+    ],
+    [
+     "🐟 Peixos",
+     4
+    ],
+    [
+     "🐸 Amfibis",
+     2
+    ],
+    [
+     "🐾 Altres",
+     2
+    ],
+    [
+     "🐦 Ocells",
+     1
+    ],
+    [
+     "🐾 Altres animals",
+     1
+    ],
+    [
+     "🦎 Rèptils",
+     1
+    ],
+    [
+     "🦊 Mamífers",
+     1
+    ],
+    [
+     "🐌 Mol·luscs",
      1
     ]
    ],
    "mesVistes": [
     {
+     "cientific": "Vitex agnus-castus",
+     "nom": "Aloc",
+     "grup": "🌿 Plantes",
+     "n": 6
+    },
+    {
+     "cientific": "Ficaria verna",
+     "nom": "gatassa",
+     "grup": "🌿 Plantes",
+     "n": 4
+    },
+    {
+     "cientific": "Lactuca serriola",
+     "nom": "Enciam bord",
+     "grup": "🌿 Plantes",
+     "n": 3
+    },
+    {
+     "cientific": "Malva sylvestris",
+     "nom": "Malva comuna",
+     "grup": "🌿 Plantes",
+     "n": 3
+    },
+    {
+     "cientific": "Halictus scabiosae",
+     "nom": "",
+     "grup": "🦋 Insectes",
+     "n": 3
+    },
+    {
      "cientific": "Epinephelus marginatus",
      "nom": "Anfós",
      "grup": "🐟 Peixos",
-     "n": 1
+     "n": 2
     },
     {
-     "cientific": "Dentex dentex",
-     "nom": "Déntol",
-     "grup": "🐟 Peixos",
-     "n": 1
+     "cientific": "Graphosoma italicum italicum",
+     "nom": "Xinxa Retxada Europea",
+     "grup": "🦋 Insectes",
+     "n": 2
     },
     {
-     "cientific": "Anguilla anguilla",
-     "nom": "Anguila",
-     "grup": "🐟 Peixos",
-     "n": 1
-    },
-    {
-     "cientific": "Quercus suber",
-     "nom": "Alzina surera",
-     "grup": "🌿 Plantes",
-     "n": 1
-    },
-    {
-     "cientific": "Tabanus bromius",
+     "cientific": "Bombus ruderatus",
      "nom": "",
      "grup": "🦋 Insectes",
-     "n": 1
+     "n": 2
+    },
+    {
+     "cientific": "Medicago sativa",
+     "nom": "Userda",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Bombus terrestris",
+     "nom": "Borinot",
+     "grup": "🦋 Insectes",
+     "n": 2
+    },
+    {
+     "cientific": "Cichorium intybus",
+     "nom": "xicoira",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Convolvulus arvensis",
+     "nom": "corretjola",
+     "grup": "🌿 Plantes",
+     "n": 2
     }
    ],
    "destacades": [
@@ -96,6 +174,51 @@
      "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/728980697/small.jpg",
      "autor": "pauoc",
      "lloc": "Spain",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 377123629,
+     "data": "2026-06-30",
+     "url": "https://www.inaturalist.org/observations/377123629",
+     "nom": "Anfós",
+     "cientific": "Epinephelus marginatus",
+     "rang": "species",
+     "grup": "🐟 Peixos",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/689599342/small.jpg",
+     "autor": "Valentin de Mazancourt",
+     "lloc": "Spain",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 374889793,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/374889793",
+     "nom": "",
+     "cientific": "Cladocora caespitosa",
+     "rang": "species",
+     "grup": "🐾 Altres animals",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685277901/small.jpg",
+     "autor": "Valentin de Mazancourt",
+     "lloc": "Spain",
+     "qualitat": "needs_id",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 350733862,
+     "data": "2026-04-18",
+     "url": "https://www.inaturalist.org/observations/350733862",
+     "nom": "Eriço comú",
+     "cientific": "Erinaceus europaeus",
+     "rang": "species",
+     "grup": "🦊 Mamífers",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/639983635/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
      "qualitat": "research",
      "amenacada": true,
      "introduida": false
@@ -206,41 +329,564 @@
      "qualitat": "needs_id",
      "amenacada": false,
      "introduida": false
+    },
+    {
+     "id": 385214489,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385214489",
+     "nom": "Enciam bord",
+     "cientific": "Lactuca serriola",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705221272/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385214376,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385214376",
+     "nom": "Xinxa Retxada Europea",
+     "cientific": "Graphosoma italicum italicum",
+     "rang": "subspecies",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705221026/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "El Daró, Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385214303,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385214303",
+     "nom": "Aloc",
+     "cientific": "Vitex agnus-castus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705220871/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer del Pont, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385214071,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385214071",
+     "nom": "",
+     "cientific": "Lycium chinense",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705220413/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 385213663,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385213663",
+     "nom": "malrubí negre",
+     "cientific": "Ballota nigra",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705219709/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385213548,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385213548",
+     "nom": "",
+     "cientific": "Bombus ruderatus",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705219472/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer del Pont, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385213406,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385213406",
+     "nom": "Berbena",
+     "cientific": "Verbena officinalis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705219127/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385213292,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385213292",
+     "nom": "Userda",
+     "cientific": "Medicago sativa",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705218893/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 385213186,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385213186",
+     "nom": "",
+     "cientific": "Villa brunnea",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705218701/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "El Daró, Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385211761,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385211761",
+     "nom": "Borinot",
+     "cientific": "Bombus terrestris",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705215471/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer de la Font de l'Arbre, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 385211668,
+     "data": "2026-07-26",
+     "url": "https://www.inaturalist.org/observations/385211668",
+     "nom": "",
+     "cientific": "Hippodamia variegata",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/705215314/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer del Pont, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 383942686,
+     "data": "2026-07-20",
+     "url": "https://www.inaturalist.org/observations/383942686",
+     "nom": "Card cigrell hispànic",
+     "cientific": "Carlina hispanica",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/702765651/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 383940017,
+     "data": "2026-07-20",
+     "url": "https://www.inaturalist.org/observations/383940017",
+     "nom": "Xinxa puntejada",
+     "cientific": "Graphosoma semipunctatum",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/702760604/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 382868435,
+     "data": "2026-07-19",
+     "url": "https://www.inaturalist.org/observations/382868435",
+     "nom": "Oreneta cuablanca",
+     "cientific": "Delichon urbicum",
+     "rang": "species",
+     "grup": "🐦 Ocells",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/700702284/small.jpg",
+     "autor": "a0tero",
+     "lloc": "La Bisbal d'Empordà",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 382706883,
+     "data": "2026-07-18",
+     "url": "https://www.inaturalist.org/observations/382706883",
+     "nom": "",
+     "cientific": "Aglossa caprealis",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/700384384/small.jpg",
+     "autor": "a0tero",
+     "lloc": "Girona",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 382566905,
+     "data": "2026-07-18",
+     "url": "https://www.inaturalist.org/observations/382566905",
+     "nom": "Malva comuna",
+     "cientific": "Malva sylvestris",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/700138851/small.jpg",
+     "autor": "a0tero",
+     "lloc": "Girona",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384674045,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384674045",
+     "nom": "Userda",
+     "cientific": "Medicago sativa",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704175728/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carretera Cassa de la Selva Cruïlles, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 384672117,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384672117",
+     "nom": "Antòfils",
+     "cientific": "Anthophila",
+     "rang": "epifamily",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704171648/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carretera Cassa de la Selva Cruïlles, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384671452,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384671452",
+     "nom": "Pastanaga borda",
+     "cientific": "Daucus carota",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704170243/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384670474,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384670474",
+     "nom": "Aloc",
+     "cientific": "Vitex agnus-castus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704168667/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer de la Font de l'Arbre, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384667333,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384667333",
+     "nom": "blanquiella",
+     "cientific": "Centaurea solstitialis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704162070/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384666874,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384666874",
+     "nom": "lledoner",
+     "cientific": "Celtis australis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704161101/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384665612,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384665612",
+     "nom": "",
+     "cientific": "Halictus scabiosae",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704158657/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer de la Font de l'Arbre, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384664302,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384664302",
+     "nom": "Card fuell",
+     "cientific": "Carthamus lanatus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704156221/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer de la Font de l'Arbre, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 384660784,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/384660784",
+     "nom": "Blaveta Estriada",
+     "cientific": "Leptotes pirithous",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/704149161/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer de la Font de l'Arbre, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381983456,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381983456",
+     "nom": "",
+     "cientific": "Halictus scabiosae",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/699000757/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carretera Cassa de la Selva Cruïlles, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381982757,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381982757",
+     "nom": "xicoira",
+     "cientific": "Cichorium intybus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/698999624/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carretera Cassa de la Selva Cruïlles, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381740087,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381740087",
+     "nom": "corretjola",
+     "cientific": "Convolvulus arvensis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/698527315/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carretera Cassa de la Selva Cruïlles, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381739463,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381739463",
+     "nom": "sanguinyol",
+     "cientific": "Cornus sanguinea",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/698526054/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381738924,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381738924",
+     "nom": "Vespa de Galet",
+     "cientific": "Regiscolia maculata",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/698525320/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carrer de la Font de l'Arbre, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381489263,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381489263",
+     "nom": "Saltamartí bru ibèric",
+     "cientific": "Chorthippus jacobsi",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/698038761/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381463381,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381463381",
+     "nom": "Sagnador escarlata",
+     "cientific": "Crocothemis erythraea",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/697988298/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 381165979,
+     "data": "2026-07-12",
+     "url": "https://www.inaturalist.org/observations/381165979",
+     "nom": "Enciam bord",
+     "cientific": "Lactuca serriola",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/697410592/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Carretera Cassa de la Selva Cruïlles, La Bisbal d'Empordà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
     }
    ]
   },
   "17902": {
    "nom": "Forallac",
-   "observacions": 36,
-   "especies": 30,
-   "observadors": 8,
+   "observacions": 192,
+   "especies": 122,
+   "observadors": 35,
    "grups": [
     [
      "🌿 Plantes",
+     150
+    ],
+    [
+     "🦋 Insectes",
      18
     ],
     [
      "🐦 Ocells",
-     10
-    ],
-    [
-     "🦋 Insectes",
-     5
+     15
     ],
     [
      "🦊 Mamífers",
-     1
+     2
+    ],
+    [
+     "🐟 Peixos",
+     2
     ],
     [
      "🍄 Fongs",
      1
     ],
     [
-     "🐟 Peixos",
+     "🦎 Rèptils",
+     1
+    ],
+    [
+     "🐾 Altres",
+     1
+    ],
+    [
+     "🐸 Amfibis",
+     1
+    ],
+    [
+     "🐾 Altres animals",
      1
     ]
    ],
    "mesVistes": [
+    {
+     "cientific": "Lonicera implexa",
+     "nom": "Lligabosc mediterrani",
+     "grup": "🌿 Plantes",
+     "n": 26
+    },
+    {
+     "cientific": "Lonicera periclymenum",
+     "nom": "Xuclamel atlàntic",
+     "grup": "🌿 Plantes",
+     "n": 8
+    },
     {
      "cientific": "Zinnia elegans",
      "nom": "",
@@ -254,64 +900,52 @@
      "n": 3
     },
     {
+     "cientific": "Cistus crispus",
+     "nom": "Estepa crespa",
+     "grup": "🌿 Plantes",
+     "n": 3
+    },
+    {
+     "cientific": "Muscari comosum",
+     "nom": "Calabruixa grossa",
+     "grup": "🌿 Plantes",
+     "n": 3
+    },
+    {
+     "cientific": "Columba palumbus",
+     "nom": "Tudó",
+     "grup": "🐦 Ocells",
+     "n": 2
+    },
+    {
      "cientific": "Amaranthus retroflexus",
      "nom": "blet gros",
      "grup": "🌿 Plantes",
      "n": 2
     },
     {
-     "cientific": "Crocus sativus",
-     "nom": "safrà",
+     "cientific": "Hirundo rustica",
+     "nom": "Oreneta vulgar",
+     "grup": "🐦 Ocells",
+     "n": 2
+    },
+    {
+     "cientific": "Harmonia axyridis",
+     "nom": "Marieta asiàtica",
+     "grup": "🦋 Insectes",
+     "n": 2
+    },
+    {
+     "cientific": "Sixalix atropurpurea",
+     "nom": "Herba del sucre",
      "grup": "🌿 Plantes",
-     "n": 1
+     "n": 2
     },
     {
-     "cientific": "Tragus racemosus",
-     "nom": "",
+     "cientific": "Cymbalaria muralis",
+     "nom": "Picardia",
      "grup": "🌿 Plantes",
-     "n": 1
-    },
-    {
-     "cientific": "Rattus rattus",
-     "nom": "Rata negra",
-     "grup": "🦊 Mamífers",
-     "n": 1
-    },
-    {
-     "cientific": "Mycena seynii",
-     "nom": "",
-     "grup": "🍄 Fongs",
-     "n": 1
-    },
-    {
-     "cientific": "Erithacus rubecula",
-     "nom": "Pit-roig",
-     "grup": "🐦 Ocells",
-     "n": 1
-    },
-    {
-     "cientific": "Galerida cristata",
-     "nom": "Cogullada vulgar",
-     "grup": "🐦 Ocells",
-     "n": 1
-    },
-    {
-     "cientific": "Certhia brachydactyla",
-     "nom": "Raspinell",
-     "grup": "🐦 Ocells",
-     "n": 1
-    },
-    {
-     "cientific": "Oenanthe oenanthe",
-     "nom": "Còlit gris",
-     "grup": "🐦 Ocells",
-     "n": 1
-    },
-    {
-     "cientific": "Dendrocopos major",
-     "nom": "Picot garser gros",
-     "grup": "🐦 Ocells",
-     "n": 1
+     "n": 2
     }
    ],
    "destacades": [
@@ -344,6 +978,36 @@
      "qualitat": "casual",
      "amenacada": true,
      "introduida": true
+    },
+    {
+     "id": 362343947,
+     "data": "2026-05-17",
+     "url": "https://www.inaturalist.org/observations/362343947",
+     "nom": "Anfós",
+     "cientific": "Epinephelus marginatus",
+     "rang": "species",
+     "grup": "🐟 Peixos",
+     "foto": "https://static.inaturalist.org/photos/661333926/small.jpg",
+     "autor": "Marta Nadal",
+     "lloc": "Spain",
+     "qualitat": "needs_id",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 343513589,
+     "data": "2026-03-17",
+     "url": "https://www.inaturalist.org/observations/343513589",
+     "nom": "Llagosta",
+     "cientific": "Palinurus elephas",
+     "rang": "species",
+     "grup": "🐾 Altres animals",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/625756871/small.jpg",
+     "autor": "Edu Alcaniz",
+     "lloc": "Spain",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
     }
    ],
    "recents": [
@@ -886,25 +1550,97 @@
      "qualitat": "research",
      "amenacada": false,
      "introduida": true
+    },
+    {
+     "id": 386296572,
+     "data": "2026-07-29",
+     "url": "https://www.inaturalist.org/observations/386296572",
+     "nom": "",
+     "cientific": "Vespidae",
+     "rang": "family",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/707278179/small.jpg",
+     "autor": "Valérie de Mazancourt",
+     "lloc": "17113, Gérone, Espagne",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 375464429,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375464429",
+     "nom": "Arítjol",
+     "cientific": "Smilax aspera",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://static.inaturalist.org/photos/686399263/small.jpg",
+     "autor": "Uro Uro Sens",
+     "lloc": "Forallac, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 374070360,
+     "data": "2026-06-21",
+     "url": "https://www.inaturalist.org/observations/374070360",
+     "nom": "Dragó",
+     "cientific": "Tarentola mauritanica",
+     "rang": "species",
+     "grup": "🦎 Rèptils",
+     "foto": "https://static.inaturalist.org/photos/683685804/small.jpg",
+     "autor": "Daniel Rodríguez Seco",
+     "lloc": "17113, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 374003901,
+     "data": "2026-06-21",
+     "url": "https://www.inaturalist.org/observations/374003901",
+     "nom": "",
+     "cientific": "Messor barbarus",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/683559696/small.jpg",
+     "autor": "Daniel Rodríguez Seco",
+     "lloc": "Can Rector, 17110, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
     }
    ]
   },
   "17057": {
    "nom": "Corçà",
-   "observacions": 3,
-   "especies": 3,
-   "observadors": 3,
+   "observacions": 20,
+   "especies": 17,
+   "observadors": 11,
    "grups": [
     [
+     "🦋 Insectes",
+     8
+    ],
+    [
      "🌿 Plantes",
-     1
+     5
+    ],
+    [
+     "🦊 Mamífers",
+     3
+    ],
+    [
+     "🕷️ Aranyes",
+     2
     ],
     [
      "🐸 Amfibis",
      1
     ],
     [
-     "🦊 Mamífers",
+     "🐦 Ocells",
      1
     ]
    ],
@@ -926,9 +1662,79 @@
      "nom": "Geneta",
      "grup": "🦊 Mamífers",
      "n": 1
+    },
+    {
+     "cientific": "Harmonia axyridis",
+     "nom": "Marieta asiàtica",
+     "grup": "🦋 Insectes",
+     "n": 1
+    },
+    {
+     "cientific": "Uromenus rugosicollis",
+     "nom": "Llagost de sella",
+     "grup": "🦋 Insectes",
+     "n": 1
+    },
+    {
+     "cientific": "Hogna radiata",
+     "nom": "Aranya Llop",
+     "grup": "🕷️ Aranyes",
+     "n": 1
+    },
+    {
+     "cientific": "Aedia leucomelas",
+     "nom": "",
+     "grup": "🦋 Insectes",
+     "n": 1
+    },
+    {
+     "cientific": "Crematogaster scutellaris",
+     "nom": "Reveixí",
+     "grup": "🦋 Insectes",
+     "n": 1
+    },
+    {
+     "cientific": "Messor barbarus",
+     "nom": "",
+     "grup": "🦋 Insectes",
+     "n": 1
+    },
+    {
+     "cientific": "Pallenis spinosa",
+     "nom": "Ull de bou",
+     "grup": "🌿 Plantes",
+     "n": 1
+    },
+    {
+     "cientific": "Araujia sericifera",
+     "nom": "Miraguà fals",
+     "grup": "🌿 Plantes",
+     "n": 1
+    },
+    {
+     "cientific": "Ampelodesmos mauritanicus",
+     "nom": "càrritx",
+     "grup": "🌿 Plantes",
+     "n": 1
     }
    ],
-   "destacades": [],
+   "destacades": [
+    {
+     "id": 358843126,
+     "data": "2026-05-06",
+     "url": "https://www.inaturalist.org/observations/358843126",
+     "nom": "Eriço comú",
+     "cientific": "Erinaceus europaeus",
+     "rang": "species",
+     "grup": "🦊 Mamífers",
+     "foto": "https://static.inaturalist.org/photos/654666210/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Casavells (Dir. Figueres), 17121, Girona, España",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    }
+   ],
    "recents": [
     {
      "id": 408902219,
@@ -974,45 +1780,316 @@
      "qualitat": "research",
      "amenacada": false,
      "introduida": true
+    },
+    {
+     "id": 378549729,
+     "data": "2026-07-05",
+     "url": "https://www.inaturalist.org/observations/378549729",
+     "nom": "Marieta asiàtica",
+     "cientific": "Harmonia axyridis",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/692348847/small.jpg",
+     "autor": "mescarce",
+     "lloc": "Carrer Major, Corçà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 386228416,
+     "data": "2026-07-04",
+     "url": "https://www.inaturalist.org/observations/386228416",
+     "nom": "Llagost de sella",
+     "cientific": "Uromenus rugosicollis",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/707150552/small.jpg",
+     "autor": "oscarmartinezpi",
+     "lloc": "Camí de Puig Rodó, Corçà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 386228175,
+     "data": "2026-06-30",
+     "url": "https://www.inaturalist.org/observations/386228175",
+     "nom": "Aranya Llop",
+     "cientific": "Hogna radiata",
+     "rang": "species",
+     "grup": "🕷️ Aranyes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/707150078/small.jpg",
+     "autor": "oscarmartinezpi",
+     "lloc": "Camí de Puig Rodó, Corçà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 386228089,
+     "data": "2026-06-30",
+     "url": "https://www.inaturalist.org/observations/386228089",
+     "nom": "",
+     "cientific": "Pipistrellini",
+     "rang": "tribe",
+     "grup": "🦊 Mamífers",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/707149929/small.jpg",
+     "autor": "oscarmartinezpi",
+     "lloc": "Camí de Puig Rodó, Corçà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 386228027,
+     "data": "2026-06-28",
+     "url": "https://www.inaturalist.org/observations/386228027",
+     "nom": "",
+     "cientific": "Aedia leucomelas",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/707149769/small.jpg",
+     "autor": "oscarmartinezpi",
+     "lloc": "Camí de Puig Rodó, Corçà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 367407328,
+     "data": "2026-06-01",
+     "url": "https://www.inaturalist.org/observations/367407328",
+     "nom": "",
+     "cientific": "Asida",
+     "rang": "genus",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/672693511/small.jpg",
+     "autor": "Michael Peñuelas",
+     "lloc": "Corçà",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 366597156,
+     "data": "2026-05-29",
+     "url": "https://www.inaturalist.org/observations/366597156",
+     "nom": "",
+     "cientific": "Trombidia",
+     "rang": "parvorder",
+     "grup": "🕷️ Aranyes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/669413237/small.jpg",
+     "autor": "Pere Tubert Juhé",
+     "lloc": "Carrer del Carme, Corçà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 366443495,
+     "data": "2026-05-29",
+     "url": "https://www.inaturalist.org/observations/366443495",
+     "nom": "Reveixí",
+     "cientific": "Crematogaster scutellaris",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/669118257/small.jpg",
+     "autor": "Pere Tubert Juhé",
+     "lloc": "Girona, ES-CT, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 366408619,
+     "data": "2026-05-29",
+     "url": "https://www.inaturalist.org/observations/366408619",
+     "nom": "",
+     "cientific": "Messor barbarus",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/669050886/small.jpg",
+     "autor": "Pere Tubert Juhé",
+     "lloc": "Carrer Canigó, Corçà, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 365043500,
+     "data": "2026-05-25",
+     "url": "https://www.inaturalist.org/observations/365043500",
+     "nom": "Ull de bou",
+     "cientific": "Pallenis spinosa",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/666453706/small.jpg",
+     "autor": "David Carrera",
+     "lloc": "Girona, ES-CT, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 365037840,
+     "data": "2026-05-25",
+     "url": "https://www.inaturalist.org/observations/365037840",
+     "nom": "Miraguà fals",
+     "cientific": "Araujia sericifera",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/666441341/small.jpg",
+     "autor": "David Carrera",
+     "lloc": "Diseminado Afueras, Rupià, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 360868046,
+     "data": "2026-05-12",
+     "url": "https://www.inaturalist.org/observations/360868046",
+     "nom": "càrritx",
+     "cientific": "Ampelodesmos mauritanicus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/658532494/small.jpg",
+     "autor": "nvicens",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 358843126,
+     "data": "2026-05-06",
+     "url": "https://www.inaturalist.org/observations/358843126",
+     "nom": "Eriço comú",
+     "cientific": "Erinaceus europaeus",
+     "rang": "species",
+     "grup": "🦊 Mamífers",
+     "foto": "https://static.inaturalist.org/photos/654666210/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Casavells (Dir. Figueres), 17121, Girona, España",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 357530476,
+     "data": "2026-05-02",
+     "url": "https://www.inaturalist.org/observations/357530476",
+     "nom": "Vespa asiàtica",
+     "cientific": "Vespa velutina",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/652113209/small.jpg",
+     "autor": "nvicens",
+     "lloc": "17121 Corçà, Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 337196461,
+     "data": "2026-02-03",
+     "url": "https://www.inaturalist.org/observations/337196461",
+     "nom": "",
+     "cientific": "Vinealobryum vineale",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/612925344/small.jpg",
+     "autor": "Josep Lluis Berdonces",
+     "lloc": "Corçà, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 336585896,
+     "data": "2026-01-29",
+     "url": "https://www.inaturalist.org/observations/336585896",
+     "nom": "Faisà vulgar",
+     "cientific": "Phasianus colchicus",
+     "rang": "species",
+     "grup": "🐦 Ocells",
+     "foto": "https://static.inaturalist.org/photos/611680179/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Corçà, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 326940832,
+     "data": "2025-11-17",
+     "url": "https://www.inaturalist.org/observations/326940832",
+     "nom": "Garrotet Vivent Mediterrani",
+     "cientific": "Bacillus rossius",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/592221834/small.jpg",
+     "autor": "mart meos",
+     "lloc": "Corçà, Girona, Spain",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
     }
    ]
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 23,
-   "especies": 16,
-   "observadors": 7,
+   "observacions": 258,
+   "especies": 190,
+   "observadors": 29,
    "grups": [
     [
-     "🐸 Amfibis",
-     7
-    ],
-    [
      "🦋 Insectes",
-     6
-    ],
-    [
-     "🦎 Rèptils",
-     3
+     99
     ],
     [
      "🌿 Plantes",
-     2
-    ],
-    [
-     "🍄 Fongs",
-     2
-    ],
-    [
-     "🐟 Peixos",
-     1
-    ],
-    [
-     "🦊 Mamífers",
-     1
+     95
     ],
     [
      "🕷️ Aranyes",
+     14
+    ],
+    [
+     "🐸 Amfibis",
+     11
+    ],
+    [
+     "🍄 Fongs",
+     9
+    ],
+    [
+     "🦊 Mamífers",
+     8
+    ],
+    [
+     "🦎 Rèptils",
+     6
+    ],
+    [
+     "🐦 Ocells",
+     6
+    ],
+    [
+     "🐟 Peixos",
+     3
+    ],
+    [
+     "🐌 Mol·luscs",
+     3
+    ],
+    [
+     "🐾 Altres animals",
+     3
+    ],
+    [
+     "🐾 Altres",
      1
     ]
    ],
@@ -1021,73 +2098,73 @@
      "cientific": "Discoglossus pictus",
      "nom": "Granota pintada",
      "grup": "🐸 Amfibis",
-     "n": 5
+     "n": 6
     },
     {
      "cientific": "Salamandra salamandra",
      "nom": "Salamandra",
      "grup": "🐸 Amfibis",
-     "n": 2
-    },
-    {
-     "cientific": "Odontites luteus",
-     "nom": "Fonollada groga",
-     "grup": "🌿 Plantes",
-     "n": 1
-    },
-    {
-     "cientific": "Epinephelus marginatus",
-     "nom": "Anfós",
-     "grup": "🐟 Peixos",
-     "n": 1
-    },
-    {
-     "cientific": "Marasmiellus candidus",
-     "nom": "",
-     "grup": "🍄 Fongs",
-     "n": 1
-    },
-    {
-     "cientific": "Natrix astreptophora",
-     "nom": "Serp de collaret",
-     "grup": "🦎 Rèptils",
-     "n": 1
-    },
-    {
-     "cientific": "Clematis flammula",
-     "nom": "Vidiella",
-     "grup": "🌿 Plantes",
-     "n": 1
-    },
-    {
-     "cientific": "Sus scrofa",
-     "nom": "porc senglar",
-     "grup": "🦊 Mamífers",
-     "n": 1
-    },
-    {
-     "cientific": "Cydalima perspectalis",
-     "nom": "Papallona del boix",
-     "grup": "🦋 Insectes",
-     "n": 1
+     "n": 4
     },
     {
      "cientific": "Vanessa cardui",
      "nom": "Migradora dels cards",
      "grup": "🦋 Insectes",
-     "n": 1
+     "n": 3
+    },
+    {
+     "cientific": "Euphydryas aurinia",
+     "nom": "Brocat variable",
+     "grup": "🦋 Insectes",
+     "n": 3
+    },
+    {
+     "cientific": "Clematis flammula",
+     "nom": "Vidiella",
+     "grup": "🌿 Plantes",
+     "n": 2
     },
     {
      "cientific": "Spilosoma lubricipeda",
      "nom": "",
      "grup": "🦋 Insectes",
-     "n": 1
+     "n": 2
     },
     {
-     "cientific": "Menemerus semilimbatus",
-     "nom": "Aranya Saltadora Mediterrània",
+     "cientific": "Daphne gnidium",
+     "nom": "Matapoll",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Rattus rattus",
+     "nom": "Rata negra",
+     "grup": "🦊 Mamífers",
+     "n": 2
+    },
+    {
+     "cientific": "Uromenus rugosicollis",
+     "nom": "Llagost de sella",
+     "grup": "🦋 Insectes",
+     "n": 2
+    },
+    {
+     "cientific": "Bombus pascuorum",
+     "nom": "Borinot de camp",
+     "grup": "🦋 Insectes",
+     "n": 2
+    },
+    {
+     "cientific": "Phalangium opilio",
+     "nom": "",
      "grup": "🕷️ Aranyes",
-     "n": 1
+     "n": 2
+    },
+    {
+     "cientific": "Pallenis spinosa",
+     "nom": "Ull de bou",
+     "grup": "🌿 Plantes",
+     "n": 2
     }
    ],
    "destacades": [
@@ -1147,6 +2224,96 @@
      "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709658698/small.jpg",
      "autor": "tobymatt74",
      "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 383856022,
+     "data": "2026-07-19",
+     "url": "https://www.inaturalist.org/observations/383856022",
+     "nom": "Cavall de mar xato",
+     "cientific": "Hippocampus hippocampus",
+     "rang": "species",
+     "grup": "🐟 Peixos",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/702601550/small.jpg",
+     "autor": "Elena Fraile Valdés",
+     "lloc": "Girona, ES-CT, ES",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 351913355,
+     "data": "2026-04-20",
+     "url": "https://www.inaturalist.org/observations/351913355",
+     "nom": "Martinet ros",
+     "cientific": "Ardeola ralloides",
+     "rang": "species",
+     "grup": "🐦 Ocells",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/642263200/small.jpg",
+     "autor": "saydelah",
+     "lloc": "Girona, ES-CT, ES",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 344438757,
+     "data": "2026-03-22",
+     "url": "https://www.inaturalist.org/observations/344438757",
+     "nom": "Tord verd",
+     "cientific": "Labrus viridis",
+     "rang": "species",
+     "grup": "🐟 Peixos",
+     "foto": "https://static.inaturalist.org/photos/627569788/small.jpg",
+     "autor": "Marta Nadal",
+     "lloc": "Spain",
+     "qualitat": "needs_id",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 333309142,
+     "data": "2026-01-03",
+     "url": "https://www.inaturalist.org/observations/333309142",
+     "nom": "Conill de Bosc",
+     "cientific": "Oryctolagus cuniculus",
+     "rang": "species",
+     "grup": "🦊 Mamífers",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/605094265/small.jpg",
+     "autor": "Emili García-Berthou",
+     "lloc": "Girona, ES-CT, ES",
+     "qualitat": "needs_id",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 333418720,
+     "data": "2025-12-27",
+     "url": "https://www.inaturalist.org/observations/333418720",
+     "nom": "Salamandra",
+     "cientific": "Salamandra salamandra",
+     "rang": "species",
+     "grup": "🐸 Amfibis",
+     "foto": "https://static.inaturalist.org/photos/605315613/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 325220299,
+     "data": "2025-11-06",
+     "url": "https://www.inaturalist.org/observations/325220299",
+     "nom": "Salamandra",
+     "cientific": "Salamandra salamandra",
+     "rang": "species",
+     "grup": "🐸 Amfibis",
+     "foto": "https://static.inaturalist.org/photos/588788918/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "17121 Corçà, Girona, España",
      "qualitat": "research",
      "amenacada": true,
      "introduida": false
@@ -1497,29 +2664,366 @@
      "qualitat": "research",
      "amenacada": true,
      "introduida": false
+    },
+    {
+     "id": 383856022,
+     "data": "2026-07-19",
+     "url": "https://www.inaturalist.org/observations/383856022",
+     "nom": "Cavall de mar xato",
+     "cientific": "Hippocampus hippocampus",
+     "rang": "species",
+     "grup": "🐟 Peixos",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/702601550/small.jpg",
+     "autor": "Elena Fraile Valdés",
+     "lloc": "Girona, ES-CT, ES",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 381043578,
+     "data": "2026-07-13",
+     "url": "https://www.inaturalist.org/observations/381043578",
+     "nom": "",
+     "cientific": "Sceliphron curvatum",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/697179897/small.jpg",
+     "autor": "Anna Wintle Taylor",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 380292726,
+     "data": "2026-07-11",
+     "url": "https://www.inaturalist.org/observations/380292726",
+     "nom": "",
+     "cientific": "Catocala coniuncta",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/695730519/small.jpg",
+     "autor": "Anna Wintle Taylor",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 379166424,
+     "data": "2026-07-07",
+     "url": "https://www.inaturalist.org/observations/379166424",
+     "nom": "Aloc",
+     "cientific": "Vitex agnus-castus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/693542545/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 379165946,
+     "data": "2026-07-07",
+     "url": "https://www.inaturalist.org/observations/379165946",
+     "nom": "Matapoll",
+     "cientific": "Daphne gnidium",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/693541781/small.jpg",
+     "autor": "Gemma Pascual Fabrellas",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 378050848,
+     "data": "2026-07-04",
+     "url": "https://www.inaturalist.org/observations/378050848",
+     "nom": "Papallona de la c blanca",
+     "cientific": "Polygonia c-album",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/691393218/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 376507914,
+     "data": "2026-06-29",
+     "url": "https://www.inaturalist.org/observations/376507914",
+     "nom": "Rata negra",
+     "cientific": "Rattus rattus",
+     "rang": "species",
+     "grup": "🦊 Mamífers",
+     "foto": "https://static.inaturalist.org/photos/688409762/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 375792050,
+     "data": "2026-06-26",
+     "url": "https://www.inaturalist.org/observations/375792050",
+     "nom": "Llagost de sella",
+     "cientific": "Uromenus rugosicollis",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/687038974/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 375792508,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375792508",
+     "nom": "",
+     "cientific": "Catocala nymphagoga",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/687040188/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 375792375,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375792375",
+     "nom": "Bruna boscana",
+     "cientific": "Pararge aegeria",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/687039903/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 375792293,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375792293",
+     "nom": "",
+     "cientific": "Oryctes nasicornis grypus",
+     "rang": "subspecies",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/687039709/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 375792177,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375792177",
+     "nom": "Vespa asiàtica",
+     "cientific": "Vespa velutina",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/687039357/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 375010420,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375010420",
+     "nom": "Brocat variable",
+     "cientific": "Euphydryas aurinia",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685506102/small.jpg",
+     "autor": "Rosa Matesanz",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 375010155,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/375010155",
+     "nom": "Brocat variable",
+     "cientific": "Euphydryas aurinia",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685505412/small.jpg",
+     "autor": "Rosa Matesanz",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 374901732,
+     "data": "2026-06-24",
+     "url": "https://www.inaturalist.org/observations/374901732",
+     "nom": "Llagost de sella",
+     "cientific": "Uromenus rugosicollis",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685301581/small.jpg",
+     "autor": "Anna Wintle Taylor",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 374576562,
+     "data": "2026-06-22",
+     "url": "https://www.inaturalist.org/observations/374576562",
+     "nom": "Brocat variable",
+     "cientific": "Euphydryas aurinia",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/684672679/small.jpg",
+     "autor": "Rosa Matesanz",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 374285084,
+     "data": "2026-06-22",
+     "url": "https://www.inaturalist.org/observations/374285084",
+     "nom": "Borinot de camp",
+     "cientific": "Bombus pascuorum",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/684104520/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
     }
    ]
   },
   "17205": {
    "nom": "Ullastret",
-   "observacions": 2,
-   "especies": 1,
-   "observadors": 2,
+   "observacions": 57,
+   "especies": 44,
+   "observadors": 18,
    "grups": [
     [
+     "🌿 Plantes",
+     44
+    ],
+    [
      "🦋 Insectes",
-     1
+     9
     ],
     [
      "🐟 Peixos",
+     1
+    ],
+    [
+     "🐌 Mol·luscs",
+     1
+    ],
+    [
+     "🐾 Altres animals",
+     1
+    ],
+    [
+     "🐦 Ocells",
      1
     ]
    ],
    "mesVistes": [
     {
+     "cientific": "Himantoglossum robertianum",
+     "nom": "mosques grosses",
+     "grup": "🌿 Plantes",
+     "n": 4
+    },
+    {
+     "cientific": "Iris lutescens",
+     "nom": "Lliri menut",
+     "grup": "🌿 Plantes",
+     "n": 3
+    },
+    {
+     "cientific": "Rosa agrestis",
+     "nom": "roser agrest",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Ophrys scolopax",
+     "nom": "abellera becada",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Ligustrum vulgare",
+     "nom": "olivereta",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Anemone coronaria",
+     "nom": "",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Heliotropium arborescens",
+     "nom": "",
+     "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
      "cientific": "Epinephelus marginatus",
      "nom": "Anfós",
      "grup": "🐟 Peixos",
+     "n": 1
+    },
+    {
+     "cientific": "Notonecta maculata",
+     "nom": "Vespa d'aigua",
+     "grup": "🦋 Insectes",
+     "n": 1
+    },
+    {
+     "cientific": "Antirrhinum majus",
+     "nom": "gatets",
+     "grup": "🌿 Plantes",
+     "n": 1
+    },
+    {
+     "cientific": "Papaver rhoeas",
+     "nom": "Rosella",
+     "grup": "🌿 Plantes",
+     "n": 1
+    },
+    {
+     "cientific": "Silybum marianum",
+     "nom": "Card marià",
+     "grup": "🌿 Plantes",
      "n": 1
     }
    ],
@@ -1534,6 +3038,21 @@
      "grup": "🐟 Peixos",
      "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/741429405/small.jpg",
      "autor": "miguelangelfuentes",
+     "lloc": "Spain",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 354377813,
+     "data": "2026-04-26",
+     "url": "https://www.inaturalist.org/observations/354377813",
+     "nom": "Corall vermell",
+     "cientific": "Corallium rubrum",
+     "rang": "species",
+     "grup": "🐾 Altres animals",
+     "foto": "https://static.inaturalist.org/photos/646472456/small.jpg",
+     "autor": "Marta Nadal",
      "lloc": "Spain",
      "qualitat": "research",
      "amenacada": true,
@@ -1570,6 +3089,576 @@
      "qualitat": "research",
      "amenacada": true,
      "introduida": false
+    },
+    {
+     "id": 373556815,
+     "data": "2026-06-20",
+     "url": "https://www.inaturalist.org/observations/373556815",
+     "nom": "Vespa d'aigua",
+     "cientific": "Notonecta maculata",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "",
+     "autor": "Ara",
+     "lloc": "Ullastret, Girona, Espanya",
+     "qualitat": "casual",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 366684910,
+     "data": "2026-05-30",
+     "url": "https://www.inaturalist.org/observations/366684910",
+     "nom": "gatets",
+     "cientific": "Antirrhinum majus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/669573082/small.jpg",
+     "autor": "Francesco Ricciardi",
+     "lloc": "Ullastret, (Dir. la Bisbal), 17114, Girona, Spain",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 359203278,
+     "data": "2026-05-03",
+     "url": "https://www.inaturalist.org/observations/359203278",
+     "nom": "Rosella",
+     "cientific": "Papaver rhoeas",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/655349167/small.jpg",
+     "autor": "jospin_six_d",
+     "lloc": "Ullastret, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 359202479,
+     "data": "2026-05-03",
+     "url": "https://www.inaturalist.org/observations/359202479",
+     "nom": "Card marià",
+     "cientific": "Silybum marianum",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/655347641/small.jpg",
+     "autor": "jospin_six_d",
+     "lloc": "Ullastret, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 359901631,
+     "data": "2026-05-02",
+     "url": "https://www.inaturalist.org/observations/359901631",
+     "nom": "plantes",
+     "cientific": "Plantae",
+     "rang": "kingdom",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/656684692/small.jpg",
+     "autor": "Pilar Martí",
+     "lloc": "Ullastret, (Dir. la Bisbal), 17114, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 391241450,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/391241450",
+     "nom": "Caragolí Mediterrani",
+     "cientific": "Theba pisana pisana",
+     "rang": "subspecies",
+     "grup": "🐌 Mol·luscs",
+     "foto": "https://static.inaturalist.org/photos/716864856/small.jpg",
+     "autor": "Anna Llandrich",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475318,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475318",
+     "nom": "",
+     "cientific": "Ruta montana",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709135867/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475317,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475317",
+     "nom": "roser agrest",
+     "cientific": "Rosa agrestis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709135744/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475316,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475316",
+     "nom": "",
+     "cientific": "Valerianella discoidea",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709135520/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475315,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475315",
+     "nom": "flor caputxina",
+     "cientific": "Anacamptis pyramidalis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709133122/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475312,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475312",
+     "nom": "",
+     "cientific": "Hippocrepis scorpioides",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709132433/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475311,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475311",
+     "nom": "Gallets",
+     "cientific": "Serapias parviflora",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709125271/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475310,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475310",
+     "nom": "lleteresa nicenca",
+     "cientific": "Euphorbia nicaeensis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709531199/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475308,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475308",
+     "nom": "",
+     "cientific": "Euphorbia exigua",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709124872/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475307,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475307",
+     "nom": "Boca de dragó borda",
+     "cientific": "Bellardia trixago",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709124680/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475306,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475306",
+     "nom": "Glavi",
+     "cientific": "Gladiolus italicus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709124328/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 387475304,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475304",
+     "nom": "abellera becada",
+     "cientific": "Ophrys scolopax",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709124262/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475301,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475301",
+     "nom": "Herba d'eruga",
+     "cientific": "Scorpiurus muricatus",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709123991/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 387475300,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/387475300",
+     "nom": "olivereta",
+     "cientific": "Ligustrum vulgare",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709123891/small.jpg",
+     "autor": "margarida",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357962606,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357962606",
+     "nom": "Vespa Paperera Gal·la",
+     "cientific": "Polistes gallicus",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/652941685/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357962605,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357962605",
+     "nom": "",
+     "cientific": "Tenthredo meridiana",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/652928550/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357962604,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357962604",
+     "nom": "",
+     "cientific": "Bombylius major",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/652927564/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357338361,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357338361",
+     "nom": "abellera becada",
+     "cientific": "Ophrys scolopax",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/651739321/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357338360,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357338360",
+     "nom": "olivereta",
+     "cientific": "Ligustrum vulgare",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/651738178/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357338359,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357338359",
+     "nom": "",
+     "cientific": "Diplolepis mayri",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/651736821/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 357338356,
+     "data": "2026-04-29",
+     "url": "https://www.inaturalist.org/observations/357338356",
+     "nom": "roser agrest",
+     "cientific": "Rosa agrestis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/651736444/small.jpg",
+     "autor": "Lluïsabisbe",
+     "lloc": "Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 354377813,
+     "data": "2026-04-26",
+     "url": "https://www.inaturalist.org/observations/354377813",
+     "nom": "Corall vermell",
+     "cientific": "Corallium rubrum",
+     "rang": "species",
+     "grup": "🐾 Altres animals",
+     "foto": "https://static.inaturalist.org/photos/646472456/small.jpg",
+     "autor": "Marta Nadal",
+     "lloc": "Spain",
+     "qualitat": "research",
+     "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 352002745,
+     "data": "2026-04-22",
+     "url": "https://www.inaturalist.org/observations/352002745",
+     "nom": "Papallona zebrada",
+     "cientific": "Iphiclides feisthamelii",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/642432778/small.jpg",
+     "autor": "Jordi Casanovas",
+     "lloc": "Ullastret, (Dir. la Bisbal), 17114, Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 351941748,
+     "data": "2026-04-21",
+     "url": "https://www.inaturalist.org/observations/351941748",
+     "nom": "Coronil·la glauca",
+     "cientific": "Coronilla valentina glauca",
+     "rang": "subspecies",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/642316366/small.jpg",
+     "autor": "claire-felloni",
+     "lloc": "Gérone, Espagne",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 351941743,
+     "data": "2026-04-21",
+     "url": "https://www.inaturalist.org/observations/351941743",
+     "nom": "Banya de cabra",
+     "cientific": "Lotus ornithopodioides",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/642316187/small.jpg",
+     "autor": "claire-felloni",
+     "lloc": "Gérone, Espagne",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 351941742,
+     "data": "2026-04-21",
+     "url": "https://www.inaturalist.org/observations/351941742",
+     "nom": "corretjola de serp",
+     "cientific": "Convolvulus althaeoides",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/642316133/small.jpg",
+     "autor": "claire-felloni",
+     "lloc": "Gérone, Espagne",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 351941741,
+     "data": "2026-04-21",
+     "url": "https://www.inaturalist.org/observations/351941741",
+     "nom": "petadors",
+     "cientific": "Tripodion tetraphyllum",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/642316072/small.jpg",
+     "autor": "claire-felloni",
+     "lloc": "Gérone, Espagne",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 347931400,
+     "data": "2026-04-05",
+     "url": "https://www.inaturalist.org/observations/347931400",
+     "nom": "xicoira gran",
+     "cientific": "Lactuca perennis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/634467175/small.jpg",
+     "autor": "Alex Garcia",
+     "lloc": "17114 Ullastret, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 347930815,
+     "data": "2026-04-05",
+     "url": "https://www.inaturalist.org/observations/347930815",
+     "nom": "argelaga",
+     "cientific": "Genista scorpius",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/634465937/small.jpg",
+     "autor": "Alex Garcia",
+     "lloc": "17114 Ullastret, Girona, España",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 344246600,
+     "data": "2026-03-20",
+     "url": "https://www.inaturalist.org/observations/344246600",
+     "nom": "Abellera aranyosa",
+     "cientific": "Ophrys sphegodes",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/627206609/small.jpg",
+     "autor": "manelor",
+     "lloc": "Girona, Espanya",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 344246598,
+     "data": "2026-03-20",
+     "url": "https://www.inaturalist.org/observations/344246598",
+     "nom": "mosques grosses",
+     "cientific": "Himantoglossum robertianum",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/627206647/small.jpg",
+     "autor": "manelor",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 344246596,
+     "data": "2026-03-20",
+     "url": "https://www.inaturalist.org/observations/344246596",
+     "nom": "",
+     "cientific": "Anemone coronaria",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/627206595/small.jpg",
+     "autor": "manelor",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
+    },
+    {
+     "id": 344246595,
+     "data": "2026-03-20",
+     "url": "https://www.inaturalist.org/observations/344246595",
+     "nom": "",
+     "cientific": "Anemone coronaria",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/627206581/small.jpg",
+     "autor": "manelor",
+     "lloc": "Girona, Espanya",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": true
     }
    ]
   }
