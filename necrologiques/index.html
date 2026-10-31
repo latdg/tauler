@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Necrològiques</title>
+<!--
+  NECROLÒGIQUES — La TdG ampliada · 31.10.2026
+  Historial de les necrològiques recollides (dades/necrologiques.json, que omple el
+  tauler en directe amb les defuncions del guió: Mémora i Diari de Girona creuats).
+  De la més recent a la més antiga, 20 per pàgina, amb cercador.
+-->
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 16px}
+input{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);min-width:220px;max-width:100%}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.dia{margin:16px 0 8px;font-size:1rem}
+.dia:first-child{margin-top:0}
+.llista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;font-size:.95rem;line-height:1.45}
+.fitxa .det{color:var(--suau);font-size:.88rem}
+.pagines{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.pagines button{font:inherit;font-size:.9rem;padding:4px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer}
+.pagines button.actiu{border-color:var(--accent);color:var(--accent);font-weight:700}
+.pagines button:disabled{opacity:.4;cursor:default}
+.buit{color:var(--suau)}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>🕯️ Necrològiques</h1>
+  <p class="sub" id="sub">Carregant…</p>
+  <div class="controls">
+    <input type="search" id="cerca" placeholder="Cerca un nom, un poble…" aria-label="Cerca">
+  </div>
+</header>
+<main>
+  <section>
+    <div id="cos"><p class="buit">Carregant…</p></div>
+    <div class="pagines" id="pagines"></div>
+    <p class="font">Necrològiques dels cinc municipis recollides de Mémora i del Diari de Girona.
+      <a href="../">Tornar a La TdG ampliada</a></p>
+  </section>
+</main>
+<script>
+const PER_PAGINA = 20;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dataCa = iso => iso ? iso.split("-").reverse().join(".") : "";
+const dataNecro = t => { const m = String(t || "").match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})/); return m ? `${m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}` : ""; };
+const diaNecro = x => dataNecro(x.dataMort) || dataNecro(x.dataFuneral) || x.vist || "";
+const pla = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const DIES = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
+let TOTES = [], PAGINA = 1;
+
+function fitxa(x) {
+  const l = [];
+  if (x.edat) l.push(`${esc(x.edat)} anys`);
+  if (dataNecro(x.dataMort)) l.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}`);
+  if (x.vetlla) l.push(`Vetlla: ${esc(x.vetlla)}`);
+  if (x.ceremonia) l.push(`Cerimònia: ${esc(x.ceremonia)}${dataNecro(x.dataFuneral) ? " (" + dataCa(dataNecro(x.dataFuneral)) + ")" : ""}`);
+  else if (dataNecro(x.dataFuneral)) l.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
+  const det = x.detall || x.biografia || "";
+  return `<article class="fitxa"><b>${esc(x.nom)}</b>${l.length ? "<br>" + l.join("<br>") : ""}` +
+    (det ? `<br><span class="det">${esc(det)}</span>` : "") + `</article>`;
+}
+
+function pinta() {
+  const t = pla(document.getElementById("cerca").value.trim());
+  const llista = t ? TOTES.filter(x => pla([x.nom, x.detall, x.biografia, x.vetlla, x.ceremonia].join(" ")).includes(t)) : TOTES;
+  const pagines = Math.max(1, Math.ceil(llista.length / PER_PAGINA));
+  PAGINA = Math.min(Math.max(1, PAGINA), pagines);
+  const tros = llista.slice((PAGINA - 1) * PER_PAGINA, PAGINA * PER_PAGINA);
+  const cos = document.getElementById("cos");
+  if (!tros.length) cos.innerHTML = `<p class="buit">${t ? "Cap necrològica coincideix amb la cerca." : "Encara no hi ha cap necrològica recollida."}</p>`;
+  else {
+    // Agrupades per dia.
+    const grups = [];
+    tros.forEach(x => { const d = diaNecro(x); const g = grups[grups.length - 1]; if (g && g.d === d) g.l.push(x); else grups.push({ d, l: [x] }); });
+    cos.innerHTML = grups.map(g => `<h2 class="dia">${g.d ? DIES[new Date(g.d + "T12:00:00").getDay()].replace(/^./, c => c.toUpperCase()) + " " + dataCa(g.d) : "Sense data"}</h2>` +
+      `<div class="llista">${g.l.map(fitxa).join("")}</div>`).join("");
+  }
+  const p = document.getElementById("pagines");
+  if (pagines < 2) { p.innerHTML = ""; return; }
+  let h = `<button data-p="${PAGINA - 1}"${PAGINA === 1 ? " disabled" : ""}>← Més recents</button>`;
+  for (let i = 1; i <= pagines; i++) {
+    if (i === 1 || i === pagines || Math.abs(i - PAGINA) <= 2) h += `<button data-p="${i}" class="${i === PAGINA ? "actiu" : ""}">${i}</button>`;
+    else if (Math.abs(i - PAGINA) === 3) h += `<span>…</span>`;
+  }
+  h += `<button data-p="${PAGINA + 1}"${PAGINA === pagines ? " disabled" : ""}>Més antigues →</button>`;
+  p.innerHTML = h;
+  p.querySelectorAll("button[data-p]").forEach(b => b.onclick = () => {
+    PAGINA = Number(b.dataset.p);
+    const u = new URL(location.href); u.searchParams.set("p", PAGINA); history.replaceState(null, "", u);
+    pinta(); window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+(async () => {
+  PAGINA = Number(new URLSearchParams(location.search).get("p")) || 1;
+  try {
+    const r = await fetch("../dades/necrologiques.json?v=" + Date.now());
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    TOTES = (d.llista || []).filter(x => x && x.nom).sort((a, b) => diaNecro(b).localeCompare(diaNecro(a)) || a.nom.localeCompare(b.nom, "ca"));
+    const q = d.actualitzat ? new Date(d.actualitzat) : null, z = n => String(n).padStart(2, "0");
+    document.getElementById("sub").textContent = `${TOTES.length} necrològiques` +
+      (q ? ` · Actualitzat el ${z(q.getDate())}.${z(q.getMonth() + 1)}.${q.getFullYear()} a les ${z(q.getHours())}.${z(q.getMinutes())} h` : "");
+  } catch (e) {
+    document.getElementById("sub").textContent = "Encara no s'han recollit les necrològiques.";
+  }
+  document.getElementById("cerca").oninput = () => { PAGINA = 1; pinta(); };
+  pinta();
+})();
+</script>
+</body>
+</html>

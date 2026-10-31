@@ -270,14 +270,20 @@ const horaAra = () => {
 };
 
 async function json(cami) {
-  const r = await fetch(cami + "?v=" + Date.now());
-  if (!r.ok) throw new Error(r.status);
-  return r.json();
+  // 31.10.2026: dins de La TdG slow aquesta pàgina surt en diversos iframes; cada
+  // fitxer es baixa un sol cop i el comparteixen tots.
+  let cau = null;
+  try { if (window.parent !== window && /[?&]incrustat\b/.test(location.search)) cau = window.parent.__cauSlow = window.parent.__cauSlow || {}; } catch (e) {}
+  const baixa = () => fetch(cami + "?v=" + Date.now()).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); });
+  if (!cau) return JSON.parse(await baixa());
+  const clau = new URL(cami, location.href).href;
+  if (!cau[clau]) cau[clau] = baixa();
+  try { return JSON.parse(await cau[clau]); } catch (e) { delete cau[clau]; throw e; }
 }
 
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
-  [/agenda/i, "Agenda"],
+  [/agenda/i, "Agenda"], [/necrol[òo]giques/i, "Necrològiques"],
   [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"],
   [/edat dels edificis/i, "Edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
@@ -298,6 +304,11 @@ const PARAMS_T = new URLSearchParams(location.search);
 const MODE_SLOW = PARAMS_T.has("slow");
 if (PARAMS_T.has("incrustat")) document.documentElement.classList.add("incrustat");
 const RX_SLOW = /edat dels edificis|aig[üu]es subterr[àa]nies|piez[òo]metres|plaques solars|preu de l'aigua|atur i afiliaci/i;
+// 31.10.2026: la clau de cada bloc slow (La TdG slow els ordena per àmbits amb ?blocs=...).
+const CLAUS_SLOW = [[/edat dels edificis/i, "edificis"], [/aig[üu]es subterr|piez[òo]metres/i, "piezometres"],
+  [/plaques solars/i, "energia"], [/preu de l'aigua/i, "preu-aigua"], [/atur i afiliaci/i, "atur"]];
+const BLOCS_TRIATS = (PARAMS_T.get("blocs") || "").split(",").filter(Boolean);
+const BLOCS_ALTRES = (PARAMS_T.get("altres") || "").split(",").filter(Boolean);
 let NUM_SECCIO = 0;
 
 function seccio(titol, cos, font, ambData = true) {
@@ -307,7 +318,8 @@ function seccio(titol, cos, font, ambData = true) {
   const peu = [];
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
-  return `<section id="${id}"${amagat ? " hidden" : ""}><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
+  const clau = (CLAUS_SLOW.find(([rx]) => rx.test(titol)) || [])[1];
+  return `<section id="${id}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
 }
   
 // "A | B | C" o línies -> llista
@@ -684,6 +696,21 @@ async function carregaAntenes() {
 }
 
   
+// 31.10.2026: a La TdG slow, cada tros d'aquesta pàgina mostra només els blocs de
+// ?blocs=..., en aquell ordre (amb &resta, també els slow que no són a cap tros).
+function triaBlocsSlow() {
+  if (!MODE_SLOW || !BLOCS_TRIATS.length) return;
+  const cont = document.getElementById("blocs"), nav = document.getElementById("nav");
+  const visibles = Array.from(cont.querySelectorAll("section")).filter(s => !s.hidden);
+  const resta = PARAMS_T.has("resta") ? visibles.filter(s => !BLOCS_TRIATS.includes(s.dataset.clau) && !BLOCS_ALTRES.includes(s.dataset.clau)) : [];
+  visibles.forEach(s => { if (!BLOCS_TRIATS.includes(s.dataset.clau) && !resta.includes(s)) s.hidden = true; });
+  const ordre = BLOCS_TRIATS.map(c => visibles.find(s => s.dataset.clau === c)).filter(Boolean).concat(resta);
+  ordre.forEach(s => cont.appendChild(s));
+  const enllacos = Array.from(nav.querySelectorAll("a"));
+  nav.innerHTML = "";
+  ordre.forEach(s => { const a = enllacos.find(x => x.getAttribute("href") === "#" + s.id); if (a) nav.appendChild(a); });
+}
+
 function pinta(d) {
   const b = d.blocs || {};
     ACTUALITZAT = d.generat || "";
@@ -700,6 +727,11 @@ function pinta(d) {
   // 0b. 💊 FARMÀCIES DE GUÀRDIA (27.10.2026): dades/serveis.json, cada dia a les 9.35 h.
   h += seccio("💊 Farmàcies de guàrdia",
     '<p class="font dalt" id="farmPeu"></p><div id="farmCos"><p class="buit">Carregant…</p></div>', "", false);
+
+  // 0c. 🕯️ NECROLOGIQUES (31.10.2026): les del dia (Mémora i Diari de Girona, amb la
+  // mateixa lògica del guió); l'historial, a necrologiques/. El contingut arriba després.
+  h += seccio("🕯️ Necrològiques",
+    '<p class="font dalt" id="necroPeu"></p><div id="necroCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
   h += seccio("🚦 Trànsit",
@@ -959,6 +991,7 @@ function pinta(d) {
 
   document.getElementById("blocs").innerHTML = h;
   document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
+  triaBlocsSlow();
   normalitzaDates(document.getElementById("blocs")); // CANVI (20.10.2026): dates en dd.mm.aaaa
 
   iniciaCamera();
@@ -1266,6 +1299,48 @@ function pintaFarmacies() {
     `<p class="font">De dia, cada farmàcia obre en el seu horari.</p>`;
 }
 
+// -----------------------------------------------------------------------------
+// NECROLÒGIQUES (31.10.2026). dades/necrologiques.json l'omple el tauler en directe
+// (viu/tauler_viu.py) a partir de les defuncions que el bucle dels bots prepara per
+// al guió (Mémora i Diari de Girona creuats). Es veuen les del dia que es consulta; si
+// aquell dia no n'hi ha, les últimes. La resta, a l'historial (necrologiques/).
+// -----------------------------------------------------------------------------
+let DIA_TAULER = "";
+const dataNecro = t => { const m = String(t || "").match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})/); return m ? `${m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}` : ""; };
+const diaNecro = x => dataNecro(x.dataMort) || dataNecro(x.dataFuneral) || x.vist || "";
+function fitxaNecro(x) {
+  const linies = [];
+  if (x.edat) linies.push(`${esc(x.edat)} anys`);
+  if (dataNecro(x.dataMort)) linies.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}`);
+  if (x.vetlla) linies.push(`Vetlla: ${esc(x.vetlla)}`);
+  if (x.ceremonia) linies.push(`Cerimònia: ${esc(x.ceremonia)}${dataNecro(x.dataFuneral) ? " (" + dataCa(dataNecro(x.dataFuneral)) + ")" : ""}`);
+  else if (dataNecro(x.dataFuneral)) linies.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
+  const detall = x.detall || x.biografia || "";
+  return `<article class="ag-acte"><div class="ag-text"><b>${esc(x.nom)}</b>` +
+    (linies.length ? `<br>${linies.join("<br>")}` : "") + (detall ? `<br><span class="font">${esc(detall)}</span>` : "") + `</div></article>`;
+}
+async function carregaNecrologiques() {
+  const cos = document.getElementById("necroCos"), peu = document.getElementById("necroPeu");
+  if (!cos) return;
+  let d;
+  try { d = await json("dades/necrologiques.json"); }
+  catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'han recollit les necrològiques.</p>'; return; }
+  const totes = (d.llista || []).filter(x => x && x.nom);
+  const dia = DIA_TAULER || new Date().toISOString().slice(0, 10);
+  if (d.actualitzat) peu.textContent = "Actualitzat el " + dataDMA(d.actualitzat);
+  // Les del dia: mortes aquell dia o amb el funeral aquell dia (si no consta la data de la mort, la del funeral).
+  let del = totes.filter(x => diaNecro(x) === dia || dataNecro(x.dataFuneral) === dia);
+  let titol = "";
+  if (!del.length) {
+    const ultim = totes.map(diaNecro).filter(x => x && x <= dia).sort().pop();
+    del = ultim ? totes.filter(x => diaNecro(x) === ultim) : [];
+    if (ultim) titol = `<p class="font">Aquest dia no se n'ha publicat cap. Les últimes, del ${dataCa(ultim)}:</p>`;
+  }
+  cos.innerHTML = (del.length ? titol + '<div class="ag-llista">' + del.map(fitxaNecro).join("") + "</div>"
+    : '<p class="buit">No hi ha cap necrològica recollida.</p>') +
+    `<p class="font"><a href="necrologiques/">Totes les necrològiques (${totes.length})</a></p>`;
+}
+
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
 function serieAnys(serie, valor, etiq) {
   const max = Math.max(1, ...serie.map(valor));
@@ -1387,8 +1462,10 @@ async function inicia() {
   try {
     const d = await json(triat ? `dades/${triat}.json` : "dades/darrer.json");
     sel.value = d.dia;
+    DIA_TAULER = d.dia || "";
     pinta(d);
     carregaAgenda();
+    carregaNecrologiques();
     carregaLlamps();
     carregaAntenes();
     carregaDea();

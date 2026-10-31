@@ -1087,6 +1087,43 @@ def blocs_webs():
 
 
 # -----------------------------------------------------------------------------
+# NECROLÒGIQUES (31.10.2026): les defuncions que el bucle dels bots prepara per al
+# guió (branca «dades-guio» de latdg/bots: Mémora i Diari de Girona ja creuats, els
+# últims 5 dies). El tauler les acumula a dades/necrologiques.json (historial).
+# -----------------------------------------------------------------------------
+NECRO_URL = "https://raw.githubusercontent.com/latdg/bots/dades-guio/dades-guio.json"
+NECRO_CAMPS = ("nom", "edat", "dataMort", "vetlla", "ceremonia", "dataFuneral", "detall", "biografia")
+
+
+def necrologiques():
+    r = requests.get(NECRO_URL, params={"v": int(ara().timestamp())}, headers=CAPCALERES, timeout=30)
+    r.raise_for_status()
+    llista = r.json().get("defuncions")
+    if not isinstance(llista, list):
+        raise ValueError("sense defuncions")
+    return [{k: str(x.get(k) or "").strip() for k in ("clau",) + NECRO_CAMPS} for x in llista if x.get("nom")]
+
+
+def desa_necrologiques(noves, dia):
+    cami = DADES / "necrologiques.json"
+    arxiu = llegeix(cami, {})
+    per_clau = {x["clau"] or x["nom"].upper(): x for x in (arxiu.get("llista") or [])}
+    for x in noves:
+        clau = x["clau"] or x["nom"].upper()
+        vell = per_clau.get(clau)
+        if vell:
+            vell.update({k: v for k, v in x.items() if v})    # un camp buit no esborra el que ja hi havia
+        else:
+            per_clau[clau] = {**x, "vist": dia}
+    def ordre(x):
+        m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", x.get("dataMort") or x.get("dataFuneral") or "")
+        return (f"{m[3]}-{int(m[2]):02d}-{int(m[1]):02d}" if m else x.get("vist", ""), x.get("nom", ""))
+    llista = sorted(per_clau.values(), key=ordre, reverse=True)
+    escriu(cami, {"actualitzat": ara().isoformat(), "llista": llista})
+    print(f"✅ necrològiques: {len(noves)} al guió, {len(llista)} a l'historial")
+
+
+# -----------------------------------------------------------------------------
 # CALCULA I FUSIONA
 # -----------------------------------------------------------------------------
 FUNCIONS = {
@@ -1100,10 +1137,11 @@ FUNCIONS = {
     "aeronaus": aeronaus,
     "pollen": pollen,
     "recarrega": recarrega,
+    "necrologiques": necrologiques,
 }
 UN_COP_AL_DIA = {"clima"}
 # 21.10.2026: cada quants minuts com a mínim es torna a consultar un bloc.
-CADA_MINUTS = {"pollen": 60, "recarrega": 7 * 24 * 60}
+CADA_MINUTS = {"pollen": 60, "recarrega": 7 * 24 * 60, "necrologiques": 60}
 
 
 def llegeix(cami, defecte):
@@ -1195,6 +1233,11 @@ def fusiona():
         cami_dies = DADES / "riu" / "dies.json"
         llista = sorted(set(llegeix(cami_dies, [])) | set(per_dia), reverse=True)[:400]
         escriu(cami_dies, llista)
+
+    # 31.10.2026: les necrològiques no van al bloc del dia, sinó al seu historial.
+    if isinstance(vius.get("necrologiques"), list):
+        desa_necrologiques(vius.pop("necrologiques"), dia)
+    vius.pop("necrologiques", None)
 
     for nom, valor in vius.items():
         blocs_vius[nom] = valor
