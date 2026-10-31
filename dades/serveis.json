@@ -1,27 +1,15 @@
 {
- "generat": "2026-10-30T15:15:17+00:00",
+ "generat": "2026-10-31T05:32:37+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
   "17902": "Forallac",
-  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"
+  "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+  "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-10-30T15:15:38+00:00",
+  "quan": "2026-10-31T05:32:58+00:00",
   "dies": [
-   {
-    "data": "2026-10-27",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 27/10/2026",
-    "farmacies": [
-     {
-      "farmacia": "C. CECILIA NEDEA",
-      "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "09:00 - 09:00 (dia seg.)",
-      "adreca": "C/Jaume II, 14",
-      "telefon": "674038640"
-     }
-    ]
-   },
    {
     "data": "2026-10-28",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 28/10/2026",
@@ -70,12 +58,12 @@
    },
    {
     "data": "2026-10-31",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 31/10/2026",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ (Fins avui 31/10/2026 a les 09:00 o 09:30 del matí)",
     "farmacies": [
      {
       "farmacia": "PIERA DE CIURANA, C.B.",
       "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "09:00 - 09:00 (dia seg.)",
+      "horari": "Avui fins les 09:15",
       "adreca": "Avgda. Les Voltes, 1",
       "telefon": "674038640"
      }
@@ -142,6 +130,26 @@
       "poblacio": "LA BISBAL D'EMPORDA",
       "horari": "09:00 - 09:00 (dia seg.)",
       "adreca": "Avgda. Les Voltes, 1",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-11-06",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 06/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "PIERA DE CIURANA, C.B.",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 20:00",
+      "adreca": "Avgda. Les Voltes, 1",
+      "telefon": "674038640"
+     },
+     {
+      "farmacia": "PUIGBERT ESTEVAN, C.B",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "20:00 - 09:15 (dia seg.)",
+      "adreca": "Plaça Jacint Verdaguer, 1",
       "telefon": "674038640"
      }
     ]
@@ -549,6 +557,90 @@
      {
       "data": "2024-10-05",
       "kw": 15,
+      "tecnologia": "Fotovoltaica"
+     }
+    ]
+   },
+   "17205": {
+    "n": 16,
+    "kw": 112.4,
+    "tecnologia": [
+     [
+      "Fotovoltaica",
+      16
+     ]
+    ],
+    "perAny": [
+     [
+      "2021",
+      3,
+      28.0
+     ],
+     [
+      "2022",
+      7,
+      56.8
+     ],
+     [
+      "2023",
+      3,
+      9.6
+     ],
+     [
+      "2024",
+      3,
+      18.0
+     ]
+    ],
+    "darreres": [
+     {
+      "data": "2024-06-29",
+      "kw": 4,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-02-26",
+      "kw": 6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2024-01-17",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2023-10-16",
+      "kw": 3.6,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2023-10-09",
+      "kw": 3,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2023-02-25",
+      "kw": 3,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2022-10-16",
+      "kw": 8,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2022-06-26",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2022-06-26",
+      "kw": 10,
+      "tecnologia": "Fotovoltaica"
+     },
+     {
+      "data": "2022-06-26",
+      "kw": 10,
       "tecnologia": "Fotovoltaica"
      }
     ]
@@ -1092,6 +1184,132 @@
       "USOS DOMESTICS": 3025321
      }
     }
+   ],
+   "17205": [
+    {
+     "any": 2013,
+     "total": 1060389,
+     "sectors": {
+      "PRIMARI": 0,
+      "INDUSTRIAL": 29414,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 370690,
+      "USOS DOMESTICS": 660285
+     }
+    },
+    {
+     "any": 2014,
+     "total": 1055450,
+     "sectors": {
+      "PRIMARI": 0,
+      "INDUSTRIAL": 30945,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 373061,
+      "USOS DOMESTICS": 651444
+     }
+    },
+    {
+     "any": 2015,
+     "total": 1109920,
+     "sectors": {
+      "PRIMARI": 0,
+      "INDUSTRIAL": 30043,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 401014,
+      "USOS DOMESTICS": 678863
+     }
+    },
+    {
+     "any": 2016,
+     "total": 1171282,
+     "sectors": {
+      "PRIMARI": 0,
+      "INDUSTRIAL": 28457,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 17732,
+      "SERVEIS": 416769,
+      "USOS DOMESTICS": 708324
+     }
+    },
+    {
+     "any": 2017,
+     "total": 1237692,
+     "sectors": {
+      "INDUSTRIAL": 29921,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 21276,
+      "SERVEIS": 471189,
+      "USOS DOMESTICS": 715306
+     }
+    },
+    {
+     "any": 2018,
+     "total": 1310753,
+     "sectors": {
+      "INDUSTRIAL": 31375,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 27108,
+      "SERVEIS": 460008,
+      "USOS DOMESTICS": 792262
+     }
+    },
+    {
+     "any": 2019,
+     "total": 1254215,
+     "sectors": {
+      "INDUSTRIAL": 50938,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 23412,
+      "SERVEIS": 450792,
+      "USOS DOMESTICS": 729073
+     }
+    },
+    {
+     "any": 2020,
+     "total": 1270363,
+     "sectors": {
+      "INDUSTRIAL": 44157,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 422194,
+      "USOS DOMESTICS": 804012
+     }
+    },
+    {
+     "any": 2021,
+     "total": 1234244,
+     "sectors": {
+      "INDUSTRIAL": 38589,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 441155,
+      "USOS DOMESTICS": 754500
+     }
+    },
+    {
+     "any": 2022,
+     "total": 1279867,
+     "sectors": {
+      "INDUSTRIAL": 33801,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 451594,
+      "USOS DOMESTICS": 794472
+     }
+    },
+    {
+     "any": 2023,
+     "total": 1301604,
+     "sectors": {
+      "INDUSTRIAL": 32074,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 460738,
+      "USOS DOMESTICS": 808792
+     }
+    },
+    {
+     "any": 2024,
+     "total": 1321563,
+     "sectors": {
+      "INDUSTRIAL": 35232,
+      "CONSTRUCCIO I OBRES PUBLIQUES": 0,
+      "SERVEIS": 438857,
+      "USOS DOMESTICS": 847474
+     }
+    }
    ]
   }
  },
@@ -1462,6 +1680,98 @@
      "canon": 0.654,
      "clavegueram": 0.217,
      "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    }
+   ],
+   "17205": [
+    {
+     "any": 2017,
+     "preu": 1.045,
+     "subministrament": 0.4,
+     "canon": 0.645,
+     "clavegueram": 0,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2018,
+     "preu": 1.054,
+     "subministrament": 0.4,
+     "canon": 0.654,
+     "clavegueram": 0,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2019,
+     "preu": 1.054,
+     "subministrament": 0.4,
+     "canon": 0.654,
+     "clavegueram": 0,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2020,
+     "preu": 1.221,
+     "subministrament": 0.4,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2021,
+     "preu": 1.221,
+     "subministrament": 0.4,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2022,
+     "preu": 1.221,
+     "subministrament": 0.4,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2023,
+     "preu": 1.221,
+     "subministrament": 0.4,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "N/A"
+    },
+    {
+     "any": 2024,
+     "preu": 1.394,
+     "subministrament": 0.573,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2025,
+     "preu": 1.394,
+     "subministrament": 0.573,
+     "canon": 0.654,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
      "gestio": "Directa",
      "tarifesSocials": "Sí"
     }
