@@ -1025,7 +1025,7 @@ async function carregaNatura() {
   const M = d.municipis || {};
   const dataC = x => x ? x.split("-").reverse().join(".") : "";
   const tot = Object.values(M).reduce((t, m) => t + (m.observacions || 0), 0);
-  cos.innerHTML = `<p style="margin:0 0 6px">Als darrers ${d.dies} dies, la gent ha penjat <b>${tot.toLocaleString("ca-ES")}</b> observacions de plantes, animals i fongs dels cinc municipis a iNaturalist.</p>` +
+  cos.innerHTML = `<p style="margin:0 0 6px">${d.dies >= 365 ? "L'últim any" : "Als darrers " + d.dies + " dies"}, la gent ha penjat <b>${tot.toLocaleString("ca-ES")}</b> observacions de plantes, animals i fongs dels cinc municipis a iNaturalist.</p>` +
     `<p class="pista-plega">Clica el nom d'un municipi per veure què s'hi ha vist.</p>` +
     MUN_ANTENES.filter(c => M[c]).map(c => `<details class="plegable" data-mun="${c}"><summary><img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()">` +
       `<b>${esc(NOMS_LLARGS_MUN[c].replace(/^./, x => x.toUpperCase()))}</b><span class="resum-mun">${M[c].observacions} observacions · ${M[c].especies} espècies</span></summary><div class="cos-plega"></div></details>`).join("") +

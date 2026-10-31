@@ -2,7 +2,7 @@
 # NATURA A PROP (iNaturalist) — La TdG · 31.10.2026
 # Observacions de flora i fauna que la gent penja a iNaturalist dins dels cinc
 # municipis (la Bisbal d'Empordà, Forallac, Corçà, Cruïlles, Monells i Sant
-# Sadurní de l'Heura i Ullastret). Es demanen les dels darrers 90 dies dins del
+# Sadurní de l'Heura i Ullastret). Es demanen les del darrer any dins del
 # requadre que els envolta i cadascuna s'assigna al seu municipi amb els límits
 # municipals (llamps/girona.json). Desa dades/inaturalist.json per al tauler.
 # Dades: API pública d'iNaturalist (sense clau). Llicències de les fotos: les que
@@ -28,9 +28,9 @@ MUNICIPIS = {
     "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura",
     "17205": "Ullastret",
 }
-DIES = 90
+DIES = 365      # 31.10.2026: un any (en 90 dies en sortien poques)
 RECENTS = 40          # observacions recents que es guarden per municipi
-MAX_PAGINES = 15      # 200 per pàgina
+MAX_PAGINES = 25      # 200 per pàgina
 GRUPS = {"Plantae": "🌿 Plantes", "Aves": "🐦 Ocells", "Insecta": "🦋 Insectes", "Fungi": "🍄 Fongs",
          "Mammalia": "🦊 Mamífers", "Reptilia": "🦎 Rèptils", "Amphibia": "🐸 Amfibis", "Arachnida": "🕷️ Aranyes",
          "Mollusca": "🐌 Mol·luscs", "Actinopterygii": "🐟 Peixos", "Animalia": "🐾 Altres animals",
