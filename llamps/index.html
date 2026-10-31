@@ -169,7 +169,7 @@ async function iniciaMapa() {
     const mun = topojson.feature(GEO, GEO.objects.municipis);
     L.geoJSON(prov, { style: f => ({ color: "#9a958a", weight: f.id === "17" ? 2 : 1, fillColor: f.id === "17" ? "#ffffff" : "#f6f5f2", fillOpacity: 1 }), interactive: false }).addTo(MAPA);
     L.geoJSON(mun, {
-      style: f => ({ color: "#d6d2c8", weight: .6, fillColor: ["17022", "17057", "17902", "17901"].includes(f.id) ? "#f8e6df" : "#fff", fillOpacity: ["17022", "17057", "17902", "17901"].includes(f.id) ? 1 : 0 }),
+      style: f => ({ color: "#d6d2c8", weight: .6, fillColor: ["17022", "17057", "17902", "17901", "17205"].includes(f.id) ? "#f8e6df" : "#fff", fillOpacity: ["17022", "17057", "17902", "17901", "17205"].includes(f.id) ? 1 : 0 }),
       onEachFeature: (f, l) => l.bindTooltip(f.properties.n, { sticky: true })
     }).addTo(MAPA);
     const vora = L.geoJSON(prov.features.filter(f => f.id === "17"), { style: { color: "#6b6b66", weight: 2, fill: false }, interactive: false }).addTo(MAPA);
