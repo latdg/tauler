@@ -28,11 +28,11 @@ VISTA = "https://analisi.transparenciacatalunya.cat/api/views/{id}.json"
 COFGI = "https://www.cofgi.org/farmacies/farmacies-de-guardia"
 CAPCALERES = {"User-Agent": "Mozilla/5.0 (LaTdG-tauler; latdg@laguait.cat)"}
 MUNICIPIS = {"17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac",
-             "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"}
-CODI6 = {"17022": "170221", "17057": "170577", "17902": "179026", "17901": "179011"}
+             "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret"}
+CODI6 = {"17022": "170221", "17057": "170577", "17902": "179026", "17901": "179011", "17205": "172057"}
 # Poblacions de la zona per a les farmàcies de guàrdia (els quatre municipis i
 # els veïns on sovint hi ha la de guàrdia més propera).
-ZONA_FARMACIES = ["BISBAL", "CORCA", "FORALLAC", "VULPELLAC", "PERATALLADA", "CRUILLES", "MONELLS", "SANT SADURNI",
+ZONA_FARMACIES = ["BISBAL", "CORCA", "FORALLAC", "VULPELLAC", "PERATALLADA", "CRUILLES", "MONELLS", "SANT SADURNI", "ULLASTRET",
                   "PALAFRUGELL", "PALAMOS", "TORROELLA", "ESTARTIT", "VERGES", "ULLA", "PALS", "BEGUR", "CALONGE",
                   "SANT FELIU DE GUIXOLS", "CASSA DE LA SELVA", "CELRA", "LA PERA", "MONT-RAS", "REGENCOS", "TORRENT"]
 
@@ -54,7 +54,7 @@ def codi_per_nom(nom):
     p = pla(nom)
     if "BISBAL" in p and "EMPORD" in p:
         return "17022"
-    for c, k in (("17057", "CORCA"), ("17902", "FORALLAC"), ("17901", "CRUILLES")):
+    for c, k in (("17057", "CORCA"), ("17902", "FORALLAC"), ("17901", "CRUILLES"), ("17205", "ULLASTRET")):
         if k in p:
             return c
     return None

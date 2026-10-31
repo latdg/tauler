@@ -25,6 +25,7 @@ MUNICIPIS = {
     "17057": "Corçà",
     "17902": "Forallac",
     "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+    "17205": "Ullastret",   # 31.10.2026
 }
 COSTAT_KM = 3.0          # cel·les de la graella de consultes
 PAUSA = 1.2              # segons entre consultes (menys de 60 per minut)

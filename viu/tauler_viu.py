@@ -164,7 +164,7 @@ def piezometres():
 # -----------------------------------------------------------------------------
 CARBURANTS_URL = ("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/"
                   "PreciosCarburantes/EstacionesTerrestres/FiltroProvincia/17")
-CARBURANTS_MUNICIPIS = re.compile(r"bisbal|corca|forallac|cruilles")
+CARBURANTS_MUNICIPIS = re.compile(r"bisbal|corca|forallac|cruilles|ullastret")
 CARBURANTS_C66 = re.compile(r"celra|bordils|juia|sant marti vell|palafrugell|mont-ras|montras|regencos|begur|\bpera\b")
 CARBURANTS_NOMS = [
     ("Gasolina 95 E5", "Gasolina 95"),
@@ -839,6 +839,7 @@ RECARREGA_MUNICIPIS = [
      "termes": ["forallac", "vulpellac", "peratallada", "fonteta", "canapost", "sant climent de peralta", "santa susanna de peralta"]},
     {"nom": "Cruïlles, Monells i Sant Sadurní de l'Heura", "codi": "179011", "ine": "17901",
      "termes": ["cruilles", "monells", "sant sadurni de l'heura"]},
+    {"nom": "Ullastret", "codi": "172057", "ine": "17205", "termes": ["ullastret"]},   # 31.10.2026
 ]
 RECARREGA_ICAEN_URL = "https://analisi.transparenciacatalunya.cat/resource/tb2m-m33b.json"
 RECARREGA_NAP_URL = "https://infocar.dgt.es/datex2/v3/miterd/EnergyInfrastructureTablePublication/electrolineras.xml"

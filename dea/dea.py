@@ -25,6 +25,7 @@ MUNICIPIS = {
     "17057": "Corçà",
     "17902": "Forallac",
     "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+    "17205": "Ullastret",   # 31.10.2026
 }
 CAPCALERES = {"User-Agent": "LaTdG-tauler (https://latdg.github.io/tauler/)"}
 

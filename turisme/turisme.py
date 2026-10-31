@@ -26,7 +26,7 @@ SORTIDA = ARREL / "dades" / "turisme.json"
 CAPCALERES = {"User-Agent": "Mozilla/5.0 (LaTdG-redaccio; latdg@laguait.cat)"}
 URLS = ["https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/{t}.csv", "https://www.ine.es/jaxiT3/files/t/es/csv_bd/{t}.csv",
         "https://www.ine.es/jaxiT3/files/t/es/csv_c/{t}.csv", "https://www.ine.es/jaxiT3/files/t/es/csv/{t}.csv"]
-MUNICIPIS = {"17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura"}
+MUNICIPIS = {"17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret"}
 TAULES = {
     "53001": {"clau": "nacionals", "rol": "desti", "nom": "Turistes de la resta de l'Estat que hi arriben"},
     "52048": {"clau": "estrangers", "rol": "desti", "nom": "Turistes estrangers que hi arriben"},

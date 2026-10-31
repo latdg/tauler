@@ -34,6 +34,7 @@ MUNICIPIS = {
     "17057": ("Corçà", r"^CORC?.?A$"),   # al Cadastre surt com «COR A» (la ç es perd)
     "17902": ("Forallac", r"FORALLAC"),
     "17901": ("Cruïlles, Monells i Sant Sadurní de l'Heura", r"CRUILLES"),
+    "17205": ("Ullastret", r"ULLASTRET"),   # 31.10.2026
 }
 EPOQUES = [(0, 1900, "abans de 1900"), (1900, 1940, "1900-1939"), (1940, 1960, "1940-1959"), (1960, 1980, "1960-1979"),
            (1980, 2000, "1980-1999"), (2000, 2010, "2000-2009"), (2010, 9999, "des de 2010")]

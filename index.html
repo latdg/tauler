@@ -574,7 +574,7 @@ async function carregaLlamps() {
 }
 
 // -----------------------------------------------------------------------------
-// ANTENES (26.10.2026): emplaçaments de telefonia mòbil dels quatre municipis,
+// ANTENES (26.10.2026): emplaçaments de telefonia mòbil dels cinc municipis,
 // de l'API de Celda (dades d'Infoantenas). Les baixa un cop al mes el workflow
 // «Antenes» (antenes/antenes.py) a dades/antenes.json.
 // -----------------------------------------------------------------------------
@@ -582,7 +582,7 @@ const OPERADORS = {
   movistar: ["Movistar", "#0b6fbf"], vodafone: ["Vodafone", "#e60000"], orange: ["Orange", "#ff7900"],
   digi: ["Digi", "#2a9d8f"], yoigo: ["Yoigo", "#8e44ad"]
 };
-const MUN_ANTENES = ["17022", "17057", "17902", "17901"];
+const MUN_ANTENES = ["17022", "17902", "17057", "17901", "17205"];   // 31.10.2026: amb Ullastret, i en aquest ordre
 const dataDMA = iso => { const d = new Date(iso), z = n => String(n).padStart(2, "0"); return z(d.getDate()) + "." + z(d.getMonth() + 1) + "." + d.getFullYear(); };
 const uw = v => String(Math.round(v * 1000) / 1000).replace(".", ",");
 
@@ -681,7 +681,7 @@ function pinta(d) {
     "Servei Català de Trànsit");
 
   // 2. ✈️ AVIACIÓ NO COMERCIAL
-  if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els quatre municipis",
+  if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els cinc municipis",
     (b.aeronaus.length
       ? taulaAeronaus(b.aeronaus)
       : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>') +
@@ -690,14 +690,14 @@ function pinta(d) {
     "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
 
   // 2b. 📡 ANTENES DE TELEFONIA MÒBIL (26.10.2026): el contingut arriba després (carregaAntenes).
-  h += seccio("📡 Antenes de telefonia mòbil als quatre municipis",
+  h += seccio("📡 Antenes de telefonia mòbil als cinc municipis",
     '<p class="font dalt" id="antenesPeu"></p><div class="xifres" id="antenesXifres"></div>' +
     '<div id="mapaAntenes"></div><div class="llegenda" id="antenesLlegenda"></div>' +
     '<p class="font" id="antenesNota"></p>',
     "", false);
 
   // 2c. ❤️ DESFIBRIL·LADORS (26.10.2026): el contingut arriba després (carregaDea).
-  h += seccio("❤️ Desfibril·ladors (DEA) als quatre municipis",
+  h += seccio("❤️ Desfibril·ladors (DEA) als cinc municipis",
     '<p class="font dalt" id="deaPeu"></p><div class="xifres" id="deaXifres"></div>' +
     '<div id="mapaDea" style="height:440px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4"></div>' +
     '<div class="llegenda" id="deaLlegenda"></div><div id="deaAvis"></div><p class="font" id="deaNota"></p>',
@@ -827,7 +827,7 @@ function pinta(d) {
     h += seccio("⛽ Preus dels carburants",
       `<p class="font dalt">${c.data ? "Preus actualitzats el " + esc(c.data) + " · " : ""}Font: Ministeri per a la Transició Ecològica i el Repte Demogràfic (Geoportal de benzineres)</p>` +
       `<div class="taula"><table><thead>${cap}</thead><tbody>${files}</tbody></table></div>` +
-      `<p class="font">Preus declarats per les benzineres. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels quatre municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
+      `<p class="font">Preus declarats per les benzineres. De Celrà a Palafrugell, seguint la C-66; ombrejades, les dels cinc municipis. Preu per litre (el GNC i l'hidrogen, per kg). Destacat, el més barat de cada carburant.</p>`,
        "", false);
          }
 
@@ -867,7 +867,7 @@ function pinta(d) {
             (e.empresa ? `<b>${esc(e.empresa)}</b>. ` : "") + esc(e.text) +
             `<span class="coord">Cita: ${esc((e.cita || []).join(", "))} · <a href="${esc(e.link)}" target="_blank" rel="noopener">veure el BORME</a></span></li>`).join("") +
           "</ul>"
-        : `<p class="buit">El BORME de Girona ${esc(quan)} no porta cap acte d'empreses dels quatre municipis.</p>`;
+        : `<p class="buit">El BORME de Girona ${esc(quan)} no porta cap acte d'empreses dels cinc municipis.</p>`;
     } else if (bo.estat === "error") {
       cos = '<p class="buit">Ara mateix no s\'ha pogut consultar el BORME.</p>';
     } else {
@@ -894,7 +894,7 @@ function pinta(d) {
                s.autoritat ? "Autoritat: " + esc(s.autoritat) : ""].filter(Boolean).join(" · ") +
               ` · <a href="${esc(s.link)}" target="_blank" rel="noopener">fitxa al Portal de Subhastes</a>` +
             `</span></li>`).join("") + "</ul>"
-        : '<p class="buit">Ara mateix no hi ha cap subhasta oberta ni pendent d\'obrir de béns dels quatre municipis.</p>',
+        : '<p class="buit">Ara mateix no hi ha cap subhasta oberta ni pendent d\'obrir de béns dels cinc municipis.</p>',
       "Portal de Subhastes de l'Agència Estatal BOE");
   }
   
@@ -1032,9 +1032,9 @@ async function carregaDea() {
 // (Cadastre, workflow «Edat dels edificis») i dades/turisme.json (INE,
 // workflow «Turistes que hi arriben»).
 // -----------------------------------------------------------------------------
-const NOMS_CURTS_MUN = { "17022": "la Bisbal", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
-const NOMS_LLARGS_MUN = { "17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura" };
-const ESCUT_MUN = { "17022": "escuts/17022.svg", "17057": "escuts/17057.svg", "17902": "escuts/17902.svg", "17901": "escuts/17901.png" };
+const NOMS_CURTS_MUN = { "17022": "la Bisbal", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret" };
+const NOMS_LLARGS_MUN = { "17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret" };
+const ESCUT_MUN = { "17022": "escuts/17022.svg", "17057": "escuts/17057.svg", "17902": "escuts/17902.svg", "17901": "escuts/17901.png", "17205": "escuts/17205.svg" };
 const nCa = n => Number(n || 0).toLocaleString("ca-ES");
 const triadorMun = (codis, actiu) => `<div class="tria-mun">` + codis.map(c => `<button type="button" data-mun="${c}" class="${c === actiu ? "actiu" : ""}">` +
   `<img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()">${esc(NOMS_CURTS_MUN[c])}</button>`).join("") + `</div>`;
