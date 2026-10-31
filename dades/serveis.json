@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-31T05:32:37+00:00",
+ "generat": "2026-10-31T13:33:02+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -8,7 +8,7 @@
   "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-10-31T05:32:58+00:00",
+  "quan": "2026-10-31T13:33:23+00:00",
   "dies": [
    {
     "data": "2026-10-28",
@@ -58,12 +58,12 @@
    },
    {
     "data": "2026-10-31",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ (Fins avui 31/10/2026 a les 09:00 o 09:30 del matí)",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 31/10/2026",
     "farmacies": [
      {
       "farmacia": "PIERA DE CIURANA, C.B.",
       "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "Avui fins les 09:15",
+      "horari": "09:00 - 09:00 (dia seg.)",
       "adreca": "Avgda. Les Voltes, 1",
       "telefon": "674038640"
      }
