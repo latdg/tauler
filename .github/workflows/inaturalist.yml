@@ -30,11 +30,13 @@ jobs:
           python inaturalist/inaturalist.py
           git config user.name "La TdG (iNaturalist)"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for intent in 1 2 3; do
-            git add dades/inaturalist.json
-            if git diff --cached --quiet; then echo "Sense canvis"; break; fi
-            git commit -qm "iNaturalist ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
-            git push -q origin HEAD:main && break
-            git pull -q --rebase origin main
-            sleep 10
+          # 31.10.2026: abans, si el primer push fallava, el reintent veia «sense canvis» i no pujava res.
+          git add dades/inaturalist.json
+          if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
+          git commit -qm "iNaturalist ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+          for intent in 1 2 3 4 5 6; do
+            git push -q origin HEAD:main && exit 0
+            sleep $((intent * 5))
+            git pull -q --rebase origin main || { git rebase --abort; exit 1; }
           done
+          echo "No s'han pogut pujar els canvis"; exit 1
