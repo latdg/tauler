@@ -1,0 +1,34 @@
+name: Prova incidències
+on:
+  push:
+    branches: [prova-incidencies]
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests
+      - name: Prova
+        run: |
+          python - <<'PY'
+          import json, sys, traceback, importlib.util, requests
+          spec = importlib.util.spec_from_file_location("tv", "viu/tauler_viu.py"); tv = importlib.util.module_from_spec(spec); spec.loader.exec_module(tv)
+          def nota(t): print("::notice::" + t.replace("\n", " ")[:900])
+          # Sensors del visor de l'ACA
+          for c in ["170221-002", "171910-001", "170792-002", "170558-002", "171997-002"]:
+              try:
+                  r = requests.get(tv.RIU_URL.replace(tv.RIU_ESTACIO, c), headers=tv.CAPCALERES, timeout=60,
+                                   params={"from": "2026-10-31T10:00:00.000Z", "to": "2026-10-31T16:00:00.000Z"})
+                  d = r.json() if r.ok else {}
+                  nota(f"ACA {c}: HTTP {r.status_code} claus {list(d)[:8]} mostra {[list((d.get(k) or {}).items())[-1:] for k in list(d)[:3]]} cos {r.text[:150] if not r.ok else ''}")
+              except Exception as e:
+                  nota(f"ACA {c}: ERROR {e}")
+          for nom in ["riu", "rius", "avisosMeteo", "proteccioCivil", "bombers", "v16", "tallsLlum", "tallsAigua", "terratremols"]:
+              try:
+                  v = tv.FUNCIONS[nom]()
+                  nota(f"{nom}: OK {json.dumps(v, ensure_ascii=False)[:850]}")
+              except Exception as e:
+                  nota(f"{nom}: ERROR {type(e).__name__}: {e} | {traceback.format_exc()[-300:]}")
+          PY
