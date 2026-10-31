@@ -1166,7 +1166,7 @@ function pintaFarmacies() {
   const dates = Object.keys(nits).filter(d => d >= actual).sort();
   if (!dates.length) { cos.innerHTML = '<p class="buit">No hi ha guàrdies per als pròxims dies.</p>'; return; }
   const DIES_MIN = DIES_SETMANA.map(x => x.toLowerCase());
-  const horari = h => /^09:00 - 09:00/.test(h) || /^avui fins/i.test(h) ? "De 21 h a 9 h de l'endemà"
+  const horari = h => /^09:00 - 09:00/.test(h) || /^avui fins/i.test(h) ? "De 9 h a 9 h de l'endemà"   // 31.10.2026: la guàrdia del Col·legi és de 9 h a 9 h
     : "De " + h.replace(/\s*\(dia seg\.\)/, "").replace(/(\d{2}):(\d{2})/g, (m, a, b) => Number(a) + (b === "00" ? "" : "." + b)).replace(" - ", " h a ") + " h de l'endemà";
   const pintaNit = vespre => {
     const d = new Date(vespre + "T12:00:00"), e = new Date(mesDies(vespre, 1) + "T12:00:00");

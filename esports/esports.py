@@ -57,12 +57,13 @@ EQUIPS = [
     {"id": "monells_a", "nom": "Monells A", "esport": "Futbol", "font": "fcf",
      "categoria": "4a Catalana, grup 2", "competicio": "4a Catalana", "grup": "Grup 2",
      "grupId": "58161891", "codi": "36200"},
-    {"id": "monells_b", "nom": "Monells B", "esport": "Futbol", "font": "fcf",
-     "categoria": "4a Catalana, grup 5", "competicio": "4a Catalana", "grup": "Grup 5",
-     "grupId": "58161893", "codi": "54312692"},
+    # 31.10.2026: La Pera (4a, grup 2) va just després del Monells A (mateix grup), i després el Monells B (grup 5).
     {"id": "la_pera", "nom": "La Pera", "esport": "Futbol", "font": "fcf",
      "categoria": "4a Catalana, grup 2", "competicio": "4a Catalana", "grup": "Grup 2",
      "grupId": "58161891", "codi": "36734"},
+    {"id": "monells_b", "nom": "Monells B", "esport": "Futbol", "font": "fcf",
+     "categoria": "4a Catalana, grup 5", "competicio": "4a Catalana", "grup": "Grup 5",
+     "grupId": "58161893", "codi": "54312692"},
     {"id": "la_pera_femeni", "nom": "La Pera femení", "esport": "Futbol", "font": "fcf",
      "categoria": "2a Divisió femenina", "competicio": "2a Divisió femenina", "grup": "",
      "grupId": "58162320", "codi": "15549744"},
@@ -432,6 +433,11 @@ def feb_classificacio(h):
     for i, f in enumerate(files):
         if not isinstance(f["pos"], (int, float)):
             f["pos"] = i + 1
+        # 31.10.2026: la taula de la FEB no porta els punts. Es calculen amb la
+        # regla de la federació (victòria, 2 punts; derrota, 1), la mateixa que
+        # surt a la classificació del sots-25 femení.
+        if f.get("punts") in (None, "") and isinstance(f["pg"], (int, float)) and isinstance(f["pp"], (int, float)):
+            f["punts"] = int(2 * f["pg"] + f["pp"])
     files.sort(key=lambda f: f["pos"])
     return files
 
