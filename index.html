@@ -22,7 +22,7 @@ select{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:
 main{display:grid;gap:16px;padding-top:16px;padding-bottom:32px}
 section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0}
 h2{margin:0 0 8px;font-size:1.1rem}
-/* 31.10.2026: els títols dels blocs, en majúscules i sense emoticones (vegeu el guió del final). */
+/* 31.10.2026: els títols dels blocs, en majúscules (amb les seves emoticones). */
 h2{text-transform:uppercase}
 h3{margin:12px 0 4px;font-size:1rem}
 a{color:var(--accent)}
@@ -1483,23 +1483,5 @@ async function inicia() {
 inicia();
 </script>
 <script src="dates-ca.js?v=1"></script>
-<script>
-// 31.10.2026: els títols dels blocs no porten cap emoticona. Es netegen en carregar i
-// cada cop que un bloc es redibuixa (les dades arriben a poc a poc).
-(function () {
-  const EMO = /(?:[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{1F3FB}-\u{1F3FF}\uFE0F\u200D\u20E3])+\s*/gu;
-  const TE = /[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\uFE0F\u200D\u20E3]/u;
-  function neteja() {
-    document.querySelectorAll("h2").forEach(h => {
-      if (!TE.test(h.textContent)) return;
-      const w = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
-      let n;
-      while ((n = w.nextNode())) if (TE.test(n.data)) n.data = n.data.replace(EMO, "");
-    });
-  }
-  neteja();
-  new MutationObserver(neteja).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
-})();
-</script>
 </body>
 </html>
