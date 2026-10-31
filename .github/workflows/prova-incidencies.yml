@@ -2,6 +2,8 @@ name: Prova incidències
 on:
   push:
     branches: [prova-incidencies]
+permissions:
+  contents: write
 jobs:
   prova:
     runs-on: ubuntu-latest
@@ -17,18 +19,22 @@ jobs:
           spec = importlib.util.spec_from_file_location("tv", "viu/tauler_viu.py"); tv = importlib.util.module_from_spec(spec); spec.loader.exec_module(tv)
           def nota(t): print("::notice::" + t.replace("\n", " ")[:900])
           # Sensors del visor de l'ACA
-          for c in ["170221-002", "171910-001", "170792-002", "170558-002", "171997-002"]:
+          out = open("resultat.txt", "w")
+          def nota(t): out.write(t + "\n\n"); out.flush(); print(t[:300])
+          for u in ["https://aplicacions.aca.gencat.cat/sdim2/apirest/catalog?componentType=aforament",
+                    "https://aplicacions.aca.gencat.cat/sdim2/apirest/data/AFORAMENT-EST/CALC001204",
+                    "https://analisi.transparenciacatalunya.cat/resource/3yr3-vq6y.json?$where=codi_estacio%20in%20('EA131','EA132','EA010','EA121_C4121_E09','EA080')&$order=dia%20DESC,hora%20DESC&$limit=12"]:
               try:
-                  r = requests.get(tv.RIU_URL.replace(tv.RIU_ESTACIO, c), headers=tv.CAPCALERES, timeout=60,
-                                   params={"from": "2026-10-31T10:00:00.000Z", "to": "2026-10-31T16:00:00.000Z"})
-                  d = r.json() if r.ok else {}
-                  nota(f"ACA {c}: HTTP {r.status_code} claus {list(d)[:8]} mostra {[list((d.get(k) or {}).items())[-1:] for k in list(d)[:3]]} cos {r.text[:150] if not r.ok else ''}")
+                  r = requests.get(u, headers=tv.CAPCALERES, timeout=40)
+                  nota(f"URL {u}: HTTP {r.status_code} {r.text[:1500]}")
               except Exception as e:
-                  nota(f"ACA {c}: ERROR {e}")
-          for nom in ["riu", "rius", "avisosMeteo", "proteccioCivil", "bombers", "v16", "tallsLlum", "tallsAigua", "terratremols"]:
+                  nota(f"URL {u}: ERROR {e}")
+          for nom in ["v16", "tallsLlum", "tallsAigua", "terratremols", "avisosMeteo"]:
               try:
                   v = tv.FUNCIONS[nom]()
                   nota(f"{nom}: OK {json.dumps(v, ensure_ascii=False)[:850]}")
               except Exception as e:
                   nota(f"{nom}: ERROR {type(e).__name__}: {e} | {traceback.format_exc()[-300:]}")
           PY
+          git config user.name prova; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add resultat.txt && git commit -qm "Resultat de la prova" && git push -q origin HEAD:prova-incidencies

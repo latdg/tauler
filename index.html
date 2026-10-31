@@ -945,8 +945,8 @@ async function mapesIncidencies(b) {
   if (b.terratremols && document.getElementById("mapaSismes")) {
     const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN");
     if (mapa) {
-      [50, 150].forEach(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
-      mapa.setView(BISBAL_LL, 7);
+      const cercles = [50, 150].map(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
+      mapa.fitBounds(cercles[1].getBounds(), { padding: [6, 6] });
       const ara = Date.now();
       (b.terratremols.llista || []).slice().reverse().forEach(x => {
         const fa = (ara - new Date(x.iso).getTime()) / 3600e3;
