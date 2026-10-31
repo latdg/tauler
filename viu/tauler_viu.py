@@ -375,28 +375,53 @@ def data_aca(t):
     return d.astimezone(TZ) if d.tzinfo else d.replace(tzinfo=TZ)
 
 
-def riu():
-    fi = dt.datetime.now(dt.timezone.utc)
-    inici = fi - dt.timedelta(hours=26)   # 21.10.2026: 26 h, perquè el registre horari no perdi cap hora
-    formata = lambda d: d.strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    r = requests.get(RIU_URL, params={"from": formata(inici), "to": formata(fi)},
-                     headers=CAPCALERES, timeout=60)
+# 31.10.2026: el visor de l'ACA (RIU_URL) no respon des de GitHub des del 22.10.2026
+# (el bloc s'havia quedat aturat). Ara les lectures surten de l'API Sentilo de
+# l'ACA (la mateixa que fa servir l'avisador), que sí que respon.
+SENTILO = "https://aplicacions.aca.gencat.cat/sdim2/apirest"
+_SENTILO_CATALEG = {}
+
+
+def sentilo_sensors(component):
+    """{"cabal": (proveïdor, sensor), "nivell": (...)} d'una estació d'aforament."""
+    if not _SENTILO_CATALEG:
+        r = requests.get(f"{SENTILO}/catalog", params={"componentType": "aforament"}, headers=CAPCALERES, timeout=60)
+        r.raise_for_status()
+        for pr in r.json().get("providers") or []:
+            for se in pr.get("sensors") or []:
+                desc = norm(se.get("description"))
+                clau = "cabal" if "cabal" in desc else "nivell" if "nivell" in desc else None
+                if clau:
+                    _SENTILO_CATALEG.setdefault(se.get("component"), {}).setdefault(
+                        clau, (pr.get("provider"), se.get("sensor"), se.get("unit") or ""))
+    return _SENTILO_CATALEG.get(component) or {}
+
+
+def sentilo_serie(sensor, hores=26):
+    """[(datetime, valor)] de les darreres hores (mostres cada 15 minuts)."""
+    if not sensor:
+        return []
+    pr, se, unitat = sensor
+    r = requests.get(f"{SENTILO}/data/{pr}/{se}", params={"limit": hores * 4 + 8}, headers=CAPCALERES, timeout=60)
     r.raise_for_status()
-    dades = r.json()
+    sortida = []
+    for o in r.json().get("observations") or []:
+        v, t = num(o.get("value")), o.get("time")
+        if v is None or not isinstance(t, (int, float)):
+            continue
+        u = unitat.replace(" ", "").lower()
+        if u == "l/s":
+            v = v / 1000          # cabal sempre en m³/s
+        elif u == "m":
+            v = v * 100           # nivell sempre en cm
+        sortida.append((dt.datetime.fromtimestamp(t / 1000, TZ), v))
+    limit = ara() - dt.timedelta(hours=hores)
+    return sorted(x for x in sortida if x[0] >= limit)
 
-    def serie(sensor):
-        sortida = []
-        for t, v in (dades.get(sensor) or {}).items():
-            valor = num(v)
-            if valor is None:
-                continue
-            try:
-                sortida.append((data_aca(t), valor))
-            except ValueError:
-                continue
-        return sorted(sortida)
 
-    nivell, cabal = serie(RIU_SENSOR_NIVELL), serie(RIU_SENSOR_CABAL)
+def riu():
+    sensors = sentilo_sensors(RIU_ESTACIO)
+    nivell, cabal = sentilo_serie(sensors.get("nivell")), sentilo_serie(sensors.get("cabal"))
     if not nivell and not cabal:
         raise ValueError("l'ACA no ha retornat cap lectura")
 
@@ -1124,6 +1149,589 @@ def desa_necrologiques(noves, dia):
 
 
 # -----------------------------------------------------------------------------
+# INCIDÈNCIES (31.10.2026): la informació dels avisadors d'incidències (projecte
+# «alertes» de latdg/apps-script) per als blocs i mapes del tauler. Es consulten
+# les MATEIXES fonts públiques que fa servir l'avisador, amb els mateixos filtres;
+# aquí no s'envia cap avís ni es toca l'estat de l'avisador. Si una font falla,
+# el bloc conserva la darrera consulta bona (amb la seva hora, «consultat»).
+#   · Avisos meteorològics: AEMET (CAP, zona Empordà) i Meteocat (SMP, la còpia
+#     que en desa l'avisador: branca «tauler-alertes» de latdg/bots; cap consulta
+#     més a Meteocat, que té la quota limitada).
+#   · Protecció Civil (plans activats), Bombers (actuacions a menys de 25 km),
+#     balises V16 (DGT), talls de llum (e-distribución), talls d'aigua de Forallac
+#     (Veolia), terratrèmols (IGN) i cabals del Daró i del Ter (ACA).
+# -----------------------------------------------------------------------------
+MUN_ZONA = {"17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac",
+            "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret"}
+RADI_ZONA_KM = 25          # el «voltant» per a Bombers i balises V16 (més o menys, la comarca)
+
+
+def es_zona(municipi):
+    """Els cinc municipis (com l'avisador: «d'Empordà» per no confondre la Bisbal)."""
+    net = re.sub(r"\s+", " ", norm_be(municipi)).strip()
+    return (bool(re.search(r"bisbal d' ?emporda", net)) or net in ("corca", "forallac", "ullastret")
+            or "cruilles" in net)
+
+
+def municipi_bonic(t):
+    t = re.sub(r"^(.*),\s*(la|el|les|els)$", r"\2 \1", str(t or "").strip(), flags=re.I)
+    net = re.sub(r"\s+", " ", norm_be(t)).strip()
+    if re.search(r"bisbal d' ?emporda", net):
+        return MUN_ZONA["17022"]
+    if "cruilles" in net:
+        return MUN_ZONA["17901"]
+    if net == "corca":
+        return "Corçà"
+    return text_bonic(t)
+
+
+def dh(d):
+    """datetime -> «31.10.2026 a les 16.20 h» (hora de Madrid)."""
+    d = d.astimezone(TZ)
+    return f"{d.strftime('%d.%m.%Y')} a les {d.strftime('%H.%M')} h"
+
+
+def rumb(lat1, lon1, lat2, lon2):
+    rad = math.pi / 180
+    y = math.sin((lon2 - lon1) * rad) * math.cos(lat2 * rad)
+    x = (math.cos(lat1 * rad) * math.sin(lat2 * rad) -
+         math.sin(lat1 * rad) * math.cos(lat2 * rad) * math.cos((lon2 - lon1) * rad))
+    graus = (math.atan2(y, x) / rad + 360) % 360
+    return ["al nord", "al nord-est", "a l'est", "al sud-est", "al sud", "al sud-oest",
+            "a l'oest", "al nord-oest"][round(graus / 45) % 8]
+
+
+def coord(v):
+    x = num(v)
+    return round(x, 5) if x not in (None, 0) else None
+
+
+def anterior(nom):
+    """El darrer valor bo d'un bloc (de dades/viu.json)."""
+    return (llegeix(MEMORIA, {}).get("blocs") or {}).get(nom)
+
+
+def arcgis(url, params, timeout=60):
+    r = requests.get(url, params={"f": "json", **params}, headers=CAPCALERES, timeout=timeout)
+    r.raise_for_status()
+    d = r.json()
+    if d.get("error"):
+        raise ValueError(str(d["error"])[:200])
+    if not isinstance(d.get("features"), list):
+        raise ValueError("la resposta no porta la llista d'elements")
+    return d["features"]
+
+
+# --- AVISOS METEOROLÒGICS ----------------------------------------------------
+AEMET_RSS = "https://www.aemet.es/documentos_d/eltiempo/prediccion/avisos/rss/CAP_AFAZ691703_RSS.xml"
+AEMET_FENOMENS = {
+    "PR": ("pluges", "🌧️"), "NE": ("nevades", "🌨️"), "VI": ("vent", "💨"), "TO": ("tempestes", "⛈️"),
+    "AT": ("calor (temperatures màximes)", "🌡️"), "BT": ("fred (temperatures mínimes)", "❄️"),
+    "CO": ("fenòmens costaners", "🌊"), "VS": ("pols en suspensió", "🌫️"), "AL": ("allaus", "🏔️"),
+    "GA": ("galerna", "💨"), "RI": ("rissaga", "🌊"), "NI": ("boira", "🌫️"), "DH": ("desglaç", "💧"),
+}
+AEMET_PARAMETRES = {
+    "P1": "Precipitació acumulada en una hora", "P2": "Precipitació acumulada en 12 hores",
+    "NV": "Acumulació de neu en 24 hores", "RM": "Ratxes màximes", "TA": "Temperatura màxima",
+    "TI": "Temperatura mínima", "CO": "Fenòmens costaners", "VI": "Visibilitat", "NI": "Visibilitat",
+}
+AEMET_NIVELLS = {"amarillo": ("groc", "groc"), "naranja": ("taronja", "taronja"), "rojo": ("vermell", "roig")}
+METEO_RANG = {"groc": 1, "taronja": 2, "roig": 3}
+SMP_URL = "https://raw.githubusercontent.com/latdg/bots/tauler-alertes/smp.json"
+SOFTCATALA_URL = "https://www.softcatala.org/apertium/json/translate"
+
+
+def tradueix(text):
+    r = requests.post(SOFTCATALA_URL, data={"langpair": "es|ca", "q": text, "markUnknown": "no"},
+                      headers={"User-Agent": CAPCALERES["User-Agent"]}, timeout=30)
+    r.raise_for_status()
+    t = ((r.json() or {}).get("responseData") or {}).get("translatedText")
+    if not t:
+        raise ValueError("Softcatalà: resposta sense traducció")
+    return re.sub(r"\*(?=\w)", "", str(t)).strip()
+
+
+def periode_text(ini, fi):
+    ini, fi = ini.astimezone(TZ), fi.astimezone(TZ)
+    if ini.date() == fi.date():
+        return f"El {ini.strftime('%d.%m.%Y')}, de {ini.strftime('%H.%M')} a {fi.strftime('%H.%M')} h"
+    return f"Del {dh(ini)} al {dh(fi)}"
+
+
+def aemet_avisos(traduccions):
+    r = requests.get(AEMET_RSS, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
+    r.raise_for_status()
+    canal = ET.fromstring(r.content).find("channel")
+    links = [(it.findtext("link") or "").strip() for it in (canal.findall("item") if canal is not None else [])[:30]]
+    avisos = []
+    for link in [l for l in links if l.lower().endswith(".xml")]:
+        rc = requests.get(link, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
+        rc.raise_for_status()      # llista incompleta: millor conservar la consulta anterior
+        arrel = ET.fromstring(rc.content)
+        ns = arrel.tag[1:arrel.tag.index("}")] if arrel.tag.startswith("{") else ""
+        q = (lambda n: f"{{{ns}}}{n}") if ns else (lambda n: n)
+        infos = arrel.findall(q("info"))
+        if not infos:
+            continue
+        info = next((i for i in infos if (i.findtext(q("language")) or "").lower().startswith("es")), infos[0])
+        params = {(p.findtext(q("valueName")) or "").strip(): (p.findtext(q("value")) or "").strip()
+                  for p in info.findall(q("parameter"))}
+        codi = info.find(q("eventCode"))
+        fen = ((codi.findtext(q("value")) if codi is not None else "") or "").split(";")
+        nivell = params.get("AEMET-Meteoalerta nivel", "").lower()
+        par = params.get("AEMET-Meteoalerta parametro", "").split(";") + ["", "", ""]
+        try:
+            ini = dt.datetime.fromisoformat((info.findtext(q("onset")) or "").strip())
+            fi = dt.datetime.fromisoformat((info.findtext(q("expires")) or "").strip())
+        except ValueError:
+            continue
+        # Vigent (com l'avisador): groc o més, no caducat i no és el missatge de retirada.
+        if (nivell not in AEMET_NIVELLS or (info.findtext(q("severity")) or "") == "Minor"
+                or fi <= dt.datetime.now(dt.timezone.utc) or (fi - ini).total_seconds() <= 60):
+            continue
+        nom, icona = AEMET_FENOMENS.get(fen[0], ((fen[1] if len(fen) > 1 else "").lower() or "fenomen advers", "⚠️"))
+        valor = par[2] if re.search(r"\d", par[2]) else ""
+        comentari = (info.findtext(q("description")) or "").strip()
+        inici_par = f"{par[1]}: {par[2]}" if par[1] and par[2] else ""
+        if inici_par and comentari.startswith(inici_par):
+            comentari = comentari[len(inici_par):].lstrip(" .")
+        traduit = False
+        if comentari:
+            if comentari in traduccions:
+                comentari, traduit = traduccions[comentari], True
+            else:
+                try:
+                    t = tradueix(comentari)
+                    traduccions[comentari] = t
+                    comentari, traduit = t, True
+                except Exception as e:
+                    print(f"   AEMET: sense traducció ({e})", file=sys.stderr)
+        prob = params.get("AEMET-Meteoalerta probabilidad", "")
+        enviat = (arrel.findtext(q("sent")) or "").strip()
+        avisos.append({
+            "id": (arrel.findtext(q("identifier")) or "").strip(),
+            "codi": fen[0], "fenomen": nom, "icona": icona,
+            "nivell": AEMET_NIVELLS[nivell][0], "gravetat": AEMET_NIVELLS[nivell][1],
+            "dia": ini.astimezone(TZ).strftime("%Y-%m-%d"), "inici": ini.isoformat(), "fi": fi.isoformat(),
+            "quan": periode_text(ini, fi),
+            "parametre": (AEMET_PARAMETRES.get(par[0]) or par[1]) if valor else "", "valor": valor,
+            "probabilitat": "més del 70%" if re.search(r"mayor\s*70", prob, re.I) else prob,
+            "comentari": comentari, "traduit": traduit,
+            "emes": dh(dt.datetime.fromisoformat(enviat)) if enviat else "",
+        })
+    # El mateix avís pot venir repetit (actualitzacions): un per fenomen, paràmetre i inici.
+    unics = {}
+    for a in avisos:
+        k = (a["codi"], a["parametre"], a["inici"])
+        if k not in unics or METEO_RANG[a["gravetat"]] > METEO_RANG[unics[k]["gravetat"]]:
+            unics[k] = a
+    return sorted(unics.values(), key=lambda a: (a["inici"], -METEO_RANG[a["gravetat"]], a["fenomen"]))
+
+
+class _RegistreTraduccions(dict):
+    """Diccionari de traduccions que recorda l'original de cada text traduït."""
+    def __init__(self, base, originals):
+        super().__init__(base)
+        self.originals = originals
+        for o, t in base.items():
+            originals[t] = o
+
+    def __setitem__(self, k, v):
+        super().__setitem__(k, v)
+        self.originals[v] = k
+
+    def __getitem__(self, k):
+        v = super().__getitem__(k)
+        self.originals[v] = k
+        return v
+
+
+def avisos_meteo():
+    vell = anterior("avisosMeteo") or {}
+    sortida = {"consultat": ara().isoformat()}
+    # AEMET (les traduccions ja fetes es reaprofiten: el text de l'AEMET no canvia gaire).
+    traduccions = {}
+    for a in (vell.get("aemet") or []):
+        if a.get("traduit") and a.get("original"):
+            traduccions[a["original"]] = a["comentari"]
+    try:
+        originals = {}
+        llista = aemet_avisos(_RegistreTraduccions(traduccions, originals))
+        for a in llista:
+            a["original"] = originals.get(a["comentari"], "")
+        sortida["aemet"] = llista
+        sortida["aemetConsultat"] = ara().isoformat()
+    except Exception as e:
+        print(f"   AEMET: {e}", file=sys.stderr)
+        sortida["aemet"] = vell.get("aemet")
+        sortida["aemetConsultat"] = vell.get("aemetConsultat")
+    # Meteocat (SMP): la còpia que desa l'avisador.
+    try:
+        r = requests.get(SMP_URL, params={"v": int(ara().timestamp())}, headers=CAPCALERES, timeout=30)
+        if r.status_code == 404:
+            sortida["meteocat"] = None
+        else:
+            r.raise_for_status()
+            d = r.json()
+            avui = ara().strftime("%Y-%m-%d")
+            d["grups"] = [g for g in (d.get("grups") or []) if str(g.get("dia", "")) >= avui]
+            sortida["meteocat"] = d
+    except Exception as e:
+        print(f"   Meteocat (SMP): {e}", file=sys.stderr)
+        sortida["meteocat"] = vell.get("meteocat")
+    if sortida.get("aemet") is None and sortida.get("meteocat") is None and not vell:
+        raise ValueError("cap font d'avisos disponible")
+    return sortida
+
+
+
+# --- PROTECCIÓ CIVIL ---------------------------------------------------------
+PC_URL = "https://analisi.transparenciacatalunya.cat/resource/wj9c-j6vf.json"
+PC_TERMES = ["baix emporda", "bisbal d'emporda", "corca", "forallac", "cruilles", "monells",
+             "sant sadurni de l'heura", "ullastret"]
+PC_RISCOS = {"INFOCAT": "incendis forestals", "INUNCAT": "inundacions", "NEUCAT": "nevades",
+             "VENTCAT": "vent fort", "ALLAUCAT": "allaus", "SISMICAT": "sismes",
+             "TRANSCAT": "transport de mercaderies perilloses", "PROCICAT": "riscos sense pla específic",
+             "PLASEQCAT": "accidents a la indústria química", "AEROCAT": "accidents aeris",
+             "CAMCAT": "contaminació marina"}
+
+
+def pc_zona(text):
+    net = norm_be(text)
+    return any(t in net for t in PC_TERMES)
+
+
+def pc_gravetat(fase):
+    f = norm_be(fase)
+    if "prealerta" in f:
+        return "groc"
+    if "alerta" in f:
+        return "taronja"
+    if "emergencia" in f:
+        return "roig"
+    return "taronja"
+
+
+def proteccio_civil():
+    r = requests.get(PC_URL, params={"$limit": 100}, headers=CAPCALERES, timeout=60)
+    r.raise_for_status()
+    sortida = []
+    for p in r.json():
+        desc = re.sub(r"\s+", " ", str(p.get("descripcio") or "")).strip()
+        zona = pc_zona(desc)
+        frases = re.findall(r"[^.;]+[.;]?\s*", desc) or [desc]
+        if zona:
+            frases = [f for f in frases if pc_zona(f)] or frases
+        text = " ".join(f.strip() for f in frases).strip()
+        if len(text) > 400:
+            text = re.sub(r"\s+\S*$", "", text[:397]) + "…"
+        acr = str(p.get("plaacronim") or "").upper()
+        quan = ""
+        if p.get("fasedatahora"):
+            try:
+                d = dt.datetime.fromisoformat(str(p["fasedatahora"]).replace("Z", "+00:00"))
+                quan = dh(d if d.tzinfo else d.replace(tzinfo=TZ))   # sense zona: hora local
+            except ValueError:
+                quan = str(p["fasedatahora"])
+        pdf = p.get("comunicatpdf")
+        if isinstance(pdf, dict):
+            pdf = pdf.get("url")
+        sortida.append({
+            "pla": acr or str(p.get("planom") or "Pla de Protecció Civil"),
+            "nom": str(p.get("planom") or ""), "risc": PC_RISCOS.get(acr, ""),
+            "fase": str(p.get("plafase") or ""), "gravetat": pc_gravetat(p.get("plafase")),
+            "des": quan, "zona": zona, "text": text, "pdf": str(pdf or ""),
+        })
+    sortida.sort(key=lambda x: (not x["zona"], -METEO_RANG.get(x["gravetat"], 1), x["pla"]))
+    return {"consultat": ara().isoformat(), "plans": sortida}
+
+
+# --- BOMBERS -----------------------------------------------------------------
+BOMBERS_URL = ("https://services7.arcgis.com/ZCqVt1fRXwwK6GF4/arcgis/rest/services/"
+               "ACTUACIONS_URGENTS_online_PRO_AMB_FASE_VIEW/FeatureServer/0/query")
+
+
+def bombers():
+    # Un rectangle d'uns 40 km al voltant de la Bisbal; després, el radi exacte.
+    caixa = f"{BISBAL[1] - 0.45},{BISBAL[0] - 0.35},{BISBAL[1] + 0.45},{BISBAL[0] + 0.35}"
+    features = arcgis(BOMBERS_URL, {
+        "where": "1=1", "geometry": caixa, "geometryType": "esriGeometryEnvelope", "inSR": "4326",
+        "spatialRel": "esriSpatialRelIntersects", "returnGeometry": "true", "outSR": "4326",
+        "outFields": "MUNICIPI_DPX,COM_FASE,TAL_DESC_ALARMA1,TAL_DESC_ALARMA2,ACT_NUM_VEH,ACT_DAT_ACTUACIO,ESRI_OID"})
+    sortida = []
+    for f in features:
+        a, g = f.get("attributes") or {}, f.get("geometry") or {}
+        lat, lon = coord(g.get("y")), coord(g.get("x"))
+        nostre = es_zona(a.get("MUNICIPI_DPX"))
+        km = distancia_km(*BISBAL, lat, lon) if lat is not None and lon is not None else None
+        if not nostre and (km is None or km > RADI_ZONA_KM):
+            continue
+        desc = str(a.get("TAL_DESC_ALARMA2") or a.get("TAL_DESC_ALARMA1") or "").strip()
+        inici = a.get("ACT_DAT_ACTUACIO")
+        vehicles = num(a.get("ACT_NUM_VEH"))
+        sortida.append({
+            "municipi": municipi_bonic(a.get("MUNICIPI_DPX")), "fase": str(a.get("COM_FASE") or ""),
+            "descripcio": desc, "incendi": bool(re.search(r"incendi|foc|fum|vegetacio", norm_be(desc))),
+            "vehicles": int(vehicles) if vehicles else None,
+            "inici": dh(dt.datetime.fromtimestamp(inici / 1000, TZ)) if isinstance(inici, (int, float)) else "",
+            "ms": inici if isinstance(inici, (int, float)) else 0,
+            "lat": lat, "lon": lon, "km": round(km, 1) if km is not None else None, "nostre": nostre,
+        })
+    sortida.sort(key=lambda x: (not x["nostre"], -x["ms"]))
+    return {"consultat": ara().isoformat(), "radi": RADI_ZONA_KM, "actuacions": sortida}
+
+
+# --- BALISES V16 -------------------------------------------------------------
+V16_URL = "https://nap.dgt.es/datex2/v3/dgt/SituationPublication/datex2_v37.xml"
+V16_RUMBS = {"north": "nord", "northeast": "nord-est", "east": "est", "southeast": "sud-est", "south": "sud",
+             "southwest": "sud-oest", "west": "oest", "northwest": "nord-oest", "norte": "nord",
+             "noreste": "nord-est", "este": "est", "sureste": "sud-est", "sur": "sud",
+             "suroeste": "sud-oest", "oeste": "oest", "noroeste": "nord-oest"}
+
+
+def v16_camp(xml, etiqueta):
+    m = re.search(r"<(?:[\w-]+:)?" + etiqueta + r"(?:\s[^>]*)?>([^<]*)<", xml)
+    return m.group(1).strip() if m else ""
+
+
+def balises_v16():
+    r = requests.get(V16_URL, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=120)
+    r.raise_for_status()
+    trossos = re.split(r'<(?:[\w-]+:)?situation\s+id="', r.content.decode("utf-8", errors="replace"))
+    if len(trossos) < 2:
+        raise ValueError("el feed no conté cap incidència")
+    totes, sortida = 0, []
+    for t in trossos[1:]:
+        if not re.match(r"V16", v16_camp(t, "situationRecordCreationReference"), re.I):
+            continue
+        totes += 1
+        lat, lon = coord(v16_camp(t, "latitude")), coord(v16_camp(t, "longitude"))
+        municipi, prov = v16_camp(t, "municipality"), v16_camp(t, "province")
+        de_girona = not prov or "giron" in norm_be(prov)
+        nostre = de_girona and es_zona(municipi)
+        km = distancia_km(*BISBAL, lat, lon) if lat is not None and lon is not None else None
+        if not nostre and (km is None or km > RADI_ZONA_KM):
+            continue
+        orientacio = ""
+        for camp in ("tpegDirection", "tpegDirectionRoad", "directionBoundOnLinearSection", "directionBound", "orientation"):
+            o = V16_RUMBS.get(re.sub(r"bound$", "", re.sub(r"[^a-z]", "", v16_camp(t, camp).lower())), "")
+            if o:
+                orientacio = o
+                break
+        kmp = num(v16_camp(t, "kilometerPoint"))
+        inici = v16_camp(t, "overallStartTime")
+        try:
+            inici = dh(dt.datetime.fromisoformat(inici.replace("Z", "+00:00"))) if inici else ""
+        except ValueError:
+            pass
+        sortida.append({"via": v16_camp(t, "roadName"), "pk": coma(kmp, 1) if kmp is not None else "",
+                        "municipi": municipi_bonic(municipi), "orientacio": orientacio, "inici": inici,
+                        "lat": lat, "lon": lon, "km": round(km, 1) if km is not None else None, "nostre": nostre})
+    # Amb el servei en marxa sempre n'hi ha alguna a Espanya: si no, ha canviat el format.
+    if not totes:
+        raise ValueError("cap balisa V16 a tot Espanya (possible canvi de format del feed)")
+    sortida.sort(key=lambda x: (not x["nostre"], x["km"] if x["km"] is not None else 999))
+    return {"consultat": ara().isoformat(), "espanya": totes, "balises": sortida}
+
+
+# --- TALLS DE LLUM -----------------------------------------------------------
+LLUM_URL = "https://dpa-portalgis.enel.com/server/rest/services/Hosted/ESP_Prod_power_cut_View/FeatureServer/0/query"
+
+
+def data_llum(text):
+    m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})\s+(\d{1,2}):(\d{2})", str(text or ""))
+    return f"{int(m[1]):02d}.{int(m[2]):02d}.{m[3]} a les {int(m[4]):02d}.{m[5]} h" if m else str(text or "").strip()
+
+
+def talls_llum():
+    where = ("UPPER(municipality) LIKE '%BISBAL%EMPORD%' OR UPPER(municipality) LIKE '%FORALLAC%'"
+             " OR UPPER(municipality) LIKE 'COR%' OR UPPER(municipality) LIKE '%CRU%LLES%'"
+             " OR UPPER(municipality) LIKE '%ULLASTRET%'")
+    features = arcgis(LLUM_URL, {
+        "where": where, "returnGeometry": "false",
+        "outFields": "municipality,service_des_ca,des_cause_ca,cod_cause,affected_client,"
+                     "interruption_date,reposition_date,update_time,latitude,longitude,cd_code"})
+    sortida = []
+    for f in features:
+        a = f.get("attributes") or {}
+        if not es_zona(a.get("municipality")) or not a.get("cd_code"):
+            continue
+        causa = str(a.get("des_cause_ca") or "").strip()
+        sortida.append({
+            "municipi": municipi_bonic(a.get("municipality")),
+            "servei": str(a.get("service_des_ca") or "").strip(), "causa": causa,
+            "avaria": str(a.get("cod_cause") or "") == "A" or "avaria" in norm_be(causa),
+            "abonats": a.get("affected_client") if isinstance(a.get("affected_client"), (int, float)) else None,
+            "inici": data_llum(a.get("interruption_date")), "reposicio": data_llum(a.get("reposition_date")),
+            "actualitzat": data_llum(a.get("update_time")),
+            "lat": coord(a.get("latitude")), "lon": coord(a.get("longitude")),
+        })
+    return {"consultat": ara().isoformat(), "talls": sortida}
+
+
+# --- TALLS D'AIGUA (Forallac, Veolia) ----------------------------------------
+AIGUA_URL = ("https://services3.arcgis.com/5VitVYyVLQYnzXCo/arcgis/rest/services/"
+             "Cierres_webPublicas_v/FeatureServer/0/query")
+
+
+def talls_aigua():
+    features = arcgis(AIGUA_URL, {
+        "where": "COD_MUNI IN ('17902') AND CI_ESTADO IN ('4AP','5EC')", "returnGeometry": "true", "outSR": "4326",
+        "outFields": "CI_ID,CI_FH_INI_PREV,CI_FH_FIN_PREV,CI_DIRECCION,CI_CALLES,CI_ESTADO,CI_MOTIVO,COD_MUNI",
+        "orderByFields": "CI_FH_INI_PREV"})
+    sortida = []
+    for f in features:
+        a, g = f.get("attributes") or {}, f.get("geometry") or {}
+        if a.get("CI_ID") in (None, ""):
+            continue
+        p = lambda xs: [[round(y, 5), round(x, 5)] for x, y in xs]
+        if "x" in g and "y" in g:
+            geom = {"tipus": "punt", "coords": [round(g["y"], 5), round(g["x"], 5)]}
+        elif g.get("paths"):
+            geom = {"tipus": "linia", "coords": [p(c) for c in g["paths"]]}
+        elif g.get("rings"):
+            geom = {"tipus": "poligon", "coords": [p(c) for c in g["rings"]]}
+        else:
+            geom = None
+        adreca = str(a.get("CI_DIRECCION") or "").strip()
+        adreca = "" if adreca.lower() == "null" else re.sub(r"^(.*?),\s*\d{5}\b.*$", r"\1", adreca).strip()
+        carrers = str(a.get("CI_CALLES") or "").strip()
+        ini = dt.datetime.fromtimestamp(a["CI_FH_INI_PREV"] / 1000, TZ) if isinstance(a.get("CI_FH_INI_PREV"), (int, float)) else None
+        fi = dt.datetime.fromtimestamp(a["CI_FH_FIN_PREV"] / 1000, TZ) if isinstance(a.get("CI_FH_FIN_PREV"), (int, float)) else None
+        sortida.append({
+            "encurs": str(a.get("CI_ESTADO")) == "5EC", "avaria": str(a.get("CI_MOTIVO")) == "AVE",
+            "adreca": adreca, "carrers": "" if carrers.lower() == "null" else carrers,
+            "quan": periode_text(ini, fi) if ini and fi else (f"A partir del {dh(ini)}" if ini else ""),
+            "geom": geom,
+        })
+    return {"consultat": ara().isoformat(), "talls": sortida}
+
+
+# --- TERRATRÈMOLS (IGN) ------------------------------------------------------
+SISMES_URL = "https://www.ign.es/ign/RssTools/sismologia.xml"
+SISMES_RADI_KM = 300       # el mapa: Catalunya, el Pirineu i el golf de Lleó
+SISMES_DIES = 30           # el canal en dona 10; el tauler n'acumula 30
+SISMES_CODIS = {"GI": "Girona", "B": "Barcelona", "L": "Lleida", "T": "Tarragona", "FRA": "França",
+                "AND": "Andorra", "HU": "Osca"}
+
+
+def sisme_lloc(text):
+    t, zona = str(text or "").strip(), ""
+    m = re.match(r"^(.*)\.([A-Z]{1,3})$", t)
+    if m:
+        t, zona = m[1].strip(), SISMES_CODIS.get(m[2], m[2])
+    direccio = ""
+    m = re.match(r"^([NSEW]{1,3})\s+(.+)$", t)
+    if m:
+        direccio, t = m[1].replace("W", "O"), m[2]
+    nom = text_bonic(t)
+    if direccio:
+        de = ("de " + nom[0].lower() + nom[1:] if re.match(r"^(La|Les) ", nom) else
+              "del " + nom[3:] if nom.startswith("El ") else "dels " + nom[4:] if nom.startswith("Els ") else
+              "d'" + nom if re.match(r"^[AEIOUÀÈÉÍÒÓÚH]", nom, re.I) else "de " + nom)
+        nom = ("a l'" if direccio[0] in "EO" else "al ") + direccio + " " + de
+    return nom + (f" ({zona})" if zona else "")
+
+
+def terratremols():
+    r = requests.get(SISMES_URL, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
+    r.raise_for_status()
+    geo = "{http://www.w3.org/2003/01/geo/wgs84_pos#}"
+    canal = ET.fromstring(r.content).find("channel")
+    if canal is None:
+        raise ValueError("el canal RSS no té l'element channel")
+    nous = {}
+    for it in canal.findall("item"):
+        enllac = (it.findtext("link") or it.findtext("guid") or "").strip()
+        desc = (it.findtext("description") or "").strip()
+        mid = re.search(r"evid=([A-Za-z0-9]+)", enllac)
+        m = re.search(r"magnitud\s+([\d.,]+)\s+en\s+(.+?)\s+en la fecha\s+(\d{1,2})/(\d{1,2})/(\d{4})\s+"
+                      r"(\d{1,2}):(\d{2}):(\d{2})", desc, re.I)
+        lat, lon = num(it.findtext(geo + "lat")), num(it.findtext(geo + "long"))
+        if not mid or not m or lat is None or lon is None:
+            continue
+        km = distancia_km(*BISBAL, lat, lon)
+        if km > SISMES_RADI_KM:
+            continue
+        mag = num(m[1])
+        d = dt.datetime(int(m[5]), int(m[4]), int(m[3]), int(m[6]), int(m[7]), int(m[8]), tzinfo=dt.timezone.utc)
+        nous[mid[1]] = {
+            "id": mid[1], "magnitud": mag, "lloc": sisme_lloc(m[2]), "iso": d.isoformat(), "data": dh(d),
+            "lat": round(lat, 4), "lon": round(lon, 4), "km": round(km), "rumb": rumb(*BISBAL, lat, lon),
+            "enllac": enllac.replace("http:", "https:", 1),
+            # Els llindars d'avís de l'avisador: M 2,5 a menys de 50 km, o M 4 a menys de 150 km.
+            "avis": (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
+        }
+    limit = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=SISMES_DIES)).isoformat()
+    vell = {x["id"]: x for x in ((anterior("terratremols") or {}).get("llista") or [])}
+    vell.update(nous)
+    llista = sorted((x for x in vell.values() if x["iso"] >= limit), key=lambda x: x["iso"], reverse=True)
+    return {"consultat": ara().isoformat(), "dies": SISMES_DIES, "radi": SISMES_RADI_KM, "llista": llista}
+
+
+# --- CABALS DEL DARÓ I DEL TER (ACA) -----------------------------------------
+# Les mateixes estacions i els mateixos llindars oficials de l'avisador. L'ACA no
+# té cap estació al tram de Gualta: la del Daró aigües avall és la de Serra de
+# Daró, tocant a Gualta.
+RIUS_ESTACIONS = [
+    {"codi": "170221-002", "riu": "Daró", "lloc": "la Bisbal d'Empordà",
+     "llindars": [7.0, 15.0, 75.0, 150.0, 684.0, 1225.0]},
+    {"codi": "171910-001", "riu": "Daró", "lloc": "Serra de Daró (tocant a Gualta)",
+     "llindars": [4.3, 15.0, 75.0, 150.0, 684.0, 1225.0]},
+    {"codi": "170792-002", "riu": "Ter", "lloc": "Girona",
+     "llindars": [27.0, 45.0, 225.0, 450.0, 1825.0, 2792.0]},
+    {"codi": "170558-002", "riu": "Ter", "lloc": "Colomers",
+     "llindars": [29.0, 45.0, 225.0, 450.0, 1938.0, 3040.0]},
+    {"codi": "171997-002", "riu": "Ter", "lloc": "Torroella de Montgrí",
+     "llindars": [36.0, 55.0, 275.0, 550.0, 1938.0, 3040.0]},
+]
+RIUS_ESTATS = ["normalitat", "activació", "moderat", "alt", "molt alt", "excepcional", "excepcional (graó superior)"]
+
+
+def rius():
+    sortida = []
+    for e in RIUS_ESTACIONS:
+        try:
+            sensors = sentilo_sensors(e["codi"])
+            cabal, nivell = sentilo_serie(sensors.get("cabal"), 25), sentilo_serie(sensors.get("nivell"), 25)
+        except Exception as ex:
+            print(f"   riu {e['codi']}: {ex}", file=sys.stderr)
+            continue
+        if not cabal and not nivell:
+            continue
+        darrer = max(cabal[-1:] + nivell[-1:], key=lambda x: x[0])[0]
+        q = cabal[-1][1] if cabal else None
+        # Tendència: respecte de fa unes 3 hores.
+        tend = None
+        if cabal:
+            abans = [v for t, v in cabal if t <= cabal[-1][0] - dt.timedelta(hours=3)]
+            if abans:
+                tend = round(q - abans[-1], 3)
+        estat = None
+        if q is not None:
+            estat = 0
+            for i, l in enumerate(e["llindars"]):
+                if q >= l:
+                    estat = i + 1
+        # Mitjana per hora (per a la gràfica petita de l'evolució).
+        hores = {}
+        for t, v in cabal:
+            hores.setdefault(t.replace(minute=0, second=0, microsecond=0), []).append(v)
+        sortida.append({
+            "codi": e["codi"], "riu": e["riu"], "lloc": e["lloc"],
+            "cabal": round(q, 3) if q is not None else None,
+            "nivell": round(nivell[-1][1], 1) if nivell else None,
+            "hora": darrer.strftime("%H.%M") + " h" + ("" if darrer.date() == ara().date() else " del " + darrer.strftime("%d.%m.%Y")),
+            "tendencia": tend, "estat": RIUS_ESTATS[estat] if estat is not None else None, "grao": estat,
+            "llindarActivacio": e["llindars"][0],
+            "serie": [round(sum(v) / len(v), 3) for h, v in sorted(hores.items())][-24:],
+        })
+    if not sortida:
+        raise ValueError("cap estació amb dades")
+    return {"consultat": ara().isoformat(), "estacions": sortida}
+
+
+# -----------------------------------------------------------------------------
 # CALCULA I FUSIONA
 # -----------------------------------------------------------------------------
 FUNCIONS = {
@@ -1138,6 +1746,15 @@ FUNCIONS = {
     "pollen": pollen,
     "recarrega": recarrega,
     "necrologiques": necrologiques,
+    # 31.10.2026: incidències (la informació dels avisadors).
+    "avisosMeteo": avisos_meteo,
+    "proteccioCivil": proteccio_civil,
+    "bombers": bombers,
+    "v16": balises_v16,
+    "tallsLlum": talls_llum,
+    "tallsAigua": talls_aigua,
+    "terratremols": terratremols,
+    "rius": rius,
 }
 UN_COP_AL_DIA = {"clima"}
 # 21.10.2026: cada quants minuts com a mínim es torna a consultar un bloc.

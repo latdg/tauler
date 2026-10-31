@@ -116,6 +116,18 @@ details.plegable[open]>summary{margin-bottom:12px;padding-bottom:10px;border-bot
 .pista-plega{color:var(--suau);font-size:.85rem;margin:0}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
+/* 31.10.2026: incidències (avisos, talls, balises, terratrèmols) i apartats */
+.niv{display:inline-block;padding:0 8px;border-radius:999px;font-size:.75rem;font-weight:700;line-height:1.6;vertical-align:1px;text-transform:uppercase;background:#f7d900;color:#1d1d1b}
+.niv.taronja{background:#f39200;color:#fff}
+.niv.roig{background:#d7191c;color:#fff}
+ul.avisos{list-style:none;padding-left:0}
+ul.avisos li{margin:0 0 10px;padding-left:10px;border-left:3px solid var(--linia)}
+.mapa-inc{height:380px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin:4px 0 8px}
+@media (max-width:600px){.mapa-inc{height:320px}}
+h2.grup-apartat{margin:14px 0 -4px;padding:0 2px 4px;font-size:.95rem;letter-spacing:.05em;color:var(--accent);border-bottom:2px solid var(--accent)}
+h2.grup-apartat:first-child{margin-top:0}
+nav .nav-grup{flex-basis:100%;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--suau);margin:6px 0 -2px}
+nav .nav-grup:first-child{margin-top:0}
 .leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:10px 12px}
 .leaflet-popup-content ul{padding-left:16px}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
@@ -285,6 +297,10 @@ async function json(cami) {
 
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
+  // 31.10.2026: els blocs d'incidències, primer (així «aturats» no es confon amb l'atur).
+  [/avisos meteorol/i, "Avisos meteorològics"], [/protecci[óo] civil/i, "Protecció Civil"], [/bombers/i, "Bombers"],
+  [/terratr[èe]mols/i, "Terratrèmols"], [/balises v16/i, "Balises V16"], [/talls de llum/i, "Talls de llum"],
+  [/talls d'aigua/i, "Talls d'aigua"], [/rius:/i, "Rius"],
   [/agenda/i, "Agenda"], [/necrol[òo]giques/i, "Necrològiques"],
   [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"],
   [/edat dels edificis/i, "Edat dels edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
@@ -321,7 +337,7 @@ function seccio(titol, cos, font, ambData = true) {
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
   const clau = (CLAUS_SLOW.find(([rx]) => rx.test(titol)) || [])[1];
-  return `<section id="${id}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
+  return `<section id="${id}" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
 }
   
 // "A | B | C" o línies -> llista
@@ -714,6 +730,274 @@ function triaBlocsSlow() {
   document.documentElement.dataset.triat = "1";
 }
 
+// -----------------------------------------------------------------------------
+// INCIDÈNCIES (31.10.2026): la informació dels avisadors d'incidències. Les dades
+// arriben al tauler del dia (viu/tauler_viu.py, cada 15 minuts): avisos
+// meteorològics, Protecció Civil, Bombers, balises V16, talls de llum i d'aigua,
+// terratrèmols i cabals del Daró i del Ter.
+// -----------------------------------------------------------------------------
+const NOM_NIVELL = { groc: "groc", taronja: "taronja", roig: "vermell" };
+const nivell = g => `<span class="niv ${esc(g)}">${esc(NOM_NIVELL[g] || g)}</span>`;
+const ES_AVUI = () => !PARAMS_T.get("dia");
+const hmIso = iso => { const d = new Date(iso), z = n => String(n).padStart(2, "0"); return `${z(d.getDate())}.${z(d.getMonth() + 1)}.${d.getFullYear()} a les ${z(d.getHours())}.${z(d.getMinutes())} h`; };
+// «Darrera consulta: …» i, si fa més d'una hora (i és el tauler d'avui), l'avís que la font no respon.
+function consulta(iso, font) {
+  if (!iso) return font ? `<p class="font dalt">Font: ${esc(font)}</p>` : "";
+  const vell = ES_AVUI() && Date.now() - new Date(iso).getTime() > 3600e3;
+  return `<p class="font dalt">Darrera consulta: ${hmIso(iso)}${vell ? " · ⚠️ des d'aleshores la font no respon" : ""}${font ? " · Font: " + esc(font) : ""}</p>`;
+}
+const enllacMapa = (lat, lon) => lat != null && lon != null ? ` · <a href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener">mapa</a>` : "";
+const diaCa = iso => String(iso || "").slice(0, 10).split("-").reverse().join(".");
+
+function blocsIncidencies(b) {
+  const s = {};
+
+  // ⚠️ AVISOS METEOROLÒGICS (Meteocat i AEMET)
+  const am = b.avisosMeteo;
+  if (am) {
+    const ara = Date.now(), avui = new Date().toISOString().slice(0, 10);
+    let h = "<h3>Meteocat (Baix Empordà)</h3>";
+    const mc = am.meteocat;
+    if (!mc) h += '<p class="buit">Encara no s\'ha desat cap consulta de Meteocat (l\'avisador la fa com a molt cada 8 hores).</p>';
+    else {
+      const grups = (mc.grups || []).filter(g => !ES_AVUI() || String(g.dia) >= avui);
+      h += `<p class="font dalt">Consulta de l'avisador: ${hmIso(mc.consultat)}</p>` + (grups.length
+        ? "<ul class=\"avisos\">" + grups.map(g => `<li>${nivell(g.gravetat)} <b>${esc(frase(g.fenomen))}</b> · ${esc(diaCa(g.dia))}` +
+            (g.quan ? ` (${esc(g.quan)})` : "") + (g.llindar ? `<span class="coord">Llindar: ${esc(g.llindar)}</span>` : "") +
+            (g.comentari ? `<span class="coord">${esc(g.comentari)}</span>` : "") + "</li>").join("") + "</ul>"
+        : '<p class="buit">Meteocat no té cap avís obert per al Baix Empordà.</p>');
+    }
+    h += "<h3>AEMET (zona Empordà)</h3>";
+    if (!Array.isArray(am.aemet)) h += '<p class="buit">Ara mateix no s\'han pogut consultar els avisos de l\'AEMET.</p>';
+    else {
+      const llista = am.aemet.filter(a => !ES_AVUI() || new Date(a.fi).getTime() > ara);
+      h += (am.aemetConsultat ? `<p class="font dalt">Darrera consulta: ${hmIso(am.aemetConsultat)}</p>` : "") + (llista.length
+        ? "<ul class=\"avisos\">" + llista.map(a => `<li>${nivell(a.gravetat)} ${a.icona || ""} <b>${esc(frase(a.fenomen))}</b> · ${esc(a.quan)}` +
+            `<span class="coord">${[a.valor ? esc(a.parametre) + ": " + esc(a.valor) : "", a.probabilitat ? "Probabilitat: " + esc(a.probabilitat) : ""].filter(Boolean).join(" · ")}</span>` +
+            (a.comentari ? `<span class="coord">${esc(a.comentari)}${a.traduit ? " (traducció automàtica)" : " (en castellà)"}</span>` : "") + "</li>").join("") + "</ul>"
+        : '<p class="buit">L\'AEMET no té cap avís vigent per a l\'Empordà (calor, fred, vent, pluja, neu, tempestes ni mar).</p>');
+    }
+    h += '<p class="font">Avisos de perill per calor, fred, vent, pluja, neu, tempestes, estat de la mar i altres fenòmens. ' +
+      '<a href="https://www.meteo.cat/prediccio/avisos" target="_blank" rel="noopener">Meteocat</a> · ' +
+      '<a href="https://www.aemet.es/es/eltiempo/prediccion/avisos?l=691703" target="_blank" rel="noopener">AEMET</a></p>';
+    s.meteo = seccio("⚠️ Avisos meteorològics", h, "", false);
+  }
+
+  // 🚨 PROTECCIÓ CIVIL
+  if (b.proteccioCivil) {
+    const plans = b.proteccioCivil.plans || [];
+    const fitxa = p => `<li>${nivell(p.gravetat)} <b>Pla ${esc(p.pla)}</b>${p.risc ? " (" + esc(p.risc) + ")" : ""}: fase ${esc(p.fase || "desconeguda")}` +
+      (p.des ? `<span class="coord">Fase vigent des del ${esc(p.des)}</span>` : "") +
+      (p.text ? `<span class="coord">${esc(p.text)}</span>` : "") +
+      (p.pdf ? `<span class="coord"><a href="${esc(p.pdf)}" target="_blank" rel="noopener">Comunicat oficial</a></span>` : "") + "</li>";
+    const nostres = plans.filter(p => p.zona), altres = plans.filter(p => !p.zona);
+    s.pc = seccio("🚨 Protecció Civil: plans activats",
+      consulta(b.proteccioCivil.consultat, "Protecció Civil de la Generalitat") +
+      (nostres.length ? "<ul class=\"avisos\">" + nostres.map(fitxa).join("") + "</ul>"
+        : '<p class="buit">Cap pla de Protecció Civil activat que afecti el Baix Empordà.</p>') +
+      (altres.length ? `<details class="fa-setmana"><summary>Altres plans activats a Catalunya (${altres.length})</summary><ul class="avisos">${altres.map(fitxa).join("")}</ul></details>` : ""),
+      "", false);
+  }
+
+  // 🚒 BOMBERS
+  if (b.bombers) {
+    const ll = b.bombers.actuacions || [];
+    s.bombers = seccio("🚒 Bombers: actuacions en curs",
+      consulta(b.bombers.consultat, "Bombers de la Generalitat") + (ll.length
+        ? "<ul class=\"avisos\">" + ll.map(a => `<li>${a.incendi ? "🔥" : "🚒"} <b${a.nostre ? ' style="color:var(--accent)"' : ""}>${esc(a.municipi)}</b>: ${esc(a.descripcio || "actuació")}` +
+            `<span class="coord">${[a.fase ? "Fase: " + esc(a.fase) : "", a.vehicles ? a.vehicles + (a.vehicles === 1 ? " vehicle" : " vehicles") : "",
+              a.inici ? "Des del " + esc(a.inici) : "", a.km != null ? "a " + num(a.km) + " km de la Bisbal" : ""].filter(Boolean).join(" · ")}${enllacMapa(a.lat, a.lon)}</span></li>`).join("") + "</ul>"
+        : `<p class="buit">Cap actuació activa dels Bombers a menys de ${b.bombers.radi || 25} km de la Bisbal.</p>`) +
+      `<p class="font">Actuacions a menys de ${b.bombers.radi || 25} km de la Bisbal; en color, les dels cinc municipis.</p>`, "", false);
+  }
+
+  // 🌍 TERRATRÈMOLS
+  if (b.terratremols) {
+    const t = b.terratremols, ll = t.llista || [];
+    const destacats = ll.filter(x => x.avis || x.km < 100).slice(0, 12);
+    s.sismes = seccio("🌍 Terratrèmols",
+      consulta(t.consultat, "Instituto Geográfico Nacional (IGN)") +
+      `<div class="xifres"><div class="xifra"><b>${ll.length}</b><span>terratrèmols els darrers ${t.dies || 30} dies a menys de ${t.radi || 300} km</span></div>` +
+      `<div class="xifra"><b>${ll.filter(x => x.km < 100).length}</b><span>a menys de 100 km</span></div></div>` +
+      '<div class="mapa-inc" id="mapaSismes"></div>' +
+      '<div class="llegenda"><span><i style="background:#d7191c"></i>darreres 24 h</span><span><i style="background:#f39200"></i>darrers 7 dies</span><span><i style="background:#9a958a"></i>més antics</span><span>Cercles: 50 i 150 km de la Bisbal</span></div>' +
+      (destacats.length ? "<h3>Els més propers o que han superat els llindars d'avís</h3><ul class=\"avisos\">" + destacats.map(x =>
+          `<li><b>M ${num(x.magnitud)}</b> ${esc(x.lloc)}${x.avis ? " ⚠️" : ""}<span class="coord">${esc(x.data)} · a ${x.km} km de la Bisbal, ${esc(x.rumb)} · <a href="${esc(x.enllac)}" target="_blank" rel="noopener">fitxa de l'IGN</a></span></li>`).join("") + "</ul>"
+        : '<p class="buit">Cap terratrèmol a menys de 100 km aquests dies.</p>') +
+      '<p class="font">⚠️ Supera un llindar d\'avís: magnitud 2,5 o més a menys de 50 km, o magnitud 4 o més a menys de 150 km. Si n\'has notat un, pots explicar-ho a l\'<a href="https://www.ign.es/web/ign/portal/sis-cuestionario-macrosismico" target="_blank" rel="noopener">IGN</a>.</p>',
+      "", false);
+  }
+
+  // 🚨 BALISES V16
+  if (b.v16) {
+    const ll = b.v16.balises || [];
+    s.v16 = seccio("🚨 Balises V16: vehicles aturats a la zona",
+      consulta(b.v16.consultat, "Dirección General de Tráfico (DGT)") +
+      '<div class="mapa-inc" id="mapaV16"></div>' + (ll.length
+        ? "<ul class=\"avisos\">" + ll.map(v => `<li><b${v.nostre ? ' style="color:var(--accent)"' : ""}>${esc(v.via || "Carretera sense identificar")}${v.pk ? ", km " + esc(v.pk) : ""}</b> · ${esc(v.municipi)}` +
+            `<span class="coord">${[v.orientacio ? "Direcció " + esc(v.orientacio) : "", v.inici ? "Activada el " + esc(v.inici) : ""].filter(Boolean).join(" · ")}${enllacMapa(v.lat, v.lon)}</span></li>`).join("") + "</ul>"
+        : '<p class="buit">Ara mateix no hi ha cap balisa V16 activada a la zona.</p>') +
+      `<p class="font">Una balisa V16 connectada indica un vehicle aturat a la via, per avaria o per accident. A menys de 25 km de la Bisbal; en color, les dels cinc municipis.${b.v16.espanya ? " Ara n'hi ha " + nCa(b.v16.espanya) + " d'activades a tot l'Estat." : ""}</p>`,
+      "", false);
+  }
+
+  // 🔌 TALLS DE LLUM
+  if (b.tallsLlum) {
+    const ll = b.tallsLlum.talls || [];
+    const abonats = ll.reduce((t, x) => t + (x.abonats || 0), 0);
+    s.llum = seccio("🔌 Talls de llum als cinc municipis",
+      consulta(b.tallsLlum.consultat, "e-distribución") +
+      (ll.length ? `<div class="xifres"><div class="xifra"><b>${ll.length}</b><span>tall${ll.length === 1 ? "" : "s"} actiu${ll.length === 1 ? "" : "s"}</span></div><div class="xifra"><b>${nCa(abonats)}</b><span>abonats afectats</span></div></div>` : "") +
+      '<div class="mapa-inc" id="mapaLlum"></div>' + (ll.length
+        ? "<ul class=\"avisos\">" + ll.map(t => `<li>${t.avaria ? "⚡" : "🛠️"} <b>${esc(t.municipi)}</b>: ${t.avaria ? "tall per avaria" : "tall programat"}${t.abonats != null ? " · " + nCa(t.abonats) + " abonats" : ""}` +
+            `<span class="coord">${[t.inici ? (t.avaria ? "Sense llum des del " : "Inici: ") + esc(t.inici) : "", "Reposició prevista: " + esc(t.reposicio || "sense concretar")].filter(Boolean).join(" · ")}${enllacMapa(t.lat, t.lon)}</span></li>`).join("") + "</ul>"
+        : '<p class="buit">Ara mateix no hi ha cap tall de llum als cinc municipis.</p>') +
+      '<p class="font">Avaries i treballs programats de la xarxa d\'e-distribución. Per avisar d\'una avaria: 900 878 212. La ubicació és aproximada.</p>', "", false);
+  }
+
+  // 🚰 TALLS D'AIGUA (Forallac)
+  if (b.tallsAigua) {
+    const ll = b.tallsAigua.talls || [];
+    s.aigua = seccio("🚰 Talls d'aigua a Forallac",
+      consulta(b.tallsAigua.consultat, "Veolia") +
+      '<div class="mapa-inc" id="mapaAigua"></div>' + (ll.length
+        ? "<ul class=\"avisos\">" + ll.map(t => `<li><b>${esc(t.adreca || "Forallac")}</b>: ${t.encurs ? "tall en curs" : "tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}` +
+            `<span class="coord">${[t.quan ? "Previsió: " + esc(t.quan) : "", t.carrers ? "També afecta: " + esc(t.carrers) : ""].filter(Boolean).join(" · ")}</span></li>`).join("") + "</ul>"
+        : '<p class="buit">Ara mateix Veolia no indica cap tall d\'aigua a Forallac.</p>') +
+      '<p class="font">Forallac és l\'únic dels cinc municipis amb l\'aigua de Veolia; les altres gestores no publiquen els talls en dades obertes. <a href="https://agbar.veolia.cat/mapa-de-obras-y-afectaciones" target="_blank" rel="noopener">Mapa d\'obres i afectacions de Veolia</a></p>', "", false);
+  }
+  return s;
+}
+
+// La taula de les estacions del Daró i del Ter (dins del bloc dels rius).
+function taulaRius(r) {
+  const est = r.estacions || [];
+  if (!est.length) return "";
+  const serie = v => {
+    const x = (v || []).filter(n => n != null);
+    if (x.length < 2) return "";
+    const mn = Math.min(...x), mx = Math.max(...x), ample = 90, alt = 22;
+    const pts = x.map((n, i) => `${(i / (x.length - 1) * ample).toFixed(1)},${(alt - 2 - (mx > mn ? (n - mn) / (mx - mn) : .5) * (alt - 4)).toFixed(1)}`).join(" ");
+    return `<svg width="${ample}" height="${alt}" viewBox="0 0 ${ample} ${alt}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="1.5"/></svg>`;
+  };
+  const tend = t => t == null ? "—" : Math.abs(t) < 0.005 ? "= estable" : (t > 0 ? "▲ +" : "▼ −") + num(Math.abs(t).toFixed(Math.abs(t) < 1 ? 3 : 1)) + " m³/s";
+  return `<h3>Estacions de l'ACA al Daró i al Ter</h3>` + consulta(r.consultat, "") +
+    `<div class="taula"><table><thead><tr><th>Estació</th><th class="num">Cabal</th><th class="num">Nivell</th><th>Fa 3 hores</th><th>Estat</th><th>Evolució (darreres hores)</th></tr></thead><tbody>` +
+    est.map(e => `<tr><td class="ajust"><b>${esc(e.riu)}</b> a ${esc(e.lloc)}<span class="coord">Lectura de les ${esc(e.hora)}</span></td>` +
+      `<td class="num">${e.cabal != null ? num(e.cabal) + " m³/s" : "—"}</td><td class="num">${e.nivell != null ? num(e.nivell) + " cm" : "—"}</td>` +
+      `<td>${tend(e.tendencia)}</td><td${e.grao >= 2 ? ' style="color:#c0392b;font-weight:700"' : e.grao === 1 ? ' style="font-weight:600"' : ""}>${esc(e.estat || "—")}</td><td>${serie(e.serie)}</td></tr>`).join("") +
+    `</tbody></table></div><p class="font">Estat segons els llindars oficials de cabal de l'ACA (activació, moderat, alt, molt alt i excepcional). L'ACA no té cap estació al tram de Gualta: la del Daró aigües avall és la de Serra de Daró, tocant a Gualta.</p>`;
+}
+
+// --- MAPES DE LES INCIDÈNCIES ---
+let GEO_GIRONA = null;
+const geoGirona = () => GEO_GIRONA || (GEO_GIRONA = fetch("llamps/girona.json").then(r => r.json()));
+async function mapaBase(id, codis, atribucio) {
+  const el = document.getElementById(id);
+  if (!el) return null;
+  if (typeof L === "undefined") { el.innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return null; }
+  const mapa = L.map(el, { zoomSnap: 0.25, scrollWheelZoom: false }).setView([41.95, 3.04], 11);
+  mapa.attributionControl.setPrefix("").addAttribution(atribucio + " · Límits: es-atlas (INE)");
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, opacity: .55, attribution: "© OpenStreetMap" }).addTo(mapa);
+  try {
+    const geo = await geoGirona();
+    const capa = L.geoJSON(topojson.feature(geo, geo.objects.municipis).features.filter(f => codis.includes(f.id)), {
+      style: { color: "#b4462c", weight: 1.5, fillColor: "#f8e6df", fillOpacity: .2 }, interactive: false
+    }).addTo(mapa);
+    mapa.fitBounds(capa.getBounds(), { padding: [10, 10] });
+    capa.eachLayer(l => L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false })
+      .setLatLng(l.getBounds().getCenter()).setContent(l.feature.properties.n).addTo(mapa));
+  } catch (e) {}
+  return mapa;
+}
+const punt = (mapa, lat, lon, color, radi, tooltip, popup) => lat != null && lon != null &&
+  L.circleMarker([lat, lon], { radius: radi, color: "#fff", weight: 1.5, fillColor: color, fillOpacity: .95 })
+    .bindTooltip(tooltip).bindPopup(popup, { maxWidth: 280 }).addTo(mapa);
+
+async function mapesIncidencies(b) {
+  if (b.tallsLlum && document.getElementById("mapaLlum")) {
+    const mapa = await mapaBase("mapaLlum", MUN_ANTENES, "Talls: e-distribución");
+    if (mapa) (b.tallsLlum.talls || []).forEach(t => punt(mapa, t.lat, t.lon, t.avaria ? "#d7191c" : "#2b6cb0", 8,
+      `${t.municipi}${t.abonats != null ? " · " + t.abonats + " abonats" : ""}`,
+      `<b>${esc(t.municipi)}</b><br>${t.avaria ? "Tall per avaria" : "Tall programat"}${t.abonats != null ? `<br>Abonats afectats: <b>${nCa(t.abonats)}</b>` : ""}` +
+      `${t.inici ? "<br>Des del " + esc(t.inici) : ""}<br>Reposició prevista: ${esc(t.reposicio || "sense concretar")}`));
+  }
+  if (b.v16 && document.getElementById("mapaV16")) {
+    const mapa = await mapaBase("mapaV16", MUN_ANTENES, "Balises: DGT");
+    if (mapa) {
+      mapa.setView([41.93, 3.05], 10.25);
+      (b.v16.balises || []).forEach(v => punt(mapa, v.lat, v.lon, v.nostre ? "#d7191c" : "#f39200", 8,
+        `${v.via || ""}${v.pk ? ", km " + v.pk : ""}`,
+        `<b>${esc(v.via || "Carretera")}${v.pk ? ", km " + esc(v.pk) : ""}</b><br>${esc(v.municipi)}${v.orientacio ? "<br>Direcció " + esc(v.orientacio) : ""}${v.inici ? "<br>Activada el " + esc(v.inici) : ""}`));
+    }
+  }
+  if (b.tallsAigua && document.getElementById("mapaAigua")) {
+    const mapa = await mapaBase("mapaAigua", ["17902"], "Talls: Veolia");
+    if (mapa) (b.tallsAigua.talls || []).forEach(t => {
+      if (!t.geom) return;
+      const html = `<b>${esc(t.adreca || "Forallac")}</b><br>${t.encurs ? "Tall en curs" : "Tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}${t.quan ? "<br>" + esc(t.quan) : ""}`;
+      const estil = { color: "#2b6cb0", weight: 4, fillColor: "#2b6cb0", fillOpacity: .35 };
+      const c = t.geom.coords;
+      (t.geom.tipus === "punt" ? L.circleMarker(c, { radius: 8, color: "#fff", weight: 1.5, fillColor: "#2b6cb0", fillOpacity: .95 })
+        : t.geom.tipus === "linia" ? L.polyline(c, estil) : L.polygon(c, estil)).bindPopup(html).addTo(mapa);
+    });
+  }
+  if (b.terratremols && document.getElementById("mapaSismes")) {
+    const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN");
+    if (mapa) {
+      const cercles = [50, 150].map(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
+      mapa.fitBounds(cercles[1].getBounds(), { padding: [6, 6] });
+      const ara = Date.now();
+      (b.terratremols.llista || []).slice().reverse().forEach(x => {
+        const fa = (ara - new Date(x.iso).getTime()) / 3600e3;
+        punt(mapa, x.lat, x.lon, fa < 24 ? "#d7191c" : fa < 168 ? "#f39200" : "#9a958a", 3 + Math.max(0, x.magnitud) * 2.2,
+          `M ${num(x.magnitud)} · ${x.lloc}`,
+          `<b>Magnitud ${num(x.magnitud)}</b><br>${esc(x.lloc)}<br>${esc(x.data)}<br>A ${x.km} km de la Bisbal, ${esc(x.rumb)}<br><a href="${esc(x.enllac)}" target="_blank" rel="noopener">Fitxa de l'IGN</a>`);
+      });
+    }
+  }
+}
+const BISBAL_LL = [41.9597, 3.0386];
+
+// --- ORDRE DELS BLOCS PER APARTATS (31.10.2026) ---
+// Cada bloc va al seu apartat, pel nom curt de la barra de navegació. Un bloc que
+// no surt a la llista va al final (així no se'n perd cap si se n'afegeix un de nou).
+const APARTATS = [
+  ["📌 Avui", ["Agenda", "Farmàcies", "Necrològiques"]],
+  ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Llamps", "Terratrèmols"]],
+  ["🚗 Trànsit i mobilitat", ["Trànsit", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
+  ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
+  ["🌿 Temps, aigua i natura", ["Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
+  ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
+  ["⚽ Esports", ["Partits i resultats", "Classificacions"]]
+];
+function ordenaApartats() {
+  if (MODE_SLOW) return;
+  const cont = document.getElementById("blocs");
+  const seccions = Array.from(cont.querySelectorAll(":scope > section"));
+  const perNom = {};
+  seccions.forEach(s => { perNom[s.dataset.nom] = perNom[s.dataset.nom] || s; });
+  const usats = new Set(), nav = [];
+  APARTATS.forEach(([titol, noms]) => {
+    const seus = noms.map(n => perNom[n]).filter(s => s && !usats.has(s));
+    seus.forEach(s => usats.add(s));
+    const visibles = seus.filter(s => !s.hidden);
+    if (!visibles.length) return;
+    const cap = document.createElement("h2");
+    cap.className = "grup-apartat";
+    cap.textContent = titol;
+    cont.appendChild(cap);
+    seus.forEach(s => cont.appendChild(s));
+    nav.push({ titol, seccions: visibles });
+  });
+  const resta = seccions.filter(s => !usats.has(s));
+  resta.forEach(s => cont.appendChild(s));
+  if (resta.some(s => !s.hidden)) nav.push({ titol: "", seccions: resta.filter(s => !s.hidden) });
+  document.getElementById("nav").innerHTML = nav.map(g =>
+    (g.titol ? `<span class="nav-grup">${esc(g.titol.replace(/^[^\p{L}]+/u, ""))}</span>` : "") +
+    g.seccions.map(s => `<a href="#${s.id}">${esc(s.dataset.nom)}</a>`).join("")).join("");
+}
+
 function pinta(d) {
   const b = d.blocs || {};
     ACTUALITZAT = d.generat || "";
@@ -753,6 +1037,11 @@ function pinta(d) {
           }).join("") + "</ul>"
       : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>'),
     "Servei Català de Trànsit");
+
+  // 1b. INCIDÈNCIES (31.10.2026): avisos meteorològics, Protecció Civil, Bombers,
+  // terratrèmols, balises V16, talls de llum i talls d'aigua. Cada bloc va després
+  // al seu apartat (ordenaApartats).
+  h += Object.values(blocsIncidencies(b)).join("");
 
   // 2. ✈️ AVIACIÓ NO COMERCIAL
   if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els cinc municipis",
@@ -797,11 +1086,12 @@ function pinta(d) {
     '<div id="llampsCos"><p class="buit">Carregant…</p></div>',
     "Meteocat — Xarxa de Detecció de Descàrregues Elèctriques (XDDE)", false);
 
-    // 5. 🌊 RIU DARÓ
-  if (b.riu) h += seccio("🌊 Riu Daró",
-    `<p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : "") +
+    // 5. 🌊 RIUS: el Daró a la Bisbal i (31.10.2026) les estacions del Daró i del Ter.
+  if (b.riu || b.rius) h += seccio("🌊 Rius: Daró i Ter",
+    (b.riu ? `<h3>El Daró a la Bisbal</h3><p>${esc(b.riu.text)}</p>` + (b.riu.hores && b.riu.hores.length ? `<div style="position:relative;height:260px"><canvas id="graficRiu"></canvas></div>` : "") +
     // 21.10.2026: enllaç al registre hora a hora.
-    '<p class="font">Darreres 6 hores · <a href="riu/">gràfica ampliada i registre hora a hora</a></p>',
+    '<p class="font">Darreres 6 hores · <a href="riu/">gràfica ampliada i registre hora a hora</a></p>' : "") +
+    (b.rius ? taulaRius(b.rius) : ""),
     "Agència Catalana de l'Aigua");
 
   // 5 bis. 💧 PIEZÒMETRES (després del riu Daró)
@@ -995,9 +1285,11 @@ function pinta(d) {
   document.getElementById("blocs").innerHTML = h;
   document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
   triaBlocsSlow();
+  ordenaApartats();   // 31.10.2026: blocs per apartats (no a La TdG slow)
   normalitzaDates(document.getElementById("blocs")); // CANVI (20.10.2026): dates en dd.mm.aaaa
 
   iniciaCamera();
+  if (!MODE_SLOW) mapesIncidencies(b).catch(e => console.error(e));   // 31.10.2026
 
   if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
     const css = getComputedStyle(document.documentElement);
