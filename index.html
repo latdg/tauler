@@ -159,6 +159,10 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
 .esc-club{height:1.25em;width:1.25em;object-fit:contain;vertical-align:-.28em;margin-right:.3em}
 .esc-club-feb{transform:scale(1.45);margin-right:.45em;margin-left:.1em}
+/* 31.10.2026: La TdG slow */
+[hidden]{display:none!important}
+.incrustat header,.incrustat .peu-tdg,.incrustat footer{display:none!important}
+.incrustat main{padding-top:0}
 </style>
 </head>
 <body>
@@ -269,13 +273,23 @@ const nomCurt = titol => {
   return trobat ? trobat[1] : titol.replace(/^[^\p{L}]+/u, "");
 };
 
+// 31.10.2026: LA TdG SLOW. Aquests blocs (de menys actualització) ja no surten
+// aquí: són al panell «La TdG slow» de la redacció, que carrega aquesta pàgina amb
+// ?slow&incrustat (i aleshores només es mostren ells, sense capçalera ni peu).
+const PARAMS_T = new URLSearchParams(location.search);
+const MODE_SLOW = PARAMS_T.has("slow");
+if (PARAMS_T.has("incrustat")) document.documentElement.classList.add("incrustat");
+const RX_SLOW = /edat dels edificis|aig[üu]es subterr[àa]nies|piez[òo]metres|plaques solars|preu de l'aigua|atur i afiliaci/i;
+let NUM_SECCIO = 0;
+
 function seccio(titol, cos, font, ambData = true) {
-  const id = "apartat-" + (NAV.length + 1);
-  NAV.push({ id, nom: nomCurt(titol) });
+  const id = "apartat-" + (++NUM_SECCIO);
+  const amagat = RX_SLOW.test(titol) !== MODE_SLOW;
+  if (!amagat) NAV.push({ id, nom: nomCurt(titol) });
   const peu = [];
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
-  return `<section id="${id}"><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
+  return `<section id="${id}"${amagat ? " hidden" : ""}><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
 }
   
 // "A | B | C" o línies -> llista
@@ -650,6 +664,7 @@ function pinta(d) {
   const b = d.blocs || {};
     ACTUALITZAT = d.generat || "";
   NAV = [];
+  NUM_SECCIO = 0;
   document.getElementById("sub").textContent = "";
   let h = "";
 
