@@ -821,7 +821,7 @@ function blocsIncidencies(b) {
   // 🚨 BALISES V16
   if (b.v16) {
     const ll = b.v16.balises || [];
-    s.v16 = seccio("🚨 Balises V16: vehicles aturats a la zona",
+    s.v16 = seccio("🚨 Balises V16: vehicles aturats",
       consulta(b.v16.consultat, "Dirección General de Tráfico (DGT)") +
       '<div class="mapa-inc" id="mapaV16"></div>' + (ll.length
         ? "<ul class=\"avisos\">" + ll.map(v => `<li><b${v.nostre ? ' style="color:var(--accent)"' : ""}>${esc(v.via || "Carretera sense identificar")}${v.pk ? ", km " + esc(v.pk) : ""}</b> · ${esc(v.municipi)}` +
@@ -835,7 +835,7 @@ function blocsIncidencies(b) {
   if (b.tallsLlum) {
     const ll = b.tallsLlum.talls || [];
     const abonats = ll.reduce((t, x) => t + (x.abonats || 0), 0);
-    s.llum = seccio("🔌 Talls de llum als cinc municipis",
+    s.llum = seccio("🔌 Talls de llum",
       consulta(b.tallsLlum.consultat, "e-distribución") +
       (ll.length ? `<div class="xifres"><div class="xifra"><b>${ll.length}</b><span>tall${ll.length === 1 ? "" : "s"} actiu${ll.length === 1 ? "" : "s"}</span></div><div class="xifra"><b>${nCa(abonats)}</b><span>abonats afectats</span></div></div>` : "") +
       '<div class="mapa-inc" id="mapaLlum"></div>' + (ll.length
@@ -885,12 +885,13 @@ const ETIQ_FONS = ["la Bisbal d'Empordà","Girona","Palafrugell","Palamós","San
 let GEO_FONS = null;
 const geoFons = () => GEO_FONS || (GEO_FONS = fetch("llamps/girona.json").then(r => r.json()));
 // Pinta el fons i retorna els límits dels municipis «codis» (per encaixar-hi el mapa)
-async function fonsMapa(mapa, codis) {
+async function fonsMapa(mapa, codis, pinta) {
+  const PINTA = pinta || MUN_FONS;
   mapa.createPane("fons").style.zIndex = 250;
   const G = await geoFons();
   const prov = topojson.feature(G, G.objects.provincies), mun = topojson.feature(G, G.objects.municipis);
   L.geoJSON(prov, { pane: "fons", interactive: false, style: f => ({ color: "#9a958a", weight: f.id === "17" ? 2 : 1, fillColor: f.id === "17" ? "#ffffff" : "#f6f5f2", fillOpacity: 1 }) }).addTo(mapa);
-  L.geoJSON(mun, { pane: "fons", interactive: false, style: f => ({ color: "#d6d2c8", weight: .6, fillColor: MUN_FONS.includes(f.id) ? "#f8e6df" : "#fff", fillOpacity: MUN_FONS.includes(f.id) ? 1 : 0 }) }).addTo(mapa);
+  L.geoJSON(mun, { pane: "fons", interactive: false, style: f => ({ color: "#d6d2c8", weight: .6, fillColor: PINTA.includes(f.id) ? "#f8e6df" : "#fff", fillOpacity: PINTA.includes(f.id) ? 1 : 0 }) }).addTo(mapa);
   L.geoJSON(prov.features.filter(f => f.id === "17"), { pane: "fons", interactive: false, style: { color: "#6b6b66", weight: 2, fill: false } }).addTo(mapa);
   const etiq = L.layerGroup();
   mun.features.forEach(f => {
@@ -906,13 +907,13 @@ async function fonsMapa(mapa, codis) {
 }
 
 // --- MAPES DE LES INCIDÈNCIES ---
-async function mapaBase(id, codis, atribucio) {
+async function mapaBase(id, codis, atribucio, pinta) {
   const el = document.getElementById(id);
   if (!el) return null;
   if (typeof L === "undefined") { el.innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return null; }
   const mapa = L.map(el, { zoomSnap: 0.25, scrollWheelZoom: false }).setView([41.95, 3.04], 11);
   mapa.attributionControl.setPrefix("").addAttribution(atribucio + " · Límits: es-atlas (INE)");
-  try { const b = await fonsMapa(mapa, codis); if (b) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
+  try { const b = await fonsMapa(mapa, codis, pinta); if (b) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
   return mapa;
 }
 const punt = (mapa, lat, lon, color, radi, tooltip, popup) => lat != null && lon != null &&
@@ -937,7 +938,7 @@ async function mapesIncidencies(b) {
     }
   }
   if (b.tallsAigua && document.getElementById("mapaAigua")) {
-    const mapa = await mapaBase("mapaAigua", ["17902"], "Talls: Veolia");
+    const mapa = await mapaBase("mapaAigua", ["17902"], "Talls: Veolia", ["17902"]);
     if (mapa) (b.tallsAigua.talls || []).forEach(t => {
       if (!t.geom) return;
       const html = `<b>${esc(t.adreca || "Forallac")}</b><br>${t.encurs ? "Tall en curs" : "Tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}${t.quan ? "<br>" + esc(t.quan) : ""}`;
@@ -1049,7 +1050,7 @@ function pinta(d) {
   h += Object.values(blocsIncidencies(b)).join("");
 
   // 2. ✈️ AVIACIÓ NO COMERCIAL
-  if (b.aeronaus) h += seccio("✈️ Aviació no comercial sobre els cinc municipis",
+  if (b.aeronaus) h += seccio("✈️ Aviació no comercial",
     (b.aeronaus.length
       ? taulaAeronaus(b.aeronaus)
       : '<p class="buit">Aquest dia no consta cap pas d\'aviació no comercial sobre la zona.</p>') +
@@ -1058,21 +1059,21 @@ function pinta(d) {
     "Vigilant d'aeronaus de La TdG (dades ADS-B obertes: adsb.lol, adsb.fi i OpenSky)");
 
   // 2b. 📡 ANTENES DE TELEFONIA MÒBIL (26.10.2026): el contingut arriba després (carregaAntenes).
-  h += seccio("📡 Antenes de telefonia mòbil als cinc municipis",
+  h += seccio("📡 Antenes de telefonia mòbil",
     '<p class="font dalt" id="antenesPeu"></p><div class="xifres" id="antenesXifres"></div>' +
     '<div id="mapaAntenes"></div><div class="llegenda" id="antenesLlegenda"></div>' +
     '<p class="font" id="antenesNota"></p>',
     "", false);
 
   // 2c. ❤️ DESFIBRIL·LADORS (26.10.2026): el contingut arriba després (carregaDea).
-  h += seccio("❤️ Desfibril·ladors (DEA) als cinc municipis",
+  h += seccio("❤️ Desfibril·ladors (DEA)",
     '<p class="font dalt" id="deaPeu"></p><div class="xifres" id="deaXifres"></div>' +
     '<div id="mapaDea" style="height:440px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4"></div>' +
     '<div class="llegenda" id="deaLlegenda"></div><div id="deaAvis"></div><p class="font" id="deaNota"></p>',
     "", false);
 
   // 2c-bis. 🦎 NATURA A PROP (31.10.2026): observacions d'iNaturalist per municipi.
-  h += seccio("🦎 Natura a prop: què s'hi ha vist", '<div id="naturaCos"><p class="buit">Carregant…</p></div>', "", false);
+  h += seccio("🦎 Natura a prop: què s'hi ha vist?", '<div id="naturaCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 2d. 🏘️ EDAT DELS EDIFICIS (27.10.2026, abans a La TdG redacció). Els turistes
   // tornen a La TdG redacció (27.10.2026); les dades es continuen desant aquí.
@@ -1255,7 +1256,7 @@ function pinta(d) {
   // 14. 🔨 SUBHASTES
   if (b.subhastes && b.subhastes.subhastes) {
     const llista = b.subhastes.subhastes;
-    h += seccio("🔨 Subhastes públiques de béns de la zona",
+    h += seccio("🔨 Subhastes públiques de béns",
       llista.length
         ? "<ul>" + llista.map(s =>
             `<li style="margin-bottom:12px">` +
