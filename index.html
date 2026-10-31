@@ -1116,12 +1116,16 @@ function pinta(d) {
         `<td style="text-align:center">${vari(e.varAnterior, e.dataAnterior, true)}</td>` +
         `<td style="text-align:center">${vari(e.varFaUnAny, e.dataFaUnAny, false)}</td></tr>`;
     }).join("");
+    // 31.10.2026: plegat; s'obre amb un clic.
+    const darrera = p.estacions.map(e => e.data).filter(Boolean).sort().pop();
     h += seccio("💧 Aigües subterrànies (piezòmetres)",
+      `<details class="plegable"><summary><b>Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km</b>` +
+      `<span class="resum-mun">${p.estacions.length} punts de mesura${darrera ? " · darrera mesura el " + esc(data(darrera)) : ""}</span></summary>` +
       `<div class="taula"><table><thead><tr><th>Piezòmetre</th>` +
       `<th style="text-align:center">Darrera mesura</th><th style="text-align:center">Nivell (s.n.m.)</th>` +
       `<th style="text-align:center">Fondària de l'aigua</th><th style="text-align:center">Respecte a l'anterior</th>` +
       `<th style="text-align:center">Respecte a fa un any</th></tr></thead><tbody>${files}</tbody></table></div>` +
-      `<p class="font">Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p>`,
+      `<p class="font">Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p></details>`,
       "Agència Catalana de l'Aigua (Dades Obertes de Catalunya)");
   }
 
@@ -1698,6 +1702,9 @@ function pintaAigua() {
   const cat = w.catalunya;
   const cel = v => v === null || v === undefined ? "—" : dec(v, 3);
   let h = `<p class="font dalt">Actualitzat el ${esc(dataDMA(w.actualitzat))} · Font: Agència Catalana de l'Aigua, dades obertes de la Generalitat</p>` +
+    // 31.10.2026: plegat; s'obre amb un clic.
+    `<details class="plegable"><summary><b>Preu del metre cúbic per municipi (${anyP})</b>` +
+    `<span class="resum-mun">${files.length} municipis${cat ? " · mitjana de Catalunya, " + cel(cat.preu) + " €" : ""}</span></summary>` +
     `<div class="taula"><table class="compara aigua"><thead><tr><th>Municipi</th><th class="num">Preu total ${anyP}</th><th class="num">Submi­nistrament</th><th class="num">Cànon de l'aigua</th><th class="num">Clave­gueram</th><th>Qui la gestiona</th></tr></thead><tbody>` +
     files.map(([c, x, s]) => {
       const pri = s.find(y => y.any === x.any - 5);
@@ -1709,7 +1716,7 @@ function pintaAigua() {
     (cat ? `<tr><td>Mitjana de Catalunya</td><td class="num"><b>${cel(cat.preu)} €</b></td><td colspan="4" class="font">${nCa(cat.municipis || 0)} municipis</td></tr>` : "") +
     `</tbody></table></div>` +
     `<p class="font">Preu per metre cúbic (1.000 litres) del ${anyP}, el darrer any publicat per l'ACA, amb impostos, per a un consum domèstic de referència. ` +
-    `El preu total suma el subministrament, el cànon de l'Agència Catalana de l'Aigua i el clavegueram.</p>`;
+    `El preu total suma el subministrament, el cànon de l'Agència Catalana de l'Aigua i el clavegueram.</p></details>`;
   cos.innerHTML = h;
 }
 
