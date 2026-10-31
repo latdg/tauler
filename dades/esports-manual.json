@@ -480,25 +480,25 @@
     },
     {
      "pos": 4,
-     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
-     "pj": 3,
+     "equip": "CBU LLORET RECREATIVOS LLORET",
+     "pj": 5,
      "pg": 3,
      "pe": 0,
-     "pp": 0,
-     "pf": 209,
-     "pc": 158,
-     "punts": 6
+     "pp": 2,
+     "pf": 278,
+     "pc": 243,
+     "punts": 8
     },
     {
      "pos": 5,
-     "equip": "CBU LLORET RECREATIVOS LLORET",
+     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
      "pj": 4,
-     "pg": 2,
+     "pg": 3,
      "pe": 0,
-     "pp": 2,
-     "pf": 237,
-     "pc": 203,
-     "punts": 6
+     "pp": 1,
+     "pf": 249,
+     "pc": 199,
+     "punts": 7
     },
     {
      "pos": 6,
@@ -589,7 +589,7 @@
      "punts": 3
     }
    ],
-   "classificacioActualitzada": "2026-10-26T10:47:53.794Z"
+   "classificacioActualitzada": "2026-10-31T21:15:30.370Z"
   }
  }
 }
