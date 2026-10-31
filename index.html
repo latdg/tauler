@@ -1479,8 +1479,8 @@ async function pintaEdificis(codi) {
   if (typeof L === "undefined") return;
   if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
   MAPA_EDIF = L.map("mapaEdificis", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.25 }).setView([41.96, 3.04], 14);
-  MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · Límits: es-atlas (INE)");
-  fonsMapa(MAPA_EDIF, []).catch(() => {});
+  MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · © OpenStreetMap");
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .45 }).addTo(MAPA_EDIF);
   try {
     const geo = await json(`dades/edificis/${codi}.geojson`);
     const capa = L.geoJSON(geo, {
