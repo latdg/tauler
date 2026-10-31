@@ -114,7 +114,7 @@ details.plegable[open]>summary{margin-bottom:12px;padding-bottom:10px;border-bot
   details.plegable>summary .resum-mun{order:3;flex:1 0 100%;text-align:left;line-height:1.35}
 }
 .pista-plega{color:var(--suau);font-size:.85rem;margin:0}
-.etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
+.etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
 /* 31.10.2026: incidències (avisos, talls, balises, terratrèmols) i apartats */
 .niv{display:inline-block;padding:0 8px;border-radius:999px;font-size:.75rem;font-weight:700;line-height:1.6;vertical-align:1px;text-transform:uppercase;background:#f7d900;color:#1d1d1b}
@@ -682,17 +682,7 @@ async function carregaAntenes() {
   if (typeof L === "undefined") { document.getElementById("mapaAntenes").innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return; }
   const mapa = L.map("mapaAntenes", { zoomSnap: 0.25, preferCanvas: true, scrollWheelZoom: false }).setView([41.95, 3.0], 11.5);
   mapa.attributionControl.setPrefix("").addAttribution("Antenes: Celda · Infoantenas (Ministeri) · Límits: es-atlas (INE)");
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, opacity: .55, attribution: "© OpenStreetMap" }).addTo(mapa);
-  try {
-    const geo = await (await fetch("llamps/girona.json")).json();
-    const mun = topojson.feature(geo, geo.objects.municipis);
-    const nostres = L.geoJSON(mun.features.filter(f => MUN_ANTENES.includes(f.id)), {
-      style: { color: "#b4462c", weight: 1.5, fillColor: "#f8e6df", fillOpacity: .25 }, interactive: false
-    }).addTo(mapa);
-    mapa.fitBounds(nostres.getBounds(), { padding: [10, 10] });
-    nostres.eachLayer(l => L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false })
-      .setLatLng(l.getBounds().getCenter()).setContent(l.feature.properties.n).addTo(mapa));
-  } catch (e) {}
+  try { const b = await fonsMapa(mapa, MUN_ANTENES); if (b) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
 
   em.forEach(e => {
     const ops = e.operadors.map(o => o.op);
@@ -889,25 +879,40 @@ function taulaRius(r) {
     `</tbody></table></div><p class="font">Estat segons els llindars oficials de cabal de l'ACA (activació, moderat, alt, molt alt i excepcional). L'ACA no té cap estació al tram de Gualta: la del Daró aigües avall és la de Serra de Daró, tocant a Gualta.</p>`;
 }
 
+// --- FONS DELS MAPES (01.11.2026): el mateix del mapa dels busos, sense tessel·les ---
+const MUN_FONS = ["17022", "17057", "17902", "17901", "17205"];
+const ETIQ_FONS = ["la Bisbal d'Empordà","Girona","Palafrugell","Palamós","Sant Feliu de Guíxols","Torroella de Montgrí","Begur","Pals","Corçà","Forallac","Cruïlles, Monells i Sant Sadurní de l'Heura","Calonge i Sant Antoni","Castell-Platja d'Aro","Llagostera","Cassà de la Selva","Celrà","Verges","l'Escala","Ullastret","Torrent","Santa Cristina d'Aro","Flaçà","Mont-ras"];
+let GEO_FONS = null;
+const geoFons = () => GEO_FONS || (GEO_FONS = fetch("llamps/girona.json").then(r => r.json()));
+// Pinta el fons i retorna els límits dels municipis «codis» (per encaixar-hi el mapa)
+async function fonsMapa(mapa, codis) {
+  mapa.createPane("fons").style.zIndex = 250;
+  const G = await geoFons();
+  const prov = topojson.feature(G, G.objects.provincies), mun = topojson.feature(G, G.objects.municipis);
+  L.geoJSON(prov, { pane: "fons", interactive: false, style: f => ({ color: "#9a958a", weight: f.id === "17" ? 2 : 1, fillColor: f.id === "17" ? "#ffffff" : "#f6f5f2", fillOpacity: 1 }) }).addTo(mapa);
+  L.geoJSON(mun, { pane: "fons", interactive: false, style: f => ({ color: "#d6d2c8", weight: .6, fillColor: MUN_FONS.includes(f.id) ? "#f8e6df" : "#fff", fillOpacity: MUN_FONS.includes(f.id) ? 1 : 0 }) }).addTo(mapa);
+  L.geoJSON(prov.features.filter(f => f.id === "17"), { pane: "fons", interactive: false, style: { color: "#6b6b66", weight: 2, fill: false } }).addTo(mapa);
+  const etiq = L.layerGroup();
+  mun.features.forEach(f => {
+    const n = String(f.properties && f.properties.n || "").toLowerCase(), e = ETIQ_FONS.find(x => x.toLowerCase() === n);
+    if (!e) return;
+    L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false })
+      .setLatLng(L.geoJSON(f).getBounds().getCenter()).setContent(e === "la Bisbal d'Empordà" ? "la Bisbal" : e).addTo(etiq);
+  });
+  const mostra = () => mapa.getZoom() >= 10 ? etiq.addTo(mapa) : mapa.removeLayer(etiq);
+  mostra(); mapa.on("zoomend", mostra);
+  const sel = mun.features.filter(f => (codis || []).includes(f.id));
+  return sel.length ? L.geoJSON(sel).getBounds() : null;
+}
+
 // --- MAPES DE LES INCIDÈNCIES ---
-let GEO_GIRONA = null;
-const geoGirona = () => GEO_GIRONA || (GEO_GIRONA = fetch("llamps/girona.json").then(r => r.json()));
 async function mapaBase(id, codis, atribucio) {
   const el = document.getElementById(id);
   if (!el) return null;
   if (typeof L === "undefined") { el.innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return null; }
   const mapa = L.map(el, { zoomSnap: 0.25, scrollWheelZoom: false }).setView([41.95, 3.04], 11);
   mapa.attributionControl.setPrefix("").addAttribution(atribucio + " · Límits: es-atlas (INE)");
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, opacity: .55, attribution: "© OpenStreetMap" }).addTo(mapa);
-  try {
-    const geo = await geoGirona();
-    const capa = L.geoJSON(topojson.feature(geo, geo.objects.municipis).features.filter(f => codis.includes(f.id)), {
-      style: { color: "#b4462c", weight: 1.5, fillColor: "#f8e6df", fillOpacity: .2 }, interactive: false
-    }).addTo(mapa);
-    mapa.fitBounds(capa.getBounds(), { padding: [10, 10] });
-    capa.eachLayer(l => L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false })
-      .setLatLng(l.getBounds().getCenter()).setContent(l.feature.properties.n).addTo(mapa));
-  } catch (e) {}
+  try { const b = await fonsMapa(mapa, codis); if (b) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
   return mapa;
 }
 const punt = (mapa, lat, lon, color, radi, tooltip, popup) => lat != null && lon != null &&
@@ -1415,13 +1420,7 @@ async function carregaDea() {
   const tots = Object.values(llocs).map(g => [g[0].lat, g[0].lon]);
   if (tots.length) mapa.fitBounds(tots, { padding: [24, 24] }); else mapa.setView([41.96, 3.03], 12);
   mapa.attributionControl.setPrefix("").addAttribution("DEA: Departament de Salut · Límits: es-atlas (INE)");
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .6, attribution: "© OpenStreetMap" }).addTo(mapa);
-  try {
-    const geo = await (await fetch("llamps/girona.json")).json();
-    L.geoJSON(topojson.feature(geo, geo.objects.municipis).features.filter(f => MUN_ANTENES.includes(f.id)), {
-      style: { color: "#b4462c", weight: 1.2, fill: false }, interactive: false
-    }).addTo(mapa);
-  } catch (e) {}
+  try { await fonsMapa(mapa, []); } catch (e) {}
   Object.values(llocs).forEach(g => {
     const carrer = g.some(alCarrer), color = carrer ? "#2e8b57" : "#2b6cb0";
     const icona = L.divIcon({ className: "", iconSize: [24, 24], iconAnchor: [12, 12],
@@ -1480,8 +1479,8 @@ async function pintaEdificis(codi) {
   if (typeof L === "undefined") return;
   if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
   MAPA_EDIF = L.map("mapaEdificis", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.25 }).setView([41.96, 3.04], 14);
-  MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · © OpenStreetMap");
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .45 }).addTo(MAPA_EDIF);
+  MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · Límits: es-atlas (INE)");
+  fonsMapa(MAPA_EDIF, []).catch(() => {});
   try {
     const geo = await json(`dades/edificis/${codi}.geojson`);
     const capa = L.geoJSON(geo, {
