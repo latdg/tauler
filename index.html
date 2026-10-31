@@ -285,11 +285,11 @@ async function json(cami) {
 const NOMS_CURTS = [
   [/agenda/i, "Agenda"], [/necrol[òo]giques/i, "Necrològiques"],
   [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"],
-  [/edat dels edificis/i, "Edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
+  [/edat dels edificis/i, "Edat dels edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
-  [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Energia"], [/preu de l'aigua/i, "Aigua"],
-  [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur"],
+  [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Plaques solars i consum elèctric"], [/preu de l'aigua/i, "Preu de l'aigua"],
+  [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
   [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"]
 ];
 const nomCurt = titol => {
@@ -709,6 +709,7 @@ function triaBlocsSlow() {
   const enllacos = Array.from(nav.querySelectorAll("a"));
   nav.innerHTML = "";
   ordre.forEach(s => { const a = enllacos.find(x => x.getAttribute("href") === "#" + s.id); if (a) nav.appendChild(a); });
+  document.documentElement.dataset.triat = "1";
 }
 
 function pinta(d) {
