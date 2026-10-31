@@ -18,6 +18,15 @@ a{color:var(--accent)}
 .sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
 select,input,textarea,button{font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
 textarea{width:100%;min-height:110px;resize:vertical}
+/* EDITOR AMB FORMAT (31.10.2026, el de les notícies del guió) */
+.eines{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.eines button{background:var(--targeta);color:var(--text);border-color:var(--linia);padding:3px 10px;min-width:34px;cursor:pointer}
+.eines button.on{background:#f8e6df;border-color:var(--accent);color:var(--accent)}
+.text{width:100%;min-height:110px;padding:10px 12px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);line-height:1.55;outline:none;overflow-wrap:anywhere;overflow:auto}
+.text:focus{border-color:var(--text)}
+.text p{margin:0 0 .9em}
+.text p:last-child{margin-bottom:0}
+.text:empty::before{content:attr(data-ph);color:var(--suau)}
 button{background:var(--accent);color:#fff;border-color:var(--accent);cursor:pointer}
 button.suau{background:var(--targeta);color:var(--accent)}
 button:disabled{opacity:.5;cursor:default}
@@ -78,7 +87,15 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
         <label>Municipi o nucli <input type="text" id="fMun" list="municipis" placeholder="La Bisbal, Corçà, Monells…"></label>
       </div>
       <label class="font" for="fText" style="display:block;margin:0 0 4px">Activitat</label>
-      <textarea id="fText" placeholder="Què, on i qualsevol detall (preu, inscripcions…)"></textarea>
+      <!-- 31.10.2026: el mateix editor senzill de les notícies del guió -->
+      <div class="eines" id="einesText">
+        <button type="button" data-cmd="bold" title="Negreta (Ctrl+B)"><b>N</b></button>
+        <button type="button" data-cmd="italic" title="Cursiva (Ctrl+I)"><i>C</i></button>
+        <button type="button" data-cmd="underline" title="Subratllat (Ctrl+U)"><u>S</u></button>
+        <button type="button" data-cmd="removeFormat" title="Treu el format del que hagis seleccionat">✕ format</button>
+      </div>
+      <div class="text" id="fText" contenteditable="true" spellcheck="true" lang="ca" data-ph="Què, on i qualsevol detall (preu, inscripcions…)"></div>
+      <p class="font" style="margin:4px 0 0">Negreta, cursiva i subratllat surten així a La TdG ampliada; al guió i als avisos hi arriba el text net. El que enganxis d'una web s'enganxa sense format.</p>
       <div class="fila" style="margin-top:10px">
         <button type="button" id="desa">Desa l'acte</button>
         <button type="button" id="cancel" class="suau" hidden>Cancel·la</button>
@@ -102,7 +119,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
   <option value="La Bisbal"><option value="Corçà"><option value="Forallac">
   <option value="Cruïlles"><option value="Monells"><option value="Sant Sadurní de l'Heura"><option value="Vulpellac">
   <option value="Peratallada"><option value="Canapost"><option value="Sant Climent de Peralta"><option value="Casavells">
-  <option value="Cassà de Pelràs"><option value="Fonteta">
+  <option value="Cassà de Pelràs"><option value="Fonteta"><option value="Ullastret">
 </datalist>
 <script>
 const FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/agenda.json";
@@ -159,10 +176,97 @@ function pinta() {
         (a.hora ? `<span class="ag-hora">🕒 ${esc(a.hora)}</span>` : "") +
         (a.municipi ? `<span class="ag-mun">📍 ${esc(NOMS[a.municipi] || a.municipi)}</span>` : "") +
         (PIN ? `<span class="ag-eines"><button type="button" data-edita="${esc(a.id)}" title="Edita">✏️</button><button type="button" data-esborra="${esc(a.id)}" title="Esborra">🗑️</button></span>` : "") +
-        `</div><div class="ag-text">${esc(a.text)}</div></article>`).join("") +
+        `</div><div class="ag-text">${textAgendaHtml(a.text)}</div></article>`).join("") +
       "</div></div>";
   }).join("") + "</div>";
 }
+
+// --- Format del text (31.10.2026): **negreta**, *cursiva*, __subratllat__ ---
+function trossosMarca(t) {
+  const surt = [], estil = { b: false, i: false, u: false };
+  let buf = "";
+  const tanca = () => { if (buf) surt.push({ t: buf, ...estil }); buf = ""; };
+  for (let k = 0; k < t.length; k++) {
+    if (t.startsWith("**", k)) { tanca(); estil.b = !estil.b; k++; continue; }
+    if (t.startsWith("__", k)) { tanca(); estil.u = !estil.u; k++; continue; }
+    if (t[k] === "*") { tanca(); estil.i = !estil.i; continue; }
+    buf += t[k];
+  }
+  tanca();
+  return surt;
+}
+function marcaAHtml(text) {
+  const paragrafs = String(text || "").replace(/\r\n/g, "\n").split(/\n\s*\n/).map(x => x.trim()).filter(Boolean);
+  if (!paragrafs.length) return "";
+  return paragrafs.map(par => "<p>" + trossosMarca(par).map(x => {
+    let h = esc(x.t).replace(/\n/g, "<br>");
+    if (x.u) h = "<u>" + h + "</u>";
+    if (x.i) h = "<i>" + h + "</i>";
+    if (x.b) h = "<b>" + h + "</b>";
+    return h;
+  }).join("") + "</p>").join("");
+}
+function htmlAMarca(el) {
+  const paragrafs = [];
+  let trossos = [];
+  const tancaPar = () => {
+    let t = "";
+    trossos.forEach(x => {
+      if (x.t === "\n") { t += "\n"; return; }
+      const m = x.t.match(/^(\s*)([\s\S]*?)(\s*)$/);   // els espais de les vores, fora de les marques
+      if (!m[2]) { t += x.t; return; }
+      t += m[1] + (x.b ? "**" : "") + (x.i ? "*" : "") + (x.u ? "__" : "") + m[2] +
+        (x.u ? "__" : "") + (x.i ? "*" : "") + (x.b ? "**" : "") + m[3];
+    });
+    // Trossos seguits amb el mateix estil: «**a****b**» → «**ab**».
+    t = t.replace(/\*\*\*\*/g, "").replace(/____/g, "").replace(/ /g, " ").replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").trim();
+    if (t) paragrafs.push(t);
+    trossos = [];
+  };
+  const camina = (node, est) => {
+    if (node.nodeType === 3) { if (node.nodeValue) trossos.push({ t: node.nodeValue, ...est }); return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName, st = node.style || {};
+    if (tag === "BR") { trossos.push({ t: "\n" }); return; }
+    const e = { ...est };
+    if (tag === "B" || tag === "STRONG" || /^(bold|[6-9]00)$/.test(st.fontWeight || "")) e.b = true;
+    if (tag === "I" || tag === "EM" || st.fontStyle === "italic") e.i = true;
+    if (tag === "U" || /underline/.test((st.textDecoration || "") + (st.textDecorationLine || ""))) e.u = true;
+    const bloc = /^(P|DIV|LI|H\d)$/.test(tag);
+    if (bloc) tancaPar();
+    node.childNodes.forEach(c => camina(c, e));
+    if (bloc) tancaPar();
+  };
+  el.childNodes.forEach(c => camina(c, { b: false, i: false, u: false }));
+  tancaPar();
+  return paragrafs.join("\n\n");
+}
+
+function posaText(t) { $("fText").innerHTML = marcaAHtml(t); }
+function llegeixText() { return htmlAMarca($("fText")); }
+function textAgendaHtml(t) { return marcaAHtml(t).replace(/<\/p><p>/g, "<br><br>").replace(/^<p>|<\/p>$/g, ""); }
+try { document.execCommand("defaultParagraphSeparator", false, "p"); document.execCommand("styleWithCSS", false, false); } catch (e) {}
+document.addEventListener("DOMContentLoaded", () => {});
+setTimeout(() => {
+  const ei = $("einesText"), caixa = $("fText");
+  ei.addEventListener("mousedown", e => { if (e.target.closest("button[data-cmd]")) e.preventDefault(); });
+  ei.addEventListener("click", e => {
+    const c = e.target.closest("button[data-cmd]");
+    if (!c) return;
+    if (!caixa.contains(document.getSelection().anchorNode)) caixa.focus();
+    document.execCommand(c.dataset.cmd, false, null);
+    estatEinesAg();
+  });
+  caixa.addEventListener("paste", e => {
+    e.preventDefault();
+    document.execCommand("insertText", false, (e.clipboardData || window.clipboardData).getData("text/plain").replace(/\r\n/g, "\n"));
+  });
+  document.addEventListener("selectionchange", estatEinesAg);
+  function estatEinesAg() {
+    const sel = document.getSelection(), dins = sel.anchorNode && caixa.contains(sel.anchorNode);
+    ei.querySelectorAll("button[data-cmd]").forEach(b => b.classList.toggle("on", !!dins && b.dataset.cmd !== "removeFormat" && document.queryCommandState(b.dataset.cmd)));
+  }
+}, 0);
 
 // --- Gestió amb clau ---
 async function crida(cos) {
@@ -194,7 +298,7 @@ async function entra() {
 function nouActe() {
   EDITANT = null;
   $("titolForm").textContent = "➕ Nou acte";
-  $("fData").value = avuiISO(); $("fHora").value = ""; $("fMun").value = ""; $("fText").value = "";
+  $("fData").value = avuiISO(); $("fHora").value = ""; $("fMun").value = ""; posaText("");
   $("cancel").hidden = true;
 }
 
@@ -206,7 +310,7 @@ function edita(id) {
   $("fData").value = a.data;
   const m = String(a.hora || "").match(/(\d{1,2})[.:](\d{2})/);
   $("fHora").value = m ? m[1].padStart(2, "0") + ":" + m[2] : "";
-  $("fMun").value = a.municipi || ""; $("fText").value = a.text || "";
+  $("fMun").value = a.municipi || ""; posaText(a.text || "");
   $("cancel").hidden = false;
   pinta();
   $("gestio").scrollIntoView({ behavior: "smooth" });
@@ -229,7 +333,7 @@ async function desaLlista(actes, missatge) {
 }
 
 function desa() {
-  const data = $("fData").value, text = $("fText").value.trim();
+  const data = $("fData").value, text = llegeixText();
   if (!data || !text) { $("estat").textContent = "Cal la data i el text de l'activitat."; return; }
   const hora = $("fHora").value ? $("fHora").value.replace(":", ".") + " h" : "";
   const acte = { id: EDITANT || Math.random().toString(36).slice(2, 12), data, hora, municipi: $("fMun").value.trim(), text };

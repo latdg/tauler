@@ -104,6 +104,13 @@ details.plegable>summary img{height:32px;width:auto;flex:none}
 details.plegable>summary::after{content:"▸";color:var(--accent);font-size:1.1rem;transition:transform .2s}
 details.plegable[open]>summary::after{transform:rotate(90deg)}
 details.plegable[open]>summary{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--linia)}
+/* 31.10.2026: al mòbil, la línia grisa del resum baixa a sota del nom (abans s'amuntegava). */
+@media (max-width:700px){
+  details.plegable>summary{flex-wrap:wrap;row-gap:2px}
+  details.plegable>summary b,details.plegable>summary h3{flex:1 1 0}
+  details.plegable>summary::after{order:2}
+  details.plegable>summary .resum-mun{order:3;flex:1 0 100%;text-align:left;line-height:1.35}
+}
 .pista-plega{color:var(--suau);font-size:.85rem;margin:0}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
@@ -464,7 +471,7 @@ async function carregaAgenda() {
         g.actes.map(a => '<article class="ag-acte"><div class="ag-cap">' +
           (a.hora ? `<span class="ag-hora">🕒 ${esc(a.hora)}</span>` : "") +
           (a.municipi ? `<span class="ag-mun">📍 ${esc(AGENDA_NOMS[a.municipi] || a.municipi)}</span>` : "") +
-          `</div><div class="ag-text">${esc(a.text)}</div></article>`).join("") + "</div></div>";
+          `</div><div class="ag-text">${textAgendaHtml(a.text)}</div></article>`).join("") + "</div></div>";
     };
     const resta = grups.slice(1);
     cos.innerHTML = '<div class="agenda">' + pintaDia(grups[0], true) + "</div>" +
@@ -482,6 +489,12 @@ const ESPORTS_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/
 // 27.10.2026: els rivals del Sol Gironès (FEB) en majúscules, com els del futbol.
 const rivalEq = (e, p) => e.id === "sol_girones" ? String(p.rival || "").toLocaleUpperCase("ca") : p.rival;
 const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
+
+// 31.10.2026: el text de l'agenda pot portar format de l'editor (**negreta**, *cursiva*, __subratllat__).
+function textAgendaHtml(t) {
+  return esc(String(t || "")).replace(/\*\*([\s\S]+?)\*\*/g, "<b>$1</b>").replace(/__([\s\S]+?)__/g, "<u>$1</u>")
+    .replace(/\*([^*]+?)\*/g, "<i>$1</i>").replace(/\n\s*\n/g, "<br><br>").replace(/\n/g, "<br>");
+}
 
 function esportsDataCurta(iso) {
   if (!iso) return "";
