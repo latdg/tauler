@@ -1263,7 +1263,7 @@ function pintaFarmacies() {
   const resta = dates.slice(1);
   cos.innerHTML = '<div class="agenda">' + pintaNit(dates[0]) + "</div>" +
     (resta.length ? `<details class="fa-setmana"><summary>Veure les guàrdies de tota la setmana</summary><div class="agenda">${resta.map(pintaNit).join("")}</div></details>` : "") +
-    `<p class="font">De dia, cada farmàcia obre en el seu horari. Abans d'anar-hi, val la pena trucar.</p>`;
+    `<p class="font">De dia, cada farmàcia obre en el seu horari.</p>`;
 }
 
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
