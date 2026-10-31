@@ -999,8 +999,8 @@ function ordenaApartats() {
   const resta = seccions.filter(s => !usats.has(s));
   resta.forEach(s => cont.appendChild(s));
   if (resta.some(s => !s.hidden)) nav.push({ titol: "", seccions: resta.filter(s => !s.hidden) });
+  // Barra de dalt: etiquetes seguides, sense els títols dels apartats (01.11.2026)
   document.getElementById("nav").innerHTML = nav.map(g =>
-    (g.titol ? `<span class="nav-grup">${esc(g.titol.replace(/^[^\p{L}]+/u, ""))}</span>` : "") +
     g.seccions.map(s => `<a href="#${s.id}">${esc(s.dataset.nom)}</a>`).join("")).join("");
 }
 
