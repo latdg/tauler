@@ -1,0 +1,40 @@
+# Natura a prop (iNaturalist) — La TdG · 31.10.2026
+# Observacions dels darrers 90 dies als cinc municipis; desa dades/inaturalist.json.
+# Cada dia de bon matí; també es pot llançar a mà.
+name: iNaturalist
+
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: inaturalist
+  cancel-in-progress: false
+
+jobs:
+  inaturalist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          python inaturalist/inaturalist.py
+          git config user.name "La TdG (iNaturalist)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for intent in 1 2 3; do
+            git add dades/inaturalist.json
+            if git diff --cached --quiet; then echo "Sense canvis"; break; fi
+            git commit -qm "iNaturalist ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+            git push -q origin HEAD:main && break
+            git pull -q --rebase origin main
+            sleep 10
+          done

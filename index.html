@@ -166,6 +166,17 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .tdg-boleta-avui{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e53935;margin-right:5px;vertical-align:middle;animation:tdgPulsacioAvui 1.2s infinite}
 .esc-club{height:1.25em;width:1.25em;object-fit:contain;vertical-align:-.28em;margin-right:.3em}
 .esc-club-feb{transform:scale(1.45);margin-right:.45em;margin-left:.1em}
+/* 31.10.2026: Natura a prop (iNaturalist) */
+.nat-graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin:6px 0 12px}
+.nat-obs{display:flex;flex-direction:column;gap:2px;text-decoration:none;color:var(--text);border:1px solid var(--linia);border-radius:10px;overflow:hidden;background:var(--targeta);padding-bottom:8px}
+.nat-obs img,.nat-obs .nat-sense{width:100%;aspect-ratio:4/3;object-fit:cover;background:#ebe9e4;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.nat-nom{font-weight:600;font-size:.9rem;padding:4px 8px 0;line-height:1.25}
+.nat-cien{font-style:italic;font-size:.8rem;color:var(--suau);padding:0 8px}
+.nat-peu{font-size:.75rem;color:var(--suau);padding:0 8px}
+.nat-marca{font-size:.75rem;color:var(--accent);padding:0 8px}
+.nat-h{margin:10px 0 2px;font-size:.95rem}
+.nat-llista{margin:4px 0 0;padding-left:18px;columns:2;column-gap:24px}
+@media (max-width:600px){.nat-llista{columns:1}}
 /* 31.10.2026: La TdG slow */
 [hidden]{display:none!important}
 .incrustat header,.incrustat .peu-tdg,.incrustat footer{display:none!important}
@@ -272,7 +283,7 @@ const NOMS_CURTS = [
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Energia"], [/preu de l'aigua/i, "Aigua"],
-  [/farm[àa]cies/i, "Farmàcies"], [/atur/i, "Atur"],
+  [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur"],
   [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"]
 ];
 const nomCurt = titol => {
@@ -731,6 +742,9 @@ function pinta(d) {
     '<div class="llegenda" id="deaLlegenda"></div><div id="deaAvis"></div><p class="font" id="deaNota"></p>',
     "", false);
 
+  // 2c-bis. 🦎 NATURA A PROP (31.10.2026): observacions d'iNaturalist per municipi.
+  h += seccio("🦎 Natura a prop: què s'hi ha vist", '<div id="naturaCos"><p class="buit">Carregant…</p></div>', "", false);
+
   // 2d. 🏘️ EDAT DELS EDIFICIS (27.10.2026, abans a La TdG redacció). Els turistes
   // tornen a La TdG redacció (27.10.2026); les dades es continuen desant aquí.
   h += seccio("🏘️ Edat dels edificis", '<div id="edificisCos"><p class="buit">Carregant…</p></div>', "", false);
@@ -996,6 +1010,43 @@ function textHorari(fr) {
     if (g && g.h === h && DIES_DEA.indexOf(d) === DIES_DEA.indexOf(g.fi) + 1) g.fi = d; else grups.push({ ini: d, fi: d, h });
   });
   return grups.map(g => (g.ini === g.fi ? g.ini : g.ini + " a " + g.fi.toLowerCase()) + ": " + g.h + " h").join("<br>");
+}
+
+// -----------------------------------------------------------------------------
+// NATURA A PROP (31.10.2026): observacions de flora i fauna penjades a
+// iNaturalist als cinc municipis (darrers 90 dies). Fitxa plegada per municipi.
+// -----------------------------------------------------------------------------
+async function carregaNatura() {
+  const cos = document.getElementById("naturaCos");
+  if (!cos) return;
+  let d;
+  try { d = await json("dades/inaturalist.json"); }
+  catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les observacions.</p>'; return; }
+  const M = d.municipis || {};
+  const dataC = x => x ? x.split("-").reverse().join(".") : "";
+  const tot = Object.values(M).reduce((t, m) => t + (m.observacions || 0), 0);
+  cos.innerHTML = `<p style="margin:0 0 6px">Als darrers ${d.dies} dies, la gent ha penjat <b>${tot.toLocaleString("ca-ES")}</b> observacions de plantes, animals i fongs dels cinc municipis a iNaturalist.</p>` +
+    `<p class="pista-plega">Clica el nom d'un municipi per veure què s'hi ha vist.</p>` +
+    MUN_ANTENES.filter(c => M[c]).map(c => `<details class="plegable" data-mun="${c}"><summary><img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()">` +
+      `<b>${esc(NOMS_LLARGS_MUN[c].replace(/^./, x => x.toUpperCase()))}</b><span class="resum-mun">${M[c].observacions} observacions · ${M[c].especies} espècies</span></summary><div class="cos-plega"></div></details>`).join("") +
+    `<p class="font">Font: <a href="https://www.inaturalist.org" target="_blank" rel="noopener">iNaturalist</a>, observacions de la ciutadania (les identificacions poden no ser definitives). Actualitzat el ${dataDMA(d.actualitzat)}. Les fotos són dels seus autors.</p>`;
+  cos.querySelectorAll("details[data-mun]").forEach(det => det.addEventListener("toggle", () => {
+    if (!det.open || det.dataset.fet) return;
+    det.dataset.fet = "1";
+    const m = M[det.dataset.mun];
+    const targeta = o => `<a class="nat-obs" href="${esc(o.url)}" target="_blank" rel="noopener">` +
+      (o.foto ? `<img src="${esc(o.foto)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : `<span class="nat-sense">${esc((o.grup || "").split(" ")[0])}</span>`) +
+      `<span class="nat-nom">${esc(o.nom || o.cientific || "Sense identificar")}</span>` +
+      (o.nom && o.cientific ? `<span class="nat-cien">${esc(o.cientific)}</span>` : "") +
+      `<span class="nat-peu">${esc(dataC(o.data))}${o.autor ? " · " + esc(o.autor) : ""}</span>` +
+      (o.amenacada ? '<span class="nat-marca">⚠️ amenaçada</span>' : o.introduida ? '<span class="nat-marca">introduïda</span>' : "") + `</a>`;
+    det.querySelector(".cos-plega").innerHTML =
+      `<p class="font" style="margin:0 0 8px">${m.observadors} persones hi han fet observacions. ${(m.grups || []).slice(0, 6).map(g => esc(g[0]) + " " + g[1]).join(" · ")}</p>` +
+      (m.destacades && m.destacades.length ? `<h4 class="nat-h">Espècies amenaçades vistes</h4><div class="nat-graella">${m.destacades.map(targeta).join("")}</div>` : "") +
+      `<h4 class="nat-h">Les més recents</h4><div class="nat-graella">${(m.recents || []).slice(0, 24).map(targeta).join("") || '<p class="buit">Cap observació.</p>'}</div>` +
+      (m.mesVistes && m.mesVistes.length ? `<h4 class="nat-h">Les espècies més vistes</h4><ul class="nat-llista">${m.mesVistes.map(e =>
+        `<li>${esc(e.grup.split(" ")[0])} ${esc(e.nom || e.cientific)}${e.nom ? ` <i>${esc(e.cientific)}</i>` : ""} · ${e.n}</li>`).join("")}</ul>` : "");
+  }));
 }
 
 async function carregaDea() {
@@ -1341,6 +1392,7 @@ async function inicia() {
     carregaLlamps();
     carregaAntenes();
     carregaDea();
+    carregaNatura();
     carregaEdificis();
     carregaServeis();
     carregaEsports();
