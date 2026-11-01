@@ -1,26 +1,4 @@
 {
-"el gato con sombrero": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El gat amb barret",
-"directors": [
-"Erica Rivinoja",
-"Alessandro Carloni"
-],
-"original": "The Cat in the Hat",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-04",
-"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"id": 1117898,
-"nota": 7.667,
-"vots": 3,
-"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"sinopsi_es": false,
-"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793504273.132214
-},
 "clayface": {
 "v": 6,
 "comprovat": "director",
@@ -698,6 +676,28 @@
 "sinopsi": "En 1974, Ana, una chica barcelonesa de 19 años, es puesta en manos del Patronato de Protección a la Mujer y trasladada a un reformatorio regentado por monjas en Madrid. Allí, es sometida a un brutal régimen disciplinario, y tratará de sobrevivir buscando consuelo y apoyo en la amistad de otras chicas en su misma situación.",
 "sinopsi_es": true,
 "poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793504273.132214
+},
+"el gato con sombrero": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El gat amb barret",
+"directors": [
+"Erica Rivinoja",
+"Alessandro Carloni"
+],
+"original": "The Cat in the Hat",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-04",
+"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"id": 1117898,
+"nota": 7.667,
+"vots": 3,
+"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"sinopsi_es": false,
+"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1793504273.132214
