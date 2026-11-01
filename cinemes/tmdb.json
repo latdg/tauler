@@ -1,6 +1,6 @@
 {
 "el gato con sombrero": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "El gat amb barret",
 "directors": [
@@ -19,10 +19,10 @@
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "clayface": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -40,10 +40,10 @@
 "poster": "/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "whalefall": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -61,10 +61,10 @@
 "poster": "/5d8BZCZQaO3gCdP9JaA5B5qGFsH.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "la otra madre": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -82,10 +82,10 @@
 "poster": "/vsde9OnhjFMlJz8Wi6Z6drZ7GG5.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "en el corazon de la bestia": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -103,14 +103,14 @@
 "poster": "/kVDHPDggier9ciMc8Xglinq1jWv.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "hope": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "karateka": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -128,10 +128,10 @@
 "poster": "/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "la bola negra": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -150,10 +150,10 @@
 "poster": "/t1azKLExwUxKj6v6m2L535evuRa.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "la oveja shaun mision calabaza": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "El xai Shaun: Missió Carbassa",
 "directors": [
@@ -172,10 +172,10 @@
 "poster": "/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "leones en invierno": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -193,10 +193,10 @@
 "poster": "/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "sentido y sensibilidad": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -214,10 +214,10 @@
 "poster": "/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "superthings la pelicula": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "Superthings. La pel·lícula",
 "directors": [
@@ -235,10 +235,10 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "tiempos de ilusion": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -257,10 +257,10 @@
 "poster": "/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "wicker": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -279,10 +279,10 @@
 "poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "wildwood": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -300,14 +300,31 @@
 "poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "leviticus": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Adrian Chiarella"
+],
+"original": "Leviticus",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-06-17",
+"sinopsiCa": "Dos nois descobreixen que el seu amor prohibit ha despertat un ens sobrenatural que adopta la forma d’allò que més desitgen: l’un a l’altre. Per sobreviure, hauran d’enfrontar-se tant al monstre que els persegueix com al fanatisme que els condemna",
+"id": 1564614,
+"nota": 6.82,
+"vots": 632,
+"sinopsi": "Dos nois descobreixen que el seu amor prohibit ha despertat un ens sobrenatural que adopta la forma d’allò que més desitgen: l’un a l’altre. Per sobreviure, hauran d’enfrontar-se tant al monstre que els persegueix com al fanatisme que els condemna",
+"sinopsi_es": false,
+"poster": "/gS8Z2lepduus8x6Crwzb85F6Gli.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793504102.782586
 },
 "arriba tutto": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -325,10 +342,10 @@
 "poster": "/a8MvsDCP3sv0WXNW3I0ainSuLcd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "la maleta": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -346,10 +363,10 @@
 "poster": "/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "street fighter": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -367,10 +384,10 @@
 "poster": "/j9Ukn1hRqSyv5qhHgDHd1s1Dhsg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "verity la sombra de un engano": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -388,10 +405,10 @@
 "poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "coyote vs acme": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -409,10 +426,10 @@
 "poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "chopin": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -430,10 +447,10 @@
 "poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "godzilla minus zero": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -451,10 +468,10 @@
 "poster": "/8VKjocpP0EiUiUzTPWwz7TV2kWP.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "digger": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -472,14 +489,14 @@
 "poster": "/txe65aR0g5JiYnHKPjX3E49M5td.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "stray kids world tour live viewing": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "escape room 2": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -498,10 +515,10 @@
 "poster": "/aXG5QfiCEqBlNsb8ZaMygKxPPX2.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "numakage public pool": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "Numakage Piscina Pública",
 "directors": [
@@ -519,14 +536,14 @@
 "poster": "/vN5Gqn2L5ZdnsFwhTIyNocB1G6N.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "bigmountain xile": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "naza": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -545,14 +562,14 @@
 "poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "diversion navidena con peppa la experiencia en cines": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "superthings la pel licula": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "Superthings. La pel·lícula",
 "directors": [
@@ -570,10 +587,10 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "los juegos del hambre amanecer en la cosecha": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "Els jocs de la fam: El matí de la sega",
 "directors": [
@@ -591,14 +608,14 @@
 "poster": "/nijGyrqQbDhSGss4uugQokvBAsG.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "l ovella shaun missio carbassa": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "el precio de la red": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -616,14 +633,14 @@
 "poster": "/ls1KWflioSJgCcKhDr6ykvYmgbI.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "astres immobils": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "tanit": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -641,14 +658,14 @@
 "poster": "/AfeoEZ0HCuTgXwj4BTvcizNlWWL.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "iv mostra de curtmetratges de palafrugell": {
-"v": 4,
-"t": 1793503874.751903
+"v": 5,
+"t": 1793504102.782586
 },
 "ruega por nosotras": {
-"v": 4,
+"v": 5,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -666,10 +683,10 @@
 "poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "sacamantecas": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -687,10 +704,10 @@
 "poster": "/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "como robar un banco": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -708,10 +725,10 @@
 "poster": "/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "scrooge y los fantasmas de la navidad": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -729,10 +746,10 @@
 "poster": "/gnG15MkiNeObCoPbHcLUX4zrNWh.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "hechizo bienvenidos a hexe": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "Encanteri. Benvinguts a Hexe",
 "directors": [
@@ -751,10 +768,10 @@
 "poster": "/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "burundanga": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -772,10 +789,10 @@
 "poster": "/dooIbNThUhVNzhZoIw1INzttev.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "noche de paz 2": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -793,10 +810,10 @@
 "poster": "/bMGudrgP3ZVD9IPF73BYLdnrNSE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "dune parte tres": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "Dune: Tercera part",
 "directors": [
@@ -814,10 +831,10 @@
 "poster": "/uj4EuGmFNAc4CHBVEtRZ04MXzka.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 },
 "jumanji mundo abierto": {
-"v": 4,
+"v": 5,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -835,6 +852,6 @@
 "poster": "/ntjF2gemedf3ZcWzARGt6cuZlnJ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793503874.751903
+"t": 1793504102.782586
 }
 }

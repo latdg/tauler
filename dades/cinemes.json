@@ -1,11 +1,11 @@
 {
- "generat": "2026-11-01T03:31:59+00:00",
+ "generat": "2026-11-01T03:35:26+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
   {
    "key": "el gato con sombrero",
-   "titol": "El gato con sombrero",
+   "titol": "El gat amb barret",
    "titolFont": "El gato con sombrero",
    "sinopsi": "En la pel·lícula, el nostre heroi assumeix la seva missió més difícil fins a la data per a l'I.I.I.I. (Institut per a la Institució de la Imaginació i la Inspiració, LLC): animar a Gabby i Sebastian, un parell de germans que lluiten amb la seva mudança a una nova ciutat. Conegut per portar les coses massa lluny, aquesta podria ser l'última oportunitat d'aquest agent del caos per a demostrar la seva vàlua... o perdre el seu barret màgic!",
    "durada": "",
@@ -1657,7 +1657,7 @@
   },
   {
    "key": "la oveja shaun mision calabaza",
-   "titol": "L’ovella Shaun: Missió carbassa",
+   "titol": "El xai Shaun: Missió Carbassa",
    "titolFont": "La oveja shaun. Misión calabaza",
    "sinopsi": "Halloween ha arribat a la granja i porta amb si el caos. Quan el maldestre Granger destrossa l'hort de carabasses, l'Ovella Shaun es converteix en científic boig per a arreglar-ho, i surt terriblement malament! Amb el Granger desaparegut i una bèstia solta en el bosc, Shaun i el ramat viuran la seva aventura més absurda per a salvar la granja i sobreviure a la nit més terrorífica i divertida de l'any.",
    "durada": "81",
@@ -2193,7 +2193,7 @@
   },
   {
    "key": "superthings la pelicula",
-   "titol": "Superthings: La pel·lícula",
+   "titol": "Superthings. La pel·lícula",
    "titolFont": "Superthings: La película",
    "sinopsi": "Meva, Kai i Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalópolis, el seu gris i ordenada ciutat, amb Kaboom City, l'absurd univers dels Superthings, on els objectes quotidians han cobrat vida convertits en superherois i malvats. De la nit al dia, el seu món s'omple de poders, rivalitats impossibles i aventures fora de control. Convertits en els Kazoom Kids, hauran d'enfrontar-se a Mr. King, un malvat decidit a fer-se amb el poder del Kazoom. Per a detenir-ho, hauran de confiar en la seva amistat, el seu enginy i la seva valentia i descobrir que, junts, són molt més forts.",
    "durada": "93",
@@ -2776,8 +2776,203 @@
    "plataformesUrl": ""
   },
   {
+   "key": "leviticus",
+   "titol": "Leviticus",
+   "titolFont": "Leviticus",
+   "sinopsi": "Dos adolescents han d'escapar d'un ens violent que adopta la forma de la persona que més desitgen: l'u a l'altre.",
+   "durada": "88",
+   "genere": "Terror",
+   "edat": "16 anys",
+   "director": "Adrian Charella",
+   "actors": "Joe Bird, Mia Wasikowska, Stacy Clausen",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/gS8Z2lepduus8x6Crwzb85F6Gli.jpg",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-01",
+     "hora": "16:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-01",
+     "hora": "17:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-01",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-01",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-01",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-02",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-02",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-02",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-02",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-02",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-03",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-03",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-03",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-03",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-03",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-04",
+     "hora": "16:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-04",
+     "hora": "17:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-04",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-04",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-04",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-05",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-05",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-05",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-05",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-05",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "nota": 6.82,
+   "vots": 632,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "arriba tutto",
-   "titol": "Arriba Tutto",
+   "titol": "A dalt Tutto",
    "titolFont": "Arriba tutto",
    "sinopsi": "1905. La feliç infància de Michi, un nen de set anys finalitza bruscament amb la violenta mort del seu pare, un artista ambulant que ha ensenyat el nen a",
    "durada": "102",
@@ -2957,7 +3152,7 @@
   },
   {
    "key": "street fighter",
-   "titol": "Street fighter",
+   "titol": "Street Fighter",
    "titolFont": "Street fighter",
    "sinopsi": "L’any 1993, els antics companys de combat Ryu (Andrew Koji) i Ken Masters (Noah Centineo), ara distanciats, es veuen arrossegats de nou a la lluita quan la misteriosa Chun-Li (Callina Liang) els recluta per participar en el pròxim Torneig Mundial de Guerrers: un enfrontament brutal de cops de puny, destí i fúria. Però darrere d’aquesta batalla campal s’amaga una conspiració mortal que els obligarà a enfrontar-se l’un a l’altre i als dimonis del seu passat. I, si no ho aconsegueixen, serà GAME OVER!",
    "durada": "119",
@@ -3012,7 +3207,7 @@
   },
   {
    "key": "verity la sombra de un engano",
-   "titol": "Verity. La sombra de un engaño",
+   "titol": "Verity. L'ombra d'un engany",
    "titolFont": "Verity: La sombra de un engaño",
    "sinopsi": "Després d'un accident inquietant, l'exitosa autora Verity Crawford no pot escriure. Lowen Ashleigh és contractada com la seva escriptora fantasma, però",
    "durada": "116",
@@ -3535,197 +3730,6 @@
    ]
   },
   {
-   "key": "leviticus",
-   "titol": "Leviticus",
-   "titolFont": "Leviticus",
-   "sinopsi": "Dos adolescents han d'escapar d'un ens violent que adopta la forma de la persona que més desitgen: l'u a l'altre.",
-   "durada": "88",
-   "genere": "Terror",
-   "edat": "16 anys",
-   "director": "Adrian Charella",
-   "actors": "Joe Bird, Mia Wasikowska, Stacy Clausen",
-   "estrena": "",
-   "poster": "dades/cinemes/leviticus-1fee182a.jpg",
-   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-01",
-     "hora": "16:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-01",
-     "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-01",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-01",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-01",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-02",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-02",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-02",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-02",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-02",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-03",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-03",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-03",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-03",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-03",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-04",
-     "hora": "16:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-04",
-     "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-04",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-04",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-04",
-     "hora": "22:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-05",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-05",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-05",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-05",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-05",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    }
-   ]
-  },
-  {
    "key": "godzilla minus zero",
    "titol": "Godzilla minus Zero",
    "titolFont": "Godzilla minus Zero",
@@ -3929,13 +3933,13 @@
   },
   {
    "key": "numakage public pool",
-   "titol": "Numakage public pool",
+   "titol": "Numakage Piscina Pública",
    "titolFont": "Numakage public pool",
    "sinopsi": "Durant més de cinquanta anys, Numakage, una piscina pública suburbana de Tòquio, ha estat punt de trobada de gent gran, famílies i comunitats de cruising gai. Davant la seva demolició, malgrat l’oposició local, la pel·lícula ressegueix el dol col·lectiu a través de les cinc fases de Kübler-Ross, qüestionant una pèrdua habitualment reservada a la mort humana.",
    "durada": "",
    "genere": "",
    "edat": "",
-   "director": "太田信吾",
+   "director": "",
    "actors": "",
    "estrena": "",
    "poster": "https://image.tmdb.org/t/p/w342/vN5Gqn2L5ZdnsFwhTIyNocB1G6N.jpg",
@@ -3979,7 +3983,7 @@
   },
   {
    "key": "naza",
-   "titol": "Naza",
+   "titol": "NAZA",
    "titolFont": "Naza",
    "sinopsi": "Filmat de nit des de les teulades de Tel Aviv, aquest documental d'investigació examina les víctimes civils de les operacions militars d'Israel a Gaza i els",
    "durada": "80",
@@ -4224,7 +4228,7 @@
   },
   {
    "key": "el precio de la red",
-   "titol": "El precio de la red",
+   "titol": "El preu de la xarxa",
    "titolFont": "El precio de la red",
    "sinopsi": "Inspirada en fets reals i en la denunciant que va desencadenar la crisi de les xarxes socials que estem presenciant avui dia, aquesta obra original d'Aaron",
    "durada": "112",
@@ -4366,7 +4370,7 @@
   },
   {
    "key": "ruega por nosotras",
-   "titol": "Ruega por nosotras",
+   "titol": "Prega per nosaltres",
    "titolFont": "Ruega por nosotras",
    "sinopsi": "L’any 1974, després d’una fugida nocturna, l’Ana és enviada per la seva família al Patronato de Protección a la Mujer. En un reformatori regentat per monges,",
    "durada": "136",
@@ -4496,7 +4500,7 @@
    "durada": "",
    "genere": "Animació",
    "edat": "",
-   "director": "Jason Hand i ฝน วีระสุนทร",
+   "director": "Jason Hand",
    "actors": "",
    "estrena": "2026-11-27",
    "poster": "https://image.tmdb.org/t/p/w342/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
