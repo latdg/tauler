@@ -297,6 +297,8 @@ async function json(cami) {
 
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
 const NOMS_CURTS = [
+  // 01.11.2026: el bloc dels busos, el primer (el títol porta «Baix Empordà»).
+  [/serveis d'autob/i, "Busos"],
   // 31.10.2026: els blocs d'incidències, primer (així «aturats» no es confon amb l'atur).
   [/avisos meteorol/i, "Avisos meteorològics"], [/protecci[óo] civil/i, "Protecció Civil"], [/bombers/i, "Bombers"],
   [/terratr[èe]mols/i, "Terratrèmols"], [/balises v16/i, "Balises V16"], [/talls de llum/i, "Talls de llum"],
@@ -971,7 +973,7 @@ const BISBAL_LL = [41.9597, 3.0386];
 const APARTATS = [
   ["📌 El que cal saber avui", ["Agenda", "Farmàcies", "Necrològiques"]],
   ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Llamps", "Terratrèmols"]],
-  ["🚗 Trànsit i mobilitat", ["Trànsit", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
+  ["🚗 Trànsit i mobilitat", ["Trànsit", "Busos", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
   ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
   ["🌿 Temps, aigua i natura", ["Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
@@ -1043,6 +1045,11 @@ function pinta(d) {
           }).join("") + "</ul>"
       : '<p class="buit">Ara mateix no hi ha cap incidència viària activa al Baix Empordà.</p>'),
     "Servei Català de Trànsit");
+
+  // 1a. 🚌 SERVEIS D'AUTOBÚS (01.11.2026): resum en directe del mapa latdg.github.io/busos
+  // (posició segons horari). El contingut arriba després (carregaBusos).
+  h += seccio("🚌 Serveis d'autobús al Baix Empordà",
+    '<p class="font dalt" id="busosPeu"></p><div id="busosCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 1b. INCIDÈNCIES (31.10.2026): avisos meteorològics, Protecció Civil, Bombers,
   // terratrèmols, balises V16, talls de llum i talls d'aigua. Cada bloc va després
@@ -1640,6 +1647,59 @@ async function carregaNecrologiques() {
     `<p class="font"><a href="necrologiques/">Totes les necrològiques (${totes.length})</a></p>`;
 }
 
+// 01.11.2026: SERVEIS D'AUTOBÚS. Llegeix les dades del mapa de busos (repo latdg/busos,
+// GTFS de la Generalitat) i en fa un resum: busos en ruta ara, properes sortides des de
+// la Bisbal i el Clic.cat. Tot el detall (mapa, PDF i bitllets), al mapa complet.
+const BUSOS_URL = "https://latdg.github.io/busos/";
+let BUSOS = null;
+function pintaBusos() {
+  const cos = document.getElementById("busosCos"), D = BUSOS;
+  if (!cos || !D) return;
+  const pad = n => String(n).padStart(2, "0");
+  const hm = m => { m = ((m % 1440) + 1440) % 1440; return pad(Math.floor(m / 60)) + "." + pad(Math.floor(m % 60)); };
+  const ara = new Date(), m = ara.getHours() * 60 + ara.getMinutes();
+  const clau = `${pad(ara.getDate())}.${pad(ara.getMonth() + 1)}.${ara.getFullYear()}`;
+  const viatges = D.dies[clau] || [];
+  const poble = sid => (D.parades[sid] || {}).m || (D.parades[sid] || {}).n || "";
+  const desti = v => v.d || poble(v.s[v.s.length - 1][0]);
+  const enRuta = viatges.filter(v => D.rutes[v.r] && !D.rutes[v.r].dem && m >= v.s[0][1] && m <= v.s[v.s.length - 1][1]).length;
+  const vist = new Set(), nx = [];
+  viatges.forEach(v => { const r = D.rutes[v.r]; if (!r || r.dem) return; const d = desti(v);
+    // una sola sortida per viatge: la primera parada de la Bisbal on encara es pot agafar
+    const k = v.s.findIndex(([sid, t], i) => i < v.s.length - 1 && poble(sid) === "la Bisbal d'Empordà" && t >= m && t <= m + 180);
+    if (k < 0 || /bisbal/i.test(d)) return;
+    const [sid, t] = v.s[k], c = r.c + d + t; if (vist.has(c)) return; vist.add(c);
+    nx.push({ c: r.c, d, t, p: (D.parades[sid] || {}).n }); });
+  nx.sort((a, b) => a.t - b.t);
+  const FR = [[8, 9], [15, 16], [18, 19]], h = ara.getHours() + ara.getMinutes() / 60;
+  const fr = FR.find(([a, b]) => h >= a && h < b), nf = FR.find(([a]) => a > h);
+  // el Clic només circula els dies que surt a l'horari (GTFS): els festius, no
+  const clicAvui = viatges.some(v => D.rutes[v.r] && D.rutes[v.r].dem);
+  const clic = !clicAvui ? "avui no hi ha servei" : fr ? `en servei fins a les ${fr[1]}.00 h` : nf ? `torna a les ${nf[0]}.00 h` : "avui ja no hi ha més servei";
+  cos.innerHTML =
+    `<div class="xifra"><b>${enRuta}</b> <span>${enRuta === 1 ? "bus de línia en ruta ara" : "busos de línia en ruta ara"} a la comarca, segons l'horari</span></div>` +
+    `<h3>Properes sortides des de la Bisbal</h3>` +
+    (nx.length ? "<ul>" + nx.slice(0, 6).map(x => `<li><b>${hm(x.t)} h</b> · línia ${esc(x.c)} cap a ${esc(x.d)} <span class="font">(${esc(x.p)})</span></li>`).join("") + "</ul>"
+      : '<p class="buit">Cap sortida en les pròximes tres hores.</p>') +
+    `<h3>Clic.cat a demanda</h3><p>Rutes R1, R2 i R3 des de la Bisbal: ${clic}. Només circula amb reserva (app Clic.cat o 670 788 888).</p>` +
+    `<p class="font"><a href="${BUSOS_URL}">Mapa complet dels busos en moviment, horaris en PDF i compra de bitllets</a></p>`;
+}
+async function carregaBusos() {
+  const cos = document.getElementById("busosCos"), peu = document.getElementById("busosPeu");
+  if (!cos) return;
+  try {
+    const r = await fetch(BUSOS_URL + "data/busos.json", { cache: "no-cache" });
+    if (!r.ok) throw new Error(r.status);
+    BUSOS = await r.json();
+  } catch (e) {
+    cos.innerHTML = `<p class="buit">Ara mateix no s'han pogut carregar els horaris.</p><p class="font"><a href="${BUSOS_URL}">Mapa complet dels busos</a></p>`;
+    return;
+  }
+  peu.textContent = `Horaris actualitzats el ${String(BUSOS.generat || "").split(" ")[0]} · Font: GTFS dels autobusos interurbans de la Generalitat · Posició segons horari, no GPS`;
+  pintaBusos();
+  setInterval(pintaBusos, 60000);
+}
+
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
 function serieAnys(serie, valor, etiq) {
   const max = Math.max(1, ...serie.map(valor));
@@ -1768,6 +1828,7 @@ async function inicia() {
     pinta(d);
     carregaAgenda();
     carregaNecrologiques();
+    carregaBusos();
     carregaLlamps();
     carregaAntenes();
     carregaDea();
