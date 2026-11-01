@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-01T03:08:57+00:00",
+ "generat": "2026-11-01T03:11:15+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -843,7 +843,7 @@
    "director": "Na Hong-Jin",
    "actors": "Hwang Jung-min, Jo In-sung",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/potiUCSWfSt8FWgi5EBzihsCog5.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/3uyWh7J2nFT70MjKoSiKwXm9yfa.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
@@ -1134,8 +1134,8 @@
      "preu": ""
     }
    ],
-   "nota": 4.9,
-   "vots": 7,
+   "nota": 0,
+   "vots": 0,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2625,6 +2625,20 @@
      "hora": "18:30",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-14",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-15",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
     }
    ],
    "nota": 7.667,
@@ -3325,14 +3339,14 @@
   {
    "key": "la maleta",
    "titol": "La maleta",
-   "sinopsi": "",
+   "sinopsi": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
    "durada": "107",
    "genere": "Comèdia de accion",
    "edat": "No recomanada per a menors de 12 anys",
    "director": "",
    "actors": "",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/1KkW1vKHs20QYNP32tbmUGS2952.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
     {
@@ -3406,8 +3420,8 @@
      "preu": ""
     }
    ],
-   "nota": 5.1,
-   "vots": 7,
+   "nota": 8.0,
+   "vots": 1,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3632,7 +3646,7 @@
    "director": "Michał Kwieciński",
    "actors": "Eryk Kulm, Joséphine de La Baume, Karolina Gruszka, Lambert Wilson, Maja Ostaszewska, Victor Meutelet",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/y0tBcQZjYbo9MPDU6FkzYafyCdB.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/7yNkvlLmtjqU9iyQNrCPMFohHlu.jpg",
    "web": "https://cinemamontgri.cat/chopin/",
    "sessions": [
     {
@@ -4008,39 +4022,6 @@
      "preu": ""
     }
    ]
-  },
-  {
-   "key": "superthings la pel licula",
-   "titol": "Superthings: La pel·lícula",
-   "sinopsi": "La Mía, en Kai i en Finn descobreixen un fragment de Kazoom que barreja la seva ciutat amb l’univers de Kaboom City. Convertits en Kazoom Kids, hauran",
-   "durada": "93",
-   "genere": "Animació",
-   "edat": "",
-   "director": "Víctor Monigote",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
-   "web": "https://cinemamontgri.cat/superthings-la-pelicula/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-14",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-15",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    }
-   ],
-   "nota": 7.667,
-   "vots": 3,
-   "plataformes": [],
-   "plataformesUrl": ""
   },
   {
    "key": "los juegos del hambre amanecer en la cosecha",
