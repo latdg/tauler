@@ -1662,7 +1662,7 @@ function fitxaNecro(x) {
   else if (dataNecro(x.dataFuneral)) linies.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
   const detall = x.detall || x.biografia || "";
   return `<article class="ag-acte"><div class="ag-text"><b>${esc(x.nom)}</b>` +
-    (linies.length ? `<br>${linies.join("<br>")}` : "") + (detall ? `<br><span class="font">${esc(detall)}</span>` : "") + `</div></article>`;
+    (linies.length ? `<br>${linies.join("<br>")}` : "") + (detall ? `<br>${esc(detall)}` : "") + `</div></article>`;
 }
 async function carregaNecrologiques() {
   const cos = document.getElementById("necroCos"), peu = document.getElementById("necroPeu");
