@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-10-31T05:53:22+00:00",
+ "actualitzat": "2026-11-01T11:21:58+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -144,7 +144,7 @@
      "foto": "https://static.inaturalist.org/photos/757692173/small.jpg",
      "autor": "Valérie de Mazancourt",
      "lloc": "Spain",
-     "qualitat": "needs_id",
+     "qualitat": "research",
      "amenacada": true,
      "introduida": false
     },
@@ -236,7 +236,7 @@
      "foto": "https://static.inaturalist.org/photos/757692173/small.jpg",
      "autor": "Valérie de Mazancourt",
      "lloc": "Spain",
-     "qualitat": "needs_id",
+     "qualitat": "research",
      "amenacada": true,
      "introduida": false
     },
@@ -2040,13 +2040,13 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 258,
+   "observacions": 257,
    "especies": 190,
    "observadors": 29,
    "grups": [
     [
      "🦋 Insectes",
-     99
+     98
     ],
     [
      "🌿 Plantes",
@@ -2125,12 +2125,6 @@
      "n": 2
     },
     {
-     "cientific": "Spilosoma lubricipeda",
-     "nom": "",
-     "grup": "🦋 Insectes",
-     "n": 2
-    },
-    {
      "cientific": "Daphne gnidium",
      "nom": "Matapoll",
      "grup": "🌿 Plantes",
@@ -2164,6 +2158,12 @@
      "cientific": "Pallenis spinosa",
      "nom": "Ull de bou",
      "grup": "🌿 Plantes",
+     "n": 2
+    },
+    {
+     "cientific": "Lachnaia paradoxa",
+     "nom": "Poriol Dolent",
+     "grup": "🦋 Insectes",
      "n": 2
     }
    ],
