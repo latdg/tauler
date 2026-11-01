@@ -1012,7 +1012,7 @@ const APARTATS = [
   ["🌿 Temps, aigua i natura", ["Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
-  ["🎬 Cartellera", ["Cartellera"]]
+  ["🎬 La cartellera de la Bisbal, Torroella de Montgrí, Palafrugell, Platja d'Aro, Girona i Salt", ["Cartellera"]]
 ];
 function ordenaApartats() {
   if (MODE_SLOW) return;
@@ -1810,7 +1810,7 @@ async function carregaCinemes() {
   catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'ha baixat la cartellera.</p>'; return; }
   CIN = (d.films || []).filter(f => cinPendents(f).length || f.estrena > cinIso(new Date()));
   const g = new Date(d.generat), z = n => String(n).padStart(2, "0");
-  peu.textContent = `Actualitzat el ${dataDMA(d.generat)} a les ${z(g.getHours())}.${z(g.getMinutes())} h · la Bisbal, Torroella, Palafrugell, Platja d'Aro, Girona i Salt`;
+  peu.textContent = `Actualitzat el ${dataDMA(d.generat)} a les ${z(g.getHours())}.${z(g.getMinutes())} h`;
   pintaCinemes();
 }
 
