@@ -6,6 +6,7 @@
 <meta name="color-scheme" content="light only">
 <title>Esports de La TdG</title>
 <style>
+.ratxa{display:inline-flex;gap:3px;vertical-align:middle}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block}.ratxa .rV{background:#9fc31a}.ratxa .rD{background:#e8193c}.ratxa .rX{background:#5b5b5b}
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c;--ok:#2e7d32;--ko:#c0392b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -254,7 +255,7 @@ function pinta() {
       const cap = bas ? ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []).concat(ambRatxa ? ["Ratxa"] : []) : ["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"];
       return `<h3>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom)} (${esc(e.categoria)})</h3><div class="taula"><table><thead><tr>${cap.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>` +
         c.files.map(f => `<tr class="${f.propi ? "propi" : ""}">` + (bas ? [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : []).concat(ambRatxa ? [f.ratxa] : [])
-          : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map((x, i) => `<td>${i === 1 ? escClub(f.escut) : ""}${esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
+          : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map((x, i, a) => `<td>${i === 1 ? escClub(f.escut) : ""}${i === a.length - 1 && (bas ? ambRatxa : true) ? ratxaPunts(x) : esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
         (e.classificacioManual ? `<p class="font">Entrada a mà.</p>` : "");
     }).join("");
   }
@@ -398,9 +399,75 @@ const normNom = t => String(t || "").toUpperCase().normalize("NFD").replace(/[̀
 const dataFcbq = t => { const m = String(t || "").match(/(\d{2})[-\/](\d{2})[-\/](\d{4})(?:\s+(\d{1,2}):(\d{2}))?/); return m ? { data: `${m[3]}-${m[2]}-${m[1]}`, hora: m[4] ? m[4].padStart(2, "0") + ":" + m[5] : "" } : null; };
 const netText = el => (el ? el.textContent : "").replace(/\s+/g, " ").trim();
 
+// 01.11.2026: ratxa de la Federació Catalana de Basquetbol, en punts de colors
+// (verd, guanyat; vermell, perdut; gris, sense partit). Es desa com a lletres
+// V, D i X, en el mateix ordre que la federació, i es torna a dibuixar en punts.
+function colorRgb(t) {
+  t = String(t || "").toLowerCase();
+  let m = t.match(/rgba?\(\s*(\d+)[ ,]+(\d+)[ ,]+(\d+)/);
+  if (m) return [+m[1], +m[2], +m[3]];
+  m = t.match(/#([0-9a-f]{6}|[0-9a-f]{3})\b/);
+  if (!m) return null;
+  const h = m[1].length === 3 ? m[1].split("").map(c => c + c).join("") : m[1];
+  return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16));
+}
+function lletraColor(c) {
+  if (!c) return "";
+  const [r, g, b] = c;
+  if (g > r + 25 && g > b + 25) return "V";
+  if (r > g + 60 && r > b + 40) return "D";
+  if (Math.max(r, g, b) - Math.min(r, g, b) < 30) return "X";
+  return "";
+}
+function lletraPunt(el, estil) {
+  const nom = ((el.getAttribute("class") || "") + " " + (el.getAttribute("title") || "") + " " + (el.getAttribute("alt") || "") + " " + (el.getAttribute("src") || "")).toLowerCase();
+  if (/(^|[^a-z])(win|won|victor|guany|green|verd|success|ganad)/.test(nom)) return "V";
+  if (/(^|[^a-z])(los[st]|derrot|perd|red|vermell|danger|fail)/.test(nom)) return "D";
+  if (/(^|[^a-z])(gr[ae]y|gris|descans|draw|empat|nojug|secondary|muted)/.test(nom)) return "X";
+  const st = (el.getAttribute("style") || "") + " " + (el.getAttribute("fill") || "") + " " + (el.getAttribute("color") || "");
+  return lletraColor(colorRgb(st)) || (estil ? lletraColor(colorRgb(estil.backgroundColor)) || lletraColor(colorRgb(estil.color)) || lletraColor(colorRgb(estil.fill)) : "");
+}
+// Punts de la ratxa d'una fila: els elements sense text que hi ha després de
+// la columna de punts (o dins d'una cel·la que digui «ratxa»/«racha»).
+function puntsRatxa(fila) {
+  const caixa = fila.querySelector("[class*=atxa], [class*=acha], [class*=streak], [id*=atxa], [id*=acha]");
+  let cands;
+  if (caixa) cands = Array.from(caixa.querySelectorAll("*")).filter(e => !e.children.length || e.tagName === "svg");
+  else {
+    const nums = fila.querySelectorAll(".textRanking");
+    const darrer = nums[nums.length - 1];
+    cands = Array.from(fila.querySelectorAll("span, i, div, img, svg, circle")).filter(e =>
+      darrer && (darrer.compareDocumentPosition(e) & Node.DOCUMENT_POSITION_FOLLOWING) && !darrer.contains(e) &&
+      !netText(e) && (!e.children.length || e.tagName === "svg"));
+  }
+  return cands.slice(0, 10);
+}
+async function ratxesFcbq(text, files) {
+  // Primer, sense dibuixar la pàgina (classes i estils escrits a l'element).
+  let res = files.map(f => puntsRatxa(f).map(e => lletraPunt(e)).filter(Boolean).join(""));
+  if (res.some(Boolean)) return res;
+  // Si els colors vénen del full d'estils, es dibuixa la pàgina en un marc ocult.
+  const marc = document.createElement("iframe");
+  marc.setAttribute("sandbox", "allow-same-origin");
+  marc.style.cssText = "position:absolute;left:-9999px;width:1400px;height:900px;visibility:hidden";
+  marc.srcdoc = text.replace(/<script[\s\S]*?<\/script>/gi, "");
+  document.body.appendChild(marc);
+  await new Promise(ok => { marc.onload = ok; setTimeout(ok, 6000); });
+  try {
+    const d = marc.contentDocument, w = marc.contentWindow;
+    const filesM = Array.from(d.querySelectorAll(".numRanking")).map(n => n.closest("#fila") || n.closest(".row"));
+    res = filesM.map(f => f ? puntsRatxa(f).map(e => lletraPunt(e, w.getComputedStyle(e))).filter(Boolean).join("") : "");
+  } catch (e) { res = []; }
+  marc.remove();
+  return res;
+}
+const ratxaPunts = t => /^[VDX]+$/.test(String(t || ""))
+  ? `<span class="ratxa" title="${esc(t)}">` + String(t).split("").map(l => `<i class="r${l}"></i>`).join("") + "</span>" : esc(t);
+
 function llegeixPaginaFcbq(text) {
   const doc = new DOMParser().parseFromString(text, "text/html");
   const r = { jornada: "", partits: [], classificacio: [], calendari: [] };
+  const filesRatxa = [];
   // Resultats del grup: «Jornada 5 (Última jornada jugada)».
   const nav = Array.from(doc.querySelectorAll("div")).find(d => /^Jornada\s+\d+\s*\(Última jornada jugada\)$/i.test(netText(d)));
   if (nav) r.jornada = netText(nav).match(/\d+/)[0];
@@ -428,7 +495,8 @@ function llegeixPaginaFcbq(text) {
       const equip = netText(n.parentElement.querySelector("a"));
       if (nums.length < 7 || !equip) return;
       const [pj, pg, pp, np, pf, pc, punts] = nums.map(Number);
-      r.classificacio.push({ pos: Number(netText(n)), equip, pj, pg, pe: 0, pp, pf, pc, punts });
+      r.classificacio.push({ pos: Number(netText(n)), equip, pj, pg, pe: 0, pp, pf, pc, punts, ratxa: "" });
+      filesRatxa.push(fila);
     });
   }
   // Calendari de l'equip: taula amb data, hora, local, visitant, competició i camp.
@@ -438,6 +506,7 @@ function llegeixPaginaFcbq(text) {
     const casa = esNostre(c[2]);
     r.calendari.push({ ...dataFcbq(c[0] + " " + c[1]), local: c[2], visitant: c[3], casa, rival: casa ? c[3] : c[2], camp: c[5] });
   });
+  r.filesRatxa = filesRatxa;
   return r;
 }
 
@@ -482,8 +551,8 @@ function aplicaFcbq(r) {
       const ambResultat = m.partits.filter(p => !p.substitueix && p.resultat).length;
       if (+nova.pj > ambResultat) canvis.push(`⚠️ La classificació diu ${nova.pj} partits jugats però només n'hi ha ${ambResultat} amb resultat: entra a mà el de ${pendents.map(desc).join(", ")}`);
     }
-    const abans = JSON.stringify((m.classificacio || []).map(f => [f.pos, f.equip, +f.pj, +f.punts]));
-    const ara = JSON.stringify(r.classificacio.map(f => [f.pos, f.equip, f.pj, f.punts]));
+    const abans = JSON.stringify((m.classificacio || []).map(f => [f.pos, f.equip, +f.pj, +f.punts, f.ratxa || ""]));
+    const ara = JSON.stringify(r.classificacio.map(f => [f.pos, f.equip, f.pj, f.punts, f.ratxa || ""]));
     if (abans !== ara) { m.classificacio = r.classificacio; canvis.push(`Classificació a la jornada ${r.jornada} (${r.classificacio.length} equips)`); }
     m.classificacioActualitzada = new Date().toISOString();
   }
@@ -494,7 +563,13 @@ function aplicaFcbq(r) {
 $("fFcbq").onchange = async ev => {
   const f = ev.target.files[0];
   if (!f) return;
-  const r = llegeixPaginaFcbq(await f.text());
+  const textFcbq = await f.text();
+  const r = llegeixPaginaFcbq(textFcbq);
+  if (r.classificacio.length) {
+    const rx = await ratxesFcbq(textFcbq, r.filesRatxa);
+    r.classificacio.forEach((c, i) => { c.ratxa = rx[i] || ""; });
+  }
+  delete r.filesRatxa;
   const caixa = $("fcbqResum");
   if (!r.partits.length && !r.classificacio.length && !r.calendari.length) {
     caixa.innerHTML = '<p class="buit">No hi he trobat ni resultats, ni classificació, ni calendari del sots-25. Comprova que sigui la pàgina de la Federació Catalana de Basquetbol.</p>';
