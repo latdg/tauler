@@ -751,7 +751,7 @@ def main():
     t = Traductor()
     for f in tots:
         f["titolFont"] = f["titol"]
-        f["titol"] = titol_catala(f, t)
+        f["titol"] = re.sub(r"\bnadal\b", "Nadal", titol_catala(f, t))   # el traductor el deixa en minúscula
         if f["sinopsiEs"] or en_castella(f["sinopsi"]):
             f["sinopsi"] = (f["tmdb"] or {}).get("sinopsiCa") or t.tradueix(f["sinopsi"])
         if f["genereEs"]:

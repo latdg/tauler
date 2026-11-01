@@ -344,7 +344,7 @@ const NOMS_CURTS = [
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Plaques solars i consum elèctric"], [/preu de l'aigua/i, "Preu de l'aigua"],
   [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
-  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/cinemes/i, "Cartellera"]
+  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"]
 ];
 const nomCurt = titol => {
   const trobat = NOMS_CURTS.find(([rx]) => rx.test(titol));
@@ -1063,8 +1063,8 @@ function pinta(d) {
   h += seccio("🕯️ Necrològiques",
     '<p class="font dalt" id="necroPeu"></p><div id="necroCos"><p class="buit">Carregant…</p></div>', "", false);
 
-  // 0d. 🎬 CINEMES (01.11.2026): dades/cinemes.json, tres cops al dia (cinemes/cinemes.py).
-  h += seccio("🎬 Cinemes",
+  // 0d. 🍿 PEL·LÍCULES (01.11.2026): dades/cinemes.json, tres cops al dia (cinemes/cinemes.py).
+  h += seccio("🍿 Pel·lícules",
     '<p class="font dalt" id="cinemesPeu"></p><div id="cinemesCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
