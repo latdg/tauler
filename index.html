@@ -1126,10 +1126,12 @@ function pinta(d) {
   h += seccio("🏘️ Edat dels edificis", '<div id="edificisCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
+  // 01.11.2026: «La Bisbal d'Empordà» amb majúscula a l'inici de cada línia.
+  const majBisbal = t => String(t || "").replace(/(^|\|\s*|\n)la Bisbal d'Empordà/g, "$1La Bisbal d'Empordà");
   if (b.plaAlfa || b.sequera || b.refugis) h += seccio("🔥 Risc d'incendi, sequera i refugis climàtics",
-    (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(b.plaAlfa) : "") +
-    (b.sequera ? "<h3>Estat de sequera</h3>" + llista(b.sequera) : "") +
-    (b.refugis ? "<h3>Refugis climàtics</h3>" + llista(b.refugis) : ""),
+    (b.plaAlfa ? "<h3>Pla Alfa (risc d'incendi)</h3>" + llista(majBisbal(b.plaAlfa)) : "") +
+    (b.sequera ? "<h3>Estat de sequera</h3>" + llista(majBisbal(b.sequera)) : "") +
+    (b.refugis ? "<h3>Refugis climàtics</h3>" + llista(majBisbal(b.refugis)) : ""),
     "Generalitat de Catalunya");
 
   // 4. ⚡ LLAMPS (21.10.2026): la darrera revisió a demanda (el contingut arriba
