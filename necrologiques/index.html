@@ -11,6 +11,8 @@
   Historial de les necrològiques recollides (dades/necrologiques.json, que omple el
   tauler en directe amb les defuncions del guió: Mémora i Diari de Girona creuats).
   De la més recent a la més antiga, 20 per pàgina, amb cercador.
+  01.11.2026: cerca per camp (nom, vetlla, cerimònia, biografia) i filtres per mes i
+  per municipi, que s'omplen sols amb el que hi ha a l'historial.
 -->
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
@@ -21,8 +23,12 @@ header{padding-top:24px}
 h1{margin:0;font-size:1.6rem}
 a{color:var(--accent)}
 .sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
-.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 16px}
-input{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);min-width:220px;max-width:100%}
+.controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;align-items:end;margin:8px 0 16px}
+input,select{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);max-width:100%}
+.controls label{display:flex;flex-direction:column;gap:2px;font-size:.8rem;color:var(--suau)}
+.controls label.cerca{grid-column:1/-1}
+.controls select,.controls input{width:100%}
+.controls button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer;justify-self:start}
 section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
 .dia{margin:16px 0 8px;font-size:1rem}
 .dia:first-child{margin-top:0}
@@ -41,7 +47,25 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
   <h1>🕯️ Necrològiques</h1>
   <p class="sub" id="sub">Carregant…</p>
   <div class="controls">
-    <input type="search" id="cerca" placeholder="Cerca un nom, un poble…" aria-label="Cerca">
+    <label class="cerca">Text
+      <input type="search" id="cerca" placeholder="Escriu per cercar…">
+    </label>
+    <label>Cerca a
+      <select id="camp">
+        <option value="tot">Tots els camps</option>
+        <option value="nom">Nom</option>
+        <option value="vetlla">Vetlla</option>
+        <option value="ceremonia">Cerimònia</option>
+        <option value="bio">Biografia</option>
+      </select>
+    </label>
+    <label>Municipi
+      <select id="municipi"><option value="">Tots</option></select>
+    </label>
+    <label>Mes
+      <select id="mes"><option value="">Tots</option></select>
+    </label>
+    <button type="button" id="netejar" hidden>Treure els filtres</button>
   </div>
 </header>
 <main>
@@ -61,6 +85,37 @@ const diaNecro = x => dataNecro(x.dataMort) || dataNecro(x.dataFuneral) || x.vis
 const pla = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 const DIES = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
 let TOTES = [], PAGINA = 1;
+const MESOS = ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"];
+
+// Municipi de cada necrològica, deduït del text: primer on vivia, després el lloc
+// de la cerimònia i, si no, qualsevol altre text (la vetlla no compta, perquè
+// gairebé sempre és al tanatori de la Bisbal).
+const MUNICIPIS = [
+  ["La Bisbal d'Empordà", ["bisbal", "castell d'emporda"]],
+  ["Corçà", ["corca", "casavells", "matajudaica", "cassa de pelras"]],
+  ["Forallac", ["forallac", "vulpellac", "peratallada", "fonteta", "canapost", "fitor", "sant climent de peralta", "santa susanna de peralta"]],
+  ["Cruïlles, Monells i Sant Sadurní de l'Heura", ["cruilles", "monells", "sant sadurni"]],
+  ["Ullastret", ["ullastret"]]
+];
+const municipiDe = text => { const t = pla(text).replace(/[’‘`´]/g, "'"); const m = MUNICIPIS.find(([, nuclis]) => nuclis.some(n => t.includes(n))); return m ? m[0] : ""; };
+function municipi(x) {
+  const bio = [x.detall, x.biografia].join(" ");
+  const viu = (bio.match(/(?:Vivia|Residia) a ([^.;]+)/i) || [])[1] || "";
+  return municipiDe(viu) || municipiDe(x.ceremonia) || municipiDe(bio) || "";
+}
+const textCamp = (x, camp) => camp === "nom" ? x.nom : camp === "vetlla" ? x.vetlla : camp === "ceremonia" ? x.ceremonia :
+  camp === "bio" ? [x.detall, x.biografia].join(" ") : [x.nom, x.detall, x.biografia, x.vetlla, x.ceremonia, x.municipi].join(" ");
+
+function omplirFiltres() {
+  const compta = (clau) => TOTES.reduce((o, x) => { const k = clau(x); if (k) o[k] = (o[k] || 0) + 1; return o; }, {});
+  const mun = compta(x => x.municipi), mes = compta(x => diaNecro(x).slice(0, 7));
+  const sense = TOTES.filter(x => !x.municipi).length;
+  document.getElementById("municipi").innerHTML = `<option value="">Tots</option>` +
+    MUNICIPIS.filter(([n]) => mun[n]).map(([n]) => `<option value="${esc(n)}">${esc(n)} (${mun[n]})</option>`).join("") +
+    (sense ? `<option value="-">Sense municipi (${sense})</option>` : "");
+  document.getElementById("mes").innerHTML = `<option value="">Tots</option>` +
+    Object.keys(mes).sort().reverse().map(k => `<option value="${k}">${MESOS[Number(k.slice(5)) - 1].replace(/^./, c => c.toUpperCase())} ${k.slice(0, 4)} (${mes[k]})</option>`).join("");
+}
 
 function fitxa(x) {
   const l = [];
@@ -76,12 +131,20 @@ function fitxa(x) {
 
 function pinta() {
   const t = pla(document.getElementById("cerca").value.trim());
-  const llista = t ? TOTES.filter(x => pla([x.nom, x.detall, x.biografia, x.vetlla, x.ceremonia].join(" ")).includes(t)) : TOTES;
+  const camp = document.getElementById("camp").value;
+  const mun = document.getElementById("municipi").value;
+  const mes = document.getElementById("mes").value;
+  const filtrat = !!(t || mun || mes);
+  document.getElementById("netejar").hidden = !filtrat && camp === "tot";
+  const llista = TOTES.filter(x =>
+    (!t || pla(textCamp(x, camp)).includes(t)) &&
+    (!mun || (mun === "-" ? !x.municipi : x.municipi === mun)) &&
+    (!mes || diaNecro(x).startsWith(mes)));
   const pagines = Math.max(1, Math.ceil(llista.length / PER_PAGINA));
   PAGINA = Math.min(Math.max(1, PAGINA), pagines);
   const tros = llista.slice((PAGINA - 1) * PER_PAGINA, PAGINA * PER_PAGINA);
   const cos = document.getElementById("cos");
-  if (!tros.length) cos.innerHTML = `<p class="buit">${t ? "Cap necrològica coincideix amb la cerca." : "Encara no hi ha cap necrològica recollida."}</p>`;
+  if (!tros.length) cos.innerHTML = `<p class="buit">${filtrat ? "Cap necrològica coincideix amb la cerca i els filtres." : "Encara no hi ha cap necrològica recollida."}</p>`;
   else {
     // Agrupades per dia.
     const grups = [];
@@ -111,14 +174,22 @@ function pinta() {
     const r = await fetch("../dades/necrologiques.json?v=" + Date.now());
     if (!r.ok) throw new Error(r.status);
     const d = await r.json();
-    TOTES = (d.llista || []).filter(x => x && x.nom).sort((a, b) => diaNecro(b).localeCompare(diaNecro(a)) || a.nom.localeCompare(b.nom, "ca"));
+    TOTES = (d.llista || []).filter(x => x && x.nom).map(x => ({ ...x, municipi: municipi(x) })).sort((a, b) => diaNecro(b).localeCompare(diaNecro(a)) || a.nom.localeCompare(b.nom, "ca"));
     const q = d.actualitzat ? new Date(d.actualitzat) : null, z = n => String(n).padStart(2, "0");
     document.getElementById("sub").textContent = `${TOTES.length} necrològiques` +
       (q ? ` · Actualitzat el ${z(q.getDate())}.${z(q.getMonth() + 1)}.${q.getFullYear()} a les ${z(q.getHours())}.${z(q.getMinutes())} h` : "");
   } catch (e) {
     document.getElementById("sub").textContent = "Encara no s'han recollit les necrològiques.";
   }
-  document.getElementById("cerca").oninput = () => { PAGINA = 1; pinta(); };
+  omplirFiltres();
+  const torna = () => { PAGINA = 1; pinta(); };
+  document.getElementById("cerca").oninput = torna;
+  ["camp", "municipi", "mes"].forEach(id => document.getElementById(id).onchange = torna);
+  document.getElementById("netejar").onclick = () => {
+    document.getElementById("cerca").value = "";
+    ["camp", "municipi", "mes"].forEach(id => document.getElementById(id).selectedIndex = 0);
+    torna();
+  };
   pinta();
 })();
 </script>
