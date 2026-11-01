@@ -467,18 +467,19 @@ async function ratxesFcbq(text, files) {
   return res;
 }
 // 01.11.2026: ratxa en punts de colors (V, guanyat; E, empat; D, perdut;
-// X, sense partit), sempre amb el partit més recent a l'esquerra, com la
-// publica la Federació Catalana de Basquetbol. La del futbol arriba de la FCF
-// com a «G-E-P», del més antic al més recent: es tradueix i es gira.
+// X, sense partit), sempre del més antic (esquerra) al més recent (dreta).
+// Les de bàsquet (V-D-X) es desen com les dona la Federació Catalana, amb el
+// més recent primer, i es giren; la del futbol («G-E-P») ja ve del més antic
+// al més recent i només es tradueix.
 const NOMS_RATXA = { V: "guanyat", E: "empat", D: "perdut", X: "sense partit" };
 function lletresRatxa(t) {
   const s = String(t || "").trim().toUpperCase();
-  if (/^[VDX]+$/.test(s)) return s;
-  if (/^[GEP](-[GEP])*$/.test(s)) return s.split("-").reverse().map(l => ({ G: "V", E: "E", P: "D" })[l]).join("");
+  if (/^[VDX]+$/.test(s)) return s.split("").reverse().join("");
+  if (/^[GEP](-[GEP])*$/.test(s)) return s.split("-").map(l => ({ G: "V", E: "E", P: "D" })[l]).join("");
   return "";
 }
 const htmlRatxa = l => `<span class="ratxa" title="${l.split("").map(x => NOMS_RATXA[x]).join(", ")}">` + l.split("").map(x => `<i class="r${x}"></i>`).join("") + "</span>";
-const llegendaRatxa = ambEmpat => `<p class="llegenda-ratxa">Ratxa, el partit més recent a l'esquerra: ` +
+const llegendaRatxa = ambEmpat => `<p class="llegenda-ratxa">Ratxa, el partit més recent a la dreta: ` +
   ["V", ambEmpat ? "E" : "", "D", "X"].filter(Boolean).map(x => `<span><i class="r${x}"></i>${NOMS_RATXA[x]}</span>`).join("") + "</p>";
 const ratxaPunts = t => { const l = lletresRatxa(t); return l ? htmlRatxa(l) : esc(t); };
 
