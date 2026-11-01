@@ -122,6 +122,9 @@ details.plegable[open]>summary{margin-bottom:12px;padding-bottom:10px;border-bot
 .niv.roig{background:#d7191c;color:#fff}
 ul.avisos{list-style:none;padding-left:0}
 ul.avisos li{margin:0 0 10px;padding-left:10px;border-left:3px solid var(--linia)}
+.mapa-busos{height:340px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin:4px 0 8px}
+@media (max-width:600px){.mapa-busos{height:280px}}
+.bus-ic{display:flex;align-items:center;justify-content:center;min-width:26px;height:16px;padding:0 3px;border-radius:8px;color:#fff;font:700 10px system-ui,sans-serif;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.35);white-space:nowrap}
 .mapa-inc{height:380px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin:4px 0 8px}
 @media (max-width:600px){.mapa-inc{height:320px}}
 h2.grup-apartat{margin:14px 0 -4px;padding:0 2px 4px;font-size:.95rem;letter-spacing:.05em;color:var(--accent);border-bottom:2px solid var(--accent)}
@@ -1676,13 +1679,62 @@ function pintaBusos() {
   // el Clic només circula els dies que surt a l'horari (GTFS): els festius, no
   const clicAvui = viatges.some(v => D.rutes[v.r] && D.rutes[v.r].dem);
   const clic = !clicAvui ? "avui no hi ha servei" : fr ? `en servei fins a les ${fr[1]}.00 h` : nf ? `torna a les ${nf[0]}.00 h` : "avui ja no hi ha més servei";
+  if (!document.getElementById("mapaBusos")) cos.insertAdjacentHTML("beforebegin", '<div id="mapaBusos" class="mapa-busos" aria-label="Minimapa dels busos"></div>');
+  minimapaBusos(viatges, m + ara.getSeconds() / 60);
   cos.innerHTML =
     `<div class="xifra"><b>${enRuta}</b> <span>${enRuta === 1 ? "bus de línia en ruta ara" : "busos de línia en ruta ara"} a la comarca, segons l'horari</span></div>` +
     `<h3>Properes sortides des de la Bisbal</h3>` +
     (nx.length ? "<ul>" + nx.slice(0, 6).map(x => `<li><b>${hm(x.t)} h</b> · línia ${esc(x.c)} cap a ${esc(x.d)} <span class="font">(${esc(x.p)})</span></li>`).join("") + "</ul>"
       : '<p class="buit">Cap sortida en les pròximes tres hores.</p>') +
     `<h3>Clic.cat a demanda</h3><p>Rutes R1, R2 i R3 des de la Bisbal: ${clic}. Només circula amb reserva (app Clic.cat o 670 788 888).</p>` +
+    `<p class="font">Al minimapa: cada línia amb el seu color, el Clic.cat en discontinu i, en vermell, on comencen i acaben els trajectes. Els busos es mouen cada minut segons l'horari.</p>` +
     `<p class="font"><a href="${BUSOS_URL}">Mapa complet dels busos en moviment, horaris en PDF i compra de bitllets</a></p>`;
+}
+// Minimapa (01.11.2026): tracats de les línies, Clic.cat en discontinu, capçaleres en vermell
+// i els busos on són ara segons l'horari, com al mapa complet. Es mou cada minut.
+const PALETA_BUSOS = ["#1d5fae","#2f8f6f","#b5651d","#8c4a7a","#3b4f8c","#c0392b","#00838f","#6d4c41","#5f7f1f","#b03a6e","#2c6e8f","#8a6d1c"];
+let MAPA_BUSOS = null, CAPA_BUSOS = null;
+function colorBus(rid) {
+  const D = BUSOS, r = D.rutes[rid];
+  if (r.dem) return "#7a3fa0";
+  return r.col || PALETA_BUSOS[Object.keys(D.rutes).filter(k => !D.rutes[k].dem).indexOf(rid) % PALETA_BUSOS.length];
+}
+async function minimapaBusos(viatges, m) {
+  const D = BUSOS;
+  if (!MAPA_BUSOS) {
+    if (MAPA_BUSOS === false) return;
+    MAPA_BUSOS = false;
+    const mapa = await mapaBase("mapaBusos", MUN_ANTENES, "Horaris: Generalitat de Catalunya");
+    if (!mapa) return;
+    const tracats = L.featureGroup().addTo(mapa);
+    Object.entries(D.rutes).forEach(([rid, r]) => {
+      if (r.t.length < 2) return;
+      const tip = `<b>${r.dem ? "Clic " : "Línia "}${esc(r.c)}</b> ${esc(r.n)}`;
+      if (r.dem) return L.polyline(r.t, { color: "#7a3fa0", weight: 2, dashArray: "5 4" }).bindTooltip(tip, { sticky: true }).addTo(tracats);
+      L.polyline(r.t, { color: "#fff", weight: 5, interactive: false }).addTo(tracats);
+      L.polyline(r.t, { color: colorBus(rid), weight: 2.5, opacity: .85 }).bindTooltip(tip, { sticky: true }).addTo(tracats);
+    });
+    const caps = new Set();
+    Object.values(D.dies).forEach(vs => vs.forEach(v => { caps.add(v.s[0][0]); caps.add(v.s[v.s.length - 1][0]); }));
+    caps.forEach(sid => { const p = D.parades[sid]; if (p) L.circleMarker(p.ll, { radius: 5, color: "#fff", weight: 1.5, fillColor: "#d0021b", fillOpacity: 1 })
+      .bindTooltip(`${esc(p.n)}${p.m && !p.n.toLowerCase().includes(p.m.toLowerCase()) ? " (" + esc(p.m) + ")" : ""} · inici o final de trajecte`).addTo(mapa); });
+    try { mapa.fitBounds(tracats.getBounds(), { padding: [8, 8] }); } catch (e) {}
+    CAPA_BUSOS = L.layerGroup().addTo(mapa);
+    MAPA_BUSOS = mapa;
+  }
+  CAPA_BUSOS.clearLayers();
+  viatges.forEach(v => {
+    const s = v.s, r = D.rutes[v.r];
+    if (!r || m < s[0][1] || m > s[s.length - 1][1]) return;
+    let i = 1; while (i < s.length - 1 && s[i][1] < m) i++;
+    const a = (D.parades[s[i - 1][0]] || {}).ll, b = (D.parades[s[i][0]] || {}).ll;
+    if (!a || !b) return;
+    const f = Math.min(1, Math.max(0, (m - s[i - 1][1]) / ((s[i][1] - s[i - 1][1]) || 1)));
+    const desti = v.d || (D.parades[s[s.length - 1][0]] || {}).m || "";
+    L.marker([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], { icon: L.divIcon({ className: "", iconSize: null, iconAnchor: [13, 8],
+      html: `<div class="bus-ic" style="background:${colorBus(v.r)}${r.dem ? ";border-style:dashed" : ""}">${esc(r.c)}</div>` }) })
+      .bindTooltip(`Línia ${esc(r.c)} cap a ${esc(desti)}${r.dem ? " (Clic, només amb reserva)" : ""}`).addTo(CAPA_BUSOS);
+  });
 }
 async function carregaBusos() {
   const cos = document.getElementById("busosCos"), peu = document.getElementById("busosPeu");
