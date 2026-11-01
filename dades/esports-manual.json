@@ -454,7 +454,8 @@
      "pp": 0,
      "pf": 352,
      "pc": 151,
-     "punts": 8
+     "punts": 8,
+     "ratxa": "VVVV"
     },
     {
      "pos": 2,
@@ -465,7 +466,8 @@
      "pp": 0,
      "pf": 262,
      "pc": 173,
-     "punts": 8
+     "punts": 8,
+     "ratxa": "VXVVV"
     },
     {
      "pos": 3,
@@ -476,7 +478,8 @@
      "pp": 0,
      "pf": 246,
      "pc": 176,
-     "punts": 8
+     "punts": 8,
+     "ratxa": "XVVVV"
     },
     {
      "pos": 4,
@@ -487,7 +490,8 @@
      "pp": 2,
      "pf": 278,
      "pc": 243,
-     "punts": 8
+     "punts": 8,
+     "ratxa": "DVVVD"
     },
     {
      "pos": 5,
@@ -498,7 +502,8 @@
      "pp": 1,
      "pf": 249,
      "pc": 199,
-     "punts": 7
+     "punts": 7,
+     "ratxa": "XDVVV"
     },
     {
      "pos": 6,
@@ -509,7 +514,8 @@
      "pp": 2,
      "pf": 188,
      "pc": 189,
-     "punts": 6
+     "punts": 6,
+     "ratxa": "VDDV"
     },
     {
      "pos": 7,
@@ -520,7 +526,8 @@
      "pp": 2,
      "pf": 216,
      "pc": 280,
-     "punts": 6
+     "punts": 6,
+     "ratxa": "VVXDD"
     },
     {
      "pos": 8,
@@ -531,7 +538,8 @@
      "pp": 3,
      "pf": 218,
      "pc": 220,
-     "punts": 5
+     "punts": 5,
+     "ratxa": "DXDVD"
     },
     {
      "pos": 9,
@@ -542,7 +550,8 @@
      "pp": 3,
      "pf": 170,
      "pc": 194,
-     "punts": 5
+     "punts": 5,
+     "ratxa": "VDDDX"
     },
     {
      "pos": 10,
@@ -553,7 +562,8 @@
      "pp": 2,
      "pf": 144,
      "pc": 197,
-     "punts": 4
+     "punts": 4,
+     "ratxa": "DXDV"
     },
     {
      "pos": 11,
@@ -564,7 +574,8 @@
      "pp": 4,
      "pf": 166,
      "pc": 269,
-     "punts": 4
+     "punts": 4,
+     "ratxa": "DDXDD"
     },
     {
      "pos": 12,
@@ -575,7 +586,8 @@
      "pp": 3,
      "pf": 112,
      "pc": 208,
-     "punts": 3
+     "punts": 3,
+     "ratxa": "DDDX"
     },
     {
      "pos": 13,
@@ -586,7 +598,8 @@
      "pp": 3,
      "pf": 104,
      "pc": 206,
-     "punts": 3
+     "punts": 3,
+     "ratxa": "DXDD"
     }
    ],
    "classificacioActualitzada": "2026-11-01T12:09:27.681Z"
