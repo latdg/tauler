@@ -1028,7 +1028,8 @@ function ordenaApartats() {
     if (!visibles.length) return;
     const cap = document.createElement("h2");
     cap.className = "grup-apartat";
-    cap.textContent = titol;
+    // Els títols es veuen en majúscules; la «i» de «Girona i Salt», en minúscula.
+    cap.innerHTML = esc(titol).replace(" i Salt", ' <span style="text-transform:none">i</span> Salt');
     cont.appendChild(cap);
     seus.forEach(s => cont.appendChild(s));
     nav.push({ titol, seccions: visibles });
