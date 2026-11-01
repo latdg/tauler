@@ -22,6 +22,7 @@ import re
 import unicodedata
 import zlib
 from datetime import datetime, timedelta, timezone
+from difflib import SequenceMatcher
 from html import unescape
 from pathlib import Path
 from urllib.parse import quote
@@ -102,7 +103,10 @@ def normalitza_nom(nom):
 def mateixa_persona(a, b):
     """«Na Hong-Jin» i «Hong-jin Na» són la mateixa; n'hi ha prou amb dues paraules en comú (o el nom sencer si només en té una)."""
     x, y = normalitza_nom(a), normalitza_nom(b)
-    return bool(x) and (x == y or len(x & y) >= 2)
+    if not x or not y:
+        return False
+    # La font i TMDB poden escriure'l una mica diferent: Charella i Chiarella, Nakach i Nakache
+    return x == y or len(x & y) >= 2 or SequenceMatcher(None, " ".join(sorted(x)), " ".join(sorted(y))).ratio() >= .85
 
 
 def persones(text):
@@ -429,9 +433,11 @@ def tmdb_get(token, cami, **params):
 def tmdb_candidates(token, f):
     """Els resultats de la cerca en català, castellà i anglès: una pel·lícula pot tenir el títol en un sol idioma."""
     consulta = re.sub(r"\([^)]*\)", "", f["titol"]).strip()
+    any_ref = f["estrena"][:4] or str(datetime.now(ZONA).year)
     trobades = {}
-    for idioma in ("ca-ES", "es-ES", "en-US"):
-        for o in tmdb_get(token, "/search/movie", region="ES", language=idioma, query=consulta).get("results") or []:
+    cerques = [{"language": i} for i in ("ca-ES", "es-ES", "en-US")] + [{"language": "es-ES", "year": any_ref}, {"language": "en-US", "year": any_ref}]
+    for cerca in cerques:
+        for o in tmdb_get(token, "/search/movie", region="ES", query=consulta, **cerca).get("results") or []:
             c = trobades.setdefault(o["id"], {"o": o, "titols": set()})
             c["titols"] |= {clau(o.get("title") or ""), clau(o.get("original_title") or "")}
     return list(trobades.values())
@@ -460,7 +466,7 @@ def tmdb_tria(token, f):
     def punts(c):
         p = (1000 if igual(c) else 0) + min(c["o"].get("popularity") or 0, 200) / 10
         return p - abs(any_de(c) - any_ref) * 20 if any_de(c) else p
-    reserva = None
+    reserva, rebutjades = None, []
     for c in sorted(tmdb_candidates(token, f), key=punts, reverse=True)[:10]:
         if not igual(c) and not f["director"]:
             continue   # sense títol igual ni director, res no diu que sigui aquesta
@@ -469,9 +475,12 @@ def tmdb_tria(token, f):
         if f["director"] and directors:
             if any(mateixa_persona(a, b) for a in persones(f["director"]) for b in directors):
                 return d, "director"
+            rebutjades.append((any_de(c), directors[:2]))
             continue
         if reserva is None and igual(c) and (reestrena or (any_de(c) and abs(any_de(c) - any_ref) <= 1)):
             reserva = d
+    if not reserva:
+        print("TMDB sense parella:", f["titol"], "| font:", f["director"] or "-", "| rebutjades:", rebutjades)
     return reserva, "any"
 
 
@@ -491,7 +500,7 @@ def tmdb_poster(token, peli, d, castella):
 def tmdb_consulta(token, f):
     d, comprovat = tmdb_tria(token, f)
     if not d:
-        return {"v": 4}
+        return {"v": 5}
     peli = d["id"]
     castella = tmdb_get(token, f"/movie/{peli}", language="es-ES")
     # Només la traducció de veritat: si no en té, TMDB torna el títol original com a «title»
@@ -505,7 +514,7 @@ def tmdb_consulta(token, f):
             nom = PLATAFORMES.get(p.get("provider_id")) or re.sub(r"(?i)\s+(standard with ads|with ads|amazon channel|basic)$", "", p.get("provider_name") or "").strip()
             if nom and nom not in plataformes:
                 plataformes.append(nom)
-    return {"v": 4, "comprovat": comprovat, "titolCa": catala.get("title") or "", "directors": tmdb_directors(d), "original": d.get("original_title") or "",
+    return {"v": 5, "comprovat": comprovat, "titolCa": catala.get("title") or "", "directors": tmdb_directors(d), "original": d.get("original_title") or "",
             "idiomaOriginal": d.get("original_language") or "", "dataTmdb": d.get("release_date") or "", "sinopsiCa": catala.get("overview") or "",
             "id": peli, "nota": d.get("vote_average") or 0, "vots": d.get("vote_count") or 0, "sinopsi": sinopsi or castella.get("overview") or "",
             "sinopsi_es": sinopsi_es, "poster": tmdb_poster(token, peli, d, castella), "plataformes": plataformes, "enllac": es.get("link") or ""}
@@ -524,7 +533,7 @@ def tmdb_enriqueix(films):
     nou, ara = {}, datetime.now(timezone.utc).timestamp()
     for f in films:
         r = desat.get(f["key"])
-        if not r or r.get("v") != 4 or ara - r.get("t", 0) > VIGENCIA_TMDB:
+        if not r or r.get("v") != 5 or ara - r.get("t", 0) > VIGENCIA_TMDB:
             try:
                 r = {**tmdb_consulta(token, f), "t": ara}
             except Exception as e:
@@ -534,7 +543,7 @@ def tmdb_enriqueix(films):
         nou[f["key"]] = r
         f["tmdb"] = r
         if r.get("id"):
-            f["director"] = uneix_directors(f["director"], ", ".join(r.get("directors") or []))
+            f["director"] = uneix_directors(f["director"], ", ".join(n for n in r.get("directors") or [] if re.search(r"[A-Za-z]", n)))
         if not f["sinopsi"]:
             f["sinopsi"] = r.get("sinopsi", "")
             f["sinopsiEs"] = bool(r.get("sinopsi_es"))
@@ -578,15 +587,13 @@ def catala_de(t):
 
 
 def titol_catala(f, t):
-    """El títol de les webs en català; si no, la traducció de TMDB; si no, l'original si no és castellà; si no, traduït."""
+    """La traducció de TMDB; l'original, si no és castellà; si no, el de la font, traduït (Montgrí també en publica en castellà)."""
     r = f["tmdb"] or {}
-    if f["titolCa"]:
-        return f["titolCa"]
     if r.get("titolCa"):
         return r["titolCa"]
     if r.get("id") and clau(f["titol"]) == clau(r.get("original") or "") and r.get("idiomaOriginal") != "es":
-        return f["titol"]
-    return t.tradueix(f["titol"])
+        return r["original"]
+    return t.tradueix(f["titolCa"] or f["titol"])
 
 
 def fusiona(g, f):
