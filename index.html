@@ -39,7 +39,15 @@ td.ico{font-size:1.3rem;text-align:center}
 th{color:var(--suau);font-weight:600}
 tr.propi td{font-weight:700;color:var(--accent)}
 /* Classificacions: totes amb les mateixes columnes (18.10.2026) */
-.classif table{table-layout:fixed;min-width:620px}
+/* 01.11.2026: classificacions llegibles al mòbil: amplada automàtica de les
+   columnes (res no s'encavalca), xifres a la dreta i posició i equip fixos a
+   l'esquerra mentre es llisca la taula de costat. */
+.classif table{table-layout:auto;width:100%}
+.classif th,.classif td{padding:7px 9px}
+.classif th:nth-child(n+3),.classif td:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
+.classif th:nth-child(1),.classif td:nth-child(1){position:sticky;left:0;z-index:1;background:var(--targeta);width:3em;min-width:3em;max-width:3em;box-sizing:border-box}
+.classif th:nth-child(2),.classif td:nth-child(2){position:sticky;left:3em;z-index:1;background:var(--targeta);max-width:46vw;overflow:hidden;text-overflow:ellipsis;box-shadow:inset -1px 0 0 var(--linia)}
+@media (min-width:720px){.classif th:nth-child(2),.classif td:nth-child(2){max-width:320px}}
 /* Classificacions desplegables (24.10.2026) */
 details.classif{border-top:1px solid var(--linia);padding:2px 0}
 details.classif:first-of-type{border-top:0}
@@ -51,13 +59,8 @@ details.classif>summary h3{margin:0;font-size:1rem}
 details.classif>summary .pos{color:var(--accent);font-weight:600;font-size:.9rem;grid-column:1 / -1}
 .classif-botons{margin:0 0 4px;font-size:.85rem}
 .classif-botons button{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font:inherit}
-.classif th:nth-child(1),.classif td:nth-child(1){width:7%}
-.classif th:nth-child(2),.classif td:nth-child(2){width:37%;overflow:hidden;text-overflow:ellipsis}
 /* 01.11.2026: taules amb ratxa en punts de colors: columna prou ampla perquè hi càpiguen els cinc punts. */
-.classif table:has(.ratxa){min-width:720px}
-.classif table:has(.ratxa) th:nth-child(2){width:30%}
-.classif table:has(.ratxa) th:last-child{width:92px}
-.classif td:has(> .ratxa){white-space:nowrap;overflow:visible}
+.classif td:has(> .ratxa),.classif table:has(.ratxa) th:last-child{text-align:left;padding-left:14px}
 ul{margin:0;padding-left:20px}
 .buit{color:var(--suau)}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}

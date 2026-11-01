@@ -336,7 +336,21 @@ def feb_partits_pagina(h):
 def feb_sessio():
     s = requests.Session()
     s.headers.update({"User-Agent": UA})
+    # 01.11.2026: la FEB serveix en UTF-8 sense dir-ho a la capçalera i requests
+    # ho llegia com a Latin-1 («GIRONÃ¨S»). Es força l'UTF-8.
+    s.hooks["response"].append(lambda r, *a, **k: setattr(r, "encoding", "utf-8"))
     return s
+
+
+def arregla_codif(t):
+    """Desfà un text UTF-8 llegit com a Latin-1 («GIRONÃ¨S» → «GIRONÈS»)."""
+    t = str(t or "")
+    if "Ã" in t or "Â" in t:
+        try:
+            return t.encode("latin-1").decode("utf-8")
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+    return t
 
 
 def llegeix_feb(eq):
@@ -400,7 +414,7 @@ def llegeix_feb(eq):
 
 def nom_feb_classificacio(cel, link):
     t = re.search(r'Equipo\.aspx\?i=\d+"[^>]*title="([^"]+)"', cel) or re.search(r'title="([^"]+)"[^>]*href="[^"]*Equipo\.aspx', cel)
-    nom = htmlmod.unescape(t.group(1) if t else link.group(2)).strip()
+    nom = arregla_codif(htmlmod.unescape(t.group(1) if t else link.group(2))).strip()
     return nom or NOMS_FEB.get(link.group(1)) or ""
 
 
