@@ -1,0 +1,4 @@
+# Copia'l com a local.properties (mai al repositori) i omple'l.
+sdk.dir=/cami/al/Android/Sdk
+# Token de lectura de l'API de TMDB. Sense token, la cartellera funciona igual però sense valoració ni plataformes.
+tmdb.token=

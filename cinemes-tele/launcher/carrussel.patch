@@ -1,0 +1,89 @@
+diff --git a/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java b/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java
+index a68495fe..8b0b5fbd 100644
+--- a/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java
++++ b/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java
+@@ -190,6 +190,8 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+     private boolean lunar;
+     private int lunarOffset;
+     private TextView stats;
++    /** config.xml info_provider: a row of film posters from another app, under the last grid row. */
++    private InfoLine infoLine;
+     private List<RaceWeekend.Race> raceCalendar;
+     private View racePanel;
+     private TextView raceKicker, raceHeadline, raceSessions;
+@@ -530,6 +532,8 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+         btnWifi = findViewById(R.id.btnWifi);
+         shamsiDate = findViewById(R.id.shamsiDate);
+         stats = findViewById(R.id.stats);
++        infoLine = new InfoLine(this, handler, findViewById(R.id.root), findViewById(R.id.grid),
++                getString(R.string.info_provider));
+         raceCalendar = cfg.raceCalendar;
+         racePanel = findViewById(R.id.racePanel);
+         raceKicker = findViewById(R.id.raceKicker);
+@@ -862,6 +866,8 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+             if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) return v.getId() == leftButton;
+             return keyCode == KeyEvent.KEYCODE_DPAD_RIGHT && v.getId() == rightButton;
+         };
++        // Up from the poster row at the bottom: the first tile of the grid's last row.
++        infoLine.setCineUp(() -> focusTile(((adapter.appCount() - 1) / COLUMNS) * COLUMNS));
+         btnInputs.setOnKeyListener(pillKeys);
+         btnWifi.setOnKeyListener(pillKeys);
+         btnVpn.setOnKeyListener(pillKeys);
+@@ -982,6 +988,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+         if (openInputsIfAsked(intent)) return;
+         if (intent == null || !intent.hasCategory(Intent.CATEGORY_HOME)) return;
+         if (gameDay != null && !stopped) gameDay.read();
++        infoLine.forgetFilm();   // Home from a film page goes to the top, not back to its poster
+         grid.scrollToPosition(0);
+         lastFocused = 0;
+         lastFocusedKey = adapter.getItemCount() > 0 ? adapter.keyAt(0) : null;
+@@ -1056,6 +1063,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+         }
+         if (showStats) startStats();
+         if (gameDay != null) gameDay.start();
++        infoLine.start();
+         sky.update();
+         wallpaperPlayer.start();
+         handler.postDelayed(minuteTick, MINUTE_MS);
+@@ -1202,7 +1210,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+         grid.post(() -> {
+             int pos = adapter.positionOf(returnKey);
+             if (returnToLibrary || libraryFocusPending) focusLibrary();
+-            else focusTile(pos >= 0 ? pos : returnSlot);
++            else if (!infoLine.resumeCine()) focusTile(pos >= 0 ? pos : returnSlot);   // back from a film page
+             tilesReady = true;
+             startPendingSettingsReorder();
+             showCardPrompt();
+@@ -1239,6 +1247,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+         if (gameDay != null) gameDay.stop();
+         handler.removeCallbacks(turnTick);
+         if (lamp != null) lamp.stop();
++        infoLine.stop();
+         cancelPendingFocusScroll();
+         // Nothing of ours stays on screen over another app; an undecided prompt simply returns next time.
+         if (cardPrompt != null) cardPrompt.dismiss();
+@@ -2357,6 +2366,7 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+             int lastRowStart = ((count - 1) / COLUMNS) * COLUMNS;
+             if (position >= lastRowStart) {
+                 if (adapter.isLibraryAt(count)) focusLibrary();
++                else infoLine.focusCine();   // info_provider: the poster row under the grid, when there is one
+                 return true;
+             }
+             target = Math.min(position + COLUMNS, count - 1);
+diff --git a/launcher/app/src/main/res/values/config.xml b/launcher/app/src/main/res/values/config.xml
+index 14e30b9d..e08abd97 100644
+--- a/launcher/app/src/main/res/values/config.xml
++++ b/launcher/app/src/main/res/values/config.xml
+@@ -445,6 +445,12 @@
+          online. A theme can set "game_day". -->
+     <string name="game_day" translatable="false"></string>
+ 
++    <!-- A row of film posters under the last grid row, from another app's content provider: its authority, such as
++         cat.latdg.temps. The launcher still has no network; that app fetches and keeps the listings, and the launcher
++         reads content://<authority>/cine every 2 minutes while Home is resumed (columns: InfoLine.java). Empty (the
++         default): nothing is read or shown. -->
++    <string name="info_provider" translatable="false">cat.latdg.temps</string>
++
+     <!-- Time-of-day backdrop behind everything: a dark gradient that follows the clock, with a warm
+          horizon glow around sunrise and sunset. 0 keeps the plain background (the default); 1 to 100
+          sets its opacity. Around 60 reads clearly without hiding a wallpaper. Can also be set with
