@@ -1748,8 +1748,7 @@ function cinFitxa(f) {
 function pintaCinemes() {
   const cos = document.getElementById("cinemesCos");
   const atribucio = `<p class="font">Valoracions i plataformes: <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">TMDB</a> i ` +
-    `<a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>. Aquest producte fa servir l'API de TMDB, però TMDB no l'avala ni el certifica. ` +
-    `<span lang="en">This product uses the TMDB API but is not endorsed or certified by TMDB.</span></p>`;
+    `<a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>. Aquest producte fa servir l'API de TMDB, però TMDB no l'avala ni el certifica.</p>`;
   if (!CIN.length) { cos.innerHTML = '<p class="buit">Ara mateix no hi ha cap pel·lícula a la cartellera.</p>' + atribucio; return; }
   const targetes = copia => CIN.map((f, i) => `<button type="button" class="cin-film" data-i="${i}" aria-expanded="false"${copia ? ' tabindex="-1" aria-hidden="true"' : ""}>${cinPoster(f)}` +
     `<span class="cin-nom">${esc(f.titol)}</span><span class="cin-sub">${esc(cinSub(f, cinPendents(f)))}</span></button>`).join("");
