@@ -976,13 +976,14 @@ async function fonsMapa(mapa, codis, pinta) {
 }
 
 // --- MAPES DE LES INCIDÈNCIES ---
-async function mapaBase(id, codis, atribucio, pinta) {
+async function mapaBase(id, codis, atribucio, pinta, vista) {
   const el = document.getElementById(id);
   if (!el) return null;
   if (typeof L === "undefined") { el.innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return null; }
   const mapa = L.map(el, { zoomSnap: 0.25, scrollWheelZoom: false }).setView([41.95, 3.04], 11);
   mapa.attributionControl.setPrefix("").addAttribution(atribucio + " · Límits: es-atlas (INE)");
-  try { const b = await fonsMapa(mapa, codis, pinta); if (b) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
+  try { const b = await fonsMapa(mapa, codis, pinta); if (b && !vista) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
+  if (vista) mapa.fitBounds(vista, { padding: [4, 4], animate: false });
   return mapa;
 }
 const punt = (mapa, lat, lon, color, radi, tooltip, popup) => lat != null && lon != null &&
@@ -1018,11 +1019,19 @@ async function mapesIncidencies(b) {
     });
   }
   if (b.terratremols && document.getElementById("mapaSismes")) {
-    const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN i EMSC");
+    // 01.11.2026: vista de Catalunya i el sud de França (no la Bisbal), amb França dibuixada
+    const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN i EMSC", null, [[40.3, -0.5], [44.3, 5.4]]);
     if (mapa) {
+      mapa.attributionControl.addAttribution("Països: Natural Earth");
+      try {
+        mapa.createPane("paisos").style.zIndex = 240;   // per sota dels límits de Catalunya
+        const W = await (await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")).json();
+        L.geoJSON(topojson.feature(W, W.objects.countries), { pane: "paisos", interactive: false,
+          style: { color: "#b8b3a8", weight: 1, fillColor: "#f6f5f2", fillOpacity: 1 } }).addTo(mapa);
+        [["França", [44.0, 2.2]], ["Aragó", [41.3, -0.25]]].forEach(([n, ll]) =>
+          L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false }).setLatLng(ll).setContent(n).addTo(mapa));
+      } catch (e) { console.error("Mapa de terratrèmols (països):", e); }
       const cercles = [50, 150].map(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
-      // 01.11.2026: vista una mica més àmplia que Catalunya, centrada al país (no a la Bisbal)
-      mapa.fitBounds([[40.25, -0.35], [43.15, 3.75]], { padding: [4, 4] });
       const ara = Date.now();
       (b.terratremols.llista || []).slice().reverse().forEach(x => {
         const fa = (ara - new Date(x.iso).getTime()) / 3600e3;
