@@ -1,0 +1,46 @@
+# Vehicles nous matriculats (DGT) — La TdG · 01.11.2026
+# Microdades mensuals de la DGT: vehicles matriculats a cada un dels cinc
+# municipis (vegeu vehicles/vehicles.py). Desa dades/vehicles.json, que mostra
+# La TdG redacció (slow). La DGT publica el mes sencer a principis del següent.
+name: Vehicles nous matriculats
+
+on:
+  schedule:
+    - cron: "23 6 3,10,20 * *"
+  push:
+    branches: [main]
+    paths: ["vehicles/vehicles.py", ".github/workflows/vehicles.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vehicles
+  cancel-in-progress: false
+
+jobs:
+  vehicles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          set -o pipefail
+          python vehicles/vehicles.py 2>&1 | tee vehicles/registre.txt
+          git config user.name "La TdG (vehicles)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vehicles/registre.txt; git add dades/vehicles.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Sense canvis"; exit 0; fi
+          git commit -qm "Vehicles nous matriculats ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+          for intent in 1 2 3 4 5 6; do
+            git push -q origin HEAD:main && exit 0
+            sleep $((intent * 10))
+            git fetch -q origin main && git rebase -q origin/main || { git rebase --abort; exit 1; }
+          done
+          exit 1
