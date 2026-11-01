@@ -181,9 +181,10 @@ def llegeix_futbol(eq):
             if str(m.get("CERRADA")) == "1" and gc0 is not None and gf0 is not None:
                 try:
                     gc0, gf0 = int(gc0), int(gf0)
-                    rj = per_jornada.setdefault(str(jornada), {})
-                    rj[casa] = "G" if gc0 > gf0 else "E" if gc0 == gf0 else "P"
-                    rj[fora] = "G" if gf0 > gc0 else "E" if gc0 == gf0 else "P"
+                    # Per data del partit (un ajornat es juga més tard que la seva jornada).
+                    quan = str(m.get("COMIENZO1") or "") + "|" + str(jornada).zfill(3)
+                    per_jornada.setdefault(casa, []).append((quan, "G" if gc0 > gf0 else "E" if gc0 == gf0 else "P"))
+                    per_jornada.setdefault(fora, []).append((quan, "G" if gf0 > gc0 else "E" if gc0 == gf0 else "P"))
                 except (TypeError, ValueError):
                     pass
             if eq["codi"] not in (casa, fora):
@@ -220,9 +221,8 @@ def llegeix_futbol(eq):
             "pp": num(r.get("lost")), "pf": num(r.get("goalsFor")), "pc": num(r.get("goalsAgainst")),
             "punts": num(r.get("points")),
             # Cinc darrers partits, del més antic al més recent («G-E-P»).
-            "ratxa": "-".join(per_jornada[j][str(team.get("teamId"))] for j in
-                              sorted(per_jornada, key=lambda x: int(x) if x.isdigit() else 0)
-                              if str(team.get("teamId")) in per_jornada[j])[-9:] or ratxa_fcf(r.get("form")),
+            "ratxa": "-".join(x for _, x in sorted(per_jornada.get(str(team.get("teamId")), [])))[-9:]
+                     or ratxa_fcf(r.get("form")),
             "propi": str(team.get("teamId")) == eq["codi"],
             # 27.10.2026: només l'escut dels nostres equips, no el dels rivals.
             "escut": escut_fcf(team.get("logo")) if str(team.get("teamId")) == eq["codi"] else "",
