@@ -94,6 +94,31 @@ def text(html):
     return re.sub(r" *\n[ \n]*", "\n", t).strip()
 
 
+def normalitza_nom(nom):
+    t = "".join(c for c in unicodedata.normalize("NFD", nom.lower()) if not unicodedata.category(c).startswith("M"))
+    return set(re.findall(r"[a-z0-9]+", t))
+
+
+def mateixa_persona(a, b):
+    """«Na Hong-Jin» i «Hong-jin Na» són la mateixa; n'hi ha prou amb dues paraules en comú (o el nom sencer si només en té una)."""
+    x, y = normalitza_nom(a), normalitza_nom(b)
+    return bool(x) and (x == y or len(x & y) >= 2)
+
+
+def persones(text):
+    return [n.strip() for n in re.split(r"\s*(?:,|/|&|;|\s+i\s+|\s+y\s+|\s+and\s+)\s*", text or "") if n.strip()]
+
+
+def uneix_directors(*llistes):
+    """Tots els directors, sense repetir: «Steve Cox i Matthew Walker», «A, B i C»."""
+    noms = []
+    for t in llistes:
+        for n in persones(t):
+            if not any(mateixa_persona(n, x) for x in noms):
+                noms.append(n)
+    return ", ".join(noms[:-1]) + " i " + noms[-1] if len(noms) > 1 else "".join(noms)
+
+
 def frase(s):
     return s[:1].upper() + s[1:].lower() if s and len(s) >= 2 else s
 
@@ -129,7 +154,7 @@ def film(films, titol):
     if k not in films:
         films[k] = {"key": k, "titol": titol.strip(), "sinopsi": "", "durada": "", "genere": "", "edat": "", "director": "",
                     "actors": "", "estrena": "", "posterUrl": "", "posterJpeg": None, "posterDesat": "", "web": "",
-                    "qualitat": 0, "sinopsiEs": False, "genereEs": False, "edatEs": False, "sessions": [], "tmdb": None}
+                    "qualitat": 0, "titolCa": "", "sinopsiEs": False, "genereEs": False, "edatEs": False, "sessions": [], "tmdb": None}
     return films[k]
 
 
@@ -148,7 +173,7 @@ def completa(f, qualitat, titol="", sinopsi="", durada="", genere="", edat="", d
         f["edatEs"] = qualitat == 1
     if not f["durada"] and durada:
         f["durada"] = re.sub(r"\D", "", durada).lstrip("0")   # OCINE posa 0 quan encara no la sap
-    f["director"] = f["director"] or director.strip()
+    f["director"] = uneix_directors(f["director"], director)
     f["actors"] = f["actors"] or actors.strip()
     if not f["estrena"] and re.match(r"\d{4}-\d{2}-\d{2}", estrena):
         f["estrena"] = estrena[:10]
@@ -299,6 +324,7 @@ def montgri(films, ara):
                 f["sessions"].append(sessio("Cinema Montgrí", data, hora, ms.group(5) or ""))
         if nou:
             f["web"] = f["web"] or url
+            f["titolCa"] = f["titolCa"] or titol
             try:
                 montgri_fitxa(f, url)
             except Exception:
@@ -339,6 +365,7 @@ def agenda_fitxa(url, nom, films):
         return
     titol = titol_cas(re.sub(r"(?i)^cinema\.\s*", "", titol))
     f = film(films, titol)
+    f["titolCa"] = f["titolCa"] or titol
     cos = cos_fitxa(html)
     completa(f, 2, titol, sinopsi, primer(cos, r"Durada:\s*(\d+)"), primer(cos, r"Gènere:\s*([^\n]+)"), primer(cos, r"Qualificació:\s*([^\n]+)"),
              primer(cos, r"Direcció:\s*([^\n]+)"), primer(cos, r"Intèrprets:\s*([^\n]+)"))
@@ -375,9 +402,12 @@ def recupera(fallats, films):
                        for s in ss if s.get("cinema") in fallats]
         if not recuperades and not (ocine_ha_fallat and not ss):
             continue
-        f = film(films, v.get("titol", ""))
+        font = v.get("titolFont") or v.get("titol", "")
+        f = film(films, font)
+        if v.get("titol") and v["titol"] != font:
+            f["titolCa"] = f["titolCa"] or v["titol"]
         # 2: el que es va desar ja era en català (traduït si calia)
-        completa(f, 2, v.get("titol", ""), v.get("sinopsi", ""), v.get("durada", ""), v.get("genere", ""), v.get("edat", ""),
+        completa(f, 2, font, v.get("sinopsi", ""), v.get("durada", ""), v.get("genere", ""), v.get("edat", ""),
                  v.get("director", ""), v.get("actors", ""), v.get("estrena", ""))
         f["web"] = f["web"] or v.get("web", "")
         if v.get("poster", "").startswith("dades/cinemes/"):
@@ -396,26 +426,53 @@ def tmdb_get(token, cami, **params):
     return r.json()
 
 
-def tmdb_cerca(token, f, idioma):
-    """El resultat que millor s'hi assembla: mateix títol, l'any més proper a l'estrena, el més popular."""
-    res = tmdb_get(token, "/search/movie", region="ES", language=idioma, query=re.sub(r"\([^)]*\)", "", f["titol"]).strip()).get("results") or []
-    any_ref = int(f["estrena"][:4]) if f["estrena"] else datetime.now(ZONA).year
-    igual = lambda o: f["key"] in (clau(o.get("title") or ""), clau(o.get("original_title") or ""))
-    any_de = lambda o: int((o.get("release_date") or "0")[:4] or 0)
+def tmdb_candidates(token, f):
+    """Els resultats de la cerca en català, castellà i anglès: una pel·lícula pot tenir el títol en un sol idioma."""
+    consulta = re.sub(r"\([^)]*\)", "", f["titol"]).strip()
+    trobades = {}
+    for idioma in ("ca-ES", "es-ES", "en-US"):
+        for o in tmdb_get(token, "/search/movie", region="ES", language=idioma, query=consulta).get("results") or []:
+            c = trobades.setdefault(o["id"], {"o": o, "titols": set()})
+            c["titols"] |= {clau(o.get("title") or ""), clau(o.get("original_title") or "")}
+    return list(trobades.values())
 
-    def punts(o):
-        p = (1000 if igual(o) else 0) + min(o.get("popularity") or 0, 200) / 10
-        if any_de(o) > 0:
-            p -= abs(any_de(o) - any_ref) * 20
-        return p
-    millor = max(res, key=punts, default=None)
-    # Sense títol igual, només si és d'aquest any o del passat: si no, millor res que una altra pel·lícula
-    if millor and not igual(millor) and (any_de(millor) == 0 or abs(any_de(millor) - any_ref) > 1):
-        return None
-    # Amb el títol igual, tampoc una d'antiga («Hope» de 2016 per la de 2026), tret que el cinema digui que és una reestrena
-    if millor and any_de(millor) and abs(any_de(millor) - any_ref) > 3 and not re.search(r"(?i)reestren|aniversari", f["titol"]):
-        return None
-    return millor
+
+def tmdb_fitxa(token, peli):
+    return tmdb_get(token, f"/movie/{peli}", language="ca-ES", append_to_response="watch/providers,credits,translations")
+
+
+def tmdb_directors(d):
+    return [c.get("name") or "" for c in (d.get("credits") or {}).get("crew") or [] if c.get("job") == "Director"]
+
+
+def tmdb_tria(token, f):
+    """
+    La fitxa de TMDB d'aquesta pel·lícula, comprovada amb el director i, si no se sap, amb l'any; None si no es pot
+    assegurar: millor res que una altra pel·lícula del mateix títol («Hope» d'Ahmed Zayani per la de Na Hong-jin).
+    Si la font i TMDB diuen el director, mana ell: amb el mateix, és aquesta; amb un altre, no ho és, encara que el
+    títol i l'any coincideixin. Si no, cal el títol igual i l'any de l'estrena (o l'actual) amb un marge d'un any.
+    """
+    any_ref = int(f["estrena"][:4]) if f["estrena"] else datetime.now(ZONA).year
+    reestrena = bool(re.search(r"(?i)reestren|aniversari", f["titol"]))
+    any_de = lambda c: int((c["o"].get("release_date") or "0")[:4] or 0)
+    igual = lambda c: f["key"] in c["titols"]
+
+    def punts(c):
+        p = (1000 if igual(c) else 0) + min(c["o"].get("popularity") or 0, 200) / 10
+        return p - abs(any_de(c) - any_ref) * 20 if any_de(c) else p
+    reserva = None
+    for c in sorted(tmdb_candidates(token, f), key=punts, reverse=True)[:10]:
+        if not igual(c) and not f["director"]:
+            continue   # sense títol igual ni director, res no diu que sigui aquesta
+        d = tmdb_fitxa(token, c["o"]["id"])
+        directors = tmdb_directors(d)
+        if f["director"] and directors:
+            if any(mateixa_persona(a, b) for a in persones(f["director"]) for b in directors):
+                return d, "director"
+            continue
+        if reserva is None and igual(c) and (reestrena or (any_de(c) and abs(any_de(c) - any_ref) <= 1)):
+            reserva = d
+    return reserva, "any"
 
 
 def tmdb_poster(token, peli, d, castella):
@@ -432,13 +489,14 @@ def tmdb_poster(token, peli, d, castella):
 
 
 def tmdb_consulta(token, f):
-    tria = tmdb_cerca(token, f, "ca-ES") or tmdb_cerca(token, f, "es-ES")
-    if not tria:
-        return {}
-    peli = tria["id"]
-    d = tmdb_get(token, f"/movie/{peli}", language="ca-ES", append_to_response="watch/providers")
+    d, comprovat = tmdb_tria(token, f)
+    if not d:
+        return {"v": 4}
+    peli = d["id"]
     castella = tmdb_get(token, f"/movie/{peli}", language="es-ES")
-    sinopsi = d.get("overview") or ""
+    # Només la traducció de veritat: si no en té, TMDB torna el títol original com a «title»
+    catala = next((t.get("data") or {} for t in (d.get("translations") or {}).get("translations") or [] if t.get("iso_639_1") == "ca"), {})
+    sinopsi = catala.get("overview") or d.get("overview") or ""
     sinopsi_es = not sinopsi and bool(castella.get("overview"))
     es = ((d.get("watch/providers") or {}).get("results") or {}).get("ES") or {}
     plataformes = []
@@ -447,7 +505,8 @@ def tmdb_consulta(token, f):
             nom = PLATAFORMES.get(p.get("provider_id")) or re.sub(r"(?i)\s+(standard with ads|with ads|amazon channel|basic)$", "", p.get("provider_name") or "").strip()
             if nom and nom not in plataformes:
                 plataformes.append(nom)
-    return {"v": 3, "titolTmdb": tria.get("title") or "", "original": tria.get("original_title") or "", "dataTmdb": tria.get("release_date") or "",
+    return {"v": 4, "comprovat": comprovat, "titolCa": catala.get("title") or "", "directors": tmdb_directors(d), "original": d.get("original_title") or "",
+            "idiomaOriginal": d.get("original_language") or "", "dataTmdb": d.get("release_date") or "", "sinopsiCa": catala.get("overview") or "",
             "id": peli, "nota": d.get("vote_average") or 0, "vots": d.get("vote_count") or 0, "sinopsi": sinopsi or castella.get("overview") or "",
             "sinopsi_es": sinopsi_es, "poster": tmdb_poster(token, peli, d, castella), "plataformes": plataformes, "enllac": es.get("link") or ""}
 
@@ -465,7 +524,7 @@ def tmdb_enriqueix(films):
     nou, ara = {}, datetime.now(timezone.utc).timestamp()
     for f in films:
         r = desat.get(f["key"])
-        if not r or r.get("v") != 3 or ara - r.get("t", 0) > VIGENCIA_TMDB:
+        if not r or r.get("v") != 4 or ara - r.get("t", 0) > VIGENCIA_TMDB:
             try:
                 r = {**tmdb_consulta(token, f), "t": ara}
             except Exception as e:
@@ -474,6 +533,8 @@ def tmdb_enriqueix(films):
                     continue   # sense xarxa: es fa servir la darrera resposta, si n'hi ha
         nou[f["key"]] = r
         f["tmdb"] = r
+        if r.get("id"):
+            f["director"] = uneix_directors(f["director"], ", ".join(r.get("directors") or []))
         if not f["sinopsi"]:
             f["sinopsi"] = r.get("sinopsi", "")
             f["sinopsiEs"] = bool(r.get("sinopsi_es"))
@@ -488,6 +549,62 @@ def tmdb_enriqueix(films):
 
 # ---------------------------------------------------------------- traductor
 
+# Els gèneres i les edats arriben barrejats: «Ciencia ficció», «Comèdia de accion», «Pendent de calificacion».
+CATALA = {"ciencia ficcio": "Ciència-ficció", "ciencia ficcion": "Ciència-ficció", "comedia de accio": "Comèdia d'acció", "comedia de accion": "Comèdia d'acció",
+          "biografia": "Biografia", "biopic": "Biografia", "biografica": "Biografia", "animacion": "Animació", "accion": "Acció", "aventuras": "Aventures",
+          "comedia": "Comèdia", "suspense": "Suspens", "drama romantica": "Drama romàntic", "drama romantico": "Drama romàntic", "comedia familiar": "Comèdia familiar",
+          "pendent de calificacion": "Pendent de qualificació", "pendiente de calificacion": "Pendent de qualificació", "pendiente de clasificacion": "Pendent de qualificació",
+          "todos los publicos": "Tots els públics"}
+ES_NOMES = set("los las unos unas con por para y pero como más este esta cuando su sus".split())
+CA_NOMES = set("els les uns unes amb per dels i però com més aquest aquesta quan seu seva".split())
+
+
+def sense_marques(t):
+    """L'asterisc que deixen els traductors automàtics davant dels mots que no coneixen: «Bum-*seok» -> «Bum-seok»."""
+    return re.sub(r"\*(?=\w)", "", t or "")
+
+
+def en_castella(t):
+    paraules = re.findall(r"[^\W\d_]+", (t or "").lower())
+    return sum(x in ES_NOMES for x in paraules) > sum(x in CA_NOMES for x in paraules)
+
+
+def catala_de(t):
+    """Gènere o edat en català, peça a peça («Biografía, Drama»)."""
+    def peca(x):
+        k = "".join(c for c in unicodedata.normalize("NFD", x.strip().lower()) if not unicodedata.category(c).startswith("M"))
+        return CATALA.get(k, x.strip())
+    return ", ".join(peca(x) for x in (t or "").split(",") if x.strip())
+
+
+def titol_catala(f, t):
+    """El títol de les webs en català; si no, la traducció de TMDB; si no, l'original si no és castellà; si no, traduït."""
+    r = f["tmdb"] or {}
+    if f["titolCa"]:
+        return f["titolCa"]
+    if r.get("titolCa"):
+        return r["titolCa"]
+    if r.get("id") and clau(f["titol"]) == clau(r.get("original") or "") and r.get("idiomaOriginal") != "es":
+        return f["titol"]
+    return t.tradueix(f["titol"])
+
+
+def fusiona(g, f):
+    """f és la mateixa pel·lícula que g: una sola, amb totes les sessions."""
+    g["sessions"] = sorted(g["sessions"] + [s for s in f["sessions"] if s not in g["sessions"]], key=lambda s: (s["data"], s["hora"], s["cinema"]))
+    g["director"] = uneix_directors(g["director"], f["director"])
+    g["titolCa"] = g["titolCa"] or f["titolCa"]
+    g["durada"] = g["durada"] or f["durada"]
+    g["web"] = g["web"] or f["web"]
+
+
+def mateix_director(g, f):
+    """Títols en idiomes diferents, sense TMDB: el mateix director i la mateixa durada (amb 5 minuts de marge)."""
+    if not any(mateixa_persona(a, b) for a in persones(g["director"]) for b in persones(f["director"])):
+        return False
+    return not (g["durada"] and f["durada"]) or abs(int(g["durada"]) - int(f["durada"])) <= 5
+
+
 class Traductor:
     """Del castellà al català amb Softcatalà. Cada text es tradueix una sola vegada: es desa a traduccions.json."""
 
@@ -501,7 +618,7 @@ class Traductor:
         if not castella or not castella.strip():
             return castella
         if castella in self.desades:
-            return self.desades[castella]
+            return sense_marques(self.desades[castella])
         try:
             r = requests.post(TRADUCTOR, data={"langpair": "es|ca", "markUnknown": "no", "q": castella}, timeout=(10, 20))
             catala = r.json()["responseData"]["translatedText"] if r.status_code == 200 else ""
@@ -510,7 +627,7 @@ class Traductor:
         if not catala:
             return castella   # es tornarà a provar la vegada següent
         self.desades[castella] = catala
-        return catala
+        return sense_marques(catala)
 
     def desa(self):
         CAU_TRADUCCIONS.write_text(json.dumps(self.desades, ensure_ascii=False, indent=0), encoding="utf-8")
@@ -584,34 +701,48 @@ def main():
     tots = amb_sessions + sorted(properes, key=lambda f: f["estrena"])[:MAX_PROPERES]
 
     amb_tmdb = tmdb_enriqueix(tots)
-    # La mateixa pel·lícula amb dos títols («Superthings: La película» i «La pel·lícula»): una sola, amb totes les sessions
+    # La mateixa pel·lícula amb dos títols («La oveja Shaun» i «L'ovella Shaun»): una sola, amb totes les sessions
     per_id, unics = {}, []
     for f in tots:
         peli = (f["tmdb"] or {}).get("id")
-        if peli not in per_id or not peli:
-            per_id[peli] = f
-            unics.append(f)
+        if peli and peli in per_id:
+            fusiona(per_id[peli], f)
             continue
-        g = per_id[peli]
-        g["sessions"] = sorted(g["sessions"] + [s for s in f["sessions"] if s not in g["sessions"]], key=lambda s: (s["data"], s["hora"], s["cinema"]))
-        if f["qualitat"] > g["qualitat"]:
-            g["titol"], g["qualitat"] = f["titol"], f["qualitat"]
-    tots = unics
+        if peli:
+            per_id[peli] = f
+        unics.append(f)
+    tots = []
+    for f in sorted(unics, key=lambda x: not (x["tmdb"] or {}).get("id")):
+        g = None if (f["tmdb"] or {}).get("id") or not f["director"] else next((x for x in tots if mateix_director(x, f)), None)
+        if g:
+            fusiona(g, f)
+        else:
+            tots.append(f)
+    tots.sort(key=lambda f: f["estrena"], reverse=True)
+    tots.sort(key=lambda f: (propera(f, avui, hora) or {"data": "9999"})["data"])
+    tots.sort(key=lambda f: not f["sessions"])
     # Tot en català: el que només ha arribat en castellà es tradueix (una vegada; queda desat)
     t = Traductor()
     for f in tots:
-        if f["sinopsiEs"]:
-            f["sinopsi"] = t.tradueix(f["sinopsi"])
+        f["titolFont"] = f["titol"]
+        f["titol"] = titol_catala(f, t)
+        if f["sinopsiEs"] or en_castella(f["sinopsi"]):
+            f["sinopsi"] = (f["tmdb"] or {}).get("sinopsiCa") or t.tradueix(f["sinopsi"])
         if f["genereEs"]:
             f["genere"] = frase(t.tradueix(f["genere"]))
         if f["edatEs"]:
             f["edat"] = frase(t.tradueix(f["edat"]))
+        f["genere"], f["edat"] = catala_de(f["genere"]), catala_de(f["edat"])
+        if f["edat"].lower() == f["genere"].lower():
+            f["edat"] = ""   # l'Odeon a vegades hi posa el gènere
+        for k in ("titol", "sinopsi", "genere", "edat"):
+            f[k] = sense_marques(f[k])
     t.desa()
 
     llista = []
     for f in tots:
         poster = (desa_poster(f) if f["posterJpeg"] else f["posterDesat"]) or segur(f["posterUrl"])
-        fila = {k: f[k] for k in ("key", "titol", "sinopsi", "durada", "genere", "edat", "director", "actors", "estrena")}
+        fila = {k: f[k] for k in ("key", "titol", "titolFont", "sinopsi", "durada", "genere", "edat", "director", "actors", "estrena")}
         if fila["actors"].lower() == fila["genere"].lower():
             fila["actors"] = ""   # OCINE posa «Animació» com a repartiment
         fila.update(poster=poster, web=segur(f["web"]), sessions=f["sessions"])

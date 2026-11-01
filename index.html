@@ -1749,14 +1749,40 @@ function pintaCinemes() {
     `<a href="https://www.justwatch.com/" target="_blank" rel="noopener">JustWatch</a>. Aquest producte fa servir l'API de TMDB, però TMDB no l'avala ni el certifica. ` +
     `<span lang="en">This product uses the TMDB API but is not endorsed or certified by TMDB.</span></p>`;
   if (!CIN.length) { cos.innerHTML = '<p class="buit">Ara mateix no hi ha cap pel·lícula a la cartellera.</p>' + atribucio; return; }
+  const targetes = copia => CIN.map((f, i) => `<button type="button" class="cin-film" data-i="${i}" aria-expanded="false"${copia ? ' tabindex="-1" aria-hidden="true"' : ""}>${cinPoster(f)}` +
+    `<span class="cin-nom">${esc(f.titol)}</span><span class="cin-sub">${esc(cinSub(f, cinPendents(f)))}</span></button>`).join("");
+  // Carrusel circular: tres còpies de la llista, sempre a la del mig. Quan el moviment s'atura fora d'ella, es
+  // torna a l'equivalent del mig, que és idèntic: es veu continu amb les fletxes i lliscant el dit.
   cos.innerHTML = `<div class="cin-marc"><button type="button" class="cin-fletxa ant" aria-label="Anteriors">‹</button>` +
-    `<div class="cin-fila">${CIN.map((f, i) => `<button type="button" class="cin-film" data-i="${i}" aria-expanded="false">${cinPoster(f)}` +
-      `<span class="cin-nom">${esc(f.titol)}</span><span class="cin-sub">${esc(cinSub(f, cinPendents(f)))}</span></button>`).join("")}</div>` +
+    `<div class="cin-fila">${targetes(true)}${targetes(false)}${targetes(true)}</div>` +
     `<button type="button" class="cin-fletxa seg" aria-label="Següents">›</button></div>` +
     `<div class="cin-fitxa" id="cinemesFitxa" aria-live="polite" hidden></div>` + atribucio;
   const fila = cos.querySelector(".cin-fila"), fitxa = cos.querySelector("#cinemesFitxa");
-  cos.querySelector(".cin-fletxa.ant").onclick = () => fila.scrollBy({ left: -fila.clientWidth * .8, behavior: "smooth" });
-  cos.querySelector(".cin-fletxa.seg").onclick = () => fila.scrollBy({ left: fila.clientWidth * .8, behavior: "smooth" });
+  const n = CIN.length, volta = fila.children[n].offsetLeft - fila.children[0].offsetLeft;
+  if (volta > fila.clientWidth) {
+    const alCentre = () => {
+      if (fila.scrollLeft < volta) fila.scrollLeft += volta;
+      else if (fila.scrollLeft >= 2 * volta) fila.scrollLeft -= volta;
+    };
+    let dit = false, espera = null;
+    fila.scrollLeft = volta;
+    fila.addEventListener("touchstart", () => { dit = true; }, { passive: true });
+    ["touchend", "touchcancel"].forEach(t => fila.addEventListener(t, () => { dit = false; }, { passive: true }));
+    fila.addEventListener("scroll", () => {
+      clearTimeout(espera);
+      // Arribar a l'extrem no pot esperar; si no, quan s'atura i sense el dit a sobre.
+      if (fila.scrollLeft <= 1 || fila.scrollLeft >= fila.scrollWidth - fila.clientWidth - 1) { alCentre(); return; }
+      const prova = () => { if (dit) espera = setTimeout(prova, 150); else alCentre(); };
+      espera = setTimeout(prova, 150);
+    }, { passive: true });
+    const mou = sentit => { alCentre(); fila.scrollBy({ left: sentit * fila.clientWidth * .8, behavior: "smooth" }); };
+    cos.querySelector(".cin-fletxa.ant").onclick = () => mou(-1);
+    cos.querySelector(".cin-fletxa.seg").onclick = () => mou(1);
+  } else {
+    // Hi caben totes: no cal donar voltes.
+    Array.from(fila.children).forEach((b, i) => { if (i < n || i >= 2 * n) b.remove(); });
+    cos.querySelectorAll(".cin-fletxa").forEach(b => b.remove());
+  }
   const tanca = () => {
     fitxa.hidden = true;
     fila.querySelectorAll(".cin-film").forEach(b => { b.classList.remove("actiu"); b.setAttribute("aria-expanded", "false"); });
@@ -1767,11 +1793,11 @@ function pintaCinemes() {
     const ja = b.classList.contains("actiu");
     tanca();
     if (ja) return;
-    b.classList.add("actiu");
+    fila.querySelectorAll(`.cin-film[data-i="${b.dataset.i}"]`).forEach(x => x.classList.add("actiu"));
     b.setAttribute("aria-expanded", "true");
     fitxa.innerHTML = cinFitxa(CIN[+b.dataset.i]);
     fitxa.hidden = false;
-    fitxa.querySelector(".cin-tanca").onclick = () => { tanca(); b.focus(); };
+    fitxa.querySelector(".cin-tanca").onclick = () => { tanca(); b.focus({ preventScroll: true }); };
     fitxa.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 }
