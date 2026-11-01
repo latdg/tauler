@@ -11,7 +11,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
-.ratxa{display:inline-flex;gap:3px;vertical-align:middle}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block}.ratxa .rV{background:#aacc00}.ratxa .rD{background:#f01330}.ratxa .rX{background:#565656}
+.ratxa{display:inline-flex;gap:3px;vertical-align:middle;white-space:nowrap}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}.ratxa .rV{background:#aacc00}.ratxa .rD{background:#f01330}.ratxa .rX{background:#565656}
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -53,6 +53,11 @@ details.classif>summary .pos{color:var(--accent);font-weight:600;font-size:.9rem
 .classif-botons button{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font:inherit}
 .classif th:nth-child(1),.classif td:nth-child(1){width:7%}
 .classif th:nth-child(2),.classif td:nth-child(2){width:37%;overflow:hidden;text-overflow:ellipsis}
+/* 01.11.2026: taules amb ratxa en punts de colors: columna prou ampla perquè hi càpiguen els cinc punts. */
+.classif table:has(.ratxa){min-width:720px}
+.classif table:has(.ratxa) th:nth-child(2){width:30%}
+.classif table:has(.ratxa) th:last-child{width:92px}
+.classif td:has(> .ratxa){white-space:nowrap;overflow:visible}
 ul{margin:0;padding-left:20px}
 .buit{color:var(--suau)}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
