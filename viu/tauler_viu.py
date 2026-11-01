@@ -1618,7 +1618,7 @@ def talls_aigua():
     return {"consultat": ara().isoformat(), "talls": sortida}
 
 
-# --- TERRATRÈMOLS (IGN) ------------------------------------------------------
+# --- TERRATRÈMOLS (IGN + EMSC, 01.11.2026) ------------------------------------------------------
 SISMES_URL = "https://www.ign.es/ign/RssTools/sismologia.xml"
 SISMES_RADI_KM = 300       # el mapa: Catalunya, el Pirineu i el golf de Lleó
 SISMES_DIES = 30           # el canal en dona 10; el tauler n'acumula 30
@@ -1642,6 +1642,44 @@ def sisme_lloc(text):
               "d'" + nom if re.match(r"^[AEIOUÀÈÉÍÒÓÚH]", nom, re.I) else "de " + nom)
         nom = ("a l'" if direccio[0] in "EO" else "al ") + direccio + " " + de
     return nom + (f" ({zona})" if zona else "")
+
+
+SISMES_EMSC_URL = "https://www.seismicportal.eu/fdsnws/event/1/query"
+SISMES_EMSC_REGIONS = {
+    "PYRENEES": "Pirineus", "FRANCE": "França", "SPAIN": "Espanya", "SOUTHERN FRANCE": "sud de França",
+    "WESTERN MEDITERRANEAN SEA": "Mediterrània occidental", "GULF OF LION": "golf de Lleó",
+    "EASTERN PYRENEES": "Pirineus orientals", "PYRENEES-ORIENTALES, FRANCE": "Pirineus Orientals (França)",
+    "CATALONIA, SPAIN": "Catalunya", "BALEARIC ISLANDS, SPAIN": "Illes Balears", "ANDORRA": "Andorra",
+}
+
+
+def sismes_emsc():
+    """Terratrèmols de l'EMSC dels darrers 10 dies a menys de SISMES_RADI_KM (mateix format que els de l'IGN)."""
+    inici = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=10)).strftime("%Y-%m-%dT%H:%M:%S")
+    r = requests.get(SISMES_EMSC_URL, headers=CAPCALERES, timeout=60, params={
+        "format": "json", "limit": 500, "lat": BISBAL[0], "lon": BISBAL[1],
+        "maxradius": round(SISMES_RADI_KM / 111.2, 2), "start": inici})
+    if r.status_code == 204:
+        return []
+    r.raise_for_status()
+    sortida = []
+    for f in r.json().get("features", []):
+        p = f.get("properties") or {}
+        lat, lon, mag = num(p.get("lat")), num(p.get("lon")), num(p.get("mag"))
+        unid = p.get("unid") or f.get("id")
+        if not unid or lat is None or lon is None or mag is None or not p.get("time"):
+            continue
+        d = dt.datetime.fromisoformat(str(p["time"]).replace("Z", "+00:00"))
+        km = distancia_km(*BISBAL, lat, lon)
+        regio = str(p.get("flynn_region") or "").strip().upper()
+        sortida.append({
+            "id": "emsc:" + unid, "font": "EMSC", "magnitud": mag,
+            "lloc": SISMES_EMSC_REGIONS.get(regio, regio.title()), "iso": d.isoformat(), "data": dh(d),
+            "lat": round(lat, 4), "lon": round(lon, 4), "km": round(km), "rumb": rumb(*BISBAL, lat, lon),
+            "enllac": "https://www.seismicportal.eu/eventdetails.html?unid=" + unid,
+            "avis": (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
+        })
+    return sortida
 
 
 def terratremols():
@@ -1673,6 +1711,15 @@ def terratremols():
             # Els llindars d'avís de l'avisador: M 2,5 a menys de 50 km, o M 4 a menys de 150 km.
             "avis": (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
         }
+    # 01.11.2026: reforç amb l'EMSC (França, golf de Lleó, Mediterrània), com al bot
+    # d'alertes. Els que l'IGN ja dona (menys de 90 s i 40 km de diferència) es descarten.
+    try:
+        for x in sismes_emsc():
+            if not any(abs(dt.datetime.fromisoformat(y["iso"]).timestamp() - dt.datetime.fromisoformat(x["iso"]).timestamp()) <= 90
+                       and distancia_km(y["lat"], y["lon"], x["lat"], x["lon"]) <= 40 for y in nous.values()):
+                nous[x["id"]] = x
+    except Exception as e:  # si l'EMSC no respon, el bloc continua només amb l'IGN
+        print("Terratrèmols (EMSC):", e)
     limit = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=SISMES_DIES)).isoformat()
     vell = {x["id"]: x for x in ((anterior("terratremols") or {}).get("llista") or [])}
     vell.update(nous)

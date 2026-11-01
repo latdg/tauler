@@ -875,13 +875,13 @@ function blocsIncidencies(b) {
     const t = b.terratremols, ll = t.llista || [];
     const destacats = ll.filter(x => x.avis || x.km < 100).slice(0, 12);
     s.sismes = seccio("🌍 Terratrèmols",
-      consulta(t.consultat, "Instituto Geográfico Nacional (IGN)") +
+      consulta(t.consultat, "Instituto Geográfico Nacional (IGN) i Centre Sismològic Euromediterrani (EMSC)") +
       `<div class="xifres"><div class="xifra"><b>${ll.length}</b><span>terratrèmols els darrers ${t.dies || 30} dies a menys de ${t.radi || 300} km</span></div>` +
       `<div class="xifra"><b>${ll.filter(x => x.km < 100).length}</b><span>a menys de 100 km</span></div></div>` +
       '<div class="mapa-inc" id="mapaSismes"></div>' +
       '<div class="llegenda"><span><i style="background:#d7191c"></i>darreres 24 h</span><span><i style="background:#f39200"></i>darrers 7 dies</span><span><i style="background:#9a958a"></i>més antics</span><span>Cercles: 50 i 150 km de la Bisbal</span></div>' +
       (destacats.length ? "<h3>Els més propers o que han superat els llindars d'avís</h3><ul class=\"avisos\">" + destacats.map(x =>
-          `<li><b>M ${num(x.magnitud)}</b> ${esc(x.lloc)}${x.avis ? " ⚠️" : ""}<span class="coord">${esc(x.data)} · a ${x.km} km de la Bisbal, ${esc(x.rumb)} · <a href="${esc(x.enllac)}" target="_blank" rel="noopener">fitxa de l'IGN</a></span></li>`).join("") + "</ul>"
+          `<li><b>M ${num(x.magnitud)}</b> ${esc(x.lloc)}${x.avis ? " ⚠️" : ""}<span class="coord">${esc(x.data)} · a ${x.km} km de la Bisbal, ${esc(x.rumb)} · <a href="${esc(x.enllac)}" target="_blank" rel="noopener">fitxa ${x.font === "EMSC" ? "de l'EMSC" : "de l'IGN"}</a></span></li>`).join("") + "</ul>"
         : '<p class="buit">Cap terratrèmol a menys de 100 km aquests dies.</p>') +
       '<p class="font">⚠️ Supera un llindar d\'avís: magnitud 2,5 o més a menys de 50 km, o magnitud 4 o més a menys de 150 km. Si n\'has notat un, pots explicar-ho a l\'<a href="https://www.ign.es/web/ign/portal/sis-cuestionario-macrosismico" target="_blank" rel="noopener">IGN</a>.</p>',
       "", false);
@@ -1018,7 +1018,7 @@ async function mapesIncidencies(b) {
     });
   }
   if (b.terratremols && document.getElementById("mapaSismes")) {
-    const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN");
+    const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN i EMSC");
     if (mapa) {
       const cercles = [50, 150].map(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
       mapa.fitBounds(cercles[1].getBounds(), { padding: [6, 6] });
@@ -1027,7 +1027,7 @@ async function mapesIncidencies(b) {
         const fa = (ara - new Date(x.iso).getTime()) / 3600e3;
         punt(mapa, x.lat, x.lon, fa < 24 ? "#d7191c" : fa < 168 ? "#f39200" : "#9a958a", 3 + Math.max(0, x.magnitud) * 2.2,
           `M ${num(x.magnitud)} · ${x.lloc}`,
-          `<b>Magnitud ${num(x.magnitud)}</b><br>${esc(x.lloc)}<br>${esc(x.data)}<br>A ${x.km} km de la Bisbal, ${esc(x.rumb)}<br><a href="${esc(x.enllac)}" target="_blank" rel="noopener">Fitxa de l'IGN</a>`);
+          `<b>Magnitud ${num(x.magnitud)}</b><br>${esc(x.lloc)}<br>${esc(x.data)}<br>A ${x.km} km de la Bisbal, ${esc(x.rumb)}<br><a href="${esc(x.enllac)}" target="_blank" rel="noopener">Fitxa ${x.font === "EMSC" ? "de l'EMSC" : "de l'IGN"}</a>`);
       });
     }
   }
