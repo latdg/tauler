@@ -147,7 +147,7 @@ def completa(f, qualitat, titol="", sinopsi="", durada="", genere="", edat="", d
         f["edat"] = edat.strip()
         f["edatEs"] = qualitat == 1
     if not f["durada"] and durada:
-        f["durada"] = re.sub(r"\D", "", durada)
+        f["durada"] = re.sub(r"\D", "", durada).lstrip("0")   # OCINE posa 0 quan encara no la sap
     f["director"] = f["director"] or director.strip()
     f["actors"] = f["actors"] or actors.strip()
     if not f["estrena"] and re.match(r"\d{4}-\d{2}-\d{2}", estrena):
