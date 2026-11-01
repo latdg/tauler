@@ -1,13 +1,14 @@
 # Cinemes — La TdG · 01.11.2026
 # La cartellera dels cinemes de la zona (cinemes/cinemes.py): desa dades/cinemes.json.
-# Cada 3 hores; també es pot llançar a mà. El token de TMDB és el secret TMDB_TOKEN i
+# Tres cops al dia; també es pot llançar a mà. El token de TMDB és el secret TMDB_TOKEN i
 # només el veu el pas que genera les dades. Sense secret, surt sense valoracions ni plataformes.
 # Els canvis es desen a la branca on corre: mentre és a la branca cinemes, no toca main.
 name: Cinemes
 
 on:
   schedule:
-    - cron: "23 */3 * * *"
+    # 7.23, 13.23 i 19.23 h a l'hivern; una hora més a l'estiu (GitHub va en UTC)
+    - cron: "23 6,12,18 * * *"
   push:
     branches: [cinemes]
     paths:

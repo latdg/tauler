@@ -1,8 +1,7 @@
 # =============================================================================
 # CINEMES — La TdG · 01.11.2026
 # La cartellera dels cinemes de la zona, en una sola llista de pel·lícules: cada
-# pel·lícula una vegada, amb les sessions de tots els cinemes que la fan. És la
-# mateixa lògica de cinemes-tele/app/.../Cinema.java.
+# pel·lícula una vegada, amb les sessions de tots els cinemes que la fan.
 #   - OCINE Girona i Platja d'Aro: l'API de la seva web d'entrades.
 #   - Cinema Montgrí (Torroella): la portada i la fitxa de cada pel·lícula.
 #   - Teatre Mundial (la Bisbal) i TeMePé (Palafrugell): l'agenda municipal, amb
@@ -768,6 +767,8 @@ def main():
 
     llista = []
     for f in tots:
+        for x in f["sessions"]:
+            x["format"] = re.sub(r"(?i)\batmos\b", "Atmos", x["format"])   # OCINE ho escriu en majúscules
         poster = (desa_poster(f) if f["posterJpeg"] else f["posterDesat"]) or segur(f["posterUrl"])
         fila = {k: f[k] for k in ("key", "titol", "titolFont", "sinopsi", "durada", "genere", "edat", "director", "actors", "estrena")}
         if fila["actors"].lower() == fila["genere"].lower():
