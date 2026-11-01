@@ -250,9 +250,10 @@ function pinta() {
       const c = e.classificacio;
       if (!c || !c.files.length) return `<h3>${esc(e.nom)}</h3><p class="buit">Sense classificació.</p>`;
       const bas = c.tipus === "basquet", ambPunts = bas && c.files.some(f => f.punts !== undefined && f.punts !== "");
-      const cap = bas ? ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []) : ["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"];
+      const ambRatxa = bas && c.files.some(f => f.ratxa !== undefined && f.ratxa !== "");
+      const cap = bas ? ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []).concat(ambRatxa ? ["Ratxa"] : []) : ["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"];
       return `<h3>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom)} (${esc(e.categoria)})</h3><div class="taula"><table><thead><tr>${cap.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>` +
-        c.files.map(f => `<tr class="${f.propi ? "propi" : ""}">` + (bas ? [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])
+        c.files.map(f => `<tr class="${f.propi ? "propi" : ""}">` + (bas ? [f.pos, f.equip, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : []).concat(ambRatxa ? [f.ratxa] : [])
           : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map((x, i) => `<td>${i === 1 ? escClub(f.escut) : ""}${esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
         (e.classificacioManual ? `<p class="font">Entrada a mà.</p>` : "");
     }).join("");

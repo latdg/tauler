@@ -398,6 +398,12 @@ def llegeix_feb(eq):
     return partits, ({"tipus": "basquet", "files": files} if files else None)
 
 
+def nom_feb_classificacio(cel, link):
+    t = re.search(r'Equipo\.aspx\?i=\d+"[^>]*title="([^"]+)"', cel) or re.search(r'title="([^"]+)"[^>]*href="[^"]*Equipo\.aspx', cel)
+    nom = htmlmod.unescape(t.group(1) if t else link.group(2)).strip()
+    return nom or NOMS_FEB.get(link.group(1)) or ""
+
+
 def feb_classificacio(h):
     t = re.search(r'<table[^>]*class="tabla-estadistica"[^>]*>([\s\S]*?)</table>', h)
     if not t:
@@ -423,7 +429,9 @@ def feb_classificacio(h):
         val = lambda k: text_html(cel[col[k]]) if col[k] is not None and col[k] < len(cel) else ""
         logo = re.search(r'<img[^>]+src="([^"]+)"', tr)
         files.append({
-            "pos": num(val("pos")), "equip": NOMS_FEB.get(link.group(1)) or htmlmod.unescape(link.group(2)).strip(),
+            # 01.11.2026: el nom, com el posa la FEB a la seva classificació
+            # (el títol de l'enllaç si en té, que no ve retallat).
+            "pos": num(val("pos")), "equip": nom_feb_classificacio(cel[col["equip"]], link),
             "pj": num(val("pj")), "pg": num(val("pg")), "pp": num(val("pp")), "pf": num(val("pf")),
             "pc": num(val("pc")), "dif": num(val("dif")), "pct": val("pct"), "ratxa": val("racha"),
             "propi": link.group(1) == FEB["idBisbal"],
@@ -433,11 +441,9 @@ def feb_classificacio(h):
     for i, f in enumerate(files):
         if not isinstance(f["pos"], (int, float)):
             f["pos"] = i + 1
-        # 31.10.2026: la taula de la FEB no porta els punts. Es calculen amb la
-        # regla de la federació (victòria, 2 punts; derrota, 1), la mateixa que
-        # surt a la classificació del sots-25 femení.
-        if f.get("punts") in (None, "") and isinstance(f["pg"], (int, float)) and isinstance(f["pp"], (int, float)):
-            f["punts"] = int(2 * f["pg"] + f["pp"])
+        # 01.11.2026: la 2a FEB no classifica per punts sinó pel percentatge de
+        # victòries (hi ha equips amb partits de menys). Es deixa la taula tal
+        # com la dona la federació (%, ratxa), sense calcular cap punt.
     files.sort(key=lambda f: f["pos"])
     return files
 

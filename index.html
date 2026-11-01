@@ -624,12 +624,13 @@ async function carregaEsports() {
         const titol = `<summary><h3>${escClub(e.escut)}${esc(e.nom)} (${esc(e.categoria)})</h3>` +
           (propi ? `<span class="pos">${esc(ordinalCa(propi.pos))} de ${c.files.length}` +
             (propi.punts !== undefined && propi.punts !== "" && propi.punts !== null ? ` · ${esc(propi.punts)} ${String(propi.punts) === "1" ? "punt" : "punts"}`
-              : (propi.pg !== undefined ? ` · ${esc(propi.pg)}-${esc(propi.pp)}` : "")) + `</span>` : "") + `</summary>`;
+              : (propi.pg !== undefined ? ` · ${esc(propi.pg)}-${esc(propi.pp)}` + (propi.pct ? ` (${esc(propi.pct)})` : "") : "")) + `</span>` : "") + `</summary>`;
         if (c.tipus === "basquet") {
           const ambPunts = c.files.some(f => f.punts !== undefined && f.punts !== "");
+          const ambRatxa = c.files.some(f => f.ratxa !== undefined && f.ratxa !== "");
           return `<details class="classif">${titol}` + taula(
-            ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []),
-            c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(String(f.equip ?? "").toUpperCase()) }, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : [])),
+            ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []).concat(ambRatxa ? ["Ratxa"] : []),
+            c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(String(f.equip ?? "").toUpperCase()) }, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : []).concat(ambRatxa ? [f.ratxa] : [])),
             i => c.files[i].propi ? "propi" : "") + "</details>";
         }
         return `<details class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
