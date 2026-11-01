@@ -1,6 +1,6 @@
 {
 "el gato con sombrero": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "El gat amb barret",
 "directors": [
@@ -19,10 +19,10 @@
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "clayface": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -40,10 +40,10 @@
 "poster": "/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "whalefall": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -61,10 +61,10 @@
 "poster": "/5d8BZCZQaO3gCdP9JaA5B5qGFsH.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "la otra madre": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -82,10 +82,10 @@
 "poster": "/vsde9OnhjFMlJz8Wi6Z6drZ7GG5.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "en el corazon de la bestia": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -103,14 +103,31 @@
 "poster": "/kVDHPDggier9ciMc8Xglinq1jWv.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "hope": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"나홍진"
+],
+"original": "호프",
+"idiomaOriginal": "ko",
+"dataTmdb": "2026-07-15",
+"sinopsiCa": "Als afores del remot poble de Hope Harbor, a prop de la fortament militaritzada Zona Desmilitaritzada (DMZ), es detecta una presència misteriosa. Se sospita que es tracta d’un tigre que hauria aparegut, alerten el cap de la policia local, en Bum-seok i la comunitat cau en el caos. Però la cosa és pitjor: el que ha començat com una emergència local aviat es transforma en un misteri més profund i aterridor, que obliga els habitants de Hope Harbor a enfrontar-se a allò desconegut i que pot acabar destruint-los el poble…",
+"id": 1058424,
+"nota": 6.8,
+"vots": 415,
+"sinopsi": "Als afores del remot poble de Hope Harbor, a prop de la fortament militaritzada Zona Desmilitaritzada (DMZ), es detecta una presència misteriosa. Se sospita que es tracta d’un tigre que hauria aparegut, alerten el cap de la policia local, en Bum-seok i la comunitat cau en el caos. Però la cosa és pitjor: el que ha començat com una emergència local aviat es transforma en un misteri més profund i aterridor, que obliga els habitants de Hope Harbor a enfrontar-se a allò desconegut i que pot acabar destruint-los el poble…",
+"sinopsi_es": false,
+"poster": "/hHPIefotew38oJm3YCJPAzpi26c.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793504273.132214
 },
 "karateka": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -128,10 +145,10 @@
 "poster": "/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "la bola negra": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -150,10 +167,10 @@
 "poster": "/t1azKLExwUxKj6v6m2L535evuRa.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "la oveja shaun mision calabaza": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "El xai Shaun: Missió Carbassa",
 "directors": [
@@ -172,10 +189,10 @@
 "poster": "/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "leones en invierno": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -193,10 +210,10 @@
 "poster": "/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "sentido y sensibilidad": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -214,10 +231,10 @@
 "poster": "/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "superthings la pelicula": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "Superthings. La pel·lícula",
 "directors": [
@@ -235,10 +252,10 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "tiempos de ilusion": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -257,10 +274,10 @@
 "poster": "/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "wicker": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -279,10 +296,10 @@
 "poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "wildwood": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -300,10 +317,10 @@
 "poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "leviticus": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -321,10 +338,10 @@
 "poster": "/gS8Z2lepduus8x6Crwzb85F6Gli.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "arriba tutto": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -342,10 +359,10 @@
 "poster": "/a8MvsDCP3sv0WXNW3I0ainSuLcd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "la maleta": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -363,10 +380,10 @@
 "poster": "/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "street fighter": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -384,10 +401,10 @@
 "poster": "/j9Ukn1hRqSyv5qhHgDHd1s1Dhsg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "verity la sombra de un engano": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -405,10 +422,10 @@
 "poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "coyote vs acme": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -426,10 +443,10 @@
 "poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "chopin": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -447,10 +464,10 @@
 "poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "godzilla minus zero": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -468,10 +485,10 @@
 "poster": "/8VKjocpP0EiUiUzTPWwz7TV2kWP.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "digger": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -489,14 +506,14 @@
 "poster": "/txe65aR0g5JiYnHKPjX3E49M5td.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "stray kids world tour live viewing": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"t": 1793504273.132214
 },
 "escape room 2": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -515,10 +532,10 @@
 "poster": "/aXG5QfiCEqBlNsb8ZaMygKxPPX2.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "numakage public pool": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "Numakage Piscina Pública",
 "directors": [
@@ -536,14 +553,14 @@
 "poster": "/vN5Gqn2L5ZdnsFwhTIyNocB1G6N.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "bigmountain xile": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"t": 1793504273.132214
 },
 "naza": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -562,14 +579,14 @@
 "poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "diversion navidena con peppa la experiencia en cines": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"t": 1793504273.132214
 },
 "superthings la pel licula": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "Superthings. La pel·lícula",
 "directors": [
@@ -587,10 +604,10 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "los juegos del hambre amanecer en la cosecha": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "Els jocs de la fam: El matí de la sega",
 "directors": [
@@ -608,14 +625,14 @@
 "poster": "/nijGyrqQbDhSGss4uugQokvBAsG.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "l ovella shaun missio carbassa": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"t": 1793504273.132214
 },
 "el precio de la red": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -633,14 +650,14 @@
 "poster": "/ls1KWflioSJgCcKhDr6ykvYmgbI.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "astres immobils": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"t": 1793504273.132214
 },
 "tanit": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -658,14 +675,14 @@
 "poster": "/AfeoEZ0HCuTgXwj4BTvcizNlWWL.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "iv mostra de curtmetratges de palafrugell": {
-"v": 5,
-"t": 1793504102.782586
+"v": 6,
+"t": 1793504273.132214
 },
 "ruega por nosotras": {
-"v": 5,
+"v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
@@ -683,10 +700,10 @@
 "poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "sacamantecas": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -704,10 +721,10 @@
 "poster": "/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "como robar un banco": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -725,10 +742,10 @@
 "poster": "/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "scrooge y los fantasmas de la navidad": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -746,10 +763,10 @@
 "poster": "/gnG15MkiNeObCoPbHcLUX4zrNWh.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "hechizo bienvenidos a hexe": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "Encanteri. Benvinguts a Hexe",
 "directors": [
@@ -768,10 +785,10 @@
 "poster": "/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "burundanga": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -789,10 +806,10 @@
 "poster": "/dooIbNThUhVNzhZoIw1INzttev.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "noche de paz 2": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -810,10 +827,10 @@
 "poster": "/bMGudrgP3ZVD9IPF73BYLdnrNSE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "dune parte tres": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "Dune: Tercera part",
 "directors": [
@@ -831,10 +848,10 @@
 "poster": "/uj4EuGmFNAc4CHBVEtRZ04MXzka.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 },
 "jumanji mundo abierto": {
-"v": 5,
+"v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
@@ -852,6 +869,6 @@
 "poster": "/ntjF2gemedf3ZcWzARGt6cuZlnJ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793504102.782586
+"t": 1793504273.132214
 }
 }

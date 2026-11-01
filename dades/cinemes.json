@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-01T03:35:26+00:00",
+ "generat": "2026-11-01T03:38:29+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -839,8 +839,315 @@
    "plataformesUrl": ""
   },
   {
+   "key": "hope",
+   "titol": "Hope",
+   "titolFont": "Hope",
+   "sinopsi": "En el remot llogaret sud-coreà de Hope Harbor, el cap de policia Bum-seok (Hwang Jung-Min) i l'oficial Sung-ae (Hoyeon) reben la missió de trobar a una misteriosa criatura que ha sembrat el caos entre els habitants.\n\nMentrestant, en el bosc, un grup de caçadors, entre ells Sung-ki (Zo In-Sung), s'endinsa en la seva cerca, però aviat descobreixen que ells són les preses. Mentre la criatura continua fent estralls, res és el que sembla. El que creien que era un conflicte que podia ser resolt pels humans acaba escalant a una catàstrofe de dimensions còsmiques.",
+   "durada": "156",
+   "genere": "Ciència-ficció",
+   "edat": "16 anys",
+   "director": "Na Hong-Jin",
+   "actors": "Hwang Jung-min, Jo In-sung",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/hHPIefotew38oJm3YCJPAzpi26c.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-01",
+     "hora": "15:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-01",
+     "hora": "16:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-01",
+     "hora": "16:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-01",
+     "hora": "18:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-01",
+     "hora": "19:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-01",
+     "hora": "19:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-01",
+     "hora": "21:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-01",
+     "hora": "22:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-02",
+     "hora": "15:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-02",
+     "hora": "16:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-02",
+     "hora": "16:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-02",
+     "hora": "18:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-02",
+     "hora": "19:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-02",
+     "hora": "19:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-02",
+     "hora": "21:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-02",
+     "hora": "22:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-03",
+     "hora": "15:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-03",
+     "hora": "16:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-03",
+     "hora": "16:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-03",
+     "hora": "18:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-03",
+     "hora": "19:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-03",
+     "hora": "19:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-03",
+     "hora": "21:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-03",
+     "hora": "22:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-04",
+     "hora": "15:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-04",
+     "hora": "16:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-04",
+     "hora": "16:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-04",
+     "hora": "18:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-04",
+     "hora": "19:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-04",
+     "hora": "19:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-04",
+     "hora": "21:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-04",
+     "hora": "22:00",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-04",
+     "hora": "22:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-05",
+     "hora": "15:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-05",
+     "hora": "16:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-05",
+     "hora": "16:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-05",
+     "hora": "18:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-05",
+     "hora": "19:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-05",
+     "hora": "19:30",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-05",
+     "hora": "21:45",
+     "format": "ATMOS",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeon Girona",
+     "data": "2026-11-05",
+     "hora": "22:00",
+     "format": "Laser Cinity Atmos",
+     "preu": ""
+    }
+   ],
+   "nota": 6.8,
+   "vots": 415,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "karateka",
-   "titol": "KARATEKA",
+   "titol": "Karateka",
    "titolFont": "KARATEKA",
    "sinopsi": "Andrea Ros és l'encarregada de donar vida en la pantalla gran a Sandra Sánchez des dels seus inicis humils a Talavera de la Reina, fins al triomf d'aconseguir l'or olímpic a Tòquio 2020. Patrick Criado interpreta a Jesús del Moral, el seu entrenador i qui es convertiria en la seva parella sentimental, en una combinació única d'amor i admiració mútua que transcendeix l'esportiu i que acaba transformant les seves vides.",
    "durada": "110",
@@ -2972,7 +3279,7 @@
   },
   {
    "key": "arriba tutto",
-   "titol": "A dalt Tutto",
+   "titol": "Arriba tutto",
    "titolFont": "Arriba tutto",
    "sinopsi": "1905. La feliç infància de Michi, un nen de set anys finalitza bruscament amb la violenta mort del seu pare, un artista ambulant que ha ensenyat el nen a",
    "durada": "102",
@@ -3425,309 +3732,6 @@
    "vots": 30,
    "plataformes": [],
    "plataformesUrl": ""
-  },
-  {
-   "key": "hope",
-   "titol": "Hope",
-   "titolFont": "Hope",
-   "sinopsi": "En el remot llogaret sud-coreà de Hope Harbor, el cap de policia Bum-seok (Hwang Jung-Min) i l'oficial Sung-ae (Hoyeon) reben la missió de trobar a una misteriosa criatura que ha sembrat el caos entre els habitants.\n\nMentrestant, en el bosc, un grup de caçadors, entre ells Sung-ki (Zo In-Sung), s'endinsa en la seva cerca, però aviat descobreixen que ells són les preses. Mentre la criatura continua fent estralls, res és el que sembla. El que creien que era un conflicte que podia ser resolt pels humans acaba escalant a una catàstrofe de dimensions còsmiques.",
-   "durada": "156",
-   "genere": "Ciència-ficció",
-   "edat": "16 anys",
-   "director": "Na Hong-Jin",
-   "actors": "Hwang Jung-min, Jo In-sung",
-   "estrena": "",
-   "poster": "dades/cinemes/hope-65b819d3.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-01",
-     "hora": "15:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-01",
-     "hora": "16:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-01",
-     "hora": "16:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-01",
-     "hora": "18:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-01",
-     "hora": "19:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-01",
-     "hora": "19:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-01",
-     "hora": "21:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-01",
-     "hora": "22:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-02",
-     "hora": "15:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-02",
-     "hora": "16:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-02",
-     "hora": "16:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-02",
-     "hora": "18:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-02",
-     "hora": "19:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-02",
-     "hora": "19:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-02",
-     "hora": "21:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-02",
-     "hora": "22:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-03",
-     "hora": "15:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-03",
-     "hora": "16:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-03",
-     "hora": "16:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-03",
-     "hora": "18:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-03",
-     "hora": "19:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-03",
-     "hora": "19:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-03",
-     "hora": "21:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-03",
-     "hora": "22:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-04",
-     "hora": "15:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-04",
-     "hora": "16:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-04",
-     "hora": "16:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-04",
-     "hora": "18:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-04",
-     "hora": "19:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-04",
-     "hora": "19:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-04",
-     "hora": "21:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-04",
-     "hora": "22:00",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-04",
-     "hora": "22:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-05",
-     "hora": "15:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-05",
-     "hora": "16:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-05",
-     "hora": "16:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-05",
-     "hora": "18:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-05",
-     "hora": "19:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-05",
-     "hora": "19:30",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-05",
-     "hora": "21:45",
-     "format": "ATMOS",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeon Girona",
-     "data": "2026-11-05",
-     "hora": "22:00",
-     "format": "Laser Cinity Atmos",
-     "preu": ""
-    }
-   ]
   },
   {
    "key": "godzilla minus zero",
