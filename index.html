@@ -1428,7 +1428,6 @@ async function carregaNatura() {
       (o.amenacada ? '<span class="nat-marca">⚠️ amenaçada</span>' : o.introduida ? '<span class="nat-marca">introduïda</span>' : "") + `</a>`;
     det.querySelector(".cos-plega").innerHTML =
       `<p class="font" style="margin:0 0 8px">${m.observadors} persones hi han fet observacions. ${(m.grups || []).slice(0, 6).map(g => esc(g[0]) + " " + g[1]).join(" · ")}</p>` +
-      (m.destacades && m.destacades.length ? `<h4 class="nat-h">Espècies amenaçades vistes</h4><div class="nat-graella">${m.destacades.map(targeta).join("")}</div>` : "") +
       `<h4 class="nat-h">Les més recents</h4><div class="nat-graella">${(m.recents || []).slice(0, 24).map(targeta).join("") || '<p class="buit">Cap observació.</p>'}</div>` +
       (m.mesVistes && m.mesVistes.length ? `<h4 class="nat-h">Les espècies més vistes</h4><ul class="nat-llista">${m.mesVistes.map(e =>
         `<li>${esc(e.grup.split(" ")[0])} ${esc(e.nom || e.cientific)}${e.nom ? ` <i>${esc(e.cientific)}</i>` : ""} · ${e.n}</li>`).join("")}</ul>` : "");
