@@ -271,7 +271,7 @@ def odeon(films):
                 continue
             format_ = format_odeon(primer(dia, r'data-format="([^"]*)"'))
             for mh in ODEON_HORA.finditer(dia):
-                f["sessions"].append(sessio("Odeon Girona", md.group(1), f"{mh.group(1)}:{mh.group(2)}", format_))
+                f["sessions"].append(sessio("Odeón Girona (Salt)", md.group(1), f"{mh.group(1)}:{mh.group(2)}", format_))
 
 
 # ---------------------------------------------------------------- Cinema Montgrí
@@ -692,7 +692,7 @@ def main():
     films, errors, fallats = {}, [], set()
     fonts = [("OCINE Girona", lambda: ocine("https://tickets.ocinegirona.es", "OCINE Girona", films)),
              ("OCINE Platja d'Aro", lambda: ocine("https://tickets.ocineplatjadaro.es", "OCINE Platja d'Aro", films)),
-             ("Odeon Girona", lambda: odeon(films)),
+             ("Odeón Girona (Salt)", lambda: odeon(films)),
              ("Cinema Montgrí", lambda: montgri(films, ara)),
              ("Teatre Mundial", lambda: agenda_municipal("https://www.teatremundial.cat", "1000", "Teatre Mundial", films)),
              ("TeMePé Palafrugell", lambda: agenda_municipal("https://cultura.palafrugell.cat", "18", "TeMePé Palafrugell", films))]

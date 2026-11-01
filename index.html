@@ -1729,7 +1729,7 @@ function cinFitxa(f) {
   pendents.forEach(s => {
     const c = perCinema[s.cinema] = perCinema[s.cinema] || { preu: "", dies: {} };
     if (s.preu) c.preu = s.preu;
-    (c.dies[s.data] = c.dies[s.data] || []).push(cinHora(s.hora) + (s.format ? ` (${s.format})` : ""));
+    (c.dies[s.data] = c.dies[s.data] || []).push(cinHora(s.hora) + " h" + (s.format ? ` (${s.format})` : ""));
   });
   const sessions = Object.entries(perCinema).map(([nom, c]) =>
     `<article class="ag-acte"><div class="ag-cap"><span class="ag-hora">📍 ${esc(nom)}</span>${c.preu ? `<span class="ag-mun">${esc(c.preu)}</span>` : ""}</div><div>` +
@@ -1741,7 +1741,7 @@ function cinFitxa(f) {
     (f.sinopsi ? `<p class="cin-sinopsi">${esc(f.sinopsi)}</p>` : "") +
     (f.director ? `<p class="cin-dada"><b>Direcció:</b> ${esc(f.director)}</p>` : "") +
     (f.actors ? `<p class="cin-dada"><b>Repartiment:</b> ${esc(f.actors)}</p>` : "") +
-    (sessions ? `<div class="cin-sessions">${sessions}</div><p class="font">Els preus d'Odeon i OCINE, a la seva web o a la taquilla.</p>`
+    (sessions ? `<div class="cin-sessions">${sessions}</div><p class="font">Els preus d'Odeón i OCINE, a la seva web o a la taquilla.</p>`
       : `<p class="cin-dada">${f.estrena ? "Encara sense sessions. S'estrena " + cinElDia(f.estrena) + "." : "No hi ha més sessions programades."}</p>`) +
     (f.web ? `<p class="font"><a href="${esc(f.web)}" target="_blank" rel="noopener">Més informació i entrades</a></p>` : "") + "</div>";
 }
