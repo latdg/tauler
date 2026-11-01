@@ -168,11 +168,24 @@ def llegeix_futbol(eq):
     if isinstance(dades, dict) and isinstance(dades.get("partidos"), dict):
         dades = dades["partidos"]
     partits = []
+    # 01.11.2026: resultats de tot el grup per jornada, per fer la ratxa
+    # nosaltres: la «form» de la FCF va endarrerida i de vegades no quadra amb
+    # els partits guanyats i perduts.
+    per_jornada = {}
     for jornada, llista in (dades or {}).items():
         if not isinstance(llista, list):
             continue
         for m in llista:
             casa, fora = str(m.get("CODEQUIPO_CASA")), str(m.get("CODEQUIPO_FUERA"))
+            gc0, gf0 = m.get("GOLES_CASA"), m.get("GOLES_FUERA")
+            if str(m.get("CERRADA")) == "1" and gc0 is not None and gf0 is not None:
+                try:
+                    gc0, gf0 = int(gc0), int(gf0)
+                    rj = per_jornada.setdefault(str(jornada), {})
+                    rj[casa] = "G" if gc0 > gf0 else "E" if gc0 == gf0 else "P"
+                    rj[fora] = "G" if gf0 > gc0 else "E" if gc0 == gf0 else "P"
+                except (TypeError, ValueError):
+                    pass
             if eq["codi"] not in (casa, fora):
                 continue
             local = casa == eq["codi"]
@@ -205,7 +218,11 @@ def llegeix_futbol(eq):
             "pos": num(r.get("position")), "equip": str(team.get("name") or "").strip(),
             "pj": num(r.get("played")), "pg": num(r.get("won")), "pe": num(r.get("drawn")),
             "pp": num(r.get("lost")), "pf": num(r.get("goalsFor")), "pc": num(r.get("goalsAgainst")),
-            "punts": num(r.get("points")), "ratxa": ratxa_fcf(r.get("form")),
+            "punts": num(r.get("points")),
+            # Cinc darrers partits, del més antic al més recent («G-E-P»).
+            "ratxa": "-".join(per_jornada[j][str(team.get("teamId"))] for j in
+                              sorted(per_jornada, key=lambda x: int(x) if x.isdigit() else 0)
+                              if str(team.get("teamId")) in per_jornada[j])[-9:] or ratxa_fcf(r.get("form")),
             "propi": str(team.get("teamId")) == eq["codi"],
             # 27.10.2026: només l'escut dels nostres equips, no el dels rivals.
             "escut": escut_fcf(team.get("logo")) if str(team.get("teamId")) == eq["codi"] else "",
