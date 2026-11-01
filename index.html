@@ -1895,8 +1895,8 @@ async function minimapaBusos(viatges, m) {
     if (!a || !b) return;
     const f = Math.min(1, Math.max(0, (m - s[i - 1][1]) / ((s[i][1] - s[i - 1][1]) || 1)));
     const desti = v.d || (D.parades[s[s.length - 1][0]] || {}).m || "";
-    L.marker([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], { icon: L.divIcon({ className: "", iconSize: null, iconAnchor: [13, 8],
-      html: `<div class="bus-ic" style="background:${colorBus(v.r)}${r.dem ? ";border-style:dashed" : ""}">${esc(r.c)}</div>` }) })
+    L.marker([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], { icon: L.divIcon({ className: "", iconSize: null, iconAnchor: [19, 8],
+      html: `<div class="bus-ic" style="background:${colorBus(v.r)}${r.dem ? ";border-style:dashed" : ""}"><span style="font-weight:400;margin-right:2px">🚌</span>${esc(r.c)}</div>` }) })
       .bindTooltip(`Línia ${esc(r.c)} cap a ${esc(desti)}${r.dem ? " (Clic, només amb reserva)" : ""}`).addTo(CAPA_BUSOS);
   });
 }
@@ -1907,6 +1907,11 @@ async function carregaBusos() {
     const r = await fetch(BUSOS_URL + "data/busos.json", { cache: "no-cache" });
     if (!r.ok) throw new Error(r.status);
     BUSOS = await r.json();
+    // 01.11.2026: número comercial de la línia (42, 41, 8…) en lloc del codi del GTFS
+    try {
+      const h = await (await fetch(BUSOS_URL + "data/horaris.json", { cache: "no-cache" })).json();
+      Object.values(BUSOS.rutes).forEach(x => { const n = (h[x.c] || {}).num; if (n) x.c = n; });
+    } catch (e) {}
   } catch (e) {
     cos.innerHTML = `<p class="buit">Ara mateix no s'han pogut carregar els horaris.</p><p class="font"><a href="${BUSOS_URL}">Mapa complet dels busos</a></p>`;
     return;
