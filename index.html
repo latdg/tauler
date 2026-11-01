@@ -344,7 +344,7 @@ const NOMS_CURTS = [
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Plaques solars i consum elèctric"], [/preu de l'aigua/i, "Preu de l'aigua"],
   [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
-  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"]
+  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/cinemes/i, "Cartellera"]
 ];
 const nomCurt = titol => {
   const trobat = NOMS_CURTS.find(([rx]) => rx.test(titol));
@@ -1005,13 +1005,14 @@ const BISBAL_LL = [41.9597, 3.0386];
 // Cada bloc va al seu apartat, pel nom curt de la barra de navegació. Un bloc que
 // no surt a la llista va al final (així no se'n perd cap si se n'afegeix un de nou).
 const APARTATS = [
-  ["📌 El que cal saber avui", ["Agenda", "Farmàcies", "Necrològiques", "Cinemes"]],
+  ["📌 El que cal saber avui", ["Agenda", "Farmàcies", "Necrològiques"]],
   ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Llamps", "Terratrèmols"]],
   ["🚗 Trànsit i mobilitat", ["Trànsit", "Busos", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
   ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
   ["🌿 Temps, aigua i natura", ["Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
-  ["🏅 Esports", ["Partits i resultats", "Classificacions"]]
+  ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
+  ["🎬 Cartellera", ["Cartellera"]]
 ];
 function ordenaApartats() {
   if (MODE_SLOW) return;
