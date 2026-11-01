@@ -158,7 +158,7 @@ def film(films, titol):
     if k not in films:
         films[k] = {"key": k, "titol": titol.strip(), "sinopsi": "", "durada": "", "genere": "", "edat": "", "director": "",
                     "actors": "", "estrena": "", "posterUrl": "", "posterJpeg": None, "posterDesat": "", "web": "",
-                    "qualitat": 0, "titolCa": "", "sinopsiEs": False, "genereEs": False, "edatEs": False, "sessions": [], "tmdb": None}
+                    "qualitat": 0, "titolCa": "", "titolMontgri": "", "sinopsiEs": False, "genereEs": False, "edatEs": False, "sessions": [], "tmdb": None}
     return films[k]
 
 
@@ -328,7 +328,7 @@ def montgri(films, ara):
                 f["sessions"].append(sessio("Cinema Montgrí", data, hora, ms.group(5) or ""))
         if nou:
             f["web"] = f["web"] or url
-            f["titolCa"] = f["titolCa"] or titol
+            f["titolMontgri"] = f["titolMontgri"] or titol
             try:
                 montgri_fitxa(f, url)
             except Exception:
@@ -451,6 +451,23 @@ def tmdb_directors(d):
     return [c.get("name") or "" for c in (d.get("credits") or {}).get("crew") or [] if c.get("job") == "Director"]
 
 
+def tmdb_mateix_director(token, f, d):
+    """Si algun director de la font és a la fitxa. TMDB pot escriure'l en un altre alfabet (나홍진): es miren els seus altres noms."""
+    font = persones(f["director"])
+    for c in (d.get("credits") or {}).get("crew") or []:
+        if c.get("job") != "Director":
+            continue
+        noms = [c.get("name") or ""]
+        if not re.search(r"[A-Za-z]", noms[0]):
+            try:
+                noms += tmdb_get(token, f"/person/{c.get('id')}").get("also_known_as") or []
+            except Exception:
+                pass   # sense els altres noms, no coincideix
+        if any(mateixa_persona(a, b) for a in font for b in noms):
+            return True
+    return False
+
+
 def tmdb_tria(token, f):
     """
     La fitxa de TMDB d'aquesta pel·lícula, comprovada amb el director i, si no se sap, amb l'any; None si no es pot
@@ -473,7 +490,7 @@ def tmdb_tria(token, f):
         d = tmdb_fitxa(token, c["o"]["id"])
         directors = tmdb_directors(d)
         if f["director"] and directors:
-            if any(mateixa_persona(a, b) for a in persones(f["director"]) for b in directors):
+            if tmdb_mateix_director(token, f, d):
                 return d, "director"
             rebutjades.append((any_de(c), directors[:2]))
             continue
@@ -500,7 +517,7 @@ def tmdb_poster(token, peli, d, castella):
 def tmdb_consulta(token, f):
     d, comprovat = tmdb_tria(token, f)
     if not d:
-        return {"v": 5}
+        return {"v": 6}
     peli = d["id"]
     castella = tmdb_get(token, f"/movie/{peli}", language="es-ES")
     # Només la traducció de veritat: si no en té, TMDB torna el títol original com a «title»
@@ -514,7 +531,7 @@ def tmdb_consulta(token, f):
             nom = PLATAFORMES.get(p.get("provider_id")) or re.sub(r"(?i)\s+(standard with ads|with ads|amazon channel|basic)$", "", p.get("provider_name") or "").strip()
             if nom and nom not in plataformes:
                 plataformes.append(nom)
-    return {"v": 5, "comprovat": comprovat, "titolCa": catala.get("title") or "", "directors": tmdb_directors(d), "original": d.get("original_title") or "",
+    return {"v": 6, "comprovat": comprovat, "titolCa": catala.get("title") or "", "directors": tmdb_directors(d), "original": d.get("original_title") or "",
             "idiomaOriginal": d.get("original_language") or "", "dataTmdb": d.get("release_date") or "", "sinopsiCa": catala.get("overview") or "",
             "id": peli, "nota": d.get("vote_average") or 0, "vots": d.get("vote_count") or 0, "sinopsi": sinopsi or castella.get("overview") or "",
             "sinopsi_es": sinopsi_es, "poster": tmdb_poster(token, peli, d, castella), "plataformes": plataformes, "enllac": es.get("link") or ""}
@@ -533,7 +550,7 @@ def tmdb_enriqueix(films):
     nou, ara = {}, datetime.now(timezone.utc).timestamp()
     for f in films:
         r = desat.get(f["key"])
-        if not r or r.get("v") != 5 or ara - r.get("t", 0) > VIGENCIA_TMDB:
+        if not r or r.get("v") != 6 or ara - r.get("t", 0) > VIGENCIA_TMDB:
             try:
                 r = {**tmdb_consulta(token, f), "t": ara}
             except Exception as e:
@@ -587,13 +604,15 @@ def catala_de(t):
 
 
 def titol_catala(f, t):
-    """La traducció de TMDB; l'original, si no és castellà; si no, el de la font, traduït (Montgrí també en publica en castellà)."""
+    """La traducció de TMDB; l'original, si no és castellà; el de les agendes municipals; si no, el de la font, traduït."""
     r = f["tmdb"] or {}
     if r.get("titolCa"):
         return r["titolCa"]
     if r.get("id") and clau(f["titol"]) == clau(r.get("original") or "") and r.get("idiomaOriginal") != "es":
         return r["original"]
-    return t.tradueix(f["titolCa"] or f["titol"])
+    if f["titolCa"]:
+        return f["titolCa"]
+    return t.tradueix(titol_cas(f["titolMontgri"] or f["titol"]))
 
 
 def fusiona(g, f):
@@ -601,6 +620,7 @@ def fusiona(g, f):
     g["sessions"] = sorted(g["sessions"] + [s for s in f["sessions"] if s not in g["sessions"]], key=lambda s: (s["data"], s["hora"], s["cinema"]))
     g["director"] = uneix_directors(g["director"], f["director"])
     g["titolCa"] = g["titolCa"] or f["titolCa"]
+    g["titolMontgri"] = g["titolMontgri"] or f["titolMontgri"]
     g["durada"] = g["durada"] or f["durada"]
     g["web"] = g["web"] or f["web"]
 
