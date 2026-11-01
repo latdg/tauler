@@ -370,15 +370,15 @@ function pintaEdicioClassificacio() {
   const e = D.equips.find(x => x.id === eqId);
   if (!e || e.font !== "manual") { $("edcls").innerHTML = ""; return; }
   const files = (manualDe(eqId).classificacio || []).slice().sort((a, b) => (a.pos || 99) - (b.pos || 99));
-  const camps = ["pos", "equip", "pj", "pg", "pp", "pf", "pc", "punts"];
+  const camps = ["pos", "equip", "pj", "pg", "pp", "pf", "pc", "punts", "ratxa"];
   const fila = f => `<tr>${camps.map(c => `<td><input class="${c === "equip" ? "nom" : ""}" data-c="${c}" value="${esc(f[c] ?? "")}"></td>`).join("")}<td><button type="button" class="icona" data-treu-cls>🗑️</button></td></tr>`;
   $("edcls").innerHTML = `<h3>🏆 Classificació de ${esc(e.nom)} (a mà)</h3><div class="taula edcls"><table><thead><tr>` +
-    ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Punts", ""].map(x => `<th>${x}</th>`).join("") + `</tr></thead><tbody id="clsCos">` +
+    ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Punts", "Ratxa", ""].map(x => `<th>${x}</th>`).join("") + `</tr></thead><tbody id="clsCos">` +
     files.map(fila).join("") + `</tbody></table></div><div class="fila" style="margin-top:8px"><button type="button" class="suau" id="afegeixCls">➕ Fila</button>` +
-    `<button type="button" id="desaCls">Desa la classificació</button></div><p class="font">DIF i % es calculen sols.</p>`;
+    `<button type="button" id="desaCls">Desa la classificació</button></div><p class="font">DIF i % es calculen sols. Ratxa: V (guanyat), D (perdut), X (sense partit), en l'ordre de la federació; p. ex. XDVVV.</p>`;
   $("afegeixCls").onclick = () => $("clsCos").insertAdjacentHTML("beforeend", fila({}));
   $("desaCls").onclick = () => {
-    const llista = Array.from($("clsCos").rows).map(tr => Object.fromEntries(Array.from(tr.querySelectorAll("input")).map(i => [i.dataset.c, i.value.trim()]))).filter(f => f.equip);
+    const llista = Array.from($("clsCos").rows).map(tr => Object.fromEntries(Array.from(tr.querySelectorAll("input")).map(i => [i.dataset.c, i.dataset.c === "ratxa" ? i.value.trim().toUpperCase().replace(/[^VDX]/g, "") : i.value.trim()]))).filter(f => f.equip);
     const m = manualDe(eqId); m.classificacio = llista; m.classificacioActualitzada = new Date().toISOString();
     desa("Classificació desada.");
   };
