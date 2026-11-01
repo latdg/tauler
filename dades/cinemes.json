@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-01T03:38:29+00:00",
+ "generat": "2026-11-01T03:53:51+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -390,7 +390,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "22:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -445,7 +445,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -466,7 +466,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -508,7 +508,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -585,14 +585,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "22:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -668,7 +668,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "18:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -717,7 +717,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "20:20",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -752,7 +752,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "20:20",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -773,7 +773,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "18:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -794,7 +794,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -829,7 +829,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "20:20",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     }
    ],
@@ -856,7 +856,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-01",
      "hora": "15:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -870,14 +870,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "16:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-01",
      "hora": "18:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -891,14 +891,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "19:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-01",
      "hora": "21:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -912,7 +912,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-02",
      "hora": "15:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -926,14 +926,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "16:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-02",
      "hora": "18:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -947,14 +947,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "19:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-02",
      "hora": "21:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -968,7 +968,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-03",
      "hora": "15:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -982,14 +982,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "16:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-03",
      "hora": "18:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1003,14 +1003,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "19:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-03",
      "hora": "21:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1024,7 +1024,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-04",
      "hora": "15:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1038,14 +1038,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "16:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-04",
      "hora": "18:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1059,21 +1059,21 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "19:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-04",
      "hora": "21:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "22:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1087,7 +1087,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-05",
      "hora": "15:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1101,14 +1101,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "16:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-05",
      "hora": "18:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1122,14 +1122,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "19:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-05",
      "hora": "21:45",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1547,7 +1547,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1561,7 +1561,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-01",
      "hora": "17:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1582,7 +1582,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "19:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1596,7 +1596,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-01",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1638,14 +1638,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "17:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-02",
      "hora": "17:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1673,14 +1673,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "20:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-02",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1722,14 +1722,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "17:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-03",
      "hora": "17:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1750,14 +1750,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "20:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-03",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1785,7 +1785,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1799,7 +1799,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-04",
      "hora": "17:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1820,7 +1820,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "19:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1834,7 +1834,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-04",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1883,14 +1883,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "17:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-05",
      "hora": "17:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1911,14 +1911,14 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "20:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-05",
      "hora": "20:30",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3010,7 +3010,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-01",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3024,7 +3024,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-02",
      "hora": "17:50",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3038,7 +3038,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-03",
      "hora": "17:50",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3052,7 +3052,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-04",
      "hora": "16:00",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3066,7 +3066,7 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "17:50",
-     "format": "ATMOS",
+     "format": "Atmos",
      "preu": ""
     },
     {
