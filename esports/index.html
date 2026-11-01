@@ -479,7 +479,7 @@ function lletresRatxa(t) {
   return "";
 }
 const htmlRatxa = l => `<span class="ratxa" title="${l.split("").map(x => NOMS_RATXA[x]).join(", ")}">` + l.split("").map(x => `<i class="r${x}"></i>`).join("") + "</span>";
-const llegendaRatxa = ambEmpat => `<p class="llegenda-ratxa">Ratxa, el partit més recent a la dreta: ` +
+const llegendaRatxa = ambEmpat => `<p class="llegenda-ratxa">Ratxa, el partit més recent (de cinc) a la dreta: ` +
   ["V", ambEmpat ? "E" : "", "D", "X"].filter(Boolean).map(x => `<span><i class="r${x}"></i>${NOMS_RATXA[x]}</span>`).join("") + "</p>";
 const ratxaPunts = t => { const l = lletresRatxa(t); return l ? htmlRatxa(l) : esc(t); };
 
