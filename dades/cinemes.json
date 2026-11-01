@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-01T03:04:10+00:00",
+ "generat": "2026-11-01T03:08:57+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -11,7 +11,7 @@
    "genere": "Animació",
    "edat": "",
    "director": "Alessandro Carloni",
-   "actors": "Animació",
+   "actors": "",
    "estrena": "2026-11-06",
    "poster": "https://image.tmdb.org/t/p/w342/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
@@ -3941,7 +3941,7 @@
    "genere": "Documental",
    "edat": "",
    "director": "Yuval Abraham i Rachel Szor",
-   "actors": "Documental",
+   "actors": "",
    "estrena": "",
    "poster": "https://image.tmdb.org/t/p/w342/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
    "web": "https://cinemamontgri.cat/naza/",
@@ -4017,7 +4017,7 @@
    "genere": "Animació",
    "edat": "",
    "director": "Víctor Monigote",
-   "actors": "Animació",
+   "actors": "",
    "estrena": "",
    "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
    "web": "https://cinemamontgri.cat/superthings-la-pelicula/",

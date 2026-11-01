@@ -1,5 +1,9 @@
 {
 "el gato con sombrero": {
+"v": 2,
+"titolTmdb": "El gat amb barret",
+"original": "The Cat in the Hat",
+"dataTmdb": "2026-11-06",
 "id": 1117898,
 "nota": 7.667,
 "vots": 3,
@@ -8,9 +12,13 @@
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "clayface": {
+"v": 2,
+"titolTmdb": "Clayface",
+"original": "Clayface",
+"dataTmdb": "2026-10-23",
 "id": 1400940,
 "nota": 7.461,
 "vots": 305,
@@ -19,9 +27,13 @@
 "poster": "/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "whalefall": {
+"v": 2,
+"titolTmdb": "Whalefall",
+"original": "Whalefall",
+"dataTmdb": "2026-10-16",
 "id": 1255833,
 "nota": 6.6,
 "vots": 129,
@@ -30,9 +42,13 @@
 "poster": "/5d8BZCZQaO3gCdP9JaA5B5qGFsH.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "la otra madre": {
+"v": 2,
+"titolTmdb": "Other Mommy",
+"original": "Other Mommy",
+"dataTmdb": "2026-10-09",
 "id": 1400837,
 "nota": 5.821,
 "vots": 179,
@@ -41,9 +57,13 @@
 "poster": "/vsde9OnhjFMlJz8Wi6Z6drZ7GG5.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "en el corazon de la bestia": {
+"v": 2,
+"titolTmdb": "Heart of the Beast",
+"original": "Heart of the Beast",
+"dataTmdb": "2026-09-25",
 "id": 1263337,
 "nota": 7.308,
 "vots": 367,
@@ -52,9 +72,13 @@
 "poster": "/kVDHPDggier9ciMc8Xglinq1jWv.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "hope": {
+"v": 2,
+"titolTmdb": "Hope",
+"original": "Hope",
+"dataTmdb": "2016-04-24",
 "id": 391268,
 "nota": 4.9,
 "vots": 7,
@@ -63,9 +87,13 @@
 "poster": "/potiUCSWfSt8FWgi5EBzihsCog5.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "karateka": {
+"v": 2,
+"titolTmdb": "Karateka",
+"original": "Karateka",
+"dataTmdb": "2026-10-30",
 "id": 1365224,
 "nota": 0,
 "vots": 0,
@@ -74,9 +102,13 @@
 "poster": "/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "la bola negra": {
+"v": 2,
+"titolTmdb": "La bola negra",
+"original": "La bola negra",
+"dataTmdb": "2026-09-25",
 "id": 1422041,
 "nota": 8.029,
 "vots": 154,
@@ -85,9 +117,13 @@
 "poster": "/t1azKLExwUxKj6v6m2L535evuRa.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "la oveja shaun mision calabaza": {
+"v": 2,
+"titolTmdb": "El xai Shaun: Missió Carbassa",
+"original": "Shaun the Sheep: The Beast of Mossy Bottom",
+"dataTmdb": "2026-10-30",
 "id": 1477104,
 "nota": 7.422,
 "vots": 45,
@@ -96,9 +132,13 @@
 "poster": "/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "leones en invierno": {
+"v": 2,
+"titolTmdb": "Leones en invierno",
+"original": "Leones en invierno",
+"dataTmdb": "2026-10-23",
 "id": 1689329,
 "nota": 5.2,
 "vots": 4,
@@ -107,9 +147,13 @@
 "poster": "/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "sentido y sensibilidad": {
+"v": 2,
+"titolTmdb": "Sense and Sensibility",
+"original": "Sense and Sensibility",
+"dataTmdb": "2026-10-23",
 "id": 1503762,
 "nota": 7.323,
 "vots": 110,
@@ -118,9 +162,13 @@
 "poster": "/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "superthings la pelicula": {
+"v": 2,
+"titolTmdb": "Superthings. La pel·lícula",
+"original": "Superthings: La película",
+"dataTmdb": "2026-10-23",
 "id": 1744346,
 "nota": 7.667,
 "vots": 3,
@@ -129,9 +177,13 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "tiempos de ilusion": {
+"v": 2,
+"titolTmdb": "Juste une illusion",
+"original": "Juste une illusion",
+"dataTmdb": "2026-10-30",
 "id": 1404684,
 "nota": 7.293,
 "vots": 220,
@@ -140,9 +192,13 @@
 "poster": "/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "wicker": {
+"v": 2,
+"titolTmdb": "Wicker",
+"original": "Wicker",
+"dataTmdb": "2026-10-30",
 "id": 1195803,
 "nota": 7.6,
 "vots": 20,
@@ -151,9 +207,13 @@
 "poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "wildwood": {
+"v": 2,
+"titolTmdb": "Wildwood",
+"original": "Wildwood",
+"dataTmdb": "2026-10-23",
 "id": 791523,
 "nota": 8.681,
 "vots": 124,
@@ -162,9 +222,13 @@
 "poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "leviticus": {
+"v": 2,
+"titolTmdb": "Leviticus",
+"original": "Leviticus",
+"dataTmdb": "2026-10-30",
 "id": 1564614,
 "nota": 6.82,
 "vots": 632,
@@ -173,9 +237,13 @@
 "poster": "/gS8Z2lepduus8x6Crwzb85F6Gli.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "arriba tutto": {
+"v": 2,
+"titolTmdb": "Arriba Tutto",
+"original": "Arriba Tutto",
+"dataTmdb": "2026-10-09",
 "id": 1518395,
 "nota": 0,
 "vots": 0,
@@ -184,9 +252,13 @@
 "poster": "/a8MvsDCP3sv0WXNW3I0ainSuLcd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "la maleta": {
+"v": 2,
+"titolTmdb": "La maleta",
+"original": "La maleta",
+"dataTmdb": "2008-10-04",
 "id": 299615,
 "nota": 5.1,
 "vots": 7,
@@ -195,9 +267,13 @@
 "poster": "/1KkW1vKHs20QYNP32tbmUGS2952.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "street fighter": {
+"v": 2,
+"titolTmdb": "Street Fighter",
+"original": "Street Fighter",
+"dataTmdb": "2026-10-16",
 "id": 1153576,
 "nota": 6.3,
 "vots": 210,
@@ -206,9 +282,13 @@
 "poster": "/j9Ukn1hRqSyv5qhHgDHd1s1Dhsg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "verity la sombra de un engano": {
+"v": 2,
+"titolTmdb": "Verity",
+"original": "Verity",
+"dataTmdb": "2026-10-02",
 "id": 1283515,
 "nota": 6.708,
 "vots": 437,
@@ -217,9 +297,13 @@
 "poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "coyote vs acme": {
+"v": 2,
+"titolTmdb": "Coyote vs. Acme",
+"original": "Coyote vs. Acme",
+"dataTmdb": "2026-09-18",
 "id": 1204680,
 "nota": 7.989,
 "vots": 1097,
@@ -228,9 +312,13 @@
 "poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "chopin": {
+"v": 2,
+"titolTmdb": "Chopin",
+"original": "Chopin",
+"dataTmdb": "2018-01-01",
 "id": 756249,
 "nota": 0,
 "vots": 0,
@@ -239,9 +327,13 @@
 "poster": "/y0tBcQZjYbo9MPDU6FkzYafyCdB.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "godzilla minus zero": {
+"v": 2,
+"titolTmdb": "ゴジラ-0.0",
+"original": "ゴジラ-0.0",
+"dataTmdb": "2026-11-06",
 "id": 1381071,
 "nota": 0,
 "vots": 0,
@@ -250,9 +342,13 @@
 "poster": "/8VKjocpP0EiUiUzTPWwz7TV2kWP.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "digger": {
+"v": 2,
+"titolTmdb": "Digger",
+"original": "Digger",
+"dataTmdb": "2026-10-02",
 "id": 1248832,
 "nota": 7.5,
 "vots": 490,
@@ -261,9 +357,13 @@
 "poster": "/txe65aR0g5JiYnHKPjX3E49M5td.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "stray kids world tour live viewing": {
+"v": 2,
+"titolTmdb": "Stray Kids World Tour 'RUN IT' LIVE VIEWING",
+"original": "Stray Kids World Tour 'RUN IT' LIVE VIEWING",
+"dataTmdb": "2026-11-07",
 "id": 1795555,
 "nota": 0,
 "vots": 0,
@@ -272,9 +372,13 @@
 "poster": "/sxtdpz8uVWRbqOZNsWAHXvlBFpU.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "escape room 2": {
+"v": 2,
+"titolTmdb": "Escape Room 2",
+"original": "Escape Room 2",
+"dataTmdb": "2026-10-09",
 "id": 1573952,
 "nota": 0,
 "vots": 0,
@@ -283,9 +387,13 @@
 "poster": "/aXG5QfiCEqBlNsb8ZaMygKxPPX2.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "numakage public pool": {
+"v": 2,
+"titolTmdb": "Numakage Piscina Pública",
+"original": "沼影市民プール",
+"dataTmdb": "2026-09-05",
 "id": 1485195,
 "nota": 0,
 "vots": 0,
@@ -294,12 +402,16 @@
 "poster": "/vN5Gqn2L5ZdnsFwhTIyNocB1G6N.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "bigmountain xile": {
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "naza": {
+"v": 2,
+"titolTmdb": "NAZA",
+"original": "NAZA",
+"dataTmdb": "2026-10-02",
 "id": 1755291,
 "nota": 8.1,
 "vots": 125,
@@ -308,12 +420,16 @@
 "poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "diversion navidena con peppa la experiencia en cines": {
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "superthings la pel licula": {
+"v": 2,
+"titolTmdb": "Superthings. La pel·lícula",
+"original": "Superthings: La película",
+"dataTmdb": "2026-10-23",
 "id": 1744346,
 "nota": 7.667,
 "vots": 3,
@@ -322,9 +438,13 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "los juegos del hambre amanecer en la cosecha": {
+"v": 2,
+"titolTmdb": "Els jocs de la fam: El matí de la sega",
+"original": "The Hunger Games: Sunrise on the Reaping",
+"dataTmdb": "2026-11-20",
 "id": 1300968,
 "nota": 0,
 "vots": 0,
@@ -333,12 +453,16 @@
 "poster": "/nijGyrqQbDhSGss4uugQokvBAsG.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "l ovella shaun missio carbassa": {
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "el precio de la red": {
+"v": 2,
+"titolTmdb": "The Social Reckoning",
+"original": "The Social Reckoning",
+"dataTmdb": "2026-10-09",
 "id": 1281331,
 "nota": 7.0,
 "vots": 134,
@@ -347,9 +471,13 @@
 "poster": "/ls1KWflioSJgCcKhDr6ykvYmgbI.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "astres immobils": {
+"v": 2,
+"titolTmdb": "Astres immòbils",
+"original": "Les astres immobiles",
+"dataTmdb": "2023-09-29",
 "id": 1147701,
 "nota": 9.0,
 "vots": 1,
@@ -360,9 +488,13 @@
 "Filmin"
 ],
 "enllac": "https://www.themoviedb.org/movie/1147701-les-astres-immobiles/watch?locale=ES",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "tanit": {
+"v": 2,
+"titolTmdb": "Tanit",
+"original": "Tanit",
+"dataTmdb": "2026-03-23",
 "id": 1655929,
 "nota": 4.0,
 "vots": 1,
@@ -371,12 +503,16 @@
 "poster": "/AfeoEZ0HCuTgXwj4BTvcizNlWWL.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "iv mostra de curtmetratges de palafrugell": {
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "ruega por nosotras": {
+"v": 2,
+"titolTmdb": "Ruega por nosotras",
+"original": "Ruega por nosotras",
+"dataTmdb": "2026-11-06",
 "id": 1522071,
 "nota": 0,
 "vots": 0,
@@ -385,9 +521,13 @@
 "poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "sacamantecas": {
+"v": 2,
+"titolTmdb": "Sacamantecas",
+"original": "Sacamantecas",
+"dataTmdb": "2026-11-06",
 "id": 1371661,
 "nota": 0,
 "vots": 0,
@@ -396,9 +536,13 @@
 "poster": "/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "como robar un banco": {
+"v": 2,
+"titolTmdb": "How to Rob a Bank",
+"original": "How to Rob a Bank",
+"dataTmdb": "2026-11-13",
 "id": 1437511,
 "nota": 0,
 "vots": 0,
@@ -407,9 +551,13 @@
 "poster": "/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "scrooge y los fantasmas de la navidad": {
+"v": 2,
+"titolTmdb": "Ebenezer",
+"original": "Ebenezer",
+"dataTmdb": "2026-11-13",
 "id": 1567605,
 "nota": 0,
 "vots": 0,
@@ -418,9 +566,13 @@
 "poster": "/gnG15MkiNeObCoPbHcLUX4zrNWh.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "hechizo bienvenidos a hexe": {
+"v": 2,
+"titolTmdb": "Encanteri. Benvinguts a Hexe",
+"original": "Hexed",
+"dataTmdb": "2026-11-27",
 "id": 1538497,
 "nota": 0,
 "vots": 0,
@@ -429,9 +581,13 @@
 "poster": "/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "burundanga": {
+"v": 2,
+"titolTmdb": "Burundanga",
+"original": "Burundanga",
+"dataTmdb": "2026-12-04",
 "id": 1498050,
 "nota": 0,
 "vots": 0,
@@ -440,9 +596,13 @@
 "poster": "/dooIbNThUhVNzhZoIw1INzttev.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "noche de paz 2": {
+"v": 2,
+"titolTmdb": "Violent Night 2",
+"original": "Violent Night 2",
+"dataTmdb": "2026-12-04",
 "id": 1078446,
 "nota": 0,
 "vots": 0,
@@ -451,9 +611,13 @@
 "poster": "/bMGudrgP3ZVD9IPF73BYLdnrNSE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "dune parte tres": {
+"v": 2,
+"titolTmdb": "Dune: Tercera part",
+"original": "Dune: Part Three",
+"dataTmdb": "2026-12-18",
 "id": 1170608,
 "nota": 0,
 "vots": 0,
@@ -462,9 +626,13 @@
 "poster": "/uj4EuGmFNAc4CHBVEtRZ04MXzka.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 },
 "jumanji mundo abierto": {
+"v": 2,
+"titolTmdb": "Jumanji: Open World",
+"original": "Jumanji: Open World",
+"dataTmdb": "2026-12-25",
 "id": 1260649,
 "nota": 0,
 "vots": 0,
@@ -473,6 +641,6 @@
 "poster": "/ntjF2gemedf3ZcWzARGt6cuZlnJ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793502072.006761
+"t": 1793502517.1324
 }
 }
