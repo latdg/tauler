@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-31T14:42:00+00:00",
+ "generat": "2026-11-01T14:13:33+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -8,21 +8,8 @@
   "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-10-31T14:42:21+00:00",
+  "quan": "2026-11-01T14:13:54+00:00",
   "dies": [
-   {
-    "data": "2026-10-28",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 28/10/2026",
-    "farmacies": [
-     {
-      "farmacia": "C. CECILIA NEDEA",
-      "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "09:00 - 09:00 (dia seg.)",
-      "adreca": "C/Jaume II, 14",
-      "telefon": "674038640"
-     }
-    ]
-   },
    {
     "data": "2026-10-29",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 29/10/2026",
@@ -149,6 +136,19 @@
       "farmacia": "PUIGBERT ESTEVAN, C.B",
       "poblacio": "LA BISBAL D'EMPORDA",
       "horari": "20:00 - 09:15 (dia seg.)",
+      "adreca": "Plaça Jacint Verdaguer, 1",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-11-07",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 07/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "PUIGBERT ESTEVAN, C.B",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
       "adreca": "Plaça Jacint Verdaguer, 1",
       "telefon": "674038640"
      }
