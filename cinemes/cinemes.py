@@ -405,12 +405,15 @@ def tmdb_cerca(token, f, idioma):
 
     def punts(o):
         p = (1000 if igual(o) else 0) + min(o.get("popularity") or 0, 200) / 10
-        if any_de(o) > 0 and f["estrena"]:
+        if any_de(o) > 0:
             p -= abs(any_de(o) - any_ref) * 20
         return p
     millor = max(res, key=punts, default=None)
     # Sense títol igual, només si és d'aquest any o del passat: si no, millor res que una altra pel·lícula
     if millor and not igual(millor) and (any_de(millor) == 0 or abs(any_de(millor) - any_ref) > 1):
+        return None
+    # Amb el títol igual, tampoc una d'antiga («Hope» de 2016 per la de 2026), tret que el cinema digui que és una reestrena
+    if millor and any_de(millor) and abs(any_de(millor) - any_ref) > 3 and not re.search(r"(?i)reestren|aniversari", f["titol"]):
         return None
     return millor
 
@@ -444,7 +447,7 @@ def tmdb_consulta(token, f):
             nom = PLATAFORMES.get(p.get("provider_id")) or re.sub(r"(?i)\s+(standard with ads|with ads|amazon channel|basic)$", "", p.get("provider_name") or "").strip()
             if nom and nom not in plataformes:
                 plataformes.append(nom)
-    return {"v": 2, "titolTmdb": tria.get("title") or "", "original": tria.get("original_title") or "", "dataTmdb": tria.get("release_date") or "",
+    return {"v": 3, "titolTmdb": tria.get("title") or "", "original": tria.get("original_title") or "", "dataTmdb": tria.get("release_date") or "",
             "id": peli, "nota": d.get("vote_average") or 0, "vots": d.get("vote_count") or 0, "sinopsi": sinopsi or castella.get("overview") or "",
             "sinopsi_es": sinopsi_es, "poster": tmdb_poster(token, peli, d, castella), "plataformes": plataformes, "enllac": es.get("link") or ""}
 
@@ -462,7 +465,7 @@ def tmdb_enriqueix(films):
     nou, ara = {}, datetime.now(timezone.utc).timestamp()
     for f in films:
         r = desat.get(f["key"])
-        if not r or r.get("v") != 2 or ara - r.get("t", 0) > VIGENCIA_TMDB:
+        if not r or r.get("v") != 3 or ara - r.get("t", 0) > VIGENCIA_TMDB:
             try:
                 r = {**tmdb_consulta(token, f), "t": ara}
             except Exception as e:
@@ -581,6 +584,19 @@ def main():
     tots = amb_sessions + sorted(properes, key=lambda f: f["estrena"])[:MAX_PROPERES]
 
     amb_tmdb = tmdb_enriqueix(tots)
+    # La mateixa pel·lícula amb dos títols («Superthings: La película» i «La pel·lícula»): una sola, amb totes les sessions
+    per_id, unics = {}, []
+    for f in tots:
+        peli = (f["tmdb"] or {}).get("id")
+        if peli not in per_id or not peli:
+            per_id[peli] = f
+            unics.append(f)
+            continue
+        g = per_id[peli]
+        g["sessions"] = sorted(g["sessions"] + [s for s in f["sessions"] if s not in g["sessions"]], key=lambda s: (s["data"], s["hora"], s["cinema"]))
+        if f["qualitat"] > g["qualitat"]:
+            g["titol"], g["qualitat"] = f["titol"], f["qualitat"]
+    tots = unics
     # Tot en català: el que només ha arribat en castellà es tradueix (una vegada; queda desat)
     t = Traductor()
     for f in tots:
