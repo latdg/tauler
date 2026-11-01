@@ -1021,7 +1021,8 @@ async function mapesIncidencies(b) {
     const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN i EMSC");
     if (mapa) {
       const cercles = [50, 150].map(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
-      mapa.fitBounds(cercles[1].getBounds(), { padding: [6, 6] });
+      // 01.11.2026: vista una mica més àmplia que Catalunya, centrada al país (no a la Bisbal)
+      mapa.fitBounds([[40.25, -0.35], [43.15, 3.75]], { padding: [4, 4] });
       const ara = Date.now();
       (b.terratremols.llista || []).slice().reverse().forEach(x => {
         const fa = (ara - new Date(x.iso).getTime()) / 3600e3;
