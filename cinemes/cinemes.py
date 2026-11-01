@@ -444,7 +444,8 @@ def tmdb_consulta(token, f):
             nom = PLATAFORMES.get(p.get("provider_id")) or re.sub(r"(?i)\s+(standard with ads|with ads|amazon channel|basic)$", "", p.get("provider_name") or "").strip()
             if nom and nom not in plataformes:
                 plataformes.append(nom)
-    return {"id": peli, "nota": d.get("vote_average") or 0, "vots": d.get("vote_count") or 0, "sinopsi": sinopsi or castella.get("overview") or "",
+    return {"v": 2, "titolTmdb": tria.get("title") or "", "original": tria.get("original_title") or "", "dataTmdb": tria.get("release_date") or "",
+            "id": peli, "nota": d.get("vote_average") or 0, "vots": d.get("vote_count") or 0, "sinopsi": sinopsi or castella.get("overview") or "",
             "sinopsi_es": sinopsi_es, "poster": tmdb_poster(token, peli, d, castella), "plataformes": plataformes, "enllac": es.get("link") or ""}
 
 
@@ -461,7 +462,7 @@ def tmdb_enriqueix(films):
     nou, ara = {}, datetime.now(timezone.utc).timestamp()
     for f in films:
         r = desat.get(f["key"])
-        if not r or ara - r.get("t", 0) > VIGENCIA_TMDB:
+        if not r or r.get("v") != 2 or ara - r.get("t", 0) > VIGENCIA_TMDB:
             try:
                 r = {**tmdb_consulta(token, f), "t": ara}
             except Exception as e:
@@ -595,6 +596,8 @@ def main():
     for f in tots:
         poster = (desa_poster(f) if f["posterJpeg"] else f["posterDesat"]) or segur(f["posterUrl"])
         fila = {k: f[k] for k in ("key", "titol", "sinopsi", "durada", "genere", "edat", "director", "actors", "estrena")}
+        if fila["actors"].lower() == fila["genere"].lower():
+            fila["actors"] = ""   # OCINE posa «Animació» com a repartiment
         fila.update(poster=poster, web=segur(f["web"]), sessions=f["sessions"])
         r = f["tmdb"] or {}
         if r.get("id"):
