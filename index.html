@@ -1914,6 +1914,11 @@ async function carregaBusos() {
   peu.textContent = `Horaris actualitzats el ${String(BUSOS.generat || "").split(" ")[0]} · Font: GTFS dels autobusos interurbans de la Generalitat · Posició segons horari, no GPS`;
   pintaBusos();
   setInterval(pintaBusos, 60000);
+  // Tornant del mapa complet (…/tauler/#busos), es baixa fins al bloc dels busos.
+  if (location.hash === "#busos") setTimeout(() => {
+    const sec = document.querySelector('section[data-nom="Busos"]');
+    if (sec) sec.scrollIntoView({ block: "start" });
+  }, 1200);
 }
 
 const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
