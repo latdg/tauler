@@ -6,7 +6,8 @@
 <meta name="color-scheme" content="light only">
 <title>Esports de La TdG</title>
 <style>
-.ratxa{display:inline-flex;gap:3px;vertical-align:middle;white-space:nowrap}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}.ratxa .rV{background:#aacc00}.ratxa .rD{background:#f01330}.ratxa .rX{background:#565656}
+.ratxa{display:inline-flex;gap:3px;vertical-align:middle;white-space:nowrap}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}.ratxa .rV{background:#aacc00}.ratxa .rD{background:#f01330}.ratxa .rX,.llegenda-ratxa .rX{background:#565656}.ratxa .rE,.llegenda-ratxa .rE{background:#f2a900}.ratxa .rV,.llegenda-ratxa .rV{background:#aacc00}.ratxa .rD,.llegenda-ratxa .rD{background:#f01330}
+.llegenda-ratxa{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin:0 0 8px;font-size:.8rem;color:var(--suau)}.llegenda-ratxa span{display:inline-flex;align-items:center;gap:4px}.llegenda-ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block}
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c;--ok:#2e7d32;--ko:#c0392b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -258,6 +259,7 @@ function pinta() {
           : [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]).map((x, i, a) => `<td>${i === 1 ? escClub(f.escut) : ""}${i === a.length - 1 && (bas ? ambRatxa : true) ? ratxaPunts(x) : esc(x)}</td>`).join("") + "</tr>").join("") + "</tbody></table></div>" +
         (e.classificacioManual ? `<p class="font">Entrada a mà.</p>` : "");
     }).join("");
+    if (h) h = llegendaRatxa(eqs.some(e => e.classificacio && e.classificacio.tipus !== "basquet")) + h;
   }
   $("vista").innerHTML = h;
 }
@@ -464,8 +466,21 @@ async function ratxesFcbq(text, files) {
   marc.remove();
   return res;
 }
-const ratxaPunts = t => /^[VDX]+$/.test(String(t || ""))
-  ? `<span class="ratxa" title="${esc(t)}">` + String(t).split("").map(l => `<i class="r${l}"></i>`).join("") + "</span>" : esc(t);
+// 01.11.2026: ratxa en punts de colors (V, guanyat; E, empat; D, perdut;
+// X, sense partit), sempre amb el partit més recent a l'esquerra, com la
+// publica la Federació Catalana de Basquetbol. La del futbol arriba de la FCF
+// com a «G-E-P», del més antic al més recent: es tradueix i es gira.
+const NOMS_RATXA = { V: "guanyat", E: "empat", D: "perdut", X: "sense partit" };
+function lletresRatxa(t) {
+  const s = String(t || "").trim().toUpperCase();
+  if (/^[VDX]+$/.test(s)) return s;
+  if (/^[GEP](-[GEP])*$/.test(s)) return s.split("-").reverse().map(l => ({ G: "V", E: "E", P: "D" })[l]).join("");
+  return "";
+}
+const htmlRatxa = l => `<span class="ratxa" title="${l.split("").map(x => NOMS_RATXA[x]).join(", ")}">` + l.split("").map(x => `<i class="r${x}"></i>`).join("") + "</span>";
+const llegendaRatxa = ambEmpat => `<p class="llegenda-ratxa">Ratxa, el partit més recent a l'esquerra: ` +
+  ["V", ambEmpat ? "E" : "", "D", "X"].filter(Boolean).map(x => `<span><i class="r${x}"></i>${NOMS_RATXA[x]}</span>`).join("") + "</p>";
+const ratxaPunts = t => { const l = lletresRatxa(t); return l ? htmlRatxa(l) : esc(t); };
 
 function llegeixPaginaFcbq(text) {
   const doc = new DOMParser().parseFromString(text, "text/html");

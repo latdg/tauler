@@ -364,11 +364,17 @@ def llegeix_feb(eq):
         raise RuntimeError("no hi ha la llista de jornades de la FEB")
 
     partits = []
+    # 01.11.2026: resultats de tots els equips del grup per jornada, per fer la
+    # ratxa en punts de colors (V guanyat, D perdut, X sense partit).
+    resultats_grup = []
     for j in jornades:
         if feb_seleccionat(h, "_ctl0_jornadasDropDownList") != j["id"]:
             time.sleep(0.25)
             h = feb_postback(ses, h, "_ctl0$jornadasDropDownList", {"_ctl0:jornadasDropDownList": j["id"]}, FEB["url"])
-        for p in feb_partits_pagina(h):
+        pagina = feb_partits_pagina(h)
+        resultats_grup.append({p2["local"][0]: ("V" if p2["resultat"][0] > p2["resultat"][1] else "D") for p2 in pagina if p2["resultat"]}
+                              | {p2["visitant"][0]: ("V" if p2["resultat"][1] > p2["resultat"][0] else "D") for p2 in pagina if p2["resultat"]})
+        for p in pagina:
             if FEB["idBisbal"] not in (p["local"][0], p["visitant"][0]):
                 continue
             local = p["local"][0] == FEB["idBisbal"]
@@ -409,6 +415,15 @@ def llegeix_feb(eq):
                 break
     except Exception as e:  # la classificació no ha de fer perdre el calendari
         print("  ⚠️ FEB classificació:", e)
+    # 01.11.2026: ratxa dels cinc darrers partits, com la de la Federació
+    # Catalana: el més recent a l'esquerra (només jornades on ja s'ha jugat
+    # algun partit). Si no es pot fer, es queda la xifra de la FEB.
+    jugades = [r for r in resultats_grup if r]
+    for f in files:
+        rx = "".join(r.get(f.get("idFeb"), "X") for r in jugades)[-5:][::-1]
+        if f.get("idFeb") and rx.strip("X"):
+            f["ratxa"] = rx
+        f.pop("idFeb", None)
     return partits, ({"tipus": "basquet", "files": files} if files else None)
 
 
@@ -448,7 +463,7 @@ def feb_classificacio(h):
             "pos": num(val("pos")), "equip": nom_feb_classificacio(cel[col["equip"]], link),
             "pj": num(val("pj")), "pg": num(val("pg")), "pp": num(val("pp")), "pf": num(val("pf")),
             "pc": num(val("pc")), "dif": num(val("dif")), "pct": val("pct"), "ratxa": val("racha"),
-            "propi": link.group(1) == FEB["idBisbal"],
+            "propi": link.group(1) == FEB["idBisbal"], "idFeb": link.group(1),
             "escut": urljoin(FEB["urlClassificacio"], logo.group(1)) if logo and link.group(1) == FEB["idBisbal"] else "",
         })
     # Si la FEB no dona la posició, és l'ordre de la taula.

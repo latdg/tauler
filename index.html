@@ -11,7 +11,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
-.ratxa{display:inline-flex;gap:3px;vertical-align:middle;white-space:nowrap}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}.ratxa .rV{background:#aacc00}.ratxa .rD{background:#f01330}.ratxa .rX{background:#565656}
+.ratxa{display:inline-flex;gap:3px;vertical-align:middle;white-space:nowrap}.ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}.ratxa .rV{background:#aacc00}.ratxa .rD{background:#f01330}.ratxa .rX,.llegenda-ratxa .rX{background:#565656}.ratxa .rE,.llegenda-ratxa .rE{background:#f2a900}.ratxa .rV,.llegenda-ratxa .rV{background:#aacc00}.ratxa .rD,.llegenda-ratxa .rD{background:#f01330}
+.llegenda-ratxa{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin:0 0 8px;font-size:.8rem;color:var(--suau)}.llegenda-ratxa span{display:inline-flex;align-items:center;gap:4px}.llegenda-ratxa i{width:10px;height:10px;border-radius:50%;display:inline-block}
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -411,9 +412,21 @@ function agrupat(text) {
 // 27.10.2026: escut del club (FCF/FEB), petit, davant del nom. Si la imatge falla, desapareix.
 // Els logotips de la FEB són rodons i amb marge: es fan una mica més grans perquè igualin els escuts de futbol.
 const escClub = u => u ? `<img class="esc-club${/feb\.es/i.test(u) ? " esc-club-feb" : ""}" src="${esc(u)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : "";
-// 01.11.2026: ratxa en punts de colors (V, guanyat; D, perdut; X, sense partit).
-const ratxaPunts = t => /^[VDX]+$/.test(String(t || ""))
-  ? { html: `<span class="ratxa" title="${esc(t)}">` + String(t).split("").map(l => `<i class="r${l}"></i>`).join("") + "</span>" } : t;
+// 01.11.2026: ratxa en punts de colors (V, guanyat; E, empat; D, perdut;
+// X, sense partit), sempre amb el partit més recent a l'esquerra, com la
+// publica la Federació Catalana de Basquetbol. La del futbol arriba de la FCF
+// com a «G-E-P», del més antic al més recent: es tradueix i es gira.
+const NOMS_RATXA = { V: "guanyat", E: "empat", D: "perdut", X: "sense partit" };
+function lletresRatxa(t) {
+  const s = String(t || "").trim().toUpperCase();
+  if (/^[VDX]+$/.test(s)) return s;
+  if (/^[GEP](-[GEP])*$/.test(s)) return s.split("-").reverse().map(l => ({ G: "V", E: "E", P: "D" })[l]).join("");
+  return "";
+}
+const htmlRatxa = l => `<span class="ratxa" title="${l.split("").map(x => NOMS_RATXA[x]).join(", ")}">` + l.split("").map(x => `<i class="r${x}"></i>`).join("") + "</span>";
+const llegendaRatxa = ambEmpat => `<p class="llegenda-ratxa">Ratxa, el partit més recent a l'esquerra: ` +
+  ["V", ambEmpat ? "E" : "", "D", "X"].filter(Boolean).map(x => `<span><i class="r${x}"></i>${NOMS_RATXA[x]}</span>`).join("") + "</p>";
+const ratxaPunts = t => { const l = lletresRatxa(t); return l ? { html: htmlRatxa(l) } : t; };
 
 function taula(capcaleres, files, classeFila) {
   return `<div class="taula"><table><thead><tr>${capcaleres.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>` +
@@ -647,10 +660,13 @@ async function carregaEsports() {
             i => c.files[i].propi ? "propi" : "") + "</details>";
         }
         return `<details class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
-          c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(f.equip) }, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, f.ratxa]),
+          c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(f.equip) }, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, ratxaPunts(f.ratxa)]),
           i => c.files[i].propi ? "propi" : "") + "</details>";
       }).join("");
       if (cosC.querySelector("details.classif")) {
+        // 01.11.2026: llegenda dels colors de la ratxa, a dalt de tot.
+        const ambEmpat = d.equips.some(e => e.classificacio && e.classificacio.tipus !== "basquet");
+        cosC.insertAdjacentHTML("afterbegin", llegendaRatxa(ambEmpat));
         cosC.insertAdjacentHTML("afterbegin", '<p class="classif-botons"><button type="button" data-obre="1">Desplega-les totes</button> · <button type="button">Plega-les totes</button></p>');
         cosC.querySelectorAll(".classif-botons button").forEach(b => b.onclick = () =>
           cosC.querySelectorAll("details.classif").forEach(x => x.open = !!b.dataset.obre));
