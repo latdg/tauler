@@ -13,6 +13,7 @@
   De la més recent a la més antiga, 20 per pàgina, amb cercador.
   01.11.2026: cerca per camp (nom, vetlla, cerimònia, biografia) i filtres per mes i
   per municipi, que s'omplen sols amb el que hi ha a l'historial.
+  02.11.2026: cerca per data de mort (un dia concret o, amb «Fins al», un interval).
 -->
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
@@ -66,6 +67,12 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
     </label>
     <label>Mes
       <select id="mes"><option value="">Tots</option></select>
+    </label>
+    <label>Data de mort
+      <input type="date" id="mortDe">
+    </label>
+    <label>Fins al (opcional)
+      <input type="date" id="mortFins">
     </label>
     <button type="button" id="netejar" hidden>Treure els filtres</button>
   </div>
@@ -136,12 +143,17 @@ function pinta() {
   const camp = document.getElementById("camp").value;
   const mun = document.getElementById("municipi").value;
   const mes = document.getElementById("mes").value;
-  const filtrat = !!(t || mun || mes);
+  // Data de mort: només un dia, o de «Data de mort» a «Fins al» (si se n'omple només un, és aquell dia).
+  let mDe = document.getElementById("mortDe").value, mFins = document.getElementById("mortFins").value;
+  if (!mDe) mDe = mFins; if (!mFins) mFins = mDe;
+  if (mDe > mFins) [mDe, mFins] = [mFins, mDe];
+  const filtrat = !!(t || mun || mes || mDe);
   document.getElementById("netejar").hidden = !filtrat && camp === "tot";
   const llista = TOTES.filter(x =>
     (!t || pla(textCamp(x, camp)).includes(t)) &&
     (!mun || (mun === "-" ? !x.municipi : x.municipi === mun)) &&
-    (!mes || diaNecro(x).startsWith(mes)));
+    (!mes || diaNecro(x).startsWith(mes)) &&
+    (!mDe || (m => !!m && m >= mDe && m <= mFins)(dataNecro(x.dataMort))));
   const pagines = Math.max(1, Math.ceil(llista.length / PER_PAGINA));
   PAGINA = Math.min(Math.max(1, PAGINA), pagines);
   const tros = llista.slice((PAGINA - 1) * PER_PAGINA, PAGINA * PER_PAGINA);
@@ -186,10 +198,12 @@ function pinta() {
   omplirFiltres();
   const torna = () => { PAGINA = 1; pinta(); };
   document.getElementById("cerca").oninput = torna;
-  ["camp", "municipi", "mes"].forEach(id => document.getElementById(id).onchange = torna);
+  ["camp", "municipi", "mes", "mortDe", "mortFins"].forEach(id => document.getElementById(id).onchange = torna);
+  ["mortDe", "mortFins"].forEach(id => document.getElementById(id).oninput = torna);
   document.getElementById("netejar").onclick = () => {
     document.getElementById("cerca").value = "";
     ["camp", "municipi", "mes"].forEach(id => document.getElementById(id).selectedIndex = 0);
+    ["mortDe", "mortFins"].forEach(id => document.getElementById(id).value = "");
     torna();
   };
   pinta();
