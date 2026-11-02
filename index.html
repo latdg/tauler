@@ -1868,7 +1868,7 @@ function textCerimonia(x) {
 function fitxaNecro(x) {
   const linies = [];
   if (x.edat) linies.push(`${esc(x.edat)} anys`);
-  if (dataNecro(x.dataMort)) linies.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}`);
+  if (dataNecro(x.dataMort)) linies.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}.`);
   if (x.vetlla) linies.push(`Vetlla: ${textVetlla(x)}`);
   if (x.ceremonia) linies.push(`Cerimònia: ${textCerimonia(x)}`);
   else if (dataNecro(x.dataFuneral)) linies.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
