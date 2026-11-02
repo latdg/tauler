@@ -126,6 +126,8 @@ details.plegable[open]>summary{margin-bottom:12px;padding-bottom:10px;border-bot
 .pista-plega{color:var(--suau);font-size:.85rem;margin:0}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
+.amb-carrers .etiq-mun{display:none}
+.amb-carrers .etiq-mun{display:none}
 /* 31.10.2026: incidències (avisos, talls, balises, terratrèmols) i apartats */
 .niv{display:inline-block;padding:0 8px;border-radius:999px;font-size:.75rem;font-weight:700;line-height:1.6;vertical-align:1px;text-transform:uppercase;background:#f7d900;color:#1d1d1b}
 .niv.taronja{background:#f39200;color:#fff}
@@ -893,41 +895,43 @@ function blocsIncidencies(b) {
       "", false);
   }
 
-  // 🚨 BALISES V16
+  // 🚨 BALISES V16 (02.11.2026: mapa només si n'hi ha; la informació, al mapa)
   if (b.v16) {
-    const ll = b.v16.balises || [];
+    const ll = b.v16.balises || [], senseLloc = ll.filter(v => v.lat == null || v.lon == null);
     s.v16 = seccio("🚨 Balises V16: vehicles aturats",
-      consulta(b.v16.consultat, "Dirección General de Tráfico (DGT)") +
-      '<div class="mapa-inc" id="mapaV16"></div>' + (ll.length
-        ? "<ul class=\"avisos\">" + ll.map(v => `<li><b${v.nostre ? ' style="color:var(--accent)"' : ""}>${esc(v.via || "Carretera sense identificar")}${v.pk ? ", km " + esc(v.pk) : ""}</b> · ${esc(v.municipi)}` +
-            `<span class="coord">${[v.orientacio ? "Direcció " + esc(v.orientacio) : "", v.inici ? "Activada el " + esc(v.inici) : ""].filter(Boolean).join(" · ")}${enllacMapa(v.lat, v.lon)}</span></li>`).join("") + "</ul>"
+      consulta(b.v16.consultat, "Dirección General de Tráfico (DGT)") + (ll.length
+        ? (ll.length > senseLloc.length ? '<div class="mapa-inc" id="mapaV16"></div>' +
+            '<div class="llegenda"><span><i style="background:#d7191c"></i>als cinc municipis</span><span><i style="background:#f39200"></i>altres municipis</span></div>' : "") +
+          (senseLloc.length ? "<ul class=\"avisos\">" + senseLloc.map(v => `<li><b${v.nostre ? ' style="color:var(--accent)"' : ""}>${esc(v.via || "Carretera sense identificar")}${v.pk ? ", km " + esc(v.pk) : ""}</b> · ${esc(nomMun(v.municipi))}` +
+            `<span class="coord">${[v.orientacio ? "Direcció " + esc(v.orientacio) : "", v.inici ? "Activada el " + esc(v.inici) : ""].filter(Boolean).join(" · ")}</span></li>`).join("") + "</ul>" : "")
         : '<p class="buit">Ara mateix no hi ha cap balisa V16 activada a la zona.</p>') +
-      `<p class="font">Una balisa V16 connectada indica un vehicle aturat a la via, per avaria o per accident. A menys de 25 km de la Bisbal; en color, les dels cinc municipis.${b.v16.espanya ? " Ara n'hi ha " + nCa(b.v16.espanya) + " d'activades a tot l'Estat." : ""}</p>`,
+      `<p class="font">Una balisa V16 connectada indica un vehicle aturat a la via, per avaria o per accident. A menys de 25 km de la Bisbal; en vermell, les dels cinc municipis.${b.v16.espanya ? " Ara n'hi ha " + nCa(b.v16.espanya) + " d'activades a tot l'Estat." : ""}</p>`,
       "", false);
   }
 
-  // 🔌 TALLS DE LLUM
+  // 🔌 TALLS DE LLUM (02.11.2026: mapa només si n'hi ha; la informació, al mapa)
   if (b.tallsLlum) {
-    const ll = b.tallsLlum.talls || [];
+    const ll = b.tallsLlum.talls || [], senseLloc = ll.filter(t => t.lat == null || t.lon == null);
     const abonats = ll.reduce((t, x) => t + (x.abonats || 0), 0);
     s.llum = seccio("🔌 Talls de llum",
-      consulta(b.tallsLlum.consultat, "e-distribución") +
-      (ll.length ? `<div class="xifres"><div class="xifra"><b>${ll.length}</b><span>tall${ll.length === 1 ? "" : "s"} actiu${ll.length === 1 ? "" : "s"}</span></div><div class="xifra"><b>${nCa(abonats)}</b><span>abonats afectats</span></div></div>` : "") +
-      '<div class="mapa-inc" id="mapaLlum"></div>' + (ll.length
-        ? "<ul class=\"avisos\">" + ll.map(t => `<li>${t.avaria ? "⚡" : "🛠️"} <b>${esc(t.municipi)}</b>: ${t.avaria ? "tall per avaria" : "tall programat"}${t.abonats != null ? " · " + nCa(t.abonats) + " abonats" : ""}` +
-            `<span class="coord">${[t.inici ? (t.avaria ? "Sense llum des del " : "Inici: ") + esc(t.inici) : "", "Reposició prevista: " + esc(t.reposicio || "sense concretar")].filter(Boolean).join(" · ")}${enllacMapa(t.lat, t.lon)}</span></li>`).join("") + "</ul>"
+      consulta(b.tallsLlum.consultat, "e-distribución") + (ll.length
+        ? `<div class="xifres"><div class="xifra"><b>${ll.length}</b><span>tall${ll.length === 1 ? "" : "s"} actiu${ll.length === 1 ? "" : "s"}</span></div><div class="xifra"><b>${nCa(abonats)}</b><span>abonats afectats</span></div></div>` +
+          (ll.length > senseLloc.length ? '<div class="mapa-inc" id="mapaLlum"></div>' +
+            '<div class="llegenda"><span><i style="background:#d7191c"></i>avaria</span><span><i style="background:#2b6cb0"></i>tall programat</span></div>' : "") +
+          (senseLloc.length ? "<ul class=\"avisos\">" + senseLloc.map(t => `<li>${t.avaria ? "⚡" : "🛠️"} <b>${esc(t.municipi)}</b>: ${t.avaria ? "tall per avaria" : "tall programat"}${t.abonats != null ? " · " + nCa(t.abonats) + " abonats" : ""}` +
+            `<span class="coord">${[t.inici ? (t.avaria ? "Sense llum des del " : "Inici: ") + esc(t.inici) : "", "Reposició prevista: " + esc(t.reposicio || "sense concretar")].filter(Boolean).join(" · ")}</span></li>`).join("") + "</ul>" : "")
         : '<p class="buit">Ara mateix no hi ha cap tall de llum als cinc municipis.</p>') +
       '<p class="font">Avaries i treballs programats de la xarxa d\'e-distribución. Per avisar d\'una avaria: 900 878 212. La ubicació és aproximada.</p>', "", false);
   }
 
-  // 🚰 TALLS D'AIGUA (Forallac)
+  // 🚰 TALLS D'AIGUA (Forallac) (02.11.2026: mapa només si n'hi ha; la informació, al mapa)
   if (b.tallsAigua) {
-    const ll = b.tallsAigua.talls || [];
+    const ll = b.tallsAigua.talls || [], senseLloc = ll.filter(t => !t.geom);
     s.aigua = seccio("🚰 Talls d'aigua a Forallac",
-      consulta(b.tallsAigua.consultat, "Veolia") +
-      '<div class="mapa-inc" id="mapaAigua"></div>' + (ll.length
-        ? "<ul class=\"avisos\">" + ll.map(t => `<li><b>${esc(t.adreca || "Forallac")}</b>: ${t.encurs ? "tall en curs" : "tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}` +
-            `<span class="coord">${[t.quan ? "Previsió: " + esc(t.quan) : "", t.carrers ? "També afecta: " + esc(t.carrers) : ""].filter(Boolean).join(" · ")}</span></li>`).join("") + "</ul>"
+      consulta(b.tallsAigua.consultat, "Veolia") + (ll.length
+        ? (ll.length > senseLloc.length ? '<div class="mapa-inc" id="mapaAigua"></div>' : "") +
+          (senseLloc.length ? "<ul class=\"avisos\">" + senseLloc.map(t => `<li><b>${esc(t.adreca || "Forallac")}</b>: ${t.encurs ? "tall en curs" : "tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}` +
+            `<span class="coord">${[t.quan ? "Previsió: " + esc(t.quan) : "", t.carrers ? "També afecta: " + esc(t.carrers) : ""].filter(Boolean).join(" · ")}</span></li>`).join("") + "</ul>" : "")
         : '<p class="buit">Ara mateix Veolia no indica cap tall d\'aigua a Forallac.</p>') +
       '<p class="font">Forallac és l\'únic dels cinc municipis amb l\'aigua de Veolia; les altres gestores no publiquen els talls en dades obertes. <a href="https://agbar.veolia.cat/mapa-de-obras-y-afectaciones" target="_blank" rel="noopener">Mapa d\'obres i afectacions de Veolia</a></p>', "", false);
   }
@@ -996,21 +1000,49 @@ const punt = (mapa, lat, lon, color, radi, tooltip, popup) => lat != null && lon
   L.circleMarker([lat, lon], { radius: radi, color: "#fff", weight: 1.5, fillColor: color, fillOpacity: .95 })
     .bindTooltip(tooltip).bindPopup(popup, { maxWidth: 280 }).addTo(mapa);
 
+// Vista centrada en uns punts [lat, lon]: un sol punt, a prop; diversos, tots dins (02.11.2026)
+function vistaDe(pts) {
+  if (!pts.length) return null;
+  const lats = pts.map(p => p[0]), lons = pts.map(p => p[1]);
+  const cLat = (Math.min(...lats) + Math.max(...lats)) / 2, cLon = (Math.min(...lons) + Math.max(...lons)) / 2;
+  const dLat = Math.max(0.04, (Math.max(...lats) - Math.min(...lats)) * 0.65), dLon = Math.max(0.06, (Math.max(...lons) - Math.min(...lons)) * 0.65);
+  return [[cLat - dLat, cLon - dLon], [cLat + dLat, cLon + dLon]];
+}
+// Carrers (02.11.2026): en acostar-s'hi (zoom 13 o més) apareix el plànol de carrers
+function carrers(mapa) {
+  mapa.setMaxZoom(18);
+  mapa.createPane("carrers").style.zIndex = 260;   // sobre el fons, sota els punts
+  const capa = L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    { pane: "carrers", subdomains: "abcd", maxZoom: 19, attribution: "Carrers: © OpenStreetMap, © CARTO" });
+  const mira = () => {
+    const a = mapa.getZoom() >= 13;
+    if (a && !mapa.hasLayer(capa)) capa.addTo(mapa); else if (!a && mapa.hasLayer(capa)) mapa.removeLayer(capa);
+    mapa.getContainer().classList.toggle("amb-carrers", a);
+  };
+  mira(); mapa.on("zoomend", mira);
+}
+const obreFitxa = m => m && setTimeout(() => m.openPopup(), 300);
+
 async function mapesIncidencies(b) {
   if (b.tallsLlum && document.getElementById("mapaLlum")) {
-    const mapa = await mapaBase("mapaLlum", MUN_ANTENES, "Talls: e-distribución");
-    if (mapa) (b.tallsLlum.talls || []).forEach(t => punt(mapa, t.lat, t.lon, t.avaria ? "#d7191c" : "#2b6cb0", 8,
-      `${t.municipi}${t.abonats != null ? " · " + t.abonats + " abonats" : ""}`,
-      `<b>${esc(t.municipi)}</b><br>${t.avaria ? "Tall per avaria" : "Tall programat"}${t.abonats != null ? `<br>Abonats afectats: <b>${nCa(t.abonats)}</b>` : ""}` +
-      `${t.inici ? "<br>Des del " + esc(t.inici) : ""}<br>Reposició prevista: ${esc(t.reposicio || "sense concretar")}`));
+    const ll = (b.tallsLlum.talls || []).filter(t => t.lat != null && t.lon != null);
+    const mapa = await mapaBase("mapaLlum", MUN_ANTENES, "Talls: e-distribución", null, vistaDe(ll.map(t => [t.lat, t.lon])));
+    if (mapa) {
+      carrers(mapa);
+      obreFitxa(ll.map(t => punt(mapa, t.lat, t.lon, t.avaria ? "#d7191c" : "#2b6cb0", 9,
+        `${t.avaria ? "⚡" : "🛠️"} ${t.municipi}${t.abonats != null ? " · " + t.abonats + " abonats" : ""}`,
+        `<b>${t.avaria ? "⚡" : "🛠️"} ${esc(t.municipi)}</b><br>${t.avaria ? "Tall per avaria" : "Tall programat"}${t.abonats != null ? `<br>Abonats afectats: <b>${nCa(t.abonats)}</b>` : ""}` +
+        `${t.inici ? (t.avaria ? "<br>Sense llum des del " : "<br>Inici: ") + esc(t.inici) : ""}<br>Reposició prevista: ${esc(t.reposicio || "sense concretar")}`))[0]);
+    }
   }
   if (b.v16 && document.getElementById("mapaV16")) {
-    const mapa = await mapaBase("mapaV16", MUN_ANTENES, "Balises: DGT");
+    const ll = (b.v16.balises || []).filter(v => v.lat != null && v.lon != null);
+    const mapa = await mapaBase("mapaV16", MUN_ANTENES, "Balises: DGT", null, vistaDe(ll.map(v => [v.lat, v.lon])));
     if (mapa) {
-      mapa.setView([41.93, 3.05], 10.25);
-      (b.v16.balises || []).forEach(v => punt(mapa, v.lat, v.lon, v.nostre ? "#d7191c" : "#f39200", 8,
-        `${v.via || ""}${v.pk ? ", km " + v.pk : ""}`,
-        `<b>${esc(v.via || "Carretera")}${v.pk ? ", km " + esc(v.pk) : ""}</b><br>${esc(v.municipi)}${v.orientacio ? "<br>Direcció " + esc(v.orientacio) : ""}${v.inici ? "<br>Activada el " + esc(v.inici) : ""}`));
+      carrers(mapa);
+      obreFitxa(ll.map(v => punt(mapa, v.lat, v.lon, v.nostre ? "#d7191c" : "#f39200", 9,
+        `🚨 ${v.via || ""}${v.pk ? ", km " + v.pk : ""}`,
+        `<b>🚨 ${esc(v.via || "Carretera")}${v.pk ? ", km " + esc(v.pk) : ""}</b><br>${esc(nomMun(v.municipi))}${v.orientacio ? "<br>Direcció " + esc(v.orientacio) : ""}${v.inici ? "<br>Activada el " + esc(v.inici) : ""}`))[0]);
     }
   }
   if (b.bombers && document.getElementById("mapaBombers")) {
@@ -1032,19 +1064,27 @@ async function mapesIncidencies(b) {
         `${a.vehicles ? "<br>" + a.vehicles + (a.vehicles === 1 ? " vehicle" : " vehicles") : ""}${a.inici ? "<br>Des del " + esc(a.inici) : ""}` +
         `${a.km != null ? "<br>A " + num(a.km) + " km de la Bisbal" : ""}`));
       // La fitxa de la primera (la dels cinc municipis o la més recent) ja oberta
-      if (marques[0]) setTimeout(() => marques[0].openPopup(), 300);
+      carrers(mapa);
+      obreFitxa(marques[0]);
     }
   }
   if (b.tallsAigua && document.getElementById("mapaAigua")) {
-    const mapa = await mapaBase("mapaAigua", ["17902"], "Talls: Veolia", ["17902"]);
-    if (mapa) (b.tallsAigua.talls || []).forEach(t => {
-      if (!t.geom) return;
-      const html = `<b>${esc(t.adreca || "Forallac")}</b><br>${t.encurs ? "Tall en curs" : "Tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}${t.quan ? "<br>" + esc(t.quan) : ""}`;
-      const estil = { color: "#2b6cb0", weight: 4, fillColor: "#2b6cb0", fillOpacity: .35 };
-      const c = t.geom.coords;
-      (t.geom.tipus === "punt" ? L.circleMarker(c, { radius: 8, color: "#fff", weight: 1.5, fillColor: "#2b6cb0", fillOpacity: .95 })
-        : t.geom.tipus === "linia" ? L.polyline(c, estil) : L.polygon(c, estil)).bindPopup(html).addTo(mapa);
-    });
+    const ll = (b.tallsAigua.talls || []).filter(t => t.geom);
+    const pts = [];
+    const recull = c => Array.isArray(c) && typeof c[0] === "number" ? pts.push(c) : (c || []).forEach(recull);
+    ll.forEach(t => recull(t.geom.coords));
+    const mapa = await mapaBase("mapaAigua", ["17902"], "Talls: Veolia", ["17902"], vistaDe(pts));
+    if (mapa) {
+      carrers(mapa);
+      obreFitxa(ll.map(t => {
+        const html = `<b>🚰 ${esc(t.adreca || "Forallac")}</b><br>${t.encurs ? "Tall en curs" : "Tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}` +
+          `${t.quan ? "<br>Previsió: " + esc(t.quan) : ""}${t.carrers ? "<br>També afecta: " + esc(t.carrers) : ""}`;
+        const estil = { color: "#2b6cb0", weight: 4, fillColor: "#2b6cb0", fillOpacity: .35 };
+        const c = t.geom.coords;
+        return (t.geom.tipus === "punt" ? L.circleMarker(c, { radius: 9, color: "#fff", weight: 1.5, fillColor: "#2b6cb0", fillOpacity: .95 })
+          : t.geom.tipus === "linia" ? L.polyline(c, estil) : L.polygon(c, estil)).bindPopup(html, { maxWidth: 280 }).addTo(mapa);
+      })[0]);
+    }
   }
   if (b.terratremols && document.getElementById("mapaSismes")) {
     // 01.11.2026: vista de Catalunya i el sud de França (no la Bisbal), amb França dibuixada
