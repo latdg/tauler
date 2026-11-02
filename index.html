@@ -1070,6 +1070,24 @@ async function mapesIncidencies(b) {
       obreFitxa(marques[0]);
     }
   }
+  if (b.incidencies && document.getElementById("mapaTransit")) {
+    const ll = b.incidencies.filter(i => i.linia || i.tram || i.punt);
+    const pts = ll.flatMap(i => i.linia || i.tram || [i.punt]);
+    const mapa = await mapaBase("mapaTransit", MUN_ANTENES, "Incidències: Servei Català de Trànsit", null, vistaDe(pts));
+    if (mapa) {
+      carrers(mapa);
+      ll.forEach(i => {
+        const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}` +
+          (i.linia ? "" : i.tram ? '<br><i style="color:#6b6b66">Tram aproximat: només se\'n coneixen l\'inici i el final.</i>' : "");
+        const tip = `${i.carretera}${i.km ? ", km " + i.km : ""} · ${i.titol}`;
+        if (i.punt) return punt(mapa, i.punt[0], i.punt[1], "#d7191c", 8, tip, html);
+        const tros = i.linia || i.tram;
+        L.polyline(tros, { color: "#fff", weight: 8, opacity: .9, interactive: false }).addTo(mapa);
+        L.polyline(tros, { color: "#d7191c", weight: 5, opacity: .9, dashArray: i.linia ? null : "8 6" }).bindTooltip(tip, { sticky: true }).bindPopup(html, { maxWidth: 280 }).addTo(mapa);
+        [tros[0], tros[tros.length - 1]].forEach(c => L.circleMarker(c, { radius: 4, color: "#fff", weight: 1.5, fillColor: "#d7191c", fillOpacity: 1 }).bindTooltip(tip).bindPopup(html, { maxWidth: 280 }).addTo(mapa));
+      });
+    }
+  }
   if (b.tallsAigua && document.getElementById("mapaAigua")) {
     const ll = (b.tallsAigua.talls || []).filter(t => t.geom);
     const pts = [];
@@ -1187,6 +1205,9 @@ function pinta(d) {
     `<figure class="camera"><img id="imgCamera" alt="Càmera de trànsit — ${esc(CAMERA_TRANSIT.nom)}" src="${urlCamera()}">` +
     `<figcaption id="peuCamera">Imatge en directe · s'actualitza cada minut</figcaption></figure>` +
     `<h3>Incidències viàries a la comarca</h3>` +
+    // 02.11.2026: mapa dels trams afectats (només si n'hi ha cap de situat)
+    ((b.incidencies || []).some(i => i.linia || i.tram || i.punt)
+      ? '<div class="mapa-inc" id="mapaTransit"></div><div class="llegenda"><span><i style="background:#d7191c"></i>tram afectat</span><span>Clica un tram per veure\'n el detall</span></div>' : "") +
     (b.incidencies && b.incidencies.length
       // 26.10.2026: agrupades per població (un sol títol per municipi i les afectacions a sota).
       ? "<ul>" + Object.entries(b.incidencies.reduce((g, i) => { (g[i.municipi] = g[i.municipi] || []).push(i); return g; }, {}))
@@ -1986,6 +2007,7 @@ async function minimapaBusos(viatges, m) {
     MAPA_BUSOS = false;
     const mapa = await mapaBase("mapaBusos", MUN_ANTENES, "Horaris: Generalitat de Catalunya");
     if (!mapa) return;
+    carrers(mapa);   // 02.11.2026: plànol de carrers en acostar-s'hi
     const tracats = L.featureGroup().addTo(mapa);
     Object.entries(D.rutes).forEach(([rid, r]) => {
       if (r.t.length < 2) return;

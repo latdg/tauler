@@ -353,7 +353,110 @@ def incidencies():
             "km": re.sub(r"^Punt km\.?\s*", "", parts[3], flags=re.I),
             "sentit": parts[2],
         })
+    # 02.11.2026: situa cada incidència al mapa amb el DATEX2 del mateix Servei Català
+    # de Trànsit (al punt d'accés de la DGT), que dona els punts d'inici i de final.
+    if resultat:
+        try:
+            situa_incidencies(resultat)
+        except Exception as e:
+            print("Incidències viàries: no s'han pogut situar al mapa:", e)
     return resultat   # una llista buida també és una dada: «cap incidència»
+
+
+SCT_DATEX_URL = "https://nap.dgt.es/datex2/sct/SituationPublication/all/content.xml"
+TRAMS_CAU = DADES / "trams_transit.json"   # el traçat per carretera de cada tram, ja calculat
+
+
+def nom_via(t):
+    return re.sub(r"[^A-Z0-9]", "", str(t or "").upper())
+
+
+def km_rss(t):
+    x = [num(v) for v in re.findall(r"\d+(?:[.,]\d+)?", str(t or ""))]
+    x = [v for v in x if v is not None]
+    return (min(x), max(x)) if x else None
+
+
+def registres_sct():
+    r = requests.get(SCT_DATEX_URL, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=120)
+    r.raise_for_status()
+    text = r.content.decode("utf-8", errors="replace")
+    sortida = []
+    for t in re.findall(r"<(?:[\w-]+:)?situationRecord\b([\s\S]*?)</(?:[\w-]+:)?situationRecord>", text):
+        via = nom_via(v16_camp(t, "roadNumber"))
+        if not via:
+            continue
+        def punt(etiqueta):
+            for bloc in re.findall(r"<(?:[\w-]+:)?" + etiqueta + r"\b[^>]*>([\s\S]*?)</(?:[\w-]+:)?" + etiqueta + ">", t):
+                lat, lon = coord(v16_camp(bloc, "latitude")), coord(v16_camp(bloc, "longitude"))
+                if lat is not None and lon is not None:
+                    return [lat, lon]
+            return None
+        de, a = punt("from"), punt("to")
+        if not de and not a:
+            totes = re.findall(r"<(?:[\w-]+:)?latitude>([^<]+)<[\s\S]*?<(?:[\w-]+:)?longitude>([^<]+)<", t)
+            pts = [[coord(x), coord(y)] for x, y in totes if coord(x) is not None and coord(y) is not None]
+            de, a = (pts[0], pts[-1]) if pts else (None, None)
+        pts = [p for p in (de, a) if p]
+        if not pts or min(distancia_km(*BISBAL, *p) for p in pts) > 45:
+            continue
+        kms = [num(v) / 1000 for v in re.findall(r"<(?:[\w-]+:)?referencePointDistance>([^<]+)<", t) if num(v) is not None]
+        sortida.append({"via": via, "de": de, "a": a, "km": (min(kms), max(kms)) if kms else None})
+    return sortida
+
+
+def tram_per_carretera(de, a, cau):
+    """El recorregut per carretera entre els dos punts (OSRM), desat a la memòria cau."""
+    clau = f"{de[0]:.5f},{de[1]:.5f};{a[0]:.5f},{a[1]:.5f}"
+    if clau in cau:
+        return cau[clau]
+    try:
+        r = requests.get(f"https://router.project-osrm.org/route/v1/driving/{de[1]},{de[0]};{a[1]},{a[0]}",
+                         params={"overview": "full", "geometries": "geojson"}, headers=CAPCALERES, timeout=30)
+        r.raise_for_status()
+        rutes = r.json().get("routes") or []
+        linia = [[round(y, 5), round(x, 5)] for x, y in rutes[0]["geometry"]["coordinates"]] if rutes else None
+        # Si la ruta fa una volta molt més llarga que la recta, millor no fer-la servir
+        recta = distancia_km(*de, *a)
+        if linia and rutes[0].get("distance", 0) / 1000 > max(3 * recta, recta + 5):
+            linia = None
+    except Exception as e:
+        print("Ruta del tram:", e)
+        return None
+    cau[clau] = linia
+    return linia
+
+
+def situa_incidencies(resultat):
+    regs = registres_sct()
+    cau = llegeix(TRAMS_CAU, {})
+    usats = set()
+    for inc in resultat:
+        via, kr = nom_via(inc.get("carretera")), km_rss(inc.get("km"))
+        candidats = [(i, r) for i, r in enumerate(regs) if r["via"] == via and i not in usats]
+        if not candidats:
+            continue
+        def encaix(ir):
+            r = ir[1]
+            if kr and r["km"]:
+                return abs(r["km"][0] - kr[0]) + abs(r["km"][1] - kr[1])
+            return 999
+        i, r = min(candidats, key=encaix)
+        usats.add(i)
+        if r["de"] and r["a"] and distancia_km(*r["de"], *r["a"]) > 0.05:
+            inc["tram"] = [r["de"], r["a"]]
+            linia = tram_per_carretera(r["de"], r["a"], cau)
+            if linia:
+                inc["linia"] = linia
+        else:
+            inc["punt"] = r["de"] or r["a"]
+    # Només es guarden els trams que encara són vius
+    vius = {f"{x['tram'][0][0]:.5f},{x['tram'][0][1]:.5f};{x['tram'][1][0]:.5f},{x['tram'][1][1]:.5f}"
+            for x in resultat if x.get("tram")}
+    try:
+        TRAMS_CAU.write_text(json.dumps({k: v for k, v in cau.items() if k in vius}, ensure_ascii=False), encoding="utf-8")
+    except Exception as e:
+        print("Memòria cau dels trams:", e)
 
 
 # -----------------------------------------------------------------------------
