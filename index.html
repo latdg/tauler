@@ -1847,7 +1847,8 @@ function textVetlla(x) {
   const t = String(x.vetlla || "");
   if (!base) return esc(t);
   // La coma (o l'espai) entre la data i l'hora passa a «a les» («a la» per a la una).
-  return esc(t.replace(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?([a-zçà-ú]+)(\s*,?\s*(?=\d))?/gi, (m0, d, nom, sep, pos, tot) => {
+  // Punt davant d'«Inici:» i de «Final:» si no n'hi ha.
+  return esc(t.replace(/([^.\s])\s+(Inici|Final)\s*:/g, "$1. $2:").replace(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?([a-zçà-ú]+)(\s*,?\s*(?=\d))?/gi, (m0, d, nom, sep, pos, tot) => {
     const mes = MESOS_NECRO.findIndex(v => v.some(p => nom.toLowerCase().startsWith(p))) + 1;
     if (!mes || +d < 1 || +d > 31) return m0;
     const any = +base.slice(0, 4) + (mes < +base.slice(5, 7) ? 1 : 0);
