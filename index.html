@@ -1111,6 +1111,7 @@ async function mapesIncidencies(b) {
     const mapa = await mapaBase("mapaSismes", ["17022"], "Terratrèmols: IGN i EMSC", null, [[40.3, -0.5], [44.3, 5.4]]);
     if (mapa) {
       mapa.attributionControl.addAttribution("Països: Natural Earth");
+      carrers(mapa);   // 02.11.2026: plànol de carrers en acostar-s'hi
       try {
         mapa.createPane("paisos").style.zIndex = 240;   // per sota dels límits de Catalunya
         const W = await (await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")).json();
