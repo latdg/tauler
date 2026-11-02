@@ -141,6 +141,18 @@ function dataCerimonia(x) {
 }
 // 02.11.2026: a la cerimònia, la data en lletres («03 novembre») passa a dd.mm.aaaa, i la del
 // funeral entre parèntesis només s'hi afegeix si és una altra.
+// 02.11.2026: a la vetlla, les dates d'inici i final en lletres («03 de novembre») passen a dd.mm.aaaa.
+function textVetlla(x) {
+  const base = dataNecro(x.dataMort) || x.vist || "";
+  const t = String(x.vetlla || "");
+  if (!base) return esc(t);
+  return esc(t.replace(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?([a-zçà-ú]+)/gi, (m0, d, nom) => {
+    const mes = MESOS_NECRO.findIndex(v => v.some(p => nom.toLowerCase().startsWith(p))) + 1;
+    if (!mes || +d < 1 || +d > 31) return m0;
+    const any = +base.slice(0, 4) + (mes < +base.slice(5, 7) ? 1 : 0);
+    return dataCa(`${any}-${String(mes).padStart(2, "0")}-${d.padStart(2, "0")}`);
+  }));
+}
 function textCerimonia(x) {
   const t = String(x.ceremonia || ""), iso = dataCerimonia(x), fun = dataNecro(x.dataFuneral);
   if (!iso) return esc(t) + (fun ? " (" + dataCa(fun) + ")" : "");
@@ -153,7 +165,7 @@ function fitxa(x) {
   const l = [];
   if (x.edat) l.push(`${esc(x.edat)} anys`);
   if (dataNecro(x.dataMort)) l.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}`);
-  if (x.vetlla) l.push(`Vetlla: ${esc(x.vetlla)}`);
+  if (x.vetlla) l.push(`Vetlla: ${textVetlla(x)}`);
   if (x.ceremonia) l.push(`Cerimònia: ${textCerimonia(x)}`);
   else if (dataNecro(x.dataFuneral)) l.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
   const det = x.detall || x.biografia || "";
