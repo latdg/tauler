@@ -1182,6 +1182,8 @@ def municipi_bonic(t):
         return MUN_ZONA["17901"]
     if net == "corca":
         return "Corçà"
+    if "castell-platja d'aro" in net or "castell platja d'aro" in net:
+        return "Castell-Platja d'Aro"   # 02.11.2026: amb «Platja» en majúscula
     return text_bonic(t)
 
 
