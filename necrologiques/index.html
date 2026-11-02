@@ -126,12 +126,33 @@ function omplirFiltres() {
     Object.keys(mes).sort().reverse().map(k => `<option value="${k}">${MESOS[Number(k.slice(5)) - 1].replace(/^./, c => c.toUpperCase())} ${k.slice(0, 4)} (${mes[k]})</option>`).join("");
 }
 
+const MESOS_NECRO = [["gen", "ene"], ["febr", "feb"], ["març", "marc", "mar"], ["abr"], ["maig", "may"], ["juny", "jun"],
+  ["jul"], ["ag", "ago"], ["set", "sep"], ["oct"], ["nov"], ["des", "dic"]];
+function dataCerimonia(x) {
+  const t = String(x.ceremonia || "").toLowerCase();
+  const m = t.match(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?([a-zçà-ú]+)/);
+  if (!m) return "";
+  const mes = MESOS_NECRO.findIndex(v => v.some(p => m[2].startsWith(p))) + 1;
+  const base = dataNecro(x.dataMort) || x.vist || "";
+  if (!mes || !base || +m[1] < 1 || +m[1] > 31) return "";
+  let any = +base.slice(0, 4);
+  if (mes < +base.slice(5, 7)) any++;
+  return `${any}-${String(mes).padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+}
+// 02.11.2026: a la cerimònia, la data en lletres («03 novembre») passa a dd.mm.aaaa, i la del
+// funeral entre parèntesis només s'hi afegeix si és una altra.
+function textCerimonia(x) {
+  const t = String(x.ceremonia || ""), iso = dataCerimonia(x), fun = dataNecro(x.dataFuneral);
+  if (!iso) return esc(t) + (fun ? " (" + dataCa(fun) + ")" : "");
+  const net = t.replace(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?[a-zçà-ú]+/i, dataCa(iso));
+  return esc(net) + (fun && fun !== iso ? " (" + dataCa(fun) + ")" : "");
+}
 function fitxa(x) {
   const l = [];
   if (x.edat) l.push(`${esc(x.edat)} anys`);
   if (dataNecro(x.dataMort)) l.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}`);
   if (x.vetlla) l.push(`Vetlla: ${esc(x.vetlla)}`);
-  if (x.ceremonia) l.push(`Cerimònia: ${esc(x.ceremonia)}${dataNecro(x.dataFuneral) ? " (" + dataCa(dataNecro(x.dataFuneral)) + ")" : ""}`);
+  if (x.ceremonia) l.push(`Cerimònia: ${textCerimonia(x)}`);
   else if (dataNecro(x.dataFuneral)) l.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
   const det = x.detall || x.biografia || "";
   return `<article class="fitxa"><b>${esc(String(x.nom).toLocaleUpperCase("ca"))}</b>${l.length ? "<br>" + l.join("<br>") : ""}` +
