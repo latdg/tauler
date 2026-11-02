@@ -754,6 +754,7 @@ async function carregaAntenes() {
   const mapa = L.map("mapaAntenes", { zoomSnap: 0.25, preferCanvas: true, scrollWheelZoom: false }).setView([41.95, 3.0], 11.5);
   mapa.attributionControl.setPrefix("").addAttribution("Antenes: Celda · Infoantenas (Ministeri) · Límits: es-atlas (INE)");
   try { const b = await fonsMapa(mapa, MUN_ANTENES); if (b) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
+  carrers(mapa);   // 02.11.2026: plànol de carrers en acostar-s'hi
 
   em.forEach(e => {
     const ops = e.operadors.map(o => o.op);
@@ -1582,6 +1583,7 @@ async function carregaDea() {
   if (tots.length) mapa.fitBounds(tots, { padding: [24, 24] }); else mapa.setView([41.96, 3.03], 12);
   mapa.attributionControl.setPrefix("").addAttribution("DEA: Departament de Salut · Límits: es-atlas (INE)");
   try { await fonsMapa(mapa, []); } catch (e) {}
+  carrers(mapa);   // 02.11.2026: plànol de carrers en acostar-s'hi
   Object.values(llocs).forEach(g => {
     const carrer = g.some(alCarrer), color = carrer ? "#2e8b57" : "#2b6cb0";
     const icona = L.divIcon({ className: "", iconSize: [24, 24], iconAnchor: [12, 12],
