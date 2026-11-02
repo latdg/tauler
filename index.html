@@ -1071,20 +1071,52 @@ async function mapesIncidencies(b) {
     }
   }
   if (b.incidencies && document.getElementById("mapaTransit")) {
+    // 02.11.2026: el municipi del títol és on hi ha ara l'afectació; el tram de km és el
+    // previst. Es pinta en vermell només el tros dins d'aquell municipi i la resta, en gris.
+    let MUNS = [];
+    try { const G = await geoFons(); MUNS = topojson.feature(G, G.objects.municipis).features; } catch (e) {}
+    const nomNet = t => String(t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+      .replace(/[’`´]/g, "'").replace(/^(la|el|les|els)\s+|^l'/, "").trim();
+    const dinsAnell = (lat, lon, r) => { let d = false;
+      for (let a = 0, b2 = r.length - 1; a < r.length; b2 = a++) {
+        const [xa, ya] = r[a], [xb, yb] = r[b2];
+        if ((ya > lat) !== (yb > lat) && lon < (xb - xa) * (lat - ya) / (yb - ya) + xa) d = !d;
+      } return d; };
+    const dinsMun = (f, [lat, lon]) => {
+      const pols = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+      return pols.some(pol => dinsAnell(lat, lon, pol[0]) && !pol.slice(1).some(r => dinsAnell(lat, lon, r)));
+    };
+    // Trossos consecutius de la línia que queden dins del municipi
+    const trossosDins = (linia, mun) => {
+      const f = MUNS.find(x => nomNet(x.properties && x.properties.n) === nomNet(mun));
+      if (!f) return null;
+      const t = []; let cur = [];
+      linia.forEach(p => { if (dinsMun(f, p)) cur.push(p); else { if (cur.length > 1) t.push(cur); cur = []; } });
+      if (cur.length > 1) t.push(cur);
+      return t;
+    };
     const ll = b.incidencies.filter(i => i.linia || i.tram || i.punt);
-    const pts = ll.flatMap(i => i.linia || i.tram || [i.punt]);
+    const dades = ll.map(i => {
+      const tros = i.linia || i.tram;
+      const dins = i.linia ? trossosDins(i.linia, i.municipi) : null;
+      return { i, tros, dins: dins && dins.length ? dins : null };
+    });
+    const pts = dades.flatMap(d => d.i.punt ? [d.i.punt] : d.dins ? d.dins.flat() : d.tros);
     const mapa = await mapaBase("mapaTransit", MUN_ANTENES, "Incidències: Servei Català de Trànsit", null, vistaDe(pts));
     if (mapa) {
       carrers(mapa);
-      ll.forEach(i => {
+      dades.forEach(({ i, tros, dins }) => {
         const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}` +
-          (i.linia ? "" : i.tram ? '<br><i style="color:#6b6b66">Tram aproximat: només se\'n coneixen l\'inici i el final.</i>' : "");
+          (dins ? `<br><i style="color:#6b6b66">En vermell, el tros dins del terme de ${esc(i.municipi)}; en gris, la resta del tram previst (km ${esc(i.km)}).</i>`
+            : i.linia ? "" : i.tram ? '<br><i style="color:#6b6b66">Tram aproximat: només se\'n coneixen l\'inici i el final.</i>' : "");
         const tip = `${i.carretera}${i.km ? ", km " + i.km : ""} · ${i.titol}`;
         if (i.punt) return punt(mapa, i.punt[0], i.punt[1], "#d7191c", 8, tip, html);
-        const tros = i.linia || i.tram;
-        L.polyline(tros, { color: "#fff", weight: 8, opacity: .9, interactive: false }).addTo(mapa);
-        L.polyline(tros, { color: "#d7191c", weight: 5, opacity: .9, dashArray: i.linia ? null : "8 6" }).bindTooltip(tip, { sticky: true }).bindPopup(html, { maxWidth: 280 }).addTo(mapa);
-        [tros[0], tros[tros.length - 1]].forEach(c => L.circleMarker(c, { radius: 4, color: "#fff", weight: 1.5, fillColor: "#d7191c", fillOpacity: 1 }).bindTooltip(tip).bindPopup(html, { maxWidth: 280 }).addTo(mapa));
+        const vermells = dins || [tros];
+        if (dins) L.polyline(tros, { color: "#9a958a", weight: 3, opacity: .7, dashArray: "6 5" }).bindTooltip(tip + " (tram previst)", { sticky: true }).bindPopup(html, { maxWidth: 280 }).addTo(mapa);
+        vermells.forEach(t => {
+          L.polyline(t, { color: "#fff", weight: 8, opacity: .9, interactive: false }).addTo(mapa);
+          L.polyline(t, { color: "#d7191c", weight: 5, opacity: .9, dashArray: i.linia ? null : "8 6" }).bindTooltip(tip, { sticky: true }).bindPopup(html, { maxWidth: 280 }).addTo(mapa);
+        });
       });
     }
   }
@@ -1208,7 +1240,7 @@ function pinta(d) {
     `<h3>Incidències viàries a la comarca</h3>` +
     // 02.11.2026: mapa dels trams afectats (només si n'hi ha cap de situat)
     ((b.incidencies || []).some(i => i.linia || i.tram || i.punt)
-      ? '<div class="mapa-inc" id="mapaTransit"></div><div class="llegenda"><span><i style="background:#d7191c"></i>tram afectat</span><span>Clica un tram per veure\'n el detall</span></div>' : "") +
+      ? '<div class="mapa-inc" id="mapaTransit"></div><div class="llegenda"><span><i style="background:#d7191c"></i>tram afectat</span><span><i style="background:#9a958a"></i>resta del tram previst</span><span>Clica un tram per veure\'n el detall</span></div>' : "") +
     (b.incidencies && b.incidencies.length
       // 26.10.2026: agrupades per població (un sol títol per municipi i les afectacions a sota).
       ? "<ul>" + Object.entries(b.incidencies.reduce((g, i) => { (g[i.municipi] = g[i.municipi] || []).push(i); return g; }, {}))
