@@ -806,6 +806,7 @@ function consulta(iso, font) {
   return `<p class="font dalt">Darrera consulta: ${hmIso(iso)}${vell ? " · ⚠️ des d'aleshores la font no respon" : ""}${font ? " · Font: " + esc(font) : ""}</p>`;
 }
 const enllacMapa = (lat, lon) => lat != null && lon != null ? ` · <a href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener">mapa</a>` : "";
+const nomMun = m => String(m || "").replace(/^Castell-platja d'Aro$/i, "Castell-Platja d'Aro");
 const diaCa = iso => String(iso || "").slice(0, 10).split("-").reverse().join(".");
 
 function blocsIncidencies(b) {
@@ -858,16 +859,19 @@ function blocsIncidencies(b) {
       "", false);
   }
 
-  // 🚒 BOMBERS
+  // 🚒 BOMBERS (02.11.2026: les actuacions amb coordenades només surten al mapa)
   if (b.bombers) {
     const ll = b.bombers.actuacions || [];
+    const senseLloc = ll.filter(a => a.lat == null || a.lon == null);
     s.bombers = seccio("🚒 Bombers: actuacions en curs",
       consulta(b.bombers.consultat, "Bombers de la Generalitat") + (ll.length
-        ? '<div class="mapa-inc" id="mapaBombers"></div>' +   // 02.11.2026: mapa quan hi ha actuacions
-          '<div class="llegenda"><span><i style="background:#d7191c"></i>als cinc municipis</span><span><i style="background:#f39200"></i>altres municipis</span><span>Cercle: 25 km de la Bisbal</span></div>' +
-          "<ul class=\"avisos\">" + ll.map(a => `<li>${a.incendi ? "🔥" : "🚒"} <b${a.nostre ? ' style="color:var(--accent)"' : ""}>${esc(a.municipi)}</b>: ${esc(a.descripcio || "actuació")}` +
+        ? (ll.length > senseLloc.length
+            ? '<div class="mapa-inc" id="mapaBombers"></div>' +
+              '<div class="llegenda"><span><i style="background:#d7191c"></i>als cinc municipis</span><span><i style="background:#f39200"></i>altres municipis</span><span>Cercle: 25 km de la Bisbal</span></div>'
+            : "") +
+          (senseLloc.length ? "<ul class=\"avisos\">" + senseLloc.map(a => `<li>${a.incendi ? "🔥" : "🚒"} <b${a.nostre ? ' style="color:var(--accent)"' : ""}>${esc(nomMun(a.municipi))}</b>: ${esc(a.descripcio || "actuació")}` +
             `<span class="coord">${[a.fase ? "Fase: " + esc(a.fase) : "", a.vehicles ? a.vehicles + (a.vehicles === 1 ? " vehicle" : " vehicles") : "",
-              a.inici ? "Des del " + esc(a.inici) : "", a.km != null ? "a " + num(a.km) + " km de la Bisbal" : ""].filter(Boolean).join(" · ")}${enllacMapa(a.lat, a.lon)}</span></li>`).join("") + "</ul>"
+              a.inici ? "Des del " + esc(a.inici) : ""].filter(Boolean).join(" · ")}</span></li>`).join("") + "</ul>" : "")
         : `<p class="buit">Cap actuació activa dels Bombers a menys de ${b.bombers.radi || 25} km de la Bisbal.</p>`) +
       `<p class="font">Actuacions a menys de ${b.bombers.radi || 25} km de la Bisbal; en vermell, les dels cinc municipis.</p>`, "", false);
   }
@@ -1012,16 +1016,18 @@ async function mapesIncidencies(b) {
   if (b.bombers && document.getElementById("mapaBombers")) {
     const mapa = await mapaBase("mapaBombers", MUN_ANTENES, "Actuacions: Bombers de la Generalitat");
     if (mapa) {
-      const radi = (b.bombers.radi || 25) * 1000;
-      L.circle(BISBAL_LL, { radius: radi, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa);
+      L.circle(BISBAL_LL, { radius: (b.bombers.radi || 25) * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa);
       const ll = (b.bombers.actuacions || []).filter(a => a.lat != null && a.lon != null);
-      ll.forEach(a => punt(mapa, a.lat, a.lon, a.nostre ? "#d7191c" : "#f39200", 9,
-        `${a.incendi ? "🔥" : "🚒"} ${a.municipi}: ${a.descripcio || "actuació"}`,
-        `<b>${esc(a.municipi)}</b><br>${esc(a.descripcio || "Actuació")}${a.fase ? "<br>Fase: " + esc(a.fase) : ""}` +
+      const marques = ll.map(a => punt(mapa, a.lat, a.lon, a.nostre ? "#d7191c" : "#f39200", 9,
+        `${a.incendi ? "🔥" : "🚒"} ${nomMun(a.municipi)}: ${a.descripcio || "actuació"}`,
+        `<b>${a.incendi ? "🔥" : "🚒"} ${esc(nomMun(a.municipi))}</b><br>${esc(a.descripcio || "Actuació")}${a.fase ? "<br>Fase: " + esc(a.fase) : ""}` +
         `${a.vehicles ? "<br>" + a.vehicles + (a.vehicles === 1 ? " vehicle" : " vehicles") : ""}${a.inici ? "<br>Des del " + esc(a.inici) : ""}` +
         `${a.km != null ? "<br>A " + num(a.km) + " km de la Bisbal" : ""}`));
-      // Encaixa la Bisbal i totes les actuacions, sense acostar-s'hi massa
-      if (ll.length) mapa.fitBounds(L.latLngBounds([BISBAL_LL, ...ll.map(a => [a.lat, a.lon])]), { padding: [40, 40], maxZoom: 11, animate: false });
+      // Centrat en el que és actiu: una actuació, a prop; diverses, totes dins del mapa
+      if (ll.length === 1) mapa.setView([ll[0].lat, ll[0].lon], 12, { animate: false });
+      else if (ll.length) mapa.fitBounds(L.latLngBounds(ll.map(a => [a.lat, a.lon])), { padding: [60, 60], maxZoom: 12, animate: false });
+      // La fitxa de la primera (la dels cinc municipis o la més recent) ja oberta
+      if (marques[0]) marques[0].openPopup();
     }
   }
   if (b.tallsAigua && document.getElementById("mapaAigua")) {
