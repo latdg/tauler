@@ -1014,20 +1014,25 @@ async function mapesIncidencies(b) {
     }
   }
   if (b.bombers && document.getElementById("mapaBombers")) {
-    const mapa = await mapaBase("mapaBombers", MUN_ANTENES, "Actuacions: Bombers de la Generalitat");
+    // 02.11.2026: la vista es passa a mapaBase perquè el primer encaix (animat) no la trepitgi
+    const ll = (b.bombers.actuacions || []).filter(a => a.lat != null && a.lon != null);
+    let vista = null;
+    if (ll.length) {
+      const lats = ll.map(a => a.lat), lons = ll.map(a => a.lon);
+      const cLat = (Math.min(...lats) + Math.max(...lats)) / 2, cLon = (Math.min(...lons) + Math.max(...lons)) / 2;
+      const dLat = Math.max(0.04, (Math.max(...lats) - Math.min(...lats)) * 0.65), dLon = Math.max(0.06, (Math.max(...lons) - Math.min(...lons)) * 0.65);
+      vista = [[cLat - dLat, cLon - dLon], [cLat + dLat, cLon + dLon]];
+    }
+    const mapa = await mapaBase("mapaBombers", MUN_ANTENES, "Actuacions: Bombers de la Generalitat", null, vista);
     if (mapa) {
       L.circle(BISBAL_LL, { radius: (b.bombers.radi || 25) * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa);
-      const ll = (b.bombers.actuacions || []).filter(a => a.lat != null && a.lon != null);
       const marques = ll.map(a => punt(mapa, a.lat, a.lon, a.nostre ? "#d7191c" : "#f39200", 9,
         `${a.incendi ? "🔥" : "🚒"} ${nomMun(a.municipi)}: ${a.descripcio || "actuació"}`,
         `<b>${a.incendi ? "🔥" : "🚒"} ${esc(nomMun(a.municipi))}</b><br>${esc(a.descripcio || "Actuació")}${a.fase ? "<br>Fase: " + esc(a.fase) : ""}` +
         `${a.vehicles ? "<br>" + a.vehicles + (a.vehicles === 1 ? " vehicle" : " vehicles") : ""}${a.inici ? "<br>Des del " + esc(a.inici) : ""}` +
         `${a.km != null ? "<br>A " + num(a.km) + " km de la Bisbal" : ""}`));
-      // Centrat en el que és actiu: una actuació, a prop; diverses, totes dins del mapa
-      if (ll.length === 1) mapa.setView([ll[0].lat, ll[0].lon], 12, { animate: false });
-      else if (ll.length) mapa.fitBounds(L.latLngBounds(ll.map(a => [a.lat, a.lon])), { padding: [60, 60], maxZoom: 12, animate: false });
       // La fitxa de la primera (la dels cinc municipis o la més recent) ja oberta
-      if (marques[0]) marques[0].openPopup();
+      if (marques[0]) setTimeout(() => marques[0].openPopup(), 300);
     }
   }
   if (b.tallsAigua && document.getElementById("mapaAigua")) {
