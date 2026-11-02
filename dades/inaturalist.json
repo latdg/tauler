@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-01T11:21:58+00:00",
+ "actualitzat": "2026-11-02T12:36:24+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2040,13 +2040,13 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 257,
-   "especies": 190,
+   "observacions": 258,
+   "especies": 191,
    "observadors": 29,
    "grups": [
     [
      "🦋 Insectes",
-     98
+     99
     ],
     [
      "🌿 Plantes",
@@ -2320,6 +2320,21 @@
     }
    ],
    "recents": [
+    {
+     "id": 412156248,
+     "data": "2026-11-01",
+     "url": "https://www.inaturalist.org/observations/412156248",
+     "nom": "",
+     "cientific": "Acronicta rumicis",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://static.inaturalist.org/photos/758334464/small.jpg",
+     "autor": "Laura Justicia",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
     {
      "id": 410710850,
      "data": "2026-10-25",
@@ -2902,21 +2917,6 @@
      "autor": "Rosa Matesanz",
      "lloc": "Girona, Espanya",
      "qualitat": "needs_id",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 374285084,
-     "data": "2026-06-22",
-     "url": "https://www.inaturalist.org/observations/374285084",
-     "nom": "Borinot de camp",
-     "cientific": "Bombus pascuorum",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/684104520/small.jpg",
-     "autor": "Laura Justicia",
-     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
-     "qualitat": "research",
      "amenacada": false,
      "introduida": false
     }
