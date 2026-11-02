@@ -167,7 +167,7 @@ function textCerimonia(x) {
 }
 function fitxa(x) {
   const l = [];
-  if (x.edat) l.push(`${esc(x.edat)} anys`);
+  if (x.edat) l.push(`Tenia ${esc(x.edat)} anys.`);
   if (dataNecro(x.dataMort)) l.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}.`);
   if (x.vetlla) l.push(`Vetlla: ${textVetlla(x)}`);
   if (x.ceremonia) l.push(`Cerimònia: ${textCerimonia(x)}`);
