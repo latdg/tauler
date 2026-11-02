@@ -134,7 +134,7 @@ function fitxa(x) {
   if (x.ceremonia) l.push(`Cerimònia: ${esc(x.ceremonia)}${dataNecro(x.dataFuneral) ? " (" + dataCa(dataNecro(x.dataFuneral)) + ")" : ""}`);
   else if (dataNecro(x.dataFuneral)) l.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
   const det = x.detall || x.biografia || "";
-  return `<article class="fitxa"><b>${esc(x.nom)}</b>${l.length ? "<br>" + l.join("<br>") : ""}` +
+  return `<article class="fitxa"><b>${esc(String(x.nom).toLocaleUpperCase("ca"))}</b>${l.length ? "<br>" + l.join("<br>") : ""}` +
     (det ? `<br>${esc(det)}` : "") + `</article>`;
 }
 

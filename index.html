@@ -1831,7 +1831,7 @@ function fitxaNecro(x) {
   if (x.ceremonia) linies.push(`Cerimònia: ${esc(x.ceremonia)}${dataNecro(x.dataFuneral) ? " (" + dataCa(dataNecro(x.dataFuneral)) + ")" : ""}`);
   else if (dataNecro(x.dataFuneral)) linies.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
   const detall = x.detall || x.biografia || "";
-  return `<article class="ag-acte"><div class="ag-text"><b>${esc(x.nom)}</b>` +
+  return `<article class="ag-acte"><div class="ag-text"><b>${esc(String(x.nom).toLocaleUpperCase("ca"))}</b>` +
     (linies.length ? `<br>${linies.join("<br>")}` : "") + (detall ? `<br>${esc(detall)}` : "") + `</div></article>`;
 }
 async function carregaNecrologiques() {
