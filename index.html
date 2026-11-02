@@ -1012,8 +1012,9 @@ function vistaDe(pts) {
 function carrers(mapa) {
   mapa.setMaxZoom(18);
   mapa.createPane("carrers").style.zIndex = 260;   // sobre el fons, sota els punts
-  const capa = L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    { pane: "carrers", subdomains: "abcd", maxZoom: 19, attribution: "Carrers: © OpenStreetMap, © CARTO" });
+  // 02.11.2026: CARTO demana clau; el plànol d'OpenStreetMap, com al mapa dels edificis
+  const capa = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    { pane: "carrers", maxZoom: 19, attribution: 'Carrers: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>' });
   const mira = () => {
     const a = mapa.getZoom() >= 13;
     if (a && !mapa.hasLayer(capa)) capa.addTo(mapa); else if (!a && mapa.hasLayer(capa)) mapa.removeLayer(capa);
