@@ -1859,8 +1859,9 @@ function textCerimonia(x) {
   const t = String(x.ceremonia || ""), iso = dataCerimonia(x), fun = dataNecro(x.dataFuneral);
   if (!iso) return esc(t) + (fun ? " (" + dataCa(fun) + ")" : "");
   // Si darrere de la data hi ha l'hora, «a les» (o «a la» per a la una).
-  const net = t.replace(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?[a-zçà-ú]+(\s+(?=\d))?/i, (m0, d, hora) =>
-    dataCa(iso) + (hora ? (/^0?1(?!\d)/.test(t.slice(t.indexOf(m0) + m0.length)) ? " a la " : " a les ") : ""));
+  // Davant de la data, «el dia» (si no hi és ja).
+  const net = t.replace(/(?:el\s+dia\s+)?(\d{1,2})\s+(?:de\s+|d['’]\s*)?[a-zçà-ú]+(\s+(?=\d))?/i, (m0, d, hora) =>
+    "el dia " + dataCa(iso) + (hora ? (/^0?1(?!\d)/.test(t.slice(t.indexOf(m0) + m0.length)) ? " a la " : " a les ") : ""));
   return esc(net) + (fun && fun !== iso ? " (" + dataCa(fun) + ")" : "");
 }
 function fitxaNecro(x) {
