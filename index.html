@@ -1823,6 +1823,22 @@ function pintaFarmacies() {
 let DIA_TAULER = "";
 const dataNecro = t => { const m = String(t || "").match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})/); return m ? `${m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}` : ""; };
 const diaNecro = x => dataNecro(x.dataMort) || dataNecro(x.dataFuneral) || x.vist || "";
+// 02.11.2026: data de la cerimònia escrita amb el mes en lletres («03 Noviembre», «01 novembre»,
+// «3 de novembre»), sense any: l'any es pren de la mort (o de quan es va recollir), i si el mes
+// és anterior al de la mort, és de l'any següent.
+const MESOS_NECRO = [["gen", "ene"], ["febr", "feb"], ["març", "marc", "mar"], ["abr"], ["maig", "may"], ["juny", "jun"],
+  ["jul"], ["ag", "ago"], ["set", "sep"], ["oct"], ["nov"], ["des", "dic"]];
+function dataCerimonia(x) {
+  const t = String(x.ceremonia || "").toLowerCase();
+  const m = t.match(/(\d{1,2})\s+(?:de\s+|d['’]\s*)?([a-zçà-ú]+)/);
+  if (!m) return "";
+  const mes = MESOS_NECRO.findIndex(v => v.some(p => m[2].startsWith(p))) + 1;
+  const base = dataNecro(x.dataMort) || x.vist || "";
+  if (!mes || !base || +m[1] < 1 || +m[1] > 31) return "";
+  let any = +base.slice(0, 4);
+  if (mes < +base.slice(5, 7)) any++;
+  return `${any}-${String(mes).padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+}
 function fitxaNecro(x) {
   const linies = [];
   if (x.edat) linies.push(`${esc(x.edat)} anys`);
@@ -1843,8 +1859,8 @@ async function carregaNecrologiques() {
   const totes = (d.llista || []).filter(x => x && x.nom);
   const dia = DIA_TAULER || new Date().toISOString().slice(0, 10);
   if (d.actualitzat) peu.textContent = "Actualitzat el " + dataDMA(d.actualitzat);
-  // Les del dia: mortes aquell dia o amb el funeral aquell dia (si no consta la data de la mort, la del funeral).
-  let del = totes.filter(x => diaNecro(x) === dia || dataNecro(x.dataFuneral) === dia);
+  // Les del dia: mortes aquell dia o amb el funeral o la cerimònia aquell dia (si no consta la data de la mort, la del funeral).
+  let del = totes.filter(x => diaNecro(x) === dia || dataNecro(x.dataFuneral) === dia || dataCerimonia(x) === dia);
   let titol = "";
   if (!del.length) {
     const ultim = totes.map(diaNecro).filter(x => x && x <= dia).sort().pop();
