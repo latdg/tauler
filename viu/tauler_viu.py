@@ -415,7 +415,14 @@ def registres_sct():
         if not pts or min(distancia_km(*BISBAL, *p) for p in pts) > 45:
             continue
         kms = [num(v) / 1000 for v in re.findall(r"<(?:[\w-]+:)?referencePointDistance>([^<]+)<", t) if num(v) is not None]
-        sortida.append({"via": via, "de": de, "a": a, "km": (min(kms), max(kms)) if kms else None})
+        # 02.11.2026: data de final prevista, quan el SCT l'informa
+        fi = ""
+        try:
+            f = v16_camp(t, "overallEndTime")
+            fi = dh(dt.datetime.fromisoformat(f.replace("Z", "+00:00"))) if f else ""
+        except ValueError:
+            pass
+        sortida.append({"via": via, "de": de, "a": a, "km": (min(kms), max(kms)) if kms else None, "fi": fi})
     return sortida
 
 
@@ -457,6 +464,8 @@ def situa_incidencies(resultat):
             return 999
         i, r = min(candidats, key=encaix)
         usats.add(i)
+        if r.get("fi"):
+            inc["fi"] = r["fi"]
         if r["de"] and r["a"] and distancia_km(*r["de"], *r["a"]) > 0.05:
             inc["tram"] = [r["de"], r["a"]]
             linia = tram_per_carretera(r["de"], r["a"], cau)
