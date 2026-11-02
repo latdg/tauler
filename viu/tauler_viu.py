@@ -23,6 +23,7 @@
 # =============================================================================
 
 import calendar
+import email.utils
 import html
 import json
 import math
@@ -319,7 +320,8 @@ def llegeix_rss(contingut):
         arrel = ET.fromstring(contingut)
         canal = arrel.find("channel")
         canal = canal if canal is not None else arrel
-        return [{"title": it.findtext("title") or "", "description": it.findtext("description") or ""}
+        return [{"title": it.findtext("title") or "", "description": it.findtext("description") or "",
+                 "pubDate": it.findtext("pubDate") or ""}
                 for it in canal.findall("item")]
     except ET.ParseError:
         # Com al guió: si l'XML està mal format, es llegeix element a element.
@@ -331,7 +333,7 @@ def llegeix_rss(contingut):
                 return ""
             return re.sub(r"\]\]>\s*$", "", re.sub(r"^\s*<!\[CDATA\[", "", m.group(1))).strip()
 
-        return [{"title": camp(b, "title"), "description": camp(b, "description")}
+        return [{"title": camp(b, "title"), "description": camp(b, "description"), "pubDate": camp(b, "pubDate")}
                 for b in re.findall(r"<item\b[^>]*>([\s\S]*?)</item>", text, re.I)]
 
 
@@ -352,6 +354,7 @@ def incidencies():
             "carretera": parts[0],
             "km": re.sub(r"^Punt km\.?\s*", "", parts[3], flags=re.I),
             "sentit": parts[2],
+            "inici": inici_incidencia(item.get("pubDate"), parts[4]),   # 02.11.2026
         })
     # 02.11.2026: situa cada incidència al mapa amb el DATEX2 del mateix Servei Català
     # de Trànsit (al punt d'accés de la DGT), que dona els punts d'inici i de final.
@@ -361,6 +364,17 @@ def incidencies():
         except Exception as e:
             print("Incidències viàries: no s'han pogut situar al mapa:", e)
     return resultat   # una llista buida també és una dada: «cap incidència»
+
+
+def inici_incidencia(pub, hora):
+    """Inici de la incidència: el pubDate del canal (com al bot d'alertes); si no, l'hora de la descripció."""
+    try:
+        if pub:
+            return dh(email.utils.parsedate_to_datetime(pub))
+    except (TypeError, ValueError, IndexError):
+        pass
+    m = re.search(r"(\d{1,2})[:.](\d{2})", str(hora or ""))
+    return f"{ara().strftime('%d.%m.%Y')} a les {int(m.group(1)):02d}.{m.group(2)} h" if m else ""
 
 
 SCT_DATEX_URL = "https://nap.dgt.es/datex2/sct/SituationPublication/all/content.xml"

@@ -1106,7 +1106,7 @@ async function mapesIncidencies(b) {
     if (mapa) {
       carrers(mapa);
       dades.forEach(({ i, tros, dins }) => {
-        const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}` +
+        const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}${i.inici ? "<br>Des del " + esc(i.inici) : ""}` +
           (dins ? `<br><i style="color:#6b6b66">En vermell, el tros dins del terme de ${esc(i.municipi)}; en gris, la resta del tram previst (km ${esc(i.km)}).</i>`
             : i.linia ? "" : i.tram ? '<br><i style="color:#6b6b66">Tram aproximat: només se\'n coneixen l\'inici i el final.</i>' : "");
         const tip = `${i.carretera}${i.km ? ", km " + i.km : ""} · ${i.titol}`;
@@ -1245,7 +1245,7 @@ function pinta(d) {
       // 26.10.2026: agrupades per població (un sol títol per municipi i les afectacions a sota).
       ? "<ul>" + Object.entries(b.incidencies.reduce((g, i) => { (g[i.municipi] = g[i.municipi] || []).push(i); return g; }, {}))
           .map(([mun, llista]) => {
-            const linia = i => `${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}`;
+            const linia = i => `${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}${i.inici ? " · des del " + esc(i.inici) : ""}`;
             return llista.length === 1
               ? `<li><b>${esc(mun)}</b>: ${linia(llista[0])}</li>`
               : `<li><b>${esc(mun)}</b> (${llista.length})<ul>${llista.map(i => `<li>${linia(i)}</li>`).join("")}</ul></li>`;
