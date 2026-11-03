@@ -404,27 +404,6 @@
 "enllac": "",
 "t": 1793636372.783291
 },
-"chopin": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Michał Kwieciński"
-],
-"original": "Chopin, Chopin!",
-"idiomaOriginal": "pl",
-"dataTmdb": "2025-10-10",
-"sinopsiCa": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
-"id": 1299799,
-"nota": 6.7,
-"vots": 30,
-"sinopsi": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
-"sinopsi_es": false,
-"poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793636372.783291
-},
 "coyote vs acme": {
 "v": 6,
 "comprovat": "any",
@@ -557,6 +536,27 @@
 "sinopsi": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
 "sinopsi_es": false,
 "poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793636372.783291
+},
+"chopin": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Michał Kwieciński"
+],
+"original": "Chopin, Chopin!",
+"idiomaOriginal": "pl",
+"dataTmdb": "2025-10-10",
+"sinopsiCa": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
+"id": 1299799,
+"nota": 6.7,
+"vots": 30,
+"sinopsi": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
+"sinopsi_es": false,
+"poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1793636372.783291
@@ -703,6 +703,10 @@
 "plataformes": [],
 "enllac": "",
 "t": 1793636372.783291
+},
+"torroella terra d hortes": {
+"v": 6,
+"t": 1793667942.911922
 },
 "sacamantecas": {
 "v": 6,
