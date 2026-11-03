@@ -1,37 +1,4 @@
-✓ 2024-01: 117036 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 19, Forallac 6, Corçà 2, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Ullastret 1
-✓ 2024-02: 134018 vehicles a tot l'Estat; als nostres municipis: Corçà 3, Cruïlles, Monells i Sant Sadurní de l'Heura 5, la Bisbal d'Empordà 18, Forallac 1
-✓ 2024-03: 148796 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 20, Corçà 3, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Forallac 6
-✓ 2024-04: 154004 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 26, Corçà 5, Forallac 6, Cruïlles, Monells i Sant Sadurní de l'Heura 10
-✓ 2024-05: 158789 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 29, Forallac 3, Corçà 7, Ullastret 1, Cruïlles, Monells i Sant Sadurní de l'Heura 3
-✓ 2024-06: 166021 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 25, Corçà 6, Forallac 5, Cruïlles, Monells i Sant Sadurní de l'Heura 3, Ullastret 1
-✓ 2024-07: 150215 vehicles a tot l'Estat; als nostres municipis: Corçà 6, Cruïlles, Monells i Sant Sadurní de l'Heura 6, la Bisbal d'Empordà 30, Forallac 2, Ullastret 1
-✓ 2024-08: 97890 vehicles a tot l'Estat; als nostres municipis: Corçà 3, Forallac 5, la Bisbal d'Empordà 6, Cruïlles, Monells i Sant Sadurní de l'Heura 2, Ullastret 1
-✓ 2024-09: 130367 vehicles a tot l'Estat; als nostres municipis: Cruïlles, Monells i Sant Sadurní de l'Heura 2, la Bisbal d'Empordà 18, Corçà 3, Forallac 4
-✓ 2024-10: 151548 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 21, Cruïlles, Monells i Sant Sadurní de l'Heura 6, Forallac 7, Corçà 2
-✓ 2024-11: 140976 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 23, Cruïlles, Monells i Sant Sadurní de l'Heura 6, Corçà 3, Ullastret 2, Forallac 4
-✓ 2024-12: 166690 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 19, Forallac 9, Cruïlles, Monells i Sant Sadurní de l'Heura 2, Corçà 5
-✓ 2025-01: 125425 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 21, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Ullastret 1, Corçà 2, Forallac 4
-✓ 2025-02: 147085 vehicles a tot l'Estat; als nostres municipis: Forallac 9, la Bisbal d'Empordà 23, Cruïlles, Monells i Sant Sadurní de l'Heura 3, Corçà 3
-✓ 2025-03: 179345 vehicles a tot l'Estat; als nostres municipis: Forallac 6, la Bisbal d'Empordà 25, Cruïlles, Monells i Sant Sadurní de l'Heura 7, Corçà 4
-✓ 2025-04: 162550 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 30, Forallac 9, Cruïlles, Monells i Sant Sadurní de l'Heura 5, Ullastret 1, Corçà 2
-✓ 2025-05: 185750 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 33, Forallac 6, Cruïlles, Monells i Sant Sadurní de l'Heura 3, Ullastret 1, Corçà 8
-✓ 2025-06: 194021 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 20, Cruïlles, Monells i Sant Sadurní de l'Heura 10, Corçà 5, Ullastret 1, Forallac 11
-✓ 2025-07: 179039 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 28, Forallac 8, Cruïlles, Monells i Sant Sadurní de l'Heura 7, Corçà 3
-✓ 2025-08: 113138 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 19, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Corçà 2, Forallac 6, Ullastret 1
-✓ 2025-09: 154363 vehicles a tot l'Estat; als nostres municipis: Corçà 2, Cruïlles, Monells i Sant Sadurní de l'Heura 4, la Bisbal d'Empordà 22, Ullastret 1, Forallac 12
-✓ 2025-10: 176870 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 32, Ullastret 1, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Corçà 3, Forallac 4
-✓ 2025-11: 160698 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 17, Cruïlles, Monells i Sant Sadurní de l'Heura 7, Forallac 7, Ullastret 1, Corçà 2
-✓ 2025-12: 166146 vehicles a tot l'Estat; als nostres municipis: Cruïlles, Monells i Sant Sadurní de l'Heura 5, la Bisbal d'Empordà 31, Ullastret 1, Forallac 3, Corçà 4
-✓ 2026-01: 130543 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 20, Cruïlles, Monells i Sant Sadurní de l'Heura 2, Forallac 6, Corçà 6
-✓ 2026-02: 161682 vehicles a tot l'Estat; als nostres municipis: Forallac 11, Cruïlles, Monells i Sant Sadurní de l'Heura 9, Corçà 3, la Bisbal d'Empordà 15
-✓ 2026-03: 210097 vehicles a tot l'Estat; als nostres municipis: Cruïlles, Monells i Sant Sadurní de l'Heura 5, la Bisbal d'Empordà 38, Corçà 4, Forallac 6, Ullastret 1
-✓ 2026-04: 180135 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 33, Forallac 8, Corçà 4, Cruïlles, Monells i Sant Sadurní de l'Heura 1
-✓ 2026-05: 189626 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 21, Forallac 6, Corçà 5, Ullastret 1, Cruïlles, Monells i Sant Sadurní de l'Heura 1
-✓ 2026-06: 217004 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 43, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Forallac 6, Corçà 9, Ullastret 1
-✓ 2026-07: 189104 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 33, Forallac 10, Cruïlles, Monells i Sant Sadurní de l'Heura 3, Corçà 2
-✓ 2026-08: 126610 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 26, Corçà 5, Forallac 5
-✓ 2026-09: 169941 vehicles a tot l'Estat; als nostres municipis: la Bisbal d'Empordà 32, Forallac 7, Cruïlles, Monells i Sant Sadurní de l'Heura 4, Corçà 4, Ullastret 1
    https://www.dgt.es/microdatos/salida/2026/10/vehiculos/matriculaciones/export_mensual_mat_202610.zip 404
    https://www.dgt.es/microdatos/salida/2026/10/vehiculos/matriculaciones/export_mensual_mat_202610.zip 404
 · 2026-10: encara no publicat
-Desat /home/runner/work/tauler/tauler/dades/vehicles.json
+Cap mes nou.
