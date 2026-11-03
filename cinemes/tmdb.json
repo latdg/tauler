@@ -425,6 +425,28 @@
 "enllac": "",
 "t": 1793636372.783291
 },
+"el gato con sombrero": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El gat amb barret",
+"directors": [
+"Erica Rivinoja",
+"Alessandro Carloni"
+],
+"original": "The Cat in the Hat",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-04",
+"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"id": 1117898,
+"nota": 7.7,
+"vots": 3,
+"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"sinopsi_es": false,
+"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793636372.783291
+},
 "godzilla minus zero": {
 "v": 6,
 "comprovat": "any",
@@ -445,6 +467,48 @@
 "plataformes": [],
 "enllac": "",
 "t": 1793636372.783291
+},
+"ruega por nosotras": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Daniel Monzón"
+],
+"original": "Ruega por nosotras",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-11-06",
+"sinopsiCa": "",
+"id": 1522071,
+"nota": 0,
+"vots": 0,
+"sinopsi": "En 1974, Ana, una chica barcelonesa de 19 años, es puesta en manos del Patronato de Protección a la Mujer y trasladada a un reformatorio regentado por monjas en Madrid. Allí, es sometida a un brutal régimen disciplinario, y tratará de sobrevivir buscando consuelo y apoyo en la amistad de otras chicas en su misma situación.",
+"sinopsi_es": true,
+"poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793636372.783291
+},
+"ramayana el nacimiento de una leyenda": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Nitesh Tiwari"
+],
+"original": "रामायणम्",
+"idiomaOriginal": "hi",
+"dataTmdb": "2026-11-04",
+"sinopsiCa": "",
+"id": 656908,
+"nota": 8.0,
+"vots": 2,
+"sinopsi": "",
+"sinopsi_es": false,
+"poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793716212.707745
 },
 "digger": {
 "v": 6,
@@ -518,28 +582,6 @@
 "v": 6,
 "t": 1793636372.783291
 },
-"naza": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Yuval Abraham",
-"Rachel Szor"
-],
-"original": "NAZA",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-09-25",
-"sinopsiCa": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
-"id": 1755291,
-"nota": 8.087,
-"vots": 127,
-"sinopsi": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
-"sinopsi_es": false,
-"poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793636372.783291
-},
 "chopin": {
 "v": 6,
 "comprovat": "director",
@@ -607,6 +649,28 @@
 "enllac": "",
 "t": 1793636372.783291
 },
+"naza": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Yuval Abraham",
+"Rachel Szor"
+],
+"original": "NAZA",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-09-25",
+"sinopsiCa": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
+"id": 1755291,
+"nota": 8.087,
+"vots": 127,
+"sinopsi": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
+"sinopsi_es": false,
+"poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793636372.783291
+},
 "l ovella shaun missio carbassa": {
 "v": 6,
 "t": 1793636372.783291
@@ -659,49 +723,6 @@
 },
 "iv mostra de curtmetratges de palafrugell": {
 "v": 6,
-"t": 1793636372.783291
-},
-"ruega por nosotras": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Daniel Monzón"
-],
-"original": "Ruega por nosotras",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-11-06",
-"sinopsiCa": "",
-"id": 1522071,
-"nota": 0,
-"vots": 0,
-"sinopsi": "En 1974, Ana, una chica barcelonesa de 19 años, es puesta en manos del Patronato de Protección a la Mujer y trasladada a un reformatorio regentado por monjas en Madrid. Allí, es sometida a un brutal régimen disciplinario, y tratará de sobrevivir buscando consuelo y apoyo en la amistad de otras chicas en su misma situación.",
-"sinopsi_es": true,
-"poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793636372.783291
-},
-"el gato con sombrero": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El gat amb barret",
-"directors": [
-"Erica Rivinoja",
-"Alessandro Carloni"
-],
-"original": "The Cat in the Hat",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-04",
-"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"id": 1117898,
-"nota": 7.7,
-"vots": 3,
-"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"sinopsi_es": false,
-"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-"plataformes": [],
-"enllac": "",
 "t": 1793636372.783291
 },
 "torroella terra d hortes": {

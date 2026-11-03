@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-03T01:05:44+00:00",
+ "generat": "2026-11-03T14:30:15+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -191,6 +191,90 @@
      "hora": "22:30",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "19:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "19:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "19:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "19:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "19:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "19:45",
+     "format": "Atmos VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
     }
    ],
    "nota": 7.451,
@@ -378,6 +462,90 @@
      "hora": "22:00",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
     }
    ],
    "nota": 5.817,
@@ -509,6 +677,132 @@
      "data": "2026-11-05",
      "hora": "20:20",
      "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "20:00",
+     "format": "",
      "preu": ""
     }
    ],
@@ -704,6 +998,90 @@
      "data": "2026-11-05",
      "hora": "22:00",
      "format": "Laser Cinity Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "19:10",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "22:00",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "19:10",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "22:00",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "19:10",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "22:00",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "19:10",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "22:00",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "19:10",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "22:00",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "19:10",
+     "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "22:00",
+     "format": "Laser Cinity",
      "preu": ""
     }
    ],
@@ -940,6 +1318,90 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-05",
      "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     }
@@ -1202,10 +1664,38 @@
      "preu": ""
     },
     {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "19:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Cinema Montgrí",
      "data": "2026-11-07",
      "hora": "21:30",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1216,10 +1706,108 @@
      "preu": ""
     },
     {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "19:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "19:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Cinema Montgrí",
      "data": "2026-11-09",
      "hora": "21:30",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "19:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "19:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "19:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "22:00",
+     "format": "Atmos",
      "preu": ""
     }
    ],
@@ -1351,6 +1939,90 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-05",
      "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
@@ -1489,6 +2161,48 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-05",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
      "hora": "22:00",
      "format": "",
      "preu": ""
@@ -1680,6 +2394,90 @@
      "data": "2026-11-05",
      "hora": "18:30",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "18:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "18:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "18:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "18:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "18:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:10",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "18:10",
+     "format": "Vdc",
      "preu": ""
     },
     {
@@ -1908,6 +2706,48 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-05",
      "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "17:00",
      "format": "",
      "preu": ""
     }
@@ -2221,6 +3061,48 @@
      "hora": "20:00",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
     }
    ],
    "nota": 8.0,
@@ -2381,6 +3263,48 @@
      "preu": ""
     },
     {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "TeMePé Palafrugell",
      "data": "2026-11-14",
      "hora": "21:30",
@@ -2397,6 +3321,208 @@
    ],
    "nota": 8.156,
    "vots": 1240,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "el gato con sombrero",
+   "titol": "El gat amb barret",
+   "titolFont": "El gato con sombrero",
+   "sinopsi": "En la pel·lícula, el nostre heroi assumeix la seva missió més difícil fins a la data per a l'I.I.I.I. (Institut per a la Institució de la Imaginació i la Inspiració, LLC): animar a Gabby i Sebastian, un parell de germans que lluiten amb la seva mudança a una nova ciutat. Conegut per portar les coses massa lluny, aquesta podria ser l'última oportunitat d'aquest agent del caos per a demostrar la seva vàlua... o perdre el seu barret màgic!",
+   "durada": "114",
+   "genere": "Animació",
+   "edat": "Tots els públics, esp recomanada infància",
+   "director": "Alessandro Carloni i Erica Rivinoja",
+   "actors": "",
+   "estrena": "2026-11-06",
+   "poster": "https://image.tmdb.org/t/p/w342/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "17:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "17:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "17:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "17:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "17:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "17:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "20:30",
+     "format": "VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-28",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-29",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    }
+   ],
+   "nota": 7.7,
+   "vots": 3,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2497,9 +3623,217 @@
      "hora": "22:00",
      "format": "VOSE",
      "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "19:30",
+     "format": "VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "22:00",
+     "format": "VOSE",
+     "preu": ""
     }
    ],
    "nota": 10.0,
+   "vots": 2,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "ruega por nosotras",
+   "titol": "Prega per nosaltres",
+   "titolFont": "Ruega por nosotras",
+   "sinopsi": "L’any 1974, després d’una fugida nocturna, l’Ana és enviada per la seva família al Patronato de Protección a la Mujer. En un reformatori regentat per monges,",
+   "durada": "136",
+   "genere": "Drama",
+   "edat": "No recomanada per a menors de 16 anys",
+   "director": "Daniel Monzón",
+   "actors": "Zoe Bonafonte, Manuela Calle, Adelfa Calvo, María Cerezuela, Shiara Fernández, Carla Domínguez,",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-27",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-28",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-29",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-30",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "ramayana el nacimiento de una leyenda",
+   "titol": "Ramayana: El naixement d'una llegenda",
+   "titolFont": "Ramayana: El nacimiento de una leyenda",
+   "sinopsi": "",
+   "durada": "168",
+   "genere": "Acció",
+   "edat": "Pendent de qualificació",
+   "director": "Nitesh Tiwari",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "nota": 8.0,
    "vots": 2,
    "plataformes": [],
    "plataformesUrl": ""
@@ -2651,40 +3985,6 @@
      "preu": "Gratuït"
     }
    ]
-  },
-  {
-   "key": "naza",
-   "titol": "NAZA",
-   "titolFont": "Naza",
-   "sinopsi": "Filmat de nit des de les teulades de Tel Aviv, aquest documental d'investigació examina les víctimes civils de les operacions militars d'Israel a Gaza i els",
-   "durada": "80",
-   "genere": "Documental",
-   "edat": "",
-   "director": "Yuval Abraham i Rachel Szor",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
-   "web": "https://cinemamontgri.cat/naza/",
-   "sessions": [
-    {
-     "cinema": "Teatre Mundial",
-     "data": "2026-11-13",
-     "hora": "19:00",
-     "format": "",
-     "preu": "Gratuït"
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-20",
-     "hora": "21:30",
-     "format": "VOSE",
-     "preu": ""
-    }
-   ],
-   "nota": 8.087,
-   "vots": 127,
-   "plataformes": [],
-   "plataformesUrl": ""
   },
   {
    "key": "chopin",
@@ -2946,6 +4246,33 @@
    "plataformesUrl": ""
   },
   {
+   "key": "naza",
+   "titol": "NAZA",
+   "titolFont": "Naza",
+   "sinopsi": "Filmat de nit des de les teulades de Tel Aviv, aquest documental d'investigació examina les víctimes civils de les operacions militars d'Israel a Gaza i els",
+   "durada": "80",
+   "genere": "Documental",
+   "edat": "",
+   "director": "Yuval Abraham i Rachel Szor",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
+   "web": "https://cinemamontgri.cat/naza/",
+   "sessions": [
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-20",
+     "hora": "21:30",
+     "format": "VOSE",
+     "preu": ""
+    }
+   ],
+   "nota": 8.087,
+   "vots": 127,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "el precio de la red",
    "titol": "El preu de la xarxa",
    "titolFont": "El precio de la red",
@@ -3086,88 +4413,6 @@
      "preu": "Gratuït"
     }
    ]
-  },
-  {
-   "key": "ruega por nosotras",
-   "titol": "Prega per nosaltres",
-   "titolFont": "Ruega por nosotras",
-   "sinopsi": "L’any 1974, després d’una fugida nocturna, l’Ana és enviada per la seva família al Patronato de Protección a la Mujer. En un reformatori regentat per monges,",
-   "durada": "136",
-   "genere": "Drama",
-   "edat": "",
-   "director": "Daniel Monzón",
-   "actors": "Zoe Bonafonte, Manuela Calle, Adelfa Calvo, María Cerezuela, Shiara Fernández, Carla Domínguez,",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
-   "web": "https://cinemamontgri.cat/ruega-por-nosotras/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-27",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-28",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-29",
-     "hora": "19:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-30",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "nota": 0,
-   "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "el gato con sombrero",
-   "titol": "El gat amb barret",
-   "titolFont": "El gato con sombrero",
-   "sinopsi": "En la pel·lícula, el nostre heroi assumeix la seva missió més difícil fins a la data per a l'I.I.I.I. (Institut per a la Institució de la Imaginació i la Inspiració, LLC): animar a Gabby i Sebastian, un parell de germans que lluiten amb la seva mudança a una nova ciutat. Conegut per portar les coses massa lluny, aquesta podria ser l'última oportunitat d'aquest agent del caos per a demostrar la seva vàlua... o perdre el seu barret màgic!",
-   "durada": "",
-   "genere": "Animació",
-   "edat": "",
-   "director": "Alessandro Carloni i Erica Rivinoja",
-   "actors": "",
-   "estrena": "2026-11-06",
-   "poster": "https://image.tmdb.org/t/p/w342/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-   "web": "https://cinemamontgri.cat/el-gato-con-sombrero/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-28",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-29",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    }
-   ],
-   "nota": 7.7,
-   "vots": 3,
-   "plataformes": [],
-   "plataformesUrl": ""
   },
   {
    "key": "torroella terra d hortes",
