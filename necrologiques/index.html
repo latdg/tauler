@@ -157,7 +157,9 @@ function textVetlla(x) {
   }));
 }
 function textCerimonia(x) {
-  const t = String(x.ceremonia || ""), iso = dataCerimonia(x), fun = dataNecro(x.dataFuneral);
+  // 03.11.2026: «Parròquia de Santa Maria - La Bisbal d'Empordà» → «Parròquia de Santa Maria de la Bisbal».
+  const t = String(x.ceremonia || "").replace(/\s+[-–]\s+la\s+bisbal(?:\s+d['’]\s*empord[àa])?/i, " de la Bisbal"),
+    iso = dataCerimonia(x), fun = dataNecro(x.dataFuneral);
   if (!iso) return esc(t) + (fun ? " (" + dataCa(fun) + ")" : "");
   // Si darrere de la data hi ha l'hora, «a les» (o «a la» per a la una).
   // Davant de la data, «el dia» (si no hi és ja).
