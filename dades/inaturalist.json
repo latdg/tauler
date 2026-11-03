@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-02T12:36:24+00:00",
+ "actualitzat": "2026-11-03T12:02:18+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -829,17 +829,17 @@
   },
   "17902": {
    "nom": "Forallac",
-   "observacions": 192,
-   "especies": 122,
-   "observadors": 35,
+   "observacions": 190,
+   "especies": 120,
+   "observadors": 34,
    "grups": [
     [
      "🌿 Plantes",
-     150
+     149
     ],
     [
      "🦋 Insectes",
-     18
+     17
     ],
     [
      "🐦 Ocells",
