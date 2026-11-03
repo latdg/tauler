@@ -165,14 +165,20 @@ function textCerimonia(x) {
     "el dia " + dataCa(iso) + (hora ? (/^0?1(?!\d)/.test(t.slice(t.indexOf(m0) + m0.length)) ? " a la " : " a les ") : ""));
   return esc(net) + (fun && fun !== iso ? " (" + dataCa(fun) + ")" : "");
 }
+// 03.11.2026: del text del Diari de Girona només queda el que no surt a dalt («Era casat amb…»,
+// «Vivia a…»): fora les frases de la mort (l'edat va a dalt) i de les exèquies o el funeral.
+const FRASE_REPETIDA = /^(va morir|ha mort|morí|exèquies|exequies|funeral|cerimònia|missa|vetlla|enterrament|sepeli)/i;
+const edatNecro = x => x.edat || ((String(x.detall || x.biografia || "").match(/\bals?\s+(\d{1,3})\s+anys\b/i) || [])[1] || "");
+const detallNecro = x => String(x.detall || x.biografia || "").split(/(?<=\.)\s+/)
+  .filter(f => f.trim() && !FRASE_REPETIDA.test(f.trim())).join(" ").trim();
 function fitxa(x) {
   const l = [];
-  if (x.edat) l.push(`Tenia ${esc(x.edat)} anys.`);
+  if (edatNecro(x)) l.push(`Tenia ${esc(edatNecro(x))} anys.`);
   if (dataNecro(x.dataMort)) l.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}.`);
   if (x.vetlla) l.push(`Vetlla: ${textVetlla(x)}`);
   if (x.ceremonia) l.push(`Cerimònia: ${textCerimonia(x)}`);
   else if (dataNecro(x.dataFuneral)) l.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
-  const det = x.detall || x.biografia || "";
+  const det = detallNecro(x);
   return `<article class="fitxa"><b>${esc(String(x.nom).toLocaleUpperCase("ca"))}</b>${l.length ? "<br>" + l.join("<br>") : ""}` +
     (det ? `<br>${esc(det)}` : "") + `</article>`;
 }
