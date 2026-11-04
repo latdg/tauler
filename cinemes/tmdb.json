@@ -489,6 +489,28 @@
 "enllac": "",
 "t": 1793748680.516426
 },
+"george michael the faith tour": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Andy Morahan",
+"David Austin"
+],
+"original": "George Michael: The Faith Tour",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-05",
+"sinopsiCa": "",
+"id": 1649403,
+"nota": 0,
+"vots": 0,
+"sinopsi": "",
+"sinopsi_es": false,
+"poster": "/LXqHnaJ4ffkcx5YCuJN1noxkhr.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793803489.189568
+},
 "los miserables": {
 "v": 6,
 "comprovat": "director",
@@ -512,24 +534,24 @@
 },
 "ramayana el nacimiento de una leyenda": {
 "v": 6,
-"comprovat": "any",
+"comprovat": "director",
 "titolCa": "",
 "directors": [
 "Nitesh Tiwari"
 ],
 "original": "रामायणम्",
 "idiomaOriginal": "hi",
-"dataTmdb": "2026-11-04",
+"dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 8.0,
-"vots": 2,
+"nota": 5.7,
+"vots": 3,
 "sinopsi": "",
 "sinopsi_es": false,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793716212.707745
+"t": 1793803489.189568
 },
 "ruega por nosotras": {
 "v": 6,
@@ -794,7 +816,7 @@
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1793667942.911922
+"t": 1793803489.189568
 },
 "como robar un banco": {
 "v": 6,

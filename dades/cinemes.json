@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-03T23:31:56+00:00",
+ "generat": "2026-11-04T14:44:51+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -2887,49 +2887,49 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-06",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-07",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-08",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-10",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-11",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-12",
-     "hora": "17:00",
+     "hora": "16:00",
      "format": "",
      "preu": ""
     }
@@ -3275,49 +3275,49 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-06",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-07",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-08",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-10",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-11",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-12",
-     "hora": "19:00",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     }
@@ -4239,6 +4239,47 @@
    "plataformesUrl": ""
   },
   {
+   "key": "george michael the faith tour",
+   "titol": "George Michael: The Faith Tour",
+   "titolFont": "George Michael: The faith tour",
+   "sinopsi": "George Michael va ser una de les estrelles més influents de la seva generació: la seva veu i les seves composicions van definir una època. Muntat a partir d'imatges rodades en 35 mm redescobertes i mai vistes de l'espectacle de 1988 en Paris-Bercy, aquest concert mostra a George en la cúspide del seu poder creatiu durant la inigualable gira Faith. Restaurada i remasteritzada acuradament, la pel·lícula transforma un moment cultural que va marcar una època en una experiència cinematogràfica espectacular.",
+   "durada": "",
+   "genere": "Documental",
+   "edat": "",
+   "director": "David Austin i Andy Morahan",
+   "actors": "George Michael",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/LXqHnaJ4ffkcx5YCuJN1noxkhr.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-06",
+     "hora": "20:15",
+     "format": "Versió VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-07",
+     "hora": "20:15",
+     "format": "Versió VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-08",
+     "hora": "20:15",
+     "format": "Versió VOSE",
+     "preu": ""
+    }
+   ],
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "los miserables",
    "titol": "Els Miserables",
    "titolFont": "Los Miserables",
@@ -4262,7 +4303,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-06",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4283,7 +4324,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-07",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4304,7 +4345,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-08",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4325,7 +4366,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4346,7 +4387,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-10",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4367,7 +4408,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-11",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4388,7 +4429,7 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-12",
-     "hora": "21:00",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -4412,7 +4453,7 @@
    "sinopsi": "Rama és el més gran de tots els temps perquè va viure una vida en la qual les decisions que va prendre van ser sempre en benefici del bé major, del deure per sobre del desig i del sacrifici per sobre del jo. El seu llegat continua millorant i enfortint a la humanitat al llarg del temps i aportant la creença en la bondat de l'esperit humà per a resoldre tots els conflictes i portar la pau al món.",
    "durada": "168",
    "genere": "Acció",
-   "edat": "Pendent de qualificació",
+   "edat": "No recomanada per a menors de 12 anys",
    "director": "Nitesh Tiwari",
    "actors": "Ranbir Kapoor, Ravi Dubey, Sai Pallavi",
    "estrena": "",
@@ -4518,8 +4559,8 @@
      "preu": ""
     }
    ],
-   "nota": 8.0,
-   "vots": 2,
+   "nota": 5.7,
+   "vots": 3,
    "plataformes": [],
    "plataformesUrl": ""
   },
