@@ -1,4 +1,47 @@
 {
+"el gato con sombrero": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El gat amb barret",
+"directors": [
+"Erica Rivinoja",
+"Alessandro Carloni"
+],
+"original": "The Cat in the Hat",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-04",
+"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"id": 1117898,
+"nota": 7.2,
+"vots": 5,
+"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"sinopsi_es": false,
+"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793836092.855656
+},
+"sacamantecas": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"David Pérez Sañudo"
+],
+"original": "Sacamantecas",
+"idiomaOriginal": "eu",
+"dataTmdb": "2026-11-06",
+"sinopsiCa": "",
+"id": 1371661,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Álava, finales del siglo XIX. Mientras la III Guerra Carlista agoniza, varias mujeres aparecen estranguladas en las afueras de Vitoria. Ángela Berrosteguieta, hermana de una de las víctimas, llega en busca de justicia, decidida a demostrar que Juan Díaz de Garayo, un campesino analfabeto, es el responsable de los crímenes. Sin embargo, Pío Pinedo, jefe de los alguaciles, se enfrenta a la falta de recursos en tiempos de guerra y a la presión de las autoridades, que prefieren ocultar la creciente ola de asesinatos.",
+"sinopsi_es": true,
+"poster": "/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793836092.855656
+},
 "clayface": {
 "v": 6,
 "comprovat": "director",
@@ -16,27 +59,6 @@
 "sinopsi": "L'ascens meteòric de Matt Hagen —d'un noi de carrer de Gotham a protagonista a Hollywood— es veu tràgicament truncat quan les accions d'un cap del crim local el deixen horriblement desfigurat. Abandonat pel seu equip i sense res, en Matt recorre a un tractament innovador que, miraculosament, li retorna el seu aspecte original... però que, alhora, altera de manera inesperada la seva percepció de la realitat, i l'arrossega per un camí destructiu marcat per una venjança obsessiva.",
 "sinopsi_es": false,
 "poster": "/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"whalefall": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Brian Duffield"
-],
-"original": "Whalefall",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-14",
-"sinopsiCa": "Un bussejador (Austin Abrams), després de la mort de son pare (Josh Brolin), amb qui estava distanciat, en busca les restes, capbussant-se al mar de la costa central de Califòrnia, però aviat se l’empassa un enorme catxalot. Atrapat en aquell ventre, amb només una hora d’oxigen restant, malda per escapar-ne i aleshores se n'adona que les esforçades lliçons del seu pare poden ara ser la clau per salvar-li la vida",
-"id": 1255833,
-"nota": 6.577,
-"vots": 137,
-"sinopsi": "Un bussejador (Austin Abrams), després de la mort de son pare (Josh Brolin), amb qui estava distanciat, en busca les restes, capbussant-se al mar de la costa central de Califòrnia, però aviat se l’empassa un enorme catxalot. Atrapat en aquell ventre, amb només una hora d’oxigen restant, malda per escapar-ne i aleshores se n'adona que les esforçades lliçons del seu pare poden ara ser la clau per salvar-li la vida",
-"sinopsi_es": false,
-"poster": "/5d8BZCZQaO3gCdP9JaA5B5qGFsH.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1793836092.855656
@@ -82,6 +104,28 @@
 "plataformes": [],
 "enllac": "",
 "t": 1793836092.855656
+},
+"george michael the faith tour": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Andy Morahan",
+"David Austin"
+],
+"original": "George Michael: The Faith Tour",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-04",
+"sinopsiCa": "",
+"id": 1649403,
+"nota": 10.0,
+"vots": 1,
+"sinopsi": "",
+"sinopsi_es": false,
+"poster": "/LXqHnaJ4ffkcx5YCuJN1noxkhr.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793890177.055428
 },
 "hope": {
 "v": 6,
@@ -192,6 +236,69 @@
 "enllac": "https://www.themoviedb.org/movie/1689329-leones-en-invierno/watch?locale=ES",
 "t": 1793836092.855656
 },
+"los miserables": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Fred Cavayé"
+],
+"original": "Les Misérables",
+"idiomaOriginal": "fr",
+"dataTmdb": "2026-10-14",
+"sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"id": 1241803,
+"nota": 7.2,
+"vots": 59,
+"sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"sinopsi_es": false,
+"poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793836092.855656
+},
+"ramayana el nacimiento de una leyenda": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Nitesh Tiwari"
+],
+"original": "रामायणम्",
+"idiomaOriginal": "hi",
+"dataTmdb": "2026-11-05",
+"sinopsiCa": "",
+"id": 656908,
+"nota": 7.0,
+"vots": 5,
+"sinopsi": "",
+"sinopsi_es": false,
+"poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793890177.055428
+},
+"ruega por nosotras": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Daniel Monzón"
+],
+"original": "Ruega por nosotras",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-11-06",
+"sinopsiCa": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
+"id": 1522071,
+"nota": 0,
+"vots": 0,
+"sinopsi": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
+"sinopsi_es": false,
+"poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793836092.855656
+},
 "sentido y sensibilidad": {
 "v": 6,
 "comprovat": "director",
@@ -299,171 +406,23 @@
 "enllac": "",
 "t": 1793836092.855656
 },
-"leviticus": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Adrian Chiarella"
-],
-"original": "Leviticus",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-06-17",
-"sinopsiCa": "Dos nois descobreixen que el seu amor prohibit ha despertat un ens sobrenatural que adopta la forma d’allò que més desitgen: l’un a l’altre. Per sobreviure, hauran d’enfrontar-se tant al monstre que els persegueix com al fanatisme que els condemna",
-"id": 1564614,
-"nota": 6.8,
-"vots": 642,
-"sinopsi": "Dos nois descobreixen que el seu amor prohibit ha despertat un ens sobrenatural que adopta la forma d’allò que més desitgen: l’un a l’altre. Per sobreviure, hauran d’enfrontar-se tant al monstre que els persegueix com al fanatisme que els condemna",
-"sinopsi_es": false,
-"poster": "/gS8Z2lepduus8x6Crwzb85F6Gli.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"arriba tutto": {
+"11": {
 "v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
-"José Mota"
+"Bebe Go"
 ],
-"original": "Arriba Tutto",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-09",
-"sinopsiCa": "Espanya, 1905. En Michi (Pablo Cabello), un nen de set anys, és feliç al costat del seu pare, un còmic ambulant, amb qui descobreix la màgia de la vida, del cinema i de l’amor… fins que una tragèdia ho canvia tot. Espanya, 1939. En Miguel (José Mota), un home amargat i irritable, es retroba inesperadament amb el nen de set anys que havia estat. Aquest l’ajudarà a recuperar la fe en la vida i a retrobar els somnis perduts a través d’una sèrie d’aventures inesperades",
-"id": 1518395,
+"original": "11",
+"idiomaOriginal": "tl",
+"dataTmdb": "2026-02-21",
+"sinopsiCa": "",
+"id": 1616199,
 "nota": 0,
 "vots": 0,
-"sinopsi": "Espanya, 1905. En Michi (Pablo Cabello), un nen de set anys, és feliç al costat del seu pare, un còmic ambulant, amb qui descobreix la màgia de la vida, del cinema i de l’amor… fins que una tragèdia ho canvia tot. Espanya, 1939. En Miguel (José Mota), un home amargat i irritable, es retroba inesperadament amb el nen de set anys que havia estat. Aquest l’ajudarà a recuperar la fe en la vida i a retrobar els somnis perduts a través d’una sèrie d’aventures inesperades",
+"sinopsi": "",
 "sinopsi_es": false,
-"poster": "/a8MvsDCP3sv0WXNW3I0ainSuLcd.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"la maleta": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Carlos Therón"
-],
-"original": "La maleta",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-16",
-"sinopsiCa": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
-"id": 1494231,
-"nota": 8.0,
-"vots": 1,
-"sinopsi": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
-"sinopsi_es": false,
-"poster": "/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"street fighter": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Kitao Sakurai"
-],
-"original": "Street Fighter",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-13",
-"sinopsiCa": "L’any 1993, els antics companys de combat Ryu (Andrew Koji) i Ken Masters (Noah Centineo), ara distanciats, es veuen arrossegats de nou a la lluita quan la misteriosa Chun-Li (Callina Liang) els recluta per participar en el pròxim Torneig Mundial de Guerrers: un enfrontament brutal de cops de puny, destí i fúria. Però darrere d’aquesta batalla campal s’amaga una conspiració mortal que els obligarà a enfrontar-se l’un a l’altre i als dimonis del seu passat. I, si no ho aconsegueixen, serà GAME OVER!",
-"id": 1153576,
-"nota": 6.326,
-"vots": 215,
-"sinopsi": "L’any 1993, els antics companys de combat Ryu (Andrew Koji) i Ken Masters (Noah Centineo), ara distanciats, es veuen arrossegats de nou a la lluita quan la misteriosa Chun-Li (Callina Liang) els recluta per participar en el pròxim Torneig Mundial de Guerrers: un enfrontament brutal de cops de puny, destí i fúria. Però darrere d’aquesta batalla campal s’amaga una conspiració mortal que els obligarà a enfrontar-se l’un a l’altre i als dimonis del seu passat. I, si no ho aconsegueixen, serà GAME OVER!",
-"sinopsi_es": false,
-"poster": "/j9Ukn1hRqSyv5qhHgDHd1s1Dhsg.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"verity la sombra de un engano": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Michael Showalter"
-],
-"original": "Verity",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-09-30",
-"sinopsiCa": "",
-"id": 1283515,
-"nota": 6.981,
-"vots": 592,
-"sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
-"sinopsi_es": true,
-"poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"coyote vs acme": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Dave Green"
-],
-"original": "Coyote vs. Acme",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-08-20",
-"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"id": 1204680,
-"nota": 8.234,
-"vots": 1364,
-"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"sinopsi_es": false,
-"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"el gato con sombrero": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El gat amb barret",
-"directors": [
-"Erica Rivinoja",
-"Alessandro Carloni"
-],
-"original": "The Cat in the Hat",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-04",
-"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"id": 1117898,
-"nota": 7.2,
-"vots": 5,
-"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"sinopsi_es": false,
-"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"sacamantecas": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"David Pérez Sañudo"
-],
-"original": "Sacamantecas",
-"idiomaOriginal": "eu",
-"dataTmdb": "2026-11-06",
-"sinopsiCa": "",
-"id": 1371661,
-"nota": 0,
-"vots": 0,
-"sinopsi": "Álava, finales del siglo XIX. Mientras la III Guerra Carlista agoniza, varias mujeres aparecen estranguladas en las afueras de Vitoria. Ángela Berrosteguieta, hermana de una de las víctimas, llega en busca de justicia, decidida a demostrar que Juan Díaz de Garayo, un campesino analfabeto, es el responsable de los crímenes. Sin embargo, Pío Pinedo, jefe de los alguaciles, se enfrenta a la falta de recursos en tiempos de guerra y a la presión de las autoridades, que prefieren ocultar la creciente ola de asesinatos.",
-"sinopsi_es": true,
-"poster": "/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
+"poster": "/6CzunfLbeaCENJZuyejdW42lyg9.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1793836092.855656
@@ -489,108 +448,44 @@
 "enllac": "",
 "t": 1793836092.855656
 },
-"george michael the faith tour": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Andy Morahan",
-"David Austin"
-],
-"original": "George Michael: The Faith Tour",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-04",
-"sinopsiCa": "",
-"id": 1649403,
-"nota": 10.0,
-"vots": 1,
-"sinopsi": "",
-"sinopsi_es": false,
-"poster": "/LXqHnaJ4ffkcx5YCuJN1noxkhr.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793890177.055428
-},
-"los miserables": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Fred Cavayé"
-],
-"original": "Les Misérables",
-"idiomaOriginal": "fr",
-"dataTmdb": "2026-10-14",
-"sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
-"id": 1241803,
-"nota": 7.2,
-"vots": 59,
-"sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
-"sinopsi_es": false,
-"poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"ramayana el nacimiento de una leyenda": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Nitesh Tiwari"
-],
-"original": "रामायणम्",
-"idiomaOriginal": "hi",
-"dataTmdb": "2026-11-05",
-"sinopsiCa": "",
-"id": 656908,
-"nota": 7.0,
-"vots": 5,
-"sinopsi": "",
-"sinopsi_es": false,
-"poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793890177.055428
-},
-"ruega por nosotras": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Daniel Monzón"
-],
-"original": "Ruega por nosotras",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-11-06",
-"sinopsiCa": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
-"id": 1522071,
-"nota": 0,
-"vots": 0,
-"sinopsi": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
-"sinopsi_es": false,
-"poster": "/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1793836092.855656
-},
-"11": {
+"la maleta": {
 "v": 6,
 "comprovat": "any",
 "titolCa": "",
 "directors": [
-"Bebe Go"
+"Carlos Therón"
 ],
-"original": "11",
-"idiomaOriginal": "tl",
-"dataTmdb": "2026-02-21",
-"sinopsiCa": "",
-"id": 1616199,
-"nota": 0,
-"vots": 0,
-"sinopsi": "",
+"original": "La maleta",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-10-16",
+"sinopsiCa": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
+"id": 1494231,
+"nota": 8.0,
+"vots": 1,
+"sinopsi": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
 "sinopsi_es": false,
-"poster": "/6CzunfLbeaCENJZuyejdW42lyg9.jpg",
+"poster": "/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793836092.855656
+},
+"coyote vs acme": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Dave Green"
+],
+"original": "Coyote vs. Acme",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-08-20",
+"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
+"id": 1204680,
+"nota": 8.234,
+"vots": 1364,
+"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
+"sinopsi_es": false,
+"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1793836092.855656
@@ -646,6 +541,27 @@
 "enllac": "",
 "t": 1793836092.855656
 },
+"arriba tutto": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"José Mota"
+],
+"original": "Arriba Tutto",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-10-09",
+"sinopsiCa": "Espanya, 1905. En Michi (Pablo Cabello), un nen de set anys, és feliç al costat del seu pare, un còmic ambulant, amb qui descobreix la màgia de la vida, del cinema i de l’amor… fins que una tragèdia ho canvia tot. Espanya, 1939. En Miguel (José Mota), un home amargat i irritable, es retroba inesperadament amb el nen de set anys que havia estat. Aquest l’ajudarà a recuperar la fe en la vida i a retrobar els somnis perduts a través d’una sèrie d’aventures inesperades",
+"id": 1518395,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Espanya, 1905. En Michi (Pablo Cabello), un nen de set anys, és feliç al costat del seu pare, un còmic ambulant, amb qui descobreix la màgia de la vida, del cinema i de l’amor… fins que una tragèdia ho canvia tot. Espanya, 1939. En Miguel (José Mota), un home amargat i irritable, es retroba inesperadament amb el nen de set anys que havia estat. Aquest l’ajudarà a recuperar la fe en la vida i a retrobar els somnis perduts a través d’una sèrie d’aventures inesperades",
+"sinopsi_es": false,
+"poster": "/a8MvsDCP3sv0WXNW3I0ainSuLcd.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793836092.855656
+},
 "numakage public pool": {
 "v": 6,
 "comprovat": "any",
@@ -669,6 +585,27 @@
 },
 "bigmountain xile": {
 "v": 6,
+"t": 1793836092.855656
+},
+"verity la sombra de un engano": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Michael Showalter"
+],
+"original": "Verity",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-09-30",
+"sinopsiCa": "",
+"id": 1283515,
+"nota": 6.981,
+"vots": 592,
+"sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
+"sinopsi_es": true,
+"poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
+"plataformes": [],
+"enllac": "",
 "t": 1793836092.855656
 },
 "chopin": {
@@ -818,6 +755,28 @@
 "v": 6,
 "t": 1793836092.855656
 },
+"el gat amb barret": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El gat amb barret",
+"directors": [
+"Erica Rivinoja",
+"Alessandro Carloni"
+],
+"original": "The Cat in the Hat",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-31",
+"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"id": 1117898,
+"nota": 7.1,
+"vots": 10,
+"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"sinopsi_es": false,
+"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793922271.488272
+},
 "torroella terra d hortes": {
 "v": 6,
 "t": 1793890177.055428
@@ -863,6 +822,27 @@
 "plataformes": [],
 "enllac": "",
 "t": 1793836092.855656
+},
+"ahora los suegros son ellos": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"John Hamburg"
+],
+"original": "Focker-in-Law",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-25",
+"sinopsiCa": "",
+"id": 1400336,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Henry, hijo de Greg y Pam Focker, se enfrenta al caos familiar cuando decide casarse con una mujer de carácter fuerte que parece ser totalmente incompatible con él.",
+"sinopsi_es": true,
+"poster": "/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1793922271.488272
 },
 "hechizo bienvenidos a hexe": {
 "v": 6,
