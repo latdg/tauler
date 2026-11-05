@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:43:19.826Z",
+ "actualitzat": "2026-11-05T18:43:38.604Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -142,9 +142,9 @@
   },
   {
    "fitxer": "20260902bcuyas.mp3",
-   "titol": "Declaracions de B. Cuyas",
+   "titol": "Declaracions de Benet Cuyas",
    "qui": [
-    "B. Cuyas"
+    "Benet Cuyas"
    ],
    "data": "2026-09-02",
    "categoria": "declaracions",
@@ -152,8 +152,8 @@
    "lloc": "",
    "descripcio": "",
    "destacat": false,
-   "amagat": false,
-   "revisar": true
+   "amagat": true,
+   "revisar": false
   },
   {
    "fitxer": "20260901jfiga.mp3",
