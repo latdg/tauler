@@ -1,0 +1,16 @@
+{
+ "actualitzat": "2026-11-05T18:00:00Z",
+ "audios": [
+  {"fitxer": "20261103evigo.mp3", "titol": "Declaracions d'E. Vigo", "qui": ["E. Vigo"], "data": "2026-11-03", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20261016debatfoment.mp3", "titol": "Debat de Foment", "qui": [], "data": "2026-10-16", "categoria": "debats", "municipi": "", "lloc": "", "descripcio": "", "destacat": true, "amagat": false, "revisar": true},
+  {"fitxer": "20261006lamarsellesasencer.mp3", "titol": "La Marsellesa (sencer)", "qui": [], "data": "2026-10-06", "categoria": "actes", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20261006lamarsellesa.mp3", "titol": "La Marsellesa", "qui": [], "data": "2026-10-06", "categoria": "actes", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260914fesl.mp3", "titol": "", "qui": [], "data": "2026-09-14", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260909pmaré01.mp3", "titol": "Declaracions de P. Maré (1)", "qui": ["P. Maré"], "data": "2026-09-09", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260909pmaré02.mp3", "titol": "Declaracions de P. Maré (2)", "qui": ["P. Maré"], "data": "2026-09-09", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260909emarquès01.mp3", "titol": "Declaracions d'E. Marquès (1)", "qui": ["E. Marquès"], "data": "2026-09-09", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260909emarquès02.mp3", "titol": "Declaracions d'E. Marquès (2)", "qui": ["E. Marquès"], "data": "2026-09-09", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260902bcuyas.mp3", "titol": "Declaracions de B. Cuyas", "qui": ["B. Cuyas"], "data": "2026-09-02", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true},
+  {"fitxer": "20260901jfiga.mp3", "titol": "Declaracions de J. Figa", "qui": ["J. Figa"], "data": "2026-09-01", "categoria": "declaracions", "municipi": "", "lloc": "", "descripcio": "", "destacat": false, "amagat": false, "revisar": true}
+ ]
+}
