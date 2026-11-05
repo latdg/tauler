@@ -1010,8 +1010,10 @@ function vistaDe(pts) {
   return [[cLat - dLat, cLon - dLon], [cLat + dLat, cLon + dLon]];
 }
 // Carrers (02.11.2026): en acostar-s'hi (zoom 13 o més) apareix el plànol de carrers
-function carrers(mapa) {
+// 04.11.2026: amb un servei actiu (obre = true), el mapa ja s'obre al primer nivell amb carrers
+function carrers(mapa, obre) {
   mapa.setMaxZoom(18);
+  if (obre && mapa.getZoom() < 13) mapa.setView(mapa.getCenter(), 13, { animate: false });
   mapa.createPane("carrers").style.zIndex = 260;   // sobre el fons, sota els punts
   // 02.11.2026: CARTO demana clau; el plànol d'OpenStreetMap, com al mapa dels edificis
   const capa = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -1030,7 +1032,7 @@ async function mapesIncidencies(b) {
     const ll = (b.tallsLlum.talls || []).filter(t => t.lat != null && t.lon != null);
     const mapa = await mapaBase("mapaLlum", MUN_ANTENES, "Talls: e-distribución", null, vistaDe(ll.map(t => [t.lat, t.lon])));
     if (mapa) {
-      carrers(mapa);
+      carrers(mapa, ll.length > 0);
       obreFitxa(ll.map(t => punt(mapa, t.lat, t.lon, t.avaria ? "#d7191c" : "#2b6cb0", 9,
         `${t.avaria ? "⚡" : "🛠️"} ${t.municipi}${t.abonats != null ? " · " + t.abonats + " abonats" : ""}`,
         `<b>${t.avaria ? "⚡" : "🛠️"} ${esc(t.municipi)}</b><br>${t.avaria ? "Tall per avaria" : "Tall programat"}${t.abonats != null ? `<br>Abonats afectats: <b>${nCa(t.abonats)}</b>` : ""}` +
@@ -1050,7 +1052,7 @@ async function mapesIncidencies(b) {
     const ll = (b.v16.balises || []).filter(v => v.lat != null && v.lon != null);
     const mapa = await mapaBase("mapaV16", MUN_ANTENES, "Balises: DGT", null, vistaDe(ll.map(v => [v.lat, v.lon])));
     if (mapa) {
-      carrers(mapa);
+      carrers(mapa, ll.length > 0);
       obreFitxa(ll.map(v => punt(mapa, v.lat, v.lon, v.nostre ? "#d7191c" : "#f39200", 9,
         `🚨 ${v.via || ""}${v.pk ? ", km " + v.pk : ""}`,
         `<b>🚨 ${esc(v.via || "Carretera")}${v.pk ? ", km " + esc(v.pk) : ""}</b><br>${esc(nomMun(v.municipi))}${v.orientacio ? "<br>Direcció " + esc(v.orientacio) : ""}${v.inici ? "<br>Activada el " + esc(v.inici) : ""}`))[0]);
@@ -1075,7 +1077,7 @@ async function mapesIncidencies(b) {
         `${a.vehicles ? "<br>" + a.vehicles + (a.vehicles === 1 ? " vehicle" : " vehicles") : ""}${a.inici ? "<br>Des del " + esc(a.inici) : ""}` +
         `${a.km != null ? "<br>A " + num(a.km) + " km de la Bisbal" : ""}`));
       // La fitxa de la primera (la dels cinc municipis o la més recent) ja oberta
-      carrers(mapa);
+      carrers(mapa, ll.length > 0);
       obreFitxa(marques[0]);
     }
   }
@@ -1113,7 +1115,7 @@ async function mapesIncidencies(b) {
     const pts = dades.flatMap(d => d.i.punt ? [d.i.punt] : d.dins ? d.dins.flat() : d.tros);
     const mapa = await mapaBase("mapaTransit", MUN_ANTENES, "Incidències: Servei Català de Trànsit", null, vistaDe(pts));
     if (mapa) {
-      carrers(mapa);
+      carrers(mapa, pts.length > 0);
       dades.forEach(({ i, tros, dins }) => {
         const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}${i.inici ? "<br>Des del " + esc(i.inici) : ""}${i.fi ? "<br>Fins al " + esc(i.fi) + " (previsió)" : ""}` +
           (dins ? `<br><i style="color:#6b6b66">En vermell, el tros dins del terme de ${esc(i.municipi)}; en gris, la resta del tram previst (km ${esc(i.km)}).</i>`
@@ -1136,7 +1138,7 @@ async function mapesIncidencies(b) {
     ll.forEach(t => recull(t.geom.coords));
     const mapa = await mapaBase("mapaAigua", ["17902"], "Talls: Veolia", ["17902"], vistaDe(pts));
     if (mapa) {
-      carrers(mapa);
+      carrers(mapa, pts.length > 0);
       obreFitxa(ll.map(t => {
         const html = `<b>🚰 ${esc(t.adreca || "Forallac")}</b><br>${t.encurs ? "Tall en curs" : "Tall programat"} ${t.avaria ? "per avaria" : "per obres de millora"}` +
           `${t.quan ? "<br>Previsió: " + esc(t.quan) : ""}${t.carrers ? "<br>També afecta: " + esc(t.carrers) : ""}`;
