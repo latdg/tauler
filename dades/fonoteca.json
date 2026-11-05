@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:43:56.377Z",
+ "actualitzat": "2026-11-05T18:44:39.456Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -48,7 +48,7 @@
    "municipi": "La Bisbal d'Empordà",
    "lloc": "El Mundial",
    "descripcio": "",
-   "destacat": true,
+   "destacat": false,
    "amagat": false,
    "revisar": false
   },
