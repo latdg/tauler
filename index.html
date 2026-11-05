@@ -1170,7 +1170,7 @@ async function mapesIncidencies(b) {
     const pts = dades.flatMap(d => d.i.punt ? [d.i.punt] : d.dins ? d.dins.flat() : d.tros);
     const mapa = await mapaBase("mapaTransit", MUN_ANTENES, "Incidències: Servei Català de Trànsit", null, vistaDe(pts));
     if (mapa) {
-      carrers(mapa, pts.length > 0);
+      carrers(mapa);   // 05.11.2026: Trànsit, sense el zoom de carrers d'entrada
       dades.forEach(({ i, tros, dins }) => {
         const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}${i.inici ? "<br>Des del " + esc(i.inici) : ""}${i.fi ? "<br>Fins al " + esc(i.fi) + " (previsió)" : ""}` +
           (dins ? `<br><i style="color:#6b6b66">En vermell, el tros dins del terme de ${esc(i.municipi)}; en gris, la resta del tram previst (km ${esc(i.km)}).</i>`
