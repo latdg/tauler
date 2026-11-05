@@ -992,11 +992,13 @@ async function fonsMapa(mapa, codis, pinta) {
 }
 
 // --- MAPES DE LES INCIDÈNCIES ---
+const MAPES_INC = {};
 async function mapaBase(id, codis, atribucio, pinta, vista) {
   const el = document.getElementById(id);
   if (!el) return null;
   if (typeof L === "undefined") { el.innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return null; }
   const mapa = L.map(el, { zoomSnap: 0.25, scrollWheelZoom: false }).setView([41.95, 3.04], 11);
+  MAPES_INC[id] = mapa;   // 05.11.2026: per als enllaços dels avisos (anaAlAvis)
   mapa.attributionControl.setPrefix("").addAttribution(atribucio + " · Límits: es-atlas (INE)");
   try { const b = await fonsMapa(mapa, codis, pinta); if (b && !vista) mapa.fitBounds(b, { padding: [10, 10] }); } catch (e) {}
   if (vista) mapa.fitBounds(vista, { padding: [4, 4], animate: false });
@@ -1031,6 +1033,54 @@ function carrers(mapa, obre) {
   mira(); mapa.on("zoomend", mira);
 }
 const obreFitxa = m => m && setTimeout(() => m.openPopup(), 300);
+
+// ENLLAÇOS DEL BOT D'ALERTES (05.11.2026): …/tauler/?avis=bombers&lat=41.95&lon=3.04
+// porta al bloc de l'avís i acosta el mapa al punt, amb la fitxa de l'actuació
+// oberta. Si la incidència encara no surt al tauler (o ja s'ha resolt), es
+// mostra un mapa petit amb el punt de l'avís dins del mateix bloc.
+const AVIS_MAPES = {
+  bombers: ["mapaBombers", "Bombers"], v16: ["mapaV16", "Balises V16"],
+  llum: ["mapaLlum", "Talls de llum"], transit: ["mapaTransit", "Trànsit"]
+};
+async function anaAlAvis(b) {
+  const tipus = PARAMS_T.get("avis"), def = AVIS_MAPES[tipus];
+  if (!def) return;
+  const lat = parseFloat(PARAMS_T.get("lat")), lon = parseFloat(PARAMS_T.get("lon"));
+  const ambPunt = isFinite(lat) && isFinite(lon);
+  const [id, nom] = def;
+  let el = document.getElementById(id);
+  const sec = el ? el.closest("section") : [...document.querySelectorAll("section[data-nom]")].find(x => x.dataset.nom.startsWith(nom));
+  if (!sec) return;
+  let mapa = MAPES_INC[id];
+  if (ambPunt && !mapa) {
+    // La incidència no és al mapa del tauler: mapa petit només amb el punt de l'avís.
+    el = document.createElement("div");
+    el.className = "mapa-inc"; el.id = id + "Avis";
+    const nota = document.createElement("p");
+    nota.className = "font";
+    nota.textContent = "📍 Ubicació de l'avís. Aquesta incidència encara no surt al tauler o ja s'ha resolt.";
+    const ref = sec.querySelector("h2 + p.font.dalt") || sec.querySelector("h2");
+    ref.after(el, nota);
+    mapa = await mapaBase(el.id, MUN_ANTENES, "Ubicació: avís de La TdG", null, null);
+    if (mapa) carrers(mapa);
+  }
+  if (mapa && ambPunt) {
+    mapa.setView([lat, lon], 16, { animate: false });
+    L.circleMarker([lat, lon], { radius: 16, color: "#d7191c", weight: 3, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa);
+    // La fitxa del punt més proper (a menys de 300 m), si n'hi ha
+    let millor = null, dMin = 300;
+    mapa.eachLayer(l => {
+      if (!(l instanceof L.CircleMarker) || !l.getPopup || !l.getPopup()) return;
+      const d = mapa.distance(l.getLatLng(), [lat, lon]);
+      if (d < dMin) { dMin = d; millor = l; }
+    });
+    // Sense punt a prop, es tanca la fitxa que s'hagi obert sola i es torna al punt.
+    setTimeout(() => millor ? millor.openPopup() : (mapa.closePopup(), mapa.setView([lat, lon], 16, { animate: false })), 400);
+  }
+  // Els altres blocs encara es carreguen i el fan baixar: s'hi va un cop assentat.
+  const ves = () => sec.scrollIntoView({ block: "start" });
+  setTimeout(ves, 400); setTimeout(() => { ves(); if (mapa) mapa.invalidateSize(); }, 1500);
+}
 
 async function mapesIncidencies(b) {
   if (b.tallsLlum && document.getElementById("mapaLlum")) {
@@ -1537,7 +1587,7 @@ function pinta(d) {
   normalitzaDates(document.getElementById("blocs")); // CANVI (20.10.2026): dates en dd.mm.aaaa
 
   iniciaCamera();
-  if (!MODE_SLOW) mapesIncidencies(b).catch(e => console.error(e));   // 31.10.2026
+  if (!MODE_SLOW) mapesIncidencies(b).catch(e => console.error(e)).then(() => anaAlAvis(b));   // 31.10.2026
 
   if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
     const css = getComputedStyle(document.documentElement);
