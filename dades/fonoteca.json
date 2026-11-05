@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:40:52.706Z",
+ "actualitzat": "2026-11-05T18:41:28.094Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -77,8 +77,8 @@
    "lloc": "",
    "descripcio": "",
    "destacat": false,
-   "amagat": false,
-   "revisar": true
+   "amagat": true,
+   "revisar": false
   },
   {
    "fitxer": "20260909pmaré02.mp3",
