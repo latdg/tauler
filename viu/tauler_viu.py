@@ -1956,6 +1956,32 @@ def rius():
     return {"consultat": ara().isoformat(), "estacions": sortida}
 
 
+# 04.11.2026: càmeres de la C-66 del Servei Català de Trànsit. Quan una càmera està
+# desconnectada, el servidor no falla: torna una imatge grisa «IMATGES NO DISPONIBLES»
+# (sempre la mateixa) i, per a un nom de càmera que no existeix, una altra de fixa.
+# Es mira si la imatge és una d'aquestes i el tauler només mostra les càmeres actives.
+CAMERES_TRANSIT = ["cb24", "cb25"]
+CAMERA_URL = "https://mct.gencat.cat/mct2bo/TransitCamera?nom={}.jpg&visualitzacio=imatge"
+CAMERA_NO_DISPONIBLE = {
+    "ad18f7f85fe7a3bb9e5049163e301cb825b7e978",   # «IMATGES NO DISPONIBLES» (704×480)
+    "de8a04543db1f6d115c9f8e4aa78b07f41c2e3aa",   # càmera inexistent (720×534)
+}
+
+
+def cameres():
+    import hashlib
+    resultat = {}
+    for nom in CAMERES_TRANSIT:
+        r = requests.get(CAMERA_URL.format(nom), headers=CAPCALERES, timeout=30)
+        r.raise_for_status()   # si el servidor no respon, es manté l'estat anterior
+        activa = (r.headers.get("Content-Type", "").startswith("image/")
+                  and len(r.content) > 2000
+                  and hashlib.sha1(r.content).hexdigest() not in CAMERA_NO_DISPONIBLE)
+        resultat[nom] = activa
+        print(f"  càmera {nom}: {'activa' if activa else 'desconnectada'}")
+    return resultat
+
+
 # -----------------------------------------------------------------------------
 # CALCULA I FUSIONA
 # -----------------------------------------------------------------------------
@@ -1964,6 +1990,7 @@ FUNCIONS = {
     "carburants": carburants,
     "uv": uv,
     "incidencies": incidencies,
+    "cameres": cameres,   # 04.11.2026
     "riu": riu,
     "airePrevist": aire_previst,
     "clima": clima,

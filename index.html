@@ -322,9 +322,14 @@ const quan = generat => String(generat || "").replace(/^(\d{2}\.\d{2}\.\d{4})\s+
 let ACTUALITZAT = "";
 let NAV = [];
 
-// Càmera de trànsit del Servei Català de Trànsit (en directe, es refresca cada minut).
-const CAMERA_TRANSIT = { nom: "Polígon de Forallac", fitxer: "cb25.jpg" };
-const urlCamera = () => "https://mct.gencat.cat/mct2bo/TransitCamera?nom=" + CAMERA_TRANSIT.fitxer +
+// Càmeres de trànsit del Servei Català de Trànsit (en directe, es refresquen cada minut).
+// 04.11.2026: les dues de la C-66. Només surten les que el tauler en directe
+// (viu/tauler_viu.py, bloc «cameres») ha vist actives; les desconnectades no es mostren.
+const CAMERES_TRANSIT = [
+  { id: "cb24", nom: "C-66 a Forallac (km 5,3)" },
+  { id: "cb25", nom: "Polígon de Forallac" },
+];
+const urlCamera = id => "https://mct.gencat.cat/mct2bo/TransitCamera?nom=" + id + ".jpg" +
   "&time" + Date.now() + "&visualitzacio=imatge";
 const horaAra = () => {
   const d = new Date();
@@ -1245,9 +1250,10 @@ function pinta(d) {
 
   // 1. 🚦 TRÀNSIT: càmera en directe + incidències viàries de la comarca.
   h += seccio("🚦 Trànsit",
-    `<h3>Càmera: ${esc(CAMERA_TRANSIT.nom)}</h3>` +
-    `<figure class="camera"><img id="imgCamera" alt="Càmera de trànsit — ${esc(CAMERA_TRANSIT.nom)}" src="${urlCamera()}">` +
-    `<figcaption id="peuCamera">Imatge en directe · s'actualitza cada minut</figcaption></figure>` +
+    CAMERES_TRANSIT.filter(c => (b.cameres || {})[c.id] === true).map(c =>
+      `<div class="bloc-camera"><h3>Càmera: ${esc(c.nom)}</h3>` +
+      `<figure class="camera"><img class="imgCamera" data-camera="${c.id}" alt="Càmera de trànsit — ${esc(c.nom)}" src="${urlCamera(c.id)}">` +
+      `<figcaption>Imatge en directe · s'actualitza cada minut</figcaption></figure></div>`).join("") +
     `<h3>Incidències viàries a la comarca</h3>` +
     // 02.11.2026: mapa dels trams afectats (només si n'hi ha cap de situat)
     ((b.incidencies || []).some(i => i.linia || i.tram || i.punt)
@@ -2252,22 +2258,19 @@ async function carregaServeis() {
   normalitzaDates(document.querySelector("main"));
 }
 
-// La càmera mostra l'hora de la darrera imatge i es refresca cada minut.
+// Cada càmera mostra l'hora de la darrera imatge i es refresca cada minut.
+// 04.11.2026: si una càmera falla, s'amaga del tot (títol inclòs) fins que torna.
 function iniciaCamera() {
-  const img = document.getElementById("imgCamera");
-  const peu = document.getElementById("peuCamera");
-  if (!img || !peu) return;
-
-  img.onload = () => {
-    img.hidden = false;
-    peu.textContent = "Imatge en directe de les " + horaAra() + " h · s'actualitza cada minut";
-  };
-  img.onerror = () => {
-    img.hidden = true;
-    peu.textContent = "La càmera no està disponible ara mateix. Es tornarà a provar d'aquí a un minut.";
-  };
-
-  setInterval(() => { img.src = urlCamera(); }, 60000);
+  document.querySelectorAll("img.imgCamera").forEach(img => {
+    const bloc = img.closest(".bloc-camera");
+    const peu = bloc.querySelector("figcaption");
+    img.onload = () => {
+      bloc.hidden = false;
+      peu.textContent = "Imatge en directe de les " + horaAra() + " h · s'actualitza cada minut";
+    };
+    img.onerror = () => { bloc.hidden = true; };
+    setInterval(() => { img.src = urlCamera(img.dataset.camera); }, 60000);
+  });
 }
 
 async function inicia() {
