@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>La TdG fonoteca</title>
+<meta name="description" content="Recull històric de declaracions, conferències i actes de la Bisbal d'Empordà i pobles veïns, per tornar-los a escoltar.">
+<style>
+/* =====================================================
+   LA TdG FONOTECA · 05.11.2026
+   Mateix estil que «La TdG ampliada» i «La TdG redacció»
+   ===================================================== */
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c;--accent-clar:#f8e6df}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main,footer{max-width:1100px;margin:0 auto;padding-left:16px;padding-right:16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+h2{margin:0 0 8px;font-size:1.1rem}
+a{color:var(--accent)}
+[hidden]{display:none !important}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.95rem}
+.capcalera{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
+.podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
+.podcast svg{display:block;width:50px;height:50px}
+main{display:grid;gap:16px;padding-bottom:16px}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0}
+footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
+input,select,textarea,button{font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
+button{cursor:pointer}
+button.principal{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.suau{color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+
+/* XIFRES DE CAPÇALERA */
+.xifres{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 4px;padding:0;list-style:none;font-size:.9rem;color:var(--suau)}
+.xifres b{color:var(--text);font-size:1.05rem}
+
+/* PESTANYES PER ANYS */
+.anys{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.anys button{border-radius:999px;padding:4px 14px;font-weight:600}
+.anys button .n{font-weight:400;color:var(--suau);font-size:.8rem;margin-left:4px}
+.anys button.actiu{background:var(--accent);color:#fff;border-color:var(--accent)}
+.anys button.actiu .n{color:#fbe3db}
+
+/* FILTRES */
+.filtres{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filtres input[type=search]{flex:1 1 220px;min-width:0}
+.xips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.xip{border-radius:999px;font-size:.85rem;padding:3px 11px;white-space:nowrap}
+.xip.actiu{background:var(--accent-clar);border-color:var(--accent);color:var(--accent)}
+.continua{display:flex;gap:6px;align-items:center;font-size:.9rem;color:var(--suau);margin-left:auto;white-space:nowrap}
+
+/* MESOS I TARGETES */
+.mes{margin:4px 0 10px;font-size:1rem;display:flex;align-items:baseline;gap:8px;border-bottom:1px solid var(--linia);padding-bottom:6px}
+.mes .n{color:var(--suau);font-weight:400;font-size:.85rem}
+.mes + .graella{margin-bottom:22px}
+.graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0;scroll-margin-top:16px}
+.fitxa.sona{box-shadow:0 0 0 2px var(--accent)}
+.fitxa.marcada{animation:marca 2.4s ease}
+@keyframes marca{0%,40%{background:var(--accent-clar)}100%{background:var(--fons)}}
+.fitxa.amagada{opacity:.55;border-left-style:dashed}
+.cap{display:flex;gap:6px 10px;flex-wrap:wrap;align-items:center;font-size:.82rem;color:var(--suau)}
+.cap .data{font-weight:700;color:var(--accent)}
+.cap .eines{margin-left:auto;display:flex;gap:4px}
+.cap .eines button{padding:1px 7px;font-size:.85rem}
+.titol{margin:0;font-size:1.02rem;line-height:1.3}
+.qui{display:flex;gap:4px;flex-wrap:wrap}
+.qui button{border-radius:999px;font-size:.8rem;padding:1px 9px;background:var(--targeta)}
+.desc{margin:0;font-size:.92rem;line-height:1.45}
+.part{display:flex;flex-direction:column;gap:2px}
+.part .etiq{font-size:.78rem;color:var(--suau)}
+audio{width:100%;height:40px}
+.peu{display:flex;gap:12px;flex-wrap:wrap;font-size:.82rem}
+.peu a,.peu button{color:var(--accent);background:none;border:0;padding:0;text-decoration:none;font-size:.82rem}
+.prepara{font-size:.88rem;color:var(--suau);background:var(--targeta);border:1px dashed var(--linia);border-radius:8px;padding:8px 10px}
+.etiqueta{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;padding:1px 8px;border-radius:999px;background:#efece6;color:var(--suau)}
+.etiqueta.rev{background:#fff3cd;color:#8a6100}
+
+/* DESTACATS */
+.destacats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:22px}
+.destacats .fitxa{border-left-color:#e0a100;background:#fffaf0}
+
+.buit{color:var(--suau)}
+.nota{color:var(--suau);font-size:.85rem;margin:10px 0 0}
+
+/* EDITOR (amb clau) */
+#gestio{border-color:var(--accent)}
+.fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.camps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0}
+.camps label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)}
+.camps label.ample{grid-column:1 / -1}
+.camps label.check{flex-direction:row;align-items:center;gap:6px;color:var(--text)}
+textarea{min-height:80px;resize:vertical}
+#estat{font-size:.9rem;color:var(--suau);margin:8px 0 0}
+@media (max-width:600px){.graella,.destacats{grid-template-columns:1fr}.continua{margin-left:0}}
+</style>
+<!-- Visites (GoatCounter, sense galetes) -->
+<script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="capcalera">
+    <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
+        <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
+        <path d="M22 11a10 10 0 00-5-8.662" stroke="#e30613"/>
+        <path d="M6 11a6 6 0 013-5.197" stroke="currentColor"/>
+        <path d="M18 11a6 6 0 00-3-5.197" stroke="currentColor"/>
+        <rect x="10" y="9" width="4" height="8" rx="2" stroke="currentColor"/>
+        <path d="M12 17v4" stroke="currentColor"/>
+        <path d="M9 21h6" stroke="currentColor"/>
+      </svg>
+    </a>
+    <h1>La TdG fonoteca</h1>
+    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+  </div>
+  <p class="sub">Declaracions, conferències i actes de la Bisbal d'Empordà i pobles veïns, per tornar-los a escoltar.</p>
+  <ul class="xifres" id="xifres"></ul>
+</header>
+
+<main>
+  <section>
+    <div class="anys" id="anys" role="tablist" aria-label="Anys"></div>
+    <div class="filtres">
+      <input type="search" id="cerca" placeholder="Cerca per títol, qui parla, lloc…" aria-label="Cerca">
+      <select id="filtreQui" aria-label="Qui parla"><option value="">Qui parla: tothom</option></select>
+      <label class="continua" title="Quan acaba un àudio, comença el següent de la llista"><input type="checkbox" id="continua"> Reproducció contínua</label>
+    </div>
+    <div class="xips" id="categories"></div>
+  </section>
+
+  <section>
+    <div id="llista"><p class="buit">Carregant la fonoteca…</p></div>
+  </section>
+
+  <!-- GESTIÓ: la fonoteca és pública; només per EDITAR cal la clau dels llamps.
+       No es mostra al públic: s'obre amb …/fonoteca/#gestio o sol, si el
+       navegador ja té la clau desada. -->
+  <section id="gestio" hidden>
+    <div class="fila" id="entrada">
+      <button type="button" id="obre" class="suau">🔒 Edita la fonoteca (amb clau)</button>
+    </div>
+    <div id="clau" hidden>
+      <div class="fila">
+        <input type="password" id="pin" placeholder="Clau" autocomplete="current-password" size="10">
+        <button type="button" id="entra" class="principal">Entra</button>
+        <label class="fila" style="gap:4px"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
+      </div>
+    </div>
+    <div id="form" hidden>
+      <h2 id="titolForm">➕ Afegeix un àudio</h2>
+      <p class="nota" style="margin-top:0">Els àudios que difon el publicador entren sols. Per afegir-ne un altre, escriu el nom del fitxer tal com és a la carpeta <b>declaracions</b> (p. ex. 20260901jfiga.mp3): en menys d'una hora ja es podrà escoltar.</p>
+      <div class="camps">
+        <label>Nom del fitxer <input type="text" id="fFitxer" placeholder="20261103evigo.mp3" autocomplete="off" spellcheck="false"></label>
+        <label>Data <input type="date" id="fData"></label>
+        <label>Tipus <select id="fCat"></select></label>
+        <label class="ample">Títol <input type="text" id="fTitol" placeholder="Si es deixa en blanc, es fa a partir del nom del fitxer"></label>
+        <label>Qui parla (separats per comes) <input type="text" id="fQui" placeholder="Nom Cognom, Nom Cognom" list="llistaQui"></label>
+        <label>Municipi <input type="text" id="fMun" list="municipis" placeholder="La Bisbal d'Empordà…"></label>
+        <label>Lloc <input type="text" id="fLloc" placeholder="Sala de plens, Teatre…"></label>
+        <label class="ample">Descripció <textarea id="fDesc" placeholder="Context: de què parla, en quin acte…"></textarea></label>
+        <label class="check"><input type="checkbox" id="fDestacat"> ⭐ Destacat (surt a dalt de l'any)</label>
+        <label class="check"><input type="checkbox" id="fAmagat"> 🙈 Amagat (no surt a la fonoteca pública)</label>
+      </div>
+      <div class="fila">
+        <button type="button" id="desa" class="principal">Desa</button>
+        <button type="button" id="cancel" hidden>Cancel·la</button>
+        <button type="button" id="esborra" class="suau" hidden>Treu de la fonoteca</button>
+        <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
+      </div>
+    </div>
+    <p id="estat"></p>
+  </section>
+</main>
+
+<footer>Aquest espai és una gentilesa dels serveis informatius de la Bisbal d'Empordà i pobles veïns.</footer>
+
+<datalist id="municipis">
+  <option value="La Bisbal d'Empordà"><option value="Corçà"><option value="Forallac">
+  <option value="Cruïlles, Monells i Sant Sadurní de l'Heura"><option value="Ullastret">
+  <option value="Consell Comarcal del Baix Empordà"><option value="Girona">
+</datalist>
+<datalist id="llistaQui"></datalist>
+
+<script>
+/* =====================================================
+   FONTS
+   · inventari.json (latdg/media, branca fonoteca): els àudios ja arxivats,
+     amb la durada i la mida. Hi entren sols els que difon el publicador.
+   · fonoteca.json (latdg/tauler): les fitxes que s'editen aquí (títol, qui
+     parla, tipus…) i els àudios afegits a mà.
+   ===================================================== */
+const INVENTARI = "https://latdg.github.io/media/f/inventari.json";
+const AUDIOS = "https://latdg.github.io/media/f/";
+const CATALEG = "https://raw.githubusercontent.com/latdg/tauler/main/dades/fonoteca.json";
+const WORKER = "https://latdg-agenda.ignasicorney.workers.dev";
+const CLAU_DESADA = "llampsPin";
+
+const CATEGORIES = [
+  ["declaracions", "🗣️", "Declaracions"],
+  ["entrevistes", "🎤", "Entrevistes"],
+  ["debats", "🏛️", "Plens i debats"],
+  ["conferencies", "🎓", "Conferències i xerrades"],
+  ["actes", "🎉", "Actes i celebracions"],
+  ["musica", "🎶", "Música"],
+  ["altres", "📁", "Altres"]
+];
+const CAT = Object.fromEntries(CATEGORIES.map(c => [c[0], { ico: c[1], nom: c[2] }]));
+const MESOS = ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"];
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const dataCa = iso => iso ? iso.split("-").reverse().join(".") : "";
+const llegeixLS = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
+const escriuLS = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+const durada = s => { s = +s || 0; const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return h ? `${h} h ${String(m).padStart(2, "0")} min` : `${m}:${String(x).padStart(2, "0")}`; };
+const normal = t => String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const avuiISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+
+let INV = { audios: [] }, CATAL = { audios: [] }, SHA = null, PIN = "", EDITANT = null;
+let TOTS = [], ANY = "", CATS = new Set(), QUI = "", CERCA = "";
+
+/* ----- Títol a partir del nom del fitxer: 20260909pmaré02.mp3 → «Pmaré (2)» ----- */
+function arrel(nom) {
+  return String(nom || "").replace(/\.[a-z0-9]+$/i, "").replace(/^(20\d\d)[-_.]?([01]\d)[-_.]?([0-3]\d)[-_ ]?/, "");
+}
+function titolDelNom(nom) {
+  const r = arrel(nom), m = r.match(/^(.*?)[-_ ]?0*(\d{1,2})$/);
+  const base = (m ? m[1] : r).replace(/[-_]+/g, " ").trim();
+  const t = base ? base[0].toUpperCase() + base.slice(1) : "Àudio";
+  return m && m[1] ? `${t} (${+m[2]})` : t;
+}
+const grupDe = a => (a.data || "") + "|" + arrel(a.fitxer).replace(/[-_ ]?\d{1,2}$/, "");
+
+/* ----- Unió: inventari (àudios arxivats) + catàleg (fitxes) ----- */
+function uneix() {
+  const perNom = new Map();
+  (INV.audios || []).forEach(a => perNom.set(a.fitxer_original, { fitxer: a.fitxer_original, arxiu: a }));
+  (CATAL.audios || []).forEach(c => {
+    const e = perNom.get(c.fitxer) || { fitxer: c.fitxer, arxiu: null };
+    e.fitxa = c;
+    perNom.set(c.fitxer, e);
+  });
+  TOTS = [...perNom.values()].map(e => {
+    const f = e.fitxa || {}, a = e.arxiu || {};
+    return {
+      fitxer: e.fitxer,
+      id: a.id || arrel(e.fitxer).toLowerCase(),
+      url: a.fitxer ? AUDIOS + a.fitxer : "",
+      durada: a.durada || 0,
+      data: f.data || a.data || "",
+      titol: f.titol || titolDelNom(e.fitxer),
+      qui: f.qui || [],
+      categoria: CAT[f.categoria] ? f.categoria : "declaracions",
+      municipi: f.municipi || "", lloc: f.lloc || "", descripcio: f.descripcio || "",
+      destacat: !!f.destacat, amagat: !!f.amagat, revisar: !!f.revisar, teFitxa: !!e.fitxa
+    };
+  }).sort((x, y) => (y.data + y.fitxer).localeCompare(x.data + x.fitxer));
+}
+
+/* ----- Pintar ----- */
+function visibles() { return TOTS.filter(a => PIN || !a.amagat); }
+
+function pintaXifres() {
+  const v = visibles().filter(a => a.url);
+  const seg = v.reduce((s, a) => s + a.durada, 0);
+  const persones = new Set(v.flatMap(a => a.qui));
+  const anys = new Set(v.map(a => (a.data || "").slice(0, 4)).filter(Boolean));
+  $("xifres").innerHTML =
+    `<li><b>${v.length}</b> àudios</li>` +
+    `<li><b>${seg >= 3600 ? (seg / 3600).toFixed(1).replace(".", ",") + " h" : Math.round(seg / 60) + " min"}</b> d'escolta</li>` +
+    (persones.size ? `<li><b>${persones.size}</b> veus</li>` : "") +
+    (anys.size ? `<li><b>${anys.size}</b> ${anys.size === 1 ? "any" : "anys"}</li>` : "");
+}
+
+function pintaAnys() {
+  const compte = {};
+  visibles().forEach(a => { const y = (a.data || "").slice(0, 4) || "Sense data"; compte[y] = (compte[y] || 0) + 1; });
+  const anys = Object.keys(compte).sort().reverse();
+  if (!anys.includes(ANY)) ANY = anys[0] || "";
+  $("anys").innerHTML = anys.map(y =>
+    `<button type="button" role="tab" data-any="${esc(y)}" class="${y === ANY ? "actiu" : ""}" aria-selected="${y === ANY}">${esc(y)}<span class="n">${compte[y]}</span></button>`).join("");
+}
+
+function pintaFiltres() {
+  const del = visibles().filter(a => ((a.data || "").slice(0, 4) || "Sense data") === ANY);
+  const n = {};
+  del.forEach(a => n[a.categoria] = (n[a.categoria] || 0) + 1);
+  $("categories").innerHTML = CATEGORIES.filter(c => n[c[0]]).map(c =>
+    `<button type="button" class="xip${CATS.has(c[0]) ? " actiu" : ""}" data-cat="${c[0]}">${c[1]} ${c[2]} · ${n[c[0]]}</button>`).join("");
+  const veus = [...new Set(visibles().flatMap(a => a.qui))].sort((x, y) => x.localeCompare(y, "ca"));
+  $("filtreQui").innerHTML = '<option value="">Qui parla: tothom</option>' + veus.map(q => `<option${q === QUI ? " selected" : ""}>${esc(q)}</option>`).join("");
+  $("llistaQui").innerHTML = veus.map(q => `<option value="${esc(q)}">`).join("");
+}
+
+function passaFiltre(a) {
+  if (((a.data || "").slice(0, 4) || "Sense data") !== ANY) return false;
+  if (CATS.size && !CATS.has(a.categoria)) return false;
+  if (QUI && !a.qui.includes(QUI)) return false;
+  if (CERCA) {
+    const t = normal([a.titol, a.qui.join(" "), a.lloc, a.municipi, a.descripcio, CAT[a.categoria].nom, a.fitxer, dataCa(a.data)].join(" "));
+    if (!normal(CERCA).split(/\s+/).every(p => t.includes(p))) return false;
+  }
+  return true;
+}
+
+// Talls del mateix dia i de la mateixa persona (…01, …02) van junts a una sola fitxa.
+function agrupa(llista) {
+  const grups = [], idx = new Map();
+  llista.forEach(a => {
+    const k = grupDe(a);
+    if (idx.has(k)) grups[idx.get(k)].push(a);
+    else { idx.set(k, grups.length); grups.push([a]); }
+  });
+  return grups.map(g => g.sort((x, y) => x.fitxer.localeCompare(y.fitxer)));
+}
+
+function fitxaHtml(g) {
+  const a = g[0], c = CAT[a.categoria];
+  const titol = g.length > 1 ? a.titol.replace(/\s*\(\d+\)$/, "") : a.titol;
+  const total = g.reduce((s, x) => s + x.durada, 0);
+  const llocs = [a.lloc, a.municipi].filter(Boolean).join(" · ");
+  const parts = g.map((x, i) => x.url
+    ? `<div class="part">${g.length > 1 ? `<span class="etiq">Part ${i + 1} · ${durada(x.durada)}</span>` : ""}<audio controls preload="none" src="${esc(x.url)}" data-id="${esc(x.id)}"></audio></div>`
+    : `<div class="prepara">⏳ L'àudio${g.length > 1 ? ` (part ${i + 1})` : ""} s'està preparant: es podrà escoltar d'aquí a poc.</div>`).join("");
+  return `<article class="fitxa${a.amagat ? " amagada" : ""}" id="a-${esc(a.id)}">
+    <div class="cap"><span class="data">${dataCa(a.data) || "Sense data"}</span><span>${c.ico} ${c.nom}</span>${total ? `<span>⏱️ ${durada(total)}</span>` : ""}
+      ${PIN && a.revisar ? '<span class="etiqueta rev">Per revisar</span>' : ""}${a.amagat ? '<span class="etiqueta">Amagat</span>' : ""}
+      ${PIN ? `<span class="eines">${g.map((x, i) => `<button type="button" data-edita="${esc(x.fitxer)}" title="Edita${g.length > 1 ? " la part " + (i + 1) : ""}">✏️${g.length > 1 ? i + 1 : ""}</button>`).join("")}</span>` : ""}</div>
+    <h3 class="titol">${esc(titol)}</h3>
+    ${a.qui.length ? `<div class="qui">${a.qui.map(q => `<button type="button" data-qui="${esc(q)}" title="Tots els àudios de ${esc(q)}">🗣️ ${esc(q)}</button>`).join("")}</div>` : ""}
+    ${llocs ? `<div class="cap">📍 ${esc(llocs)}</div>` : ""}
+    ${a.descripcio ? `<p class="desc">${esc(a.descripcio)}</p>` : ""}
+    ${parts}
+    <div class="peu">${g.filter(x => x.url).map((x, i) => `<a href="${esc(x.url)}" download>⬇️ Descarrega${g.length > 1 ? " " + (i + 1) : ""}</a>`).join("")}<button type="button" data-enllac="${esc(a.id)}">🔗 Copia l'enllaç</button></div>
+  </article>`;
+}
+
+function pinta() {
+  pintaXifres(); pintaAnys(); pintaFiltres();
+  const llista = visibles().filter(passaFiltre);
+  if (!llista.length) {
+    $("llista").innerHTML = `<p class="buit">${TOTS.length ? "Cap àudio amb aquests filtres." : "Encara no hi ha cap àudio a la fonoteca."}</p>`;
+    return;
+  }
+  let html = "";
+  const filtrat = CATS.size || QUI || CERCA;
+  const dest = filtrat ? [] : agrupa(llista.filter(a => a.destacat));
+  if (dest.length) html += `<h2>⭐ DESTACATS</h2><div class="destacats">${dest.map(fitxaHtml).join("")}</div>`;
+  const perMes = [];
+  agrupa(llista.filter(a => filtrat || !a.destacat)).forEach(g => {
+    const m = (g[0].data || "").slice(0, 7);
+    let b = perMes[perMes.length - 1];
+    if (!b || b.mes !== m) { b = { mes: m, grups: [] }; perMes.push(b); }
+    b.grups.push(g);
+  });
+  html += perMes.map(b => {
+    const nom = b.mes ? MESOS[+b.mes.slice(5, 7) - 1] : "Sense data";
+    const n = b.grups.reduce((s, g) => s + g.length, 0);
+    return `<h2 class="mes">${nom.toUpperCase()}<span class="n">${n} ${n === 1 ? "àudio" : "àudios"}</span></h2><div class="graella">${b.grups.map(fitxaHtml).join("")}</div>`;
+  }).join("");
+  $("llista").innerHTML = html;
+}
+
+/* ----- Reproducció: un sol àudio alhora, i continua si es vol ----- */
+document.addEventListener("play", e => {
+  if (e.target.tagName !== "AUDIO") return;
+  document.querySelectorAll("audio").forEach(x => { if (x !== e.target) x.pause(); });
+  document.querySelectorAll(".fitxa.sona").forEach(x => x.classList.remove("sona"));
+  e.target.closest(".fitxa")?.classList.add("sona");
+}, true);
+document.addEventListener("ended", e => {
+  if (e.target.tagName !== "AUDIO") return;
+  e.target.closest(".fitxa")?.classList.remove("sona");
+  if (!$("continua").checked) return;
+  const tots = [...document.querySelectorAll("#llista audio")];
+  const seg = tots[tots.indexOf(e.target) + 1];
+  if (seg) { seg.closest(".fitxa").scrollIntoView({ behavior: "smooth", block: "center" }); seg.play(); }
+}, true);
+
+/* ----- Enllaç directe a un àudio: …/fonoteca/#a-20261103evigo ----- */
+function obreEnllac() {
+  const id = decodeURIComponent(location.hash.replace(/^#a-/, ""));
+  if (!id || id === location.hash) return;
+  const a = TOTS.find(x => x.id === id);
+  if (!a) return;
+  ANY = (a.data || "").slice(0, 4) || "Sense data"; CATS.clear(); QUI = ""; CERCA = ""; $("cerca").value = "";
+  pinta();
+  const el = document.getElementById("a-" + id) || [...document.querySelectorAll("audio")].find(x => x.dataset.id === id)?.closest(".fitxa");
+  if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.add("marcada"); }
+}
+
+/* ----- Esdeveniments ----- */
+$("anys").onclick = e => { const b = e.target.closest("button[data-any]"); if (!b) return; ANY = b.dataset.any; CATS.clear(); pinta(); };
+$("categories").onclick = e => { const b = e.target.closest("button[data-cat]"); if (!b) return; CATS.has(b.dataset.cat) ? CATS.delete(b.dataset.cat) : CATS.add(b.dataset.cat); pinta(); };
+$("filtreQui").onchange = e => { QUI = e.target.value; pinta(); };
+$("cerca").oninput = e => { CERCA = e.target.value.trim(); pinta(); };
+$("continua").onchange = e => escriuLS("fonotecaContinua", e.target.checked ? "1" : "");
+$("continua").checked = !!llegeixLS("fonotecaContinua");
+$("llista").onclick = async e => {
+  const q = e.target.closest("button[data-qui]");
+  if (q) { QUI = QUI === q.dataset.qui ? "" : q.dataset.qui; pinta(); return; }
+  const l = e.target.closest("button[data-enllac]");
+  if (l) {
+    const url = location.origin + location.pathname + "#a-" + l.dataset.enllac;
+    try { await navigator.clipboard.writeText(url); l.textContent = "✅ Enllaç copiat"; } catch (err) { prompt("Enllaç:", url); }
+    setTimeout(() => l.textContent = "🔗 Copia l'enllaç", 2000);
+    return;
+  }
+  const ed = e.target.closest("button[data-edita]");
+  if (ed) edita(ed.dataset.edita);
+};
+window.addEventListener("hashchange", obreEnllac);
+
+/* ----- Càrrega ----- */
+async function carrega() {
+  const [inv, cat] = await Promise.allSettled([
+    fetch(INVENTARI + "?v=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.json() : { audios: [] }),
+    fetch(CATALEG + "?v=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.json() : { audios: [] })
+  ]);
+  INV = inv.status === "fulfilled" ? inv.value : { audios: [] };
+  if (!PIN) CATAL = cat.status === "fulfilled" ? cat.value : { audios: [] };
+  uneix(); pinta(); obreEnllac();
+}
+
+/* =====================================================
+   GESTIÓ AMB CLAU (la dels llamps) · Worker latdg-agenda
+   ===================================================== */
+$("fCat").innerHTML = CATEGORIES.map(c => `<option value="${c[0]}">${c[1]} ${c[2]}</option>`).join("");
+
+async function crida(cos) {
+  const r = await fetch(WORKER, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin: PIN, ...cos }) });
+  let d = {};
+  try { d = await r.json(); } catch (e) {}
+  if (!r.ok || !d.ok) { const err = new Error(d.error || ("HTTP " + r.status)); err.conflicte = r.status === 409; throw err; }
+  return d;
+}
+const errorTxt = e => e instanceof TypeError ? "No s'ha pogut connectar amb el Worker." : e.message;
+
+async function entra() {
+  PIN = $("pin").value.trim();
+  if (!PIN) { $("estat").textContent = "Escriu la clau."; return; }
+  $("estat").textContent = "Comprovant la clau…";
+  try {
+    const d = await crida({ accio: "fonoteca-llegeix" });
+    CATAL = d.fonoteca || { audios: [] }; SHA = d.sha;
+    escriuLS(CLAU_DESADA, $("recorda").checked ? PIN : "");
+    $("clau").hidden = true; $("form").hidden = false; $("estat").textContent = "";
+    nou(); uneix(); pinta();
+  } catch (e) {
+    PIN = "";
+    $("estat").textContent = "❌ " + errorTxt(e);
+    if (!location.hash.includes("gestio")) $("gestio").hidden = true;   // clau desada que ja no val: no es mostra res al públic
+  }
+}
+
+function omple(f) {
+  $("fFitxer").value = f.fitxer || ""; $("fData").value = f.data || ""; $("fCat").value = f.categoria || "declaracions";
+  $("fTitol").value = f.titol || ""; $("fQui").value = (f.qui || []).join(", "); $("fMun").value = f.municipi || "";
+  $("fLloc").value = f.lloc || ""; $("fDesc").value = f.descripcio || "";
+  $("fDestacat").checked = !!f.destacat; $("fAmagat").checked = !!f.amagat;
+}
+
+function nou() {
+  EDITANT = null;
+  $("titolForm").textContent = "➕ Afegeix un àudio";
+  $("fFitxer").disabled = false; $("cancel").hidden = true; $("esborra").hidden = true;
+  omple({});
+}
+
+function edita(fitxer) {
+  const a = TOTS.find(x => x.fitxer === fitxer);
+  if (!a) return;
+  const f = (CATAL.audios || []).find(x => x.fitxer === fitxer);
+  EDITANT = fitxer;
+  $("titolForm").textContent = "✏️ " + (f ? "Editant la fitxa" : "Fitxa nova d'un àudio del publicador");
+  omple(f || { fitxer, data: a.data, categoria: "declaracions", titol: "" });
+  $("fFitxer").disabled = true; $("cancel").hidden = false; $("esborra").hidden = !f;
+  $("gestio").scrollIntoView({ behavior: "smooth" });
+}
+
+async function desaLlista(audios, missatge) {
+  $("desa").disabled = true;
+  $("estat").textContent = "Desant…";
+  try {
+    const d = await crida({ accio: "fonoteca-desa", fonoteca: { audios }, sha: SHA });
+    CATAL = d.fonoteca; SHA = d.sha;
+    $("estat").textContent = "✅ " + missatge;
+    nou(); uneix(); pinta();
+  } catch (e) {
+    if (e.conflicte) { try { const d = await crida({ accio: "fonoteca-llegeix" }); CATAL = d.fonoteca; SHA = d.sha; uneix(); pinta(); } catch (x) {} }
+    $("estat").textContent = "❌ " + (e.conflicte ? "Algú altre ha desat entremig; ja tens la versió nova, torna-ho a provar." : errorTxt(e));
+  } finally { $("desa").disabled = false; }
+}
+
+function desa() {
+  const fitxer = (EDITANT || $("fFitxer").value.trim()).split(/[\\/]/).pop();
+  if (!/\.(mp3|wav|m4a|ogg|opus|aac|flac|wma|amr|3gp|mp4|webm)$/i.test(fitxer)) {
+    $("estat").textContent = "Cal el nom del fitxer amb l'extensió (p. ex. 20261103evigo.mp3)."; return;
+  }
+  if (!EDITANT && (CATAL.audios || []).some(x => x.fitxer === fitxer)) {
+    $("estat").textContent = "Aquest fitxer ja és a la fonoteca: edita'l amb ✏️."; return;
+  }
+  const f = {
+    fitxer,
+    titol: $("fTitol").value.trim(),
+    qui: $("fQui").value.split(",").map(x => x.trim()).filter(Boolean),
+    data: $("fData").value || "",
+    categoria: $("fCat").value,
+    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), descripcio: $("fDesc").value.trim(),
+    destacat: $("fDestacat").checked, amagat: $("fAmagat").checked, revisar: false
+  };
+  const audios = (CATAL.audios || []).filter(x => x.fitxer !== fitxer).concat(f);
+  desaLlista(audios, EDITANT ? "Fitxa desada." : "Àudio afegit: en menys d'una hora ja es podrà escoltar.");
+}
+
+function treu() {
+  if (!EDITANT || !confirm("Vols treure la fitxa d'aquest àudio?\n\nSi l'àudio el va difondre el publicador, continuarà sortint, amb el títol fet a partir del nom del fitxer. Per amagar-lo, fes servir «Amagat».")) return;
+  desaLlista((CATAL.audios || []).filter(x => x.fitxer !== EDITANT), "Fitxa treta.");
+}
+
+$("obre").onclick = () => { $("gestio").hidden = false; $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };
+$("entra").onclick = entra;
+$("pin").onkeydown = e => { if (e.key === "Enter") entra(); };
+$("desa").onclick = desa;
+$("cancel").onclick = () => { nou(); };
+$("esborra").onclick = treu;
+$("oblida").onclick = () => { escriuLS(CLAU_DESADA, ""); location.hash = ""; location.reload(); };
+
+const desada = llegeixLS(CLAU_DESADA);
+$("recorda").checked = !!desada;
+carrega().then(() => {
+  if (desada) { $("gestio").hidden = false; $("pin").value = desada; $("entrada").hidden = true; $("clau").hidden = false; entra(); }
+  else if (location.hash === "#gestio") $("obre").click();
+});
+window.addEventListener("hashchange", () => { if (location.hash === "#gestio" && !PIN) $("obre").click(); });
+</script>
+<script src="../dates-ca.js?v=3"></script>
+</body>
+</html>

@@ -7,6 +7,10 @@
 //    al repo PRIVAT latdg/noticies (dies/AAAA-MM-DD.json), des de la pàgina
 //    latdg.github.io/redaccio/noticies/. El guió les llegeix d'aquí mateix.
 //
+// 4) FONOTECA (afegit el 05.11.2026): desa les fitxes de La TdG fonoteca
+//    (dades/fonoteca.json del repo latdg/tauler) des de la pàgina
+//    latdg.github.io/tauler/fonoteca/. El mateix testimoni ja hi té permís.
+//
 // 3) ESPORTS (afegit el 24.10.2026): desa els partits i classificacions que
 //    s'entren a mà (dades/esports-manual.json del repo latdg/tauler) des de la
 //    pàgina latdg.github.io/tauler/esports/.
@@ -26,12 +30,15 @@
 //   { accio: "noticies-desa", dia, noticies, sha } → desa (o esborra si és buit)
 //   { accio: "esports-llegeix" }                  → { manual, sha }
 //   { accio: "esports-desa", manual, sha }        → desa dades/esports-manual.json
+//   { accio: "fonoteca-llegeix" }                 → { fonoteca, sha }   (05.11.2026)
+//   { accio: "fonoteca-desa", fonoteca, sha }     → desa dades/fonoteca.json
 // Si algú altre ha desat entremig (el sha no coincideix), respon 409.
 // =============================================================================
 
 const AGENDA = { repo: "latdg/tauler", cami: "dades/agenda.json" };
 const NOTICIES_REPO = "latdg/noticies";
 const ESPORTS = { repo: "latdg/tauler", cami: "dades/esports-manual.json" };
+const FONOTECA = { repo: "latdg/tauler", cami: "dades/fonoteca.json" };
 const EQUIPS_ESPORTS = ["atletic_bisbalenc", "monells_a", "monells_b", "la_pera", "la_pera_femeni", "sol_girones", "sol_girones_sots25"];
 const ORIGENS = ["https://latdg.github.io"];
 
@@ -119,6 +126,20 @@ export default {
         if (!manual) return resposta({ ok: false, error: "Hi ha dades d'esports que no són vàlides." }, 400);
         const sha = await gh.desa(ESPORTS.repo, ESPORTS.cami, manual, cos.sha, "Esports: canvis fets a mà", "La TdG (esports)");
         return resposta({ ok: true, manual, sha });
+      }
+
+      // ---------------- FONOTECA (05.11.2026) ----------------
+      if (cos.accio === "fonoteca-llegeix") {
+        const { dades, sha } = await gh.llegeix(FONOTECA.repo, FONOTECA.cami, { audios: [] });
+        return resposta({ ok: true, fonoteca: dades, sha });
+      }
+
+      if (cos.accio === "fonoteca-desa") {
+        const audios = netejaFonoteca(cos.fonoteca && cos.fonoteca.audios);
+        if (!audios) return resposta({ ok: false, error: "Hi ha fitxes de la fonoteca amb dades que no són vàlides." }, 400);
+        const fonoteca = { actualitzat: new Date().toISOString(), audios: audios.sort((a, b) => (b.data + b.fitxer).localeCompare(a.data + a.fitxer)) };
+        const sha = await gh.desa(FONOTECA.repo, FONOTECA.cami, fonoteca, cos.sha, "Fonoteca (" + audios.length + " fitxes)", "La TdG (fonoteca)");
+        return resposta({ ok: true, fonoteca, sha });
       }
 
       return resposta({ ok: false, error: "Acció desconeguda" }, 400);
@@ -270,4 +291,34 @@ function netejaEsports(m) {
     sortida.equips[id] = ne;
   }
   return sortida;
+}
+
+// Fonoteca (05.11.2026): una fitxa per àudio de la carpeta «declaracions».
+function netejaFonoteca(llista) {
+  if (!Array.isArray(llista) || llista.length > 5000) return null;
+  const CATS = ["declaracions", "entrevistes", "debats", "conferencies", "actes", "musica", "altres"];
+  const txt = (v, max) => String(v == null ? "" : v).replace(/[\u0000-\u001f]/g, " ").trim().slice(0, max);
+  const surt = [], vistos = new Set();
+  for (const a of llista) {
+    if (!a || typeof a !== "object") return null;
+    const fitxer = txt(a.fitxer, 200);
+    if (!/^[^\/\\]+\.(mp3|wav|m4a|ogg|opus|aac|flac|wma|amr|3gp|mp4|webm)$/i.test(fitxer) || vistos.has(fitxer)) return null;
+    vistos.add(fitxer);
+    const data = txt(a.data, 10);
+    if (data && !/^\d{4}-\d{2}-\d{2}$/.test(data)) return null;
+    surt.push({
+      fitxer,
+      titol: txt(a.titol, 200),
+      qui: (Array.isArray(a.qui) ? a.qui : []).map(q => txt(q, 80)).filter(Boolean).slice(0, 20),
+      data,
+      categoria: CATS.includes(a.categoria) ? a.categoria : "declaracions",
+      municipi: txt(a.municipi, 100),
+      lloc: txt(a.lloc, 150),
+      descripcio: String(a.descripcio == null ? "" : a.descripcio).trim().slice(0, 3000),
+      destacat: !!a.destacat,
+      amagat: !!a.amagat,
+      revisar: !!a.revisar
+    });
+  }
+  return surt;
 }
