@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-04T12:16:18+00:00",
+ "actualitzat": "2026-11-05T12:30:07+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -829,8 +829,8 @@
   },
   "17902": {
    "nom": "Forallac",
-   "observacions": 190,
-   "especies": 120,
+   "observacions": 193,
+   "especies": 121,
    "observadors": 34,
    "grups": [
     [
@@ -846,16 +846,16 @@
      15
     ],
     [
+     "🍄 Fongs",
+     4
+    ],
+    [
      "🦊 Mamífers",
      2
     ],
     [
      "🐟 Peixos",
      2
-    ],
-    [
-     "🍄 Fongs",
-     1
     ],
     [
      "🦎 Rèptils",
@@ -1012,6 +1012,51 @@
    ],
    "recents": [
     {
+     "id": 412817000,
+     "data": "2026-11-04",
+     "url": "https://www.inaturalist.org/observations/412817000",
+     "nom": "",
+     "cientific": "Amanita",
+     "rang": "subgenus",
+     "grup": "🍄 Fongs",
+     "foto": "https://static.inaturalist.org/photos/759672109/small.jpg",
+     "autor": "Ferran Domenech",
+     "lloc": "17110 Fonteta, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 412816871,
+     "data": "2026-11-04",
+     "url": "https://www.inaturalist.org/observations/412816871",
+     "nom": "",
+     "cientific": "Amanita",
+     "rang": "subgenus",
+     "grup": "🍄 Fongs",
+     "foto": "https://static.inaturalist.org/photos/759671740/small.jpg",
+     "autor": "Ferran Domenech",
+     "lloc": "17110 Fonteta, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 412816314,
+     "data": "2026-11-04",
+     "url": "https://www.inaturalist.org/observations/412816314",
+     "nom": "Llora",
+     "cientific": "Russula cyanoxantha",
+     "rang": "species",
+     "grup": "🍄 Fongs",
+     "foto": "https://static.inaturalist.org/photos/759670285/small.jpg",
+     "autor": "Ferran Domenech",
+     "lloc": "17110 Fonteta, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
      "id": 411153189,
      "data": "2026-10-27",
      "url": "https://www.inaturalist.org/observations/411153189",
@@ -1019,10 +1064,10 @@
      "cientific": "Crocus sativus",
      "rang": "species",
      "grup": "🌿 Plantes",
-     "foto": "",
+     "foto": "https://static.inaturalist.org/photos/759669444/small.jpg",
      "autor": "Ferran Domenech",
      "lloc": "17110 Fonteta, Girona, España",
-     "qualitat": "casual",
+     "qualitat": "needs_id",
      "amenacada": false,
      "introduida": true
     },
@@ -1563,51 +1608,6 @@
      "autor": "Valérie de Mazancourt",
      "lloc": "17113, Gérone, Espagne",
      "qualitat": "needs_id",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 375464429,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375464429",
-     "nom": "Arítjol",
-     "cientific": "Smilax aspera",
-     "rang": "species",
-     "grup": "🌿 Plantes",
-     "foto": "https://static.inaturalist.org/photos/686399263/small.jpg",
-     "autor": "Uro Uro Sens",
-     "lloc": "Forallac, Girona, ES",
-     "qualitat": "research",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 374070360,
-     "data": "2026-06-21",
-     "url": "https://www.inaturalist.org/observations/374070360",
-     "nom": "Dragó",
-     "cientific": "Tarentola mauritanica",
-     "rang": "species",
-     "grup": "🦎 Rèptils",
-     "foto": "https://static.inaturalist.org/photos/683685804/small.jpg",
-     "autor": "Daniel Rodríguez Seco",
-     "lloc": "17113, Girona, España",
-     "qualitat": "research",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 374003901,
-     "data": "2026-06-21",
-     "url": "https://www.inaturalist.org/observations/374003901",
-     "nom": "",
-     "cientific": "Messor barbarus",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/683559696/small.jpg",
-     "autor": "Daniel Rodríguez Seco",
-     "lloc": "Can Rector, 17110, Girona, España",
-     "qualitat": "research",
      "amenacada": false,
      "introduida": false
     }
@@ -3221,7 +3221,7 @@
      "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/709135520/small.jpg",
      "autor": "margarida",
      "lloc": "Girona, Espanya",
-     "qualitat": "needs_id",
+     "qualitat": "research",
      "amenacada": false,
      "introduida": false
     },
