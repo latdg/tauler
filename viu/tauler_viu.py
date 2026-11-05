@@ -1442,6 +1442,8 @@ def aemet_avisos(traduccions):
     canal = ET.fromstring(r.content).find("channel")
     links = [(it.findtext("link") or "").strip() for it in (canal.findall("item") if canal is not None else [])[:30]]
     avisos = []
+    # 05.11.2026: missatges de retirada o anul·lació (per no conservar un avís que l'AEMET ha tret).
+    retirats = {"ids": set(), "codis": set()}
     for link in [l for l in links if l.lower().endswith(".xml")]:
         rc = requests.get(link, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
         rc.raise_for_status()      # llista incompleta: millor conservar la consulta anterior
@@ -1462,6 +1464,13 @@ def aemet_avisos(traduccions):
             ini = dt.datetime.fromisoformat((info.findtext(q("onset")) or "").strip())
             fi = dt.datetime.fromisoformat((info.findtext(q("expires")) or "").strip())
         except ValueError:
+            continue
+        tipus = (arrel.findtext(q("msgType")) or "").strip().lower()
+        if tipus == "cancel" or (fi - ini).total_seconds() <= 60:
+            for ref in (arrel.findtext(q("references")) or "").split():
+                parts = ref.split(",")
+                retirats["ids"].add(parts[1] if len(parts) > 1 else parts[0])
+            retirats["codis"].add((fen[0], ini.astimezone(TZ).strftime("%Y-%m-%d")))
             continue
         # Vigent (com l'avisador): groc o més, no caducat i no és el missatge de retirada.
         if (nivell not in AEMET_NIVELLS or (info.findtext(q("severity")) or "") == "Minor"
@@ -1503,7 +1512,49 @@ def aemet_avisos(traduccions):
         k = (a["codi"], a["parametre"], a["inici"])
         if k not in unics or METEO_RANG[a["gravetat"]] > METEO_RANG[unics[k]["gravetat"]]:
             unics[k] = a
-    return sorted(unics.values(), key=lambda a: (a["inici"], -METEO_RANG[a["gravetat"]], a["fenomen"]))
+    return sorted(unics.values(), key=lambda a: (a["inici"], -METEO_RANG[a["gravetat"]], a["fenomen"])), retirats
+
+
+def _solapen(a, b):
+    try:
+        return (dt.datetime.fromisoformat(a["inici"]) < dt.datetime.fromisoformat(b["fi"])
+                and dt.datetime.fromisoformat(b["inici"]) < dt.datetime.fromisoformat(a["fi"]))
+    except (KeyError, ValueError):
+        return False
+
+
+def conserva_aemet(nous, vells, retirats):
+    """05.11.2026: un avís de l'AEMET es manté fins que n'han passat les hores, encara que
+    desaparegui del canal RSS. Es treu si ha caducat, si l'AEMET l'ha retirat o anul·lat,
+    o si un avís nou del mateix fenomen el substitueix (se solapen en el temps)."""
+    ara_utc = dt.datetime.now(dt.timezone.utc)
+    sortida = list(nous)
+    for v in vells or []:
+        try:
+            if dt.datetime.fromisoformat(v["fi"]) <= ara_utc:
+                continue
+        except (KeyError, ValueError):
+            continue
+        if v.get("id") in retirats["ids"] or (v.get("codi"), v.get("dia")) in retirats["codis"]:
+            continue
+        if any(n.get("id") == v.get("id") or (n.get("codi") == v.get("codi") and _solapen(n, v)) for n in nous):
+            continue
+        sortida.append(v)
+    return sorted(sortida, key=lambda a: (a["inici"], -METEO_RANG.get(a.get("gravetat"), 0), a.get("fenomen", "")))
+
+
+def conserva_meteocat(nou, vell):
+    """05.11.2026: els avisos de Meteocat (per dia) es mantenen fins que acaba el dia de
+    l'avís, encara que la còpia de l'avisador ja no els porti. Si el mateix dia i fenomen
+    torna a sortir, mana el nou."""
+    avui = ara().strftime("%Y-%m-%d")
+    grups = list(nou.get("grups") or [])
+    claus = {(str(g.get("dia", "")), g.get("fenomen")) for g in grups}
+    for g in ((vell or {}).get("grups") or []):
+        if str(g.get("dia", "")) >= avui and (str(g.get("dia", "")), g.get("fenomen")) not in claus:
+            grups.append(g)
+    nou["grups"] = sorted(grups, key=lambda g: (str(g.get("dia", "")), -METEO_RANG.get(g.get("gravetat"), 0)))
+    return nou
 
 
 class _RegistreTraduccions(dict):
@@ -1534,10 +1585,10 @@ def avisos_meteo():
             traduccions[a["original"]] = a["comentari"]
     try:
         originals = {}
-        llista = aemet_avisos(_RegistreTraduccions(traduccions, originals))
+        llista, retirats = aemet_avisos(_RegistreTraduccions(traduccions, originals))
         for a in llista:
             a["original"] = originals.get(a["comentari"], "")
-        sortida["aemet"] = llista
+        sortida["aemet"] = conserva_aemet(llista, vell.get("aemet"), retirats)
         sortida["aemetConsultat"] = ara().isoformat()
     except Exception as e:
         print(f"   AEMET: {e}", file=sys.stderr)
@@ -1547,13 +1598,13 @@ def avisos_meteo():
     try:
         r = requests.get(SMP_URL, params={"v": int(ara().timestamp())}, headers=CAPCALERES, timeout=30)
         if r.status_code == 404:
-            sortida["meteocat"] = None
+            sortida["meteocat"] = conserva_meteocat({"consultat": vell["meteocat"].get("consultat"), "grups": []}, vell.get("meteocat")) if vell.get("meteocat") else None
         else:
             r.raise_for_status()
             d = r.json()
             avui = ara().strftime("%Y-%m-%d")
             d["grups"] = [g for g in (d.get("grups") or []) if str(g.get("dia", "")) >= avui]
-            sortida["meteocat"] = d
+            sortida["meteocat"] = conserva_meteocat(d, vell.get("meteocat"))
     except Exception as e:
         print(f"   Meteocat (SMP): {e}", file=sys.stderr)
         sortida["meteocat"] = vell.get("meteocat")
