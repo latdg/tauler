@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:43:38.604Z",
+ "actualitzat": "2026-11-05T18:43:56.377Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -157,9 +157,9 @@
   },
   {
    "fitxer": "20260901jfiga.mp3",
-   "titol": "Declaracions de J. Figa",
+   "titol": "Declaracions de Jaume Figa",
    "qui": [
-    "J. Figa"
+    "Jaume Figa"
    ],
    "data": "2026-09-01",
    "categoria": "declaracions",
@@ -167,8 +167,8 @@
    "lloc": "",
    "descripcio": "",
    "destacat": false,
-   "amagat": false,
-   "revisar": true
+   "amagat": true,
+   "revisar": false
   }
  ]
 }
