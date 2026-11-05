@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-04T23:49:02+00:00",
+ "generat": "2026-11-05T14:49:41+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -2093,14 +2093,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-05",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-05",
      "hora": "17:40",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2135,14 +2135,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-06",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-06",
      "hora": "18:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2163,7 +2163,7 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-07",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2184,14 +2184,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-08",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-08",
      "hora": "18:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2205,14 +2205,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
      "hora": "18:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2233,14 +2233,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-10",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-10",
      "hora": "18:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2268,14 +2268,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-11",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-11",
      "hora": "18:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2289,14 +2289,14 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-12",
      "hora": "16:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-12",
      "hora": "18:00",
-     "format": "",
+     "format": "Mudo",
      "preu": ""
     },
     {
@@ -4519,8 +4519,8 @@
      "preu": ""
     }
    ],
-   "nota": 0,
-   "vots": 0,
+   "nota": 10.0,
+   "vots": 1,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4944,8 +4944,8 @@
      "preu": ""
     }
    ],
-   "nota": 5.7,
-   "vots": 3,
+   "nota": 7.0,
+   "vots": 5,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5885,6 +5885,29 @@
    "vots": 134,
    "plataformes": [],
    "plataformesUrl": ""
+  },
+  {
+   "key": "bts world tour arirang in kaohsiung live viewing",
+   "titol": "Bts world tour 'arirang' in kaohsiung: Live viewing",
+   "titolFont": "Bts world tour 'arirang' in kaohsiung: Live viewing",
+   "sinopsi": "",
+   "durada": "195",
+   "genere": "Concert",
+   "edat": "Pendent de qualificació",
+   "director": "",
+   "actors": "",
+   "estrena": "",
+   "poster": "",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-21",
+     "hora": "11:45",
+     "format": "",
+     "preu": ""
+    }
+   ]
   },
   {
    "key": "tanit",

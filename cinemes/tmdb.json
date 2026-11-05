@@ -499,17 +499,17 @@
 ],
 "original": "George Michael: The Faith Tour",
 "idiomaOriginal": "en",
-"dataTmdb": "2026-11-05",
+"dataTmdb": "2026-11-04",
 "sinopsiCa": "",
 "id": 1649403,
-"nota": 0,
-"vots": 0,
+"nota": 10.0,
+"vots": 1,
 "sinopsi": "",
 "sinopsi_es": false,
 "poster": "/LXqHnaJ4ffkcx5YCuJN1noxkhr.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793803489.189568
+"t": 1793890177.055428
 },
 "los miserables": {
 "v": 6,
@@ -544,14 +544,14 @@
 "dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 5.7,
-"vots": 3,
+"nota": 7.0,
+"vots": 5,
 "sinopsi": "",
 "sinopsi_es": false,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1793803489.189568
+"t": 1793890177.055428
 },
 "ruega por nosotras": {
 "v": 6,
@@ -760,6 +760,10 @@
 "enllac": "",
 "t": 1793836092.855656
 },
+"bts world tour arirang in kaohsiung live viewing": {
+"v": 6,
+"t": 1793890177.055428
+},
 "l ovella shaun missio carbassa": {
 "v": 6,
 "t": 1793836092.855656
@@ -816,7 +820,7 @@
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1793803489.189568
+"t": 1793890177.055428
 },
 "como robar un banco": {
 "v": 6,
