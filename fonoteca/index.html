@@ -170,7 +170,7 @@ textarea{min-height:80px;resize:vertical}
       <div class="fila">
         <button type="button" id="desa" class="principal">Desa</button>
         <button type="button" id="cancel" hidden>Cancel·la</button>
-        <button type="button" id="esborra" class="suau" hidden>Treu de la fonoteca</button>
+        <button type="button" id="esborra" class="suau" hidden>🗑️ Elimina de la fonoteca</button>
         <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
       </div>
     </div>
@@ -223,6 +223,7 @@ const normal = t => String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toL
 const avuiISO = () => { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
 
 let INV = { audios: [] }, CATAL = { audios: [] }, SHA = null, PIN = "", EDITANT = null;
+let ELIMINATS = new Set();
 let TOTS = [], ANY = "", CATS = new Set(), QUI = "", CERCA = "";
 
 /* ----- Títol a partir del nom del fitxer: 20260909pmaré02.mp3 → «Pmaré (2)» ----- */
@@ -240,8 +241,10 @@ const grupDe = a => (a.data || "") + "|" + arrel(a.fitxer).replace(/[-_ ]?\d{1,2
 /* ----- Unió: inventari (àudios arxivats) + catàleg (fitxes) ----- */
 function uneix() {
   const perNom = new Map();
-  (INV.audios || []).forEach(a => perNom.set(a.fitxer_original, { fitxer: a.fitxer_original, arxiu: a }));
+  ELIMINATS = new Set(INV.eliminats || []);
+  (INV.audios || []).forEach(a => { if (!ELIMINATS.has(a.fitxer_original)) perNom.set(a.fitxer_original, { fitxer: a.fitxer_original, arxiu: a }); });
   (CATAL.audios || []).forEach(c => {
+    if (c.eliminat) { perNom.delete(c.fitxer); ELIMINATS.add(c.fitxer); return; }
     const e = perNom.get(c.fitxer) || { fitxer: c.fitxer, arxiu: null };
     e.fitxa = c;
     perNom.set(c.fitxer, e);
@@ -480,7 +483,7 @@ function edita(fitxer) {
   EDITANT = fitxer;
   $("titolForm").textContent = "✏️ " + (f ? "Editant la fitxa" : "Fitxa nova d'un àudio del publicador");
   omple(f || { fitxer, data: a.data, categoria: "declaracions", titol: "" });
-  $("fFitxer").disabled = true; $("cancel").hidden = false; $("esborra").hidden = !f;
+  $("fFitxer").disabled = true; $("cancel").hidden = false; $("esborra").hidden = false;
   $("gestio").scrollIntoView({ behavior: "smooth" });
 }
 
@@ -503,7 +506,7 @@ function desa() {
   if (!/\.(mp3|wav|m4a|ogg|opus|aac|flac|wma|amr|3gp|mp4|webm)$/i.test(fitxer)) {
     $("estat").textContent = "Cal el nom del fitxer amb l'extensió (p. ex. 20261103evigo.mp3)."; return;
   }
-  if (!EDITANT && (CATAL.audios || []).some(x => x.fitxer === fitxer)) {
+  if (!EDITANT && (CATAL.audios || []).some(x => x.fitxer === fitxer && !x.eliminat)) {
     $("estat").textContent = "Aquest fitxer ja és a la fonoteca: edita'l amb ✏️."; return;
   }
   const f = {
@@ -519,9 +522,14 @@ function desa() {
   desaLlista(audios, EDITANT ? "Fitxa desada." : "Àudio afegit: en menys d'una hora ja es podrà escoltar.");
 }
 
+// 05.11.2026: eliminar de veritat. La fitxa queda marcada com a eliminada (perquè
+// no torni a entrar encara que el publicador la difongui) i el procés de la
+// fonoteca n'esborra la còpia de GitHub. L'ORIGINAL DEL DISC DUR NO ES TOCA.
 function treu() {
-  if (!EDITANT || !confirm("Vols treure la fitxa d'aquest àudio?\n\nSi l'àudio el va difondre el publicador, continuarà sortint, amb el títol fet a partir del nom del fitxer. Per amagar-lo, fes servir «Amagat».")) return;
-  desaLlista((CATAL.audios || []).filter(x => x.fitxer !== EDITANT), "Fitxa treta.");
+  if (!EDITANT || !confirm("Vols eliminar aquest àudio de la fonoteca?\n\n" + EDITANT +
+    "\n\nDeixarà de sortir del tot i se n'esborrarà la còpia de la fonoteca. L'original del disc dur NO s'esborra.")) return;
+  const audios = (CATAL.audios || []).filter(x => x.fitxer !== EDITANT).concat({ fitxer: EDITANT, eliminat: true, titol: "", qui: [], data: "", categoria: "altres", municipi: "", lloc: "", descripcio: "", destacat: false, amagat: true, revisar: false });
+  desaLlista(audios, "Àudio eliminat de la fonoteca (l'original del disc dur es manté).");
 }
 
 $("obre").onclick = () => { $("gestio").hidden = false; $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };

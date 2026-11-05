@@ -317,7 +317,8 @@ function netejaFonoteca(llista) {
       descripcio: String(a.descripcio == null ? "" : a.descripcio).trim().slice(0, 3000),
       destacat: !!a.destacat,
       amagat: !!a.amagat,
-      revisar: !!a.revisar
+      revisar: !!a.revisar,
+      ...(a.eliminat ? { eliminat: true } : {})   // 05.11.2026: eliminat de la fonoteca (el disc dur no es toca)
     });
   }
   return surt;
