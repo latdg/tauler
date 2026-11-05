@@ -1,6 +1,20 @@
 {
- "actualitzat": "2026-11-05T18:39:18.809Z",
+ "actualitzat": "2026-11-05T18:40:00.509Z",
  "audios": [
+  {
+   "fitxer": "20261006lamarsellesasencer.mp3",
+   "titol": "",
+   "qui": [],
+   "data": "",
+   "categoria": "altres",
+   "municipi": "",
+   "lloc": "",
+   "descripcio": "",
+   "destacat": false,
+   "amagat": true,
+   "revisar": false,
+   "eliminat": true
+  },
   {
    "fitxer": "20261103evigo.mp3",
    "titol": "Conferència sobre Josep Irla Bosch i Emili Vigo Bènia",
@@ -37,19 +51,6 @@
    "destacat": true,
    "amagat": false,
    "revisar": false
-  },
-  {
-   "fitxer": "20261006lamarsellesasencer.mp3",
-   "titol": "La Marsellesa (sencer)",
-   "qui": [],
-   "data": "2026-10-06",
-   "categoria": "actes",
-   "municipi": "",
-   "lloc": "",
-   "descripcio": "",
-   "destacat": false,
-   "amagat": false,
-   "revisar": true
   },
   {
    "fitxer": "20261006lamarsellesa.mp3",
