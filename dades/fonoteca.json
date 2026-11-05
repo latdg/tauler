@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:41:28.094Z",
+ "actualitzat": "2026-11-05T18:41:54.923Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -99,7 +99,7 @@
    "fitxer": "20260909pmaré01.mp3",
    "titol": "Declaracions de P. Maré (1)",
    "qui": [
-    "P. Maré"
+    "Pau Maré"
    ],
    "data": "2026-09-09",
    "categoria": "declaracions",
@@ -108,7 +108,7 @@
    "descripcio": "",
    "destacat": false,
    "amagat": false,
-   "revisar": true
+   "revisar": false
   },
   {
    "fitxer": "20260909emarquès02.mp3",
