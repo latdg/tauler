@@ -981,7 +981,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "5-municipis-gestor"
+RECARREGA_VERSIO = "6-manuals-mapa"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1004,6 +1004,36 @@ CONNECTORS = {
     "teslasupercharger": "Tesla",
 }
 RECARREGA_NAP_FALLAT = False
+RECARREGA_PUNTS = []   # 05.11.2026: els punts amb coordenades, per al mapa del tauler
+
+# 05.11.2026: punts afegits a mà per La TdG (no surten a cap registre).
+# «lliure»: False si no són d'accés lliure.
+RECARREGA_MANUALS = [
+    {"m": "La Bisbal d'Empordà", "n": "Supermercat Amatller Origen", "la": 41.969722, "lo": 3.031667, "lliure": True,
+     "t": "- Supermercat Amatller Origen: 2 punts de recàrrega, accessibles als clients."},
+    {"m": "La Bisbal d'Empordà", "n": "Supermercat Mercadona", "la": 41.971111, "lo": 3.030833, "lliure": True,
+     "t": "- Supermercat Mercadona: 4 punts de recàrrega, accessibles als clients."},
+    {"m": "La Bisbal d'Empordà", "n": "Supermercat Condis", "la": 41.970000, "lo": 3.030278, "lliure": True,
+     "t": "- Supermercat Condis: 3 punts de recàrrega, accessibles als clients."},
+    {"m": "La Bisbal d'Empordà", "n": "Departament d'Agricultura, Ramaderia i Pesca (DARP)", "la": 41.953333, "lo": 3.035556, "lliure": False,
+     "t": "- Departament d'Agricultura, Ramaderia i Pesca (DARP): 2 punts de recàrrega, no són de lliure accés."},
+]
+# 05.11.2026: posició corregida (segons Google Maps) dels punts que els registres
+# situen malament. Clau: text que apareix a la línia del punt (sense accents, en minúscules).
+RECARREGA_POSICIONS = {
+    "romaguera": (42.002560, 3.066952),      # Ullastret, c. Josep Romaguera i Vila, 1
+    "mas savalls": (41.957838, 2.993386),    # Sant Sadurní de l'Heura, c. Mas Savalls, 2
+    "fusteria sais": (41.954532, 2.996086),  # Fusteria Sais
+}
+
+
+def recarrega_corregeix(llista):
+    for p in llista:
+        t = norm_minuscules(p.get("t", ""))
+        for clau, (la, lo) in RECARREGA_POSICIONS.items():
+            if clau in t:
+                p["la"], p["lo"] = la, lo
+    return llista
 
 
 def norm_minuscules(t):
@@ -1197,14 +1227,21 @@ def recarrega_osm():
 
 
 def recarrega():
-    global RECARREGA_NAP_FALLAT
+    global RECARREGA_NAP_FALLAT, RECARREGA_PUNTS
     RECARREGA_NAP_FALLAT = False
-    totes = []
+    # 05.11.2026: primer els punts afegits a mà; els dels registres que hi siguin
+    # a menys de 150 m es consideren el mateix punt.
+    totes = [dict(p) for p in RECARREGA_MANUALS]
     try:
-        totes = recarrega_icaen()
+        icaen = recarrega_corregeix(recarrega_icaen())
     except Exception as e:
+        icaen = []
         print(f"⚠️ recàrrega: ICAEN ({e})", file=sys.stderr)
-    for llista in (recarrega_nap(), recarrega_osm()):
+    a_prop = lambda p, ll: any(distancia_km(p["la"], p["lo"], q["la"], q["lo"]) * 1000 < 150
+                               for q in ll if None not in (p["la"], p["lo"], q["la"], q["lo"]))
+    # Els de l'ICAEN, com abans, només es comparen amb els afegits a mà.
+    totes += [p for p in icaen if not a_prop(p, RECARREGA_MANUALS)]
+    for llista in (recarrega_corregeix(recarrega_nap()), recarrega_corregeix(recarrega_osm())):
         for p in llista:
             if not any(distancia_km(p["la"], p["lo"], q["la"], q["lo"]) * 1000 < 150
                        for q in totes if None not in (p["la"], p["lo"], q["la"], q["lo"])):
@@ -1218,6 +1255,8 @@ def recarrega():
             text.append(mun["nom"] + "\n" + "\n".join(l["t"] for l in del_mun))
         else:   # 31.10.2026: tots els municipis hi surten, també els que no en tenen cap
             text.append(mun["nom"] + "\n- Cap punt de recàrrega registrat.")
+    RECARREGA_PUNTS = [{"m": p["m"], "n": p["n"], "t": p["t"][2:], "la": p["la"], "lo": p["lo"], "lliure": p.get("lliure", True)}
+                       for p in totes if p.get("la") is not None and p.get("lo") is not None]
     return "\n\n".join(text)
 
 
@@ -1990,6 +2029,8 @@ def calcula():
                 pass
         try:
             resultat[nom] = fn()   # None vol dir «aquest bloc avui no surt»
+            if nom == "recarrega" and resultat[nom] is not None:
+                resultat["recarregaMapa"] = RECARREGA_PUNTS   # 05.11.2026: mapa del bloc
             print(f"✅ {nom}" if resultat[nom] is not None else f"— {nom}: sense dades (el bloc no surt)")
             if nom in CADA_MINUTS:
                 moment = ara()
