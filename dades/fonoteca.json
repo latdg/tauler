@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:42:51.599Z",
+ "actualitzat": "2026-11-05T18:43:19.826Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -127,9 +127,9 @@
   },
   {
    "fitxer": "20260909emarquès01.mp3",
-   "titol": "Declaracions d'E. Marquès (1)",
+   "titol": "Declaracions d'Enric Marquès",
    "qui": [
-    "E. Marquès"
+    "Enric Marquès"
    ],
    "data": "2026-09-09",
    "categoria": "declaracions",
@@ -137,8 +137,8 @@
    "lloc": "",
    "descripcio": "",
    "destacat": false,
-   "amagat": false,
-   "revisar": true
+   "amagat": true,
+   "revisar": false
   },
   {
    "fitxer": "20260902bcuyas.mp3",
