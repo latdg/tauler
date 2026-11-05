@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-05T18:35:26.479Z",
+ "actualitzat": "2026-11-05T18:39:18.809Z",
  "audios": [
   {
    "fitxer": "20261103evigo.mp3",
@@ -21,16 +21,22 @@
   },
   {
    "fitxer": "20261016debatfoment.mp3",
-   "titol": "Debat de Foment",
-   "qui": [],
+   "titol": "Debat sobre la reobertura del Foment",
+   "qui": [
+    "Irina Ramírez Cama",
+    "Josep Ferrés",
+    "Òscar Aparicio Pedrosa",
+    "Pere Teixidor Hernández",
+    "Roger Font Vilagran"
+   ],
    "data": "2026-10-16",
    "categoria": "debats",
-   "municipi": "",
-   "lloc": "",
+   "municipi": "La Bisbal d'Empordà",
+   "lloc": "El Mundial",
    "descripcio": "",
    "destacat": true,
    "amagat": false,
-   "revisar": true
+   "revisar": false
   },
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
