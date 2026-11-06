@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-05T16:43:09+00:00",
+ "generat": "2026-11-06T14:55:47+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -8,21 +8,8 @@
   "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-11-05T16:43:29+00:00",
+  "quan": "2026-11-06T14:56:09+00:00",
   "dies": [
-   {
-    "data": "2026-11-02",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 02/11/2026",
-    "farmacies": [
-     {
-      "farmacia": "PIERA DE CIURANA, C.B.",
-      "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "09:00 - 09:00 (dia seg.)",
-      "adreca": "Avgda. Les Voltes, 1",
-      "telefon": "674038640"
-     }
-    ]
-   },
    {
     "data": "2026-11-03",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 03/11/2026",
@@ -137,6 +124,19 @@
    {
     "data": "2026-11-11",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 11/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "PUIGBERT ESTEVAN, C.B",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "Plaça Jacint Verdaguer, 1",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-11-12",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 12/11/2026",
     "farmacies": [
      {
       "farmacia": "PUIGBERT ESTEVAN, C.B",
