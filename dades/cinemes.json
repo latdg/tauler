@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-05T23:44:34+00:00",
+ "generat": "2026-11-06T14:28:37+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -522,8 +522,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.2,
-   "vots": 5,
+   "nota": 7.1,
+   "vots": 11,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1003,8 +1003,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.413,
-   "vots": 378,
+   "nota": 7.433,
+   "vots": 397,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1212,8 +1212,8 @@
      "preu": ""
     }
    ],
-   "nota": 5.8,
-   "vots": 190,
+   "nota": 5.78,
+   "vots": 193,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1477,8 +1477,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.31,
-   "vots": 373,
+   "nota": 7.312,
+   "vots": 389,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1776,8 +1776,8 @@
      "preu": ""
     }
    ],
-   "nota": 6.764,
-   "vots": 472,
+   "nota": 6.765,
+   "vots": 485,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2551,8 +2551,8 @@
      "preu": ""
     }
    ],
-   "nota": 8.055,
-   "vots": 174,
+   "nota": 8.085,
+   "vots": 183,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2774,130 +2774,10 @@
      "preu": ""
     }
    ],
-   "nota": 7.385,
-   "vots": 52,
+   "nota": 7.4,
+   "vots": 54,
    "plataformes": [],
    "plataformesUrl": ""
-  },
-  {
-   "key": "leones en invierno",
-   "titol": "Lleons a l'hivern",
-   "titolFont": "Leones en Invierno",
-   "sinopsi": "n policia infiltrat atropella una noia i s'enfuit. El pare de la víctima, un antic ultrasur, investiga pel seu compte, xocant amb el passat. Els anhels de trobar la veritat i de fer justícia a la seva manera, us portaran a una trama de corrupció, poder i crim organitzat. Mentre el responsable de la mort de la seva filla lluita per amagar la veritat, el pare de la víctima anirà creuant línies vermelles, endinsant-se en un camí que no té tornada. Perquè hi ha alguna cosa més perillosa que un pare defensant els seus fills i és un pare que ja no té fills per defensar.",
-   "durada": "117",
-   "genere": "Thriller",
-   "edat": "16 anys",
-   "director": "Albert Pintó",
-   "actors": "Luis Zahera, Roberto Álamo, Inma Cuesta, Ana Wagener",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-06",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-06",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-07",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-07",
-     "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-09",
-     "hora": "15:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-09",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-10",
-     "hora": "15:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-10",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-11",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-11",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-12",
-     "hora": "15:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-12",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "nota": 5.6,
-   "vots": 5,
-   "plataformes": [
-    "fuboTV"
-   ],
-   "plataformesUrl": "https://www.themoviedb.org/movie/1689329-leones-en-invierno/watch?locale=ES"
   },
   {
    "key": "los miserables",
@@ -3152,8 +3032,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.2,
-   "vots": 59,
+   "nota": 7.205,
+   "vots": 61,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3335,7 +3215,7 @@
    "director": "Daniel Monzón",
    "actors": "Zoe Bonafonte, Adelfa Calvo, Manuela Calle, María Cerezuela",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/vgAae3dWzJoFuGQbRaKvSCmogDq.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/JP5lKBmLxZOMATJ9JWV5x9DvSe.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
@@ -3779,8 +3659,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.3,
-   "vots": 135,
+   "nota": 7.2,
+   "vots": 145,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4029,77 +3909,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.278,
-   "vots": 221,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "wicker",
-   "titol": "Wicker",
-   "titolFont": "Wicker",
-   "sinopsi": "«WICKER», una audaç rondalla, en clau de comèdia, sobre el sexe, el matrimoni i l'absurd de les convencions socials, narra l'original història d'amor d'una pescadora socialment marginada (Olivia Colman) que encarrega a l'artesà local (Peter Dinklage) que li fabriqui un marit de vímet (Alexander Skarsgård).\n\nQuan el seu marit resulta ser més espectacular del que mai havia pogut imaginar, el seu esperit commovedor i les seves habilitats excepcionals desperten alguna cosa en el seu interior. El que comença com un simple pla de la protagonista per a molestar als seus entremetedors veïns, acaba convertint-se en un autèntic romanç desencadenant una onada de gelosia, fascinació i agitació que amenaça el propi teixit de la vida del poble.",
-   "durada": "105",
-   "genere": "Fantasia",
-   "edat": "16 anys",
-   "director": "Alex Huston Fischer i Eleanor Wilson",
-   "actors": "Alexander Skarsgård, Olivia Colman, Peter Dinklage, Elizabeth Debicki",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-06",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-07",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-09",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-10",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-11",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-12",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "nota": 7.5,
-   "vots": 27,
+   "nota": 7.277,
+   "vots": 222,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4265,8 +4076,126 @@
      "preu": ""
     }
    ],
-   "nota": 8.497,
-   "vots": 184,
+   "nota": 8.467,
+   "vots": 199,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "leones en invierno",
+   "titol": "Lleons a l'hivern",
+   "titolFont": "Leones en Invierno",
+   "sinopsi": "n policia infiltrat atropella una noia i s'enfuit. El pare de la víctima, un antic ultrasur, investiga pel seu compte, xocant amb el passat. Els anhels de trobar la veritat i de fer justícia a la seva manera, us portaran a una trama de corrupció, poder i crim organitzat. Mentre el responsable de la mort de la seva filla lluita per amagar la veritat, el pare de la víctima anirà creuant línies vermelles, endinsant-se en un camí que no té tornada. Perquè hi ha alguna cosa més perillosa que un pare defensant els seus fills i és un pare que ja no té fills per defensar.",
+   "durada": "117",
+   "genere": "Thriller",
+   "edat": "16 anys",
+   "director": "Albert Pintó",
+   "actors": "Luis Zahera, Roberto Álamo, Inma Cuesta, Ana Wagener",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-07",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-07",
+     "hora": "17:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-09",
+     "hora": "15:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-10",
+     "hora": "15:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-12",
+     "hora": "15:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "nota": 5.6,
+   "vots": 5,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4452,8 +4381,77 @@
      "preu": ""
     }
    ],
-   "nota": 8.4,
-   "vots": 21,
+   "nota": 8.0,
+   "vots": 41,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "wicker",
+   "titol": "Wicker",
+   "titolFont": "Wicker",
+   "sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
+   "durada": "105",
+   "genere": "Fantasia",
+   "edat": "No recomanada per a menors de 16 anys",
+   "director": "Alex Huston Fischer i Eleanor Wilson",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-06",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-07",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-08",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-09",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-10",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-11",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-12",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "nota": 7.7,
+   "vots": 31,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4604,8 +4602,8 @@
      "preu": "5 €"
     }
    ],
-   "nota": 8.234,
-   "vots": 1364,
+   "nota": 8.221,
+   "vots": 1376,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4631,8 +4629,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.493,
-   "vots": 495,
+   "nota": 7.49,
+   "vots": 498,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4829,6 +4827,40 @@
    ]
   },
   {
+   "key": "carmen",
+   "titol": "Carmen (OPERA LIVE)",
+   "titolFont": "Carmen (OPERA LIVE)",
+   "sinopsi": "Sota la calor opriment del sol espanyol, la increïblement independent Carmen crida l'atenció de Don José. Ella li adverteix que no s'enamori d'ella, però la seva obsessió no té límits. La impactant producció de Damiano Michieletto torna als escenaris i llança una llum implacable sobre la luxúria, la violència i el desig destructiu de la aclamadísima òpera de Bizet.\nUn elenc estel·lar dona vida a aquest drama d'alt voltatge, amb Ginger Costa-Jackson en l'apassionat paper de la protagonista i Russell Thomas, com el gelós i desesperat Don José. Després del seu debut en la Royal Opera en 2023, Sesto Quatrini torna a dirigir l'electritzant i sensual partitura de Bizet.",
+   "durada": "185",
+   "genere": "Òpera",
+   "edat": "Apta",
+   "director": "Caroline Singh",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/bqfAMYN6TA8VFalaNbZi3eu8Mqq.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-10",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-10",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "nota": 10.0,
+   "vots": 1,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "verity la sombra de un engano",
    "titol": "Verity. L'ombra d'un engany",
    "titolFont": "Verity. La sombra de un engaño",
@@ -4878,8 +4910,8 @@
      "preu": ""
     }
    ],
-   "nota": 6.981,
-   "vots": 592,
+   "nota": 6.973,
+   "vots": 608,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5165,7 +5197,7 @@
     }
    ],
    "nota": 8.1,
-   "vots": 127,
+   "vots": 130,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5212,8 +5244,8 @@
      "preu": ""
     }
    ],
-   "nota": 7.0,
-   "vots": 134,
+   "nota": 6.982,
+   "vots": 137,
    "plataformes": [],
    "plataformesUrl": ""
   },
