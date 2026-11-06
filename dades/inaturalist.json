@@ -1,17 +1,17 @@
 {
- "actualitzat": "2026-11-05T12:30:07+00:00",
+ "actualitzat": "2026-11-06T12:13:47+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
   "17022": {
    "nom": "la Bisbal d'Empordà",
-   "observacions": 177,
-   "especies": 131,
-   "observadors": 15,
+   "observacions": 179,
+   "especies": 132,
+   "observadors": 16,
    "grups": [
     [
      "🌿 Plantes",
-     107
+     109
     ],
     [
      "🦋 Insectes",
@@ -204,7 +204,7 @@
      "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685277901/small.jpg",
      "autor": "Valentin de Mazancourt",
      "lloc": "Spain",
-     "qualitat": "needs_id",
+     "qualitat": "research",
      "amenacada": true,
      "introduida": false
     },
