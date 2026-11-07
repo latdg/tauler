@@ -868,13 +868,28 @@ async function carregaVerdor() {
         (t.imatges && t.imatges.length === 2 ? `<div class="dues"><img src="${SATELLIT_TAULER}${esc(t.imatges[0])}${versio}" alt="Zona ${k + 1}, ${esc(c.abans)}" loading="lazy"><img src="${SATELLIT_TAULER}${esc(t.imatges[1])}${versio}" alt="Zona ${k + 1}, ${esc(c.mes)}" loading="lazy"></div>` : "") +
         `<figcaption><b style="color:var(--text)">${k + 1}. ${num(t.ha)} ha</b> · ${esc(t.tipus)}${t.imatges && t.imatges.length === 2 ? ` · a l'esquerra, ${esc(c.abans)}; a la dreta, ${esc(c.mes)}` : ""}</figcaption></a></figure>`).join("") + "</div>";
   } else if (c) h += "<p>No s'hi aprecia cap zona gran que hagi perdut la vegetació en un any.</p>";
-  h += '<p class="font">Zona: un quadrat de 24 × 24 km al voltant de la Bisbal (els cinc municipis i bona part de les Gavarres). ' +
+  // 07.11.2026: la mida de la zona surt de la caixa de l'informe (ara 28 × 28 km, fins a Platja d'Aro)
+  const cx = capes[0].caixa, kmZona = Math.round((cx[1][0] - cx[0][0]) * 111.32);
+  h += `<p class="font">Zona: un quadrat de ${num(kmZona)} × ${num(kmZona)} km al voltant de la Bisbal (els municipis, les Gavarres i la costa fins a Platja d'Aro). ` +
     "La verdor és l'índex de vegetació (NDVI) de Sentinel-2: com més alt, més vegetació viva. Una baixada pot ser sequera, però també incendis, tales, obres o collites. Estimació automàtica: cal contrastar-la.</p>";
   cos.innerHTML = h;
 
   const caixa = capes[0].caixa;
+  // 07.11.2026: el mapa té la mateixa forma que la imatge del satèl·lit i no en surt,
+  // perquè no quedin marges blancs fora de la zona analitzada
+  const elMapa = document.getElementById("mapaVerdor");
+  const pr = L.Projection.SphericalMercator, sw = pr.project(L.latLng(caixa[0])), ne = pr.project(L.latLng(caixa[1]));
+  const prop = Math.abs(ne.x - sw.x) / Math.abs(ne.y - sw.y);
+  elMapa.style.cssText = `height:auto;aspect-ratio:${prop.toFixed(4)};width:min(100%, calc(78vh * ${prop.toFixed(4)}));margin:4px auto 8px`;
   const mapa = await mapaBase("mapaVerdor", MUN_ANTENES, "Imatges: Sentinel-2 (Copernicus)", null, caixa);
   if (!mapa) return;
+  const limitsImatge = L.latLngBounds(caixa);
+  mapa.invalidateSize();
+  const zEncaixa = mapa.getBoundsZoom(limitsImatge, true);
+  mapa.setView(limitsImatge.getCenter(), zEncaixa, { animate: false });
+  mapa.setMinZoom(zEncaixa);
+  mapa.setMaxBounds(limitsImatge);
+  mapa.options.maxBoundsViscosity = 1;
   carrers(mapa);
   mapa.getPane("carrers").style.zIndex = 252;        // aquí els carrers van per sota de la imatge
   mapa.createPane("verdor").style.zIndex = 255;      // sobre el fons i els carrers, sota els límits
