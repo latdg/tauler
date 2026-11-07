@@ -1,0 +1,25 @@
+# Passada de comprovació de les estacions de Netatmo (07.11.2026). Només a mà.
+name: Netatmo (comprovació)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests
+      - name: Llegeix les estacions
+        env:
+          NETATMO_CLIENT_ID: ${{ secrets.NETATMO_CLIENT_ID }}
+          NETATMO_CLIENT_SECRET: ${{ secrets.NETATMO_CLIENT_SECRET }}
+          NETATMO_REFRESH_TOKEN: ${{ secrets.NETATMO_REFRESH_TOKEN }}
+        run: python viu/netatmo_prova.py
+      - name: Desa el resultat
+        run: |
+          git config user.name "La TdG (tauler)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dades/pluja/netatmo-prova.json
+          git commit -qm "Netatmo: passada de comprovació" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
