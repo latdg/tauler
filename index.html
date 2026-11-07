@@ -68,9 +68,9 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
 .capcalera{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .capcalera .dreta{margin-left:auto}
 .capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
-/* 07.11.2026: icones de retorn als altres panells, a dalt de tot a la dreta. */
-.tornada{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin:0 0 6px}
-.tornada .acces{font-size:1.6rem;line-height:1;text-decoration:none}
+/* 07.11.2026: la 🎧 de la fonoteca, a l'altura del títol, a l'extrem dret (després del selector de dia, si hi és). */
+.capcalera h1{margin-right:auto}
+.capcalera .dreta{margin-left:0}
 .sub:empty{display:none}
 nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 nav:empty{display:none}
@@ -261,9 +261,6 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 </head>
 <body>
 <header>
-  <div class="tornada">
-    <a class="acces" href="fonoteca/" title="La TdG fonoteca: declaracions, conferències i actes per tornar a escoltar" aria-label="La TdG fonoteca">🎧</a>
-  </div>
   <div class="capcalera">
     <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
@@ -278,6 +275,7 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
     </a>
     <h1>La TdG ampliada</h1>
     <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>
+    <a class="acces" href="fonoteca/" title="La TdG fonoteca: declaracions, conferències i actes per tornar a escoltar" aria-label="La TdG fonoteca">🎧</a>
   </div>
     <p class="sub" id="sub">Carregant…</p>
   <nav id="nav"></nav>
