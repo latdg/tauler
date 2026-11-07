@@ -63,7 +63,7 @@ button:disabled{opacity:.5;cursor:default}
 .mes{margin:4px 0 10px;font-size:1rem;display:flex;align-items:baseline;gap:8px;border-bottom:1px solid var(--linia);padding-bottom:6px}
 .mes .n{color:var(--suau);font-weight:400;font-size:.85rem}
 .mes + .graella{margin-bottom:22px}
-.graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px} /* 07.11.2026: més amples, dues columnes */
 .fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0;scroll-margin-top:16px}
 .fitxa.sona{box-shadow:0 0 0 2px var(--accent)}
 .fitxa.marcada{animation:marca 2.4s ease}
@@ -79,7 +79,7 @@ button:disabled{opacity:.5;cursor:default}
 .desc{margin:0;font-size:.92rem;line-height:1.45}
 .part{display:flex;flex-direction:column;gap:2px}
 .part .etiq{font-size:.78rem;color:var(--suau)}
-audio{width:100%;height:40px}
+audio{width:100%;max-width:560px;height:40px} /* 07.11.2026: com a la pàgina individual */
 .peu{display:flex;gap:12px;flex-wrap:wrap;font-size:.82rem}
 .peu a,.peu button{color:var(--accent);background:none;border:0;padding:0;text-decoration:none;font-size:.82rem}
 .prepara{font-size:.88rem;color:var(--suau);background:var(--targeta);border:1px dashed var(--linia);border-radius:8px;padding:8px 10px}
@@ -87,7 +87,9 @@ audio{width:100%;height:40px}
 .etiqueta.rev{background:#fff3cd;color:#8a6100}
 
 /* DESTACATS */
-.destacats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:22px}
+.destacats{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:22px} /* 07.11.2026: a tota l'amplada, com la pàgina individual */
+.destacats .fitxa{padding:14px 16px}
+.destacats .titol{font-size:1.25rem}
 .destacats .fitxa{border-left-color:#e0a100;background:#fffaf0}
 
 .buit{color:var(--suau)}
