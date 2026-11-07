@@ -176,8 +176,8 @@ textarea{min-height:80px;resize:vertical}
         <label>Qui parla (separats per comes) <input type="text" id="fQui" placeholder="Nom Cognom, Nom Cognom" list="llistaQui"></label>
         <label>Municipi <input type="text" id="fMun" list="municipis" placeholder="La Bisbal d'Empordà…"></label>
         <label>Lloc <input type="text" id="fLloc" placeholder="Sala de plens, Teatre…"></label>
-        <!-- 07.11.2026: enllaç que copia el botó «Copia l'enllaç» (buit: el de la fitxa a la fonoteca) -->
-        <label class="ample">Enllaç de «Copia l'enllaç» <input type="url" id="fEnllac" autocomplete="off" spellcheck="false" placeholder="Si es deixa en blanc, copia l'enllaç d'aquest àudio a la fonoteca"></label>
+        <!-- 07.11.2026: enllaç que copia el botó «Copia l'enllaç» (buit: el de la pàgina individual de l'àudio) -->
+        <label class="ample">Enllaç de «Copia l'enllaç» <input type="url" id="fEnllac" autocomplete="off" spellcheck="false" placeholder="Si es deixa en blanc, copia l'enllaç de la pàgina individual de l'àudio"></label>
         <div class="ample" style="grid-column:1 / -1;display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)">Descripció
           <div class="barra" id="barraDesc">
             <button type="button" data-cmd="bold" title="Negreta (Ctrl+B)"><b>N</b></button>
@@ -361,6 +361,16 @@ function agrupa(llista) {
   return grups.map(g => g.sort((x, y) => x.fitxer.localeCompare(y.fitxer)));
 }
 
+/* 07.11.2026: «Copia l'enllaç» porta a la pàgina individual de l'àudio (la que es
+   difon a les xarxes), no a la fonoteca. Es pot canviar a mà a la fitxa (✏️). */
+const PAGINA_AUDIO = "https://latdg.github.io/audio/";
+const REPRODUCTOR = "https://script.google.com/macros/s/AKfycbzN9tJeFLe2JvP15Lu5USlLWB1FnqFacRU-_TcNbAawneqKdmB4UATWVBouJz9RJt4/exec";
+function paginaIndividual(g) {
+  const q = new URLSearchParams();
+  g.forEach(x => { q.append("f", x.fitxer); q.append("t", x.qui.join(", ")); });
+  return PAGINA_AUDIO + "?src=" + encodeURIComponent(REPRODUCTOR + "?" + q.toString()) + (g.length > 1 ? "&n=" + g.length : "");
+}
+
 function fitxaHtml(g) {
   const a = g[0], c = CAT[a.categoria];
   const titol = g.length > 1 ? a.titol.replace(/\s*\(\d+\)$/, "") : a.titol;
@@ -378,7 +388,7 @@ function fitxaHtml(g) {
     ${llocs ? `<div class="cap">📍 ${esc(llocs)}</div>` : ""}
     ${a.descripcio ? `<div class="desc">${marcaAHtml(a.descripcio)}</div>` : ""}
     ${parts}
-    <div class="peu">${g.filter(x => x.url).map((x, i) => `<a href="${esc(x.url)}" download>⬇️ Descarrega${g.length > 1 ? " " + (i + 1) : ""}</a>`).join("")}<button type="button" data-enllac="${esc(a.id)}" data-url="${esc((g.find(x => x.enllac) || {}).enllac || "")}">🔗 Copia l'enllaç</button></div>
+    <div class="peu">${g.filter(x => x.url).map((x, i) => `<a href="${esc(x.url)}" download>⬇️ Descarrega${g.length > 1 ? " " + (i + 1) : ""}</a>`).join("")}<button type="button" data-enllac="${esc(a.id)}" data-url="${esc((g.find(x => x.enllac) || {}).enllac || paginaIndividual(g))}">🔗 Copia l'enllaç</button></div>
   </article>`;
 }
 
