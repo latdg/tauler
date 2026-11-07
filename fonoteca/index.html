@@ -160,10 +160,12 @@ textarea{min-height:80px;resize:vertical}
       </div>
     </div>
     <div id="form" hidden>
-      <h2 id="titolForm">➕ Afegeix un àudio</h2>
-      <p class="nota" style="margin-top:0">Els àudios que difon el publicador entren sols. Per afegir-ne un altre, escriu el nom del fitxer tal com és a la carpeta <b>declaracions</b> (p. ex. 20260901jfiga.mp3): en menys d'una hora ja es podrà escoltar.</p>
-      <div class="camps">
-        <label>Nom del fitxer <input type="text" id="fFitxer" placeholder="20261103evigo.mp3" autocomplete="off" spellcheck="false"></label>
+      <h2 id="titolForm">✏️ Edició de les fitxes</h2>
+      <!-- 07.11.2026: els àudios només entren des del publicador (amb la seva fitxa);
+           la fonoteca ja no llegeix el disc dur per afegir-ne a mà. -->
+      <p class="nota" id="notaForm" style="margin-top:0">Els àudios entren a la fonoteca des del publicador, amb la seva fitxa. Aquí pots corregir qualsevol fitxa amb el ✏️ de cada àudio: és la mateixa que surt a la pàgina de l'àudio publicat.</p>
+      <div class="camps" id="campsForm">
+        <label>Nom del fitxer <input type="text" id="fFitxer" autocomplete="off" spellcheck="false" disabled></label>
         <label>Data <input type="date" id="fData"></label>
         <label>Tipus <select id="fCat"></select></label>
         <label class="ample">Títol <input type="text" id="fTitol" placeholder="Si es deixa en blanc, es fa a partir del nom del fitxer"></label>
@@ -183,7 +185,7 @@ textarea{min-height:80px;resize:vertical}
         <label class="check"><input type="checkbox" id="fAmagat"> 🙈 Amagat (no surt a la fonoteca pública)</label>
       </div>
       <div class="fila">
-        <button type="button" id="desa" class="principal">Desa</button>
+        <button type="button" id="desa" class="principal" hidden>Desa</button>
         <button type="button" id="cancel" hidden>Cancel·la</button>
         <button type="button" id="esborra" class="suau" hidden>🗑️ Elimina de la fonoteca</button>
         <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
@@ -222,8 +224,9 @@ textarea{min-height:80px;resize:vertical}
    FONTS
    · inventari.json (latdg/media, branca fonoteca): els àudios ja arxivats,
      amb la durada i la mida. Hi entren sols els que difon el publicador.
-   · fonoteca.json (latdg/tauler): les fitxes que s'editen aquí (títol, qui
-     parla, tipus…) i els àudios afegits a mà.
+   · fonoteca.json (latdg/tauler): les fitxes (títol, qui parla, tipus…), les
+     mateixes que s'omplen al publicador i a la pàgina de cada àudio
+     (fitxa-audio.js). 07.11.2026: ja no s'hi afegeixen àudios a mà.
    ===================================================== */
 const INVENTARI = "https://latdg.github.io/media/f/inventari.json";
 const AUDIOS = "https://latdg.github.io/media/f/";
@@ -582,10 +585,12 @@ function omple(f) {
   $("fDestacat").checked = !!f.destacat; $("fAmagat").checked = !!f.amagat;
 }
 
+// 07.11.2026: sense cap àudio triat no hi ha formulari (ja no s'afegeixen àudios a mà).
 function nou() {
   EDITANT = null;
-  $("titolForm").textContent = "➕ Afegeix un àudio";
-  $("fFitxer").disabled = false; $("cancel").hidden = true; $("esborra").hidden = true;
+  $("titolForm").textContent = "✏️ Edició de les fitxes";
+  $("notaForm").hidden = false; $("campsForm").hidden = true; $("desa").hidden = true;
+  $("cancel").hidden = true; $("esborra").hidden = true;
   omple({});
 }
 
@@ -596,7 +601,8 @@ function edita(fitxer) {
   EDITANT = fitxer;
   $("titolForm").textContent = "✏️ " + (f ? "Editant la fitxa" : "Fitxa nova d'un àudio del publicador");
   omple(f || { fitxer, data: a.data, categoria: "declaracions", titol: "" });
-  $("fFitxer").disabled = true; $("cancel").hidden = false; $("esborra").hidden = false;
+  $("notaForm").hidden = true; $("campsForm").hidden = false; $("desa").hidden = false;
+  $("cancel").hidden = false; $("esborra").hidden = false;
   $("gestio").scrollIntoView({ behavior: "smooth" });
 }
 
@@ -615,13 +621,8 @@ async function desaLlista(audios, missatge) {
 }
 
 function desa() {
-  const fitxer = (EDITANT || $("fFitxer").value.trim()).split(/[\\/]/).pop();
-  if (!/\.(mp3|wav|m4a|ogg|opus|aac|flac|wma|amr|3gp|mp4|webm)$/i.test(fitxer)) {
-    $("estat").textContent = "Cal el nom del fitxer amb l'extensió (p. ex. 20261103evigo.mp3)."; return;
-  }
-  if (!EDITANT && (CATAL.audios || []).some(x => x.fitxer === fitxer && !x.eliminat)) {
-    $("estat").textContent = "Aquest fitxer ja és a la fonoteca: edita'l amb ✏️."; return;
-  }
+  if (!EDITANT) return;
+  const fitxer = EDITANT;
   const f = {
     fitxer,
     titol: $("fTitol").value.trim(),
@@ -632,7 +633,7 @@ function desa() {
     destacat: $("fDestacat").checked, amagat: $("fAmagat").checked, revisar: false
   };
   const audios = (CATAL.audios || []).filter(x => x.fitxer !== fitxer).concat(f);
-  desaLlista(audios, EDITANT ? "Fitxa desada." : "Àudio afegit: en menys d'una hora ja es podrà escoltar.");
+  desaLlista(audios, "Fitxa desada.");
 }
 
 // 05.11.2026: eliminar de veritat. La fitxa queda marcada com a eliminada (perquè
