@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-07T13:56:55.021Z",
+ "actualitzat": "2026-11-07T14:00:11.900Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -70,8 +70,10 @@
   },
   {
    "fitxer": "20260914fesl.mp3",
-   "titol": "",
-   "qui": [],
+   "titol": "Presentació dels equips de l'Atlètic Bisbalenc per a la temporada 2026-2027",
+   "qui": [
+    "Florentín Eduardo Sanmartín Lois"
+   ],
    "data": "2026-09-14",
    "categoria": "declaracions",
    "municipi": "",
