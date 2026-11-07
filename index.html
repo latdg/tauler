@@ -365,6 +365,7 @@ const NOMS_CURTS = [
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Plaques solars i consum elèctric"], [/preu de l'aigua/i, "Preu de l'aigua"],
   [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
+  [/radar 3d/i, "Radar 3D"],
   [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"]
 ];
 const nomCurt = titol => {
@@ -1241,7 +1242,7 @@ const APARTATS = [
   ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Llamps", "Terratrèmols"]],
   ["🚗 Trànsit i mobilitat", ["Trànsit", "Busos", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
   ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
-  ["🌿 Temps, aigua i natura", ["Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
+  ["🌿 Temps, aigua i natura", ["Radar 3D", "Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
   ["🎬 La cartellera de la Bisbal d'Empordà, Torroella de Montgrí, Palafrugell, Platja d'Aro, Girona i Salt", ["Cartellera"]]
@@ -1419,6 +1420,12 @@ function pinta(d) {
       `<p class="font">Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p></details>`,
       "Agència Catalana de l'Aigua (Dades Obertes de Catalunya)");
   }
+
+  // 5b. 🌧️ RADAR 3D (07.11.2026): la pluja de les dues últimes hores en columnes que
+  // s'aixequen segons la intensitat (RainViewer). La pàgina és radar/ i aquí va incrustada.
+  h += seccio("🌧️ Radar 3D",
+    '<iframe src="radar/?incrustat=1" title="Radar 3D de la pluja" loading="lazy" style="width:100%;height:480px;border:0;border-radius:8px;display:block"></iframe>' +
+    '<p class="font">Radar: RainViewer, una imatge cada 10 minuts. L\'alçada de les columnes és proporcional a la intensitat de la pluja, no a l\'altura dels núvols. <a href="radar/">Obre el radar a pantalla completa</a></p>', "", false);
 
   // 6. ☀️ RADIACIÓ ULTRAVIOLADA
   if (b.uv && b.uv.valor !== undefined) {
