@@ -39,6 +39,7 @@ button[aria-pressed=false]{opacity:.55}
 .llegenda .llamp{display:flex;align-items:center;gap:5px;margin-top:3px}
 .llegenda .llamp i{width:14px;height:9px;border-radius:2px;background:#ffd400;border:1px solid #c9a400}
 .avis{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.avis[hidden]{display:none}
 .avis span{background:rgba(255,255,255,.92);border-radius:8px;padding:8px 14px;font-size:.9rem;box-shadow:0 1px 4px rgba(0,0,0,.15)}
 .font{color:var(--suau);font-size:.85rem;margin:10px 0 0}
 .bisbal{background:var(--accent);color:#fff;font-size:.72rem;font-weight:600;padding:1px 6px;border-radius:10px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.3)}
@@ -48,7 +49,11 @@ body.incrustat header,body.incrustat .peu{display:none}
 body.incrustat main{padding:0;max-width:none}
 body.incrustat section{border:0;border-radius:0;padding:0;margin:0;background:transparent}
 body.incrustat #mapa{height:340px}
-body.incrustat .controls{margin-top:8px}
+body.incrustat .controls{margin-top:8px;gap:6px}
+body.incrustat .controls button{font-size:.8rem;padding:5px 9px}
+body.incrustat #hora{font-size:.85rem;min-width:0}
+body.incrustat #centra{display:none}
+body.incrustat #resum{font-size:.92rem}
 </style>
 </head>
 <body>
@@ -394,13 +399,13 @@ const mapa = new maplibregl.Map({
       { id: "ombra", type: "hillshade", source: "relleu", paint: { "hillshade-exaggeration": 0.35, "hillshade-shadow-color": "#5c5649" } }
     ]
   },
-  center: [3.02, 41.96], zoom: INCRUSTAT ? 7.6 : 8, pitch: 55, bearing: -15,
+  center: [3.04, 41.93], zoom: INCRUSTAT ? 8.1 : 8.6, pitch: 55, bearing: -15,
   minZoom: 6, maxZoom: 12, maxPitch: 75,
   cooperativeGestures: INCRUSTAT,
   attributionControl: false
 });
-const ATRIB = new maplibregl.AttributionControl({ compact: true });
-mapa.addControl(ATRIB);
+mapa.addControl(new maplibregl.AttributionControl({ compact: true,
+  customAttribution: "Radar: Meteocat (reserva: RainViewer) · Llamps: EUMETSAT · Límits: es-atlas (INE)" }), INCRUSTAT ? "top-left" : "bottom-right");
 mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
 
 const el = document.createElement("div");
