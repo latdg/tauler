@@ -237,6 +237,7 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .fono-fitxa .fono-cap{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--suau);font-size:.8rem}
 .fono-fitxa h3{margin:4px 0 2px;font-size:1rem;line-height:1.3}
 .fono-fitxa h3 a{color:var(--text);text-decoration:none}.fono-fitxa h3 a:hover{color:var(--accent)}
+.fono-historic{margin:12px 0 0;font-size:.95rem}
 .fono-fitxa .fono-qui{color:var(--suau);font-size:.85rem;margin:0 0 6px}
 .fono-fitxa audio{width:100%;height:36px;margin-top:4px}
 .cin-fitxa{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;margin-top:8px;padding:14px;background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;scroll-margin-top:16px}
@@ -1538,10 +1539,11 @@ function pinta(d) {
   h += seccio("🕯️ Necrològiques",
     '<p class="font dalt" id="necroPeu"></p><div id="necroCos"><p class="buit">Carregant…</p></div>', "", false);
 
-  // 0e. 🎙️ FONOTECA (07.11.2026): els dos últims àudios de La TdG fonoteca, amb
+  // 0e. 🔊 FONOTECA (07.11.2026; icona canviada el mateix dia): els dos últims àudios de La TdG fonoteca, amb
   // reproductor i enllaç a la pàgina (va a sobre de la cartellera).
-  h += seccio("🎙️ Darrers àudios",
-    '<div id="fonoCos"><p class="buit">Carregant…</p></div>', "", false);
+  h += seccio("🔊 Darrers àudios",
+    '<div id="fonoCos"><p class="buit">Carregant…</p></div>' +
+    '<p class="fono-historic"><a href="fonoteca/">Accedir a l\'històric de la Fonoteca</a></p>', "", false);
 
   // 0d. 🍿 PEL·LÍCULES (01.11.2026): dades/cinemes.json, tres cops al dia (cinemes/cinemes.py).
   h += seccio("🍿 Pel·lícules",
