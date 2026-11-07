@@ -87,6 +87,14 @@ main section{scroll-margin-top:16px}
 .tria-mun button{display:flex;align-items:center;gap:6px;font:inherit;font-size:.85rem;padding:4px 10px 4px 6px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer}
 .tria-mun button.actiu{border-color:var(--accent);color:var(--accent);font-weight:600}
 .tria-mun img{height:22px;width:auto}
+.tria-mun.peces button{padding:4px 12px}
+/* Blocs nous (07.11.2026): verdor, focus de calor i preu de la llum */
+.parelles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:8px}
+.parelles figure{margin:0;font-size:.82rem;color:var(--suau)}
+.parelles .dues{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.parelles img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block;image-rendering:pixelated}
+.escala-verdor{height:10px;border-radius:3px;margin:2px 0;max-width:320px}
+.grafic-llum{position:relative;height:200px;margin:6px 0}
 .barres{display:grid;grid-template-columns:auto minmax(40px,1fr) auto;gap:4px 8px;align-items:center;font-size:.85rem}
 .barres .barra{height:12px;background:var(--accent);border-radius:3px;min-width:2px}
 .barres .num{text-align:right;white-space:nowrap}
@@ -365,7 +373,8 @@ const NOMS_CURTS = [
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
   [/carburants/i, "Carburants"], [/rec[àa]rrega/i, "Recàrrega"], [/plaques solars/i, "Plaques solars i consum elèctric"], [/preu de l'aigua/i, "Preu de l'aigua"],
   [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
-  [/radar 3d/i, "Radar 3D"],
+  [/radar 3d/i, "Radar 3D"], [/pluja d'ahir/i, "Pluja d'ahir"], [/verdor/i, "Verdor"],
+  [/focus de calor/i, "Focus de calor"], [/preu de la llum/i, "Preu de la llum"],
   [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"]
 ];
 const nomCurt = titol => {
@@ -699,6 +708,193 @@ async function carregaEsports() {
 // -----------------------------------------------------------------------------
 // LLAMPS (21.10.2026): resum de la darrera revisió a demanda de l'XDDE.
 // -----------------------------------------------------------------------------
+// --- 🛰️ FOCUS DE CALOR (07.11.2026) ---
+// Les deteccions de NASA FIRMS dels darrers 7 dies a menys de 30 km, que desa el
+// vigilant de FIRMS (latdg/satellit, firms.py) a la branca firms-estat.
+const dataHoraISO = iso => { const d = new Date(iso), z = n => String(n).padStart(2, "0");
+  return `${z(d.getDate())}.${z(d.getMonth() + 1)}.${d.getFullYear()} a les ${z(d.getHours())}.${z(d.getMinutes())} h`; };
+async function carregaFocus() {
+  const cos = document.getElementById("focusCos"), peu = document.getElementById("focusPeu");
+  if (!cos) return;
+  let d;
+  try {
+    const r = await fetch("https://raw.githubusercontent.com/latdg/satellit/firms-estat/tauler.json?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    d = await r.json();
+  } catch (e) { cos.innerHTML = '<p class="buit">Encara no hi ha dades dels focus de calor.</p>'; return; }
+  const ll = (d.deteccions || []).filter(x => x.lat != null && x.lon != null);
+  peu.textContent = `Revisat el ${dataHoraISO(d.generat)} · es revisa cada 30 minuts · darrers ${d.dies || 7} dies`;
+  const nota = '<p class="font">Punts calents que detecten els satèl·lits (VIIRS i MODIS de la NASA), amb unes 3 hores de retard. ' +
+    "Pot ser un incendi, una crema agrícola o una font industrial: cal comprovar-ho. Els de confiança baixa no hi surten. Font: NASA FIRMS.</p>";
+  if (!ll.length) {
+    cos.innerHTML = `<p>Cap focus de calor a menys de ${d.radiKm || 30} km de la Bisbal en els darrers ${d.dies || 7} dies.</p>` + nota;
+    return;
+  }
+  const ara = Date.now(), dar = ll[0], prop = ll.reduce((a, x) => x.km < a.km ? x : a);
+  cos.innerHTML = `<p>${ll.length} ${ll.length === 1 ? "detecció" : "deteccions"} a menys de ${d.radiKm || 30} km de la Bisbal. ` +
+    `La darrera, el ${esc(dar.hora)}, a ${Math.round(dar.km)} km ${esc(dar.rumb)}` +
+    (prop !== dar ? `; la més propera, a ${num(prop.km)} km ${esc(prop.rumb)}.` : ".") + "</p>" +
+    '<div class="llegenda-ratxa"><span><i style="background:#d7191c"></i>darreres 24 h</span><span><i style="background:#f39200"></i>1 a 3 dies</span><span><i style="background:#9a958a"></i>més antigues</span></div>' +
+    '<div class="mapa-inc" id="mapaFocus"></div>' + nota;
+  const mapa = await mapaBase("mapaFocus", MUN_ANTENES, "Focus: NASA FIRMS", null, vistaDe(ll.map(x => [x.lat, x.lon])));
+  if (!mapa) return;
+  carrers(mapa);
+  ll.slice().reverse().forEach(x => {
+    const h = (ara - x.quan) / 3600e3;
+    punt(mapa, x.lat, x.lon, h < 24 ? "#d7191c" : h < 72 ? "#f39200" : "#9a958a", 6 + Math.min(8, Math.sqrt(x.frp || 1) * 1.6),
+      `🔥 ${x.hora}`,
+      `<b>🔥 ${esc(x.hora)}${x.nit ? " (de nit)" : ""}</b><br>A ${num(x.km)} km ${esc(x.rumb)} de la Bisbal<br>${esc(x.font)} · confiança ${esc(x.confianca)}` +
+      (x.frp != null ? ` · ${num(Math.round(x.frp * 10) / 10)} MW` : "") +
+      (x.dies >= 3 ? `<br>🔁 Punt recurrent (${x.dies} dies en un mes): possible font fixa` : "") +
+      `<br><a href="https://www.google.com/maps?q=${x.lat},${x.lon}" target="_blank" rel="noopener">Obre-ho a Google Maps</a>`);
+  });
+}
+
+// --- 💶 PREU DE LA LLUM (07.11.2026): PVPC d'avui (i de demà, quan surt) de Red Eléctrica ---
+async function carregaLlum() {
+  const cos = document.getElementById("llumCos"), peu = document.getElementById("llumPeu");
+  if (!cos) return;
+  const z = n => String(n).padStart(2, "0");
+  const diaISO = d => `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())}`;
+  const avui = new Date(), dema = new Date(Date.now() + 86400000);
+  let vals;
+  try {
+    const r = await fetch(`https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=${diaISO(avui)}T00:00&end_date=${diaISO(dema)}T23:59&time_trunc=hour`);
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    const pvpc = (d.included || []).find(x => /pvpc/i.test(x.type || "") || /pvpc/i.test((x.attributes || {}).title || ""));
+    vals = ((pvpc && pvpc.attributes.values) || []).map(v => ({ dia: v.datetime.slice(0, 10), hora: +v.datetime.slice(11, 13), preu: v.value / 1000 }));
+  } catch (e) { cos.innerHTML = '<p class="buit">Ara mateix no es pot consultar el preu de la llum.</p>'; return; }
+  const perDia = { avui: vals.filter(v => v.dia === diaISO(avui)), dema: vals.filter(v => v.dia === diaISO(dema)) };
+  if (!perDia.avui.length) { cos.innerHTML = '<p class="buit">Encara no hi ha el preu de la llum d\'avui.</p>'; return; }
+  const eur = v => v.toFixed(3).replace(".", ",") + " €/kWh";
+  const franja = h => `de ${z(h)} a ${z((h + 1) % 24)} h`;
+  const dma = s => s.slice(8, 10) + "." + s.slice(5, 7) + "." + s.slice(0, 4);
+  let grafic = null;
+  function pinta(clau) {
+    const ll = perDia[clau], hAra = avui.getHours();
+    const ord = ll.slice().sort((a, b) => a.preu - b.preu);
+    const barat = ord[0], car = ord[ord.length - 1];
+    const mitjana = ll.reduce((a, v) => a + v.preu, 0) / ll.length;
+    const t1 = ord[Math.floor(ll.length / 3)].preu, t2 = ord[Math.floor(2 * ll.length / 3)].preu;
+    const ara = clau === "avui" ? ll.find(v => v.hora === hAra) : null;
+    document.getElementById("llumXifres").innerHTML =
+      (ara ? `<div class="xifra"><b>${eur(ara.preu)}</b><span>ara (${franja(ara.hora)})</span></div>` : "") +
+      `<div class="xifra"><b>${eur(mitjana)}</b><span>mitjana ${clau === "avui" ? "d'avui" : "de demà"}</span></div>` +
+      `<div class="xifra"><b style="color:#2e8b57">${eur(barat.preu)}</b><span>la més barata, ${franja(barat.hora)}</span></div>` +
+      `<div class="xifra"><b style="color:#c0392b">${eur(car.preu)}</b><span>la més cara, ${franja(car.hora)}</span></div>`;
+    if (typeof Chart === "undefined") return;
+    if (grafic) grafic.destroy();
+    grafic = new Chart(document.getElementById("graficLlum"), {
+      type: "bar",
+      data: { labels: ll.map(v => z(v.hora)), datasets: [{ data: ll.map(v => v.preu),
+        backgroundColor: ll.map(v => v.preu <= t1 ? "#7fbf7f" : v.preu <= t2 ? "#f2c75c" : "#e0816d"),
+        borderColor: ll.map(v => ara && v.hora === ara.hora ? "#1d1d1b" : "transparent"), borderWidth: 2 }] },
+      options: { maintainAspectRatio: false, animation: false, plugins: { legend: { display: false },
+        tooltip: { callbacks: { title: c => franja(+c[0].label), label: c => eur(c.raw) } } },
+        scales: { y: { beginAtZero: true, ticks: { callback: v => String(v.toFixed(2)).replace(".", ",") }, title: { display: true, text: "€/kWh" } },
+          x: { title: { display: true, text: "hora" } } } }
+    });
+  }
+  cos.innerHTML = (perDia.dema.length ? `<div class="tria-mun peces" id="llumTria"><button class="actiu" data-d="avui">Avui, ${dma(diaISO(avui))}</button><button data-d="dema">Demà, ${dma(diaISO(dema))}</button></div>` : "") +
+    '<div class="xifres" id="llumXifres"></div><div class="grafic-llum"><canvas id="graficLlum"></canvas></div>' +
+    '<p class="font">Preu de l\'energia de la tarifa regulada (PVPC 2.0TD) per a cada hora, amb peatges i càrrecs, sense impostos ni el terme de potència. ' +
+    'Verd: les hores més barates del dia; vermell, les més cares. El preu de demà surt cap a les 20.30 h.</p>';
+  peu.textContent = "Font: Red Eléctrica (REData)";
+  pinta("avui");
+  const tria = document.getElementById("llumTria");
+  if (tria) tria.querySelectorAll("button").forEach(bt => bt.onclick = () => {
+    tria.querySelectorAll("button").forEach(x => x.classList.toggle("actiu", x === bt));
+    pinta(bt.dataset.d);
+  });
+}
+
+// --- 🌳 VERDOR DEL TERRITORI (07.11.2026) ---
+// L'informe mensual de Sentinel-2 (latdg/satellit, satellit.py): la verdor del mes,
+// la del mateix mes de fa un any, la diferència i les zones que han perdut vegetació.
+const SATELLIT_TAULER = "https://raw.githubusercontent.com/latdg/satellit/main/tauler/";
+async function carregaVerdor() {
+  const cos = document.getElementById("verdorCos"), peu = document.getElementById("verdorPeu");
+  if (!cos) return;
+  let d;
+  try {
+    const r = await fetch(SATELLIT_TAULER + "verdor.json?v=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    d = await r.json();
+  } catch (e) { cos.innerHTML = '<p class="buit">Encara no hi ha cap informe de verdor.</p>'; return; }
+  const c = d.canvis, v = d.vegetacio;
+  if (!c && !v) { cos.innerHTML = '<p class="buit">Encara no hi ha cap informe de verdor.</p>'; return; }
+  const versio = "?v=" + encodeURIComponent((c || v).generat || "");
+  const pct = x => (x > 0 ? "+" : x < 0 ? "−" : "") + num(Math.abs(Math.round(x))) + " %";
+  const ndvi = x => x == null ? "—" : x.toFixed(2).replace(".", ",");
+  peu.textContent = `Informe de ${(c || v).mes} · Sentinel-2 (Copernicus), imatge neta del mes · es fa cada mes, el dia 5`;
+  const capes = [];
+  if (c) {
+    capes.push({ id: "abans", nom: `Fa un any (${c.abans})`, img: c.imatges.abans, caixa: c.caixa, llegenda: "verdor" });
+    capes.push({ id: "ara", nom: `Ara (${c.mes})`, img: c.imatges.ara, caixa: c.caixa, llegenda: "verdor" });
+    capes.push({ id: "dif", nom: "Diferència", img: c.imatges.diferencia, caixa: c.caixa, llegenda: "dif" });
+  }
+  if (v) capes.push({ id: "anom", nom: `Respecte als anys ${v.referencia}`, img: v.imatge, caixa: v.caixa, llegenda: "anom" });
+  let h = '<div class="xifres">';
+  if (c && c.ndvi != null) h += `<div class="xifra"><b>${ndvi(c.ndvi)}</b><span>verdor mitjana ara (${esc(c.mes)})</span></div>` +
+    `<div class="xifra"><b>${ndvi(c.ndviAbans)}</b><span>fa un any (${esc(c.abans)})</span></div>` +
+    `<div class="xifra"><b>${pct((c.ndvi - c.ndviAbans) / c.ndviAbans * 100)}</b><span>canvi en un any</span></div>`;
+  if (v) h += `<div class="xifra"><b>${pct(v.variacio)}</b><span>respecte a la mitjana de ${esc(v.mes.split(" de ")[0])} ${esc(v.referencia)}</span></div>`;
+  h += "</div>";
+  if (c) h += `<p>Respecte a fa un any, un ${num(Math.round(c.mesSec))} % de la zona està clarament més sec i un ${num(Math.round(c.mesVerd))} %, clarament més verd.` +
+    (v && v.bosc != null ? ` Els boscos, ${pct(v.bosc)} respecte a la mitjana dels anys anteriors.` : "") + "</p>";
+  h += `<div class="tria-mun peces" id="verdorTria">${capes.map((k, i) => `<button data-i="${i}"${k.id === "dif" || (!c && i === 0) ? ' class="actiu"' : ""}>${esc(k.nom)}</button>`).join("")}</div>` +
+    '<div id="verdorLlegenda" class="font dalt"></div><div class="mapa-inc" id="mapaVerdor"></div>';
+  if (c && (c.taques || []).length) {
+    h += `<h3>Zones que fa un any tenien vegetació i ara no</h3><p class="font dalt">De ${num(c.minHa)} ha o més, de més gran a més petita. Toca'n una per veure-la al mapa.</p><div class="parelles">` +
+      c.taques.map((t, k) => `<figure><a href="#mapaVerdor" data-t="${k}" style="color:inherit;text-decoration:none">` +
+        (t.imatges && t.imatges.length === 2 ? `<div class="dues"><img src="${SATELLIT_TAULER}${esc(t.imatges[0])}${versio}" alt="Zona ${k + 1}, ${esc(c.abans)}" loading="lazy"><img src="${SATELLIT_TAULER}${esc(t.imatges[1])}${versio}" alt="Zona ${k + 1}, ${esc(c.mes)}" loading="lazy"></div>` : "") +
+        `<figcaption><b style="color:var(--text)">${k + 1}. ${num(t.ha)} ha</b> · ${esc(t.tipus)}${t.imatges && t.imatges.length === 2 ? ` · a l'esquerra, ${esc(c.abans)}; a la dreta, ${esc(c.mes)}` : ""}</figcaption></a></figure>`).join("") + "</div>";
+  } else if (c) h += "<p>No s'hi aprecia cap zona gran que hagi perdut la vegetació en un any.</p>";
+  h += '<p class="font">Zona: un quadrat de 24 × 24 km al voltant de la Bisbal (els cinc municipis i bona part de les Gavarres). ' +
+    "La verdor és l'índex de vegetació (NDVI) de Sentinel-2: com més alt, més vegetació viva. Una baixada pot ser sequera, però també incendis, tales, obres o collites. Estimació automàtica: cal contrastar-la.</p>";
+  cos.innerHTML = h;
+
+  const caixa = capes[0].caixa;
+  const mapa = await mapaBase("mapaVerdor", MUN_ANTENES, "Imatges: Sentinel-2 (Copernicus)", null, caixa);
+  if (!mapa) return;
+  carrers(mapa);
+  mapa.getPane("carrers").style.zIndex = 252;        // aquí els carrers van per sota de la imatge
+  mapa.createPane("verdor").style.zIndex = 255;      // sobre el fons i els carrers, sota els límits
+  const G = await geoFons().catch(() => null);
+  if (G) {
+    mapa.createPane("limits").style.zIndex = 258;
+    L.geoJSON(topojson.feature(G, G.objects.municipis), { pane: "limits", interactive: false, style: { color: "#4a4740", weight: .7, fill: false, opacity: .6 } }).addTo(mapa);
+  }
+  const LLEG = {
+    verdor: 'Verdor: <span style="display:inline-block;width:140px;height:9px;vertical-align:middle;border-radius:2px;background:linear-gradient(90deg,#a67848,#ecE48c,#58a848,#0c461e)"></span> de sòl nu a bosc dens',
+    dif: 'Diferència en un any: <b style="color:#d7191c">vermell</b>, ara hi ha menys vegetació; <b style="color:#2e8b57">verd</b>, més',
+    anom: 'Respecte a la mitjana dels mateixos mesos d\'anys anteriors: <b style="color:#d7191c">vermell</b>, més sec que de costum; <b style="color:#2e8b57">verd</b>, més verd'
+  };
+  let capa = null;
+  const posa = i => {
+    const k = capes[i];
+    if (capa) mapa.removeLayer(capa);
+    capa = L.imageOverlay(SATELLIT_TAULER + k.img + versio, k.caixa, { pane: "verdor", opacity: .75 }).addTo(mapa);
+    document.getElementById("verdorLlegenda").innerHTML = LLEG[k.llegenda];
+  };
+  const inicial = Math.max(0, capes.findIndex(k => k.id === "dif"));
+  posa(inicial);
+  const tria = document.getElementById("verdorTria");
+  tria.querySelectorAll("button").forEach(bt => bt.onclick = () => {
+    tria.querySelectorAll("button").forEach(x => x.classList.toggle("actiu", x === bt));
+    posa(+bt.dataset.i);
+  });
+  const marques = ((c && c.taques) || []).map((t, k) => L.marker([t.lat, t.lon], { icon: L.divIcon({ className: "", html:
+    `<div style="background:#fff;border:2px solid #b4462c;border-radius:50%;width:22px;height:22px;text-align:center;font:600 12px/18px system-ui;color:#b4462c">${k + 1}</div>`, iconSize: [22, 22], iconAnchor: [11, 11] }) })
+    .bindPopup(`<b>Zona ${k + 1}</b><br>${num(t.ha)} ha · ${esc(t.tipus)}<br><a href="https://www.google.com/maps?q=${t.lat},${t.lon}" target="_blank" rel="noopener">Obre-ho a Google Maps</a>`).addTo(mapa));
+  cos.querySelectorAll("[data-t]").forEach(a => a.onclick = ev => {
+    const m = marques[+a.dataset.t];
+    if (!m) return;
+    setTimeout(() => { mapa.setView(m.getLatLng(), 15); m.openPopup(); }, 250);
+  });
+}
+
 async function carregaLlamps() {
   const cos = document.getElementById("llampsCos");
   if (!cos) return;
@@ -1239,10 +1435,10 @@ const BISBAL_LL = [41.9597, 3.0386];
 // no surt a la llista va al final (així no se'n perd cap si se n'afegeix un de nou).
 const APARTATS = [
   ["📌 El que cal saber avui", ["Agenda", "Farmàcies", "Necrològiques"]],
-  ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Llamps", "Terratrèmols"]],
+  ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Focus de calor", "Llamps", "Terratrèmols"]],
   ["🚗 Trànsit i mobilitat", ["Trànsit", "Busos", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
-  ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
-  ["🌿 Temps, aigua i natura", ["Radar 3D", "Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura"]],
+  ["💡 Subministraments i serveis", ["Talls de llum", "Talls d'aigua", "Preu de la llum", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
+  ["🌿 Temps, aigua i natura", ["Radar 3D", "Pluja d'ahir", "Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura", "Verdor"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
   ["🎬 La cartellera de la Bisbal d'Empordà, Torroella de Montgrí, Palafrugell, Platja d'Aro, Girona i Salt", ["Cartellera"]]
@@ -1282,6 +1478,14 @@ function pinta(d) {
   NUM_SECCIO = 0;
   document.getElementById("sub").textContent = "";
   let h = "";
+
+  // 07.11.2026: tres blocs que es carreguen a part (l'ordre el posen els apartats).
+  h += seccio("🛰️ Focus de calor per satèl·lit",
+    '<p class="font dalt" id="focusPeu"></p><div id="focusCos"><p class="buit">Carregant…</p></div>', "", false);
+  h += seccio("💶 Preu de la llum",
+    '<p class="font dalt" id="llumPeu"></p><div id="llumCos"><p class="buit">Carregant…</p></div>', "", false);
+  h += seccio("🌳 Verdor del territori",
+    '<p class="font dalt" id="verdorPeu"></p><div id="verdorCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 0. 📅 AGENDA D'ACTES (21.10.2026): el contingut arriba després (carregaAgenda).
   h += seccio("📅 Agenda d'actes",
@@ -1425,7 +1629,25 @@ function pinta(d) {
   // s'aixequen segons la intensitat (RainViewer). La pàgina és radar/ i aquí va incrustada.
   h += seccio("🌧️ Radar 3D",
     '<iframe src="radar/?incrustat=1" title="Radar 3D de la pluja" loading="lazy" style="width:100%;height:480px;border:0;border-radius:8px;display:block"></iframe>' +
-    '<p class="font">Radar: RainViewer, una imatge cada 10 minuts. L\'alçada de les columnes és proporcional a la intensitat de la pluja, no a l\'altura dels núvols. <a href="radar/">Obre el radar a pantalla completa</a></p>', "", false);
+    '<p class="font">Radar: Meteocat (o RainViewer de reserva) i llamps del satèl·lit MTG. L\'alçada de les columnes és proporcional a la intensitat de la pluja, no a l\'altura dels núvols. <a href="radar/">Obre el radar a pantalla completa</a></p>', "", false);
+
+  // 5c. 💧 PLUJA D'AHIR (07.11.2026): estacions automàtiques del Meteocat (XEMA) del Baix
+  // Empordà; la de la Bisbal, primer. Dades: viu/tauler_viu.py (pluja_ahir).
+  if (b.plujaAhir && (b.plujaAhir.estacions || []).length) {
+    const pa = b.plujaAhir, est = pa.estacions, bis = est.find(e => e.codi === "DF");
+    const max = Math.max(...est.map(e => e.mm), 0.1);
+    const cap = !est.some(e => e.mm > 0)
+      ? "<p>Ahir no va ploure a cap estació del Baix Empordà.</p>"
+      : (bis ? `<div class="xifres"><div class="xifra"><b>${num(bis.mm)} mm</b><span>a la Bisbal d'Empordà</span></div>` +
+          `<div class="xifra"><b>${num(Math.max(...est.map(e => e.mm)))} mm</b><span>el màxim de la comarca (${esc(est.reduce((a, e) => e.mm > a.mm ? e : a).nom)})</span></div></div>` : "") +
+        `<div class="barres">${est.map(e => `<span${e.codi === "DF" ? ' style="font-weight:700;color:var(--accent)"' : ""}>${esc(e.nom)}</span>` +
+          `<span><span class="barra" style="display:block;width:${Math.round(e.mm / max * 100)}%${e.mm ? "" : ";background:var(--linia)"}"></span></span>` +
+          `<span class="num">${num(e.mm)} mm${e.complet ? "" : " *"}</span>`).join("")}</div>`;
+    h += seccio(`💧 Pluja d'ahir (${esc(pa.dia)})`, cap +
+      (est.some(e => !e.complet) ? '<p class="font">* Encara falten lectures d\'aquesta estació: la xifra pot créixer.</p>' : "") +
+      '<p class="font">Pluja recollida durant el dia meteorològic (de 0 a 24 h en temps universal, d\'1 a 1 h a l\'hivern). De les estacions dels cinc municipis, només la de la Bisbal està activa; la resta són les del Baix Empordà.</p>',
+      "Xarxa d'Estacions Meteorològiques Automàtiques del Meteocat (Dades Obertes de Catalunya)", false);
+  }
 
   // 6. ☀️ RADIACIÓ ULTRAVIOLADA
   if (b.uv && b.uv.valor !== undefined) {
@@ -2356,6 +2578,9 @@ async function inicia() {
     carregaCinemes();
     carregaBusos();
     carregaLlamps();
+    carregaFocus();
+    carregaLlum();
+    carregaVerdor();
     carregaAntenes();
     carregaDea();
     carregaNatura();
