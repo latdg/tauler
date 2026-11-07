@@ -364,11 +364,9 @@ function agrupa(llista) {
 /* 07.11.2026: «Copia l'enllaç» porta a la pàgina individual de l'àudio (la que es
    difon a les xarxes), no a la fonoteca. Es pot canviar a mà a la fitxa (✏️). */
 const PAGINA_AUDIO = "https://latdg.github.io/audio/";
-const REPRODUCTOR = "https://script.google.com/macros/s/AKfycbzN9tJeFLe2JvP15Lu5USlLWB1FnqFacRU-_TcNbAawneqKdmB4UATWVBouJz9RJt4/exec";
+// 07.11.2026: enllaç curt propi: latdg.github.io/audio/?a=nom (sense .mp3; diverses parts separades per comes)
 function paginaIndividual(g) {
-  const q = new URLSearchParams();
-  g.forEach(x => { q.append("f", x.fitxer); q.append("t", x.qui.join(", ")); });
-  return PAGINA_AUDIO + "?src=" + encodeURIComponent(REPRODUCTOR + "?" + q.toString()) + (g.length > 1 ? "&n=" + g.length : "");
+  return PAGINA_AUDIO + "?a=" + g.map(x => encodeURIComponent(x.fitxer.replace(/\.mp3$/i, ""))).join(",");
 }
 
 function fitxaHtml(g) {
