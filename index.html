@@ -1326,7 +1326,7 @@ async function mapesIncidencies(b) {
     const vistos = {};
     ll.forEach(e => { const k = e.lat + "," + e.lon, n = vistos[k] = (vistos[k] || 0) + 1;
       if (n > 1) { e._lat = e.lat + 0.0025 * Math.sin(n * 2.1); e._lon = e.lon + 0.0035 * Math.cos(n * 2.1); } });
-    const mapa = await mapaBase("mapaPluja", MUN_ANTENES, "Pluja: Meteocat i Meteoclimàtic", null, vistaDe(ll.map(e => [e.lat, e.lon])));
+    const mapa = await mapaBase("mapaPluja", MUN_ANTENES, "Pluja: Meteocat, Meteoclimàtic i Netatmo", null, vistaDe(ll.map(e => [e.lat, e.lon])));
     if (mapa) {
       carrers(mapa);
       ll.forEach(e => {
@@ -1728,8 +1728,8 @@ function pinta(d) {
     h += seccio(`💧 Pluja d'ahir (${esc(pa.dia)})`, cos +
       (totes.some(e => e.mm != null && !e.complet) ? '<p class="font">* Falten lectures d\'aquesta estació: la xifra pot ser una mica més alta.</p>' : "") +
       (prop.some(e => e.mm == null) ? '<p class="font">«Sense dada»: l\'estació no ha enviat lectures o encara no se\'n té la del dia anterior.</p>' : "") +
-      '<p class="font">Meteocat: dia meteorològic de 0 a 24 h en temps universal (d\'1 a 1 h a l\'hivern). Meteoclimàtic: estacions d\'aficionats, dia de 0 a 24 h en hora local; al mapa, la seva posició és aproximada (la xarxa només la dona en graus i minuts).</p>',
-      "Meteocat (XEMA, Dades Obertes de Catalunya) i Meteoclimàtic", false);
+      '<p class="font">Meteocat: dia meteorològic de 0 a 24 h en temps universal (d\'1 a 1 h a l\'hivern). Meteoclimàtic i Netatmo: estacions d\'aficionats, dia de 0 a 24 h en hora local; al mapa, la posició de les de Meteoclimàtic és aproximada (la xarxa només la dona en graus i minuts).</p>',
+      "Meteocat (XEMA, Dades Obertes de Catalunya), Meteoclimàtic i Netatmo", false);
   }
 
   // 6. ☀️ RADIACIÓ ULTRAVIOLADA
