@@ -23,9 +23,10 @@ a{color:var(--accent)}
 .sub{color:var(--suau);margin:4px 0 12px;font-size:.95rem}
 .capcalera{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
-/* 07.11.2026: icona de retorn a La TdG ampliada, a dalt de tot a la dreta. */
-.tornada{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin:0 0 6px}
-.tornada .acces{font-size:1.6rem;line-height:1;text-decoration:none}
+/* 07.11.2026: el ➕ de La TdG ampliada, a l'altura del títol, a l'extrem dret (sense saltar de línia al mòbil). */
+.capcalera{flex-wrap:nowrap}
+.capcalera h1{min-width:0}
+.capcalera .acces{margin-left:auto}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
 main{display:grid;gap:16px;padding-bottom:16px}
@@ -107,9 +108,6 @@ textarea{min-height:80px;resize:vertical}
 <body>
 
 <header>
-  <div class="tornada">
-    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
-  </div>
   <div class="capcalera">
     <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
@@ -123,6 +121,7 @@ textarea{min-height:80px;resize:vertical}
       </svg>
     </a>
     <h1>La TdG fonoteca</h1>
+    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
   </div>
   <p class="sub">Declaracions, conferències i actes de la Bisbal d'Empordà i pobles veïns, per tornar-los a escoltar.</p>
   <ul class="xifres" id="xifres"></ul>
