@@ -1,0 +1,36 @@
+# Neteja dels dies desats — La TdG ampliada · 07.11.2026
+# Cada nit deixa només els darrers 7 dies de dades/AAAA-MM-DD.json
+# (el selector «Dia» també en mostra només 7).
+name: Neteja dels dies
+
+on:
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  neteja:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Esborra els dies vells
+        run: |
+          git config user.name "La TdG (tauler)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for intent in 1 2 3 4 5; do
+            python viu/neteja_dies.py dades fitxer
+            git add -A dades
+            if git diff --cached --quiet; then break; fi
+            git commit -qm "Neteja: només els darrers 7 dies"
+            git push -q origin HEAD:main && break
+            git reset -q --hard origin/main
+            git pull -q --rebase origin main
+            sleep 15
+          done
