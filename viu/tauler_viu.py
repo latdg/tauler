@@ -1961,6 +1961,58 @@ RIUS_ESTACIONS = [
     {"codi": "171997-002", "riu": "Ter", "lloc": "Torroella de Montgrí",
      "llindars": [36.0, 55.0, 275.0, 550.0, 1938.0, 3040.0]},
 ]
+# -----------------------------------------------------------------------------
+# PLUJA D'AHIR (07.11.2026): la precipitació del dia anterior a les estacions
+# automàtiques del Meteocat (XEMA) del Baix Empordà, amb la de la Bisbal primer.
+# Dels cinc municipis de referència, només la Bisbal en té una d'activa (la de
+# Monells es va desmantellar el 2021). Dades obertes: lectures semihoràries.
+# El dia meteorològic és de 00.00 a 24.00 h en temps universal, com al Meteocat.
+# -----------------------------------------------------------------------------
+XEMA_ESTACIONS_URL = "https://analisi.transparenciacatalunya.cat/resource/yqwd-vj5e.json"
+XEMA_DADES_URL = "https://analisi.transparenciacatalunya.cat/resource/nzvn-apee.json"
+XEMA_COMARCA = "10"           # Baix Empordà
+XEMA_BISBAL = "DF"
+
+
+def pluja_ahir():
+    r = requests.get(XEMA_ESTACIONS_URL, params={"$where": f"codi_comarca='{XEMA_COMARCA}' AND codi_estat_ema='2'",
+                                                 "$limit": 100}, headers=CAPCALERES, timeout=60)
+    r.raise_for_status()
+    estacions = {}
+    for e in r.json():
+        try:
+            lat, lon = float(e["latitud"]), float(e["longitud"])
+        except (KeyError, ValueError):
+            continue
+        estacions[e["codi_estacio"]] = {"codi": e["codi_estacio"], "nom": e.get("nom_estacio", ""),
+                                        "municipi": e.get("nom_municipi", ""), "lat": lat, "lon": lon,
+                                        "km": round(distancia_km(BISBAL[0], BISBAL[1], lat, lon), 1)}
+    if not estacions:
+        return None
+    ahir = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=1)).date()
+    des, fins = f"{ahir}T00:00:00", f"{ahir + dt.timedelta(days=1)}T00:00:00"
+    codis = ",".join(f"'{c}'" for c in estacions)
+    r = requests.get(XEMA_DADES_URL, params={
+        "$select": "codi_estacio, sum(valor_lectura) as mm, count(*) as n",
+        "$where": f"codi_variable='35' AND codi_estacio in({codis}) AND data_lectura>='{des}' AND data_lectura<'{fins}'",
+        "$group": "codi_estacio", "$limit": 100}, headers=CAPCALERES, timeout=60)
+    r.raise_for_status()
+    llista = []
+    for x in r.json():
+        e = estacions.get(x.get("codi_estacio"))
+        if not e:
+            continue
+        try:
+            mm, n = float(x["mm"]), int(x["n"])
+        except (KeyError, ValueError):
+            continue
+        llista.append({**e, "mm": round(mm, 1), "complet": n >= 46})
+    if not llista:
+        return None
+    llista.sort(key=lambda e: (e["codi"] != XEMA_BISBAL, e["km"]))
+    return {"dia": ahir.strftime("%d.%m.%Y"), "estacions": llista}
+
+
 RIUS_ESTATS = ["normalitat", "activació", "moderat", "alt", "molt alt", "excepcional", "excepcional (graó superior)"]
 
 
@@ -2058,10 +2110,11 @@ FUNCIONS = {
     "tallsAigua": talls_aigua,
     "terratremols": terratremols,
     "rius": rius,
+    "plujaAhir": pluja_ahir,   # 07.11.2026
 }
 UN_COP_AL_DIA = {"clima"}
 # 21.10.2026: cada quants minuts com a mínim es torna a consultar un bloc.
-CADA_MINUTS = {"pollen": 60, "recarrega": 7 * 24 * 60, "necrologiques": 60}
+CADA_MINUTS = {"pollen": 60, "recarrega": 7 * 24 * 60, "necrologiques": 60, "plujaAhir": 60}
 
 
 def llegeix(cami, defecte):
