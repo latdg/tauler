@@ -2118,13 +2118,20 @@ def meteoclimatic_fitxa(codi):
     m = re.search(r"actualizaci[oó]n\s*(\d\d)-(\d\d)-(\d{4})\s+(\d\d):(\d\d)\s*UTC", t)
     if m:
         fitxa["hora"] = dt.datetime(int(m[3]), int(m[2]), int(m[1]), int(m[4]), int(m[5]), tzinfo=dt.timezone.utc).astimezone(TZ)
-    i = t.find("Total")
-    tros = t[i:i + 250] if i >= 0 else ""
-    for clau, et in (("hoy", r"Hoy"), ("mes", r"Mes"), ("any", r"A[ñn]o")):
-        m = re.search(et + r"\D{0,20}?(\d+(?:[.,]\d+)?)", tros)
-        if m:
-            fitxa[clau] = float(m[1].replace(",", "."))
-    m = re.search(r"Episodio precipitaci[oó]n[^0-9]{0,40}(\d+(?:[.,]\d+)?)\s*mm\s*\(\s*(\d+)\s*D", t)
+    # Les taules surten intercalades per files: «Total Hoy … Mes … Año … (*)»; a cada
+    # fila, la pluja és l'últim número (la darrera columna).
+    i = t.find("Total Hoy")
+    f = t.find("(*)", i) if i >= 0 else -1
+    if i >= 0 and f > i:
+        tros = t[i + 6:f]
+        m1 = re.search(r"\sMes\s", tros)
+        m2 = re.search(r"\sA[ñn]o\s", tros)
+        if m1 and m2 and m2.start() > m1.start():
+            for clau, fila in (("hoy", tros[:m1.start()]), ("mes", tros[m1.start():m2.start()]), ("any", tros[m2.start():])):
+                nums = re.findall(r"-?\d+(?:\.\d+)?", fila)
+                if nums:
+                    fitxa[clau] = float(nums[-1])
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s*mm\s*\(\s*(\d+)\s*D[ií]a", t)
     if m:
         fitxa["episodi"] = {"mm": float(m[1].replace(",", ".")), "dies": int(m[2])}
     return fitxa
