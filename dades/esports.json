@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-07T13:07:18+01:00",
+ "actualitzat": "2026-11-07T13:22:22+01:00",
  "equips": [
   {
    "id": "atletic_bisbalenc",
@@ -13,8 +13,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -728,7 +728,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-11-07T13:07:18+01:00",
+   "classificacioActualitzada": "2026-11-07T13:22:22+01:00",
    "full": [
     [
      "FCF-4109393",
@@ -745,7 +745,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109393",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109402",
@@ -762,7 +762,7 @@
      "CAMP DE FUTBOL MPAL. NOU DE BANYOLES",
      "FCF (via latdg-fcf)",
      "4109402",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109419",
@@ -779,7 +779,7 @@
      "CAMP DE FUTBOL MPAL.  LA MARGINERA",
      "FCF (via latdg-fcf)",
      "4109419",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109427",
@@ -796,7 +796,7 @@
      "CAMP D´ESPORTS MPAL. DE TORDERA",
      "FCF (via latdg-fcf)",
      "4109427",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4378515",
@@ -813,7 +813,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4378515",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109435",
@@ -830,7 +830,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109435",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109442",
@@ -847,7 +847,7 @@
      "CAMP DE FUTBOL MPAL. JOAN BUSÓ",
      "FCF (via latdg-fcf)",
      "4109442",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109450",
@@ -864,7 +864,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109450",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109457",
@@ -881,7 +881,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT JOAN LES FONTS",
      "FCF (via latdg-fcf)",
      "4109457",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109465",
@@ -898,7 +898,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109465",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109472",
@@ -915,7 +915,7 @@
      "CAMP DE FUTBOL MPAL. DE BEGUR",
      "FCF (via latdg-fcf)",
      "4109472",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109480",
@@ -932,7 +932,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109480",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109487",
@@ -949,7 +949,7 @@
      "CAMP DE FUTBOL MPAL. NOVA CIUTAT ESPORTIVA BLANES",
      "FCF (via latdg-fcf)",
      "4109487",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109495",
@@ -966,7 +966,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109495",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109502",
@@ -983,7 +983,7 @@
      "CAMP D´ESPORTS MPAL. MAS OLIVA",
      "FCF (via latdg-fcf)",
      "4109502",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109513",
@@ -1000,7 +1000,7 @@
      "CAMP DE FUTBOL ZEM CAN PONS",
      "FCF (via latdg-fcf)",
      "4109513",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109522",
@@ -1017,7 +1017,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109522",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109530",
@@ -1034,7 +1034,7 @@
      "CAMP DE FUTBOL ZEM DE VIDRERES",
      "FCF (via latdg-fcf)",
      "4109530",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109539",
@@ -1051,7 +1051,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109539",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109547",
@@ -1068,7 +1068,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109547",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109555",
@@ -1085,7 +1085,7 @@
      "CAMP DE FUTBOL MPAL. IÑAKI FERNÁNDEZ ORJALES, BÚFALO",
      "FCF (via latdg-fcf)",
      "4109555",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109562",
@@ -1102,7 +1102,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109562",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109570",
@@ -1119,7 +1119,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT GREGORI",
      "FCF (via latdg-fcf)",
      "4109570",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109577",
@@ -1136,7 +1136,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109577",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109585",
@@ -1153,7 +1153,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT JAUME DE LLIERCA",
      "FCF (via latdg-fcf)",
      "4109585",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109592",
@@ -1170,7 +1170,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109592",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109600",
@@ -1187,7 +1187,7 @@
      "CAMP DE FUTBOL MPAL. DE BESCANÓ",
      "FCF (via latdg-fcf)",
      "4109600",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109607",
@@ -1204,7 +1204,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109607",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109615",
@@ -1221,7 +1221,7 @@
      "CAMP DE FUTBOL MPAL. DE SANTA COLOMA DE FARNERS",
      "FCF (via latdg-fcf)",
      "4109615",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4109622",
@@ -1238,7 +1238,7 @@
      "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
      "FCF (via latdg-fcf)",
      "4109622",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
    "fullClassificacio": [
@@ -1272,7 +1272,7 @@
      16,
      "G-G-P-G-E",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1288,7 +1288,7 @@
      13,
      "G-G-E-P-G",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1304,7 +1304,7 @@
      12,
      "G-P-E-G-E",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1320,7 +1320,7 @@
      12,
      "G-P-G-G-G",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1336,7 +1336,7 @@
      10,
      "G-P-G-E-P",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1352,7 +1352,7 @@
      10,
      "G-E-E-E-P",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1368,7 +1368,7 @@
      10,
      "P-G-P-P-E",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1384,7 +1384,7 @@
      10,
      "P-G-E-P-P",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1400,7 +1400,7 @@
      9,
      "G-P-E-P-E",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1416,7 +1416,7 @@
      9,
      "E-P-E-E-G",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1432,7 +1432,7 @@
      9,
      "E-G-G-P-E",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1448,7 +1448,7 @@
      9,
      "P-G-P-G-G",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1464,7 +1464,7 @@
      8,
      "P-G-P-E-E",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1480,7 +1480,7 @@
      7,
      "G-P-E-G-P",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1496,7 +1496,7 @@
      7,
      "P-P-E-G-G",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a Catalana",
@@ -1512,7 +1512,7 @@
      1,
      "P-E-P-P-P",
      "FCF",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ]
   },
@@ -1528,8 +1528,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -2013,9 +2013,223 @@
      "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
     }
    ],
-   "classificacio": null,
+   "classificacio": {
+    "tipus": "futbol",
+    "files": [
+     {
+      "pos": 1,
+      "equip": "VILADAMAT C.F. A",
+      "pj": 7,
+      "pg": 6,
+      "pe": 0,
+      "pp": 1,
+      "pf": 17,
+      "pc": 5,
+      "punts": 18,
+      "ratxa": "G-G-G-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 1,
+      "equip": "LA PERA, U.E. A",
+      "pj": 6,
+      "pg": 6,
+      "pe": 0,
+      "pp": 0,
+      "pf": 17,
+      "pc": 5,
+      "punts": 18,
+      "ratxa": "G-G-G-G-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 3,
+      "equip": "L'ARMENTERA, C.F. A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 1,
+      "pp": 1,
+      "pf": 16,
+      "pc": 7,
+      "punts": 13,
+      "ratxa": "E-G-G-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 4,
+      "equip": "MONELLS, A.E. A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 0,
+      "pp": 2,
+      "pf": 18,
+      "pc": 11,
+      "punts": 12,
+      "ratxa": "P-G-G-P-G",
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000669226_aemonells_200x200.png"
+     },
+     {
+      "pos": 5,
+      "equip": "CAMALLERA, C.F. A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 0,
+      "pp": 2,
+      "pf": 14,
+      "pc": 10,
+      "punts": 12,
+      "ratxa": "G-P-G-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 6,
+      "equip": "SIURANA, U.E A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 0,
+      "pp": 2,
+      "pf": 9,
+      "pc": 6,
+      "punts": 12,
+      "ratxa": "G-G-P-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 7,
+      "equip": "VERGES, C.F. A",
+      "pj": 6,
+      "pg": 3,
+      "pe": 2,
+      "pp": 1,
+      "pf": 13,
+      "pc": 6,
+      "punts": 11,
+      "ratxa": "E-G-E-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 8,
+      "equip": "ALBONS CLUB FUTBOL A",
+      "pj": 6,
+      "pg": 3,
+      "pe": 0,
+      "pp": 3,
+      "pf": 12,
+      "pc": 10,
+      "punts": 9,
+      "ratxa": "P-P-G-G-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 9,
+      "equip": "VILAFANT FC A",
+      "pj": 6,
+      "pg": 3,
+      "pe": 0,
+      "pp": 3,
+      "pf": 11,
+      "pc": 12,
+      "punts": 9,
+      "ratxa": "G-P-G-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 10,
+      "equip": "MEDES L'ESTARTIT , F.C. A",
+      "pj": 7,
+      "pg": 3,
+      "pe": 0,
+      "pp": 4,
+      "pf": 10,
+      "pc": 14,
+      "punts": 9,
+      "ratxa": "P-G-G-P-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 11,
+      "equip": "JAFRE, U.D. A",
+      "pj": 7,
+      "pg": 2,
+      "pe": 2,
+      "pp": 3,
+      "pf": 18,
+      "pc": 16,
+      "punts": 8,
+      "ratxa": "E-P-P-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 12,
+      "equip": "BORRASSA, F.C. B",
+      "pj": 7,
+      "pg": 1,
+      "pe": 1,
+      "pp": 5,
+      "pf": 6,
+      "pc": 14,
+      "punts": 4,
+      "ratxa": "G-P-E-P-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 13,
+      "equip": "FORTIA, C.E. A",
+      "pj": 6,
+      "pg": 1,
+      "pe": 0,
+      "pp": 5,
+      "pf": 7,
+      "pc": 15,
+      "punts": 3,
+      "ratxa": "P-P-P-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 14,
+      "equip": "FLAÇA, C.D. A",
+      "pj": 7,
+      "pg": 1,
+      "pe": 0,
+      "pp": 6,
+      "pf": 11,
+      "pc": 25,
+      "punts": 3,
+      "ratxa": "P-P-P-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 15,
+      "equip": "ESPORTIU VENTALLÓ, CLUB  A",
+      "pj": 7,
+      "pg": 0,
+      "pe": 0,
+      "pp": 7,
+      "pf": 3,
+      "pc": 26,
+      "punts": 0,
+      "ratxa": "P-P-P-P-P",
+      "propi": false,
+      "escut": ""
+     }
+    ]
+   },
    "classificacioManual": false,
-   "classificacioActualitzada": null,
+   "classificacioActualitzada": "2026-11-07T13:22:22+01:00",
    "full": [
     [
      "FCF-4139781",
@@ -2032,7 +2246,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139781",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139910",
@@ -2049,7 +2263,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139910",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139807",
@@ -2066,7 +2280,7 @@
      "CAMP D´ESPORTS MPAL. DE FORTIÀ",
      "FCF (via latdg-fcf)",
      "4139807",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139815",
@@ -2083,7 +2297,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139815",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139824",
@@ -2100,7 +2314,7 @@
      "CAMP DE FUTBOL MPAL. DE L´ESTARTIT",
      "FCF (via latdg-fcf)",
      "4139824",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139832",
@@ -2117,7 +2331,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139832",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4144232",
@@ -2134,7 +2348,7 @@
      "CAMP DE FUTBOL MPAL. DE BORRASSÀ",
      "FCF (via latdg-fcf)",
      "4144232",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139849",
@@ -2151,7 +2365,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139849",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139858",
@@ -2168,7 +2382,7 @@
      "CAMP DE FUTBOL MPAL. DE CAMALLERA",
      "FCF (via latdg-fcf)",
      "4139858",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139866",
@@ -2185,7 +2399,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139866",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139875",
@@ -2202,7 +2416,7 @@
      "CAMP DE FUTBOL MPAL. DE VERGES",
      "FCF (via latdg-fcf)",
      "4139875",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139883",
@@ -2219,7 +2433,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139883",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139892",
@@ -2236,7 +2450,7 @@
      "CAMP DE FUTBOL MPAL. DE VILAFANT",
      "FCF (via latdg-fcf)",
      "4139892",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139900",
@@ -2253,7 +2467,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139900",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139901",
@@ -2270,7 +2484,7 @@
      "CAMP DE FUTBOL MPAL. D'ALBONS",
      "FCF (via latdg-fcf)",
      "4139901",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139790",
@@ -2287,7 +2501,7 @@
      "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
      "FCF (via latdg-fcf)",
      "4139790",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139927",
@@ -2304,7 +2518,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139927",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139935",
@@ -2321,7 +2535,7 @@
      "CAMP DE FUTBOL MPAL. DEL PADRÓ",
      "FCF (via latdg-fcf)",
      "4139935",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139944",
@@ -2338,7 +2552,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139944",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139952",
@@ -2355,7 +2569,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139952",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4144255",
@@ -2372,7 +2586,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4144255",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139969",
@@ -2389,7 +2603,7 @@
      "CAMP DE FUTBOL MPAL. DE VILADAMAT",
      "FCF (via latdg-fcf)",
      "4139969",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139978",
@@ -2406,7 +2620,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139978",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139986",
@@ -2423,7 +2637,7 @@
      "CAMP DE FUTBOL MPAL. DE VENTALLÓ",
      "FCF (via latdg-fcf)",
      "4139986",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139995",
@@ -2440,7 +2654,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139995",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140003",
@@ -2457,7 +2671,7 @@
      "CAMP DE FUTBOL MPAL. D´ARMENTERA",
      "FCF (via latdg-fcf)",
      "4140003",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140012",
@@ -2474,7 +2688,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140012",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140020",
@@ -2491,7 +2705,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4140020",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139798",
@@ -2508,7 +2722,7 @@
      "",
      "FCF (via latdg-fcf)",
      "4139798",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139918",
@@ -2525,10 +2739,267 @@
      "",
      "FCF (via latdg-fcf)",
      "4139918",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
-   "fullClassificacio": []
+   "fullClassificacio": [
+    [
+     "Competició",
+     "Grup",
+     "Posició",
+     "Equip",
+     "PJ",
+     "PG",
+     "PE",
+     "PP",
+     "PF",
+     "PC",
+     "Punts",
+     "Ràtio / Racha",
+     "Font",
+     "Última actualització"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     1,
+     "VILADAMAT C.F. A",
+     7,
+     6,
+     0,
+     1,
+     17,
+     5,
+     18,
+     "G-G-G-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     1,
+     "LA PERA, U.E. A",
+     6,
+     6,
+     0,
+     0,
+     17,
+     5,
+     18,
+     "G-G-G-G-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     3,
+     "L'ARMENTERA, C.F. A",
+     6,
+     4,
+     1,
+     1,
+     16,
+     7,
+     13,
+     "E-G-G-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     4,
+     "MONELLS, A.E. A",
+     6,
+     4,
+     0,
+     2,
+     18,
+     11,
+     12,
+     "P-G-G-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     5,
+     "CAMALLERA, C.F. A",
+     6,
+     4,
+     0,
+     2,
+     14,
+     10,
+     12,
+     "G-P-G-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     6,
+     "SIURANA, U.E A",
+     6,
+     4,
+     0,
+     2,
+     9,
+     6,
+     12,
+     "G-G-P-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     7,
+     "VERGES, C.F. A",
+     6,
+     3,
+     2,
+     1,
+     13,
+     6,
+     11,
+     "E-G-E-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     8,
+     "ALBONS CLUB FUTBOL A",
+     6,
+     3,
+     0,
+     3,
+     12,
+     10,
+     9,
+     "P-P-G-G-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     9,
+     "VILAFANT FC A",
+     6,
+     3,
+     0,
+     3,
+     11,
+     12,
+     9,
+     "G-P-G-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     10,
+     "MEDES L'ESTARTIT , F.C. A",
+     7,
+     3,
+     0,
+     4,
+     10,
+     14,
+     9,
+     "P-G-G-P-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     11,
+     "JAFRE, U.D. A",
+     7,
+     2,
+     2,
+     3,
+     18,
+     16,
+     8,
+     "E-P-P-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     12,
+     "BORRASSA, F.C. B",
+     7,
+     1,
+     1,
+     5,
+     6,
+     14,
+     4,
+     "G-P-E-P-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     13,
+     "FORTIA, C.E. A",
+     6,
+     1,
+     0,
+     5,
+     7,
+     15,
+     3,
+     "P-P-P-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     14,
+     "FLAÇA, C.D. A",
+     7,
+     1,
+     0,
+     6,
+     11,
+     25,
+     3,
+     "P-P-P-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     15,
+     "ESPORTIU VENTALLÓ, CLUB  A",
+     7,
+     0,
+     0,
+     7,
+     3,
+     26,
+     0,
+     "P-P-P-P-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ]
+   ]
   },
   {
    "id": "la_pera",
@@ -2542,8 +3013,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -3027,9 +3498,223 @@
      "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     }
    ],
-   "classificacio": null,
+   "classificacio": {
+    "tipus": "futbol",
+    "files": [
+     {
+      "pos": 1,
+      "equip": "VILADAMAT C.F. A",
+      "pj": 7,
+      "pg": 6,
+      "pe": 0,
+      "pp": 1,
+      "pf": 17,
+      "pc": 5,
+      "punts": 18,
+      "ratxa": "G-G-G-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 1,
+      "equip": "LA PERA, U.E. A",
+      "pj": 6,
+      "pg": 6,
+      "pe": 0,
+      "pp": 0,
+      "pf": 17,
+      "pc": 5,
+      "punts": 18,
+      "ratxa": "G-G-G-G-G",
+      "propi": true,
+      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
+     },
+     {
+      "pos": 3,
+      "equip": "L'ARMENTERA, C.F. A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 1,
+      "pp": 1,
+      "pf": 16,
+      "pc": 7,
+      "punts": 13,
+      "ratxa": "E-G-G-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 4,
+      "equip": "MONELLS, A.E. A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 0,
+      "pp": 2,
+      "pf": 18,
+      "pc": 11,
+      "punts": 12,
+      "ratxa": "P-G-G-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 5,
+      "equip": "CAMALLERA, C.F. A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 0,
+      "pp": 2,
+      "pf": 14,
+      "pc": 10,
+      "punts": 12,
+      "ratxa": "G-P-G-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 6,
+      "equip": "SIURANA, U.E A",
+      "pj": 6,
+      "pg": 4,
+      "pe": 0,
+      "pp": 2,
+      "pf": 9,
+      "pc": 6,
+      "punts": 12,
+      "ratxa": "G-G-P-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 7,
+      "equip": "VERGES, C.F. A",
+      "pj": 6,
+      "pg": 3,
+      "pe": 2,
+      "pp": 1,
+      "pf": 13,
+      "pc": 6,
+      "punts": 11,
+      "ratxa": "E-G-E-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 8,
+      "equip": "ALBONS CLUB FUTBOL A",
+      "pj": 6,
+      "pg": 3,
+      "pe": 0,
+      "pp": 3,
+      "pf": 12,
+      "pc": 10,
+      "punts": 9,
+      "ratxa": "P-P-G-G-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 9,
+      "equip": "VILAFANT FC A",
+      "pj": 6,
+      "pg": 3,
+      "pe": 0,
+      "pp": 3,
+      "pf": 11,
+      "pc": 12,
+      "punts": 9,
+      "ratxa": "G-P-G-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 10,
+      "equip": "MEDES L'ESTARTIT , F.C. A",
+      "pj": 7,
+      "pg": 3,
+      "pe": 0,
+      "pp": 4,
+      "pf": 10,
+      "pc": 14,
+      "punts": 9,
+      "ratxa": "P-G-G-P-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 11,
+      "equip": "JAFRE, U.D. A",
+      "pj": 7,
+      "pg": 2,
+      "pe": 2,
+      "pp": 3,
+      "pf": 18,
+      "pc": 16,
+      "punts": 8,
+      "ratxa": "E-P-P-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 12,
+      "equip": "BORRASSA, F.C. B",
+      "pj": 7,
+      "pg": 1,
+      "pe": 1,
+      "pp": 5,
+      "pf": 6,
+      "pc": 14,
+      "punts": 4,
+      "ratxa": "G-P-E-P-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 13,
+      "equip": "FORTIA, C.E. A",
+      "pj": 6,
+      "pg": 1,
+      "pe": 0,
+      "pp": 5,
+      "pf": 7,
+      "pc": 15,
+      "punts": 3,
+      "ratxa": "P-P-P-P-G",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 14,
+      "equip": "FLAÇA, C.D. A",
+      "pj": 7,
+      "pg": 1,
+      "pe": 0,
+      "pp": 6,
+      "pf": 11,
+      "pc": 25,
+      "punts": 3,
+      "ratxa": "P-P-P-G-P",
+      "propi": false,
+      "escut": ""
+     },
+     {
+      "pos": 15,
+      "equip": "ESPORTIU VENTALLÓ, CLUB  A",
+      "pj": 7,
+      "pg": 0,
+      "pe": 0,
+      "pp": 7,
+      "pf": 3,
+      "pc": 26,
+      "punts": 0,
+      "ratxa": "P-P-P-P-P",
+      "propi": false,
+      "escut": ""
+     }
+    ]
+   },
    "classificacioManual": false,
-   "classificacioActualitzada": null,
+   "classificacioActualitzada": "2026-11-07T13:22:22+01:00",
    "full": [
     [
      "FCF-4144244",
@@ -3046,7 +3731,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4144244",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139789",
@@ -3063,7 +3748,7 @@
      "CAMP DE FUTBOL MPAL. SPOTIFY ALBONS",
      "FCF (via latdg-fcf)",
      "4139789",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139925",
@@ -3080,7 +3765,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139925",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139820",
@@ -3097,7 +3782,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139820",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139836",
@@ -3114,7 +3799,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139836",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4377451",
@@ -3131,7 +3816,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4377451",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139837",
@@ -3148,7 +3833,7 @@
      "CAMP D´ESPORTS MPAL. DE FORTIÀ",
      "FCF (via latdg-fcf)",
      "4139837",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139852",
@@ -3165,7 +3850,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139852",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139853",
@@ -3182,7 +3867,7 @@
      "CAMP DE FUTBOL MPAL. DEL PADRÓ",
      "FCF (via latdg-fcf)",
      "4139853",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139868",
@@ -3199,7 +3884,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139868",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139869",
@@ -3216,7 +3901,7 @@
      "CAMP DE FUTBOL MPAL. DE L´ESTARTIT",
      "FCF (via latdg-fcf)",
      "4139869",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139884",
@@ -3233,7 +3918,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139884",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139885",
@@ -3250,7 +3935,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139885",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139900",
@@ -3267,7 +3952,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4139900",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4144236",
@@ -3284,7 +3969,7 @@
      "CAMP DE FUTBOL MPAL. DE BORRASSÀ",
      "FCF (via latdg-fcf)",
      "4144236",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139909",
@@ -3301,7 +3986,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139909",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139924",
@@ -3318,7 +4003,7 @@
      "CAMP DE FUTBOL MPAL. DE VILADAMAT",
      "FCF (via latdg-fcf)",
      "4139924",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139805",
@@ -3335,7 +4020,7 @@
      "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
      "FCF (via latdg-fcf)",
      "4139805",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139940",
@@ -3352,7 +4037,7 @@
      "CAMP DE FUTBOL MPAL. DE CAMALLERA",
      "FCF (via latdg-fcf)",
      "4139940",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139956",
@@ -3369,7 +4054,7 @@
      "CAMP DE FUTBOL MPAL. DE VENTALLÓ",
      "FCF (via latdg-fcf)",
      "4139956",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139957",
@@ -3386,7 +4071,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139957",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139972",
@@ -3403,7 +4088,7 @@
      "CAMP DE FUTBOL MPAL. DE VERGES",
      "FCF (via latdg-fcf)",
      "4139972",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139973",
@@ -3420,7 +4105,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139973",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139988",
@@ -3437,7 +4122,7 @@
      "CAMP DE FUTBOL MPAL. D´ARMENTERA",
      "FCF (via latdg-fcf)",
      "4139988",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139989",
@@ -3454,7 +4139,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4139989",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140004",
@@ -3471,7 +4156,7 @@
      "CAMP DE FUTBOL MPAL. DE VILAFANT",
      "FCF (via latdg-fcf)",
      "4140004",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140005",
@@ -3488,7 +4173,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4140005",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140020",
@@ -3505,7 +4190,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4140020",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139821",
@@ -3522,7 +4207,7 @@
      "",
      "FCF (via latdg-fcf)",
      "4139821",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4139941",
@@ -3539,10 +4224,267 @@
      "",
      "FCF (via latdg-fcf)",
      "4139941",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
-   "fullClassificacio": []
+   "fullClassificacio": [
+    [
+     "Competició",
+     "Grup",
+     "Posició",
+     "Equip",
+     "PJ",
+     "PG",
+     "PE",
+     "PP",
+     "PF",
+     "PC",
+     "Punts",
+     "Ràtio / Racha",
+     "Font",
+     "Última actualització"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     1,
+     "VILADAMAT C.F. A",
+     7,
+     6,
+     0,
+     1,
+     17,
+     5,
+     18,
+     "G-G-G-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     1,
+     "LA PERA, U.E. A",
+     6,
+     6,
+     0,
+     0,
+     17,
+     5,
+     18,
+     "G-G-G-G-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     3,
+     "L'ARMENTERA, C.F. A",
+     6,
+     4,
+     1,
+     1,
+     16,
+     7,
+     13,
+     "E-G-G-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     4,
+     "MONELLS, A.E. A",
+     6,
+     4,
+     0,
+     2,
+     18,
+     11,
+     12,
+     "P-G-G-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     5,
+     "CAMALLERA, C.F. A",
+     6,
+     4,
+     0,
+     2,
+     14,
+     10,
+     12,
+     "G-P-G-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     6,
+     "SIURANA, U.E A",
+     6,
+     4,
+     0,
+     2,
+     9,
+     6,
+     12,
+     "G-G-P-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     7,
+     "VERGES, C.F. A",
+     6,
+     3,
+     2,
+     1,
+     13,
+     6,
+     11,
+     "E-G-E-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     8,
+     "ALBONS CLUB FUTBOL A",
+     6,
+     3,
+     0,
+     3,
+     12,
+     10,
+     9,
+     "P-P-G-G-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     9,
+     "VILAFANT FC A",
+     6,
+     3,
+     0,
+     3,
+     11,
+     12,
+     9,
+     "G-P-G-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     10,
+     "MEDES L'ESTARTIT , F.C. A",
+     7,
+     3,
+     0,
+     4,
+     10,
+     14,
+     9,
+     "P-G-G-P-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     11,
+     "JAFRE, U.D. A",
+     7,
+     2,
+     2,
+     3,
+     18,
+     16,
+     8,
+     "E-P-P-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     12,
+     "BORRASSA, F.C. B",
+     7,
+     1,
+     1,
+     5,
+     6,
+     14,
+     4,
+     "G-P-E-P-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     13,
+     "FORTIA, C.E. A",
+     6,
+     1,
+     0,
+     5,
+     7,
+     15,
+     3,
+     "P-P-P-P-G",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     14,
+     "FLAÇA, C.D. A",
+     7,
+     1,
+     0,
+     6,
+     11,
+     25,
+     3,
+     "P-P-P-G-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ],
+    [
+     "4a Catalana",
+     "Grup 2",
+     15,
+     "ESPORTIU VENTALLÓ, CLUB  A",
+     7,
+     0,
+     0,
+     7,
+     3,
+     26,
+     0,
+     "P-P-P-P-P",
+     "FCF",
+     "07/11/2026 13:22"
+    ]
+   ]
   },
   {
    "id": "monells_b",
@@ -3556,8 +4498,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -3996,7 +4938,7 @@
      "CAMP DE FUTBOL MPAL. DE VILOBÍ D´ONYAR",
      "FCF (via latdg-fcf)",
      "4140449",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140456",
@@ -4013,7 +4955,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140456",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140462",
@@ -4030,7 +4972,7 @@
      "CAMP D´ESPORTS MPAL. DE LLAGOSTERA",
      "FCF (via latdg-fcf)",
      "4140462",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140469",
@@ -4047,7 +4989,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140469",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140475",
@@ -4064,7 +5006,7 @@
      "CAMP DE FUTBOL MPAL. DE RIUDELLOTS DE LA SELVA",
      "FCF (via latdg-fcf)",
      "4140475",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140482",
@@ -4081,7 +5023,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140482",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140488",
@@ -4098,7 +5040,7 @@
      "CAMP DE FUTBOL MPAL. DE CASTELL D´ARO",
      "FCF (via latdg-fcf)",
      "4140488",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140495",
@@ -4115,7 +5057,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140495",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140501",
@@ -4132,7 +5074,7 @@
      "CAMP DE FUTBOL MPAL. DE SANTA CRISTINA D´ARO",
      "FCF (via latdg-fcf)",
      "4140501",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140508",
@@ -4149,7 +5091,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140508",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140514",
@@ -4166,7 +5108,7 @@
      "CAMP DE FUTBOL MPAL. EL GREGAL",
      "FCF (via latdg-fcf)",
      "4140514",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140521",
@@ -4183,7 +5125,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140521",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140527",
@@ -4200,7 +5142,7 @@
      "CAMP DE FUTBOL MPAL. EL GREGAL",
      "FCF (via latdg-fcf)",
      "4140527",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140540",
@@ -4217,7 +5159,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140540",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140547",
@@ -4234,7 +5176,7 @@
      "CAMP DE FUTBOL MPAL. TORRES DE PALAU",
      "FCF (via latdg-fcf)",
      "4140547",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140553",
@@ -4251,7 +5193,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140553",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140560",
@@ -4268,7 +5210,7 @@
      "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
      "FCF (via latdg-fcf)",
      "4140560",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140566",
@@ -4285,7 +5227,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140566",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140573",
@@ -4302,7 +5244,7 @@
      "CAMP DE FUTBOL MPAL. VILA-ROJA",
      "FCF (via latdg-fcf)",
      "4140573",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140579",
@@ -4319,7 +5261,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140579",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140586",
@@ -4336,7 +5278,7 @@
      "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
      "FCF (via latdg-fcf)",
      "4140586",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140592",
@@ -4353,7 +5295,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140592",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140599",
@@ -4370,7 +5312,7 @@
      "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
      "FCF (via latdg-fcf)",
      "4140599",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140605",
@@ -4387,7 +5329,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140605",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140612",
@@ -4404,7 +5346,7 @@
      "CAMP DE FUTBOL CLUB CENTRE ESPORTIU VEDRUNA",
      "FCF (via latdg-fcf)",
      "4140612",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4140618",
@@ -4421,7 +5363,7 @@
      "CAMP DE FUTBOL MPAL. DE MONELLS",
      "FCF (via latdg-fcf)",
      "4140618",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
    "fullClassificacio": []
@@ -4438,8 +5380,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -4923,237 +5865,9 @@
      "escutPropi": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
     }
    ],
-   "classificacio": {
-    "tipus": "futbol",
-    "files": [
-     {
-      "pos": 1,
-      "equip": "PORQUERES, U.E. A",
-      "pj": 5,
-      "pg": 5,
-      "pe": 0,
-      "pp": 0,
-      "pf": 40,
-      "pc": 2,
-      "punts": 15,
-      "ratxa": "G-G-G-G-G",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 2,
-      "equip": "CABANES, U.E. A",
-      "pj": 5,
-      "pg": 5,
-      "pe": 0,
-      "pp": 0,
-      "pf": 30,
-      "pc": 0,
-      "punts": 15,
-      "ratxa": "G-G-G-G-G",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 3,
-      "equip": "PONTENC CLUB ESP. B",
-      "pj": 5,
-      "pg": 5,
-      "pe": 0,
-      "pp": 0,
-      "pf": 16,
-      "pc": 3,
-      "punts": 15,
-      "ratxa": "G-G-G-G-G",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 4,
-      "equip": "ROSES CITY FUTBOL CLUB  A",
-      "pj": 5,
-      "pg": 4,
-      "pe": 0,
-      "pp": 1,
-      "pf": 31,
-      "pc": 11,
-      "punts": 12,
-      "ratxa": "G-P-G-G-G",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 5,
-      "equip": "SILS, C.F. A",
-      "pj": 5,
-      "pg": 3,
-      "pe": 0,
-      "pp": 2,
-      "pf": 10,
-      "pc": 9,
-      "punts": 9,
-      "ratxa": "G-G-P-P-G",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 6,
-      "equip": "CORNELLA TERRI, A.E. A",
-      "pj": 4,
-      "pg": 2,
-      "pe": 2,
-      "pp": 0,
-      "pf": 13,
-      "pc": 4,
-      "punts": 8,
-      "ratxa": "G-E-G-E",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 7,
-      "equip": "RIPOLL ATLETIC CLUB FUTBOL A",
-      "pj": 5,
-      "pg": 2,
-      "pe": 0,
-      "pp": 3,
-      "pf": 24,
-      "pc": 11,
-      "punts": 6,
-      "ratxa": "P-G-P-P-G",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 8,
-      "equip": "PENYA ESPORTIVA MONTAGUT A",
-      "pj": 5,
-      "pg": 2,
-      "pe": 0,
-      "pp": 3,
-      "pf": 10,
-      "pc": 18,
-      "punts": 6,
-      "ratxa": "P-P-G-G-P",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 9,
-      "equip": "BESCANO, C.E. A",
-      "pj": 4,
-      "pg": 1,
-      "pe": 2,
-      "pp": 1,
-      "pf": 9,
-      "pc": 7,
-      "punts": 5,
-      "ratxa": "P-G-E-E",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 10,
-      "equip": "CAL AGUIDO, A.D. A",
-      "pj": 4,
-      "pg": 1,
-      "pe": 1,
-      "pp": 2,
-      "pf": 7,
-      "pc": 12,
-      "punts": 4,
-      "ratxa": "P-G-E-P",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 11,
-      "equip": "LA PERA, U.E. A",
-      "pj": 4,
-      "pg": 1,
-      "pe": 0,
-      "pp": 3,
-      "pf": 9,
-      "pc": 9,
-      "punts": 3,
-      "ratxa": "G-P-P-P",
-      "propi": true,
-      "escut": "https://files.fcf.cat/escudos/clubes/escudos/00100_0000205346_imgres.png"
-     },
-     {
-      "pos": 12,
-      "equip": "L'ESCALA, F.C. A",
-      "pj": 3,
-      "pg": 0,
-      "pe": 1,
-      "pp": 2,
-      "pf": 3,
-      "pc": 11,
-      "punts": 1,
-      "ratxa": "E-P-P",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 13,
-      "equip": "VALL D'EN BAS CLUB FUTBOL A",
-      "pj": 4,
-      "pg": 0,
-      "pe": 0,
-      "pp": 4,
-      "pf": 3,
-      "pc": 21,
-      "punts": 0,
-      "ratxa": "P-P-P-P",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 14,
-      "equip": "REMENCES , ASSOCIACIÓ  ESPORTIVA UNIÓ  A",
-      "pj": 4,
-      "pg": 0,
-      "pe": 0,
-      "pp": 4,
-      "pf": 1,
-      "pc": 25,
-      "punts": 0,
-      "ratxa": "P-P-P-P",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 15,
-      "equip": "CASSA, U.D. B",
-      "pj": 4,
-      "pg": 0,
-      "pe": 0,
-      "pp": 4,
-      "pf": 1,
-      "pc": 32,
-      "punts": 0,
-      "ratxa": "P-P-P-P",
-      "propi": false,
-      "escut": ""
-     },
-     {
-      "pos": 16,
-      "equip": "SANT FELIU DE GUIXOLS C.F. A",
-      "pj": 2,
-      "pg": 0,
-      "pe": 0,
-      "pp": 2,
-      "pf": 0,
-      "pc": 32,
-      "punts": 0,
-      "ratxa": "P-P",
-      "propi": false,
-      "escut": ""
-     }
-    ]
-   },
+   "classificacio": null,
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-11-07T13:07:18+01:00",
+   "classificacioActualitzada": null,
    "full": [
     [
      "FCF-4245215",
@@ -5170,7 +5884,7 @@
      "CAMP D´ESPORTS MPAL. DE MONTAGUT",
      "FCF (via latdg-fcf)",
      "4245215",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245231",
@@ -5187,7 +5901,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245231",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245232",
@@ -5204,7 +5918,7 @@
      "CAMP DE FUTBOL MPAL. LA VINYASSA",
      "FCF (via latdg-fcf)",
      "4245232",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245247",
@@ -5221,7 +5935,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245247",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245248",
@@ -5238,7 +5952,7 @@
      "CAMP DE FUTBOL MPAL. DE SANT ESTEVE D´EN BAS",
      "FCF (via latdg-fcf)",
      "4245248",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4378626",
@@ -5255,7 +5969,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4378626",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245263",
@@ -5272,7 +5986,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245263",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245264",
@@ -5289,7 +6003,7 @@
      "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
      "FCF (via latdg-fcf)",
      "4245264",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245279",
@@ -5306,7 +6020,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245279",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245280",
@@ -5323,7 +6037,7 @@
      "CAMP DE FUTBOL MPAL. DE L´ESCALA",
      "FCF (via latdg-fcf)",
      "4245280",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245295",
@@ -5340,7 +6054,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245295",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245416",
@@ -5357,7 +6071,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245416",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245311",
@@ -5374,7 +6088,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245311",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245312",
@@ -5391,7 +6105,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245312",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245327",
@@ -5408,7 +6122,7 @@
      "CAMP DE FUTBOL MPAL. DE CABANES",
      "FCF (via latdg-fcf)",
      "4245327",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245335",
@@ -5425,7 +6139,7 @@
      "CAMP DE FUTBOL MPAL. DE BESCANÓ",
      "FCF (via latdg-fcf)",
      "4245335",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245336",
@@ -5442,7 +6156,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245336",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245351",
@@ -5459,7 +6173,7 @@
      "CAMP DE FUTBOL MPAL. DE PONT MAJOR",
      "FCF (via latdg-fcf)",
      "4245351",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245352",
@@ -5476,7 +6190,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245352",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245367",
@@ -5493,7 +6207,7 @@
      "CAMP DE FUTBOL MPAL. DE LES MALLORQUINES",
      "FCF (via latdg-fcf)",
      "4245367",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245368",
@@ -5510,7 +6224,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245368",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245383",
@@ -5527,7 +6241,7 @@
      "CAMP DE FUTBOL MPAL. CA LA GUIDÓ-PEDRO ALIA DORADO",
      "FCF (via latdg-fcf)",
      "4245383",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245384",
@@ -5544,7 +6258,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245384",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245399",
@@ -5561,7 +6275,7 @@
      "CAMP DE FUTBOL MPAL. DE CORNELLÀ DE TERRI",
      "FCF (via latdg-fcf)",
      "4245399",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245400",
@@ -5578,7 +6292,7 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245400",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245415",
@@ -5595,7 +6309,7 @@
      "CAMP DE FUTBOL MPAL. DE MIÀNIGUES",
      "FCF (via latdg-fcf)",
      "4245415",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245296",
@@ -5612,7 +6326,7 @@
      "CAMP DE FUTBOL ZEM DE RIPOLL (1)",
      "FCF (via latdg-fcf)",
      "4245296",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245431",
@@ -5629,7 +6343,7 @@
      "CAMP DE FUTBOL MPAL. JOSEP SUNYER I ARXER",
      "FCF (via latdg-fcf)",
      "4245431",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245432",
@@ -5646,7 +6360,7 @@
      "CAMP DE FUTBOL MPAL. D´AMER",
      "FCF (via latdg-fcf)",
      "4245432",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FCF-4245447",
@@ -5663,283 +6377,10 @@
      "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "FCF (via latdg-fcf)",
      "4245447",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
-   "fullClassificacio": [
-    [
-     "Competició",
-     "Grup",
-     "Posició",
-     "Equip",
-     "PJ",
-     "PG",
-     "PE",
-     "PP",
-     "PF",
-     "PC",
-     "Punts",
-     "Ràtio / Racha",
-     "Font",
-     "Última actualització"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     1,
-     "PORQUERES, U.E. A",
-     5,
-     5,
-     0,
-     0,
-     40,
-     2,
-     15,
-     "G-G-G-G-G",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     2,
-     "CABANES, U.E. A",
-     5,
-     5,
-     0,
-     0,
-     30,
-     0,
-     15,
-     "G-G-G-G-G",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     3,
-     "PONTENC CLUB ESP. B",
-     5,
-     5,
-     0,
-     0,
-     16,
-     3,
-     15,
-     "G-G-G-G-G",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     4,
-     "ROSES CITY FUTBOL CLUB  A",
-     5,
-     4,
-     0,
-     1,
-     31,
-     11,
-     12,
-     "G-P-G-G-G",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     5,
-     "SILS, C.F. A",
-     5,
-     3,
-     0,
-     2,
-     10,
-     9,
-     9,
-     "G-G-P-P-G",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     6,
-     "CORNELLA TERRI, A.E. A",
-     4,
-     2,
-     2,
-     0,
-     13,
-     4,
-     8,
-     "G-E-G-E",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     7,
-     "RIPOLL ATLETIC CLUB FUTBOL A",
-     5,
-     2,
-     0,
-     3,
-     24,
-     11,
-     6,
-     "P-G-P-P-G",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     8,
-     "PENYA ESPORTIVA MONTAGUT A",
-     5,
-     2,
-     0,
-     3,
-     10,
-     18,
-     6,
-     "P-P-G-G-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     9,
-     "BESCANO, C.E. A",
-     4,
-     1,
-     2,
-     1,
-     9,
-     7,
-     5,
-     "P-G-E-E",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     10,
-     "CAL AGUIDO, A.D. A",
-     4,
-     1,
-     1,
-     2,
-     7,
-     12,
-     4,
-     "P-G-E-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     11,
-     "LA PERA, U.E. A",
-     4,
-     1,
-     0,
-     3,
-     9,
-     9,
-     3,
-     "G-P-P-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     12,
-     "L'ESCALA, F.C. A",
-     3,
-     0,
-     1,
-     2,
-     3,
-     11,
-     1,
-     "E-P-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     13,
-     "VALL D'EN BAS CLUB FUTBOL A",
-     4,
-     0,
-     0,
-     4,
-     3,
-     21,
-     0,
-     "P-P-P-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     14,
-     "REMENCES , ASSOCIACIÓ  ESPORTIVA UNIÓ  A",
-     4,
-     0,
-     0,
-     4,
-     1,
-     25,
-     0,
-     "P-P-P-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     15,
-     "CASSA, U.D. B",
-     4,
-     0,
-     0,
-     4,
-     1,
-     32,
-     0,
-     "P-P-P-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ],
-    [
-     "2a Divisió femenina",
-     "",
-     16,
-     "SANT FELIU DE GUIXOLS C.F. A",
-     2,
-     0,
-     0,
-     2,
-     0,
-     32,
-     0,
-     "P-P",
-     "FCF",
-     "07/11/2026 13:07"
-    ]
-   ]
+   "fullClassificacio": []
   },
   {
    "id": "sol_girones",
@@ -5953,8 +6394,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -6661,7 +7102,7 @@
     ]
    },
    "classificacioManual": false,
-   "classificacioActualitzada": "2026-11-07T13:07:18+01:00",
+   "classificacioActualitzada": "2026-11-07T13:22:22+01:00",
    "full": [
     [
      "MAN-ztk865nkbx",
@@ -6678,7 +7119,7 @@
      "Girona-Fontajau",
      "A mà",
      "ztk865nkbx",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-esco0uuuhv",
@@ -6695,7 +7136,7 @@
      "Sant Feliu de Llobregat",
      "A mà",
      "esco0uuuhv",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-truhyeq6xe",
@@ -6712,7 +7153,7 @@
      "Mollet del Vallès",
      "A mà",
      "truhyeq6xe",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-y44ua022n2",
@@ -6729,7 +7170,7 @@
      "El Prat de Llobregat",
      "A mà",
      "y44ua022n2",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536303",
@@ -6746,7 +7187,7 @@
      "Pabellón Siglo XXI (Saragossa)",
      "FEB (feb.es)",
      "2536303",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536304",
@@ -6763,7 +7204,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536304",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536317",
@@ -6780,7 +7221,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536317",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-tv7wa6uqbx",
@@ -6797,7 +7238,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "A mà",
      "tv7wa6uqbx",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536319",
@@ -6814,7 +7255,7 @@
      "Polideportivo Municipal de Azpeitia",
      "FEB (feb.es)",
      "2536319",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536330",
@@ -6831,7 +7272,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536330",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536334",
@@ -6848,7 +7289,7 @@
      "Pavelló Joan Busquets - CEM Estruch (el Prat de Llobregat)",
      "FEB (feb.es)",
      "2536334",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536343",
@@ -6865,7 +7306,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536343",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536349",
@@ -6882,7 +7323,7 @@
      "Pabellón Municipal de Benicarló",
      "FEB (feb.es)",
      "2536349",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536356",
@@ -6899,7 +7340,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536356",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536364",
@@ -6916,7 +7357,7 @@
      "Palacio de los Deportes de La Rioja (Logronyo)",
      "FEB (feb.es)",
      "2536364",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536369",
@@ -6933,7 +7374,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536369",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536379",
@@ -6950,7 +7391,7 @@
      "Palacio de los Deportes de Cartagena",
      "FEB (feb.es)",
      "2536379",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536382",
@@ -6967,7 +7408,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536382",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536394",
@@ -6984,7 +7425,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536394",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536395",
@@ -7001,7 +7442,7 @@
      "Polideportivo Siroko Sa Pedrera (Sant Antoni de Portmany)",
      "FEB (feb.es)",
      "2536395",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536408",
@@ -7018,7 +7459,7 @@
      "Pabellón Municipal Ciutat Castelló (Castelló de la Plana)",
      "FEB (feb.es)",
      "2536408",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536410",
@@ -7035,7 +7476,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536410",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536421",
@@ -7052,7 +7493,7 @@
      "Polideportivo Lobete (Logronyo)",
      "FEB (feb.es)",
      "2536421",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536425",
@@ -7069,7 +7510,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536425",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536434",
@@ -7086,7 +7527,7 @@
      "Palacio Municipal de los Deportes (Osca)",
      "FEB (feb.es)",
      "2536434",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536440",
@@ -7103,7 +7544,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536440",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536447",
@@ -7120,7 +7561,7 @@
      "Pabellón Pla del Arc (Llíria)",
      "FEB (feb.es)",
      "2536447",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536455",
@@ -7137,7 +7578,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536455",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536460",
@@ -7154,7 +7595,7 @@
      "Pabellón Serrerías (Molina de Segura)",
      "FEB (feb.es)",
      "2536460",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536470",
@@ -7171,7 +7612,7 @@
      "Pavelló Municipal d'Esports (la Bisbal d'Empordà)",
      "FEB (feb.es)",
      "2536470",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "FEB-2536473",
@@ -7188,7 +7629,7 @@
      "Pabellón Municipal de Gandía",
      "FEB (feb.es)",
      "2536473",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
    "fullClassificacio": [
@@ -7222,7 +7663,7 @@
      "100,0%",
      "VVVVV",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7238,7 +7679,7 @@
      "100,0%",
      "VVVVX",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7254,7 +7695,7 @@
      "75,0%",
      "VVDVX",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7270,7 +7711,7 @@
      "60,0%",
      "DVVVD",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7286,7 +7727,7 @@
      "60,0%",
      "DVDVV",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7302,7 +7743,7 @@
      "60,0%",
      "VDDVV",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7318,7 +7759,7 @@
      "60,0%",
      "VDVDV",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7334,7 +7775,7 @@
      "60,0%",
      "DDVVV",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7350,7 +7791,7 @@
      "40,0%",
      "DDVDV",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7366,7 +7807,7 @@
      "40,0%",
      "VVDDD",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7382,7 +7823,7 @@
      "20,0%",
      "DDVDD",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7398,7 +7839,7 @@
      "20,0%",
      "DVDDD",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7414,7 +7855,7 @@
      "20,0%",
      "VDDDD",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "2a FEB",
@@ -7430,7 +7871,7 @@
      "0,0%",
      "DDDDD",
      "FEB (feb.es)",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ]
   },
@@ -7446,8 +7887,8 @@
    "estatFont": {
     "ok": true,
     "missatge": "",
-    "quan": "2026-11-07T13:07:18+01:00",
-    "darrerOk": "2026-11-07T13:07:18+01:00"
+    "quan": "2026-11-07T13:22:22+01:00",
+    "darrerOk": "2026-11-07T13:22:22+01:00"
    },
    "partits": [
     {
@@ -8065,7 +8506,7 @@
      "PAVELLO MUNICIPAL DE SARRIÀ DE TER",
      "A mà",
      "zbkug3jpji",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-2900ebm0kq",
@@ -8082,7 +8523,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "2900ebm0kq",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-m7bmnx5bj3",
@@ -8099,7 +8540,7 @@
      "PAVELLO MUNICIPAL FONTCOBERTA",
      "A mà",
      "m7bmnx5bj3",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-p43l9k4ue5",
@@ -8116,7 +8557,7 @@
      "PAVELLO MUNICIPAL EL MOLI DE LLORET DE MAR",
      "A mà",
      "p43l9k4ue5",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-w38drx3zyv",
@@ -8133,7 +8574,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "w38drx3zyv",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-lq2jvn0a26",
@@ -8150,7 +8591,7 @@
      "CENTRE ESPORTIU D'EN BAS",
      "A mà",
      "lq2jvn0a26",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-h0cmyocjk7",
@@ -8167,7 +8608,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "h0cmyocjk7",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-elzg1cp5og",
@@ -8184,7 +8625,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "elzg1cp5og",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-tzeult1j9j",
@@ -8201,7 +8642,7 @@
      "PAVELLO MARISTES DE GIRONA",
      "A mà",
      "tzeult1j9j",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-bjshcm6lke",
@@ -8218,7 +8659,7 @@
      "PAVELLO POLIESPORTIU DE VILOBI D'ONYAR",
      "A mà",
      "bjshcm6lke",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-y05um31ryj",
@@ -8235,7 +8676,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "y05um31ryj",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-785bckg3ck",
@@ -8252,7 +8693,7 @@
      "PAVELLO MUNICIPAL DE LLANÇA",
      "A mà",
      "785bckg3ck",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-bpr6lf1yjr",
@@ -8269,7 +8710,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "bpr6lf1yjr",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-ymvpbv9uan",
@@ -8286,7 +8727,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "ymvpbv9uan",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-gpxpmnixzc",
@@ -8303,7 +8744,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "gpxpmnixzc",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-yaz4yy10io",
@@ -8320,7 +8761,7 @@
      "PAVELLO POLIESPORTIU MUNICIPAL DE FORNELLS DE LA SELVA",
      "A mà",
      "yaz4yy10io",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-fdf96h1hz2",
@@ -8337,7 +8778,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "fdf96h1hz2",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-ivwa2yvklg",
@@ -8354,7 +8795,7 @@
      "PAVELLÓ POLIVALENT DE MAÇANET",
      "A mà",
      "ivwa2yvklg",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-au9gtmafgb",
@@ -8371,7 +8812,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "au9gtmafgb",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-ks22ovve3v",
@@ -8388,7 +8829,7 @@
      "PAVELLO LA FARGA DE BANYOLES",
      "A mà",
      "ks22ovve3v",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-0s54xwqks8",
@@ -8405,7 +8846,7 @@
      "PAVELLO MUNICIPAL ROSES",
      "A mà",
      "0s54xwqks8",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-wq71xqc18b",
@@ -8422,7 +8863,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "wq71xqc18b",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-r55n8zvxqr",
@@ -8439,7 +8880,7 @@
      "POLIESPORTIU MUNICIPAL DE CALDES DE MALAVELLA",
      "A mà",
      "r55n8zvxqr",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "MAN-kefb6m9y7p",
@@ -8456,7 +8897,7 @@
      "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "A mà",
      "kefb6m9y7p",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ],
    "fullClassificacio": [
@@ -8490,7 +8931,7 @@
      "100,00%",
      8,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8506,7 +8947,7 @@
      "100,00%",
      8,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8522,7 +8963,7 @@
      "100,00%",
      8,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8538,7 +8979,7 @@
      "60,00%",
      8,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8554,7 +8995,7 @@
      "75,00%",
      7,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8570,7 +9011,7 @@
      "50,00%",
      6,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8586,7 +9027,7 @@
      "50,00%",
      6,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8602,7 +9043,7 @@
      "25,00%",
      5,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8618,7 +9059,7 @@
      "25,00%",
      5,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8634,7 +9075,7 @@
      "33,33%",
      4,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8650,7 +9091,7 @@
      "0,00%",
      4,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8666,7 +9107,7 @@
      "0,00%",
      3,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ],
     [
      "C.C. Sots-25 Femení",
@@ -8682,7 +9123,7 @@
      "0,00%",
      3,
      "A mà",
-     "07/11/2026 13:07"
+     "07/11/2026 13:22"
     ]
    ]
   }
