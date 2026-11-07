@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-06T12:13:47+00:00",
+ "actualitzat": "2026-11-07T11:10:16+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2040,7 +2040,7 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 258,
+   "observacions": 256,
    "especies": 191,
    "observadors": 29,
    "grups": [
@@ -2057,11 +2057,11 @@
      14
     ],
     [
-     "🐸 Amfibis",
-     11
+     "🍄 Fongs",
+     9
     ],
     [
-     "🍄 Fongs",
+     "🐸 Amfibis",
      9
     ],
     [
@@ -2098,18 +2098,18 @@
      "cientific": "Discoglossus pictus",
      "nom": "Granota pintada",
      "grup": "🐸 Amfibis",
-     "n": 6
-    },
-    {
-     "cientific": "Salamandra salamandra",
-     "nom": "Salamandra",
-     "grup": "🐸 Amfibis",
-     "n": 4
+     "n": 5
     },
     {
      "cientific": "Vanessa cardui",
      "nom": "Migradora dels cards",
      "grup": "🦋 Insectes",
+     "n": 3
+    },
+    {
+     "cientific": "Salamandra salamandra",
+     "nom": "Salamandra",
+     "grup": "🐸 Amfibis",
      "n": 3
     },
     {
@@ -2299,21 +2299,6 @@
      "foto": "https://static.inaturalist.org/photos/605315613/small.jpg",
      "autor": "Laura Justicia",
      "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
-     "qualitat": "research",
-     "amenacada": true,
-     "introduida": false
-    },
-    {
-     "id": 325220299,
-     "data": "2025-11-06",
-     "url": "https://www.inaturalist.org/observations/325220299",
-     "nom": "Salamandra",
-     "cientific": "Salamandra salamandra",
-     "rang": "species",
-     "grup": "🐸 Amfibis",
-     "foto": "https://static.inaturalist.org/photos/588788918/small.jpg",
-     "autor": "Laura Justicia",
-     "lloc": "17121 Corçà, Girona, España",
      "qualitat": "research",
      "amenacada": true,
      "introduida": false
