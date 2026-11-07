@@ -26,7 +26,9 @@ a{color:var(--accent)}
 /* 07.11.2026: el ➕ de La TdG ampliada, a l'altura del títol, a l'extrem dret (sense saltar de línia al mòbil). */
 .capcalera{flex-wrap:nowrap}
 .capcalera h1{min-width:0}
-.capcalera .acces{margin-left:auto}
+.capcalera .icones{margin-left:auto;display:flex;gap:12px;align-items:center;flex-shrink:0}
+/* 07.11.2026: el candau de La TdG redacció per obrir l'edició amb clau */
+.capcalera .candau{font-size:1.5rem;line-height:1;background:none;border:0;padding:0;cursor:pointer}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
 main{display:grid;gap:16px;padding-bottom:16px}
@@ -100,6 +102,17 @@ audio{width:100%;height:40px}
 .camps label.check{flex-direction:row;align-items:center;gap:6px;color:var(--text)}
 textarea{min-height:80px;resize:vertical}
 #estat{font-size:.9rem;color:var(--suau);margin:8px 0 0}
+#clauBox h2{margin-bottom:10px}
+/* EDITOR AMB FORMAT (07.11.2026, el mateix de les notícies de La TdG redacció) */
+.barra{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.barra button{background:var(--targeta);color:var(--text);border-color:var(--linia);padding:3px 10px;min-width:34px}
+.barra button.on{background:var(--accent-clar);border-color:var(--accent);color:var(--accent)}
+.text{width:100%;min-height:140px;padding:10px 12px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);font-size:1rem;line-height:1.55;outline:none;overflow-wrap:anywhere;resize:vertical;overflow:auto}
+.text:focus{border-color:var(--text)}
+.text p{margin:0 0 .9em}
+.text:empty::before{content:attr(data-ph);color:var(--suau)}
+.desc p{margin:0 0 .5em}
+.desc p:last-child{margin-bottom:0}
 @media (max-width:600px){.graella,.destacats{grid-template-columns:1fr}.continua{margin-left:0}}
 </style>
 <!-- Visites (GoatCounter, sense galetes) -->
@@ -121,7 +134,10 @@ textarea{min-height:80px;resize:vertical}
       </svg>
     </a>
     <h1>La TdG fonoteca</h1>
-    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+    <span class="icones">
+      <button type="button" class="candau" id="candau" title="Edita la fonoteca (amb clau)" aria-label="Edita la fonoteca (amb clau)">🔒</button>
+      <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+    </span>
   </div>
   <p class="sub">Declaracions, conferències i actes de la Bisbal d'Empordà i pobles veïns, per tornar-los a escoltar.</p>
   <ul class="xifres" id="xifres"></ul>
@@ -146,10 +162,8 @@ textarea{min-height:80px;resize:vertical}
        No es mostra al públic: s'obre amb …/fonoteca/#gestio o sol, si el
        navegador ja té la clau desada. -->
   <section id="gestio" hidden>
-    <div class="fila" id="entrada">
-      <button type="button" id="obre" class="suau">🔒 Edita la fonoteca (amb clau)</button>
-    </div>
     <div id="clau" hidden>
+      <h2>🔒 Clau</h2>
       <div class="fila">
         <input type="password" id="pin" placeholder="Clau" autocomplete="current-password" size="10">
         <button type="button" id="entra" class="principal">Entra</button>
@@ -167,7 +181,15 @@ textarea{min-height:80px;resize:vertical}
         <label>Qui parla (separats per comes) <input type="text" id="fQui" placeholder="Nom Cognom, Nom Cognom" list="llistaQui"></label>
         <label>Municipi <input type="text" id="fMun" list="municipis" placeholder="La Bisbal d'Empordà…"></label>
         <label>Lloc <input type="text" id="fLloc" placeholder="Sala de plens, Teatre…"></label>
-        <label class="ample">Descripció <textarea id="fDesc" placeholder="Context: de què parla, en quin acte…"></textarea></label>
+        <div class="ample" style="grid-column:1 / -1;display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)">Descripció
+          <div class="barra" id="barraDesc">
+            <button type="button" data-cmd="bold" title="Negreta (Ctrl+B)"><b>N</b></button>
+            <button type="button" data-cmd="italic" title="Cursiva (Ctrl+I)"><i>C</i></button>
+            <button type="button" data-cmd="underline" title="Subratllat (Ctrl+U)"><u>S</u></button>
+            <button type="button" data-cmd="removeFormat" title="Treu el format del que hagis seleccionat">✕ format</button>
+          </div>
+          <div class="text" id="fDesc" contenteditable="true" spellcheck="true" lang="ca" data-ph="Context: de què parla, en quin acte… Cada Intro és un paràgraf nou; el que enganxis d'una web s'enganxa sense format."></div>
+        </div>
         <label class="check"><input type="checkbox" id="fDestacat"> ⭐ Destacat (surt a dalt de l'any)</label>
         <label class="check"><input type="checkbox" id="fAmagat"> 🙈 Amagat (no surt a la fonoteca pública)</label>
       </div>
@@ -310,7 +332,7 @@ function passaFiltre(a) {
   if (CATS.size && !CATS.has(a.categoria)) return false;
   if (QUI && !a.qui.includes(QUI)) return false;
   if (CERCA) {
-    const t = normal([a.titol, a.qui.join(" "), a.lloc, a.municipi, a.descripcio, CAT[a.categoria].nom, a.fitxer, dataCa(a.data)].join(" "));
+    const t = normal([a.titol, a.qui.join(" "), a.lloc, a.municipi, a.descripcio.replace(/\*|__/g, ""), CAT[a.categoria].nom, a.fitxer, dataCa(a.data)].join(" "));
     if (!normal(CERCA).split(/\s+/).every(p => t.includes(p))) return false;
   }
   return true;
@@ -342,7 +364,7 @@ function fitxaHtml(g) {
     <h3 class="titol">${esc(titol)}</h3>
     ${a.qui.length ? `<div class="qui">${a.qui.map(q => `<button type="button" data-qui="${esc(q)}" title="Tots els àudios de ${esc(q)}">🗣️ ${esc(q)}</button>`).join("")}</div>` : ""}
     ${llocs ? `<div class="cap">📍 ${esc(llocs)}</div>` : ""}
-    ${a.descripcio ? `<p class="desc">${esc(a.descripcio)}</p>` : ""}
+    ${a.descripcio ? `<div class="desc">${marcaAHtml(a.descripcio)}</div>` : ""}
     ${parts}
     <div class="peu">${g.filter(x => x.url).map((x, i) => `<a href="${esc(x.url)}" download>⬇️ Descarrega${g.length > 1 ? " " + (i + 1) : ""}</a>`).join("")}<button type="button" data-enllac="${esc(a.id)}">🔗 Copia l'enllaç</button></div>
   </article>`;
@@ -438,6 +460,88 @@ async function carrega() {
 /* =====================================================
    GESTIÓ AMB CLAU (la dels llamps) · Worker latdg-agenda
    ===================================================== */
+/* ----- Format de la descripció (07.11.2026, el de les notícies de La TdG redacció) -----
+   Es desa com a text amb marques: **negreta**, *cursiva*, __subratllat__ i una
+   línia en blanc entre paràgrafs. */
+function trossosMarca(t) {
+  const surt = [], estil = { b: false, i: false, u: false };
+  let buf = "";
+  const tanca = () => { if (buf) surt.push({ t: buf, ...estil }); buf = ""; };
+  for (let k = 0; k < t.length; k++) {
+    if (t.startsWith("**", k)) { tanca(); estil.b = !estil.b; k++; continue; }
+    if (t.startsWith("__", k)) { tanca(); estil.u = !estil.u; k++; continue; }
+    if (t[k] === "*") { tanca(); estil.i = !estil.i; continue; }
+    buf += t[k];
+  }
+  tanca();
+  return surt;
+}
+function marcaAHtml(text) {
+  const paragrafs = String(text || "").replace(/\r\n/g, "\n").split(/\n\s*\n/).map(x => x.trim()).filter(Boolean);
+  return paragrafs.map(par => "<p>" + trossosMarca(par).map(x => {
+    let h = esc(x.t).replace(/\n/g, "<br>");
+    if (x.u) h = "<u>" + h + "</u>";
+    if (x.i) h = "<i>" + h + "</i>";
+    if (x.b) h = "<b>" + h + "</b>";
+    return h;
+  }).join("") + "</p>").join("");
+}
+function htmlAMarca(el) {
+  const paragrafs = [];
+  let trossos = [];
+  const tancaPar = () => {
+    let t = "";
+    trossos.forEach(x => {
+      if (x.t === "\n") { t += "\n"; return; }
+      const m = x.t.match(/^(\s*)([\s\S]*?)(\s*)$/);
+      if (!m[2]) { t += x.t; return; }
+      t += m[1] + (x.b ? "**" : "") + (x.i ? "*" : "") + (x.u ? "__" : "") + m[2] +
+        (x.u ? "__" : "") + (x.i ? "*" : "") + (x.b ? "**" : "") + m[3];
+    });
+    t = t.replace(/\*\*\*\*/g, "").replace(/____/g, "").replace(/ /g, " ").replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").trim();
+    if (t) paragrafs.push(t);
+    trossos = [];
+  };
+  const camina = (node, est) => {
+    if (node.nodeType === 3) { if (node.nodeValue) trossos.push({ t: node.nodeValue, ...est }); return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName, st = node.style || {};
+    if (tag === "BR") { trossos.push({ t: "\n" }); return; }
+    const e = { ...est };
+    if (tag === "B" || tag === "STRONG" || /^(bold|[6-9]00)$/.test(st.fontWeight || "")) e.b = true;
+    if (tag === "I" || tag === "EM" || st.fontStyle === "italic") e.i = true;
+    if (tag === "U" || /underline/.test((st.textDecoration || "") + (st.textDecorationLine || ""))) e.u = true;
+    const bloc = /^(P|DIV|LI|H\d)$/.test(tag);
+    if (bloc) tancaPar();
+    node.childNodes.forEach(c => camina(c, e));
+    if (bloc) tancaPar();
+  };
+  el.childNodes.forEach(c => camina(c, { b: false, i: false, u: false }));
+  tancaPar();
+  return paragrafs.join("\n\n");
+}
+try { document.execCommand("defaultParagraphSeparator", false, "p"); document.execCommand("styleWithCSS", false, false); } catch (e) {}
+$("barraDesc").addEventListener("mousedown", e => { if (e.target.closest("button[data-cmd]")) e.preventDefault(); });   // no perdre la selecció
+$("barraDesc").addEventListener("click", e => {
+  const c = e.target.closest("button[data-cmd]");
+  if (!c) return;
+  if (!$("fDesc").contains(document.getSelection().anchorNode)) $("fDesc").focus();
+  document.execCommand(c.dataset.cmd, false, null);
+  estatBarra();
+});
+$("fDesc").addEventListener("paste", e => {
+  e.preventDefault();
+  document.execCommand("insertText", false, (e.clipboardData || window.clipboardData).getData("text/plain").replace(/\r\n/g, "\n"));
+});
+function estatBarra() {
+  const sel = document.getSelection(), n = sel.anchorNode;
+  const dins = n && $("fDesc").contains(n);
+  document.querySelectorAll("#barraDesc button[data-cmd]").forEach(b => {
+    b.classList.toggle("on", !!dins && b.dataset.cmd !== "removeFormat" && document.queryCommandState(b.dataset.cmd));
+  });
+}
+document.addEventListener("selectionchange", estatBarra);
+
 $("fCat").innerHTML = CATEGORIES.map(c => `<option value="${c[0]}">${c[1]} ${c[2]}</option>`).join("");
 
 async function crida(cos) {
@@ -458,6 +562,7 @@ async function entra() {
     CATAL = d.fonoteca || { audios: [] }; SHA = d.sha;
     escriuLS(CLAU_DESADA, $("recorda").checked ? PIN : "");
     $("clau").hidden = true; $("form").hidden = false; $("estat").textContent = "";
+    $("candau").textContent = "🔓"; $("candau").title = "Edició oberta: ves al formulari";
     nou(); uneix(); pinta();
   } catch (e) {
     PIN = "";
@@ -469,7 +574,7 @@ async function entra() {
 function omple(f) {
   $("fFitxer").value = f.fitxer || ""; $("fData").value = f.data || ""; $("fCat").value = f.categoria || "declaracions";
   $("fTitol").value = f.titol || ""; $("fQui").value = (f.qui || []).join(", "); $("fMun").value = f.municipi || "";
-  $("fLloc").value = f.lloc || ""; $("fDesc").value = f.descripcio || "";
+  $("fLloc").value = f.lloc || ""; $("fDesc").innerHTML = marcaAHtml(f.descripcio || "");
   $("fDestacat").checked = !!f.destacat; $("fAmagat").checked = !!f.amagat;
 }
 
@@ -519,7 +624,7 @@ function desa() {
     qui: $("fQui").value.split(",").map(x => x.trim()).filter(Boolean),
     data: $("fData").value || "",
     categoria: $("fCat").value,
-    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), descripcio: $("fDesc").value.trim(),
+    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), descripcio: htmlAMarca($("fDesc")),
     destacat: $("fDestacat").checked, amagat: $("fAmagat").checked, revisar: false
   };
   const audios = (CATAL.audios || []).filter(x => x.fitxer !== fitxer).concat(f);
@@ -536,7 +641,14 @@ function treu() {
   desaLlista(audios, "Àudio eliminat de la fonoteca (l'original del disc dur es manté).");
 }
 
-$("obre").onclick = () => { $("gestio").hidden = false; $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };
+// 07.11.2026: el candau de la capçalera obre la clau (o, si ja s'hi ha entrat, el formulari).
+function obreGestio() {
+  $("gestio").hidden = false;
+  if (!PIN) $("clau").hidden = false;
+  $("gestio").scrollIntoView({ behavior: "smooth" });
+  if (!PIN) $("pin").focus();
+}
+$("candau").onclick = obreGestio;
 $("entra").onclick = entra;
 $("pin").onkeydown = e => { if (e.key === "Enter") entra(); };
 $("desa").onclick = desa;
@@ -547,10 +659,10 @@ $("oblida").onclick = () => { escriuLS(CLAU_DESADA, ""); location.hash = ""; loc
 const desada = llegeixLS(CLAU_DESADA);
 $("recorda").checked = !!desada;
 carrega().then(() => {
-  if (desada) { $("gestio").hidden = false; $("pin").value = desada; $("entrada").hidden = true; $("clau").hidden = false; entra(); }
-  else if (location.hash === "#gestio") $("obre").click();
+  if (desada) { $("gestio").hidden = false; $("pin").value = desada; $("clau").hidden = false; entra(); }
+  else if (location.hash === "#gestio") obreGestio();
 });
-window.addEventListener("hashchange", () => { if (location.hash === "#gestio" && !PIN) $("obre").click(); });
+window.addEventListener("hashchange", () => { if (location.hash === "#gestio" && !PIN) obreGestio(); });
 </script>
 <script src="../dates-ca.js?v=3"></script>
 </body>
