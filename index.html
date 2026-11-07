@@ -232,6 +232,14 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .cin-fletxa{position:absolute;z-index:1;top:calc((132px * 1.5) / 2 - 14px);width:32px;height:32px;border:1px solid var(--linia);border-radius:50%;background:var(--targeta);color:var(--accent);font:inherit;font-size:1rem;line-height:1;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.2)}
 .cin-fletxa.ant{left:-6px}.cin-fletxa.seg{right:-6px}
 @media (max-width:700px){.cin-fletxa{display:none}}
+.fono-llista{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:8px}
+.fono-fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:12px 14px;min-width:0}
+.fono-fitxa .fono-cap{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--suau);font-size:.8rem}
+.fono-fitxa h3{margin:4px 0 2px;font-size:1rem;line-height:1.3}
+.fono-fitxa h3 a{color:var(--text);text-decoration:none}.fono-fitxa h3 a:hover{color:var(--accent)}
+.fono-fitxa .fono-qui{color:var(--suau);font-size:.85rem;margin:0 0 6px}
+.fono-fitxa audio{width:100%;height:36px;margin-top:4px}
+.fono-mes{display:inline-block;margin-top:12px;font-weight:600;text-decoration:none}
 .cin-fitxa{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;margin-top:8px;padding:14px;background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;scroll-margin-top:16px}
 @media (max-width:600px){.cin-fitxa{grid-template-columns:minmax(0,1fr)}.cin-fitxa>.cin-img{justify-self:center}}
 .cin-fitxa>.cin-img{width:180px}
@@ -380,7 +388,7 @@ const NOMS_CURTS = [
   [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
   [/radar 3d/i, "Radar 3D"], [/pluja d'ahir/i, "Pluja d'ahir"], [/verdor/i, "Verdor"],
   [/focus de calor/i, "Focus de calor"], [/preu de la llum/i, "Preu de la llum"],
-  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"]
+  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"], [/fonoteca/i, "Fonoteca"]
 ];
 const nomCurt = titol => {
   const trobat = NOMS_CURTS.find(([rx]) => rx.test(titol));
@@ -1471,6 +1479,7 @@ const APARTATS = [
   ["🌿 Temps, aigua i natura", ["Radar 3D", "Pluja d'ahir", "Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura", "Verdor"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
+  ["🎧 La TdG fonoteca", ["Fonoteca"]],
   ["🎬 La cartellera de la Bisbal d'Empordà, Torroella de Montgrí, Palafrugell, Platja d'Aro, Girona i Salt", ["Cartellera"]]
 ];
 function ordenaApartats() {
@@ -1530,6 +1539,11 @@ function pinta(d) {
   // mateixa lògica del guió); l'historial, a necrologiques/. El contingut arriba després.
   h += seccio("🕯️ Necrològiques",
     '<p class="font dalt" id="necroPeu"></p><div id="necroCos"><p class="buit">Carregant…</p></div>', "", false);
+
+  // 0e. 🎧 FONOTECA (07.11.2026): els dos últims àudios de La TdG fonoteca, amb
+  // reproductor i enllaç a la pàgina (va a sobre de la cartellera).
+  h += seccio("🎧 Darrers àudios de la fonoteca",
+    '<div id="fonoCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 0d. 🍿 PEL·LÍCULES (01.11.2026): dades/cinemes.json, tres cops al dia (cinemes/cinemes.py).
   h += seccio("🍿 Pel·lícules",
@@ -2376,6 +2390,64 @@ async function carregaCinemes() {
   pintaCinemes();
 }
 
+// 07.11.2026: FONOTECA. Els dos últims àudios (les mateixes fonts i la mateixa
+// lògica que fonoteca/: inventari de latdg/media + fitxes de dades/fonoteca.json;
+// els amagats no surten i les parts d'un mateix tall van juntes).
+const FONO_CAT = { declaracions: "🗣️ Declaracions", entrevistes: "🎤 Entrevistes", debats: "🏛️ Plens i debats",
+  conferencies: "🎓 Conferències i xerrades", actes: "🎉 Actes i celebracions", musica: "🎶 Música", altres: "📁 Altres" };
+async function carregaFonoteca() {
+  const cos = document.getElementById("fonoCos");
+  if (!cos) return;
+  const baixa = u => fetch(u + "?v=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.json() : { audios: [] });
+  const [inv, cat] = await Promise.allSettled([
+    baixa("https://latdg.github.io/media/f/inventari.json"),
+    baixa("https://raw.githubusercontent.com/latdg/tauler/main/dades/fonoteca.json")
+  ]);
+  const INV = inv.status === "fulfilled" ? inv.value : { audios: [] };
+  const CATAL = cat.status === "fulfilled" ? cat.value : { audios: [] };
+  const arrel = n => String(n || "").replace(/\.[a-z0-9]+$/i, "").replace(/^(20\d\d)[-_.]?([01]\d)[-_.]?([0-3]\d)[-_ ]?/, "");
+  const titolDelNom = n => {
+    const r = arrel(n), m = r.match(/^(.*?)[-_ ]?0*(\d{1,2})$/);
+    const base = (m ? m[1] : r).replace(/[-_]+/g, " ").trim();
+    return base ? base[0].toUpperCase() + base.slice(1) : "Àudio";
+  };
+  const dur = s => { s = +s || 0; const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return h ? `${h} h ${String(m).padStart(2, "0")} min` : `${m}:${String(x).padStart(2, "0")}`; };
+  const elim = new Set(INV.eliminats || []), perNom = new Map();
+  (INV.audios || []).forEach(a => { if (!elim.has(a.fitxer_original)) perNom.set(a.fitxer_original, { fitxer: a.fitxer_original, arxiu: a }); });
+  (CATAL.audios || []).forEach(c => {
+    if (c.eliminat) { perNom.delete(c.fitxer); return; }
+    const e = perNom.get(c.fitxer) || { fitxer: c.fitxer, arxiu: null };
+    e.fitxa = c; perNom.set(c.fitxer, e);
+  });
+  const tots = [...perNom.values()].map(e => {
+    const f = e.fitxa || {}, a = e.arxiu || {};
+    return { fitxer: e.fitxer, id: a.id || arrel(e.fitxer).toLowerCase(), url: a.fitxer ? "https://latdg.github.io/media/f/" + a.fitxer : "",
+      durada: a.durada || 0, data: f.data || a.data || "", titol: f.titol || titolDelNom(e.fitxer), qui: f.qui || [],
+      categoria: FONO_CAT[f.categoria] ? f.categoria : "declaracions", lloc: [f.lloc, f.municipi].filter(Boolean).join(" · "), amagat: !!f.amagat };
+  }).filter(a => a.url && !a.amagat).sort((x, y) => (y.data + y.fitxer).localeCompare(x.data + x.fitxer));
+  // Agrupa les parts (…01, …02 del mateix dia) i agafa els dos últims talls.
+  const grups = [], idx = new Map();
+  tots.forEach(a => {
+    const k = a.data + "|" + arrel(a.fitxer).replace(/[-_ ]?\d{1,2}$/, "");
+    if (idx.has(k)) grups[idx.get(k)].push(a); else { idx.set(k, grups.length); grups.push([a]); }
+  });
+  const darrers = grups.slice(0, 2).map(g => g.sort((x, y) => x.fitxer.localeCompare(y.fitxer)));
+  const mes = '<a class="fono-mes" href="fonoteca/">🎧 Obre La TdG fonoteca →</a>';
+  if (!darrers.length) { cos.innerHTML = '<p class="buit">Ara mateix no es pot carregar la fonoteca.</p>' + mes; return; }
+  cos.innerHTML = '<div class="fono-llista">' + darrers.map(g => {
+    const a = g[0], total = g.reduce((s, x) => s + x.durada, 0);
+    const enllac = "fonoteca/#a-" + encodeURIComponent(a.id);
+    return `<article class="fono-fitxa">
+      <div class="fono-cap"><span>${esc(dataCa(a.data) || "Sense data")}</span><span>${FONO_CAT[a.categoria]}</span>${total ? `<span>⏱️ ${dur(total)}</span>` : ""}${g.length > 1 ? `<span>${g.length} parts</span>` : ""}</div>
+      <h3><a href="${enllac}">${esc(g.length > 1 ? a.titol.replace(/\s*\(\d+\)$/, "") : a.titol)}</a></h3>
+      ${a.qui.length || a.lloc ? `<p class="fono-qui">${a.qui.length ? "🗣️ " + esc(a.qui.join(", ")) : ""}${a.qui.length && a.lloc ? " · " : ""}${a.lloc ? "📍 " + esc(a.lloc) : ""}</p>` : ""}
+      ${g.map(x => `<audio controls preload="none" src="${esc(x.url)}"></audio>`).join("")}
+    </article>`;
+  }).join("") + "</div>" + mes;
+  // Un sol àudio alhora dins del bloc.
+  cos.addEventListener("play", e => cos.querySelectorAll("audio").forEach(x => { if (x !== e.target) x.pause(); }), true);
+}
+
 // 01.11.2026: SERVEIS D'AUTOBÚS. Llegeix les dades del mapa de busos (repo latdg/busos,
 // GTFS de la Generalitat) i en fa un resum: busos en ruta ara, properes sortides des de
 // la Bisbal i el Clic.cat. Tot el detall (mapa, PDF i bitllets), al mapa complet.
@@ -2615,6 +2687,7 @@ async function inicia() {
     carregaAgenda();
     carregaNecrologiques();
     carregaCinemes();
+    carregaFonoteca();
     carregaBusos();
     carregaLlamps();
     carregaFocus();
