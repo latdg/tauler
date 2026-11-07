@@ -2010,7 +2010,110 @@ def pluja_ahir():
     if not llista:
         return None
     llista.sort(key=lambda e: (e["codi"] != XEMA_BISBAL, e["km"]))
-    return {"dia": ahir.strftime("%d.%m.%Y"), "estacions": llista}
+    resultat = {"dia": ahir.strftime("%d.%m.%Y"), "estacions": llista}
+    # 07.11.2026: les estacions de casa (Meteoclimàtic i la del Meteocat a la depuradora)
+    try:
+        resultat["properes"] = pluja_properes(next((e for e in llista if e["codi"] == XEMA_BISBAL), None))
+    except Exception as ex:
+        print(f"   Meteoclimàtic: {ex}", file=sys.stderr)
+    return resultat
+
+
+# --- PLUJA D'AHIR A LES ESTACIONS DE METEOCLIMÀTIC (07.11.2026) ----------------
+# Meteoclimàtic no publica el total d'ahir. A la fitxa hi ha «Hoy», «Mes» i «Año»:
+# «Año − Hoy» és la pluja acumulada fins a acabar el dia anterior, de manera que
+# la resta entre el valor d'avui i el d'ahir dona exactament la pluja d'ahir.
+# Cada consulta es desa a dades/pluja/meteoclimatic.json (deu dies). Si falta el
+# valor d'ahir (o l'1 de gener, que l'any torna a zero), es pren el darrer «Hoy»
+# que es va llegir ahir. L'«Episodio precipitación» (dies seguits de pluja) va de
+# comprovació a la fitxa, però no diu quin dia va acabar l'episodi.
+# Les fitxes donen la posició en graus i minuts (uns 1,5 km de marge): les que
+# tenen un punt exacte el porten a «punt».
+METEOCLIMATIC = [
+    {"codi": "ESCAT1700000017100A", "nom": "la Bisbal · Terracotta Museu", "lloc": "la Bisbal d'Empordà"},
+    {"codi": "ESCAT1700000017100B", "nom": "la Bisbal · Jesús Martí", "lloc": "la Bisbal d'Empordà"},
+    {"codi": "ESCAT1700000017100C", "nom": "la Bisbal · Antoni Ruiz", "lloc": "la Bisbal d'Empordà"},
+    {"codi": "ESCAT1700000017116A", "nom": "Puig d'Arques (Gavarres)", "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura"},
+]
+METEOCLIMATIC_URL = "https://www.meteoclimatic.net/perfil/{}"
+METEOCLIMATIC_REGISTRE = DADES / "pluja" / "meteoclimatic.json"
+PLUJA_REGISTRE = None
+
+
+def meteoclimatic_fitxa(codi):
+    import html as htmllib
+    r = requests.get(METEOCLIMATIC_URL.format(codi), timeout=40,
+                     headers={**CAPCALERES, "Accept": "text/html", "Accept-Language": "es"})
+    r.raise_for_status()
+    t = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", r.text, flags=re.S | re.I)
+    t = re.sub(r"\s+", " ", htmllib.unescape(re.sub(r"<[^>]+>", " ", t)))
+    fitxa = {}
+    m = re.search(r"(\d+)\s*[º°]\s*(\d+)'\s*([NS])\s+0*(\d+)\s*[º°]\s*(\d+)'\s*([EW])\s*-\s*(\d+)\s*m", t)
+    if m:
+        lat = int(m[1]) + int(m[2]) / 60
+        lon = int(m[4]) + int(m[5]) / 60
+        fitxa.update(lat=round(-lat if m[3] == "S" else lat, 4), lon=round(-lon if m[6] == "W" else lon, 4), alt=int(m[7]))
+    m = re.search(r"actualizaci[oó]n\s*(\d\d)-(\d\d)-(\d{4})\s+(\d\d):(\d\d)\s*UTC", t)
+    if m:
+        fitxa["hora"] = dt.datetime(int(m[3]), int(m[2]), int(m[1]), int(m[4]), int(m[5]), tzinfo=dt.timezone.utc).astimezone(TZ)
+    i = t.find("Total")
+    tros = t[i:i + 250] if i >= 0 else ""
+    for clau, et in (("hoy", r"Hoy"), ("mes", r"Mes"), ("any", r"A[ñn]o")):
+        m = re.search(et + r"\D{0,20}?(\d+(?:[.,]\d+)?)", tros)
+        if m:
+            fitxa[clau] = float(m[1].replace(",", "."))
+    m = re.search(r"Episodio precipitaci[oó]n[^0-9]{0,40}(\d+(?:[.,]\d+)?)\s*mm\s*\(\s*(\d+)\s*D", t)
+    if m:
+        fitxa["episodi"] = {"mm": float(m[1].replace(",", ".")), "dies": int(m[2])}
+    return fitxa
+
+
+def pluja_properes(meteocat):
+    registre = llegeix(METEOCLIMATIC_REGISTRE, {})
+    avui = ara().date()
+    ahir = avui - dt.timedelta(days=1)
+    properes = []
+    if meteocat:
+        properes.append({"nom": "la Bisbal · depuradora", "lloc": "la Bisbal d'Empordà", "xarxa": "Meteocat",
+                         "lat": meteocat["lat"], "lon": meteocat["lon"], "mm": meteocat["mm"],
+                         "complet": meteocat["complet"], "exacte": True,
+                         "url": "https://www.meteo.cat/observacions/xema/dades?codi=DF"})
+    for e in METEOCLIMATIC:
+        dies = registre.setdefault(e["codi"], {})
+        fitxa = {}
+        try:
+            fitxa = meteoclimatic_fitxa(e["codi"])
+        except Exception as ex:
+            print(f"   Meteoclimàtic {e['codi']}: {ex}", file=sys.stderr)
+        h = fitxa.get("hora")
+        # Només compta una fitxa actualitzada fa menys de 3 hores.
+        if h and (ara() - h).total_seconds() < 3 * 3600 and "any" in fitxa and "hoy" in fitxa:
+            d = dies.setdefault(h.date().isoformat(), {})
+            d["fins"] = round(fitxa["any"] - fitxa["hoy"], 1)
+            d["hoy"] = max(d.get("hoy", 0), fitxa["hoy"])
+            d["hora"] = h.strftime("%H.%M")
+        if fitxa.get("lat") is not None:
+            dies["_lloc"] = {"lat": fitxa["lat"], "lon": fitxa["lon"], "alt": fitxa.get("alt")}
+        lloc = dies.get("_lloc") or {}
+        a, b = dies.get(avui.isoformat(), {}), dies.get(ahir.isoformat(), {})
+        mm, complet = None, False
+        if "fins" in a and "fins" in b and not (avui.month == 1 and avui.day == 1) and a["fins"] >= b["fins"]:
+            mm, complet = round(a["fins"] - b["fins"], 1), True
+        elif "hoy" in b:
+            # Darrera lectura d'ahir: completa si és de les 23 h o més tard.
+            mm, complet = b["hoy"], b.get("hora", "00.00") >= "23.00"
+        properes.append({"nom": e["nom"], "lloc": e["lloc"], "xarxa": "Meteoclimàtic",
+                         "lat": lloc.get("lat"), "lon": lloc.get("lon"), "alt": lloc.get("alt"), "exacte": False,
+                         "mm": mm, "complet": complet, "episodi": fitxa.get("episodi"),
+                         "url": METEOCLIMATIC_URL.format(e["codi"])})
+        # Es guarden deu dies.
+        for k in [k for k in dies if not k.startswith("_") and k < (avui - dt.timedelta(days=10)).isoformat()]:
+            del dies[k]
+    # El fitxer es desa a fusiona(): entre calcula() i fusiona() el workflow torna a
+    # deixar el repositori com és a GitHub i s'esborraria.
+    global PLUJA_REGISTRE
+    PLUJA_REGISTRE = registre
+    return properes
 
 
 RIUS_ESTATS = ["normalitat", "activació", "moderat", "alt", "molt alt", "excepcional", "excepcional (graó superior)"]
@@ -2181,6 +2284,8 @@ def calcula():
         print(f"❌ blocs de webs: {e}", file=sys.stderr)
     if nous_moments:
         resultat["_moments"] = nous_moments
+    if PLUJA_REGISTRE is not None:
+        resultat["_meteoclimatic"] = PLUJA_REGISTRE   # 07.11.2026
     TMP.write_text(json.dumps(resultat, ensure_ascii=False), encoding="utf-8")
 
 
@@ -2195,6 +2300,10 @@ def fusiona():
     dies = memoria.get("dies") or {}
     moments = memoria.get("moments") or {}
     moments.update(vius.pop("_moments", None) or {})
+    # 07.11.2026: lectures diàries de les estacions de Meteoclimàtic (pluja d'ahir)
+    if isinstance(vius.get("_meteoclimatic"), dict):
+        escriu(METEOCLIMATIC_REGISTRE, vius["_meteoclimatic"])
+    vius.pop("_meteoclimatic", None)
     # Registre horari del riu: un fitxer per dia, s'hi afegeixen o s'actualitzen les hores.
     if isinstance(vius.get("riu"), dict) and vius["riu"].get("_historic"):
         per_dia = {}
