@@ -176,6 +176,8 @@ textarea{min-height:80px;resize:vertical}
         <label>Qui parla (separats per comes) <input type="text" id="fQui" placeholder="Nom Cognom, Nom Cognom" list="llistaQui"></label>
         <label>Municipi <input type="text" id="fMun" list="municipis" placeholder="La Bisbal d'Empordà…"></label>
         <label>Lloc <input type="text" id="fLloc" placeholder="Sala de plens, Teatre…"></label>
+        <!-- 07.11.2026: enllaç que copia el botó «Copia l'enllaç» (buit: el de la fitxa a la fonoteca) -->
+        <label class="ample">Enllaç de «Copia l'enllaç» <input type="url" id="fEnllac" autocomplete="off" spellcheck="false" placeholder="Si es deixa en blanc, copia l'enllaç d'aquest àudio a la fonoteca"></label>
         <div class="ample" style="grid-column:1 / -1;display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)">Descripció
           <div class="barra" id="barraDesc">
             <button type="button" data-cmd="bold" title="Negreta (Ctrl+B)"><b>N</b></button>
@@ -296,7 +298,7 @@ function uneix() {
       titol: f.titol || titolDelNom(e.fitxer),
       qui: f.qui || [],
       categoria: CAT[f.categoria] ? f.categoria : "declaracions",
-      municipi: f.municipi || "", lloc: f.lloc || "", descripcio: f.descripcio || "",
+      municipi: f.municipi || "", lloc: f.lloc || "", descripcio: f.descripcio || "", enllac: f.enllac || "",
       destacat: !!f.destacat, amagat: !!f.amagat, revisar: !!f.revisar, teFitxa: !!e.fitxa
     };
   }).sort((x, y) => (y.data + y.fitxer).localeCompare(x.data + x.fitxer));
@@ -376,7 +378,7 @@ function fitxaHtml(g) {
     ${llocs ? `<div class="cap">📍 ${esc(llocs)}</div>` : ""}
     ${a.descripcio ? `<div class="desc">${marcaAHtml(a.descripcio)}</div>` : ""}
     ${parts}
-    <div class="peu">${g.filter(x => x.url).map((x, i) => `<a href="${esc(x.url)}" download>⬇️ Descarrega${g.length > 1 ? " " + (i + 1) : ""}</a>`).join("")}<button type="button" data-enllac="${esc(a.id)}">🔗 Copia l'enllaç</button></div>
+    <div class="peu">${g.filter(x => x.url).map((x, i) => `<a href="${esc(x.url)}" download>⬇️ Descarrega${g.length > 1 ? " " + (i + 1) : ""}</a>`).join("")}<button type="button" data-enllac="${esc(a.id)}" data-url="${esc((g.find(x => x.enllac) || {}).enllac || "")}">🔗 Copia l'enllaç</button></div>
   </article>`;
 }
 
@@ -446,7 +448,7 @@ $("llista").onclick = async e => {
   if (q) { QUI = QUI === q.dataset.qui ? "" : q.dataset.qui; pinta(); return; }
   const l = e.target.closest("button[data-enllac]");
   if (l) {
-    const url = location.origin + location.pathname + "#a-" + l.dataset.enllac;
+    const url = l.dataset.url || (location.origin + location.pathname + "#a-" + l.dataset.enllac);
     try { await navigator.clipboard.writeText(url); l.textContent = "✅ Enllaç copiat"; } catch (err) { prompt("Enllaç:", url); }
     setTimeout(() => l.textContent = "🔗 Copia l'enllaç", 2000);
     return;
@@ -584,7 +586,7 @@ async function entra() {
 function omple(f) {
   $("fFitxer").value = f.fitxer || ""; $("fData").value = f.data || ""; $("fCat").value = f.categoria || "declaracions";
   $("fTitol").value = f.titol || ""; $("fQui").value = (f.qui || []).join(", "); $("fMun").value = f.municipi || "";
-  $("fLloc").value = f.lloc || ""; $("fDesc").innerHTML = marcaAHtml(f.descripcio || "");
+  $("fLloc").value = f.lloc || ""; $("fEnllac").value = f.enllac || ""; $("fDesc").innerHTML = marcaAHtml(f.descripcio || "");
   $("fDestacat").checked = !!f.destacat; $("fAmagat").checked = !!f.amagat;
 }
 
@@ -632,7 +634,7 @@ function desa() {
     qui: $("fQui").value.split(",").map(x => x.trim()).filter(Boolean),
     data: $("fData").value || "",
     categoria: $("fCat").value,
-    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), descripcio: htmlAMarca($("fDesc")),
+    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), enllac: $("fEnllac").value.trim(), descripcio: htmlAMarca($("fDesc")),
     destacat: $("fDestacat").checked, amagat: $("fAmagat").checked, revisar: false
   };
   const audios = (CATAL.audios || []).filter(x => x.fitxer !== fitxer).concat(f);

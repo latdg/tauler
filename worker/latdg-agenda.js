@@ -314,6 +314,7 @@ function netejaFonoteca(llista) {
       categoria: CATS.includes(a.categoria) ? a.categoria : "declaracions",
       municipi: txt(a.municipi, 100),
       lloc: txt(a.lloc, 150),
+      ...(/^https?:\/\/\S+$/i.test(txt(a.enllac, 500)) ? { enllac: txt(a.enllac, 500) } : {}),   // 07.11.2026: enllaç de «Copia l'enllaç»
       descripcio: String(a.descripcio == null ? "" : a.descripcio).trim().slice(0, 3000),
       destacat: !!a.destacat,
       amagat: !!a.amagat,
