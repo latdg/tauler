@@ -31,6 +31,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);cursor:pointer}
 button.prim{background:var(--accent);border-color:var(--accent);color:#fff;min-width:44px}
 button[aria-pressed=false]{opacity:.55}
+#llampsBt[aria-pressed=true]{background:#fff6c2;border-color:#e0b800}
 #hora{font-variant-numeric:tabular-nums;font-weight:600;min-width:9.5em}
 .llegenda{position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.92);border-radius:8px;padding:6px 8px;font-size:.75rem;line-height:1.3;box-shadow:0 1px 4px rgba(0,0,0,.15);max-width:calc(100% - 16px)}
 .llegenda .escala{display:flex;gap:2px;margin:3px 0 2px}
@@ -45,15 +46,17 @@ button[aria-pressed=false]{opacity:.55}
 .bisbal{background:var(--accent);color:#fff;font-size:.72rem;font-weight:600;padding:1px 6px;border-radius:10px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .maplibregl-popup-content{font-size:.85rem;line-height:1.4;padding:8px 12px}
 /* Incrustat al tauler (?incrustat=1): només el mapa i els controls */
+html.incrustat,body.incrustat{background:transparent}
 body.incrustat header,body.incrustat .peu{display:none}
 body.incrustat main{padding:0;max-width:none}
 body.incrustat section{border:0;border-radius:0;padding:0;margin:0;background:transparent}
 body.incrustat #mapa{height:340px}
-body.incrustat .controls{margin-top:8px;gap:6px}
+body.incrustat .controls{margin:8px 0 0;gap:6px;padding-bottom:1px}
+body.incrustat .controls input[type=range]{margin:0}
 body.incrustat .controls button{font-size:.8rem;padding:5px 9px}
 body.incrustat #hora{font-size:.85rem;min-width:0}
 body.incrustat #centra{display:none}
-body.incrustat #resum{font-size:.92rem}
+body.incrustat #resum{font-size:.92rem;margin:0 0 8px}
 </style>
 </head>
 <body>
@@ -85,7 +88,14 @@ body.incrustat #resum{font-size:.92rem}
 "use strict";
 const PARAMS = new URLSearchParams(location.search);
 const INCRUSTAT = PARAMS.has("incrustat");
-if (INCRUSTAT) document.body.classList.add("incrustat");
+if (INCRUSTAT) {
+  document.documentElement.classList.add("incrustat");
+  document.body.classList.add("incrustat");
+  // Diu al tauler quina alçada fa, perquè el marc s'ajusti sense espais buits
+  const alcada = () => parent.postMessage({ radar3d: Math.ceil(document.querySelector("main").getBoundingClientRect().height) }, "*");
+  new ResizeObserver(alcada).observe(document.querySelector("main"));
+  addEventListener("load", alcada);
+}
 
 const BISBAL = [3.0386, 41.9597];            // [lon, lat]
 const ZOOM_RADAR = 7;                          // ni el Meteocat ni RainViewer en donen més detall
