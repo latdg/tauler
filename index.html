@@ -68,7 +68,7 @@ footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
 .capcalera{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .capcalera .dreta{margin-left:auto}
 .capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
-/* 07.11.2026: la 🎧 de la fonoteca, a l'altura del títol, a l'extrem dret (després del selector de dia, si hi és). */
+/* 07.11.2026: la icona de la fonoteca de dalt es treu; ara hi ha el bloc «Darrers àudios» (apartat Fonoteca). */
 .capcalera h1{margin-right:auto}
 .capcalera .dreta{margin-left:0}
 .sub:empty{display:none}
@@ -239,7 +239,6 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .fono-fitxa h3 a{color:var(--text);text-decoration:none}.fono-fitxa h3 a:hover{color:var(--accent)}
 .fono-fitxa .fono-qui{color:var(--suau);font-size:.85rem;margin:0 0 6px}
 .fono-fitxa audio{width:100%;height:36px;margin-top:4px}
-.fono-mes{display:inline-block;margin-top:12px;font-weight:600;text-decoration:none}
 .cin-fitxa{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;margin-top:8px;padding:14px;background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;scroll-margin-top:16px}
 @media (max-width:600px){.cin-fitxa{grid-template-columns:minmax(0,1fr)}.cin-fitxa>.cin-img{justify-self:center}}
 .cin-fitxa>.cin-img{width:180px}
@@ -283,7 +282,6 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
     </a>
     <h1>La TdG ampliada</h1>
     <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>
-    <a class="acces" href="fonoteca/" title="La TdG fonoteca: declaracions, conferències i actes per tornar a escoltar" aria-label="La TdG fonoteca">🎧</a>
   </div>
     <p class="sub" id="sub">Carregant…</p>
   <nav id="nav"></nav>
@@ -388,7 +386,7 @@ const NOMS_CURTS = [
   [/farm[àa]cies/i, "Farmàcies"], [/natura a prop/i, "Natura"], [/atur/i, "Atur i afiliació"],
   [/radar 3d/i, "Radar 3D"], [/pluja d'ahir/i, "Pluja d'ahir"], [/verdor/i, "Verdor"],
   [/focus de calor/i, "Focus de calor"], [/preu de la llum/i, "Preu de la llum"],
-  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"], [/fonoteca/i, "Fonoteca"]
+  [/borme/i, "BORME"], [/subhastes/i, "Subhastes"], [/classificacions/i, "Classificacions"], [/pel·l[ií]cules/i, "Cartellera"], [/darrers [àa]udios/i, "Fonoteca"]
 ];
 const nomCurt = titol => {
   const trobat = NOMS_CURTS.find(([rx]) => rx.test(titol));
@@ -1479,7 +1477,7 @@ const APARTATS = [
   ["🌿 Temps, aigua i natura", ["Radar 3D", "Pluja d'ahir", "Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura", "Verdor"]],
   ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
-  ["🎧 La TdG fonoteca", ["Fonoteca"]],
+  ["🎙️ Fonoteca", ["Fonoteca"]],
   ["🎬 La cartellera de la Bisbal d'Empordà, Torroella de Montgrí, Palafrugell, Platja d'Aro, Girona i Salt", ["Cartellera"]]
 ];
 function ordenaApartats() {
@@ -1540,9 +1538,9 @@ function pinta(d) {
   h += seccio("🕯️ Necrològiques",
     '<p class="font dalt" id="necroPeu"></p><div id="necroCos"><p class="buit">Carregant…</p></div>', "", false);
 
-  // 0e. 🎧 FONOTECA (07.11.2026): els dos últims àudios de La TdG fonoteca, amb
+  // 0e. 🎙️ FONOTECA (07.11.2026): els dos últims àudios de La TdG fonoteca, amb
   // reproductor i enllaç a la pàgina (va a sobre de la cartellera).
-  h += seccio("🎧 Darrers àudios de la fonoteca",
+  h += seccio("🎙️ Darrers àudios",
     '<div id="fonoCos"><p class="buit">Carregant…</p></div>', "", false);
 
   // 0d. 🍿 PEL·LÍCULES (01.11.2026): dades/cinemes.json, tres cops al dia (cinemes/cinemes.py).
@@ -2432,8 +2430,7 @@ async function carregaFonoteca() {
     if (idx.has(k)) grups[idx.get(k)].push(a); else { idx.set(k, grups.length); grups.push([a]); }
   });
   const darrers = grups.slice(0, 2).map(g => g.sort((x, y) => x.fitxer.localeCompare(y.fitxer)));
-  const mes = '<a class="fono-mes" href="fonoteca/">🎧 Obre La TdG fonoteca →</a>';
-  if (!darrers.length) { cos.innerHTML = '<p class="buit">Ara mateix no es pot carregar la fonoteca.</p>' + mes; return; }
+  if (!darrers.length) { cos.innerHTML = '<p class="buit">Ara mateix no es pot carregar la fonoteca.</p>'; return; }
   cos.innerHTML = '<div class="fono-llista">' + darrers.map(g => {
     const a = g[0], total = g.reduce((s, x) => s + x.durada, 0);
     const enllac = "fonoteca/#a-" + encodeURIComponent(a.id);
@@ -2443,7 +2440,7 @@ async function carregaFonoteca() {
       ${a.qui.length || a.lloc ? `<p class="fono-qui">${a.qui.length ? "🗣️ " + esc(a.qui.join(", ")) : ""}${a.qui.length && a.lloc ? " · " : ""}${a.lloc ? "📍 " + esc(a.lloc) : ""}</p>` : ""}
       ${g.map(x => `<audio controls preload="none" src="${esc(x.url)}"></audio>`).join("")}
     </article>`;
-  }).join("") + "</div>" + mes;
+  }).join("") + "</div>";
   // Un sol àudio alhora dins del bloc.
   cos.addEventListener("play", e => cos.querySelectorAll("audio").forEach(x => { if (x !== e.target) x.pause(); }), true);
 }
