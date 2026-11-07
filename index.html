@@ -2315,9 +2315,8 @@ function cinFitxa(f) {
     (f.sinopsi ? `<p class="cin-sinopsi">${esc(f.sinopsi)}</p>` : "") +
     (f.director ? `<p class="cin-dada"><b>Direcció:</b> ${esc(f.director)}</p>` : "") +
     (f.actors ? `<p class="cin-dada"><b>Repartiment:</b> ${esc(f.actors)}</p>` : "") +
-    (sessions ? `<div class="cin-sessions">${sessions}</div><p class="font">Els preus d'Odeón i OCINE, a la seva web o a la taquilla.</p>`
-      : `<p class="cin-dada">${f.estrena ? "Encara sense sessions. S'estrena " + cinElDia(f.estrena) + "." : "No hi ha més sessions programades."}</p>`) +
-    (f.web ? `<p class="font"><a href="${esc(f.web)}" target="_blank" rel="noopener">Més informació i entrades</a></p>` : "") + "</div>";
+    (sessions ? `<div class="cin-sessions">${sessions}</div>`
+      : `<p class="cin-dada">${f.estrena ? "Encara sense sessions. S'estrena " + cinElDia(f.estrena) + "." : "No hi ha més sessions programades."}</p>`) + "</div>";
 }
 function pintaCinemes() {
   const cos = document.getElementById("cinemesCos");
