@@ -27,6 +27,7 @@ import email.utils
 import html
 import json
 import math
+import os
 import re
 import sys
 import time
@@ -2040,6 +2041,67 @@ METEOCLIMATIC_REGISTRE = DADES / "pluja" / "meteoclimatic.json"
 PLUJA_REGISTRE = None
 
 
+# --- PLUJA D'AHIR A LES ESTACIONS DE NETATMO (07.11.2026) ----------------------
+# API pública de Netatmo (getpublicdata) amb l'app «La TdG pluja» (secrets
+# NETATMO_CLIENT_ID, NETATMO_CLIENT_SECRET i NETATMO_REFRESH_TOKEN). Dona la
+# posició exacta i la pluja de les últimes 24 hores: la lectura feta just després
+# de mitjanit (hora local) és la pluja d'ahir. Les estacions que no surten, que no
+# tenen pluviòmetre o que no envien dades, no surten al bloc.
+NETATMO = {
+    "70:ee:50:05:f3:92": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+    "70:ee:50:b9:6f:42": "Canapost",
+    "70:ee:50:15:e6:f0": "les Gavarres",
+    "70:ee:50:a4:31:ca": "la Bisbal · sud",
+    "70:ee:50:83:9e:10": "la Bisbal · centre",
+    "70:ee:50:a4:73:e6": "la Bisbal · est",
+    "70:ee:50:71:41:72": "la Bisbal · Netatmo",
+    "70:ee:50:83:77:32": "Forallac (tocant a la Bisbal)",
+}
+NETATMO_CAIXA = {"lat_ne": 42.0, "lon_ne": 3.11, "lat_sw": 41.88, "lon_sw": 2.94}
+
+
+def netatmo_properes(registre, avui, ahir):
+    if not os.environ.get("NETATMO_REFRESH_TOKEN"):
+        return []
+    refresh = os.environ["NETATMO_REFRESH_TOKEN"].strip()
+    r = requests.post("https://api.netatmo.com/oauth2/token", data={
+        "grant_type": "refresh_token", "refresh_token": refresh,
+        "client_id": os.environ.get("NETATMO_CLIENT_ID", "").strip(),
+        "client_secret": os.environ.get("NETATMO_CLIENT_SECRET", "").strip()}, timeout=30)
+    r.raise_for_status()
+    tok = r.json()
+    if tok.get("refresh_token") and tok["refresh_token"] != refresh:
+        print("   ⚠️ Netatmo ha canviat el refresh token: cal actualitzar el secret NETATMO_REFRESH_TOKEN", file=sys.stderr)
+    r = requests.get("https://api.netatmo.com/api/getpublicdata", params={**NETATMO_CAIXA, "filter": "false"},
+                     headers={"Authorization": "Bearer " + tok["access_token"]}, timeout=60)
+    r.raise_for_status()
+    sortida = []
+    for e in r.json().get("body", []):
+        nom = NETATMO.get(e.get("_id"))
+        if not nom:
+            continue
+        pluja = next((m for m in (e.get("measures") or {}).values() if "rain_24h" in m), None)
+        loc = (e.get("place") or {}).get("location") or [None, None]
+        dies = registre.setdefault("netatmo:" + e["_id"], {})
+        if pluja and pluja.get("rain_timeutc") and pluja.get("rain_24h") is not None:
+            h = dt.datetime.fromtimestamp(pluja["rain_timeutc"], dt.timezone.utc).astimezone(TZ)
+            # La primera lectura després de mitjanit (fins a les 3 h) és la del dia anterior.
+            if h.date() == avui and h.hour < 3:
+                d = dies.get(ahir.isoformat())
+                if not d or d.get("hora", "99") > h.strftime("%H.%M"):
+                    dies[ahir.isoformat()] = {"mm": round(pluja["rain_24h"], 1), "hora": h.strftime("%H.%M")}
+        for k in [k for k in dies if k < (avui - dt.timedelta(days=10)).isoformat()]:
+            del dies[k]
+        d = dies.get(ahir.isoformat())
+        if not d or loc[1] is None:
+            continue   # sense pluviòmetre o sense la dada d'ahir: fora del bloc
+        sortida.append({"nom": nom, "lloc": (e.get("place") or {}).get("city") or "", "xarxa": "Netatmo",
+                        "lat": round(loc[1], 5), "lon": round(loc[0], 5), "alt": (e.get("place") or {}).get("altitude"),
+                        "exacte": True, "mm": d["mm"], "complet": d["hora"] <= "00.30",
+                        "url": f"https://weathermap.netatmo.com/?stationid={e['_id']}&zoom=14"})
+    return sortida
+
+
 def meteoclimatic_fitxa(codi):
     import html as htmllib
     r = requests.get(METEOCLIMATIC_URL.format(codi), timeout=40,
@@ -2102,6 +2164,8 @@ def pluja_properes(meteocat):
         elif "hoy" in b:
             # Darrera lectura d'ahir: completa si és de les 23 h o més tard.
             mm, complet = b["hoy"], b.get("hora", "00.00") >= "23.00"
+        if mm is None:
+            continue   # 07.11.2026: l'estació que no dona dades, fora del bloc
         properes.append({"nom": e["nom"], "lloc": e["lloc"], "xarxa": "Meteoclimàtic",
                          "lat": lloc.get("lat"), "lon": lloc.get("lon"), "alt": lloc.get("alt"), "exacte": False,
                          "mm": mm, "complet": complet, "episodi": fitxa.get("episodi"),
@@ -2109,6 +2173,10 @@ def pluja_properes(meteocat):
         # Es guarden deu dies.
         for k in [k for k in dies if not k.startswith("_") and k < (avui - dt.timedelta(days=10)).isoformat()]:
             del dies[k]
+    try:
+        properes += netatmo_properes(registre, avui, ahir)
+    except Exception as ex:
+        print(f"   Netatmo: {ex}", file=sys.stderr)
     # El fitxer es desa a fusiona(): entre calcula() i fusiona() el workflow torna a
     # deixar el repositori com és a GitHub i s'esborraria.
     global PLUJA_REGISTRE
@@ -2255,6 +2323,9 @@ def calcula():
             moments.pop(nom, None)
             nous_moments["recarrega_versio"] = RECARREGA_VERSIO
         if nom in CADA_MINUTS and moments.get(nom):
+            # 07.11.2026: la pluja d'ahir, just després de mitjanit (Netatmo)
+            if nom == "plujaAhir" and moments[nom][:10] != ara().strftime("%Y-%m-%d"):
+                moments[nom] = "2000-01-01T00:00:00+00:00"
             try:
                 fa = (ara() - dt.datetime.fromisoformat(moments[nom])).total_seconds() / 60
                 if fa < CADA_MINUTS[nom]:

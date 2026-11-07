@@ -34,6 +34,10 @@ jobs:
         run: pip install requests
 
       - name: Bucle (cada 15 minuts, 5 h 30 min)
+        env:   # 07.11.2026: Netatmo (pluja d'ahir)
+          NETATMO_CLIENT_ID: ${{ secrets.NETATMO_CLIENT_ID }}
+          NETATMO_CLIENT_SECRET: ${{ secrets.NETATMO_CLIENT_SECRET }}
+          NETATMO_REFRESH_TOKEN: ${{ secrets.NETATMO_REFRESH_TOKEN }}
         run: |
           git config user.name "La TdG (tauler)"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
