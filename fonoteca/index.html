@@ -362,13 +362,23 @@ function agrupa(llista) {
 }
 
 /* 07.11.2026: «Copia l'enllaç» porta a la pàgina individual de l'àudio (la que es
-   difon a les xarxes), no a la fonoteca. Es pot canviar a mà a la fitxa (✏️). */
+   difon a les xarxes), no a la fonoteca. Enllaç curt propi (?a=nom) i, en copiar-lo,
+   s'escurça amb TinyURL; si TinyURL no respon, es copia l'enllaç curt propi.
+   Es pot canviar a mà a la fitxa (✏️). */
 const PAGINA_AUDIO = "https://latdg.github.io/audio/";
-const REPRODUCTOR = "https://script.google.com/macros/s/AKfycbzN9tJeFLe2JvP15Lu5USlLWB1FnqFacRU-_TcNbAawneqKdmB4UATWVBouJz9RJt4/exec";
 function paginaIndividual(g) {
-  const q = new URLSearchParams();
-  g.forEach(x => { q.append("f", x.fitxer); q.append("t", x.qui.join(", ")); });
-  return PAGINA_AUDIO + "?src=" + encodeURIComponent(REPRODUCTOR + "?" + q.toString()) + (g.length > 1 ? "&n=" + g.length : "");
+  return PAGINA_AUDIO + "?a=" + g.map(x => encodeURIComponent(x.fitxer.replace(/\.mp3$/i, ""))).join(",");
+}
+const CURTS = {};
+async function escurca(url) {
+  if (CURTS[url]) return CURTS[url];
+  try {
+    const ctl = new AbortController(); setTimeout(() => ctl.abort(), 4000);
+    const r = await fetch("https://tinyurl.com/api-create.php?url=" + encodeURIComponent(url), { signal: ctl.signal });
+    const t = (await r.text()).trim();
+    if (r.ok && /^https:\/\/tinyurl\.com\/\S+$/.test(t)) return CURTS[url] = t;
+  } catch (e) {}
+  return url;
 }
 
 function fitxaHtml(g) {
@@ -458,7 +468,8 @@ $("llista").onclick = async e => {
   if (q) { QUI = QUI === q.dataset.qui ? "" : q.dataset.qui; pinta(); return; }
   const l = e.target.closest("button[data-enllac]");
   if (l) {
-    const url = l.dataset.url || (location.origin + location.pathname + "#a-" + l.dataset.enllac);
+    l.textContent = "⏳ Escurçant…";
+    const url = await escurca(l.dataset.url || (location.origin + location.pathname + "#a-" + l.dataset.enllac));
     try { await navigator.clipboard.writeText(url); l.textContent = "✅ Enllaç copiat"; } catch (err) { prompt("Enllaç:", url); }
     setTimeout(() => l.textContent = "🔗 Copia l'enllaç", 2000);
     return;
