@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-07T14:05:28.326Z",
+ "actualitzat": "2026-11-07T14:07:06.768Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -76,9 +76,9 @@
    ],
    "data": "2026-09-14",
    "categoria": "declaracions",
-   "municipi": "",
-   "lloc": "",
-   "descripcio": "",
+   "municipi": "La Bisbal d'Empordà",
+   "lloc": "La TdG",
+   "descripcio": "L'entrenador explica per a La TdG què s'espera dels diferents equips del club.",
    "destacat": false,
    "amagat": false,
    "revisar": false
