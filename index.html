@@ -826,8 +826,9 @@ async function carregaVerdor() {
   if (!c && !v) { cos.innerHTML = '<p class="buit">Encara no hi ha cap informe de verdor.</p>'; return; }
   const versio = "?v=" + encodeURIComponent((c || v).generat || "");
   const pct = x => (x > 0 ? "+" : x < 0 ? "−" : "") + num(Math.abs(Math.round(x))) + " %";
+  const de = t => (/^[aeiouàèéíòóú]/i.test(t) ? "d'" : "de ") + t;     // «d'octubre», «de novembre»
   const ndvi = x => x == null ? "—" : x.toFixed(2).replace(".", ",");
-  peu.textContent = `Informe de ${(c || v).mes} · Sentinel-2 (Copernicus), imatge neta del mes · es fa cada mes, el dia 5`;
+  peu.textContent = `Informe ${de((c || v).mes)} · Sentinel-2 (Copernicus), imatge neta del mes · es fa cada mes, el dia 5`;
   const capes = [];
   if (c) {
     capes.push({ id: "abans", nom: `Fa un any (${c.abans})`, img: c.imatges.abans, caixa: c.caixa, llegenda: "verdor" });
@@ -839,7 +840,7 @@ async function carregaVerdor() {
   if (c && c.ndvi != null) h += `<div class="xifra"><b>${ndvi(c.ndvi)}</b><span>verdor mitjana ara (${esc(c.mes)})</span></div>` +
     `<div class="xifra"><b>${ndvi(c.ndviAbans)}</b><span>fa un any (${esc(c.abans)})</span></div>` +
     `<div class="xifra"><b>${pct((c.ndvi - c.ndviAbans) / c.ndviAbans * 100)}</b><span>canvi en un any</span></div>`;
-  if (v) h += `<div class="xifra"><b>${pct(v.variacio)}</b><span>respecte a la mitjana de ${esc(v.mes.split(" de ")[0])} ${esc(v.referencia)}</span></div>`;
+  if (v) h += `<div class="xifra"><b>${pct(v.variacio)}</b><span>respecte a la mitjana ${esc(de(v.mes.split(" de ")[0]))} ${esc(v.referencia)}</span></div>`;
   h += "</div>";
   if (c) h += `<p>Respecte a fa un any, un ${num(Math.round(c.mesSec))} % de la zona està clarament més sec i un ${num(Math.round(c.mesVerd))} %, clarament més verd.` +
     (v && v.bosc != null ? ` Els boscos, ${pct(v.bosc)} respecte a la mitjana dels anys anteriors.` : "") + "</p>";
@@ -1639,7 +1640,9 @@ function pinta(d) {
     const cap = !est.some(e => e.mm > 0)
       ? "<p>Ahir no va ploure a cap estació del Baix Empordà.</p>"
       : (bis ? `<div class="xifres"><div class="xifra"><b>${num(bis.mm)} mm</b><span>a la Bisbal d'Empordà</span></div>` +
-          `<div class="xifra"><b>${num(Math.max(...est.map(e => e.mm)))} mm</b><span>el màxim de la comarca (${esc(est.reduce((a, e) => e.mm > a.mm ? e : a).nom)})</span></div></div>` : "") +
+          (Math.max(...est.map(e => e.mm)) > bis.mm
+            ? `<div class="xifra"><b>${num(Math.max(...est.map(e => e.mm)))} mm</b><span>el màxim de la comarca (${esc(est.reduce((a, e) => e.mm > a.mm ? e : a).nom)})</span></div>` : "") +
+          "</div>" : "") +
         `<div class="barres">${est.map(e => `<span${e.codi === "DF" ? ' style="font-weight:700;color:var(--accent)"' : ""}>${esc(e.nom)}</span>` +
           `<span><span class="barra" style="display:block;width:${Math.round(e.mm / max * 100)}%${e.mm ? "" : ";background:var(--linia)"}"></span></span>` +
           `<span class="num">${num(e.mm)} mm${e.complet ? "" : " *"}</span>`).join("")}</div>`;
