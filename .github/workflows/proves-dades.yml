@@ -1,0 +1,11 @@
+# Temporal (07.11.2026): comprovacions de fonts per als blocs nous. S'esborrarà.
+name: Proves de dades
+on:
+  push:
+    branches: [proves-dades]
+jobs:
+  proves:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash proves.sh
