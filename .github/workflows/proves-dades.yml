@@ -3,6 +3,8 @@ name: Proves de dades
 on:
   push:
     branches: [proves-dades]
+permissions:
+  contents: write
 jobs:
   proves:
     runs-on: ubuntu-latest
@@ -15,6 +17,8 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install -q requests playwright && python -m playwright install --with-deps chromium > /dev/null
       - run: python proves/navegador.py
-      - uses: actions/upload-artifact@v4
+      - name: Desa les captures a la branca
         if: always()
-        with: { name: captures, path: captures }
+        run: |
+          cd proves && rm -rf captures && cp -r ../captures . && git add captures &&
+          git -c user.name=proves -c user.email=proves@users.noreply.github.com commit -qm "Captures" && git push -q

@@ -21,7 +21,23 @@ with sync_playwright() as p:
         pg.goto(url); time.sleep(espera)
         print(f"[{nom}] resum:", pg.inner_text("#resum"), "|", pg.inner_text("#hora"), "|", pg.inner_text("#fontText")[:120])
         pg.screenshot(path=f"captures/{nom}.png")
-        # Moment de la franja amb més pluja
+        # Pluja i llamps de prova (una tempesta inventada a l'est de la Bisbal) per veure les columnes
+        pg.evaluate("""() => {
+          const g = new Int16Array(AMPLE * ALT);
+          const cx = Math.floor(xDeLon(3.15)) - X0, cy = Math.floor(yDeLat(41.97)) - Y0;
+          for (let dy = -25; dy <= 25; dy++) for (let dx = -18; dx <= 18; dx++) {
+            const r = Math.hypot(dx / 18, dy / 25); if (r > 1) continue;
+            g[(cy + dy) * AMPLE + cx + dx] = Math.round(Math.pow(1 - r, 2.2) * 900 + 2);
+          }
+          mapa.getSource("pluja").setData(columnes(g));
+          const ll = { type: "FeatureCollection", features: [[3.17, 41.98], [3.2, 41.95]].map(([lo, la]) => ({ type: "Feature", properties: {},
+            geometry: { type: "Polygon", coordinates: [[[lo, la], [lo + .04, la], [lo + .04, la + .03], [lo, la + .03], [lo, la]]] } })) };
+          mapa.getSource("llamps").setData(ll);
+          document.getElementById("avis").hidden = true;
+          document.getElementById("resum").textContent = resumDe(g, { n: 2, prop: { d: 12, lon: 3.17, lat: 41.98 } }).text;
+        }""")
+        time.sleep(6)
+        pg.screenshot(path=f"captures/{nom}-prova.png")
         pg.close()
     pg = b.new_page(viewport={"width": 1000, "height": 900})
     pg.on("console", lambda m: m.type in ("error", "warning") and print(f"[tauler] {m.type}: {m.text}"[:400]))
