@@ -92,7 +92,7 @@ main section{scroll-margin-top:16px}
 .parelles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:8px}
 .parelles figure{margin:0;font-size:.82rem;color:var(--suau)}
 .parelles .dues{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.parelles img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block;image-rendering:pixelated;filter:brightness(2.2) contrast(1.15) saturate(1.2)}
+.parelles img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;display:block;image-rendering:pixelated;filter:brightness(3) contrast(1.1) saturate(1.2)}
 .escala-verdor{height:10px;border-radius:3px;margin:2px 0;max-width:320px}
 .grafic-llum{position:relative;height:200px;margin:6px 0}
 .barres{display:grid;grid-template-columns:auto minmax(40px,1fr) auto;gap:4px 8px;align-items:center;font-size:.85rem}
@@ -755,17 +755,21 @@ async function carregaLlum() {
   const cos = document.getElementById("llumCos"), peu = document.getElementById("llumPeu");
   if (!cos) return;
   const z = n => String(n).padStart(2, "0");
-  const diaISO = d => `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())}`;
-  const avui = new Date(), dema = new Date(Date.now() + 86400000);
+
+  // Dates i hora de la Península (encara que el navegador sigui en una altra zona)
+  const madrid = t => { const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Madrid", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hour12: false })
+    .formatToParts(new Date(t)).map(x => [x.type, x.value])); return { iso: `${p.year}-${p.month}-${p.day}`, hora: +p.hour % 24 }; };
+  const avuiM = madrid(Date.now()), demaM = madrid(Date.now() + 86400000);
+  const avui = { getHours: () => avuiM.hora }, dema = null;
   let vals;
   try {
-    const r = await fetch(`https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=${diaISO(avui)}T00:00&end_date=${diaISO(dema)}T23:59&time_trunc=hour`);
+    const r = await fetch(`https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=${avuiM.iso}T00:00&end_date=${demaM.iso}T23:59&time_trunc=hour`);
     if (!r.ok) throw new Error(r.status);
     const d = await r.json();
     const pvpc = (d.included || []).find(x => /pvpc/i.test(x.type || "") || /pvpc/i.test((x.attributes || {}).title || ""));
     vals = ((pvpc && pvpc.attributes.values) || []).map(v => ({ dia: v.datetime.slice(0, 10), hora: +v.datetime.slice(11, 13), preu: v.value / 1000 }));
   } catch (e) { cos.innerHTML = '<p class="buit">Ara mateix no es pot consultar el preu de la llum.</p>'; return; }
-  const perDia = { avui: vals.filter(v => v.dia === diaISO(avui)), dema: vals.filter(v => v.dia === diaISO(dema)) };
+  const perDia = { avui: vals.filter(v => v.dia === avuiM.iso), dema: vals.filter(v => v.dia === demaM.iso) };
   if (!perDia.avui.length) { cos.innerHTML = '<p class="buit">Encara no hi ha el preu de la llum d\'avui.</p>'; return; }
   const eur = v => v.toFixed(3).replace(".", ",") + " €/kWh";
   const franja = h => `de ${z(h)} a ${z((h + 1) % 24)} h`;
@@ -796,7 +800,7 @@ async function carregaLlum() {
           x: { title: { display: true, text: "hora" } } } }
     });
   }
-  cos.innerHTML = (perDia.dema.length ? `<div class="tria-mun peces" id="llumTria"><button class="actiu" data-d="avui">Avui, ${dma(diaISO(avui))}</button><button data-d="dema">Demà, ${dma(diaISO(dema))}</button></div>` : "") +
+  cos.innerHTML = (perDia.dema.length ? `<div class="tria-mun peces" id="llumTria"><button class="actiu" data-d="avui">Avui, ${dma(avuiM.iso)}</button><button data-d="dema">Demà, ${dma(demaM.iso)}</button></div>` : "") +
     '<div class="xifres" id="llumXifres"></div><div class="grafic-llum"><canvas id="graficLlum"></canvas></div>' +
     '<p class="font">Preu de l\'energia de la tarifa regulada (PVPC 2.0TD) per a cada hora, amb peatges i càrrecs, sense impostos ni el terme de potència. ' +
     'Verd: les hores més barates del dia; vermell, les més cares. El preu de demà surt cap a les 20.30 h.</p>';
@@ -1636,7 +1640,7 @@ function pinta(d) {
   // Empordà; la de la Bisbal, primer. Dades: viu/tauler_viu.py (pluja_ahir).
   if (b.plujaAhir && (b.plujaAhir.estacions || []).length) {
     const pa = b.plujaAhir, est = pa.estacions, bis = est.find(e => e.codi === "DF");
-    const max = Math.max(...est.map(e => e.mm), 0.1);
+    const max = Math.max(...est.map(e => e.mm), 10);   // escala mínima de 10 mm: 0,2 mm és poca cosa
     const cap = !est.some(e => e.mm > 0)
       ? "<p>Ahir no va ploure a cap estació del Baix Empordà.</p>"
       : (bis ? `<div class="xifres"><div class="xifra"><b>${num(bis.mm)} mm</b><span>a la Bisbal d'Empordà</span></div>` +
