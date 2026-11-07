@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-07T06:55:53+00:00",
+ "generat": "2026-11-07T13:18:47+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -4219,13 +4219,6 @@
    "poster": "https://cdn.odeonmulticines.com/show-posters/es/ps_12179.jpg?width=500",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-07",
-     "hora": "13:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-07",
