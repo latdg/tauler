@@ -162,7 +162,11 @@ textarea{min-height:80px;resize:vertical}
       </div>
     </div>
     <div id="form" hidden>
-      <h2 id="titolForm">✏️ Edició de les fitxes</h2>
+      <!-- 07.11.2026: «Oblida la clau» a dalt, al costat del títol -->
+      <div class="fila" style="justify-content:space-between;margin-bottom:8px">
+        <h2 id="titolForm" style="margin:0">✏️ Edició de les fitxes</h2>
+        <button type="button" id="oblida" class="suau">Oblida la clau</button>
+      </div>
       <!-- 07.11.2026: els àudios només entren des del publicador (amb la seva fitxa);
            la fonoteca ja no llegeix el disc dur per afegir-ne a mà. -->
       <p class="nota" id="notaForm" style="margin-top:0">Els àudios entren a la fonoteca des del publicador, amb la seva fitxa. Aquí pots corregir qualsevol fitxa amb el ✏️ de cada àudio: és la mateixa que surt a la pàgina de l'àudio publicat.</p>
@@ -190,7 +194,6 @@ textarea{min-height:80px;resize:vertical}
         <button type="button" id="desa" class="principal" hidden>Desa</button>
         <button type="button" id="cancel" hidden>Cancel·la</button>
         <button type="button" id="esborra" class="suau" hidden>🗑️ Elimina de la fonoteca</button>
-        <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
       </div>
     </div>
     <p id="estat"></p>
