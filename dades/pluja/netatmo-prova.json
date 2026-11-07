@@ -1,0 +1,831 @@
+{
+ "consultat": "2026-11-07T13:03:32.124327+00:00",
+ "refresh_canviat": false,
+ "no_trobades": [
+  "la Bisbal (3)"
+ ],
+ "estacions": [
+  {
+   "id": "70:ee:50:b9:6f:42",
+   "triada": "Canapost",
+   "lat": 41.976061,
+   "lon": 3.088149,
+   "alt": 34,
+   "poble": "Forallac",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056179,
+    "hora": "2026-11-07T12:56:19+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:05:f3:92",
+   "triada": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+   "lat": 41.9728622436523,
+   "lon": 2.99909663200378,
+   "alt": 58,
+   "poble": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056085,
+    "hora": "2026-11-07T12:54:45+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:a4:31:ca",
+   "triada": "la Bisbal (1)",
+   "lat": 41.952063,
+   "lon": 3.03849,
+   "alt": 61,
+   "poble": "La Bisbal D'empordà",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056549,
+    "hora": "2026-11-07T13:02:29+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:83:9e:10",
+   "triada": "la Bisbal (2)",
+   "lat": 41.960478,
+   "lon": 3.03636,
+   "alt": 38,
+   "poble": "la Bisbal d'Empordà",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056042,
+    "hora": "2026-11-07T12:54:02+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:83:77:32",
+   "triada": "la Bisbal (4)",
+   "lat": 41.960385,
+   "lon": 3.055073,
+   "alt": 51,
+   "poble": "Forallac",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:15:e6:f0",
+   "triada": "les Gavarres",
+   "lat": 41.904613,
+   "lon": 2.9612365,
+   "alt": 418,
+   "poble": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056586,
+    "hora": "2026-11-07T13:03:06+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:01:e0:6e",
+   "triada": null,
+   "lat": 42.02719,
+   "lon": 2.87942,
+   "alt": 66,
+   "poble": "Celrà",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:01:f2:12",
+   "triada": null,
+   "lat": 41.9216,
+   "lon": 3.1598,
+   "alt": 78,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:03:bd:1a",
+   "triada": null,
+   "lat": 42.022374,
+   "lon": 3.028065,
+   "alt": 38,
+   "poble": "Parlavà",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056410,
+    "hora": "2026-11-07T13:00:10+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:05:ce:b8",
+   "triada": null,
+   "lat": 41.9720991996863,
+   "lon": 3.20499990592044,
+   "alt": 111,
+   "poble": "Catalònia",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056466,
+    "hora": "2026-11-07T13:01:06+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:12:6b:46",
+   "triada": null,
+   "lat": 41.9867994185613,
+   "lon": 3.19284099357168,
+   "alt": 24,
+   "poble": "Pals",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794055989,
+    "hora": "2026-11-07T12:53:09+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:17:b8:42",
+   "triada": null,
+   "lat": 42.01532,
+   "lon": 3.137017,
+   "alt": 7,
+   "poble": "Gualta",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:17:e7:5e",
+   "triada": null,
+   "lat": 41.996755,
+   "lon": 2.836569,
+   "alt": 208,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:19:1a:86",
+   "triada": null,
+   "lat": 41.9557460046698,
+   "lon": 2.90188118952799,
+   "alt": 380,
+   "poble": "Quart",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:19:ac:72",
+   "triada": null,
+   "lat": 41.8442606044037,
+   "lon": 3.05751040651901,
+   "alt": 179,
+   "poble": "Calonge i Sant Antoni",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056397,
+    "hora": "2026-11-07T12:59:57+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:19:ca:b0",
+   "triada": null,
+   "lat": 42.019011,
+   "lon": 3.086287,
+   "alt": 36,
+   "poble": "Fontanilles",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:1a:f9:e8",
+   "triada": null,
+   "lat": 41.9013307745042,
+   "lon": 3.13988506793976,
+   "alt": 87,
+   "poble": "Mont-ras",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:1c:8a:ce",
+   "triada": null,
+   "lat": 42.02174,
+   "lon": 3.006201,
+   "alt": 84,
+   "poble": "Rupià",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056320,
+    "hora": "2026-11-07T12:58:40+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:27:1c:80",
+   "triada": null,
+   "lat": 41.842274,
+   "lon": 3.068468,
+   "alt": 112,
+   "poble": "Calonge i Sant Antoni",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056600,
+    "hora": "2026-11-07T13:03:20+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:27:24:76",
+   "triada": null,
+   "lat": 41.9035,
+   "lon": 3.1505,
+   "alt": 45,
+   "poble": "Mont-ras",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056298,
+    "hora": "2026-11-07T12:58:18+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:2b:6b:38",
+   "triada": null,
+   "lat": 41.984484,
+   "lon": 2.814415,
+   "alt": 74,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:2f:29:3e",
+   "triada": null,
+   "lat": 41.8582,
+   "lon": 3.0764,
+   "alt": 14,
+   "poble": "Calonge i Sant Antoni",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056272,
+    "hora": "2026-11-07T12:57:52+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:32:c3:a2",
+   "triada": null,
+   "lat": 41.9839196,
+   "lon": 2.81487259999999,
+   "alt": 75,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:32:fe:7c",
+   "triada": null,
+   "lat": 41.902114,
+   "lon": 3.148674,
+   "alt": 42,
+   "poble": "Mont-ras",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056436,
+    "hora": "2026-11-07T13:00:36+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:33:15:84",
+   "triada": null,
+   "lat": 41.8314900931934,
+   "lon": 3.03906028508127,
+   "alt": 289,
+   "poble": "Castell-Platja d'Aro",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:3a:17:dc",
+   "triada": null,
+   "lat": 41.919265,
+   "lon": 3.171877,
+   "alt": 62,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:3f:1e:5c",
+   "triada": null,
+   "lat": 42.0289498198922,
+   "lon": 2.81500537903351,
+   "alt": 177,
+   "poble": "Sant Julià de Ramis",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:58:a5:3c",
+   "triada": null,
+   "lat": 41.9129904986656,
+   "lon": 3.16210386782774,
+   "alt": 46,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:5f:60:9e",
+   "triada": null,
+   "lat": 42.0292778015137,
+   "lon": 2.88763833045959,
+   "alt": 60,
+   "poble": "Celrà",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:71:1b:1a",
+   "triada": null,
+   "lat": 42.014764,
+   "lon": 3.137569,
+   "alt": 7,
+   "poble": "Gualta",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:71:56:f6",
+   "triada": null,
+   "lat": 41.920371797699,
+   "lon": 3.16350288820206,
+   "alt": 80,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056391,
+    "hora": "2026-11-07T12:59:51+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:73:cb:2c",
+   "triada": null,
+   "lat": 41.960376739502,
+   "lon": 2.81798052787781,
+   "alt": 117,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:74:02:2a",
+   "triada": null,
+   "lat": 41.896976,
+   "lon": 2.8904185,
+   "alt": 222,
+   "poble": "Cassà de la Selva",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0.101,
+    "rain_live": 0,
+    "rain_timeutc": 1794056237,
+    "hora": "2026-11-07T12:57:17+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:7a:81:1c",
+   "triada": null,
+   "lat": 41.9973106384277,
+   "lon": 2.83825325965881,
+   "alt": 213,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794055447,
+    "hora": "2026-11-07T12:44:07+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:7a:f4:4c",
+   "triada": null,
+   "lat": 41.9645156860352,
+   "lon": 3.03397989273071,
+   "alt": 36,
+   "poble": "la Bisbal d'Empordà",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:7a:f4:8a",
+   "triada": null,
+   "lat": 41.886797,
+   "lon": 3.120059,
+   "alt": 62,
+   "poble": "Vall-llobrega",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:7b:2b:8c",
+   "triada": null,
+   "lat": 41.898842,
+   "lon": 3.203327,
+   "alt": 134,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:7f:b1:76",
+   "triada": null,
+   "lat": 41.9739846405399,
+   "lon": 3.20831600000001,
+   "alt": 47,
+   "poble": "Begur",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056296,
+    "hora": "2026-11-07T12:58:16+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:7f:d5:24",
+   "triada": null,
+   "lat": 41.981535,
+   "lon": 2.820491,
+   "alt": 82,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056517,
+    "hora": "2026-11-07T13:01:57+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:83:a0:6a",
+   "triada": null,
+   "lat": 42.0188561846972,
+   "lon": 3.00971465965387,
+   "alt": 64,
+   "poble": "Rupià",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0.202,
+    "rain_live": 0,
+    "rain_timeutc": 1794056010,
+    "hora": "2026-11-07T12:53:30+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:83:c3:96",
+   "triada": null,
+   "lat": 41.957365,
+   "lon": 3.200385,
+   "alt": 181,
+   "poble": "Begur",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:84:83:a0",
+   "triada": null,
+   "lat": 41.850226,
+   "lon": 3.127961,
+   "alt": 7,
+   "poble": "Palamós",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:84:a6:28",
+   "triada": null,
+   "lat": 41.9625930703375,
+   "lon": 2.81407594070767,
+   "alt": 92,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:90:8a:52",
+   "triada": null,
+   "lat": 41.925345,
+   "lon": 3.21239700000004,
+   "alt": 96,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056075,
+    "hora": "2026-11-07T12:54:35+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:90:f3:4e",
+   "triada": null,
+   "lat": 41.9638024287127,
+   "lon": 2.82237427319631,
+   "alt": 114,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:90:f4:ba",
+   "triada": null,
+   "lat": 42.014192,
+   "lon": 2.817598,
+   "alt": 72,
+   "poble": "Sarrià de Ter",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056468,
+    "hora": "2026-11-07T13:01:08+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:9d:19:d8",
+   "triada": null,
+   "lat": 42.0198132095553,
+   "lon": 3.13315989908017,
+   "alt": 7,
+   "poble": "Gualta",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:a4:73:e6",
+   "triada": null,
+   "lat": 41.958927,
+   "lon": 3.042396,
+   "alt": 44,
+   "poble": "la Bisbal d'Empordà",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0.101,
+    "rain_live": 0,
+    "rain_timeutc": 1794056015,
+    "hora": "2026-11-07T12:53:35+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:a5:b1:e0",
+   "triada": null,
+   "lat": 41.882133,
+   "lon": 3.175737,
+   "alt": 97,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056326,
+    "hora": "2026-11-07T12:58:46+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:af:44:fa",
+   "triada": null,
+   "lat": 41.888079,
+   "lon": 2.872252,
+   "alt": 150,
+   "poble": "Cassà de la Selva",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:af:69:b6",
+   "triada": null,
+   "lat": 41.9651840295247,
+   "lon": 2.81432764833466,
+   "alt": 87,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:af:70:76",
+   "triada": null,
+   "lat": 41.971007,
+   "lon": 3.22006,
+   "alt": 54,
+   "poble": "Begur",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:b0:94:e2",
+   "triada": null,
+   "lat": 41.895295,
+   "lon": 3.192066,
+   "alt": 11,
+   "poble": "Palafrugell",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:b9:0f:00",
+   "triada": null,
+   "lat": 41.9587860107422,
+   "lon": 2.8173999786377,
+   "alt": 118,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056172,
+    "hora": "2026-11-07T12:56:12+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:bc:b4:ca",
+   "triada": null,
+   "lat": 41.8515434265137,
+   "lon": 3.04407596588135,
+   "alt": 157,
+   "poble": "Calonge i Sant Antoni",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0,
+    "rain_live": 0,
+    "rain_timeutc": 1794056049,
+    "hora": "2026-11-07T12:54:09+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:bc:ff:ec",
+   "triada": null,
+   "lat": 41.843377,
+   "lon": 3.099136,
+   "alt": 8,
+   "poble": "Calonge i Sant Antoni",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:c2:36:d0",
+   "triada": null,
+   "lat": 42.017209,
+   "lon": 2.974943,
+   "alt": 90,
+   "poble": "la Pera",
+   "carrer": null,
+   "te_pluviometre": true,
+   "pluja": {
+    "rain_60min": 0,
+    "rain_24h": 0.101,
+    "rain_live": 0,
+    "rain_timeutc": 1794056491,
+    "hora": "2026-11-07T13:01:31+00:00"
+   }
+  },
+  {
+   "id": "70:ee:50:c2:45:ae",
+   "triada": null,
+   "lat": 41.896495,
+   "lon": 3.191352,
+   "alt": 26,
+   "poble": "Llafranc",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:c3:8d:46",
+   "triada": null,
+   "lat": 41.850875,
+   "lon": 3.124217,
+   "alt": 7,
+   "poble": "Palamós",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  },
+  {
+   "id": "70:ee:50:c3:cc:42",
+   "triada": null,
+   "lat": 41.9636001586914,
+   "lon": 2.83229970932007,
+   "alt": 117,
+   "poble": "Girona",
+   "carrer": null,
+   "te_pluviometre": false,
+   "pluja": {}
+  }
+ ]
+}
