@@ -1,4 +1,4 @@
-# Temporal (07.11.2026): comprovacions de fonts per als blocs nous. S'esborrarà.
+# Temporal (07.11.2026): comprovacions dels blocs nous en un navegador. S'esborrarà.
 name: Proves de dades
 on:
   push:
@@ -8,4 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: bash proves.sh
+        with: { ref: radar, path: web }
+      - uses: actions/checkout@v4
+        with: { path: proves }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q requests playwright && python -m playwright install --with-deps chromium > /dev/null
+      - run: python proves/navegador.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: captures, path: captures }
