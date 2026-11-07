@@ -144,23 +144,9 @@ textarea{min-height:80px;resize:vertical}
 </header>
 
 <main>
-  <section>
-    <div class="anys" id="anys" role="tablist" aria-label="Anys"></div>
-    <div class="filtres">
-      <input type="search" id="cerca" placeholder="Cerca per títol, qui parla, lloc…" aria-label="Cerca">
-      <select id="filtreQui" aria-label="Qui parla"><option value="">Qui parla: tothom</option></select>
-      <label class="continua" title="Quan acaba un àudio, comença el següent de la llista"><input type="checkbox" id="continua"> Reproducció contínua</label>
-    </div>
-    <div class="xips" id="categories"></div>
-  </section>
-
-  <section>
-    <div id="llista"><p class="buit">Carregant la fonoteca…</p></div>
-  </section>
-
   <!-- GESTIÓ: la fonoteca és pública; només per EDITAR cal la clau dels llamps.
        No es mostra al públic: s'obre amb …/fonoteca/#gestio o sol, si el
-       navegador ja té la clau desada. -->
+       navegador ja té la clau desada. 07.11.2026: a dalt de tot. -->
   <section id="gestio" hidden>
     <div id="clau" hidden>
       <h2>🔒 Clau</h2>
@@ -202,6 +188,21 @@ textarea{min-height:80px;resize:vertical}
     </div>
     <p id="estat"></p>
   </section>
+
+  <section>
+    <div class="anys" id="anys" role="tablist" aria-label="Anys"></div>
+    <div class="filtres">
+      <input type="search" id="cerca" placeholder="Cerca per títol, qui parla, lloc…" aria-label="Cerca">
+      <select id="filtreQui" aria-label="Qui parla"><option value="">Qui parla: tothom</option></select>
+      <label class="continua" title="Quan acaba un àudio, comença el següent de la llista"><input type="checkbox" id="continua"> Reproducció contínua</label>
+    </div>
+    <div class="xips" id="categories"></div>
+  </section>
+
+  <section>
+    <div id="llista"><p class="buit">Carregant la fonoteca…</p></div>
+  </section>
+
 </main>
 
 <footer>Aquest espai és una gentilesa dels serveis informatius de la Bisbal d'Empordà i pobles veïns.</footer>
