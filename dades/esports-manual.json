@@ -152,7 +152,7 @@
      "hora": "17:45",
      "localVisitant": "Local",
      "rival": "BC MAÇANET",
-     "resultat": "",
+     "resultat": "87 - 35",
      "estat": "",
      "camp": "PAV.MUN.DE LA BISBAL D'EMPORDA",
      "nota": "",
@@ -448,29 +448,38 @@
     {
      "pos": 1,
      "equip": "CB BANYOLES",
-     "pj": 4,
-     "pg": 4,
+     "pj": 5,
+     "pg": 5,
      "pe": 0,
      "pp": 0,
-     "pf": 352,
-     "pc": 151,
-     "punts": 8,
-     "ratxa": "VVVV"
+     "pf": 413,
+     "pc": 201,
+     "punts": 10
     },
     {
      "pos": 2,
-     "equip": "CB VALL D’EN BAS SUB25",
-     "pj": 4,
+     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
+     "pj": 5,
      "pg": 4,
      "pe": 0,
-     "pp": 0,
-     "pf": 262,
-     "pc": 173,
-     "punts": 8,
-     "ratxa": "VXVVV"
+     "pp": 1,
+     "pf": 336,
+     "pc": 234,
+     "punts": 9
     },
     {
      "pos": 3,
+     "equip": "CB VALL D’EN BAS SUB25",
+     "pj": 5,
+     "pg": 4,
+     "pe": 0,
+     "pp": 1,
+     "pf": 312,
+     "pc": 234,
+     "punts": 9
+    },
+    {
+     "pos": 4,
      "equip": "UNIÓ MARISTES GIRONA",
      "pj": 4,
      "pg": 4,
@@ -478,11 +487,21 @@
      "pp": 0,
      "pf": 246,
      "pc": 176,
-     "punts": 8,
-     "ratxa": "XVVVV"
+     "punts": 8
     },
     {
-     "pos": 4,
+     "pos": 5,
+     "equip": "CB VILOBÍ",
+     "pj": 5,
+     "pg": 3,
+     "pe": 0,
+     "pp": 2,
+     "pf": 265,
+     "pc": 224,
+     "punts": 8
+    },
+    {
+     "pos": 6,
      "equip": "CBU LLORET RECREATIVOS LLORET",
      "pj": 5,
      "pg": 3,
@@ -490,47 +509,32 @@
      "pp": 2,
      "pf": 278,
      "pc": 243,
-     "punts": 8,
-     "ratxa": "DVVVD"
-    },
-    {
-     "pos": 5,
-     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
-     "pj": 4,
-     "pg": 3,
-     "pe": 0,
-     "pp": 1,
-     "pf": 249,
-     "pc": 199,
-     "punts": 7,
-     "ratxa": "XDVVV"
-    },
-    {
-     "pos": 6,
-     "equip": "CB VILOBÍ",
-     "pj": 4,
-     "pg": 2,
-     "pe": 0,
-     "pp": 2,
-     "pf": 188,
-     "pc": 189,
-     "punts": 6,
-     "ratxa": "VDDV"
+     "punts": 8
     },
     {
      "pos": 7,
      "equip": "BC MAÇANET",
-     "pj": 4,
+     "pj": 5,
      "pg": 2,
      "pe": 0,
-     "pp": 2,
-     "pf": 216,
-     "pc": 280,
-     "punts": 6,
-     "ratxa": "VVXDD"
+     "pp": 3,
+     "pf": 251,
+     "pc": 367,
+     "punts": 7
     },
     {
      "pos": 8,
+     "equip": "AE FORNELLS",
+     "pj": 5,
+     "pg": 1,
+     "pe": 0,
+     "pp": 4,
+     "pf": 205,
+     "pc": 271,
+     "punts": 6
+    },
+    {
+     "pos": 9,
      "equip": "CB SARRIÀ DE TER",
      "pj": 4,
      "pg": 1,
@@ -538,20 +542,7 @@
      "pp": 3,
      "pf": 218,
      "pc": 220,
-     "punts": 5,
-     "ratxa": "DXDVD"
-    },
-    {
-     "pos": 9,
-     "equip": "AE FORNELLS",
-     "pj": 4,
-     "pg": 1,
-     "pe": 0,
-     "pp": 3,
-     "pf": 170,
-     "pc": 194,
-     "punts": 5,
-     "ratxa": "VDDDX"
+     "punts": 5
     },
     {
      "pos": 10,
@@ -562,8 +553,7 @@
      "pp": 2,
      "pf": 144,
      "pc": 197,
-     "punts": 4,
-     "ratxa": "DXDV"
+     "punts": 4
     },
     {
      "pos": 11,
@@ -574,8 +564,7 @@
      "pp": 4,
      "pf": 166,
      "pc": 269,
-     "punts": 4,
-     "ratxa": "DDXDD"
+     "punts": 4
     },
     {
      "pos": 12,
@@ -586,8 +575,7 @@
      "pp": 3,
      "pf": 112,
      "pc": 208,
-     "punts": 3,
-     "ratxa": "DDDX"
+     "punts": 3
     },
     {
      "pos": 13,
@@ -598,11 +586,10 @@
      "pp": 3,
      "pf": 104,
      "pc": 206,
-     "punts": 3,
-     "ratxa": "DXDD"
+     "punts": 3
     }
    ],
-   "classificacioActualitzada": "2026-11-01T12:09:27.681Z"
+   "classificacioActualitzada": "2026-11-07T19:37:30.475Z"
   }
  }
 }
