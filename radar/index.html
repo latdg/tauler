@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Radar 3D · La TdG</title>
+<!-- RADAR 3D (07.11.2026): la pluja de les dues últimes hores (RainViewer), en columnes
+     que s'aixequen segons la intensitat, sobre la demarcació de Girona. -->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+a{color:var(--accent)}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+#resum{margin:0 0 10px;font-weight:600}
+#resum.sec{font-weight:400;color:var(--suau)}
+.marc{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--linia)}
+#mapa{width:100%;height:min(72vh,640px);background:#e9e7e1}
+.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.controls input[type=range]{flex:1;min-width:140px;accent-color:var(--accent)}
+button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);cursor:pointer}
+button.prim{background:var(--accent);border-color:var(--accent);color:#fff;min-width:44px}
+#hora{font-variant-numeric:tabular-nums;font-weight:600;min-width:9.5em}
+.llegenda{position:absolute;left:8px;bottom:8px;background:rgba(255,255,255,.92);border-radius:8px;padding:6px 8px;font-size:.75rem;line-height:1.3;box-shadow:0 1px 4px rgba(0,0,0,.15);max-width:calc(100% - 16px)}
+.llegenda .escala{display:flex;gap:2px;margin:3px 0 2px}
+.llegenda .escala i{flex:1;height:9px;min-width:16px;border-radius:2px}
+.llegenda .noms{display:flex;justify-content:space-between;gap:10px;color:var(--suau)}
+.avis{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.avis span{background:rgba(255,255,255,.92);border-radius:8px;padding:8px 14px;font-size:.9rem;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.font{color:var(--suau);font-size:.85rem;margin:10px 0 0}
+.bisbal{background:var(--accent);color:#fff;font-size:.72rem;font-weight:600;padding:1px 6px;border-radius:10px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.maplibregl-popup-content{font-size:.85rem;line-height:1.4;padding:8px 12px}
+/* Incrustat al tauler (?incrustat=1): només el mapa i els controls */
+body.incrustat header,body.incrustat .peu{display:none}
+body.incrustat main{padding:0;max-width:none}
+body.incrustat section{border:0;border-radius:0;padding:0;margin:0;background:transparent}
+body.incrustat #mapa{height:340px}
+body.incrustat .controls{margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌧️ Radar 3D</h1>
+  <p class="sub">La pluja de les dues últimes hores sobre la demarcació de Girona. Com més alta i més calenta de color és una columna, més fort hi plou. <a href="../">Torna a La TdG ampliada</a></p>
+</header>
+<main>
+  <section>
+    <p id="resum" class="sec">Carregant el radar…</p>
+    <div class="marc">
+      <div id="mapa"></div>
+      <div class="llegenda" id="llegenda"></div>
+      <div class="avis" id="avis" hidden><span></span></div>
+    </div>
+    <div class="controls">
+      <button class="prim" id="play" aria-label="Reprodueix">▶</button>
+      <input type="range" id="franja" min="0" max="0" value="0" aria-label="Moment del radar">
+      <span id="hora">—</span>
+      <button id="vista">Vista en planta</button>
+      <button id="centra">La Bisbal</button>
+    </div>
+    <p class="font peu">Radar: <a href="https://www.rainviewer.com/" target="_blank" rel="noopener">RainViewer</a> (composició dels radars meteorològics, una imatge cada 10 minuts). L'alçada de les columnes és proporcional a la intensitat de la pluja, no és l'altura real dels núvols, i els mm/h són una estimació a partir del senyal del radar. Cada columna fa aproximadament 1 km de costat. Per als avisos oficials, <a href="https://www.meteo.cat/" target="_blank" rel="noopener">Meteocat</a> i <a href="https://www.aemet.es/ca/eltiempo/prediccion/avisos" target="_blank" rel="noopener">AEMET</a>.</p>
+    <p class="font peu">Arrossega per moure el mapa; amb dos dits (o el botó dret) el gires i l'inclines.</p>
+  </section>
+</main>
+<script>
+"use strict";
+const PARAMS = new URLSearchParams(location.search);
+const INCRUSTAT = PARAMS.has("incrustat");
+if (INCRUSTAT) document.body.classList.add("incrustat");
+
+const BISBAL = [3.0386, 41.9597];            // [lon, lat]
+const ZOOM_RADAR = 7;                          // RainViewer no dona més detall
+const MIDA = 256;
+// Zona que es llegeix del radar: tot el nord-est, amb el mar (s'hi veuen arribar els fronts)
+const ZONA = { oest: 0.15, est: 4.9, sud: 40.6, nord: 43.0 };
+
+// --- CLASSES D'INTENSITAT ---
+// Llindar en dBZ, nom, mm/h aproximats (Marshall-Palmer), color i alçada de la columna
+const CLASSES = [
+  { dbz: 15, nom: "Molt feble", color: "#9fd3f2" },
+  { dbz: 20, nom: "Feble",      color: "#4fa3e6" },
+  { dbz: 25, nom: "Moderada",   color: "#2a6fd1" },
+  { dbz: 30, nom: "Moderada",   color: "#27a35a" },
+  { dbz: 35, nom: "Forta",      color: "#f0d000" },
+  { dbz: 40, nom: "Forta",      color: "#f39200" },
+  { dbz: 45, nom: "Molt forta", color: "#e1261c" },
+  { dbz: 50, nom: "Torrencial", color: "#a3006b" },
+  { dbz: 55, nom: "Torrencial", color: "#c040d0" }
+];
+const mmh = dbz => Math.pow(Math.pow(10, dbz / 10) / 200, 1 / 1.6);
+const alcada = dbz => 500 + (dbz - 15) * 260;   // 15 dBZ ≈ 0,5 km; 55 dBZ ≈ 10,9 km
+const fmtMm = v => v < 1 ? v.toFixed(1).replace(".", ",") : v < 10 ? (Math.round(v * 2) / 2).toString().replace(".", ",") : String(Math.round(v));
+function classeDe(dbz) {
+  let c = -1;
+  for (let i = 0; i < CLASSES.length; i++) if (dbz >= CLASSES[i].dbz) c = i;
+  return c;
+}
+
+// --- COLORS DE RAINVIEWER («Universal Blue», esquema 2) → dBZ ---
+// Taula oficial: https://www.rainviewer.com/files/rainviewer_api_colors_table.csv
+// Només calen els opacs (de 15 dBZ amunt); per sota hi ha plugim i soroll.
+const PLUJA = ["88ddee","6cd1eb","51c5e8","36bae5","1baee2","00a3e0","009ad5","0091ca","0088bf","007fb4",
+  "0077aa","0070a3","00699c","006295","005b8e","005588","005180","004e78","004a70","004768",
+  "ffee00","ffe000","ffd200","ffc500","ffb700","ffaa00","ff9f00","ff9500","ff8b00","ff8100",
+  "ff4400","f23600","e62800","d91b00","cd0d00","c10000","a80000","8f0000","760000","5d0000",
+  "ffaaff","ff9fff","ff95ff","ff8bff","ff81ff","ff77ff","ff6cff","ff62ff","ff58ff","ff4eff","ffffff"]; // 15…65
+const NEU = ["9fdfff","98d8ff","92d2ff","8bcbff","85c5ff","7fbfff","78b8ff","72b2ff","6babff","65a5ff",
+  "5f9fff","5b9bff","5898ff","5595ff","5292ff","4f8fff","4b8bff","4888ff","4585ff","4282ff",
+  "3f7fff","3b7bff","3878ff","3575ff","3272ff","2f6fff","2b6bff","2868ff","2565ff","2262ff",
+  "1f5fff","1b5bff","1858ff","1555ff","1252ff","0f4fff","0c4bff","0948ff","0645ff","0242ff",
+  "003fff","003bff","0038ff","0035ff","0032ff","002fff","002bff","0028ff","0025ff","0022ff","001fff"]; // 15…65
+const COLOR_DBZ = new Map();
+const TAULA = [];
+PLUJA.forEach((h, i) => { COLOR_DBZ.set(parseInt(h, 16), [15 + i, false]); TAULA.push([parseInt(h, 16), 15 + i, false]); });
+NEU.forEach((h, i) => { const k = parseInt(h, 16); if (!COLOR_DBZ.has(k)) COLOR_DBZ.set(k, [15 + i, true]); TAULA.push([k, 15 + i, true]); });
+const APROP = new Map();
+function dbzDe(r, g, b) {
+  const k = (r << 16) | (g << 8) | b;
+  const e = COLOR_DBZ.get(k);
+  if (e) return e;
+  if (APROP.has(k)) return APROP.get(k);
+  let millor = null, dist = 1e9;
+  for (const [c, d, n] of TAULA) {
+    const dr = ((c >> 16) & 255) - r, dg = ((c >> 8) & 255) - g, db = (c & 255) - b;
+    const x = dr * dr + dg * dg + db * db;
+    if (x < dist) { dist = x; millor = [d, n]; }
+  }
+  const res = dist <= 600 ? millor : null;     // un color que no és de la taula no compta
+  APROP.set(k, res);
+  return res;
+}
+
+// --- GEOMETRIA DE LES TESSEL·LES (Web Mercator) ---
+const N = MIDA * Math.pow(2, ZOOM_RADAR);
+const xDeLon = lon => (lon + 180) / 360 * N;
+const yDeLat = lat => { const s = Math.sin(lat * Math.PI / 180); return (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * N; };
+const lonDeX = x => x / N * 360 - 180;
+const latDeY = y => Math.atan(Math.sinh(Math.PI * (1 - 2 * y / N))) * 180 / Math.PI;
+const X0 = Math.floor(xDeLon(ZONA.oest)), X1 = Math.ceil(xDeLon(ZONA.est));
+const Y0 = Math.floor(yDeLat(ZONA.nord)), Y1 = Math.ceil(yDeLat(ZONA.sud));
+const TX0 = Math.floor(X0 / MIDA), TX1 = Math.floor((X1 - 1) / MIDA);
+const TY0 = Math.floor(Y0 / MIDA), TY1 = Math.floor((Y1 - 1) / MIDA);
+const AMPLE = X1 - X0, ALT = Y1 - Y0;
+
+function carregaImatge(url) {
+  return new Promise((ok, ko) => {
+    const im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = () => ok(im);
+    im.onerror = () => ko(new Error("No s'ha pogut carregar " + url));
+    im.src = url;
+  });
+}
+
+// Llegeix una imatge del radar i en treu una graella de dBZ (0 = no plou; negatiu = neu)
+async function llegeixFranja(host, path) {
+  const cv = document.createElement("canvas");
+  cv.width = AMPLE; cv.height = ALT;
+  const ctx = cv.getContext("2d", { willReadFrequently: true });
+  const feines = [];
+  for (let tx = TX0; tx <= TX1; tx++) for (let ty = TY0; ty <= TY1; ty++) {
+    const url = `${host}${path}/${MIDA}/${ZOOM_RADAR}/${tx}/${ty}/2/0_1.png`;
+    feines.push(carregaImatge(url).then(im => ctx.drawImage(im, tx * MIDA - X0, ty * MIDA - Y0)));
+  }
+  await Promise.all(feines);
+  const px = ctx.getImageData(0, 0, AMPLE, ALT).data;   // falla si el servidor no permet CORS
+  const graella = new Int8Array(AMPLE * ALT);
+  for (let i = 0, j = 0; i < graella.length; i++, j += 4) {
+    if (px[j + 3] < 250) continue;
+    const e = dbzDe(px[j], px[j + 1], px[j + 2]);
+    if (e) graella[i] = e[1] ? -e[0] : e[0];
+  }
+  return graella;
+}
+
+// Converteix la graella en columnes: les cel·les seguides d'una fila amb la mateixa
+// classe s'ajunten en un sol rectangle (així el mapa va lleuger encara que plogui molt).
+function columnes(graella) {
+  const feats = [];
+  for (let y = 0; y < ALT; y++) {
+    const latN = latDeY(Y0 + y), latS = latDeY(Y0 + y + 1);
+    let x = 0;
+    while (x < AMPLE) {
+      const v = graella[y * AMPLE + x];
+      const c = v ? classeDe(Math.abs(v)) : -1;
+      if (c < 0) { x++; continue; }
+      const neu = v < 0;
+      let fi = x + 1, max = Math.abs(v);
+      while (fi < AMPLE) {
+        const w = graella[y * AMPLE + fi];
+        if (!w || (w < 0) !== neu || classeDe(Math.abs(w)) !== c) break;
+        max = Math.max(max, Math.abs(w)); fi++;
+      }
+      const lonO = lonDeX(X0 + x), lonE = lonDeX(X0 + fi);
+      feats.push({ type: "Feature",
+        properties: { c, neu, h: alcada(CLASSES[c].dbz + 2.5), color: neu ? "#eef4ff" : CLASSES[c].color, dbz: max },
+        geometry: { type: "Polygon", coordinates: [[[lonO, latS], [lonE, latS], [lonE, latN], [lonO, latN], [lonO, latS]]] } });
+      x = fi;
+    }
+  }
+  return { type: "FeatureCollection", features: feats };
+}
+
+// On plou ara a prop de la Bisbal (per al text de sobre el mapa)
+function km(lon1, lat1, lon2, lat2) {
+  const R = 6371, r = Math.PI / 180, dLat = (lat2 - lat1) * r, dLon = (lon2 - lon1) * r;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * r) * Math.cos(lat2 * r) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+const RUMBS = ["al nord", "al nord-est", "a l'est", "al sud-est", "al sud", "al sud-oest", "a l'oest", "al nord-oest"];
+function rumb(lon, lat) {
+  const dx = (lon - BISBAL[0]) * Math.cos(BISBAL[1] * Math.PI / 180), dy = lat - BISBAL[1];
+  const a = (Math.atan2(dx, dy) * 180 / Math.PI + 360) % 360;
+  return RUMBS[Math.round(a / 45) % 8];
+}
+function resumDe(graella) {
+  let prop = null, maxAqui = 0, neuAqui = false;
+  for (let y = 0; y < ALT; y++) {
+    const lat = latDeY(Y0 + y + 0.5);
+    if (Math.abs(lat - BISBAL[1]) > 0.6) continue;
+    for (let x = 0; x < AMPLE; x++) {
+      const v = graella[y * AMPLE + x];
+      if (!v || Math.abs(v) < 20) continue;     // a partir de pluja feble
+      const lon = lonDeX(X0 + x + 0.5), d = km(BISBAL[0], BISBAL[1], lon, lat);
+      if (d <= 3) { if (Math.abs(v) > maxAqui) { maxAqui = Math.abs(v); neuAqui = v < 0; } }
+      if (d <= 60 && (!prop || d < prop.d)) prop = { d, lon, lat, v };
+    }
+  }
+  if (maxAqui) {
+    const c = CLASSES[classeDe(maxAqui)];
+    return { text: `${neuAqui ? "Neva" : "Plou"} a la Bisbal: ${neuAqui ? "intensitat" : "pluja"} ${c.nom.toLowerCase()}, d'uns ${fmtMm(mmh(maxAqui))} mm/h.`, plou: true };
+  }
+  if (prop) {
+    const c = CLASSES[classeDe(Math.abs(prop.v))];
+    return { text: `A la Bisbal no hi plou. La pluja més propera és a uns ${Math.round(prop.d)} km ${rumb(prop.lon, prop.lat)} (${prop.v < 0 ? "neu" : c.nom.toLowerCase()}).`, plou: true };
+  }
+  return { text: "No plou enlloc a menys de 60 km de la Bisbal.", plou: false };
+}
+
+// --- HORES (dd.mm.aaaa i «a les 06.40 h») ---
+const FMT = new Intl.DateTimeFormat("ca", { timeZone: "Europe/Madrid", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+function quan(t) {
+  const p = Object.fromEntries(FMT.formatToParts(new Date(t * 1000)).map(x => [x.type, x.value]));
+  return { dia: `${p.day}.${p.month}.${p.year}`, hora: `${p.hour}.${p.minute} h` };
+}
+
+// --- MAPA ---
+const mapa = new maplibregl.Map({
+  container: "mapa",
+  style: {
+    version: 8,
+    sources: {
+      osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19,
+        attribution: 'Mapa: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>' },
+      relleu: { type: "raster-dem", tiles: ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+        encoding: "terrarium", tileSize: 256, maxzoom: 12, attribution: "Relleu: Terrarium (AWS)" }
+    },
+    layers: [
+      { id: "fons", type: "background", paint: { "background-color": "#e9e7e1" } },
+      { id: "osm", type: "raster", source: "osm", paint: { "raster-saturation": -0.75, "raster-opacity": 0.85, "raster-contrast": -0.1 } },
+      { id: "ombra", type: "hillshade", source: "relleu", paint: { "hillshade-exaggeration": 0.35, "hillshade-shadow-color": "#5c5649" } }
+    ]
+  },
+  center: [3.02, 41.96], zoom: INCRUSTAT ? 7.6 : 8, pitch: 55, bearing: -15,
+  minZoom: 6, maxZoom: 12, maxPitch: 75,
+  cooperativeGestures: INCRUSTAT,
+  attributionControl: false
+});
+mapa.addControl(new maplibregl.AttributionControl({ compact: true,
+  customAttribution: 'Radar: <a href="https://www.rainviewer.com/" target="_blank" rel="noopener">RainViewer</a> · Límits: es-atlas (INE)' }));
+mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
+
+const el = document.createElement("div");
+el.className = "bisbal"; el.textContent = "la Bisbal";
+new maplibregl.Marker({ element: el, anchor: "bottom" }).setLngLat(BISBAL).addTo(mapa);
+
+// Llegenda
+document.getElementById("llegenda").innerHTML =
+  `<b>Intensitat de la pluja</b><div class="escala">${CLASSES.map(c => `<i style="background:${c.color}" title="${c.nom}: ${fmtMm(mmh(c.dbz))} mm/h"></i>`).join("")}<i style="background:#eef4ff;border:1px solid #c9d6ee" title="Neu"></i></div>` +
+  `<div class="noms"><span>feble</span><span>forta</span><span>torrencial</span><span>neu</span></div>`;
+
+let FRANGES = [], GRAELLES = [], GEO = [], ACTUAL = 0, JUGANT = null, HOST = "";
+
+function avis(text) {
+  const a = document.getElementById("avis");
+  a.hidden = !text;
+  if (text) a.querySelector("span").textContent = text;
+}
+
+function mostra(i) {
+  ACTUAL = i;
+  if (!GRAELLES[i]) return;
+  GEO[i] = GEO[i] || columnes(GRAELLES[i]);
+  const src = mapa.getSource("pluja");
+  if (src) src.setData(GEO[i]);
+  const q = quan(FRANGES[i].time);
+  const darrera = i === FRANGES.length - 1;
+  document.getElementById("hora").textContent = `${q.dia} · ${q.hora}`;
+  document.getElementById("franja").value = i;
+  avis(GEO[i].features.length ? "" : "No plou enlloc de la zona en aquest moment");
+  if (darrera) {
+    const r = resumDe(GRAELLES[i]);
+    const p = document.getElementById("resum");
+    p.textContent = `Ara (${q.hora}): ${r.text}`;
+    p.className = r.plou ? "" : "sec";
+  }
+}
+
+async function carrega() {
+  try {
+    const r = await fetch("https://api.rainviewer.com/public/weather-maps.json", { cache: "no-store" });
+    if (!r.ok) throw new Error(r.status);
+    const d = await r.json();
+    HOST = d.host;
+    const noves = (d.radar && d.radar.past) || [];
+    if (!noves.length) throw new Error("sense imatges");
+    // Les imatges que ja teníem no es tornen a llegir
+    const velles = new Map(FRANGES.map((f, i) => [f.path, GRAELLES[i]]));
+    const graelles = await Promise.all(noves.map(f => velles.get(f.path) || llegeixFranja(HOST, f.path).catch(() => null)));
+    const bones = noves.map((f, i) => [f, graelles[i]]).filter(x => x[1]);
+    if (!bones.length) throw new Error("no s'ha pogut llegir cap imatge");
+    FRANGES = bones.map(x => x[0]); GRAELLES = bones.map(x => x[1]); GEO = [];
+    const fr = document.getElementById("franja");
+    fr.max = FRANGES.length - 1;
+    if (!JUGANT) mostra(FRANGES.length - 1);
+  } catch (e) {
+    console.error("Radar:", e);
+    const p = document.getElementById("resum");
+    p.textContent = "Ara mateix no es pot carregar el radar. Torna-ho a provar d'aquí a una estona.";
+    p.className = "sec";
+  }
+}
+
+mapa.on("load", async () => {
+  // Límits de les províncies i dels municipis de la demarcació
+  try {
+    const G = await (await fetch("../llamps/girona.json")).json();
+    mapa.addSource("municipis", { type: "geojson", data: topojson.feature(G, G.objects.municipis) });
+    const prov = topojson.feature(G, G.objects.provincies);
+    prov.features.forEach(f => { f.properties = Object.assign({}, f.properties, { girona: String(f.id) === "17" }); });
+    mapa.addSource("provincies", { type: "geojson", data: prov });
+    mapa.addLayer({ id: "municipis", type: "line", source: "municipis", minzoom: 8.5, paint: { "line-color": "#9a958a", "line-width": 0.6, "line-opacity": 0.6 } });
+    mapa.addLayer({ id: "provincies", type: "line", source: "provincies", paint: { "line-color": "#6b6b66", "line-width": ["case", ["get", "girona"], 2, 1] } });
+  } catch (e) { console.error("Límits:", e); }
+
+  mapa.addSource("pluja", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+  mapa.addLayer({ id: "pluja", type: "fill-extrusion", source: "pluja",
+    paint: { "fill-extrusion-color": ["get", "color"], "fill-extrusion-height": ["get", "h"], "fill-extrusion-base": 0,
+      "fill-extrusion-opacity": 0.82, "fill-extrusion-vertical-gradient": true } });
+
+  mapa.on("click", "pluja", e => {
+    const f = e.features && e.features[0];
+    if (!f) return;
+    const p = f.properties, c = CLASSES[p.c];
+    const neu = p.neu === true || p.neu === "true";
+    new maplibregl.Popup({ closeButton: false }).setLngLat(e.lngLat)
+      .setHTML(neu ? `<b>Neu</b><br>Senyal del radar: ${p.dbz} dBZ`
+        : `<b>Pluja ${c.nom.toLowerCase()}</b><br>Uns ${fmtMm(mmh(p.dbz))} mm/h (${p.dbz} dBZ)`).addTo(mapa);
+  });
+  mapa.on("mouseenter", "pluja", () => mapa.getCanvas().style.cursor = "pointer");
+  mapa.on("mouseleave", "pluja", () => mapa.getCanvas().style.cursor = "");
+
+  await carrega();
+  setInterval(carrega, 5 * 60 * 1000);   // RainViewer en fa una de nova cada 10 minuts
+});
+
+// --- CONTROLS ---
+const btPlay = document.getElementById("play");
+function atura() { clearInterval(JUGANT); JUGANT = null; btPlay.textContent = "▶"; btPlay.setAttribute("aria-label", "Reprodueix"); }
+btPlay.onclick = () => {
+  if (JUGANT) return atura();
+  if (!FRANGES.length) return;
+  btPlay.textContent = "⏸"; btPlay.setAttribute("aria-label", "Atura");
+  if (ACTUAL >= FRANGES.length - 1) mostra(0);
+  JUGANT = setInterval(() => {
+    if (ACTUAL >= FRANGES.length - 1) { atura(); return; }
+    mostra(ACTUAL + 1);
+  }, 700);
+};
+document.getElementById("franja").oninput = e => { atura(); mostra(+e.target.value); };
+const btVista = document.getElementById("vista");
+btVista.onclick = () => {
+  const pla = mapa.getPitch() > 5;
+  mapa.easeTo({ pitch: pla ? 0 : 55, bearing: pla ? 0 : -15, duration: 800 });
+  btVista.textContent = pla ? "Vista en 3D" : "Vista en planta";
+};
+document.getElementById("centra").onclick = () => mapa.flyTo({ center: BISBAL, zoom: 9.5, duration: 1200 });
+</script>
+</body>
+</html>
