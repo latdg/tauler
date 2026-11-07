@@ -156,7 +156,7 @@ def film(films, titol):
     k = clau(titol)
     if k not in films:
         films[k] = {"key": k, "titol": titol.strip(), "sinopsi": "", "durada": "", "genere": "", "edat": "", "director": "",
-                    "actors": "", "estrena": "", "posterUrl": "", "posterJpeg": None, "posterDesat": "", "web": "",
+                    "actors": "", "estrena": "", "posterUrl": "", "posterJpeg": None, "posterDesat": "", "web": "", "entrades": {},
                     "qualitat": 0, "titolCa": "", "titolMontgri": "", "sinopsiEs": False, "genereEs": False, "edatEs": False, "sessions": [], "tmdb": None}
     return films[k]
 
@@ -227,6 +227,8 @@ def ocine(base, nom, films):
         f = film(films, cadena(fitxa, "titol") or cadena(p, "titol"))
         ocine_dades(f, fitxa)
         f["web"] = f["web"] or base + "/?idioma=ca"
+        # On es compren les entrades d'aquesta pel·lícula en aquest cinema (la fitxa de la seva botiga)
+        f["entrades"][nom] = f"{base}/#/DetallPelicula/{p['id']}"
         afegeix_sessions(f, nom, fitxa.get("sessions"), "")
         for s in fitxa.get("subPelicules") or []:
             afegeix_sessions(f, nom, s.get("sessions"), format_ocine(s.get("propietatsDesc")))
@@ -265,6 +267,8 @@ def odeon(films):
             if p:
                 f["posterUrl"] = p + "?width=500"
         f["web"] = f["web"] or "https://odeonmulticines.com/odeon-girona"
+        # L'Odeón no té pàgina per pel·lícula, només per sessió: les entrades, des de la seva cartellera
+        f["entrades"]["Odeón Girona (Salt)"] = "https://odeonmulticines.com/odeon-girona"
         for dia in re.split(r'(?=<div class="day-\d{4}-\d{2}-\d{2})', b):
             md = ODEON_DIA.match(dia)
             if not md:
@@ -418,6 +422,9 @@ def recupera(fallats, films):
         elif not f["posterUrl"]:
             f["posterUrl"] = v.get("poster", "")
         f["sessions"].extend(recuperades)
+        for c, u in (v.get("entrades") or {}).items():
+            if c in fallats:
+                f["entrades"].setdefault(c, u)
 
 
 # ---------------------------------------------------------------- TMDB
@@ -622,6 +629,7 @@ def fusiona(g, f):
     g["titolMontgri"] = g["titolMontgri"] or f["titolMontgri"]
     g["durada"] = g["durada"] or f["durada"]
     g["web"] = g["web"] or f["web"]
+    g["entrades"] = {**f["entrades"], **g["entrades"]}
 
 
 def mateix_director(g, f):
@@ -773,7 +781,8 @@ def main():
         fila = {k: f[k] for k in ("key", "titol", "titolFont", "sinopsi", "durada", "genere", "edat", "director", "actors", "estrena")}
         if fila["actors"].lower() == fila["genere"].lower():
             fila["actors"] = ""   # OCINE posa «Animació» com a repartiment
-        fila.update(poster=poster, web=segur(f["web"]), sessions=f["sessions"])
+        fila.update(poster=poster, web=segur(f["web"]), sessions=f["sessions"],
+                    entrades={c: segur(u) for c, u in f["entrades"].items() if segur(u) and any(s["cinema"] == c for s in f["sessions"])})
         r = f["tmdb"] or {}
         if r.get("id"):
             fila.update(nota=r.get("nota", 0), vots=r.get("vots", 0), plataformes=r.get("plataformes", []), plataformesUrl=segur(r.get("enllac", "")))
