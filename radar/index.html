@@ -488,6 +488,8 @@ async function carrega() {
 }
 
 mapa.on("load", async () => {
+  // L'atribució comença plegada (al mòbil tapava el mapa)
+  document.querySelectorAll(".maplibregl-ctrl-attrib").forEach(e => e.classList.remove("maplibregl-compact-show"));
   // Límits de les províncies i dels municipis de la demarcació
   try {
     const G = await (await fetch("../llamps/girona.json")).json();
