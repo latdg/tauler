@@ -354,9 +354,10 @@ def incidencies():
             "titol": neteja_text(item["title"]),
             "carretera": parts[0],
             "km": re.sub(r"^Punt km\.?\s*", "", parts[3], flags=re.I),
-            "sentit": parts[2],
+            "sentit": neteja_sentit(parts[2]),   # 09.11.2026
             "inici": inici_incidencia(item.get("pubDate"), parts[4]),   # 02.11.2026
         })
+    resultat = sense_duplicades(resultat)   # 09.11.2026
     # 02.11.2026: situa cada incidència al mapa amb el DATEX2 del mateix Servei Català
     # de Trànsit (al punt d'accés de la DGT), que dona els punts d'inici i de final.
     if resultat:
@@ -365,6 +366,34 @@ def incidencies():
         except Exception as e:
             print("Incidències viàries: no s'han pogut situar al mapa:", e)
     return resultat   # una llista buida també és una dada: «cap incidència»
+
+
+def neteja_sentit(t):
+    """09.11.2026: «Sentit Ambdós sentits cap a HORARI DIÜRN» -> «ambdós sentits · horari diürn».
+    Trànsit hi posa de vegades l'horari on hauria d'anar el destí."""
+    t = re.sub(r"^\s*Sentit\s+", "", str(t or "").strip(), flags=re.I)
+    base, _, desti = t.partition(" cap a ")
+    base = re.sub(r"^Ambd[óo]s sentits$", "ambdós sentits", base.strip(), flags=re.I)
+    desti = desti.strip()
+    if not desti:
+        return base
+    if re.search(r"horari", desti, re.I):
+        return f"{base} · {desti.lower()}"
+    return f"{base} cap a {desti}"
+
+
+def sense_duplicades(llista):
+    """09.11.2026: una mateixa obra publicada dues vegades (mateix municipi, carretera,
+    quilòmetres i tipus) surt una sola vegada: es queda la més recent."""
+    def quan(i):
+        m = re.match(r"(\d{2})\.(\d{2})\.(\d{4}) a les (\d{2})\.(\d{2})", i.get("inici") or "")
+        return (m.group(3), m.group(2), m.group(1), m.group(4), m.group(5)) if m else ("",)
+    triades = {}
+    for i in llista:
+        clau = (norm_be(i["municipi"]), norm_be(i["titol"]), norm_be(i["carretera"]), i["km"])
+        if clau not in triades or quan(i) > quan(triades[clau]):
+            triades[clau] = i
+    return [i for i in llista if triades.get((norm_be(i["municipi"]), norm_be(i["titol"]), norm_be(i["carretera"]), i["km"])) is i]
 
 
 def inici_incidencia(pub, hora):

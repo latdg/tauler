@@ -429,6 +429,9 @@ function seccio(titol, cos, font, ambData = true) {
   return `<section id="${id}" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${capPeu}${cos}</section>`;
 }
 
+// 09.11.2026: quilòmetres de carretera amb coma decimal («7,9»), no amb punt.
+const kmCa = k => String(k || "").replace(/(\d)\.(\d)/g, "$1,$2");
+
 // 09.11.2026: BLOCS PLEGATS a La TdG ampliada (només es veu el títol; s'obren en clicar-hi).
 // Incendis i sequera i focus de calor, plegats tot l'any excepte a l'estiu (del 21.06 al 22.09).
 const RX_PLEGAT = /rec[àa]rrega|desfibril|antenes|borme|subhastes|verdor|p[òo]l·lens|qualitat de l'aire|clima en context|pluja d'ahir/i;
@@ -1484,10 +1487,10 @@ async function mapesIncidencies(b) {
     if (mapa) {
       carrers(mapa);   // 05.11.2026: Trànsit, sense el zoom de carrers d'entrada
       dades.forEach(({ i, tros, dins }) => {
-        const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}${i.inici ? "<br>Des del " + esc(i.inici) : ""}${i.fi ? "<br>Fins al " + esc(i.fi) + " (previsió)" : ""}` +
-          (dins ? `<br><i style="color:#6b6b66">En vermell, el tros dins del terme de ${esc(i.municipi)}; en gris, la resta del tram previst (km ${esc(i.km)}).</i>`
+        const html = `<b>${esc(i.carretera)}${i.km ? ", km " + esc(kmCa(i.km)) : ""}</b><br>${esc(i.titol)}<br>${esc(i.municipi)}${i.sentit ? "<br>" + esc(i.sentit) : ""}${i.inici ? "<br>Des del " + esc(i.inici) : ""}${i.fi ? "<br>Fins al " + esc(i.fi) + " (previsió)" : ""}` +
+          (dins ? `<br><i style="color:#6b6b66">En vermell, el tros dins del terme de ${esc(i.municipi)}; en gris, la resta del tram previst (km ${esc(kmCa(i.km))}).</i>`
             : i.linia ? "" : i.tram ? '<br><i style="color:#6b6b66">Tram aproximat: només se\'n coneixen l\'inici i el final.</i>' : "");
-        const tip = `${i.carretera}${i.km ? ", km " + i.km : ""} · ${i.titol}`;
+        const tip = `${i.carretera}${i.km ? ", km " + kmCa(i.km) : ""} · ${i.titol}`;
         if (i.punt) return punt(mapa, i.punt[0], i.punt[1], "#d7191c", 8, tip, html);
         const vermells = dins || [tros];
         if (dins) L.polyline(tros, { color: "#9a958a", weight: 3, opacity: .7, dashArray: "6 5" }).bindTooltip(tip + " (tram previst)", { sticky: true }).bindPopup(html, { maxWidth: 280 }).addTo(mapa);
@@ -1639,7 +1642,7 @@ function pinta(d) {
       // 26.10.2026: agrupades per població (un sol títol per municipi i les afectacions a sota).
       ? "<ul>" + Object.entries(b.incidencies.reduce((g, i) => { (g[i.municipi] = g[i.municipi] || []).push(i); return g; }, {}))
           .map(([mun, llista]) => {
-            const linia = i => `${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(i.km) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}${i.inici ? " · des del " + esc(i.inici) : ""}${i.fi ? " · fins al " + esc(i.fi) : ""}`;
+            const linia = i => `${esc(i.titol)} — ${esc(i.carretera)}${i.km ? ", km " + esc(kmCa(i.km)) : ""}${i.sentit ? " (" + esc(i.sentit) + ")" : ""}${i.inici ? " · des del " + esc(i.inici) : ""}${i.fi ? " · fins al " + esc(i.fi) : ""}`;
             return llista.length === 1
               ? `<li><b>${esc(mun)}</b>: ${linia(llista[0])}</li>`
               : `<li><b>${esc(mun)}</b> (${llista.length})<ul>${llista.map(i => `<li>${linia(i)}</li>`).join("")}</ul></li>`;
