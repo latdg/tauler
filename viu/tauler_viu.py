@@ -2033,7 +2033,10 @@ def pluja_ahir():
 METEOCLIMATIC = [
     {"codi": "ESCAT1700000017100A", "nom": "la Bisbal · Terracotta Museu", "lloc": "la Bisbal d'Empordà"},
     {"codi": "ESCAT1700000017100B", "nom": "la Bisbal · Jesús Martí", "lloc": "la Bisbal d'Empordà"},
-    {"codi": "ESCAT1700000017100C", "nom": "la Bisbal · Antoni Ruiz", "lloc": "la Bisbal d'Empordà"},
+    # 08.11.2026: «punt» és una ubicació aproximada (arrodonida, per privacitat) que dona La TdG;
+    # només les que en tenen surten al mapa.
+    {"codi": "ESCAT1700000017100C", "nom": "la Bisbal · Antoni Ruiz", "lloc": "la Bisbal d'Empordà",
+     "punt": (41.962, 3.0396)},
     {"codi": "ESCAT1700000017116A", "nom": "Puig d'Arques (Gavarres)", "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura"},
 ]
 METEOCLIMATIC_URL = "https://www.meteoclimatic.net/perfil/{}"
@@ -2163,7 +2166,9 @@ def pluja_properes(meteocat):
             d["hora"] = h.strftime("%H.%M")
         if fitxa.get("lat") is not None:
             dies["_lloc"] = {"lat": fitxa["lat"], "lon": fitxa["lon"], "alt": fitxa.get("alt")}
-        lloc = dies.get("_lloc") or {}
+        lloc = dict(dies.get("_lloc") or {})
+        if e.get("punt"):
+            lloc.update(lat=e["punt"][0], lon=e["punt"][1])
         a, b = dies.get(avui.isoformat(), {}), dies.get(ahir.isoformat(), {})
         mm, complet = None, False
         if "fins" in a and "fins" in b and not (avui.month == 1 and avui.day == 1) and a["fins"] >= b["fins"]:
@@ -2175,6 +2180,7 @@ def pluja_properes(meteocat):
             continue   # 07.11.2026: l'estació que no dona dades, fora del bloc
         properes.append({"nom": e["nom"], "lloc": e["lloc"], "xarxa": "Meteoclimàtic",
                          "lat": lloc.get("lat"), "lon": lloc.get("lon"), "alt": lloc.get("alt"), "exacte": False,
+                         "aMapa": bool(e.get("punt")),
                          "mm": mm, "complet": complet, "episodi": fitxa.get("episodi"),
                          "url": METEOCLIMATIC_URL.format(e["codi"])})
         # Es guarden deu dies.

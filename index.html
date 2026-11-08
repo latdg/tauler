@@ -1322,7 +1322,7 @@ async function mapesIncidencies(b) {
   // 07.11.2026: mapa de la pluja d'ahir a les estacions de casa
   if (b.plujaAhir && document.getElementById("mapaPluja")) {
     // 08.11.2026: les de Meteoclimàtic no surten al mapa (la posició no és fiable)
-    const ll = (b.plujaAhir.properes || []).filter(e => e.lat != null && e.lon != null && e.xarxa !== "Meteoclimàtic");
+    const ll = (b.plujaAhir.properes || []).filter(e => e.lat != null && e.lon != null && (e.xarxa !== "Meteoclimàtic" || e.aMapa));
     // Les estacions amb la mateixa posició aproximada se separen una mica per veure-les totes.
     const vistos = {};
     ll.forEach(e => { const k = e.lat + "," + e.lon, n = vistos[k] = (vistos[k] || 0) + 1;
@@ -1337,7 +1337,7 @@ async function mapesIncidencies(b) {
         L.marker([e._lat ?? e.lat, e._lon ?? e.lon], { icon: icona }).bindTooltip(e.nom)
           .bindPopup(`<b>${esc(e.nom)}</b><br>${esc(e.xarxa)}${e.alt != null ? ` · ${e.alt} m` : ""}<br>Pluja d'ahir: <b>${e.mm == null ? "sense dada" : num(e.mm) + " mm"}</b>` +
             (e.episodi && e.episodi.mm ? `<br>Darrer episodi de pluja: ${num(e.episodi.mm)} mm (${e.episodi.dies} ${e.episodi.dies === 1 ? "dia" : "dies"})` : "") +
-            (e.exacte ? "" : "<br><i>Posició aproximada</i>") + (e.url ? `<br><a href="${esc(e.url)}" target="_blank" rel="noopener">Fitxa de l'estació</a>` : ""), { maxWidth: 260 }).addTo(mapa);
+            (e.exacte ? "" : "<br><i>Ubicació aproximada per preservar la privacitat</i>") + (e.url ? `<br><a href="${esc(e.url)}" target="_blank" rel="noopener">Fitxa de l'estació</a>` : ""), { maxWidth: 260 }).addTo(mapa);
       });
     }
   }
@@ -1729,7 +1729,7 @@ function pinta(d) {
     h += seccio(`💧 Pluja d'ahir (${esc(pa.dia)})`, cos +
       (totes.some(e => e.mm != null && !e.complet) ? '<p class="font">* Falten lectures d\'aquesta estació: la xifra pot ser una mica més alta.</p>' : "") +
       (prop.some(e => e.mm == null) ? '<p class="font">«Sense dada»: l\'estació no ha enviat lectures o encara no se\'n té la del dia anterior.</p>' : "") +
-      '<p class="font">Meteocat: dia meteorològic de 0 a 24 h en temps universal (d\'1 a 1 h a l\'hivern). Meteoclimàtic i Netatmo: estacions d\'aficionats, dia de 0 a 24 h en hora local. Les de Meteoclimàtic no surten al mapa perquè la xarxa no en dona la posició exacta.</p>',
+      '<p class="font">Meteocat: dia meteorològic de 0 a 24 h en temps universal (d\'1 a 1 h a l\'hivern). Meteoclimàtic i Netatmo: estacions d\'aficionats, dia de 0 a 24 h en hora local. Al mapa, les de Meteoclimàtic surten en una ubicació aproximada, per preservar la privacitat dels seus propietaris.</p>',
       "Meteocat (XEMA, Dades Obertes de Catalunya), Meteoclimàtic i Netatmo", false);
   }
 
