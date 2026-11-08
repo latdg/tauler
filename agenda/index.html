@@ -13,6 +13,8 @@ body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-
 header,main{max-width:1100px;margin:0 auto;padding:0 16px}
 header{padding-top:24px}
 h1{margin:0;font-size:1.6rem}
+.capcalera{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
 h2{margin:0 0 8px;font-size:1.1rem}
 a{color:var(--accent)}
 .sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
@@ -65,7 +67,10 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 </head>
 <body>
 <header>
-  <h1>📅 Agenda d'actes</h1>
+  <div class="capcalera">
+    <h1>📅 Agenda d'actes</h1>
+    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+  </div>
   <p class="sub" id="sub">Carregant…</p>
 </header>
 <main>
