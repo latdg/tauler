@@ -431,7 +431,7 @@ function seccio(titol, cos, font, ambData = true) {
 
 // 09.11.2026: BLOCS PLEGATS a La TdG ampliada (només es veu el títol; s'obren en clicar-hi).
 // Incendis i sequera i focus de calor, plegats tot l'any excepte a l'estiu (del 21.06 al 22.09).
-const RX_PLEGAT = /rec[àa]rrega|desfibril|antenes|borme|subhastes|verdor/i;
+const RX_PLEGAT = /rec[àa]rrega|desfibril|antenes|borme|subhastes|verdor|p[òo]l·lens|qualitat de l'aire|clima en context|pluja d'ahir/i;
 const RX_PLEGAT_FORA_ESTIU = /incendi|focus de calor/i;
 function esEstiu(d = new Date()) {
   const md = (d.getMonth() + 1) * 100 + d.getDate();
