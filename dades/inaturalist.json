@@ -1,21 +1,21 @@
 {
- "actualitzat": "2026-11-07T11:10:16+00:00",
+ "actualitzat": "2026-11-08T11:22:35+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
   "17022": {
    "nom": "la Bisbal d'Empordà",
-   "observacions": 179,
-   "especies": 132,
+   "observacions": 175,
+   "especies": 130,
    "observadors": 16,
    "grups": [
     [
      "🌿 Plantes",
-     109
+     107
     ],
     [
      "🦋 Insectes",
-     47
+     46
     ],
     [
      "🕷️ Aranyes",
@@ -52,10 +52,6 @@
     [
      "🦊 Mamífers",
      1
-    ],
-    [
-     "🐌 Mol·luscs",
-     1
     ]
    ],
    "mesVistes": [
@@ -63,7 +59,7 @@
      "cientific": "Vitex agnus-castus",
      "nom": "Aloc",
      "grup": "🌿 Plantes",
-     "n": 6
+     "n": 5
     },
     {
      "cientific": "Ficaria verna",
@@ -2040,9 +2036,9 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 256,
-   "especies": 191,
-   "observadors": 29,
+   "observacions": 258,
+   "especies": 192,
+   "observadors": 31,
    "grups": [
     [
      "🦋 Insectes",
@@ -2058,7 +2054,7 @@
     ],
     [
      "🍄 Fongs",
-     9
+     10
     ],
     [
      "🐸 Amfibis",
@@ -2069,11 +2065,11 @@
      8
     ],
     [
-     "🦎 Rèptils",
-     6
+     "🐦 Ocells",
+     7
     ],
     [
-     "🐦 Ocells",
+     "🦎 Rèptils",
      6
     ],
     [
@@ -2305,6 +2301,36 @@
     }
    ],
    "recents": [
+    {
+     "id": 413369512,
+     "data": "2026-11-07",
+     "url": "https://www.inaturalist.org/observations/413369512",
+     "nom": "pardal",
+     "cientific": "Passer domesticus",
+     "rang": "species",
+     "grup": "🐦 Ocells",
+     "foto": "",
+     "autor": "llucj",
+     "lloc": "17118, Girona, España",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 413352464,
+     "data": "2026-11-07",
+     "url": "https://www.inaturalist.org/observations/413352464",
+     "nom": "Fongs i Líquens",
+     "cientific": "Fungi",
+     "rang": "kingdom",
+     "grup": "🍄 Fongs",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/760754321/small.jpg",
+     "autor": "Lucas Bondia",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
     {
      "id": 412156248,
      "data": "2026-11-01",
@@ -2872,36 +2898,6 @@
      "autor": "Rosa Matesanz",
      "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
      "qualitat": "research",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 374901732,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/374901732",
-     "nom": "Llagost de sella",
-     "cientific": "Uromenus rugosicollis",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685301581/small.jpg",
-     "autor": "Anna Wintle Taylor",
-     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
-     "qualitat": "research",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 374576562,
-     "data": "2026-06-22",
-     "url": "https://www.inaturalist.org/observations/374576562",
-     "nom": "Brocat variable",
-     "cientific": "Euphydryas aurinia",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/684672679/small.jpg",
-     "autor": "Rosa Matesanz",
-     "lloc": "Girona, Espanya",
-     "qualitat": "needs_id",
      "amenacada": false,
      "introduida": false
     }
