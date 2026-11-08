@@ -2097,7 +2097,7 @@ def netatmo_properes(registre, avui, ahir):
             continue   # sense pluviòmetre o sense la dada d'ahir: fora del bloc
         sortida.append({"nom": nom, "lloc": (e.get("place") or {}).get("city") or "", "xarxa": "Netatmo",
                         "lat": round(loc[1], 5), "lon": round(loc[0], 5), "alt": (e.get("place") or {}).get("altitude"),
-                        "exacte": True, "mm": d["mm"], "complet": d["hora"] <= "00.30",
+                        "exacte": True, "mm": d["mm"], "complet": d["hora"] < "02.00",   # 08.11.2026: abans de les 2 h, completa
                         "url": f"https://weathermap.netatmo.com/?stationid={e['_id']}&zoom=14"})
     return sortida
 
