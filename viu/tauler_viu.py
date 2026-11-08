@@ -1286,7 +1286,8 @@ NECRO_URL = "https://raw.githubusercontent.com/latdg/bots/dades-guio/dades-guio.
 NECRO_CAMPS = ("nom", "edat", "dataMort", "vetlla", "ceremonia", "dataFuneral", "detall", "biografia")
 # 08.11.2026: noms de lloc que arriben mal escrits i s'han de dir d'una altra manera.
 NECRO_CANVIS = (
-    ("Parroquia Sant Julià I Santa Basilissa - Corçà", "Parroquia Sant Julià I Santa Basilissa de Corçà"),
+    ("Parroquia Sant Julià I Santa Basilissa - Corçà", "Parroquia Sant Julià i Santa Basilissa de Corçà"),
+    ("Parroquia Sant Julià I Santa Basilissa de Corçà", "Parroquia Sant Julià i Santa Basilissa de Corçà"),
 )
 
 
