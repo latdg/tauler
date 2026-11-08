@@ -2038,7 +2038,7 @@ METEOCLIMATIC = [
     # 08.11.2026: «punt» és una ubicació aproximada (arrodonida, per privacitat) que dona La TdG;
     # només les que en tenen surten al mapa.
     {"codi": "ESCAT1700000017100C", "nom": "la Bisbal · Antoni Ruiz", "lloc": "la Bisbal d'Empordà",
-     "punt": (41.962, 3.0396)},
+     "punt": (41.962, 3.040)},   # la que publica Weather Underground (ILABIS22, «les Voltes»)
     {"codi": "ESCAT1700000017116A", "nom": "Puig d'Arques (Gavarres)", "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura"},
 ]
 METEOCLIMATIC_URL = "https://www.meteoclimatic.net/perfil/{}"
