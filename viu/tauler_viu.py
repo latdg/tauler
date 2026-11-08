@@ -277,7 +277,7 @@ def carburants():
 TRANSIT_URL = "http://www.gencat.cat/transit/opendata/incidenciesRSS.xml"
 MUNICIPIS_BAIX_EMPORDA = [
     "Albons", "Begur", "Bellcaire d'Empordà", "Bisbal d'Empordà", "Calonge",
-    "Sant Antoni", "Castell-Platja d'Aro", "Castell d'Aro", "Colomers", "Corçà",
+    "Sant Antoni", "Castell-Platja d'Aro", "Castell d'Aro", "Platja d'Aro", "Colomers", "Corçà",
     "Cruïlles", "Monells", "Sant Sadurní de l'Heura", "Foixà", "Fontanilles",
     "Forallac", "Garrigoles", "Gualta", "Jafre", "Mont-ras", "Palafrugell",
     "Palamós", "Palau-sator", "Pals", "Parlavà", "La Pera", "Regencós", "Rupià",
