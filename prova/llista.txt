@@ -1,0 +1,13 @@
+total 272
+drwxr-xr-x  2 runner runner   4096 Nov  8 23:31 .
+drwxr-xr-x 25 runner runner   4096 Nov  8 23:31 ..
+-rw-r--r--  1 runner runner      0 Nov  8 23:31 cit.html.capcaleres
+-rw-r--r--  1 runner runner      0 Nov  8 23:31 cit_arrel.html.capcaleres
+-rw-r--r--  1 runner runner      0 Nov  8 23:31 cit_incidencies.html.capcaleres
+-rw-r--r--  1 runner runner      0 Nov  8 23:31 cit_incidents.html.capcaleres
+-rw-r--r--  1 runner runner    236 Nov  8 23:31 errors.txt
+-rw-r--r--  1 runner runner 183857 Nov  8 23:31 gml.xml
+-rw-r--r--  1 runner runner    224 Nov  8 23:31 gml.xml.capcaleres
+-rw-r--r--  1 runner runner      0 Nov  8 23:31 llista.txt
+-rw-r--r--  1 runner runner  71276 Nov  8 23:31 rss.xml
+-rw-r--r--  1 runner runner    223 Nov  8 23:31 rss.xml.capcaleres

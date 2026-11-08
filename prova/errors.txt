@@ -1,0 +1,4 @@
+ERROR https://cit.transit.gencat.cat/cit/AppJava/views/incidents.xhtml
+ERROR https://cit.transit.gencat.cat/cit/AppJava/views/incidencies.xhtml
+ERROR https://cit.transit.gencat.cat/cit/AppJava/
+ERROR https://cit.transit.gencat.cat/cit/
