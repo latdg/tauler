@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-08T13:40:28+00:00",
+ "generat": "2026-11-08T22:18:48+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -32,24 +32,10 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
      "data": "2026-11-08",
      "hora": "16:45",
      "format": "4D",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "17:00",
-     "format": "Vdc",
      "preu": ""
     },
     {
@@ -67,24 +53,10 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
      "data": "2026-11-08",
      "hora": "20:30",
      "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "20:30",
-     "format": "",
      "preu": ""
     },
     {
@@ -373,8 +345,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10863",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.2,
-   "vots": 14,
+   "nota": 7.1,
+   "vots": 15,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -599,23 +571,9 @@
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "19:45",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-08",
      "hora": "20:15",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -723,8 +681,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10876",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.4,
-   "vots": 400,
+   "nota": 7.443,
+   "vots": 407,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -742,20 +700,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/vsde9OnhjFMlJz8Wi6Z6drZ7GG5.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-08",
@@ -882,7 +826,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 5.8,
-   "vots": 194,
+   "vots": 198,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -897,35 +841,14 @@
    "director": "David Ayer",
    "actors": "Brad Pitt, Anna Lambe, J.K. Simmons",
    "estrena": "2026-09-25",
-   "poster": "https://image.tmdb.org/t/p/w342/ygerWK11AeNZkzs7UNP36Attv6d.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/ya8iLCNyoVpBO7B7JrNJVj3g7tK.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-08",
      "hora": "18:15",
      "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "20:00",
-     "format": "",
      "preu": ""
     },
     {
@@ -1089,37 +1012,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 7.3,
-   "vots": 438,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "george michael the faith tour",
-   "titol": "George Michael: The Faith Tour",
-   "titolFont": "George Michael: The faith tour",
-   "sinopsi": "George Michael va ser una de les estrelles més influents de la seva generació: la seva veu i les seves composicions van definir una època. Muntat a partir d'imatges rodades en 35 mm redescobertes i mai vistes de l'espectacle de 1988 en Paris-Bercy, aquest concert mostra a George en la cúspide del seu poder creatiu durant la inigualable gira Faith. Restaurada i remasteritzada acuradament, la pel·lícula transforma un moment cultural que va marcar una època en una experiència cinematogràfica espectacular.",
-   "durada": "113",
-   "genere": "Documental",
-   "edat": "Apta",
-   "director": "David Austin i Andy Morahan",
-   "actors": "George Michael",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/LXqHnaJ4ffkcx5YCuJN1noxkhr.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-08",
-     "hora": "20:15",
-     "format": "Versió VOSE",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11088"
-   },
-   "nota": 9.3,
-   "vots": 3,
+   "vots": 491,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1145,13 +1038,6 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "19:10",
-     "format": "Laser Cinity",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-08",
      "hora": "20:10",
@@ -1163,13 +1049,6 @@
      "data": "2026-11-08",
      "hora": "21:45",
      "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
-     "format": "Laser Cinity",
      "preu": ""
     },
     {
@@ -1311,8 +1190,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11042",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.761,
-   "vots": 503,
+   "nota": 6.744,
+   "vots": 519,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1338,21 +1217,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-08",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-08",
      "hora": "18:00",
      "format": "",
@@ -1538,13 +1403,6 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
      "data": "2026-11-08",
      "hora": "17:00",
@@ -1573,20 +1431,6 @@
      "preu": ""
     },
     {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-08",
-     "hora": "19:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "19:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
      "data": "2026-11-08",
      "hora": "20:00",
@@ -1598,13 +1442,6 @@
      "data": "2026-11-08",
      "hora": "20:30",
      "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
-     "format": "Atmos",
      "preu": ""
     },
     {
@@ -1880,7 +1717,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 8.1,
-   "vots": 188,
+   "vots": 193,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1910,20 +1747,6 @@
      "data": "2026-11-08",
      "hora": "15:45",
      "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "Mudo",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "18:00",
-     "format": "Mudo",
      "preu": ""
     },
     {
@@ -2058,8 +1881,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11036",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.426,
-   "vots": 54,
+   "nota": 7.339,
+   "vots": 59,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2088,13 +1911,6 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-08",
      "hora": "19:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -2251,8 +2067,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11112",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.198,
-   "vots": 63,
+   "nota": 7.201,
+   "vots": 67,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2281,13 +2097,6 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-08",
      "hora": "19:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -2408,23 +2217,9 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
      "data": "2026-11-08",
      "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "19:30",
      "format": "",
      "preu": ""
     },
@@ -2731,8 +2526,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/10996",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10996"
    },
-   "nota": 7.3,
-   "vots": 150,
+   "nota": 7.265,
+   "vots": 155,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2755,20 +2550,6 @@
      "data": "2026-11-08",
      "hora": "15:45",
      "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:10",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "18:10",
-     "format": "Vdc",
      "preu": ""
     },
     {
@@ -3061,8 +2842,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11003",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11003"
    },
-   "nota": 8.47,
-   "vots": 218,
+   "nota": 8.502,
+   "vots": 226,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3084,13 +2865,6 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-08",
      "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
      "format": "",
      "preu": ""
     },
@@ -3176,13 +2950,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
-     "format": "Voc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
      "hora": "22:00",
      "format": "Voc",
@@ -3234,20 +3001,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "19:30",
-     "format": "VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "22:00",
-     "format": "VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
      "hora": "19:30",
      "format": "VOSE",
@@ -3306,8 +3059,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.1,
-   "vots": 64,
+   "nota": 8.011,
+   "vots": 95,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3327,13 +3080,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
      "hora": "16:00",
      "format": "",
@@ -3364,8 +3110,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.53,
-   "vots": 33,
+   "nota": 7.6,
+   "vots": 35,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3383,13 +3129,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
@@ -3443,13 +3182,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-08",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-09",
      "hora": "17:00",
      "format": "",
@@ -3494,64 +3226,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.219,
-   "vots": 1386,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "escape room 2",
-   "titol": "Escape Room 2",
-   "titolFont": "Escape Room 2",
-   "sinopsi": "Cinc anys després, Edu, Marina, Viky i Rai tornen a coincidir misteriosament en un nou local de moda situat a dalt de tot de la muntanya de Montjuïc, on",
-   "durada": "88",
-   "genere": "Comèdia",
-   "edat": "",
-   "director": "Héctor Claramunt i Joel Joan",
-   "actors": "Ivan Massagué, Elisabet Casanovas, Joel Joan",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/aXG5QfiCEqBlNsb8ZaMygKxPPX2.jpg",
-   "web": "https://cinemamontgri.cat/escape-room-2/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-08",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    }
-   ],
-   "entrades": {},
-   "nota": 0,
-   "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "numakage public pool",
-   "titol": "Numakage Piscina Pública",
-   "titolFont": "Numakage public pool",
-   "sinopsi": "Durant més de cinquanta anys, Numakage, una piscina pública suburbana de Tòquio, ha estat punt de trobada de gent gran, famílies i comunitats de cruising gai. Davant la seva demolició, malgrat l’oposició local, la pel·lícula ressegueix el dol col·lectiu a través de les cinc fases de Kübler-Ross, qüestionant una pèrdua habitualment reservada a la mort humana.",
-   "durada": "",
-   "genere": "",
-   "edat": "",
-   "director": "",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/vN5Gqn2L5ZdnsFwhTIyNocB1G6N.jpg",
-   "web": "https://www.teatremundial.cat/ca/programacio/c/1135-numakage-public-pool.html",
-   "sessions": [
-    {
-     "cinema": "Teatre Mundial",
-     "data": "2026-11-08",
-     "hora": "18:00",
-     "format": "",
-     "preu": "2 €"
-    }
-   ],
-   "entrades": {},
-   "nota": 0,
-   "vots": 0,
+   "nota": 8.211,
+   "vots": 1404,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3589,30 +3265,6 @@
    "vots": 0,
    "plataformes": [],
    "plataformesUrl": ""
-  },
-  {
-   "key": "bigmountain xile",
-   "titol": "Bigmountain xile",
-   "titolFont": "Bigmountain xile",
-   "sinopsi": "Enduro a més de 5.000 metres. Quatre amics van viatjar a Xile per pujar i baixar muntanyes amb les seves bicicletes.",
-   "durada": "",
-   "genere": "",
-   "edat": "",
-   "director": "",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://www.teatremundial.cat/img/image/fotos/1854.webp?w=600&h=400&sx=&sy=&sw=&sh=&zc=1&aoe=1&q=80&f=webp",
-   "web": "https://www.teatremundial.cat/ca/programacio/c/1136-bigmountain-xile.html",
-   "sessions": [
-    {
-     "cinema": "Teatre Mundial",
-     "data": "2026-11-08",
-     "hora": "20:00",
-     "format": "",
-     "preu": "Gratuït"
-    }
-   ],
-   "entrades": {}
   },
   {
    "key": "carmen",
@@ -3703,8 +3355,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.0,
-   "vots": 615,
+   "nota": 6.986,
+   "vots": 640,
    "plataformes": [],
    "plataformesUrl": ""
   },
