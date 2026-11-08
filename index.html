@@ -1324,9 +1324,13 @@ async function mapesIncidencies(b) {
     // 08.11.2026: les de Meteoclimàtic no surten al mapa (la posició no és fiable)
     const ll = (b.plujaAhir.properes || []).filter(e => e.lat != null && e.lon != null && (e.xarxa !== "Meteoclimàtic" || e.aMapa));
     // Les estacions amb la mateixa posició aproximada se separen una mica per veure-les totes.
-    const vistos = {};
-    ll.forEach(e => { const k = e.lat + "," + e.lon, n = vistos[k] = (vistos[k] || 0) + 1;
-      if (n > 1) { e._lat = e.lat + 0.0025 * Math.sin(n * 2.1); e._lon = e.lon + 0.0035 * Math.cos(n * 2.1); } });
+    // 08.11.2026: també les que són a menys d'uns 150 m (les etiquetes es taparien)
+    const posats = [];
+    ll.forEach(e => {
+      const n = posats.filter(p => Math.abs(p[0] - e.lat) < 0.0015 && Math.abs(p[1] - e.lon) < 0.002).length;
+      if (n) { e._lat = e.lat + 0.0012 * Math.sin(n * 2.1 + 1); e._lon = e.lon + 0.0025 * Math.cos(n * 2.1 + 1); }
+      posats.push([e._lat ?? e.lat, e._lon ?? e.lon]);
+    });
     const mapa = await mapaBase("mapaPluja", MUN_ANTENES, "Pluja: Meteocat, Meteoclimàtic i Netatmo", null, vistaDe(ll.map(e => [e.lat, e.lon])));
     if (mapa) {
       carrers(mapa);
