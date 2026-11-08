@@ -153,6 +153,13 @@ ul.avisos li{margin:0 0 10px;padding-left:10px;border-left:3px solid var(--linia
 @media (max-width:600px){.mapa-inc{height:320px}}
 h2.grup-apartat{margin:14px 0 -4px;padding:0 2px 4px;font-size:.95rem;letter-spacing:.05em;color:var(--accent);border-bottom:2px solid var(--accent)}
 h2.grup-apartat:first-child{margin-top:0}
+/* 09.11.2026: blocs plegats */
+section.bloc-plegat>details>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px}
+section.bloc-plegat>details>summary::-webkit-details-marker{display:none}
+section.bloc-plegat>details>summary h2{flex:1;min-width:0;margin:0}
+section.bloc-plegat>details>summary::after{content:"▸";color:var(--accent);font-size:1.1rem;transition:transform .2s}
+section.bloc-plegat>details[open]>summary::after{transform:rotate(90deg)}
+section.bloc-plegat>details[open]>summary{margin-bottom:8px}
 nav .nav-grup{flex-basis:100%;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--suau);margin:6px 0 -2px}
 nav .nav-grup:first-child{margin-top:0}
 .leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:10px 12px}
@@ -416,8 +423,51 @@ function seccio(titol, cos, font, ambData = true) {
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
   const clau = (CLAUS_SLOW.find(([rx]) => rx.test(titol)) || [])[1];
-  return `<section id="${id}" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : ""}${cos}</section>`;
+  const capPeu = peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : "";
+  if (!MODE_SLOW && blocPlegat(titol))
+    return `<section id="${id}" class="bloc-plegat" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><details><summary><h2>${titol}</h2></summary>${capPeu}${cos}</details></section>`;
+  return `<section id="${id}" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${capPeu}${cos}</section>`;
 }
+
+// 09.11.2026: BLOCS PLEGATS a La TdG ampliada (només es veu el títol; s'obren en clicar-hi).
+// Incendis i sequera i focus de calor, plegats tot l'any excepte a l'estiu (del 21.06 al 22.09).
+const RX_PLEGAT = /rec[àa]rrega|desfibril|antenes|borme|subhastes|verdor/i;
+const RX_PLEGAT_FORA_ESTIU = /incendi|focus de calor/i;
+function esEstiu(d = new Date()) {
+  const md = (d.getMonth() + 1) * 100 + d.getDate();
+  return md >= 621 && md <= 922;
+}
+function blocPlegat(titol) {
+  return RX_PLEGAT.test(titol) || (RX_PLEGAT_FORA_ESTIU.test(titol) && !esEstiu());
+}
+// Els mapes de Leaflet creats dins d'un bloc plegat neixen sense mida: en obrir el bloc
+// es recalculen i es tornen a encaixar.
+if (window.L && L.Map) {
+  const fitOriginal = L.Map.prototype.fitBounds;
+  L.Map.prototype.fitBounds = function (...a) { this._latdgFit = a; return fitOriginal.apply(this, a); };
+  const initOriginal = L.Map.prototype.initialize;
+  L.Map.prototype.initialize = function (...a) { initOriginal.apply(this, a); (window.MAPES_TDG = window.MAPES_TDG || []).push(this); };
+}
+document.addEventListener("toggle", e => {
+  const d = e.target;
+  if (!d.open || !d.parentElement || !d.parentElement.classList.contains("bloc-plegat")) return;
+  setTimeout(() => (window.MAPES_TDG || []).forEach(m => {
+    if (!d.contains(m.getContainer())) return;
+    m.invalidateSize();
+    if (m._latdgFit) m.fitBounds(...m._latdgFit);
+  }), 50);
+}, true);
+// Si s'hi arriba des de la barra de navegació, el bloc s'obre sol.
+function obrePlegat(hash) {
+  const sec = hash && document.getElementById(hash.replace(/^#/, ""));
+  const d = sec && sec.classList.contains("bloc-plegat") && sec.querySelector(":scope > details");
+  if (d) d.open = true;
+}
+window.addEventListener("hashchange", () => obrePlegat(location.hash));
+document.addEventListener("click", e => {
+  const a = e.target.closest && e.target.closest('#nav a[href^="#"]');
+  if (a) obrePlegat(a.getAttribute("href"));
+});
   
 // "A | B | C" o línies -> llista
 function llista(text) {
