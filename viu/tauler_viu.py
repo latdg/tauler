@@ -1025,6 +1025,9 @@ RECARREGA_POSICIONS = {
     "romaguera": (42.002560, 3.066952),      # Ullastret, c. Josep Romaguera i Vila, 1
     "mas savalls": (41.957838, 2.993386),    # Sant Sadurní de l'Heura, c. Mas Savalls, 2
     "fusteria sais": (41.954532, 2.996086),  # Fusteria Sais
+    # 08.11.2026: punt de l'Ajuntament de Forallac, mesurat in situ per La TdG
+    # (41° 57' 33" N, 3° 3' 19" E). El registre només en diu «Punt de recàrrega: 2 places».
+    "punt de recarrega: 2 places": (41.959167, 3.055278),
 }
 
 
