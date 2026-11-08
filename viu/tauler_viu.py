@@ -1018,6 +1018,11 @@ RECARREGA_MANUALS = [
      "t": "- Supermercat Condis: 3 punts de recàrrega, accessibles als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Departament d'Agricultura, Ramaderia i Pesca (DARP)", "la": 41.953333, "lo": 3.035556, "lliure": False,
      "t": "- Departament d'Agricultura, Ramaderia i Pesca (DARP): 2 punts de recàrrega, no són de lliure accés."},
+    # 08.11.2026: punt de l'Ajuntament de Forallac, posició mesurada in situ per La TdG
+    # (41° 57' 33" N, 3° 3' 19" E). Substitueix el del registre («Punt de recàrrega: 2 places»),
+    # que queda a menys de 150 m i, per tant, ja no surt.
+    {"m": "Forallac", "n": "Ajuntament", "la": 41.959167, "lo": 3.055278, "lliure": True,
+     "t": "- Ajuntament: 2 punts de recàrrega, accessibles."},
 ]
 # 05.11.2026: posició corregida (segons Google Maps) dels punts que els registres
 # situen malament. Clau: text que apareix a la línia del punt (sense accents, en minúscules).
@@ -1025,9 +1030,6 @@ RECARREGA_POSICIONS = {
     "romaguera": (42.002560, 3.066952),      # Ullastret, c. Josep Romaguera i Vila, 1
     "mas savalls": (41.957838, 2.993386),    # Sant Sadurní de l'Heura, c. Mas Savalls, 2
     "fusteria sais": (41.954532, 2.996086),  # Fusteria Sais
-    # 08.11.2026: punt de l'Ajuntament de Forallac, mesurat in situ per La TdG
-    # (41° 57' 33" N, 3° 3' 19" E). El registre només en diu «Punt de recàrrega: 2 places».
-    "punt de recarrega: 2 places": (41.959167, 3.055278),
 }
 
 
