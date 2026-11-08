@@ -2031,8 +2031,10 @@ def pluja_ahir():
 # Les fitxes donen la posició en graus i minuts (uns 1,5 km de marge): les que
 # tenen un punt exacte el porten a «punt».
 METEOCLIMATIC = [
-    {"codi": "ESCAT1700000017100A", "nom": "la Bisbal · Terracotta Museu", "lloc": "la Bisbal d'Empordà"},
-    {"codi": "ESCAT1700000017100B", "nom": "la Bisbal · Jesús Martí", "lloc": "la Bisbal d'Empordà"},
+    {"codi": "ESCAT1700000017100A", "nom": "la Bisbal · Terracotta Museu", "lloc": "la Bisbal d'Empordà",
+     "punt": (41.9597, 3.0435)},
+    {"codi": "ESCAT1700000017100B", "nom": "la Bisbal · Jesús Martí", "lloc": "la Bisbal d'Empordà",
+     "punt": (41.9556, 3.0388)},
     # 08.11.2026: «punt» és una ubicació aproximada (arrodonida, per privacitat) que dona La TdG;
     # només les que en tenen surten al mapa.
     {"codi": "ESCAT1700000017100C", "nom": "la Bisbal · Antoni Ruiz", "lloc": "la Bisbal d'Empordà",
