@@ -1284,6 +1284,16 @@ def blocs_webs():
 # -----------------------------------------------------------------------------
 NECRO_URL = "https://raw.githubusercontent.com/latdg/bots/dades-guio/dades-guio.json"
 NECRO_CAMPS = ("nom", "edat", "dataMort", "vetlla", "ceremonia", "dataFuneral", "detall", "biografia")
+# 08.11.2026: noms de lloc que arriben mal escrits i s'han de dir d'una altra manera.
+NECRO_CANVIS = (
+    ("Parroquia Sant Julià I Santa Basilissa - Corçà", "Parroquia Sant Julià I Santa Basilissa de Corçà"),
+)
+
+
+def necro_corregeix(text):
+    for vell, nou in NECRO_CANVIS:
+        text = text.replace(vell, nou)
+    return text
 
 
 def necrologiques():
@@ -1292,7 +1302,7 @@ def necrologiques():
     llista = r.json().get("defuncions")
     if not isinstance(llista, list):
         raise ValueError("sense defuncions")
-    return [{k: str(x.get(k) or "").strip() for k in ("clau",) + NECRO_CAMPS} for x in llista if x.get("nom")]
+    return [{k: necro_corregeix(str(x.get(k) or "").strip()) for k in ("clau",) + NECRO_CAMPS} for x in llista if x.get("nom")]
 
 
 def desa_necrologiques(noves, dia):
@@ -1309,6 +1319,10 @@ def desa_necrologiques(noves, dia):
     def ordre(x):
         m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", x.get("dataMort") or x.get("dataFuneral") or "")
         return (f"{m[3]}-{int(m[2]):02d}-{int(m[1]):02d}" if m else x.get("vist", ""), x.get("nom", ""))
+    for x in per_clau.values():    # 08.11.2026: també a l'historial ja desat
+        for k in NECRO_CAMPS:
+            if isinstance(x.get(k), str):
+                x[k] = necro_corregeix(x[k])
     llista = sorted(per_clau.values(), key=ordre, reverse=True)
     escriu(cami, {"actualitzat": ara().isoformat(), "llista": llista})
     print(f"✅ necrològiques: {len(noves)} al guió, {len(llista)} a l'historial")
