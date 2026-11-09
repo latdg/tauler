@@ -45,7 +45,6 @@ button[aria-pressed=false]{opacity:.55}
 .avis[hidden]{display:none}
 .avis span{background:rgba(255,255,255,.92);border-radius:8px;padding:8px 14px;font-size:.9rem;box-shadow:0 1px 4px rgba(0,0,0,.15)}
 .font{color:var(--suau);font-size:.85rem;margin:10px 0 0}
-.bisbal{background:var(--accent);color:#fff;font-size:.72rem;font-weight:600;padding:1px 6px;border-radius:10px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 .maplibregl-popup-content{font-size:.85rem;line-height:1.4;padding:8px 12px}
 /* Incrustat al tauler (?incrustat=1): només el mapa i els controls */
 html.incrustat,body.incrustat{background:transparent}
@@ -57,7 +56,6 @@ body.incrustat .controls{margin:8px 0 0;gap:6px;padding-bottom:1px}
 body.incrustat .controls input[type=range]{margin:0}
 body.incrustat .controls button{font-size:.8rem;padding:5px 9px}
 body.incrustat #hora{font-size:.85rem;min-width:0}
-body.incrustat #centra{display:none}
 body.incrustat #resum{font-size:.92rem;margin:0 0 8px}
 </style>
 </head>
@@ -83,7 +81,6 @@ body.incrustat #resum{font-size:.92rem;margin:0 0 8px}
       <span id="hora">—</span>
       <button id="llampsBt" aria-pressed="true">⚡ Llamps</button>
       <button id="vista">Vista en planta</button>
-      <button id="centra">La Bisbal</button>
     </div>
     <p class="font peu" id="fontText"></p>
     <p class="font peu">Arrossega per moure el mapa; amb dos dits (o el botó dret) el gires i l'inclines. Toca una columna per veure'n la intensitat.</p>
@@ -423,10 +420,6 @@ mapa.addControl(new maplibregl.AttributionControl({ compact: true,
   customAttribution: "Radar: Meteocat (reserva: RainViewer) · Llamps: EUMETSAT · Límits: es-atlas (INE)" }), INCRUSTAT ? "top-left" : "bottom-right");
 mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
 
-const el = document.createElement("div");
-el.className = "bisbal"; el.textContent = "la Bisbal";
-new maplibregl.Marker({ element: el, anchor: "bottom" }).setLngLat(BISBAL).addTo(mapa);
-
 document.getElementById("llegenda").innerHTML =
   `<b>Intensitat de la pluja</b><div class="escala">${CLASSES.map(c => `<i style="background:${c.color};${c.mm === 100 ? "border:1px solid #c9c9c9" : ""}" title="${c.nom}: des de ${fmtMm(c.mm)} mm/h"></i>`).join("")}</div>` +
   `<div class="noms"><span>feble</span><span>forta</span><span>torrencial</span></div>` +
@@ -578,7 +571,6 @@ btVista.onclick = () => {
   mapa.easeTo({ pitch: pla ? 0 : 55, bearing: pla ? 0 : -15, duration: 800 });
   btVista.textContent = pla ? "Vista en 3D" : "Vista en planta";
 };
-document.getElementById("centra").onclick = () => mapa.flyTo({ center: BISBAL, zoom: 9.5, duration: 1200 });
 </script>
 </body>
 </html>
