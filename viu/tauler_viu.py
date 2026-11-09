@@ -284,6 +284,13 @@ MUNICIPIS_BAIX_EMPORDA = [
     "Sant Feliu de Guíxols", "Santa Cristina d'Aro", "Serra de Daró",
     "Tallada d'Empordà", "Torrent", "Torroella de Montgrí", "Ullastret", "Ullà",
     "Ultramort", "Vall-llobrega", "Verges", "Vilopriu",
+    # 09.11.2026: nuclis que no són cap de municipi (la llista només és la reserva
+    # per a les incidències que no porten cap coordenada; vegeu dins_comarca).
+    "Vulpellac", "Peratallada", "Canapost", "Fonteta", "Sant Climent de Peralta",
+    "Casavells", "Castell d'Empordà", "Cassà de Pelràs", "Fitor", "Llofriu",
+    "Calella de Palafrugell", "Llafranc", "Tamariu", "Estartit", "S'Agaró",
+    "Sant Antoni de Calonge", "Sant Joan de Palamós", "Vila-romà", "Aiguablava", "Sa Riera",
+    "Platja de Pals", "Sant Feliu de Boada", "Fontclara", "Llabià", "Sant Iscle d'Empordà",
 ]
 
 
@@ -343,17 +350,40 @@ def incidencies():
                      timeout=60)
     r.raise_for_status()
     resultat = []
+    # 09.11.2026: el canal no porta la comarca, i el nom de la població no és fiable
+    # (Trànsit va posar a «Platja d'Aro» una obra de la C-1412a, a la Segarra). Cada
+    # incidència es queda o no segons on és: les coordenades del GML del mateix Servei
+    # Català de Trànsit i els punts d'inici i final del DATEX2, dins del límit de la comarca.
+    try:
+        gml = registres_gml()
+    except Exception as e:
+        print("Incidències viàries: no s'ha pogut llegir el GML:", e)
+        gml = []
+    try:
+        regs = registres_sct()
+    except Exception as e:
+        print("Incidències viàries: no s'ha pogut llegir el DATEX2:", e)
+        regs = []
     for item in llegeix_rss(r.content):
-        if not te_municipi_baix_emporda(item["title"] + " " + item["description"]):
-            continue
         # "CARRETERA | MUNICIPI | Sentit... | Punt km. X-Y | HH:MM"
         parts = [p.strip() for p in neteja_text(item["description"]).split("|")]
         parts += [""] * (5 - len(parts))
+        km = re.sub(r"^Punt km\.?\s*", "", parts[3], flags=re.I)
+        punts = punts_incidencia(parts[0], km, gml, regs)
+        dins = [dins_comarca(*pt) for pt in punts]
+        if any(d is True for d in dins):
+            pass                                   # algun punt cau dins de la comarca
+        elif not te_municipi_baix_emporda(item["title"] + " " + item["description"]):
+            continue                               # ni és dins ni porta cap nom de la comarca
+        elif punts and None not in dins and min(km_a_comarca(*pt) for pt in punts) > 15:
+            continue                               # el nom diu Baix Empordà, però és lluny (error de Trànsit)
+        # Si només en coneixem un extrem (el GML en dona un sol punt) i és just fora,
+        # o no hi ha cap coordenada, mana el nom de la població.
         resultat.append({
             "municipi": parts[1],
             "titol": neteja_text(item["title"]),
             "carretera": parts[0],
-            "km": re.sub(r"^Punt km\.?\s*", "", parts[3], flags=re.I),
+            "km": km,
             "sentit": neteja_sentit(parts[2]),   # 09.11.2026
             "inici": inici_incidencia(item.get("pubDate"), parts[4]),   # 02.11.2026
         })
@@ -362,10 +392,81 @@ def incidencies():
     # de Trànsit (al punt d'accés de la DGT), que dona els punts d'inici i de final.
     if resultat:
         try:
-            situa_incidencies(resultat)
+            situa_incidencies(resultat, regs)
         except Exception as e:
             print("Incidències viàries: no s'han pogut situar al mapa:", e)
     return resultat   # una llista buida també és una dada: «cap incidència»
+
+
+SCT_GML_URL = "http://www.gencat.cat/transit/opendata/incidenciesGML.xml"
+COMARCA_GEOJSON = DADES / "baix_emporda.geojson"   # límit oficial de la comarca (OpenStreetMap)
+_ANELLS = None
+
+
+def anells_comarca():
+    global _ANELLS
+    if _ANELLS is None:
+        try:
+            g = json.loads(COMARCA_GEOJSON.read_text(encoding="utf-8"))["geometry"]
+            pols = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
+            _ANELLS = [pol[0] for pol in pols]
+        except Exception as e:
+            print("Límit de la comarca:", e)
+            _ANELLS = []
+    return _ANELLS
+
+
+def dins_comarca(lat, lon):
+    """True / False segons si el punt és dins del Baix Empordà; None si no hi ha límit."""
+    anells = anells_comarca()
+    if not anells:
+        return None
+    for anell in anells:
+        dins = False
+        for (x1, y1), (x2, y2) in zip(anell, anell[1:]):
+            if (y1 > lat) != (y2 > lat) and lon < x1 + (lat - y1) * (x2 - x1) / (y2 - y1):
+                dins = not dins
+        if dins:
+            return True
+    return False
+
+
+def km_a_comarca(lat, lon):
+    """Distància aproximada (km) del punt al límit de la comarca."""
+    return min(distancia_km(lat, lon, y, x) for anell in anells_comarca() for x, y in anell[::5])
+
+
+def registres_gml():
+    """Les incidències del GML del Servei Català de Trànsit, amb la seva coordenada."""
+    r = requests.get(SCT_GML_URL, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
+    r.raise_for_status()
+    text = r.content.decode("utf-8", errors="replace")
+    sortida = []
+    for b in re.findall(r"<gml:featureMember>([\s\S]*?)</gml:featureMember>", text):
+        c = re.search(r"<gml:coordinates[^>]*>\s*([-\d.]+),([-\d.]+)", b)
+        def camp(nom):
+            m = re.search(rf"<(?:\w+:)?{nom}>([^<]*)<", b)
+            return m.group(1).strip() if m else ""
+        if not c:
+            continue
+        ki, kf = num(camp("pk_inici")), num(camp("pk_fi"))
+        kms = [k for k in (ki, kf) if k is not None]
+        sortida.append({"via": nom_via(camp("carretera")), "km": (min(kms), max(kms)) if kms else None,
+                        "punt": [float(c.group(2)), float(c.group(1))]})
+    return sortida
+
+
+def punts_incidencia(carretera, km, gml, regs):
+    """Totes les coordenades conegudes d'una incidència (GML i DATEX2), per carretera i quilòmetres."""
+    via, kr = nom_via(carretera), km_rss(km)
+    if not kr:
+        return []
+    punts = [g["punt"] for g in gml if g["via"] == via and g["km"]
+             and abs(g["km"][0] - kr[0]) < 0.05 and abs(g["km"][1] - kr[1]) < 0.05]
+    for x in regs:
+        if x["via"] == via and x["km"] and abs(x["km"][0] - kr[0]) < 0.5 and abs(x["km"][1] - kr[1]) < 0.5:
+            punts += [p for p in (x["de"], x["a"]) if p]
+    return punts
 
 
 def neteja_sentit(t):
@@ -478,8 +579,8 @@ def tram_per_carretera(de, a, cau):
     return linia
 
 
-def situa_incidencies(resultat):
-    regs = registres_sct()
+def situa_incidencies(resultat, regs=None):
+    regs = regs if regs is not None else registres_sct()
     cau = llegeix(TRAMS_CAU, {})
     usats = set()
     for inc in resultat:
