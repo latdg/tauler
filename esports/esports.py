@@ -640,6 +640,10 @@ def main():
             if m.get("substitueix") and m["substitueix"] in per_clau:
                 base = per_clau[m["substitueix"]]
                 for k in ("data", "hora", "camp", "resultat", "estat", "rival", "jornada"):
+                    # 09.11.2026: l'estat només si s'ha escrit (si no, un canvi d'hora
+                    # deixava «Programat» un partit que la FCF ja dona per acabat).
+                    if k == "estat" and not str(m.get("estat") or "").strip() and not pm.get("resultat"):
+                        continue
                     if pm.get(k):
                         base[k] = pm[k]
                 base["corregit"] = True
