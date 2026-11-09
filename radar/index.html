@@ -420,6 +420,9 @@ mapa.addControl(new maplibregl.AttributionControl({ compact: true,
   customAttribution: "Radar: Meteocat (reserva: RainViewer) · Llamps: EUMETSAT · Límits: es-atlas (INE)" }), INCRUSTAT ? "top-left" : "bottom-right");
 mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
 
+// Xinxeta d'ubicació de la Bisbal (sense nom)
+new maplibregl.Marker({ color: "#b4462c", scale: 0.7 }).setLngLat(BISBAL).addTo(mapa);
+
 document.getElementById("llegenda").innerHTML =
   `<b>Intensitat de la pluja</b><div class="escala">${CLASSES.map(c => `<i style="background:${c.color};${c.mm === 100 ? "border:1px solid #c9c9c9" : ""}" title="${c.nom}: des de ${fmtMm(c.mm)} mm/h"></i>`).join("")}</div>` +
   `<div class="noms"><span>feble</span><span>forta</span><span>torrencial</span></div>` +
