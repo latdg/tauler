@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "8-manuals-amb-icaen"
+RECARREGA_VERSIO = "9-corca-firal"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1227,9 +1227,9 @@ RECARREGA_MANUALS = [
     # Mas Savalls (41° 57' 27" N, 2° 59' 35" E).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls", "la": 41.9575, "lo": 2.993056, "lliure": True,
      "t": "- Mas Savalls: 2 punts de recàrrega, accessibles.", "icaen": True},
-    # Corçà (41° 59' 21" N, 3° 1' 0" E).
-    {"m": "Corçà", "n": "Punt de recàrrega", "la": 41.989167, "lo": 3.016667, "lliure": True,
-     "t": "- Punt de recàrrega: 2 punts de recàrrega, accessibles."},
+    # Corçà, aparcament del firal (41° 59' 21" N, 3° 1' 0" E).
+    {"m": "Corçà", "n": "Aparcament del firal", "la": 41.989167, "lo": 3.016667, "lliure": True,
+     "t": "- Aparcament del firal: 2 punts de recàrrega, accessibles."},
 ]
 # 05.11.2026: posició corregida (segons Google Maps) dels punts que els registres
 # situen malament. Clau: text que apareix a la línia del punt (sense accents, en minúscules).
