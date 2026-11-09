@@ -79,6 +79,7 @@ body.incrustat #resum{font-size:.92rem;margin:0 0 8px}
       <button class="prim" id="play" aria-label="Reprodueix">▶</button>
       <input type="range" id="franja" min="0" max="0" value="0" aria-label="Moment del radar">
       <span id="hora">—</span>
+      <button id="velocitat" title="Velocitat de l'animació">Normal</button>
       <button id="llampsBt" aria-pressed="true">⚡ Llamps</button>
       <button id="vista">Vista en planta</button>
     </div>
@@ -561,13 +562,22 @@ mapa.on("load", async () => {
 });
 
 // --- CONTROLS ---
+// Velocitat de l'animació: cada clic passa a la següent (també amb l'animació en marxa)
+const VELOCITATS = [["Lent", 1000], ["Normal", 500], ["Ràpid", 250]];
+let VEL = 1;
+const btVel = document.getElementById("velocitat");
+btVel.onclick = () => {
+  VEL = (VEL + 1) % VELOCITATS.length;
+  btVel.textContent = VELOCITATS[VEL][0];
+  btVel.setAttribute("aria-label", "Velocitat de l'animació: " + VELOCITATS[VEL][0].toLowerCase());
+};
 const btPlay = document.getElementById("play");
 function atura() { clearTimeout(JUGANT); JUGANT = null; btPlay.textContent = "▶"; btPlay.setAttribute("aria-label", "Reprodueix"); }
 async function pas() {
   if (!JUGANT) return;
   if (ACTUAL >= FRANGES.length - 1) { atura(); return; }
   await mostra(ACTUAL + 1);
-  if (JUGANT) JUGANT = setTimeout(pas, 500);
+  if (JUGANT) JUGANT = setTimeout(pas, VELOCITATS[VEL][1]);
 }
 btPlay.onclick = async () => {
   if (JUGANT) return atura();
@@ -575,7 +585,7 @@ btPlay.onclick = async () => {
   btPlay.textContent = "⏸"; btPlay.setAttribute("aria-label", "Atura");
   JUGANT = -1;                                   // en marxa (encara sense temporitzador)
   if (ACTUAL >= FRANGES.length - 1) await mostra(0);
-  if (JUGANT) JUGANT = setTimeout(pas, 500);
+  if (JUGANT) JUGANT = setTimeout(pas, VELOCITATS[VEL][1]);
 };
 document.getElementById("franja").oninput = e => { atura(); mostra(+e.target.value); };
 const btLl = document.getElementById("llampsBt");
