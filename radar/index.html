@@ -414,12 +414,14 @@ const mapa = new maplibregl.Map({
     },
     layers: [
       { id: "fons", type: "background", paint: { "background-color": "#e9e7e1" } },
-      { id: "osm", type: "raster", source: "osm", paint: { "raster-saturation": -0.75, "raster-opacity": 0.85, "raster-contrast": -0.1 } },
+      // Els carrers es veuen més com més s'amplia
+      { id: "osm", type: "raster", source: "osm", paint: { "raster-saturation": ["interpolate", ["linear"], ["zoom"], 10, -0.75, 13, -0.25],
+        "raster-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.85, 13, 1], "raster-contrast": ["interpolate", ["linear"], ["zoom"], 10, -0.1, 13, 0] } },
       { id: "ombra", type: "hillshade", source: "relleu", paint: { "hillshade-exaggeration": 0.35, "hillshade-shadow-color": "#5c5649" } }
     ]
   },
   center: [3.04, 41.93], zoom: INCRUSTAT ? 8.1 : 8.6, pitch: 55, bearing: -15,
-  minZoom: 6, maxZoom: 12, maxPitch: 75,
+  minZoom: 6, maxZoom: 18, maxPitch: 75,
   cooperativeGestures: INCRUSTAT,
   attributionControl: false
 });
@@ -521,13 +523,15 @@ mapa.on("load", async () => {
 
   mapa.addSource("pluja", { type: "geojson", data: BUIT });
   mapa.addLayer({ id: "pluja", type: "fill-extrusion", source: "pluja",
-    paint: { "fill-extrusion-color": ["get", "color"], "fill-extrusion-height": ["get", "h"], "fill-extrusion-base": 0,
-      "fill-extrusion-opacity": 0.82, "fill-extrusion-vertical-gradient": true } });
+    paint: { "fill-extrusion-color": ["get", "color"], "fill-extrusion-base": 0,
+      // A nivell de carrer, columnes més baixes i transparents perquè es vegi el mapa de sota
+      "fill-extrusion-height": ["interpolate", ["linear"], ["zoom"], 11, ["get", "h"], 15, ["*", 0.08, ["get", "h"]]],
+      "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.82, 15, 0.4], "fill-extrusion-vertical-gradient": true } });
   // Llamps: torres grogues primes per sobre de la pluja
   mapa.addSource("llamps", { type: "geojson", data: BUIT });
   mapa.addLayer({ id: "llamps", type: "fill-extrusion", source: "llamps",
-    paint: { "fill-extrusion-color": "#ffd400", "fill-extrusion-height": 14000, "fill-extrusion-base": 0,
-      "fill-extrusion-opacity": 0.55 } });
+    paint: { "fill-extrusion-color": "#ffd400", "fill-extrusion-height": ["interpolate", ["linear"], ["zoom"], 11, 14000, 15, 1100], "fill-extrusion-base": 0,
+      "fill-extrusion-opacity": ["interpolate", ["linear"], ["zoom"], 11, 0.55, 15, 0.35] } });
 
   mapa.on("click", e => {
     const fs = mapa.queryRenderedFeatures(e.point, { layers: ["pluja", "llamps"] });
