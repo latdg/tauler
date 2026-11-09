@@ -2,32 +2,17 @@ name: prova-sct
 on:
   push:
     branches: [prova-sct]
-    paths: [.github/workflows/prova-sct.yml]
+    paths: [eines/genera_comarca.py]
 permissions:
   contents: write
 jobs:
-  prova:
+  comarca:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with: { ref: prova-sct }
-      - name: Descarrega les fonts de Trànsit
-        run: |
-          mkdir -p prova
-          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
-          for u in \
-            "http://www.gencat.cat/transit/opendata/incidenciesRSS.xml|rss.xml" \
-            "http://www.gencat.cat/transit/opendata/incidenciesGML.xml|gml.xml" \
-            "https://cit.transit.gencat.cat/cit/AppJava/views/incidents.xhtml|cit_incidents.html" \
-            "https://cit.transit.gencat.cat/cit/AppJava/views/incidencies.xhtml|cit_incidencies.html" \
-            "https://cit.transit.gencat.cat/cit/AppJava/|cit_arrel.html" \
-            "https://cit.transit.gencat.cat/cit/|cit.html" ; do
-            url="${u%%|*}"; f="${u##*|}"
-            curl -sSL -A "$UA" -m 60 -D "prova/$f.capcaleres" -o "prova/$f" "$url" || echo "ERROR $url" >> prova/errors.txt
-          done
-          ls -la prova > prova/llista.txt
-      - name: Desa els resultats
-        run: |
+      - run: pip install requests && python eines/genera_comarca.py
+      - run: |
           git config user.name "latdg-bot"; git config user.email "latdg-bot@users.noreply.github.com"
-          git add prova; git commit -m "Resultats de la prova de Trànsit" || true
+          git add dades/baix_emporda.geojson; git commit -m "Límit del Baix Empordà" || true
           git push origin HEAD:prova-sct
