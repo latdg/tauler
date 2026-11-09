@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "7-manuals-sant-sadurni-corca"
+RECARREGA_VERSIO = "8-manuals-amb-icaen"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1219,12 +1219,14 @@ RECARREGA_MANUALS = [
      "t": "- Ajuntament: 2 punts de recàrrega, accessibles."},
     # 09.11.2026: punts comprovats in situ per La TdG. Substitueixen els del registre
     # que queden a menys de 150 m.
+    # «icaen»: True → s'hi afegeixen les dades tècniques del registre de l'ICAEN
+    # (connector, potència, accés, gestor) del punt que hi ha a menys de 150 m.
     # Fusteria Sais: just a fora de la fusteria (41° 57' 16" N, 2° 59' 44" E).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": True,
-     "t": "- Fusteria Sais: 2 punts de recàrrega, accessibles."},
+     "t": "- Fusteria Sais: 2 punts de recàrrega, accessibles.", "icaen": True},
     # Mas Savalls (41° 57' 27" N, 2° 59' 35" E).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls", "la": 41.9575, "lo": 2.993056, "lliure": True,
-     "t": "- Mas Savalls: 2 punts de recàrrega, accessibles."},
+     "t": "- Mas Savalls: 2 punts de recàrrega, accessibles.", "icaen": True},
     # Corçà (41° 59' 21" N, 3° 1' 0" E).
     {"m": "Corçà", "n": "Punt de recàrrega", "la": 41.989167, "lo": 3.016667, "lliure": True,
      "t": "- Punt de recàrrega: 2 punts de recàrrega, accessibles."},
@@ -1305,7 +1307,8 @@ def recarrega_icaen():
             parts.append("gestor: " + gestor)
         if parts:
             linia += ": " + ", ".join(parts)
-        llocs.append({"m": mun["nom"], "n": nom or adreca, "t": linia + ".", "la": num(f.get("latitud")), "lo": num(f.get("longitud"))})
+        llocs.append({"m": mun["nom"], "n": nom or adreca, "t": linia + ".", "d": ", ".join(parts),
+                      "la": num(f.get("latitud")), "lo": num(f.get("longitud"))})
     return llocs
 
 
@@ -1448,6 +1451,12 @@ def recarrega():
         print(f"⚠️ recàrrega: ICAEN ({e})", file=sys.stderr)
     a_prop = lambda p, ll: any(distancia_km(p["la"], p["lo"], q["la"], q["lo"]) * 1000 < 150
                                for q in ll if None not in (p["la"], p["lo"], q["la"], q["lo"]))
+    # 09.11.2026: als punts afegits a mà amb «icaen» s'hi sumen les dades del registre.
+    for m in totes:
+        if m.get("icaen"):
+            d = next((p.get("d") for p in icaen if p.get("d") and a_prop(p, [m])), "")
+            if d:
+                m["t"] = m["t"] + " " + d[:1].upper() + d[1:] + "."
     # Els de l'ICAEN, com abans, només es comparen amb els afegits a mà.
     totes += [p for p in icaen if not a_prop(p, RECARREGA_MANUALS)]
     for llista in (recarrega_corregeix(recarrega_nap()), recarrega_corregeix(recarrega_osm())):
