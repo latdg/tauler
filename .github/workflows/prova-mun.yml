@@ -1,0 +1,18 @@
+name: prova-mun
+on:
+  push:
+    branches: [prova-mun]
+    paths: [eines/genera_municipis.py]
+permissions:
+  contents: write
+jobs:
+  municipis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: prova-mun }
+      - run: pip install requests && python eines/genera_municipis.py
+      - run: |
+          git config user.name "latdg-bot"; git config user.email "latdg-bot@users.noreply.github.com"
+          git add dades/municipis_baix_emporda.geojson; git commit -m "Termes municipals detallats" || true
+          git push origin HEAD:prova-mun
