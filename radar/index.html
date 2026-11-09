@@ -290,14 +290,20 @@ async function llegeixLlamps(t) {
   if (!LI_FI) return null;
   const quan = Math.floor(Math.min(t, LI_FI) / 300000) * 300000;
   if (t - quan > 15 * 60000) return null;   // no hi ha dades prou recents per a aquest moment
-  const url = "https://view.eumetsat.int/geoserver/wms?service=WMS&version=1.1.1&request=GetMap&layers=mtg_fd:li_afa&styles=" +
+  // Totes les franges de 5 minuts del satèl·lit que cauen entre aquesta imatge del radar i l'anterior
+  // (6 minuts amb el Meteocat, 10 amb RainViewer), perquè no se'n salti cap
+  const interval = (FONT === RAINVIEWER ? 10 : 6) * 60000;
+  const moments = [quan];
+  for (let q = quan - 300000; q > t - interval; q -= 300000) moments.push(q);
+  const urlDe = q => "https://view.eumetsat.int/geoserver/wms?service=WMS&version=1.1.1&request=GetMap&layers=mtg_fd:li_afa&styles=" +
     `&srs=EPSG:4326&bbox=${ZONA.oest},${ZONA.sud},${ZONA.est},${ZONA.nord}&width=${LI_AMPLE}&height=${LI_ALT}` +
-    `&format=image/png&transparent=true&time=${new Date(quan).toISOString().replace(".000", "")}`;
-  const im = await carregaImatge(url);
+    `&format=image/png&transparent=true&time=${new Date(q).toISOString().replace(".000", "")}`;
+  const imatges = (await Promise.all(moments.map(q => carregaImatge(urlDe(q)).catch(() => null)))).filter(Boolean);
+  if (!imatges.length) return null;
   const cv = document.createElement("canvas");
   cv.width = LI_AMPLE; cv.height = LI_ALT;
   const ctx = cv.getContext("2d", { willReadFrequently: true });
-  ctx.drawImage(im, 0, 0);
+  imatges.forEach(im => ctx.drawImage(im, 0, 0));
   const px = ctx.getImageData(0, 0, LI_AMPLE, LI_ALT).data;
   const feats = [];
   const dx = (ZONA.est - ZONA.oest) / LI_AMPLE, dy = (ZONA.nord - ZONA.sud) / LI_ALT;
