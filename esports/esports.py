@@ -137,6 +137,8 @@ def fcf(tipus, grup_id):
     if clau not in _cache_fcf:
         r = requests.get(WORKER_FCF, params={"tipus": tipus, "grupId": grup_id}, timeout=40,
                          headers={"User-Agent": UA})
+        if not r.ok:   # 09.11.2026: al registre, què respon el Worker quan falla
+            print(f"   latdg-fcf {r.status_code}: {r.text[:300]!r}", file=sys.stderr)
         r.raise_for_status()
         _cache_fcf[clau] = r.json()
     return _cache_fcf[clau]
