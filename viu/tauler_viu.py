@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "6-manuals-mapa"
+RECARREGA_VERSIO = "7-manuals-sant-sadurni-corca"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1217,13 +1217,22 @@ RECARREGA_MANUALS = [
     # que queda a menys de 150 m i, per tant, ja no surt.
     {"m": "Forallac", "n": "Ajuntament", "la": 41.959167, "lo": 3.055278, "lliure": True,
      "t": "- Ajuntament: 2 punts de recàrrega, accessibles."},
+    # 09.11.2026: punts comprovats in situ per La TdG. Substitueixen els del registre
+    # que queden a menys de 150 m.
+    # Fusteria Sais: just a fora de la fusteria (41° 57' 16" N, 2° 59' 44" E).
+    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": True,
+     "t": "- Fusteria Sais: 2 punts de recàrrega, accessibles."},
+    # Mas Savalls (41° 57' 27" N, 2° 59' 35" E).
+    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls", "la": 41.9575, "lo": 2.993056, "lliure": True,
+     "t": "- Mas Savalls: 2 punts de recàrrega, accessibles."},
+    # Corçà (41° 59' 21" N, 3° 1' 0" E).
+    {"m": "Corçà", "n": "Punt de recàrrega", "la": 41.989167, "lo": 3.016667, "lliure": True,
+     "t": "- Punt de recàrrega: 2 punts de recàrrega, accessibles."},
 ]
 # 05.11.2026: posició corregida (segons Google Maps) dels punts que els registres
 # situen malament. Clau: text que apareix a la línia del punt (sense accents, en minúscules).
 RECARREGA_POSICIONS = {
     "romaguera": (42.002560, 3.066952),      # Ullastret, c. Josep Romaguera i Vila, 1
-    "mas savalls": (41.957838, 2.993386),    # Sant Sadurní de l'Heura, c. Mas Savalls, 2
-    "fusteria sais": (41.954532, 2.996086),  # Fusteria Sais
 }
 
 
