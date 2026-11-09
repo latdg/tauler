@@ -132,15 +132,37 @@ def llegeix_json(cami, perdefecte):
 _cache_fcf = {}
 
 
+# 09.11.2026: la FCF bloqueja també Cloudflare. De reserva, les dades que l'Ignasi
+# baixa des de casa amb el marcador «Futbol → La TdG» (www.fcf.cat) i puja a la
+# pàgina d'esports o envia al bot latdg_infos: dades/esports-fcf.json, amb les
+# mateixes respostes de l'API de la FCF per grup.
+FCF_CASA = os.path.join(ARREL, "dades", "esports-fcf.json")
+_fcf_casa = None
+
+
+def fcf_casa(tipus, grup_id):
+    global _fcf_casa
+    if _fcf_casa is None:
+        _fcf_casa = llegeix_json(FCF_CASA, {})
+    dades = ((_fcf_casa.get("grups") or {}).get(str(grup_id)) or {}).get(tipus)
+    if not dades:
+        raise RuntimeError(f"la FCF no respon i no hi ha cap fitxer de la FCF pujat per al grup {grup_id}")
+    print(f"   (FCF: fitxer pujat el {_fcf_casa.get('generat', '?')})")
+    return dades
+
+
 def fcf(tipus, grup_id):
     clau = (tipus, grup_id)
     if clau not in _cache_fcf:
-        r = requests.get(WORKER_FCF, params={"tipus": tipus, "grupId": grup_id}, timeout=40,
-                         headers={"User-Agent": UA})
-        if not r.ok:   # 09.11.2026: al registre, què respon el Worker quan falla
-            print(f"   latdg-fcf {r.status_code}: {r.text[:300]!r}", file=sys.stderr)
-        r.raise_for_status()
-        _cache_fcf[clau] = r.json()
+        try:
+            r = requests.get(WORKER_FCF, params={"tipus": tipus, "grupId": grup_id}, timeout=40,
+                             headers={"User-Agent": UA})
+            if not r.ok:   # 09.11.2026: al registre, què respon el Worker quan falla
+                print(f"   latdg-fcf {r.status_code}: {r.text[:120]!r}", file=sys.stderr)
+            r.raise_for_status()
+            _cache_fcf[clau] = r.json()
+        except Exception:
+            _cache_fcf[clau] = fcf_casa(tipus, grup_id)
     return _cache_fcf[clau]
 
 

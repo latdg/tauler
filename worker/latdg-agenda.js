@@ -30,6 +30,7 @@
 //   { accio: "noticies-desa", dia, noticies, sha } → desa (o esborra si és buit)
 //   { accio: "esports-llegeix" }                  → { manual, sha }
 //   { accio: "esports-desa", manual, sha }        → desa dades/esports-manual.json
+//   { accio: "esports-fcf-desa", fcf }           → desa dades/esports-fcf.json (09.11.2026)
 //   { accio: "fonoteca-llegeix" }                 → { fonoteca, sha }   (05.11.2026)
 //   { accio: "fonoteca-desa", fonoteca, sha }     → desa dades/fonoteca.json
 // Si algú altre ha desat entremig (el sha no coincideix), respon 409.
@@ -39,6 +40,8 @@ const AGENDA = { repo: "latdg/tauler", cami: "dades/agenda.json" };
 const NOTICIES_REPO = "latdg/noticies";
 const ESPORTS = { repo: "latdg/tauler", cami: "dades/esports-manual.json" };
 const FONOTECA = { repo: "latdg/tauler", cami: "dades/fonoteca.json" };
+const FCF = { repo: "latdg/tauler", cami: "dades/esports-fcf.json" };   // 09.11.2026
+const GRUPS_FCF = ["58161863", "58161891", "58161893", "58162320"];
 const EQUIPS_ESPORTS = ["atletic_bisbalenc", "monells_a", "monells_b", "la_pera", "la_pera_femeni", "sol_girones", "sol_girones_sots25"];
 const ORIGENS = ["https://latdg.github.io"];
 
@@ -126,6 +129,18 @@ export default {
         if (!manual) return resposta({ ok: false, error: "Hi ha dades d'esports que no són vàlides." }, 400);
         const sha = await gh.desa(ESPORTS.repo, ESPORTS.cami, manual, cos.sha, "Esports: canvis fets a mà", "La TdG (esports)");
         return resposta({ ok: true, manual, sha });
+      }
+
+      // ---------------- FUTBOL DES DE CASA (09.11.2026) ----------------
+      // El fitxer del marcador «Futbol → La TdG» (www.fcf.cat): es desa tal com
+      // és, net, a dades/esports-fcf.json; esports.py el fa servir quan la FCF
+      // no respon al Worker latdg-fcf.
+      if (cos.accio === "esports-fcf-desa") {
+        const fcf = netejaFcf(cos.fcf);
+        if (!fcf) return resposta({ ok: false, error: "El fitxer no és el del marcador de la FCF (futbol-tdg.json)." }, 400);
+        const { sha } = await gh.llegeix(FCF.repo, FCF.cami, null);
+        await gh.desa(FCF.repo, FCF.cami, fcf, sha, "Futbol: fitxer de la FCF pujat des de casa", "La TdG (esports)");
+        return resposta({ ok: true, generat: fcf.generat });
       }
 
       // ---------------- FONOTECA (05.11.2026) ----------------
@@ -291,6 +306,41 @@ function netejaEsports(m) {
     sortida.equips[id] = ne;
   }
   return sortida;
+}
+
+// Futbol des de casa (09.11.2026): el fitxer del marcador de la FCF, només amb
+// els camps que fa servir esports.py.
+const CAMPS_PARTIT_FCF = ["CODACTA", "JORNADA", "CODEQUIPO_CASA", "NOMBRE_CASA", "ESCUDO_CASA", "CODEQUIPO_FUERA",
+  "NOMBRE_FUERA", "ESCUDO_FUERA", "CAMPO", "GOLES_CASA", "GOLES_FUERA", "COMIENZO1", "CERRADA", "ESTADO"];
+function netejaFcf(f) {
+  if (!f || typeof f !== "object" || f.tipus !== "latdg-fcf" || !f.grups || typeof f.grups !== "object") return null;
+  const v = x => (x === null || x === undefined ? null : String(x).slice(0, 200));
+  const n = x => (x === null || x === undefined || x === "" ? null : (isFinite(Number(x)) ? String(x).slice(0, 20) : null));
+  const sortida = { tipus: "latdg-fcf", versio: 1, generat: String(f.generat || "").slice(0, 40), grups: {} };
+  for (const g of Object.keys(f.grups)) {
+    if (!GRUPS_FCF.includes(g)) return null;
+    const font = f.grups[g] || {};
+    const jornades = (font.partidos && font.partidos.partidos) || {};
+    if (typeof jornades !== "object" || Object.keys(jornades).length > 60) return null;
+    const partidos = {};
+    for (const j of Object.keys(jornades)) {
+      if (!/^\d{1,3}$/.test(j) || !Array.isArray(jornades[j]) || jornades[j].length > 30) return null;
+      partidos[j] = jornades[j].map(m => Object.fromEntries(CAMPS_PARTIT_FCF.map(k => [k, v(m && m[k])])));
+    }
+    const files = (font.classificacio && font.classificacio.data) || [];
+    if (!Array.isArray(files) || files.length > 40) return null;
+    sortida.grups[g] = {
+      partidos: { partidos },
+      classificacio: { data: files.map(x => ({
+        position: n(x.position), points: n(x.points), played: n(x.played), won: n(x.won), drawn: n(x.drawn), lost: n(x.lost),
+        goalsFor: n(x.goalsFor), goalsAgainst: n(x.goalsAgainst),
+        team: { name: v(x.team && x.team.name), logo: v(x.team && x.team.logo), teamId: v(x.team && x.team.teamId) },
+        form: (Array.isArray(x.form) ? x.form.slice(0, 10) : []).map(y => ({ date: v(y && y.date), result: v(y && y.result) }))
+      })) }
+    };
+    if (!Object.keys(partidos).length) return null;
+  }
+  return Object.keys(sortida.grups).length ? sortida : null;
 }
 
 // Fonoteca (05.11.2026): una fitxa per àudio de la carpeta «declaracions».

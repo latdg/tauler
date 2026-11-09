@@ -110,6 +110,24 @@ tr.avui td{background:#fdf3ef}
         <div class="fila"><input type="file" id="fFcbq" accept=".html,.htm,text/html"></div>
         <div id="fcbqResum"></div>
       </div>
+      <div id="fcf">
+        <h3>⚽ Futbol: pujar el fitxer de la FCF</h3>
+        <p class="font">La FCF ja no deixa entrar els servidors, però sí el teu navegador. A qualsevol pàgina de
+          <a href="https://www.fcf.cat/" target="_blank" rel="noopener">www.fcf.cat</a>, toca el marcador
+          <b>«Futbol → La TdG»</b>: es baixa <b>futbol-tdg.json</b>, amb els partits i les classificacions dels quatre grups.
+          Tria'l aquí (o envia'l al bot latdg_infos). Abans de desar, veuràs què hi ha.</p>
+        <div class="fila"><input type="file" id="fFcf" accept=".json,application/json"></div>
+        <div id="fcfResum"></div>
+        <details class="font" style="margin-top:8px">
+          <summary>Com es posa el marcador (una sola vegada)</summary>
+          <p><b>A l'ordinador:</b> arrossega aquest botó a la barra d'adreces d'interès:
+            <a id="marcador" href="#" style="display:inline-block;padding:4px 10px;border:1px solid var(--linia);border-radius:8px;font-weight:600">Futbol → La TdG</a></p>
+          <p><b>Al mòbil (Chrome):</b> 1. Copia el text del marcador. 2. Desa aquesta pàgina a les adreces d'interès (☆).
+            3. Edita-la: posa-hi de nom <b>tdg</b> i, a l'adreça, enganxa el text copiat. Per fer-lo servir, a www.fcf.cat
+            escriu <b>tdg</b> a la barra d'adreces i toca el marcador «tdg» que surt a la llista.</p>
+          <div class="fila"><button type="button" class="suau" id="copiaMarcador">Copia el text del marcador</button><span id="copiat"></span></div>
+        </details>
+      </div>
     </div>
     <p id="estat"></p>
   </section>
@@ -608,6 +626,82 @@ $("fFcbq").onchange = async ev => {
     `<ul>${canvis.map(c => `<li>${esc(c)}</li>`).join("")}</ul><div class="fila"><button type="button" id="fcbqDesa">Desa aquests canvis</button><button type="button" class="suau" id="fcbqNo">Descarta</button></div>`;
   $("fcbqNo").onclick = () => { MANUAL = copia; caixa.innerHTML = ""; ev.target.value = ""; };
   $("fcbqDesa").onclick = async () => { caixa.innerHTML = ""; ev.target.value = ""; await desa("Pàgina de la Federació aplicada (" + canvis.length + " canvis)."); };
+};
+
+// -----------------------------------------------------------------------------
+// FUTBOL DES DE CASA (09.11.2026). La FCF bloqueja els servidors; el fitxer del
+// marcador «Futbol → La TdG» (esports/marcador-fcf.js) es desa a
+// dades/esports-fcf.json (Worker latdg-agenda) i esports.py el fa servir.
+// -----------------------------------------------------------------------------
+const FCF_EQUIPS = [
+  { nom: "Atlètic Bisbalenc", grup: "58161863", codi: "33220" },
+  { nom: "Monells A", grup: "58161891", codi: "36200" },
+  { nom: "La Pera", grup: "58161891", codi: "36734" },
+  { nom: "Monells B", grup: "58161893", codi: "54312692" },
+  { nom: "La Pera femení", grup: "58162320", codi: "15549744" }
+];
+let MARCADOR = "";
+fetch("marcador-fcf.js?v=" + Date.now()).then(r => r.ok ? r.text() : "").then(t => {
+  if (!t) return;
+  const codi = t.split("\n").filter(l => !/^\s*\/\//.test(l)).join("\n").trim();
+  MARCADOR = "javascript:" + encodeURIComponent(codi);
+  $("marcador").href = MARCADOR;
+}).catch(() => {});
+$("marcador").onclick = ev => { ev.preventDefault(); $("copiat").textContent = "Arrossega'l a la barra d'adreces d'interès; aquí no fa res."; };
+$("copiaMarcador").onclick = async () => {
+  if (!MARCADOR) { $("copiat").textContent = "Encara s'està carregant; torna-ho a provar."; return; }
+  try { await navigator.clipboard.writeText(MARCADOR); $("copiat").textContent = "✅ Copiat."; }
+  catch (e) { prompt("Copia aquest text:", MARCADOR); }
+};
+
+const ordinal = n => n === 1 ? "1r" : n === 2 ? "2n" : n === 3 ? "3r" : n === 4 ? "4t" : n + "è";
+function resumFcf(f) {
+  const ara = avuiIso(), linies = [];
+  for (const eq of FCF_EQUIPS) {
+    const g = (f.grups || {})[eq.grup];
+    if (!g) { linies.push(`${eq.nom}: el fitxer no porta el seu grup.`); continue; }
+    const fila = ((g.classificacio || {}).data || []).find(x => String((x.team || {}).teamId) === eq.codi);
+    let proper = null;
+    for (const llista of Object.values((g.partidos || {}).partidos || {})) for (const m of llista || []) {
+      if (String(m.CODEQUIPO_CASA) !== eq.codi && String(m.CODEQUIPO_FUERA) !== eq.codi) continue;
+      const d = String(m.COMIENZO1 || "");
+      if (String(m.CERRADA) === "1" || d.slice(0, 10) < ara) continue;
+      if (!proper || d < String(proper.COMIENZO1)) proper = m;
+    }
+    let t = eq.nom + ": " + (fila ? `${ordinal(Number(fila.position))}, ${Number(fila.points)} punts (${Number(fila.played)} partits)` : "sense classificació");
+    if (proper) {
+      const d = String(proper.COMIENZO1), local = String(proper.CODEQUIPO_CASA) === eq.codi;
+      t += ` · proper: ${dataCa(d.slice(0, 10))}${d.length > 15 && d.slice(11, 16) !== "00:00" ? " a les " + d.slice(11, 16).replace(":", ".") + " h" : ""} ` +
+        `${local ? "contra" : "a"} ${local ? proper.NOMBRE_FUERA : proper.NOMBRE_CASA}`;
+    }
+    linies.push(t);
+  }
+  return linies;
+}
+
+$("fFcf").onchange = async ev => {
+  const f0 = ev.target.files[0], caixa = $("fcfResum");
+  if (!f0) return;
+  let f = null;
+  try { f = JSON.parse(await f0.text()); } catch (e) {}
+  if (!f || f.tipus !== "latdg-fcf" || !f.grups) {
+    caixa.innerHTML = '<p class="buit">Aquest no és el fitxer del marcador de la FCF (futbol-tdg.json).</p>'; ev.target.value = ""; return;
+  }
+  const g = new Date(f.generat);
+  caixa.innerHTML = `<p class="font">Fitxer baixat el ${z(g.getDate())}.${z(g.getMonth() + 1)}.${g.getFullYear()} a les ${z(g.getHours())}.${z(g.getMinutes())} h:</p>` +
+    `<ul>${resumFcf(f).map(l => `<li>${esc(l)}</li>`).join("")}</ul>` +
+    `<div class="fila"><button type="button" id="fcfDesa">Desa'l</button><button type="button" class="suau" id="fcfNo">Descarta</button></div>`;
+  $("fcfNo").onclick = () => { caixa.innerHTML = ""; ev.target.value = ""; };
+  $("fcfDesa").onclick = async () => {
+    caixa.innerHTML = '<p class="font">Desant…</p>';
+    try {
+      await crida({ accio: "esports-fcf-desa", fcf: f });
+      caixa.innerHTML = '<p class="font">✅ Desat. En un parell de minuts, el futbol del tauler, el guió i l\'avisador ja van amb aquestes dades.</p>';
+    } catch (e) {
+      caixa.innerHTML = `<p class="buit">No s'ha pogut desar: ${esc(e.message)}. Envia el fitxer al bot latdg_infos, que fa el mateix.</p>`;
+    }
+    ev.target.value = "";
+  };
 };
 
 // ---------------- Esdeveniments ----------------

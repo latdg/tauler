@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - "dades/esports-manual.json"
+      - "dades/esports-fcf.json"   # 09.11.2026: fitxer de la FCF pujat des de casa
       - "esports/**"
   workflow_dispatch:
   schedule:
