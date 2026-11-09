@@ -2279,9 +2279,32 @@ NETATMO = {
 NETATMO_CAIXA = {"lat_ne": 42.0, "lon_ne": 3.11, "lat_sw": 41.88, "lon_sw": 2.94}
 
 
+def netatmo_fitxa(id_, nom, info, d):
+    return {"nom": nom, "lloc": info.get("lloc") or "", "xarxa": "Netatmo",
+            "lat": info["lat"], "lon": info["lon"], "alt": info.get("alt"),
+            "exacte": True, "mm": d["mm"], "complet": d["hora"] < "02.00",   # 08.11.2026: abans de les 2 h, completa
+            "url": f"https://weathermap.netatmo.com/?stationid={id_}&zoom=14"}
+
+
 def netatmo_properes(registre, avui, ahir):
     if not os.environ.get("NETATMO_REFRESH_TOKEN"):
         return []
+    try:
+        return netatmo_api(registre, avui, ahir)
+    except Exception as ex:
+        # 09.11.2026: si l'API de Netatmo falla (sovint un 503 passatger), la pluja d'ahir
+        # ja llegida de matinada es treu del registre i les estacions no desapareixen del bloc.
+        print(f"   Netatmo: {ex} (es fan servir les dades ja desades)", file=sys.stderr)
+        sortida = []
+        for id_, nom in NETATMO.items():
+            dies = registre.get("netatmo:" + id_) or {}
+            info, d = dies.get("_info"), dies.get(ahir.isoformat())
+            if info and d:
+                sortida.append(netatmo_fitxa(id_, nom, info, d))
+        return sortida
+
+
+def netatmo_api(registre, avui, ahir):
     refresh = os.environ["NETATMO_REFRESH_TOKEN"].strip()
     r = requests.post("https://api.netatmo.com/oauth2/token", data={
         "grant_type": "refresh_token", "refresh_token": refresh,
@@ -2309,15 +2332,14 @@ def netatmo_properes(registre, avui, ahir):
                 d = dies.get(ahir.isoformat())
                 if not d or d.get("hora", "99") > h.strftime("%H.%M"):
                     dies[ahir.isoformat()] = {"mm": round(pluja["rain_24h"], 1), "hora": h.strftime("%H.%M")}
-        for k in [k for k in dies if k < (avui - dt.timedelta(days=10)).isoformat()]:
+        for k in [k for k in dies if not k.startswith("_") and k < (avui - dt.timedelta(days=10)).isoformat()]:
             del dies[k]
         d = dies.get(ahir.isoformat())
         if not d or loc[1] is None:
             continue   # sense pluviòmetre o sense la dada d'ahir: fora del bloc
-        sortida.append({"nom": nom, "lloc": (e.get("place") or {}).get("city") or "", "xarxa": "Netatmo",
-                        "lat": round(loc[1], 5), "lon": round(loc[0], 5), "alt": (e.get("place") or {}).get("altitude"),
-                        "exacte": True, "mm": d["mm"], "complet": d["hora"] < "02.00",   # 08.11.2026: abans de les 2 h, completa
-                        "url": f"https://weathermap.netatmo.com/?stationid={e['_id']}&zoom=14"})
+        dies["_info"] = {"lloc": (e.get("place") or {}).get("city") or "", "lat": round(loc[1], 5),
+                         "lon": round(loc[0], 5), "alt": (e.get("place") or {}).get("altitude")}
+        sortida.append(netatmo_fitxa(e["_id"], nom, dies["_info"], d))
     return sortida
 
 
