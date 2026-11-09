@@ -437,7 +437,8 @@ def dins_comarca(lat, lon):
     return False
 
 
-MUNICIPIS_GEOJSON = DADES / "municipis_baix_emporda.geojson"   # els 36 termes (es-atlas, INE)
+MUNICIPIS_GEOJSON = DADES / "municipis_baix_emporda.geojson"   # els 36 termes detallats (OpenStreetMap)
+NOMS_OSM = {"Castell d'Aro, Platja d'Aro i s'Agaró": "Castell-Platja d'Aro"}   # nom oficial que fem servir
 _TERMES = None
 # Noms com els escriu Trànsit -> nom oficial (09.11.2026)
 ALIES_MUNICIPI = {"calonge": "Calonge i Sant Antoni", "sant antoni": "Calonge i Sant Antoni",
@@ -456,7 +457,9 @@ def termes():
             for f in fc["features"]:
                 g = f["geometry"]
                 pols = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
-                _TERMES.append((f["properties"]["nom"], pols))
+                nom = f["properties"]["nom"]
+                nom = NOMS_OSM.get(nom, nom[:1].upper() + nom[1:])
+                _TERMES.append((nom, pols))
         except Exception as e:
             print("Termes municipals:", e)
             _TERMES = []
