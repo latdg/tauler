@@ -224,14 +224,14 @@
 "dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 7.8,
-"vots": 19,
+"nota": 8.0,
+"vots": 22,
 "sinopsi": "",
 "sinopsi_es": false,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "ruega por nosotras": {
 "v": 6,
@@ -403,28 +403,6 @@
 "enllac": "",
 "t": 1794176285.850181
 },
-"wicker": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Eleanor Wilson",
-"Alex Huston Fischer"
-],
-"original": "Wicker",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-21",
-"sinopsiCa": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
-"id": 1195803,
-"nota": 7.6,
-"vots": 35,
-"sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
-"sinopsi_es": false,
-"poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794176285.850181
-},
 "la maleta": {
 "v": 6,
 "comprovat": "any",
@@ -442,27 +420,6 @@
 "sinopsi": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
 "sinopsi_es": false,
 "poster": "/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794176285.850181
-},
-"coyote vs acme": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Dave Green"
-],
-"original": "Coyote vs. Acme",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-08-20",
-"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"id": 1204680,
-"nota": 8.211,
-"vots": 1404,
-"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"sinopsi_es": false,
-"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794176285.850181
@@ -508,6 +465,70 @@
 "plataformes": [],
 "enllac": "",
 "t": 1794176285.850181
+},
+"wicker": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Eleanor Wilson",
+"Alex Huston Fischer"
+],
+"original": "Wicker",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-21",
+"sinopsiCa": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
+"id": 1195803,
+"nota": 7.6,
+"vots": 35,
+"sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
+"sinopsi_es": false,
+"poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794176285.850181
+},
+"coyote vs acme": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Dave Green"
+],
+"original": "Coyote vs. Acme",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-08-20",
+"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
+"id": 1204680,
+"nota": 8.211,
+"vots": 1404,
+"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
+"sinopsi_es": false,
+"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794176285.850181
+},
+"me entiendes o te lo explico": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Jordi Calvet"
+],
+"original": "¿Me entiendes o te lo explico?",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-10-23",
+"sinopsiCa": "",
+"id": 1689901,
+"nota": 0,
+"vots": 0,
+"sinopsi": "En 1992, en el barrio madrileño de Chueca, Pepe, el desafortunado gerente de una taberna catalana en horas bajas, toma una decisión drástica. Para salvarle, sus amigos deciden resucitar su bar reconvirtiéndolo en un pub de ambiente gay.",
+"sinopsi_es": true,
+"poster": "/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794242427.40941
 },
 "verity la sombra de un engano": {
 "v": 6,
@@ -638,7 +659,7 @@
 "poster": "/kbwAR849GqMmZs01Uwm5MXL6CWd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "l ovella shaun missio carbassa": {
 "v": 6,
@@ -707,26 +728,26 @@
 "dataTmdb": "2026-10-31",
 "sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "id": 1117898,
-"nota": 7.2,
-"vots": 14,
+"nota": 7.1,
+"vots": 17,
 "sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "sinopsi_es": false,
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "la meva mare es una goril la": {
 "v": 6,
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "cicle gaudi": {
 "v": 6,
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "como robar un banco": {
 "v": 6,
@@ -779,7 +800,7 @@
 ],
 "original": "Focker-in-Law",
 "idiomaOriginal": "en",
-"dataTmdb": "2026-11-25",
+"dataTmdb": "2026-11-21",
 "sinopsiCa": "",
 "id": 1400336,
 "nota": 0,
@@ -789,7 +810,7 @@
 "poster": "/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794145221.232688
+"t": 1794242427.40941
 },
 "hechizo bienvenidos a hexe": {
 "v": 6,
