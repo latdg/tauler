@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-08T15:31:55+00:00",
+ "generat": "2026-11-09T17:23:11+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -8,21 +8,8 @@
   "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-11-08T15:32:17+00:00",
+  "quan": "2026-11-09T17:23:32+00:00",
   "dies": [
-   {
-    "data": "2026-11-05",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 05/11/2026",
-    "farmacies": [
-     {
-      "farmacia": "PIERA DE CIURANA, C.B.",
-      "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "09:00 - 09:00 (dia seg.)",
-      "adreca": "Avgda. Les Voltes, 1",
-      "telefon": "674038640"
-     }
-    ]
-   },
    {
     "data": "2026-11-06",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 06/11/2026",
@@ -144,6 +131,19 @@
    {
     "data": "2026-11-14",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 14/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "ESTER COLL BRUNET",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "C/Josep Irla, 14",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-11-15",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 15/11/2026",
     "farmacies": [
      {
       "farmacia": "ESTER COLL BRUNET",
