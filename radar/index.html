@@ -253,7 +253,8 @@ const METEOCAT = {
     const ara = new Date(), pas = 6 * 60000;
     let d = new Date(Math.floor(ara.getTime() / pas) * pas);
     for (let k = 0; k < 8; k++, d = new Date(d.getTime() - pas)) {
-      try { await carregaImatge(this.url(d, 64, 47)); break; } catch (e) { if (k === 7) throw new Error("Meteocat sense imatges"); }
+      // Amb un paràmetre que canvia sempre, perquè el navegador no es quedi amb un «encara no hi és» guardat
+      try { await carregaImatge(this.url(d, 64, 47) + "?p=" + Date.now()); break; } catch (e) { if (k === 7) throw new Error("Meteocat sense imatges"); }
     }
     const llista = [];
     for (let m = MINUTS_HISTORIA; m >= 0; m -= 6) {
@@ -548,6 +549,11 @@ mapa.on("load", async () => {
 
   await carrega();
   setInterval(carrega, 6 * 60 * 1000);
+  // Quan es torna a mirar la pàgina (pestanya amagada o marc fora de pantalla), es posa al dia de seguida
+  let darreraCarrega = Date.now();
+  const alDia = () => { if (document.visibilityState === "visible" && Date.now() - darreraCarrega > 60000) { darreraCarrega = Date.now(); carrega(); } };
+  document.addEventListener("visibilitychange", alDia);
+  addEventListener("focus", alDia);
 });
 
 // --- CONTROLS ---
