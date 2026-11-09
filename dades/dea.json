@@ -514,6 +514,19 @@
    "aprox": false
   },
   {
+   "num": "",
+   "nom": "Sala municipal de Corçà",
+   "adreca": "",
+   "espai": "Sala municipal",
+   "mun": "17057",
+   "titular": "",
+   "horari": [],
+   "lat": 41.986667,
+   "lon": 3.015556,
+   "aprox": false,
+   "latdg": true
+  },
+  {
    "num": "2384",
    "nom": "AJUNTAMENT DE FORALLAC",
    "adreca": "Carrer Unió, 3",

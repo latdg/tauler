@@ -27,6 +27,15 @@ MUNICIPIS = {
     "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura",
     "17205": "Ullastret",   # 31.10.2026
 }
+# Desfibril·ladors que La TdG ha vist i que no consten al registre de Salut.
+# Es mantenen fins que el registre els inclogui (llavors s'han de treure d'aquí).
+AFEGITS = [
+    {   # 09.11.2026: vist a la sala municipal de Corçà
+        "num": "", "nom": "Sala municipal de Corçà", "adreca": "", "espai": "Sala municipal",
+        "mun": "17057", "titular": "", "horari": [],
+        "lat": 41.986667, "lon": 3.015556, "aprox": False, "latdg": True,
+    },
+]
 CAPCALERES = {"User-Agent": "LaTdG-tauler (https://latdg.github.io/tauler/)"}
 
 
@@ -111,6 +120,7 @@ def main():
             if p:
                 d["lat"], d["lon"], d["aprox"] = p[0], p[1], True
         fixos.append(d)
+    fixos += [dict(a) for a in AFEGITS]
 
     ordre = list(MUNICIPIS)
     fixos.sort(key=lambda z: (ordre.index(z["mun"]) if z["mun"] in ordre else 9, z["nom"]))

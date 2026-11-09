@@ -2073,6 +2073,7 @@ async function carregaDea() {
       `(${agrupats.map(g => `${esc(noms[g[0].mun] || g[0].mun)}, ${g.length}`).join(" · ")}). Són al carrer, però el registre no diu on: al mapa surten a la casa de la vila.</p>` : "";
   document.getElementById("deaNota").innerHTML =
     (ve.length ? `En vehicles: ${MUN_ANTENES.filter(c => ve.some(v => v.mun === c)).map(c => `${esc(noms[c])}, ${ve.filter(v => v.mun === c).length}`).join(" · ")} (cotxes de la policia o la vigilància local). ` : "") +
+    (fx.some(e => e.latdg) ? `Al mapa també hi ha els que La TdG ha comprovat i no consten al registre (${fx.filter(e => e.latdg).map(e => esc(e.nom)).join(", ")}). ` : "") +
     `En una emergència, truca al 112: el telefonista et diu on és el desfibril·lador més proper. Font: ${esc(d.font || "Departament de Salut")}, dades obertes de la Generalitat.`;
 
   if (typeof L === "undefined") { document.getElementById("mapaDea").innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return; }
@@ -2089,6 +2090,8 @@ async function carregaDea() {
     const html = (g.length > 1 && carrer ? `<p style="margin:0 0 6px;color:#b4462c"><b>${g.length} desfibril·ladors declarats en aquest punt.</b> És l'adreça de l'ajuntament: són al carrer, però el registre no diu on.</p>` : "") +
       g.map(e => {
         const hr = textHorari(e.horari);
+        if (e.latdg) return `<b>${esc(e.nom)}</b>` + (e.adreca ? `<br>${esc(e.adreca)}` : "") +
+          `<br><span style="color:#6b6b66">No consta al registre de Salut: ubicació comprovada per La TdG.</span>`;
         return `<b>${esc(majuscules(e.nom))}</b><br>${esc(e.adreca)}` + (e.espai ? `<br><i>${esc(majuscules(e.espai))}</i>` : "") +
           `<br><span style="color:#6b6b66">${hr || (alCarrer(e) ? "Al carrer: accessible a qualsevol hora" : "Horari no declarat")}</span>`;
       }).filter((t, i, a) => a.indexOf(t) === i).join("<hr style='border:0;border-top:1px solid #e3e1db;margin:6px 0'>");
