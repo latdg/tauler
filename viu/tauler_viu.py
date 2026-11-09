@@ -379,8 +379,14 @@ def incidencies():
             continue                               # el nom diu Baix Empordà, però és lluny (error de Trànsit)
         # Si només en coneixem un extrem (el GML en dona un sol punt) i és just fora,
         # o no hi ha cap coordenada, mana el nom de la població.
+        # 09.11.2026: el municipi amb el nom oficial i l'article («LA TALLADA D'EMPORDÀ»).
+        # Si el nom de Trànsit no és de la comarca però la incidència hi és (la GIV-6322,
+        # que Trànsit posa a «l'Escala», és dins del terme d'Albons), mana el terme on cau.
+        oficial = nom_oficial(parts[1])
+        if not oficial:
+            oficial = next((municipi_de_punt(*pt) for pt, d in zip(punts, dins) if d is True), None)
         resultat.append({
-            "municipi": parts[1],
+            "municipi": oficial.upper() if oficial else parts[1],
             "titol": neteja_text(item["title"]),
             "carretera": parts[0],
             "km": km,
@@ -429,6 +435,61 @@ def dins_comarca(lat, lon):
         if dins:
             return True
     return False
+
+
+MUNICIPIS_GEOJSON = DADES / "municipis_baix_emporda.geojson"   # els 36 termes (es-atlas, INE)
+_TERMES = None
+# Noms com els escriu Trànsit -> nom oficial (09.11.2026)
+ALIES_MUNICIPI = {"calonge": "Calonge i Sant Antoni", "sant antoni": "Calonge i Sant Antoni",
+                  "castell d'aro": "Castell-Platja d'Aro", "platja d'aro": "Castell-Platja d'Aro",
+                  "s'agaro": "Castell-Platja d'Aro", "cruilles": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+                  "monells": "Cruïlles, Monells i Sant Sadurní de l'Heura",
+                  "sant sadurni de l'heura": "Cruïlles, Monells i Sant Sadurní de l'Heura"}
+
+
+def termes():
+    global _TERMES
+    if _TERMES is None:
+        try:
+            fc = json.loads(MUNICIPIS_GEOJSON.read_text(encoding="utf-8"))
+            _TERMES = []
+            for f in fc["features"]:
+                g = f["geometry"]
+                pols = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
+                _TERMES.append((f["properties"]["nom"], pols))
+        except Exception as e:
+            print("Termes municipals:", e)
+            _TERMES = []
+    return _TERMES
+
+
+def dins_anell(lat, lon, anell):
+    dins = False
+    for (x1, y1), (x2, y2) in zip(anell, anell[1:] + anell[:1]):
+        if (y1 > lat) != (y2 > lat) and lon < x1 + (lat - y1) * (x2 - x1) / (y2 - y1):
+            dins = not dins
+    return dins
+
+
+def municipi_de_punt(lat, lon):
+    """El terme municipal del Baix Empordà on cau el punt (o None)."""
+    for nom, pols in termes():
+        if any(dins_anell(lat, lon, pol[0]) and not any(dins_anell(lat, lon, h) for h in pol[1:]) for pol in pols):
+            return nom
+    return None
+
+
+def sense_article(t):
+    return re.sub(r"^(la |l'|el |els |les )", "", norm_be(t).strip())
+
+
+def nom_oficial(nom):
+    """«TALLADA D'EMPORDÀ» -> «La Tallada d'Empordà». None si no és cap municipi de la comarca."""
+    n = sense_article(nom)
+    for oficial, _ in termes():
+        if sense_article(oficial) == n:
+            return oficial
+    return ALIES_MUNICIPI.get(n)
 
 
 def km_a_comarca(lat, lon):
