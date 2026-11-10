@@ -1,7 +1,7 @@
 {
- "generat": "2026-10-31T06:36:48+00:00",
- "versioCelda": "sitios@2026-10-21T22:30:02Z",
- "dataCelda": "2026-10-21T22:30:02.000Z",
+ "generat": "2026-11-10T13:35:47+00:00",
+ "versioCelda": "sitios@2026-11-07T23:30:01Z",
+ "dataCelda": "2026-11-07T23:30:01.000Z",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -14,7 +14,7 @@
   "propios": {
    "licencia": "CC0-1.0",
    "enlace": "https://creativecommons.org/publicdomain/zero/1.0/deed.es",
-   "alcance": "Las correcciones aceptadas, las corroboraciones, los agregados de medidas y lo que Celda calcula sobre los datos de otros: el estado, la confianza, las zonas y las simulaciones."
+   "alcance": "Las correcciones aceptadas, las corroboraciones, los agregados de medidas y lo que Celda calcula sobre los datos de otros: el estado, la confianza y las zonas."
   },
   "terceros": [
    {
@@ -63,9 +63,187 @@
  },
  "emplacaments": [
   {
+   "clau": "movistar-1700349",
+   "lat": 41.962037,
+   "lon": 3.036311,
+   "mun": "17022",
+   "adreca": "CL AIGUETA, L 1(-) N2-11 TORRE BISBAL, S/N. BISBAL DEMPORDÀ (LA), GIRONA",
+   "estat": "verificado",
+   "operadors": [
+    {
+     "op": "digi",
+     "mhz": [
+      1800,
+      2100
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 99,
+       "az": 122,
+       "uw": 0.0383
+      },
+      {
+       "m": 22,
+       "az": 125,
+       "uw": 0.02549
+      },
+      {
+       "m": 78,
+       "az": 235,
+       "uw": 0.12266
+      },
+      {
+       "m": 59,
+       "az": 249,
+       "uw": 0.15727
+      },
+      {
+       "m": 99,
+       "az": 258,
+       "uw": 0.0987
+      },
+      {
+       "m": 63,
+       "az": 280,
+       "uw": 0.44829
+      },
+      {
+       "m": 14,
+       "az": 340,
+       "uw": 0.27597
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700349&codEmplazamiento=DS%20MOBILE%20NETWORKS%2C%20S.L.%20-%201700349"
+    },
+    {
+     "op": "movistar",
+     "mhz": [
+      700,
+      900,
+      1800,
+      3500
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 99,
+       "az": 122,
+       "uw": 0.0383
+      },
+      {
+       "m": 22,
+       "az": 125,
+       "uw": 0.02549
+      },
+      {
+       "m": 78,
+       "az": 235,
+       "uw": 0.12266
+      },
+      {
+       "m": 59,
+       "az": 249,
+       "uw": 0.15727
+      },
+      {
+       "m": 99,
+       "az": 258,
+       "uw": 0.0987
+      },
+      {
+       "m": 63,
+       "az": 280,
+       "uw": 0.44829
+      },
+      {
+       "m": 14,
+       "az": 340,
+       "uw": 0.27597
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700349&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700349"
+    },
+    {
+     "op": "orange",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800,
+      2100,
+      3500
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 62,
+       "az": 0,
+       "uw": 0.18274
+      },
+      {
+       "m": 98,
+       "az": 116,
+       "uw": 0.64553
+      },
+      {
+       "m": 71,
+       "az": 122,
+       "uw": 0.53487
+      },
+      {
+       "m": 62,
+       "az": 211,
+       "uw": 0.04679
+      },
+      {
+       "m": 51,
+       "az": 255,
+       "uw": 0.25475
+      },
+      {
+       "m": 95,
+       "az": 298,
+       "uw": 0.21011
+      },
+      {
+       "m": 45,
+       "az": 325,
+       "uw": 0.39481
+      },
+      {
+       "m": 96,
+       "az": 344,
+       "uw": 0.27059
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=CATR5105A&codEmplazamiento=ORANGE%20ESPAGNE%2C%20S.A.U.%20-%20CATR5105A"
+    },
+    {
+     "op": "vodafone",
+     "mhz": [
+      700,
+      800,
+      900,
+      1800
+     ],
+     "senseLlegir": false,
+     "mesures": [
+      {
+       "m": 52,
+       "az": 251,
+       "uw": 0.37563
+      }
+     ],
+     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=007415&codEmplazamiento=VODAFONE%20ESPA%C3%91A%2C%20S.A.U.%20-%20007415"
+    }
+   ],
+   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700349&provincia=17"
+  },
+  {
    "clau": "movistar-1700923",
-   "lat": 41.971359,
-   "lon": 3.031447,
+   "lat": 41.971348,
+   "lon": 3.03145,
    "mun": "17022",
    "adreca": "CL LAigüeta, 244. BISBAL DEMPORDÀ (LA), GIRONA",
    "estat": "verificado",
@@ -132,38 +310,33 @@
      "mesures": [
       {
        "m": 53,
-       "az": 77,
-       "uw": 0.09234
+       "az": 78,
+       "uw": 0.22942
       },
       {
        "m": 32,
-       "az": 91,
-       "uw": 0.14136
+       "az": 93,
+       "uw": 0.69614
       },
       {
-       "m": 43,
+       "m": 47,
        "az": 137,
-       "uw": 0.15727
+       "uw": 0.49786
       },
       {
-       "m": 12,
+       "m": 13,
        "az": 208,
-       "uw": 0.3094
+       "uw": 0.86901
       },
       {
-       "m": 45,
-       "az": 280,
-       "uw": 0.3094
+       "m": 47,
+       "az": 282,
+       "uw": 0.3508
       },
       {
        "m": 40,
-       "az": 327,
-       "uw": 0.13372
-      },
-      {
-       "m": 43,
-       "az": 356,
-       "uw": 0.10865
+       "az": 328,
+       "uw": 0.24446
       }
      ],
      "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700045&codEmplazamiento=DS%20MOBILE%20NETWORKS%2C%20S.L.%20-%201700045"
@@ -183,130 +356,39 @@
      "mesures": [
       {
        "m": 53,
-       "az": 77,
-       "uw": 0.09234
+       "az": 78,
+       "uw": 0.22942
       },
       {
        "m": 32,
-       "az": 91,
-       "uw": 0.14136
+       "az": 93,
+       "uw": 0.69614
       },
       {
-       "m": 43,
+       "m": 47,
        "az": 137,
-       "uw": 0.15727
+       "uw": 0.49786
       },
       {
-       "m": 12,
+       "m": 13,
        "az": 208,
-       "uw": 0.3094
+       "uw": 0.86901
       },
       {
-       "m": 45,
-       "az": 280,
-       "uw": 0.3094
+       "m": 47,
+       "az": 282,
+       "uw": 0.3508
       },
       {
        "m": 40,
-       "az": 327,
-       "uw": 0.13372
-      },
-      {
-       "m": 43,
-       "az": 356,
-       "uw": 0.10865
+       "az": 328,
+       "uw": 0.24446
       }
      ],
      "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700045&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700045"
     }
    ],
    "enllac": "https://celda.elies.site/?emplazamiento=digi-1700045&provincia=17"
-  },
-  {
-   "clau": "movistar-1700349",
-   "lat": 41.962004,
-   "lon": 3.0363,
-   "mun": "17022",
-   "adreca": "JR PAU CASALS, 9. BISBAL DEMPORDÀ (LA), GIRONA",
-   "estat": "verificado",
-   "operadors": [
-    {
-     "op": "movistar",
-     "mhz": [
-      700,
-      900,
-      1800,
-      3500
-     ],
-     "senseLlegir": false,
-     "mesures": [
-      {
-       "m": 27,
-       "az": 30,
-       "uw": 0.04905
-      },
-      {
-       "m": 30,
-       "az": 100,
-       "uw": 0.03066
-      },
-      {
-       "m": 58,
-       "az": 170,
-       "uw": 0.03066
-      },
-      {
-       "m": 54,
-       "az": 241,
-       "uw": 0.2869
-      },
-      {
-       "m": 99,
-       "az": 303,
-       "uw": 0.04035
-      }
-     ],
-     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=1700349&codEmplazamiento=TELEFONICA%20MOVILES%20ESPA%C3%91A%2C%20S.A.U.%20-%201700349"
-    },
-    {
-     "op": "orange",
-     "mhz": [
-      700,
-      800,
-      900,
-      1800,
-      2100
-     ],
-     "senseLlegir": false,
-     "mesures": [
-      {
-       "m": 52,
-       "az": 251,
-       "uw": 0.37563
-      }
-     ],
-     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=CATR5105A&codEmplazamiento=ORANGE%20ESPAGNE%2C%20S.A.U.%20-%20CATR5105A"
-    },
-    {
-     "op": "vodafone",
-     "mhz": [
-      700,
-      800,
-      900,
-      1800
-     ],
-     "senseLlegir": false,
-     "mesures": [
-      {
-       "m": 52,
-       "az": 251,
-       "uw": 0.37563
-      }
-     ],
-     "registre": "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do?emplazamiento=007415&codEmplazamiento=VODAFONE%20ESPA%C3%91A%2C%20S.A.U.%20-%20007415"
-    }
-   ],
-   "enllac": "https://celda.elies.site/?emplazamiento=movistar-1700349&provincia=17"
   },
   {
    "clau": "movistar-1700394",
