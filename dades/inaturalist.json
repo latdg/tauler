@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-09T13:00:17+00:00",
+ "actualitzat": "2026-11-10T12:45:21+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2036,17 +2036,17 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 257,
-   "especies": 191,
-   "observadors": 31,
+   "observacions": 250,
+   "especies": 186,
+   "observadors": 30,
    "grups": [
     [
      "🦋 Insectes",
-     99
+     100
     ],
     [
      "🌿 Plantes",
-     95
+     87
     ],
     [
      "🕷️ Aranyes",
@@ -2301,6 +2301,21 @@
     }
    ],
    "recents": [
+    {
+     "id": 413813222,
+     "data": "2026-11-09",
+     "url": "https://www.inaturalist.org/observations/413813222",
+     "nom": "Borinot de les corretjoles",
+     "cientific": "Agrius convolvuli",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/761677141/small.jpg",
+     "autor": "Anna Wintle Taylor",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
     {
      "id": 413369512,
      "data": "2026-11-07",
@@ -2883,21 +2898,6 @@
      "autor": "Rosa Matesanz",
      "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
      "qualitat": "needs_id",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 375010155,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375010155",
-     "nom": "Brocat variable",
-     "cientific": "Euphydryas aurinia",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685505412/small.jpg",
-     "autor": "Rosa Matesanz",
-     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
-     "qualitat": "research",
      "amenacada": false,
      "introduida": false
     }
