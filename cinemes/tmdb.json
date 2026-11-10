@@ -105,27 +105,6 @@
 "enllac": "",
 "t": 1794274874.770851
 },
-"carmen": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Caroline Singh"
-],
-"original": "Кармен",
-"idiomaOriginal": "uk",
-"dataTmdb": "2026-06-07",
-"sinopsiCa": "",
-"id": 1644593,
-"nota": 10.0,
-"vots": 1,
-"sinopsi": "",
-"sinopsi_es": false,
-"poster": "/bqfAMYN6TA8VFalaNbZi3eu8Mqq.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794274874.770851
-},
 "hope": {
 "v": 6,
 "comprovat": "director",
@@ -245,14 +224,14 @@
 "dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 8.0,
-"vots": 22,
+"nota": 7.5,
+"vots": 31,
 "sinopsi": "",
 "sinopsi_es": false,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "ruega por nosotras": {
 "v": 6,
@@ -424,6 +403,28 @@
 "enllac": "",
 "t": 1794274874.770851
 },
+"wicker": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Eleanor Wilson",
+"Alex Huston Fischer"
+],
+"original": "Wicker",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-21",
+"sinopsiCa": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
+"id": 1195803,
+"nota": 7.474,
+"vots": 39,
+"sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
+"sinopsi_es": false,
+"poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794274874.770851
+},
 "la maleta": {
 "v": 6,
 "comprovat": "any",
@@ -462,28 +463,6 @@
 "sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
 "sinopsi_es": false,
 "poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794274874.770851
-},
-"wicker": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Eleanor Wilson",
-"Alex Huston Fischer"
-],
-"original": "Wicker",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-21",
-"sinopsiCa": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
-"id": 1195803,
-"nota": 7.474,
-"vots": 39,
-"sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
-"sinopsi_es": false,
-"poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794274874.770851
@@ -530,26 +509,26 @@
 "enllac": "",
 "t": 1794274874.770851
 },
-"me entiendes o te lo explico": {
+"jaleos": {
 "v": 6,
 "comprovat": "director",
 "titolCa": "",
 "directors": [
-"Jordi Calvet"
+"Isaki Lacuesta"
 ],
-"original": "¿Me entiendes o te lo explico?",
+"original": "Jaleos",
 "idiomaOriginal": "es",
-"dataTmdb": "2026-10-23",
+"dataTmdb": "",
 "sinopsiCa": "",
-"id": 1689901,
+"id": 1736729,
 "nota": 0,
 "vots": 0,
-"sinopsi": "En 1992, en el barrio madrileño de Chueca, Pepe, el desafortunado gerente de una taberna catalana en horas bajas, toma una decisión drástica. Para salvarle, sus amigos deciden resucitar su bar reconvirtiéndolo en un pub de ambiente gay.",
+"sinopsi": "A partir de materiales de archivo y una estructura fragmentada y polifónica, la película propone una historia del flamenco que lo vincula con la modernidad, lo popular y lo político. A través de relatos, asociaciones inesperadas y figuras de distintos tiempos y contextos, el filme explora un flamenco impuro, en constante diálogo con el mundo, donde conviven tradición, cultura de masas e imaginario contemporáneo.",
 "sinopsi_es": true,
-"poster": "/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
+"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "ratones al ataque operacion navidad": {
 "v": 6,
@@ -592,6 +571,27 @@
 "plataformes": [],
 "enllac": "",
 "t": 1794274874.770851
+},
+"me entiendes o te lo explico": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Jordi Calvet"
+],
+"original": "¿Me entiendes o te lo explico?",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-10-23",
+"sinopsiCa": "",
+"id": 1689901,
+"nota": 0,
+"vots": 0,
+"sinopsi": "En 1992, en el barrio madrileño de Chueca, Pepe, el desafortunado gerente de una taberna catalana en horas bajas, toma una decisión drástica. Para salvarle, sus amigos deciden resucitar su bar reconvirtiéndolo en un pub de ambiente gay.",
+"sinopsi_es": true,
+"poster": "/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794353670.071211
 },
 "victorian psycho": {
 "v": 6,
@@ -768,7 +768,7 @@
 "poster": "/kbwAR849GqMmZs01Uwm5MXL6CWd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "l ovella shaun missio carbassa": {
 "v": 6,
@@ -858,18 +858,18 @@
 "dataTmdb": "2026-10-31",
 "sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "id": 1117898,
-"nota": 7.1,
-"vots": 17,
+"nota": 7.158,
+"vots": 19,
 "sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "sinopsi_es": false,
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "dune": {
 "v": 6,
@@ -881,7 +881,7 @@
 },
 "la meva mare es una goril la": {
 "v": 6,
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "l olivia i el terretremol invisible": {
 "v": 6,
@@ -906,7 +906,7 @@
 "poster": "/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794242427.40941
+"t": 1794353670.071211
 },
 "hechizo bienvenidos a hexe": {
 "v": 6,
