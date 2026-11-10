@@ -901,7 +901,7 @@ async function carregaVerdor() {
   const versio = "?v=" + encodeURIComponent((c || v).generat || "");
   const pct = x => (x > 0 ? "+" : x < 0 ? "−" : "") + num(Math.abs(Math.round(x))) + " %";
   const de = t => (/^[aeiouàèéíòóú]/i.test(t) ? "d'" : "de ") + t;     // «d'octubre», «de novembre»
-  const ndvi = x => x == null ? "—" : x.toFixed(2).replace(".", ",");
+  const ndvi = x => x == null ? "—" : x.toFixed(3).replace(".", ",");   // 10.11.2026: tres decimals, perquè la diferència es vegi
   peu.textContent = `Informe ${de((c || v).mes)} · Sentinel-2 (Copernicus), imatge neta del mes · es fa cada mes, el dia 5`;
   const capes = [];
   if (c) {
@@ -916,7 +916,7 @@ async function carregaVerdor() {
     `<div class="xifra"><b>${pct((c.ndvi - c.ndviAbans) / c.ndviAbans * 100)}</b><span>canvi en un any</span></div>`;
   if (v) h += `<div class="xifra"><b>${pct(v.variacio)}</b><span>respecte a la mitjana ${esc(de(v.mes.split(" de ")[0]))} ${esc(v.referencia)}</span></div>`;
   h += "</div>";
-  if (c) h += `<p>Respecte a fa un any, un ${num(Math.round(c.mesSec))} % de la zona està clarament més sec i un ${num(Math.round(c.mesVerd))} %, clarament més verd.` +
+  if (c) h += `<p>Respecte a fa un any, un ${num(Math.round(c.mesSec))} % de la zona té clarament menys vegetació i un ${num(Math.round(c.mesVerd))} %, clarament més.` +
     (v && v.bosc != null ? ` Els boscos, ${pct(v.bosc)} respecte a la mitjana dels anys anteriors.` : "") + "</p>";
   h += `<div class="tria-mun peces" id="verdorTria">${capes.map((k, i) => `<button data-i="${i}"${k.id === "dif" || (!c && i === 0) ? ' class="actiu"' : ""}>${esc(k.nom)}</button>`).join("")}</div>` +
     '<div id="verdorLlegenda" class="font dalt"></div><div class="mapa-inc" id="mapaVerdor"></div>';
@@ -959,7 +959,7 @@ async function carregaVerdor() {
   const LLEG = {
     verdor: 'Verdor: <span style="display:inline-block;width:140px;height:9px;vertical-align:middle;border-radius:2px;background:linear-gradient(90deg,#a67848,#ecE48c,#58a848,#0c461e)"></span> de sòl nu a bosc dens',
     dif: 'Diferència en un any: <b style="color:#d7191c">vermell</b>, ara hi ha menys vegetació; <b style="color:#2e8b57">verd</b>, més',
-    anom: 'Respecte a la mitjana dels mateixos mesos d\'anys anteriors: <b style="color:#d7191c">vermell</b>, més sec que de costum; <b style="color:#2e8b57">verd</b>, més verd'
+    anom: 'Respecte a la mitjana dels mateixos mesos d\'anys anteriors: <b style="color:#d7191c">vermell</b>, menys vegetació que de costum; <b style="color:#2e8b57">verd</b>, més'
   };
   let capa = null;
   const posa = i => {
