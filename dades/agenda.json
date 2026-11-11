@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-11T22:15:11.863Z",
+ "actualitzat": "2026-11-11T22:17:50.794Z",
  "actes": [
   {
    "id": "28b3370050",
@@ -492,6 +492,13 @@
    "text": "Marató de 3Cat. Obra de teatre *Qui té din ja té don*. Es vendran begudes i entrepans freds i calents, entre altres."
   },
   {
+   "id": "m9ccn6upkt",
+   "data": "2026-11-28",
+   "hora": "10.00 h",
+   "municipi": "Corçà",
+   "text": "Marató de 3Cat. Xocolatada i coques i balls amb Araceli Lopera. A les 11.30 h, balls amb Elisabet Riu. A les 13.00 h, exhibició del gimnàs El Griu, i a les 14.00 h, per dinar, fideuà, pollsatre i postres amb sobretaula amb música i sorteigs. Els tiquets del dinar estaran a la venda fins el dia 25 de novembre al Centre Cívic, al Punt de Trobada i a la Carnisseria Roura i també en línia a www.entrapolis.com."
+  },
+  {
    "id": "cbl2pk16w4",
    "data": "2026-11-28",
    "hora": "12.00 h",
@@ -511,13 +518,6 @@
    "hora": "",
    "municipi": "Peratallada",
    "text": "Mercat de Nadal solidari, al nucli antic."
-  },
-  {
-   "id": "m9ccn6upkt",
-   "data": "2026-11-28",
-   "hora": "",
-   "municipi": "Corçà",
-   "text": "Corçà amb la Marató de 3Cat al vespre a la sala municipal."
   },
   {
    "id": "qod8ya1364",
