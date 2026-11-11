@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-10T23:34:34+00:00",
+ "generat": "2026-11-11T14:36:15+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -626,7 +626,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 7.1,
-   "vots": 17,
+   "vots": 20,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -982,8 +982,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10876",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.44,
-   "vots": 410,
+   "nota": 7.426,
+   "vots": 425,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -998,7 +998,7 @@
    "director": "Rob Savage",
    "actors": "Jay Duplass, Jessica Chastain, Arian Moayed, Arabella Olivia Clark",
    "estrena": "2026-10-09",
-   "poster": "https://image.tmdb.org/t/p/w342/vsde9OnhjFMlJz8Wi6Z6drZ7GG5.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/USCOKXrHBCeeK96qXmS0NyDHYL.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
@@ -1162,7 +1162,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 5.8,
-   "vots": 201,
+   "vots": 228,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1515,8 +1515,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10509",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.29,
-   "vots": 539,
+   "nota": 7.4,
+   "vots": 610,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1701,10 +1701,12 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11042",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.688,
-   "vots": 544,
-   "plataformes": [],
-   "plataformesUrl": ""
+   "nota": 6.734,
+   "vots": 589,
+   "plataformes": [
+    "Rakuten TV"
+   ],
+   "plataformesUrl": "https://www.themoviedb.org/movie/1058424/watch?locale=ES"
   },
   {
    "key": "karateka",
@@ -2514,8 +2516,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10762",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.027,
-   "vots": 201,
+   "nota": 8.0,
+   "vots": 207,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2707,8 +2709,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11036",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.339,
-   "vots": 59,
+   "nota": 7.328,
+   "vots": 61,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2844,7 +2846,7 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11112",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.176,
+   "nota": 7.2,
    "vots": 68,
    "plataformes": [],
    "plataformesUrl": ""
@@ -3534,8 +3536,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/10996",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10996"
    },
-   "nota": 7.278,
-   "vots": 158,
+   "nota": 7.2,
+   "vots": 163,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3700,8 +3702,8 @@
    "entrades": {
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11133"
    },
-   "nota": 7.3,
-   "vots": 224,
+   "nota": 7.269,
+   "vots": 225,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3864,8 +3866,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11003",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11003"
    },
-   "nota": 8.502,
-   "vots": 239,
+   "nota": 8.5,
+   "vots": 248,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3918,8 +3920,10 @@
    },
    "nota": 5.6,
    "vots": 5,
-   "plataformes": [],
-   "plataformesUrl": ""
+   "plataformes": [
+    "fuboTV"
+   ],
+   "plataformesUrl": "https://www.themoviedb.org/movie/1689329-leones-en-invierno/watch?locale=ES"
   },
   {
    "key": "11",
@@ -4102,8 +4106,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.939,
-   "vots": 115,
+   "nota": 7.798,
+   "vots": 146,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4139,8 +4143,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.474,
-   "vots": 39,
+   "nota": 7.557,
+   "vots": 44,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4155,7 +4159,7 @@
    "director": "Carlos Therón",
    "actors": "",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/kY9jmej2whCIht2oE1NJ7rzmhFi.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
     {
@@ -4176,8 +4180,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.0,
-   "vots": 1,
+   "nota": 7.0,
+   "vots": 2,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4227,8 +4231,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.203,
-   "vots": 1419,
+   "nota": 8.194,
+   "vots": 1443,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4714,8 +4718,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11084",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.0,
-   "vots": 1,
+   "nota": 9.0,
+   "vots": 2,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5201,8 +5205,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10728",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.25,
-   "vots": 4,
+   "nota": 8.333,
+   "vots": 6,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5861,8 +5865,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11150",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11150"
    },
-   "nota": 8.125,
-   "vots": 120,
+   "nota": 8.117,
+   "vots": 137,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -6265,8 +6269,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.003,
-   "vots": 654,
+   "nota": 7.0,
+   "vots": 662,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -6621,8 +6625,8 @@
     }
    ],
    "entrades": {},
-   "nota": 8.0,
-   "vots": 135,
+   "nota": 7.964,
+   "vots": 140,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -6700,8 +6704,8 @@
     }
    ],
    "entrades": {},
-   "nota": 6.975,
-   "vots": 138,
+   "nota": 7.0,
+   "vots": 140,
    "plataformes": [],
    "plataformesUrl": ""
   },

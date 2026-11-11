@@ -13,13 +13,13 @@
 "sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "id": 1117898,
 "nota": 7.1,
-"vots": 17,
+"vots": 20,
 "sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "sinopsi_es": false,
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "sacamantecas": {
 "v": 6,
@@ -40,7 +40,7 @@
 "poster": "/7338FnwdzX9oNpODZIJH1OliUGV.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "clayface": {
 "v": 6,
@@ -54,14 +54,14 @@
 "dataTmdb": "2026-10-19",
 "sinopsiCa": "L'ascens meteòric de Matt Hagen —d'un noi de carrer de Gotham a protagonista a Hollywood— es veu tràgicament truncat quan les accions d'un cap del crim local el deixen horriblement desfigurat. Abandonat pel seu equip i sense res, en Matt recorre a un tractament innovador que, miraculosament, li retorna el seu aspecte original... però que, alhora, altera de manera inesperada la seva percepció de la realitat, i l'arrossega per un camí destructiu marcat per una venjança obsessiva.",
 "id": 1400940,
-"nota": 7.44,
-"vots": 410,
+"nota": 7.426,
+"vots": 425,
 "sinopsi": "L'ascens meteòric de Matt Hagen —d'un noi de carrer de Gotham a protagonista a Hollywood— es veu tràgicament truncat quan les accions d'un cap del crim local el deixen horriblement desfigurat. Abandonat pel seu equip i sense res, en Matt recorre a un tractament innovador que, miraculosament, li retorna el seu aspecte original... però que, alhora, altera de manera inesperada la seva percepció de la realitat, i l'arrossega per un camí destructiu marcat per una venjança obsessiva.",
 "sinopsi_es": false,
 "poster": "/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "la otra madre": {
 "v": 6,
@@ -76,13 +76,13 @@
 "sinopsiCa": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
 "id": 1400837,
 "nota": 5.8,
-"vots": 201,
+"vots": 228,
 "sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
 "sinopsi_es": false,
-"poster": "/vsde9OnhjFMlJz8Wi6Z6drZ7GG5.jpg",
+"poster": "/USCOKXrHBCeeK96qXmS0NyDHYL.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "en el corazon de la bestia": {
 "v": 6,
@@ -96,14 +96,14 @@
 "dataTmdb": "2026-09-19",
 "sinopsiCa": "",
 "id": 1263337,
-"nota": 7.29,
-"vots": 539,
+"nota": 7.4,
+"vots": 610,
 "sinopsi": "Tras sobrevivir a un brutal accidente aéreo, el oficial de las Fuerzas Especiales James Belmont y su perro de combate Odín intentarán regresar a la civilización desde un remoto lugar en medio de los parajes salvajes de Alaska.",
 "sinopsi_es": true,
 "poster": "/ya8iLCNyoVpBO7B7JrNJVj3g7tK.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "hope": {
 "v": 6,
@@ -117,14 +117,16 @@
 "dataTmdb": "2026-07-15",
 "sinopsiCa": "Als afores del remot poble de Hope Harbor, a prop de la fortament militaritzada Zona Desmilitaritzada (DMZ), es detecta una presència misteriosa. Se sospita que es tracta d’un tigre que hauria aparegut, alerten el cap de la policia local, en Bum-seok i la comunitat cau en el caos. Però la cosa és pitjor: el que ha començat com una emergència local aviat es transforma en un misteri més profund i aterridor, que obliga els habitants de Hope Harbor a enfrontar-se a allò desconegut i que pot acabar destruint-los el poble…",
 "id": 1058424,
-"nota": 6.688,
-"vots": 544,
+"nota": 6.734,
+"vots": 589,
 "sinopsi": "Als afores del remot poble de Hope Harbor, a prop de la fortament militaritzada Zona Desmilitaritzada (DMZ), es detecta una presència misteriosa. Se sospita que es tracta d’un tigre que hauria aparegut, alerten el cap de la policia local, en Bum-seok i la comunitat cau en el caos. Però la cosa és pitjor: el que ha començat com una emergència local aviat es transforma en un misteri més profund i aterridor, que obliga els habitants de Hope Harbor a enfrontar-se a allò desconegut i que pot acabar destruint-los el poble…",
 "sinopsi_es": false,
 "poster": "/hHPIefotew38oJm3YCJPAzpi26c.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794274874.770851
+"plataformes": [
+"Rakuten TV"
+],
+"enllac": "https://www.themoviedb.org/movie/1058424/watch?locale=ES",
+"t": 1794407737.746056
 },
 "karateka": {
 "v": 6,
@@ -145,7 +147,7 @@
 "poster": "/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "la bola negra": {
 "v": 6,
@@ -160,14 +162,14 @@
 "dataTmdb": "2026-09-25",
 "sinopsiCa": "Les vides interconnectades de tres homes en tres èpoques diferents. Tres existències íntimament lligades per la sexualitat i el desig, el dolor i l’herència; i una de les últimes obres, inacabada, de Federico García Lorca",
 "id": 1422041,
-"nota": 8.027,
-"vots": 201,
+"nota": 8.0,
+"vots": 207,
 "sinopsi": "Les vides interconnectades de tres homes en tres èpoques diferents. Tres existències íntimament lligades per la sexualitat i el desig, el dolor i l’herència; i una de les últimes obres, inacabada, de Federico García Lorca",
 "sinopsi_es": false,
 "poster": "/t1azKLExwUxKj6v6m2L535evuRa.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "la oveja shaun mision calabaza": {
 "v": 6,
@@ -182,14 +184,14 @@
 "dataTmdb": "2026-09-17",
 "sinopsiCa": "Els residents de la granja de Mossy Bottom esperen amb il·lusió Halloween, fins que el maldestre granger destrossa l'estimat hort de carabasses del ramat! En Shaun es converteix en un científic boig per solucionar el problema, però la situació es descontrola ràpidament.",
 "id": 1477104,
-"nota": 7.339,
-"vots": 59,
+"nota": 7.328,
+"vots": 61,
 "sinopsi": "Els residents de la granja de Mossy Bottom esperen amb il·lusió Halloween, fins que el maldestre granger destrossa l'estimat hort de carabasses del ramat! En Shaun es converteix en un científic boig per solucionar el problema, però la situació es descontrola ràpidament.",
 "sinopsi_es": false,
 "poster": "/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "los miserables": {
 "v": 6,
@@ -203,14 +205,14 @@
 "dataTmdb": "2026-10-14",
 "sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
 "id": 1241803,
-"nota": 7.176,
+"nota": 7.2,
 "vots": 68,
 "sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
 "sinopsi_es": false,
 "poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "ramayana el nacimiento de una leyenda": {
 "v": 6,
@@ -252,7 +254,7 @@
 "poster": "/6CWXhVFfin3zh1LZ5HsWnzTXTPN.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "sentido y sensibilidad": {
 "v": 6,
@@ -266,14 +268,14 @@
 "dataTmdb": "2026-09-23",
 "sinopsiCa": "Les germanes Elinor i Marianne Dashwood han d’abandonar la propietat familiar després de la mort del seu pare i fer front a les dificultats econòmiques i a les complexitats de l’amor",
 "id": 1503762,
-"nota": 7.278,
-"vots": 158,
+"nota": 7.2,
+"vots": 163,
 "sinopsi": "Les germanes Elinor i Marianne Dashwood han d’abandonar la propietat familiar després de la mort del seu pare i fer front a les dificultats econòmiques i a les complexitats de l’amor",
 "sinopsi_es": false,
 "poster": "/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "superthings la pelicula": {
 "v": 6,
@@ -294,7 +296,7 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "tiempos de ilusion": {
 "v": 6,
@@ -309,14 +311,14 @@
 "dataTmdb": "2026-04-15",
 "sinopsiCa": "Som al 1985. En Vincent (Simon Boublil ), que aviat farà 13 anys, viu als afores de París, en una família de classe mitjana, entre un germà gran distant (Alexis Rosenstiehl) i uns pares enfrontats permanentment (Louis Garrel i Camille Cottin). Quan ja no és pas un nen, però encara no acaba de ser un adult, en compartirem les preguntes i els dubtes sobre la identitat, l’amistat, la família, la religió, el desig i els primers impulsos amorosos. Una comèdia sobre aquella etapa tendra de la vida en què l’esperança de canviar el món no era 'Només una il·lusió...'",
 "id": 1404684,
-"nota": 7.3,
-"vots": 224,
+"nota": 7.269,
+"vots": 225,
 "sinopsi": "Som al 1985. En Vincent (Simon Boublil ), que aviat farà 13 anys, viu als afores de París, en una família de classe mitjana, entre un germà gran distant (Alexis Rosenstiehl) i uns pares enfrontats permanentment (Louis Garrel i Camille Cottin). Quan ja no és pas un nen, però encara no acaba de ser un adult, en compartirem les preguntes i els dubtes sobre la identitat, l’amistat, la família, la religió, el desig i els primers impulsos amorosos. Una comèdia sobre aquella etapa tendra de la vida en què l’esperança de canviar el món no era 'Només una il·lusió...'",
 "sinopsi_es": false,
 "poster": "/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "wildwood": {
 "v": 6,
@@ -330,14 +332,14 @@
 "dataTmdb": "2026-10-19",
 "sinopsiCa": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
 "id": 791523,
-"nota": 8.502,
-"vots": 239,
+"nota": 8.5,
+"vots": 248,
 "sinopsi": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
 "sinopsi_es": false,
 "poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "leones en invierno": {
 "v": 6,
@@ -356,9 +358,11 @@
 "sinopsi": "Una noia mor atropellada per un cotxe de luxe que circula a gran velocitat. El conductor fuig del lloc dels fets. No es pot aturar: és un agent de policia infiltrat en una xarxa de narcotràfic, i aquest incident podria deixar al descobert la seva veritable identitat. I, per protegir aquesta seva identitat encoberta, haurà d’assegurar-se que la investigació de l’accident no arribi enlloc. El pare de la víctima, que havia estat un destacat 'ultrasur', du ara una vida tranquil·la; però en assabentar-se de la mort de la seva filla, se li revifen els instints violents i busca venjança",
 "sinopsi_es": false,
 "poster": "/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794274874.770851
+"plataformes": [
+"fuboTV"
+],
+"enllac": "https://www.themoviedb.org/movie/1689329-leones-en-invierno/watch?locale=ES",
+"t": 1794407737.746056
 },
 "11": {
 "v": 6,
@@ -380,7 +384,7 @@
 "poster": "/7pksyM5i9GeCJzlDscQ5te13vaL.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "godzilla minus zero": {
 "v": 6,
@@ -394,14 +398,14 @@
 "dataTmdb": "2026-11-03",
 "sinopsiCa": "",
 "id": 1381071,
-"nota": 7.939,
-"vots": 115,
+"nota": 7.798,
+"vots": 146,
 "sinopsi": "La guerra dejó a Japón en la ruina, y Godzilla lo sumió en una situación aún peor. Han pasado dos años desde entonces, y el país ha librado una lucha ardua por recuperarse y finalmente retomar su vida cotidiana. Justo cuando la humanidad lograba aferrarse a una paz duramente conquistada, una nueva amenaza irrumpe, aplastando la esperanza en un instante.",
 "sinopsi_es": true,
 "poster": "/8VKjocpP0EiUiUzTPWwz7TV2kWP.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "wicker": {
 "v": 6,
@@ -416,14 +420,14 @@
 "dataTmdb": "2026-10-21",
 "sinopsiCa": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
 "id": 1195803,
-"nota": 7.474,
-"vots": 39,
+"nota": 7.557,
+"vots": 44,
 "sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
 "sinopsi_es": false,
 "poster": "/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "la maleta": {
 "v": 6,
@@ -437,14 +441,14 @@
 "dataTmdb": "2026-10-16",
 "sinopsiCa": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
 "id": 1494231,
-"nota": 8.0,
-"vots": 1,
+"nota": 7.0,
+"vots": 2,
 "sinopsi": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
 "sinopsi_es": false,
-"poster": "/Ap0WExOWEL4DMcRKsAoDehi05J6.jpg",
+"poster": "/kY9jmej2whCIht2oE1NJ7rzmhFi.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "coyote vs acme": {
 "v": 6,
@@ -458,14 +462,14 @@
 "dataTmdb": "2026-08-20",
 "sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
 "id": 1204680,
-"nota": 8.203,
-"vots": 1419,
+"nota": 8.194,
+"vots": 1443,
 "sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
 "sinopsi_es": false,
 "poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "como robar un banco": {
 "v": 6,
@@ -479,14 +483,14 @@
 "dataTmdb": "2026-11-10",
 "sinopsiCa": "",
 "id": 1437511,
-"nota": 8.0,
-"vots": 1,
+"nota": 9.0,
+"vots": 2,
 "sinopsi": "Un hombre desesperado planea un elaborado atraco contra el corrupto sistema financiero que arruinó su vida, con un grupo que documenta sus actos en redes sociales.",
 "sinopsi_es": true,
 "poster": "/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "scrooge y los fantasmas de la navidad": {
 "v": 6,
@@ -500,14 +504,14 @@
 "dataTmdb": "2026-11-11",
 "sinopsiCa": "",
 "id": 1567605,
-"nota": 8.25,
-"vots": 4,
+"nota": 8.333,
+"vots": 6,
 "sinopsi": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
 "sinopsi_es": true,
 "poster": "/gnG15MkiNeObCoPbHcLUX4zrNWh.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "jaleos": {
 "v": 6,
@@ -549,7 +553,7 @@
 "poster": "/tEpDFz33WclWa0c1rxLhqM2DNFE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "wild horse nine": {
 "v": 6,
@@ -561,16 +565,16 @@
 "original": "Wild Horse Nine",
 "idiomaOriginal": "en",
 "dataTmdb": "2026-10-30",
-"sinopsiCa": "",
+"sinopsiCa": "Poc abans del cop d’estat d’en Pinochet, el 1973, en MJ (Steve Buscemi), superior dels agents de la CIA Chris (John Malkovich) i Lee (Sam Rockwell), els trasllada de Santiago a l’illa de Pasqua. Entre les emblemàtiques estàtues de l’illa, mentre els dos companys de llarga trajectòria s’enfronten al seu fosc passat i a les conspiracions del present, el vincle que Chris estableix amb dues estudiants rebels (Mariana di Girolamo i Ailín Salas) amenaça de fer prendre un rumb inesperat a l’estada de tots plegats en aquest paradís remot",
 "id": 891621,
-"nota": 8.125,
-"vots": 120,
-"sinopsi": "Poco antes del golpe de Estado chileno de 1973, los agentes de la CIA Chris y Lee son enviados desde Santiago a la Isla de Pascua por su jefa de la oficina, MJ. Entre las emblemáticas estatuas de la isla, y mientras los veteranos compañeros lidian con sus oscuros pasados ​​y conspiraciones actuales, el nuevo vínculo que Chris establece con un par de estudiantes rebeldes amenaza con desbaratar el viaje de todos a este remoto paraíso.",
-"sinopsi_es": true,
+"nota": 8.117,
+"vots": 137,
+"sinopsi": "Poc abans del cop d’estat d’en Pinochet, el 1973, en MJ (Steve Buscemi), superior dels agents de la CIA Chris (John Malkovich) i Lee (Sam Rockwell), els trasllada de Santiago a l’illa de Pasqua. Entre les emblemàtiques estàtues de l’illa, mentre els dos companys de llarga trajectòria s’enfronten al seu fosc passat i a les conspiracions del present, el vincle que Chris estableix amb dues estudiants rebels (Mariana di Girolamo i Ailín Salas) amenaça de fer prendre un rumb inesperat a l’estada de tots plegats en aquest paradís remot",
+"sinopsi_es": false,
 "poster": "/ulvGcZer26aBaNG0s4IEJGyyLIq.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "me entiendes o te lo explico": {
 "v": 6,
@@ -626,14 +630,14 @@
 "dataTmdb": "2026-09-30",
 "sinopsiCa": "",
 "id": 1283515,
-"nota": 7.003,
-"vots": 654,
+"nota": 7.0,
+"vots": 662,
 "sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
 "sinopsi_es": true,
 "poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "palestina 36": {
 "v": 6,
@@ -675,7 +679,7 @@
 "poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "cinc david una aventura gigante": {
 "v": 6,
@@ -683,7 +687,7 @@
 },
 "diversion navidena con peppa la experiencia en cines": {
 "v": 6,
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "superthings la pel licula": {
 "v": 6,
@@ -704,7 +708,7 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "los juegos del hambre amanecer en la cosecha": {
 "v": 6,
@@ -725,7 +729,7 @@
 "poster": "/nijGyrqQbDhSGss4uugQokvBAsG.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "naza": {
 "v": 6,
@@ -740,14 +744,14 @@
 "dataTmdb": "2026-09-25",
 "sinopsiCa": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
 "id": 1755291,
-"nota": 8.0,
-"vots": 135,
+"nota": 7.964,
+"vots": 140,
 "sinopsi": "Rodada de nit i en secret a les teulades de Tel Aviv, la pel·lícula revela en detall els sistemes que hi ha darrere de la calculada matança massiva de civils palestins per part d'Israel a Gaza.",
 "sinopsi_es": false,
 "poster": "/urM4MnCGIsCxowqDnwExSUtVKAg.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "bts world tour arirang in kaohsiung live viewing": {
 "v": 6,
@@ -772,7 +776,7 @@
 },
 "l ovella shaun missio carbassa": {
 "v": 6,
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "el precio de la red": {
 "v": 6,
@@ -786,18 +790,18 @@
 "dataTmdb": "2026-10-07",
 "sinopsiCa": "",
 "id": 1281331,
-"nota": 6.975,
-"vots": 138,
+"nota": 7.0,
+"vots": 140,
 "sinopsi": "Explora las prácticas internas de Facebook, la difusión de información falsa, el impacto en la salud mental de los adolescentes y la conexión con los eventos del 6 de enero en el Capitolio.",
 "sinopsi_es": true,
 "poster": "/ls1KWflioSJgCcKhDr6ykvYmgbI.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "astres immobils": {
 "v": 6,
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "tanit": {
 "v": 6,
@@ -818,11 +822,11 @@
 "poster": "/AfeoEZ0HCuTgXwj4BTvcizNlWWL.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "iv mostra de curtmetratges de palafrugell": {
 "v": 6,
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "la invitacion": {
 "v": 6,
@@ -928,7 +932,7 @@
 "poster": "/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "burundanga": {
 "v": 6,
@@ -949,7 +953,7 @@
 "poster": "/dooIbNThUhVNzhZoIw1INzttev.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "noche de paz 2": {
 "v": 6,
@@ -970,7 +974,7 @@
 "poster": "/bMGudrgP3ZVD9IPF73BYLdnrNSE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "dune parte tres": {
 "v": 6,
@@ -991,7 +995,7 @@
 "poster": "/uj4EuGmFNAc4CHBVEtRZ04MXzka.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 },
 "jumanji mundo abierto": {
 "v": 6,
@@ -1012,6 +1016,6 @@
 "poster": "/ntjF2gemedf3ZcWzARGt6cuZlnJ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794274874.770851
+"t": 1794407737.746056
 }
 }
