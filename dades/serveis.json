@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-10T16:34:15+00:00",
+ "generat": "2026-11-11T15:02:33+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -8,21 +8,8 @@
   "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-11-10T16:34:36+00:00",
+  "quan": "2026-11-11T15:02:54+00:00",
   "dies": [
-   {
-    "data": "2026-11-07",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 07/11/2026",
-    "farmacies": [
-     {
-      "farmacia": "PUIGBERT ESTEVAN, C.B",
-      "poblacio": "LA BISBAL D'EMPORDA",
-      "horari": "09:00 - 09:00 (dia seg.)",
-      "adreca": "Plaça Jacint Verdaguer, 1",
-      "telefon": "674038640"
-     }
-    ]
-   },
    {
     "data": "2026-11-08",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 08/11/2026",
@@ -137,6 +124,19 @@
    {
     "data": "2026-11-16",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 16/11/2026",
+    "farmacies": [
+     {
+      "farmacia": "ESTER COLL BRUNET",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "C/Josep Irla, 14",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-11-17",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 17/11/2026",
     "farmacies": [
      {
       "farmacia": "ESTER COLL BRUNET",
@@ -1307,7 +1307,7 @@
   }
  },
  "aigua": {
-  "actualitzat": "2026-09-17T10:39:29+00:00",
+  "actualitzat": "2026-11-11T08:31:17+00:00",
   "municipis": {
    "17022": [
     {
@@ -1395,6 +1395,16 @@
      "preu": 1.392,
      "subministrament": 0.558,
      "canon": 0.654,
+     "clavegueram": 0.18,
+     "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2026,
+     "preu": 1.476,
+     "subministrament": 0.558,
+     "canon": 0.738,
      "clavegueram": 0.18,
      "gestora": "Ajuntament De La Bisbal D'Empordà (Sociedad Gral. Aguas De Barcelona Sau)",
      "gestio": "Indirecta",
@@ -1491,6 +1501,16 @@
      "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
      "gestio": "Directa",
      "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2026,
+     "preu": 2.118,
+     "subministrament": 1.163,
+     "canon": 0.738,
+     "clavegueram": 0.217,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
     }
    ],
    "17902": [
@@ -1579,6 +1599,16 @@
      "preu": 2.178,
      "subministrament": 1.407,
      "canon": 0.654,
+     "clavegueram": 0.117,
+     "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
+     "gestio": "Indirecta",
+     "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2026,
+     "preu": 2.262,
+     "subministrament": 1.407,
+     "canon": 0.738,
      "clavegueram": 0.117,
      "gestora": "Sociedad Gral. Aguas De Barcelona Sau",
      "gestio": "Indirecta",
@@ -1675,6 +1705,16 @@
      "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
      "gestio": "Directa",
      "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2026,
+     "preu": 2.137,
+     "subministrament": 1.177,
+     "canon": 0.738,
+     "clavegueram": 0.222,
+     "gestora": "Mancomunitat D'Aigües I S. Baix Empordà",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
     }
    ],
    "17205": [
@@ -1767,12 +1807,22 @@
      "gestora": "Ajuntament D'Ullastret",
      "gestio": "Directa",
      "tarifesSocials": "Sí"
+    },
+    {
+     "any": 2026,
+     "preu": 1.478,
+     "subministrament": 0.573,
+     "canon": 0.738,
+     "clavegueram": 0.167,
+     "gestora": "Ajuntament D'Ullastret",
+     "gestio": "Directa",
+     "tarifesSocials": "Sí"
     }
    ]
   },
   "catalunya": {
-   "any": 2025,
-   "preu": 1.801,
+   "any": 2026,
+   "preu": 1.933,
    "municipis": 947
   }
  }
