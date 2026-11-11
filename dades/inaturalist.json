@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-10T12:45:21+00:00",
+ "actualitzat": "2026-11-11T11:56:43+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2036,8 +2036,8 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 250,
-   "especies": 186,
+   "observacions": 241,
+   "especies": 180,
    "observadors": 30,
    "grups": [
     [
@@ -2046,7 +2046,7 @@
     ],
     [
      "🌿 Plantes",
-     87
+     78
     ],
     [
      "🕷️ Aranyes",
