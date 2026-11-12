@@ -270,28 +270,68 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 [hidden]{display:none!important}
 .incrustat header,.incrustat .peu-tdg,.incrustat footer{display:none!important}
 .incrustat main{padding-top:0}
+/* 12.11.2026: capçalera com la de la Bitàcola personal: temps a dalt a la dreta i tira de titulars */
+.cap-temps{display:flex;align-items:flex-start;justify-content:space-between;gap:8px 20px;flex-wrap:wrap}
+.cap-esq{min-width:0;flex:1 1 300px}
+.cap-esq .sub{margin:4px 0 0}
+.temps-dalt{flex:0 1 auto;margin-top:6px;text-align:right}
+.temps-linia{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;justify-content:flex-end}
+.temps-linia.buit{color:var(--suau)}
+.temps-linia .ico{font-size:1.6rem;line-height:1}
+.temps-linia b{font-size:1.4rem}
+.temps-linia .m{color:var(--suau);font-size:.9rem}
+.temps-linia .lloc{font-weight:600;font-size:.95rem}
+.temps-linia .uv{display:inline-block;padding:1px 8px;border-radius:999px;color:#fff;font-weight:600;font-size:.8rem}
+.temps-dies{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:8px;font-size:.85rem;justify-content:flex-end}
+.temps-dies:empty{display:none}
+.temps-dies i{font-style:normal;color:var(--suau);margin-left:4px}
+@media (max-width:600px){.temps-dalt{flex:1 1 100%;margin:4px 0 0;text-align:left}.temps-linia,.temps-dies{justify-content:flex-start}}
+.tira{display:flex;align-items:stretch;border:1px solid var(--linia);border-radius:10px;background:#fbfaf7;overflow:hidden;font-size:.92rem;min-width:0;margin-top:16px}
+.tira-marc{flex:1 1 auto;min-width:0;overflow:hidden;position:relative}
+.tira-pista{display:inline-flex;white-space:nowrap;padding:7px 0 7px 12px;animation:tira-corre var(--tira-durada,120s) linear infinite}
+.tira:hover .tira-pista,.tira:focus-within .tira-pista{animation-play-state:paused}
+@keyframes tira-corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tira-grup{display:inline-flex;align-items:center;padding-right:28px}
+.tira-it{margin-right:22px;color:var(--text);text-decoration:none}
+a.tira-it:hover{color:var(--accent);text-decoration:underline}
+.tira-it b{font-weight:700;margin-right:4px;color:#a81116}
+.tira-it b::after{content:" ·"}
+.tira-titol{flex:0 0 auto;display:flex;align-items:center;padding:0 12px;background:#c8102e;color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.tira-pista{animation-duration:600s}}
 </style>
 <!-- Visites (GoatCounter, sense galetes) · 01.11.2026 -->
 <script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header>
-  <div class="capcalera">
-    <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
-        <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
-        <path d="M22 11a10 10 0 00-5-8.662" stroke="#e30613"/>
-        <path d="M6 11a6 6 0 013-5.197" stroke="currentColor"/>
-        <path d="M18 11a6 6 0 00-3-5.197" stroke="currentColor"/>
-        <rect x="10" y="9" width="4" height="8" rx="2" stroke="currentColor"/>
-        <path d="M12 17v4" stroke="currentColor"/>
-        <path d="M9 21h6" stroke="currentColor"/>
-      </svg>
-    </a>
-    <h1>La TdG ampliada</h1>
-    <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>
+  <div class="cap-temps">
+    <div class="cap-esq">
+    <div class="capcalera">
+      <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
+          <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
+          <path d="M22 11a10 10 0 00-5-8.662" stroke="#e30613"/>
+          <path d="M6 11a6 6 0 013-5.197" stroke="currentColor"/>
+          <path d="M18 11a6 6 0 00-3-5.197" stroke="currentColor"/>
+          <rect x="10" y="9" width="4" height="8" rx="2" stroke="currentColor"/>
+          <path d="M12 17v4" stroke="currentColor"/>
+          <path d="M9 21h6" stroke="currentColor"/>
+        </svg>
+      </a>
+      <h1>La TdG ampliada</h1>
+      <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>
+    </div>
+      <p class="sub" id="ara"></p>
+      <p class="sub" id="sub">Carregant…</p>
+    </div>
+    <div id="temps" class="temps-dalt">
+      <div id="tempsAra" class="temps-linia buit">Carregant el temps…</div>
+      <div id="tempsDies" class="temps-dies"></div>
+    </div>
   </div>
-    <p class="sub" id="sub">Carregant…</p>
+  <div class="tira" id="tira" hidden aria-label="Titulars de La TdG i dels mitjans">
+    <div class="tira-titol">Últimes notícies</div><div class="tira-marc"><div class="tira-pista" id="tiraPista"></div></div>
+  </div>
   <nav id="nav"></nav>
 </header>
     
@@ -2797,5 +2837,148 @@ async function inicia() {
 inicia();
 </script>
 <script src="dates-ca.js?v=3"></script>
+<script>
+// =============================================================================
+// CAPÇALERA (12.11.2026): com la de la Bitàcola personal. Data i hora, el temps
+// de la Bisbal (Open-Meteo) a dalt a la dreta i la tira de titulars de La TdG i
+// dels mitjans (el darrer resum de La TdG redacció).
+// =============================================================================
+(() => {
+  const $ = id => document.getElementById(id);
+  const dos = n => String(n).padStart(2, "0");
+  const DIES = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"];
+  const DIES_CURTS = ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"];
+  const pintaAra = () => {
+    const d = new Date();
+    $("ara").textContent = DIES[d.getDay()] + ", " + dos(d.getDate()) + "." + dos(d.getMonth() + 1) + "." + d.getFullYear() + " · " + dos(d.getHours()) + ":" + dos(d.getMinutes());
+  };
+  pintaAra();
+  setInterval(pintaAra, 30 * 1000);
+
+  // ---------------- Temps ----------------
+  const CODIS = {
+    0: ["☀️", "Cel serè"], 1: ["🌤️", "Gairebé serè"], 2: ["⛅", "Mig ennuvolat"], 3: ["☁️", "Cobert"],
+    45: ["🌫️", "Boira"], 48: ["🌫️", "Boira gebradora"],
+    51: ["🌦️", "Plugim feble"], 53: ["🌦️", "Plugim"], 55: ["🌦️", "Plugim intens"], 56: ["🌧️", "Plugim gelat"], 57: ["🌧️", "Plugim gelat"],
+    61: ["🌧️", "Pluja feble"], 63: ["🌧️", "Pluja"], 65: ["🌧️", "Pluja forta"], 66: ["🌧️", "Pluja gelada"], 67: ["🌧️", "Pluja gelada"],
+    71: ["🌨️", "Neu feble"], 73: ["🌨️", "Neu"], 75: ["❄️", "Neu forta"], 77: ["🌨️", "Neu granulada"],
+    80: ["🌦️", "Ruixats"], 81: ["🌦️", "Ruixats"], 82: ["⛈️", "Ruixats forts"], 85: ["🌨️", "Ruixats de neu"], 86: ["🌨️", "Ruixats de neu"],
+    95: ["⛈️", "Tempesta"], 96: ["⛈️", "Tempesta amb calamarsa"], 99: ["⛈️", "Tempesta amb calamarsa"]
+  };
+  const codi = c => CODIS[c] || ["🌡️", "—"];
+  function nivellUV(v) {
+    if (v < 3) return { n: "baix", c: "#3a9a3a", con: "No cal protecció especial." };
+    if (v < 6) return { n: "moderat", c: "#d1a000", con: "Ulleres de sol i crema si estàs molta estona fora." };
+    if (v < 8) return { n: "alt", c: "#e06a00", con: "Crema, gorra i ombra a les hores centrals." };
+    if (v < 11) return { n: "molt alt", c: "#d0262b", con: "Evita el sol entre les 12 i les 16 h." };
+    return { n: "extrem", c: "#7b3fa0", con: "Evita el sol: protecció màxima." };
+  }
+  const num = v => Number(v || 0).toFixed(0);
+  async function carregaTemps() {
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=41.9600&longitude=3.0386" +
+      "&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max" +
+      "&timezone=Europe%2FMadrid&forecast_days=4";
+    try {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(r.status);
+      const j = await r.json();
+      const c = j.current, d = j.daily;
+      const [ic, est] = codi(c.weather_code);
+      const uv = d.uv_index_max[0] || 0, n = nivellUV(uv);
+      $("tempsAra").className = "temps-linia";
+      $("tempsAra").innerHTML = '<span class="lloc">La Bisbal d\'Empordà</span><span class="ico" title="' + esc(est) + '">' + ic + "</span><b>" + num(c.temperature_2m) + " °C</b>" +
+        '<span class="m">' + num(d.temperature_2m_min[0]) + "° / " + num(d.temperature_2m_max[0]) + "°</span>" +
+        '<span class="m">💧 ' + (d.precipitation_probability_max[0] ?? 0) + " %</span>" +
+        '<span class="uv" style="background:' + n.c + '" title="' + esc(n.con) + '">UV ' + Math.round(uv) + " · " + n.n + "</span>";
+      let h = "";
+      for (let i = 1; i < d.time.length; i++) {
+        const [ici, esti] = codi(d.weather_code[i]);
+        h += '<span title="' + esc(esti) + '">' + DIES_CURTS[new Date(d.time[i] + "T12:00:00").getDay()] + " " + ici + " " + num(d.temperature_2m_max[i]) + "°<i>" + num(d.temperature_2m_min[i]) + "°</i></span>";
+      }
+      $("tempsDies").innerHTML = h;
+    } catch (e) {
+      $("tempsAra").className = "temps-linia buit";
+      $("tempsAra").textContent = "Ara no es pot carregar el temps.";
+      $("tempsDies").innerHTML = "";
+    }
+  }
+  carregaTemps();
+  setInterval(carregaTemps, 30 * 60 * 1000);
+
+  // ---------------- Tira de titulars ----------------
+  const BASE = "https://latdg.github.io/redaccio/dades/";
+  const NOMS_GEN = [
+    [/vilaweb/, "VilaWeb"], [/naciodigital/, "Nació Digital"], [/^ara\.cat$/, "Ara"], [/elperiodico/, "El Periódico"],
+    [/lavanguardia/, "La Vanguardia"], [/elpais/, "El País"], [/elnacional/, "El Nacional"], [/rac1/, "RAC1"],
+    [/elmon/, "El Món"], [/cadenaser/, "Cadena SER"], [/3cat|ccma/, "3Cat"], [/europapress/, "Europa Press"],
+    [/elpuntavui/, "El Punt Avui"], [/rtve/, "RTVE"], [/catradio/, "Catalunya Ràdio"], [/elmundo/, "El Mundo"],
+    [/eldiario/, "elDiario.es"], [/acn\.cat/, "ACN"], [/msn\.com/, "MSN"], [/diaridegirona/, "Diari de Girona"]
+  ];
+  const nomMitja = n => { const t = String(n).toLowerCase(); const m = NOMS_GEN.find(([rx]) => rx.test(t)); return m ? m[1] : n; };
+  const obtenir = async (url, text) => { const r = await fetch(url, { cache: "no-cache" }); if (!r.ok) throw new Error(r.status); return text ? r.text() : r.json(); };
+  function premsaDelResum(html) {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const RX = /^\s*((?:\d️?⃣)+)\s*(.+)$/s;
+    const blocs = {}; let actual = null;
+    Array.from(doc.body.childNodes).forEach(node => {
+      const text = (node.textContent || "").trim();
+      if (node.nodeType === 1 && node.tagName === "DIV" && text.length < 200) {
+        const m = text.match(RX);
+        if (m) { const t = m[2].trim().toUpperCase(); actual = /^PREMSA LOCAL/.test(t) ? "local" : /^PREMSA GENERALISTA/.test(t) ? "gen" : null; if (actual) blocs[actual] = ""; return; }
+      }
+      if (!actual) return;
+      if (node.nodeType === 1 && node.tagName === "BR") blocs[actual] += "\n";
+      else if (node.nodeType === 1) blocs[actual] += (node.innerHTML || "").replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]+>/g, "");
+      else blocs[actual] += node.textContent || "";
+    });
+    const fora = {};
+    Object.entries(blocs).forEach(([clau, txt]) => {
+      const llista = []; let mitja = "";
+      const linies = txt.split("\n").map(x => x.trim()).filter(Boolean);
+      linies.forEach((l, i) => {
+        const m = l.match(/^▶\s*(.+?):\s*$/);
+        if (m) { mitja = m[1].trim(); return; }
+        const n = l.match(/^•\s*(?:\d{2}\.\d{2}\.\d{4}\s*[—–-]\s*)?(.+)$/);
+        if (n && mitja && !/^No s.han trobat/i.test(n[1])) {
+          const seg = linies[i + 1] || "";
+          llista.push({ mitja, titol: n[1].trim(), url: /^https?:\/\//.test(seg) ? seg : "" });
+        }
+      });
+      const vist = new Set();
+      fora[clau] = llista.filter(x => { const k = x.titol.toLowerCase(); if (vist.has(k)) return false; vist.add(k); return true; });
+    });
+    return fora;
+  }
+  function grup(items) {
+    if (!items.length) return "";
+    return '<span class="tira-grup">' + items.map(it => {
+      const cos = (it.mitja ? "<b>" + esc(it.mitja) + "</b>" : "") + esc(it.titol);
+      return it.url ? '<a class="tira-it" href="' + esc(it.url) + '" target="_blank" rel="noopener">' + cos + "</a>" : '<span class="tira-it">' + cos + "</span>";
+    }).join("") + "</span>";
+  }
+  async function carregaTira() {
+    let dies = [];
+    try { dies = (await obtenir(BASE + "dies.json")).slice().sort().reverse(); } catch (e) { return; }
+    let tdg = [], premsa = { local: [], gen: [] };
+    for (const d of dies.slice(0, 3)) {
+      if (!tdg.length) { try { const t = await obtenir(BASE + d + "/titulars.json"); tdg = (t.titulars || []).filter(Boolean).map(x => ({ mitja: "La TdG", titol: x, url: "" })); } catch (e) {} }
+      if (!premsa.local.length && !premsa.gen.length) { try { premsa = Object.assign({ local: [], gen: [] }, premsaDelResum(await obtenir(BASE + d + "/resum.html", true))); } catch (e) {} }
+      if (tdg.length && (premsa.local.length || premsa.gen.length)) break;
+    }
+    premsa.gen = premsa.gen.slice(0, 10).map(x => Object.assign({}, x, { mitja: nomMitja(x.mitja) }));
+    const h = grup(tdg) + grup(premsa.local.concat(premsa.gen));
+    if (!h) { $("tira").hidden = true; return; }
+    $("tiraPista").innerHTML = '<span style="display:inline-flex">' + h + '</span><span class="tira-copia" aria-hidden="true" style="display:inline-flex">' + h + "</span>";
+    $("tiraPista").querySelectorAll(".tira-copia a").forEach(a => a.tabIndex = -1);
+    $("tira").hidden = false;
+    requestAnimationFrame(() => {
+      const ample = $("tiraPista").scrollWidth / 2;
+      $("tiraPista").style.setProperty("--tira-durada", Math.max(30, Math.round(ample / 60)) + "s");
+    });
+  }
+  carregaTira();
+  setInterval(carregaTira, 30 * 60 * 1000);
+})();
+</script>
 </body>
 </html>
