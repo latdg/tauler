@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "12-sais-gestor"
+RECARREGA_VERSIO = "13-pau-casals-lliure"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1233,7 +1233,7 @@ RECARREGA_MANUALS = [
     # al c. Pau Casals, davant de Torre Maria; posició mesurada in situ per La TdG
     # (41° 57' 44" N, 3° 2' 10" E).
     {"m": "La Bisbal d'Empordà", "n": "C. Pau Casals (davant de Torre Maria)", "la": 41.962222, "lo": 3.036111, "lliure": True,
-     "t": "- C. Pau Casals (davant de Torre Maria): 2 punts de recàrrega (sortides A i B), d'accés públic."},
+     "t": "- C. Pau Casals (davant de Torre Maria): 2 punts de recàrrega, de lliure accés."},
     # Corçà, aparcament del firal (41° 59' 21" N, 3° 1' 0" E).
     {"m": "Corçà", "n": "Aparcament del firal", "la": 41.989167, "lo": 3.016667, "lliure": True,
      "t": "- Aparcament del firal: 2 punts de recàrrega, accessibles."},
