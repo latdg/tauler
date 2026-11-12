@@ -1826,7 +1826,9 @@ function pinta(d) {
   }
 
   // 6. ☀️ RADIACIÓ ULTRAVIOLADA
-  if (b.uv && b.uv.valor !== undefined) {
+  // 12.11.2026: amagada a la tardor i a l'hivern; només surt a la primavera i a l'estiu (del 21.03 al 22.09).
+  const mdUv = (new Date().getMonth() + 1) * 100 + new Date().getDate();
+  if (mdUv >= 321 && mdUv <= 922 && b.uv && b.uv.valor !== undefined) {
     const colors = { "baix": "#3a9d23", "moderat": "#f7c600", "alt": "#f18b00", "molt alt": "#e53210", "extrem": "#8a3ea0" };
     const color = colors[b.uv.categoria] || "var(--accent)";
     h += seccio("☀️ Radiació ultraviolada",
