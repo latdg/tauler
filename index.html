@@ -166,6 +166,9 @@ nav .nav-grup:first-child{margin-top:0}
 .leaflet-popup-content ul{padding-left:16px}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
+/* 12.11.2026: el logotip de La torre de guaita en lloc del micròfon */
+.podcast .logo-tdg{display:block;width:76px;height:76px;border-radius:6px}
+@media (max-width:600px){.podcast .logo-tdg{width:60px;height:60px}}
 .podcast .nom{font-weight:700;font-size:.85rem;margin-top:2px}
 .podcast .detall{font-size:.75rem;color:var(--suau)}
 .podcast:hover .nom{color:var(--accent)}
@@ -308,15 +311,7 @@ a.tira-it:hover{color:var(--accent);text-decoration:underline}
     <div class="cap-esq">
     <div class="capcalera">
       <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
-          <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
-          <path d="M22 11a10 10 0 00-5-8.662" stroke="#e30613"/>
-          <path d="M6 11a6 6 0 013-5.197" stroke="currentColor"/>
-          <path d="M18 11a6 6 0 00-3-5.197" stroke="currentColor"/>
-          <rect x="10" y="9" width="4" height="8" rx="2" stroke="currentColor"/>
-          <path d="M12 17v4" stroke="currentColor"/>
-          <path d="M9 21h6" stroke="currentColor"/>
-        </svg>
+        <img class="logo-tdg" src="https://latdg.github.io/tauler/logo-tdg.jpg" alt="La torre de guaita" width="76" height="76">
       </a>
       <h1>La TdG ampliada</h1>
       <label id="selector" class="dreta" hidden>Dia: <select id="dia"></select></label>

@@ -31,6 +31,9 @@ a{color:var(--accent)}
 .capcalera .candau{font-size:1.5rem;line-height:1;background:none;border:0;padding:0;cursor:pointer}
 .podcast{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);line-height:1.1;flex-shrink:0}
 .podcast svg{display:block;width:50px;height:50px}
+/* 12.11.2026: el logotip de La torre de guaita en lloc del micròfon */
+.podcast .logo-tdg{display:block;width:76px;height:76px;border-radius:6px}
+@media (max-width:600px){.podcast .logo-tdg{width:60px;height:60px}}
 main{display:grid;gap:16px;padding-bottom:16px}
 section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;min-width:0}
 footer{color:var(--suau);font-size:.85rem;padding-bottom:32px}
@@ -125,15 +128,7 @@ textarea{min-height:80px;resize:vertical}
 <header>
   <div class="capcalera">
     <a class="podcast" href="https://laguait.cat/latdg" target="_blank" rel="noopener" title="Visita el pòdcast">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Visita el pòdcast">
-        <path d="M2 11a10 10 0 015-8.662" stroke="#e30613"/>
-        <path d="M22 11a10 10 0 00-5-8.662" stroke="#e30613"/>
-        <path d="M6 11a6 6 0 013-5.197" stroke="currentColor"/>
-        <path d="M18 11a6 6 0 00-3-5.197" stroke="currentColor"/>
-        <rect x="10" y="9" width="4" height="8" rx="2" stroke="currentColor"/>
-        <path d="M12 17v4" stroke="currentColor"/>
-        <path d="M9 21h6" stroke="currentColor"/>
-      </svg>
+      <img class="logo-tdg" src="https://latdg.github.io/tauler/logo-tdg.jpg" alt="La torre de guaita" width="76" height="76">
     </a>
     <h1>La TdG fonoteca</h1>
     <!-- 07.11.2026: pàgina pública: només l'accés a La TdG ampliada (i el candau per editar); sense enllaços a les pàgines internes -->
