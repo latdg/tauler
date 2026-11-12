@@ -1229,12 +1229,12 @@ RECARREGA_MANUALS = [
     # (connector, potència, accés, gestor) del punt que hi ha a menys de 150 m.
     # Fusteria Sais: just a fora de la fusteria (41° 57' 16" N, 2° 59' 44" E).
     # 12.11.2026: és privat però de lliure accés (confirmat per l'alcalde).
-    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": False,
-     "t": "- Fusteria Sais: 1 carregador amb 2 punts de recàrrega, privats però de lliure accés.", "icaen": True, "gestor": "privat"},
+    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": True,
+     "t": "- Fusteria Sais: 1 carregador amb 2 punts de recàrrega, de lliure accés.", "icaen": True, "gestor": "privat"},
     # Mas Savalls, 2, Sant Sadurní de l'Heura (41° 57' 27" N, 2° 59' 35" E).
     # 12.11.2026: públic i gratuït (confirmat per l'alcalde).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls, 2", "la": 41.9575, "lo": 2.993056, "lliure": True,
-     "t": "- Mas Savalls, 2: 1 carregador amb 2 punts de recàrrega, d'accés públic i gratuïts.", "icaen": True},
+     "t": "- Mas Savalls, 2: 1 carregador amb 2 punts de recàrrega, de lliure accés.", "icaen": True},
     # 12.11.2026: carregador Enchufing (Circontrol) amb dues sortides (A i B), d'accés públic,
     # al c. Pau Casals, davant de Torre Maria; posició mesurada in situ per La TdG
     # (41° 57' 44" N, 3° 2' 10" E).
