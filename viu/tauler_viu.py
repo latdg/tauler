@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "11-sais-pau-casals"
+RECARREGA_VERSIO = "12-sais-gestor"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1224,7 +1224,7 @@ RECARREGA_MANUALS = [
     # Fusteria Sais: just a fora de la fusteria (41° 57' 16" N, 2° 59' 44" E).
     # 12.11.2026: és privat però accessible (confirmat per l'alcalde).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": True,
-     "t": "- Fusteria Sais: 2 punts de recàrrega, privats però accessibles.", "icaen": True},
+     "t": "- Fusteria Sais: 2 punts de recàrrega, privats però accessibles.", "icaen": True, "gestor": "privat"},
     # Mas Savalls, 2, Sant Sadurní de l'Heura (41° 57' 27" N, 2° 59' 35" E).
     # 12.11.2026: públic i gratuït (confirmat per l'alcalde).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls, 2 (Sant Sadurní de l'Heura)", "la": 41.9575, "lo": 2.993056, "lliure": True,
@@ -1463,6 +1463,9 @@ def recarrega():
         if m.get("icaen"):
             d = next((p.get("d") for p in icaen if p.get("d") and a_prop(p, [m])), "")
             if d:
+                # 12.11.2026: «gestor» corregeix el gestor que dona el registre (p. ex. Fusteria Sais, privat).
+                if m.get("gestor"):
+                    d = re.sub(r"gestor: [^,]*", "gestor: " + m["gestor"], d)
                 m["t"] = m["t"] + " " + d[:1].upper() + d[1:] + "."
     # Els de l'ICAEN, com abans, només es comparen amb els afegits a mà.
     totes += [p for p in icaen if not a_prop(p, RECARREGA_MANUALS)]
