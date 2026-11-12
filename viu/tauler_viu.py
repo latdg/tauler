@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "15-mas-savalls"
+RECARREGA_VERSIO = "16-total-municipi"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1525,7 +1525,13 @@ def recarrega():
     for mun in RECARREGA_MUNICIPIS:
         del_mun = sorted((l for l in totes if l["m"] == mun["nom"]), key=lambda l: norm_minuscules(l["n"]))
         if del_mun:
-            text.append(mun["nom"] + "\n" + "\n".join(l["t"] for l in del_mun))
+            # 12.11.2026: al costat del municipi, el total de punts entre parèntesis
+            # («N punts de recàrrega» o «N places»; si el registre no ho diu, 1).
+            def punts(l):
+                m = re.search(r"(\d+) (?:punts de recàrrega|places)", l["t"])
+                return int(m.group(1)) if m else 1
+            total = sum(punts(l) for l in del_mun)
+            text.append(f"{mun['nom']} ({total})\n" + "\n".join(l["t"] for l in del_mun))
         else:   # 31.10.2026: tots els municipis hi surten, també els que no en tenen cap
             text.append(mun["nom"] + "\n- Cap punt de recàrrega registrat.")
     RECARREGA_PUNTS = [{"m": p["m"], "n": p["n"], "t": p["t"][2:], "la": p["la"], "lo": p["lo"], "lliure": p.get("lliure", True)}
