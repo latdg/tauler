@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "17-sais-gris"
+RECARREGA_VERSIO = "18-lliure-acces"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1211,26 +1211,26 @@ RECARREGA_REGISTRES_NOUS = None  # els baixats ara, per guardar-los
 # «lliure»: False si no són d'accés lliure.
 RECARREGA_MANUALS = [
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Amatller Origen", "la": 41.969722, "lo": 3.031667, "lliure": True,
-     "t": "- Supermercat Amatller Origen: 2 punts de recàrrega, accessibles als clients."},
+     "t": "- Supermercat Amatller Origen: 2 punts de recàrrega, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Mercadona", "la": 41.971111, "lo": 3.030833, "lliure": True,
-     "t": "- Supermercat Mercadona: 4 punts de recàrrega, accessibles als clients."},
+     "t": "- Supermercat Mercadona: 4 punts de recàrrega, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Condis", "la": 41.970000, "lo": 3.030278, "lliure": True,
-     "t": "- Supermercat Condis: 3 punts de recàrrega, accessibles als clients."},
+     "t": "- Supermercat Condis: 3 punts de recàrrega, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Departament d'Agricultura, Ramaderia i Pesca (DARP)", "la": 41.953333, "lo": 3.035556, "lliure": False,
      "t": "- Departament d'Agricultura, Ramaderia i Pesca (DARP): 2 punts de recàrrega, no són de lliure accés."},
     # 08.11.2026: punt de l'Ajuntament de Forallac, posició mesurada in situ per La TdG
     # (41° 57' 33" N, 3° 3' 19" E). Substitueix el del registre («Punt de recàrrega: 2 places»),
     # que queda a menys de 150 m i, per tant, ja no surt.
     {"m": "Forallac", "n": "Ajuntament", "la": 41.959167, "lo": 3.055278, "lliure": True,
-     "t": "- Ajuntament: 2 punts de recàrrega, accessibles."},
+     "t": "- Ajuntament: 2 punts de recàrrega, de lliure accés."},
     # 09.11.2026: punts comprovats in situ per La TdG. Substitueixen els del registre
     # que queden a menys de 150 m.
     # «icaen»: True → s'hi afegeixen les dades tècniques del registre de l'ICAEN
     # (connector, potència, accés, gestor) del punt que hi ha a menys de 150 m.
     # Fusteria Sais: just a fora de la fusteria (41° 57' 16" N, 2° 59' 44" E).
-    # 12.11.2026: és privat però accessible (confirmat per l'alcalde).
+    # 12.11.2026: és privat però de lliure accés (confirmat per l'alcalde).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": False,
-     "t": "- Fusteria Sais: 2 punts de recàrrega, privats però accessibles.", "icaen": True, "gestor": "privat"},
+     "t": "- Fusteria Sais: 2 punts de recàrrega, privats però de lliure accés.", "icaen": True, "gestor": "privat"},
     # Mas Savalls, 2, Sant Sadurní de l'Heura (41° 57' 27" N, 2° 59' 35" E).
     # 12.11.2026: públic i gratuït (confirmat per l'alcalde).
     {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls, 2", "la": 41.9575, "lo": 2.993056, "lliure": True,
@@ -1242,7 +1242,7 @@ RECARREGA_MANUALS = [
      "t": "- C. Pau Casals (davant de Torre Maria): 2 punts de recàrrega, de lliure accés."},
     # Corçà, aparcament del firal (41° 59' 21" N, 3° 1' 0" E).
     {"m": "Corçà", "n": "Aparcament del firal", "la": 41.989167, "lo": 3.016667, "lliure": True,
-     "t": "- Aparcament del firal: 2 punts de recàrrega, accessibles."},
+     "t": "- Aparcament del firal: 2 punts de recàrrega, de lliure accés."},
 ]
 # 05.11.2026: posició corregida (segons Google Maps) dels punts que els registres
 # situen malament. Clau: text que apareix a la línia del punt (sense accents, en minúscules).
