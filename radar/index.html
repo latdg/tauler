@@ -424,6 +424,11 @@ const mapa = new maplibregl.Map({
   center: [3.04, 41.93], zoom: INCRUSTAT ? 8.1 : 8.6, pitch: 55, bearing: -15,
   minZoom: 6, maxZoom: 18, maxPitch: 75,
   cooperativeGestures: INCRUSTAT,
+  locale: {
+    "CooperativeGesturesHandler.MobileHelpText": "Fes servir dos dits per moure el mapa.",
+    "CooperativeGesturesHandler.WindowsHelpText": "Fes servir Ctrl + roda del ratolí per ampliar el mapa.",
+    "CooperativeGesturesHandler.MacHelpText": "Fes servir ⌘ + roda del ratolí per ampliar el mapa."
+  },
   attributionControl: false
 });
 mapa.addControl(new maplibregl.AttributionControl({ compact: true,
