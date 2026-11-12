@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "14-registres-al-mes"
+RECARREGA_VERSIO = "15-mas-savalls"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1233,8 +1233,8 @@ RECARREGA_MANUALS = [
      "t": "- Fusteria Sais: 2 punts de recàrrega, privats però accessibles.", "icaen": True, "gestor": "privat"},
     # Mas Savalls, 2, Sant Sadurní de l'Heura (41° 57' 27" N, 2° 59' 35" E).
     # 12.11.2026: públic i gratuït (confirmat per l'alcalde).
-    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls, 2 (Sant Sadurní de l'Heura)", "la": 41.9575, "lo": 2.993056, "lliure": True,
-     "t": "- Mas Savalls, 2 (Sant Sadurní de l'Heura): 2 punts de recàrrega, d'accés públic i gratuïts.", "icaen": True},
+    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Mas Savalls, 2", "la": 41.9575, "lo": 2.993056, "lliure": True,
+     "t": "- Mas Savalls, 2: 2 punts de recàrrega, d'accés públic i gratuïts.", "icaen": True},
     # 12.11.2026: carregador Enchufing (Circontrol) amb dues sortides (A i B), d'accés públic,
     # al c. Pau Casals, davant de Torre Maria; posició mesurada in situ per La TdG
     # (41° 57' 44" N, 3° 2' 10" E).
