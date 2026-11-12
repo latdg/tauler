@@ -1,4 +1,46 @@
 {
+"como robar un banco": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"David Leitch"
+],
+"original": "How to Rob a Bank",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-10",
+"sinopsiCa": "",
+"id": 1437511,
+"nota": 7.1,
+"vots": 5,
+"sinopsi": "Un hombre desesperado planea un elaborado atraco contra el corrupto sistema financiero que arruinó su vida, con un grupo que documenta sus actos en redes sociales.",
+"sinopsi_es": true,
+"poster": "/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
+"scrooge y los fantasmas de la navidad": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Ti West"
+],
+"original": "Ebenezer",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-11",
+"sinopsiCa": "",
+"id": 1567605,
+"nota": 8.6,
+"vots": 15,
+"sinopsi": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
+"sinopsi_es": true,
+"poster": "/gnG15MkiNeObCoPbHcLUX4zrNWh.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
 "el gato con sombrero": {
 "v": 6,
 "comprovat": "director",
@@ -128,6 +170,27 @@
 "enllac": "https://www.themoviedb.org/movie/1058424/watch?locale=ES",
 "t": 1794497251.056594
 },
+"jaleos": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Isaki Lacuesta"
+],
+"original": "Jaleos",
+"idiomaOriginal": "es",
+"dataTmdb": "",
+"sinopsiCa": "",
+"id": 1736729,
+"nota": 0,
+"vots": 0,
+"sinopsi": "A partir de materiales de archivo y una estructura fragmentada y polifónica, la película propone una historia del flamenco que lo vincula con la modernidad, lo popular y lo político. A través de relatos, asociaciones inesperadas y figuras de distintos tiempos y contextos, el filme explora un flamenco impuro, en constante diálogo con el mundo, donde conviven tradición, cultura de masas e imaginario contemporáneo.",
+"sinopsi_es": true,
+"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794444752.791398
+},
 "karateka": {
 "v": 6,
 "comprovat": "director",
@@ -193,27 +256,6 @@
 "enllac": "",
 "t": 1794497251.056594
 },
-"los miserables": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Fred Cavayé"
-],
-"original": "Les Misérables",
-"idiomaOriginal": "fr",
-"dataTmdb": "2026-10-14",
-"sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
-"id": 1241803,
-"nota": 7.188,
-"vots": 69,
-"sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
-"sinopsi_es": false,
-"poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
 "ramayana el nacimiento de una leyenda": {
 "v": 6,
 "comprovat": "director",
@@ -231,283 +273,6 @@
 "sinopsi": "Una antigua epopeya sigue a un joven príncipe y a una princesa, cuyo matrimonio y posterior exilio marcan el comienzo de un viaje legendario. Su historia de amor, deber y destino prepara el terreno para desafíos aún mayores.",
 "sinopsi_es": true,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794444752.791398
-},
-"ruega por nosotras": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Daniel Monzón"
-],
-"original": "Ruega por nosotras",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-11-06",
-"sinopsiCa": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
-"id": 1522071,
-"nota": 6.0,
-"vots": 1,
-"sinopsi": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
-"sinopsi_es": false,
-"poster": "/6CWXhVFfin3zh1LZ5HsWnzTXTPN.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"sentido y sensibilidad": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Georgia Oakley"
-],
-"original": "Sense and Sensibility",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-09-23",
-"sinopsiCa": "Les germanes Elinor i Marianne Dashwood han d’abandonar la propietat familiar després de la mort del seu pare i fer front a les dificultats econòmiques i a les complexitats de l’amor",
-"id": 1503762,
-"nota": 7.2,
-"vots": 164,
-"sinopsi": "Les germanes Elinor i Marianne Dashwood han d’abandonar la propietat familiar després de la mort del seu pare i fer front a les dificultats econòmiques i a les complexitats de l’amor",
-"sinopsi_es": false,
-"poster": "/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"superthings la pelicula": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "Superthings. La pel·lícula",
-"directors": [
-"Víctor Monigote"
-],
-"original": "Superthings: La película",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-23",
-"sinopsiCa": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-"id": 1744346,
-"nota": 7.7,
-"vots": 3,
-"sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-"sinopsi_es": false,
-"poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"tiempos de ilusion": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Olivier Nakache",
-"Éric Toledano"
-],
-"original": "Juste une illusion",
-"idiomaOriginal": "fr",
-"dataTmdb": "2026-04-15",
-"sinopsiCa": "Som al 1985. En Vincent (Simon Boublil ), que aviat farà 13 anys, viu als afores de París, en una família de classe mitjana, entre un germà gran distant (Alexis Rosenstiehl) i uns pares enfrontats permanentment (Louis Garrel i Camille Cottin). Quan ja no és pas un nen, però encara no acaba de ser un adult, en compartirem les preguntes i els dubtes sobre la identitat, l’amistat, la família, la religió, el desig i els primers impulsos amorosos. Una comèdia sobre aquella etapa tendra de la vida en què l’esperança de canviar el món no era 'Només una il·lusió...'",
-"id": 1404684,
-"nota": 7.284,
-"vots": 227,
-"sinopsi": "Som al 1985. En Vincent (Simon Boublil ), que aviat farà 13 anys, viu als afores de París, en una família de classe mitjana, entre un germà gran distant (Alexis Rosenstiehl) i uns pares enfrontats permanentment (Louis Garrel i Camille Cottin). Quan ja no és pas un nen, però encara no acaba de ser un adult, en compartirem les preguntes i els dubtes sobre la identitat, l’amistat, la família, la religió, el desig i els primers impulsos amorosos. Una comèdia sobre aquella etapa tendra de la vida en què l’esperança de canviar el món no era 'Només una il·lusió...'",
-"sinopsi_es": false,
-"poster": "/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"wildwood": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Travis Knight"
-],
-"original": "Wildwood",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-19",
-"sinopsiCa": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
-"id": 791523,
-"nota": 8.5,
-"vots": 261,
-"sinopsi": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
-"sinopsi_es": false,
-"poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"leones en invierno": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Albert Pintó"
-],
-"original": "Leones en invierno",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-23",
-"sinopsiCa": "Una noia mor atropellada per un cotxe de luxe que circula a gran velocitat. El conductor fuig del lloc dels fets. No es pot aturar: és un agent de policia infiltrat en una xarxa de narcotràfic, i aquest incident podria deixar al descobert la seva veritable identitat. I, per protegir aquesta seva identitat encoberta, haurà d’assegurar-se que la investigació de l’accident no arribi enlloc. El pare de la víctima, que havia estat un destacat 'ultrasur', du ara una vida tranquil·la; però en assabentar-se de la mort de la seva filla, se li revifen els instints violents i busca venjança",
-"id": 1689329,
-"nota": 5.6,
-"vots": 5,
-"sinopsi": "Una noia mor atropellada per un cotxe de luxe que circula a gran velocitat. El conductor fuig del lloc dels fets. No es pot aturar: és un agent de policia infiltrat en una xarxa de narcotràfic, i aquest incident podria deixar al descobert la seva veritable identitat. I, per protegir aquesta seva identitat encoberta, haurà d’assegurar-se que la investigació de l’accident no arribi enlloc. El pare de la víctima, que havia estat un destacat 'ultrasur', du ara una vida tranquil·la; però en assabentar-se de la mort de la seva filla, se li revifen els instints violents i busca venjança",
-"sinopsi_es": false,
-"poster": "/ozr5OyKt1whnfuLei2viZsS38Kp.jpg",
-"plataformes": [
-"fuboTV"
-],
-"enllac": "https://www.themoviedb.org/movie/1689329-leones-en-invierno/watch?locale=ES",
-"t": 1794497251.056594
-},
-"11": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Paula Serra",
-"Clàudia Serra"
-],
-"original": "11",
-"idiomaOriginal": "ca",
-"dataTmdb": "2026-11-06",
-"sinopsiCa": "L’Àlex, una cap de cau alegre i decidida, es queda atrapada amb el seu grup en una casa dels Pirineus durant una tempesta de neu. Però no estan sols: al refugi apareix el Leo, un nen misteriós que ningú sap d’on ha sortit. L’Àlex intenta garantir la seguretat de tothom mentre no arriba el rescat que els traurà d’allà, però el Leo complica la situació i porta la cap al límit de les seves forces i de la seva moral. En la lluita per protegir els seus, l’Àlex es veu obligada a fer coses que mai no hauria imaginat.",
-"id": 1755565,
-"nota": 0,
-"vots": 0,
-"sinopsi": "L’Àlex, una cap de cau alegre i decidida, es queda atrapada amb el seu grup en una casa dels Pirineus durant una tempesta de neu. Però no estan sols: al refugi apareix el Leo, un nen misteriós que ningú sap d’on ha sortit. L’Àlex intenta garantir la seguretat de tothom mentre no arriba el rescat que els traurà d’allà, però el Leo complica la situació i porta la cap al límit de les seves forces i de la seva moral. En la lluita per protegir els seus, l’Àlex es veu obligada a fer coses que mai no hauria imaginat.",
-"sinopsi_es": false,
-"poster": "/7pksyM5i9GeCJzlDscQ5te13vaL.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"godzilla minus zero": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Takashi Yamazaki"
-],
-"original": "ゴジラ-0.0",
-"idiomaOriginal": "ja",
-"dataTmdb": "2026-11-03",
-"sinopsiCa": "",
-"id": 1381071,
-"nota": 7.8,
-"vots": 156,
-"sinopsi": "La guerra dejó a Japón en la ruina, y Godzilla lo sumió en una situación aún peor. Han pasado dos años desde entonces, y el país ha librado una lucha ardua por recuperarse y finalmente retomar su vida cotidiana. Justo cuando la humanidad lograba aferrarse a una paz duramente conquistada, una nueva amenaza irrumpe, aplastando la esperanza en un instante.",
-"sinopsi_es": true,
-"poster": "/8VKjocpP0EiUiUzTPWwz7TV2kWP.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"la maleta": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Carlos Therón"
-],
-"original": "La maleta",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-16",
-"sinopsiCa": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
-"id": 1494231,
-"nota": 7.0,
-"vots": 2,
-"sinopsi": "La Laura (Lucía Caraballo), un huracà amant del rock i de viure de pressa, i en Nacho (Alejandro Speitzer), un apassionat de les normes amb por de volar, es coneixen en un vol de Londres a Madrid i salten espurnes entre tots dos. Tant és així que la Laura no el vol deixar escapar i li proposa un joc: si a la cinta d'equipatges surt primer la maleta d'ell, cadascú se n'anirà pel seu compte. Però, si surt primer la d'ella, continuaran la nit amb gintònics i fins on els dugui la cosa... En Nacho accepta amb poca convicció i, per sortir-se'n amb la seva, la Laure agafa la primera maleta que veu... sense saber que pertany a uns terroristes",
-"sinopsi_es": false,
-"poster": "/kY9jmej2whCIht2oE1NJ7rzmhFi.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"coyote vs acme": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Dave Green"
-],
-"original": "Coyote vs. Acme",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-08-20",
-"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"id": 1204680,
-"nota": 8.18,
-"vots": 1453,
-"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"sinopsi_es": false,
-"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"como robar un banco": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"David Leitch"
-],
-"original": "How to Rob a Bank",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-10",
-"sinopsiCa": "",
-"id": 1437511,
-"nota": 7.1,
-"vots": 5,
-"sinopsi": "Un hombre desesperado planea un elaborado atraco contra el corrupto sistema financiero que arruinó su vida, con un grupo que documenta sus actos en redes sociales.",
-"sinopsi_es": true,
-"poster": "/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"scrooge y los fantasmas de la navidad": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Ti West"
-],
-"original": "Ebenezer",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-11",
-"sinopsiCa": "",
-"id": 1567605,
-"nota": 8.6,
-"vots": 15,
-"sinopsi": "Reimaginación del clásico literario, una historia de fantasmas ambientada en el Londres de Dickens que sigue el viaje sobrenatural de un hombre para enfrentarse a su pasado, presente y futuro y luchar por una segunda oportunidad.",
-"sinopsi_es": true,
-"poster": "/gnG15MkiNeObCoPbHcLUX4zrNWh.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
-"jaleos": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Isaki Lacuesta"
-],
-"original": "Jaleos",
-"idiomaOriginal": "es",
-"dataTmdb": "",
-"sinopsiCa": "",
-"id": 1736729,
-"nota": 0,
-"vots": 0,
-"sinopsi": "A partir de materiales de archivo y una estructura fragmentada y polifónica, la película propone una historia del flamenco que lo vincula con la modernidad, lo popular y lo político. A través de relatos, asociaciones inesperadas y figuras de distintos tiempos y contextos, el filme explora un flamenco impuro, en constante diálogo con el mundo, donde conviven tradición, cultura de masas e imaginario contemporáneo.",
-"sinopsi_es": true,
-"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794444752.791398
@@ -533,6 +298,48 @@
 "enllac": "",
 "t": 1794497251.056594
 },
+"ruega por nosotras": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Daniel Monzón"
+],
+"original": "Ruega por nosotras",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-11-06",
+"sinopsiCa": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
+"id": 1522071,
+"nota": 6.0,
+"vots": 1,
+"sinopsi": "L’any 1974, l’Ana (Zoe Bonafonte) és una noia rebel de 19 anys, si més no, per la seva família benestant. Després d’escapar-se de casa una nit, el pare decideix posar-la en mans del \"Patronato de Protección a la Mujer\", institució especialitzada en 'dones caigudes o a punt de caure'. La traslladen de Barcelona a Madrid perquè ingressi en un reformatori regentat per monges, on queda sotmesa a un règim disciplinari brutal. Allà haurà de trobar la manera de sobreviure, buscant consol i suport en l’amistat amb la Sole (Manuela Calle), una noia de poble amb una vitalitat contagiosa, i amb altres noies que es troben en la mateixa situació",
+"sinopsi_es": false,
+"poster": "/6CWXhVFfin3zh1LZ5HsWnzTXTPN.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
+"superthings la pelicula": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "Superthings. La pel·lícula",
+"directors": [
+"Víctor Monigote"
+],
+"original": "Superthings: La película",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-10-23",
+"sinopsiCa": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
+"id": 1744346,
+"nota": 7.7,
+"vots": 3,
+"sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
+"sinopsi_es": false,
+"poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
 "wild horse nine": {
 "v": 6,
 "comprovat": "director",
@@ -550,6 +357,27 @@
 "sinopsi": "Poc abans del cop d’estat d’en Pinochet, el 1973, en MJ (Steve Buscemi), superior dels agents de la CIA Chris (John Malkovich) i Lee (Sam Rockwell), els trasllada de Santiago a l’illa de Pasqua. Entre les emblemàtiques estàtues de l’illa, mentre els dos companys de llarga trajectòria s’enfronten al seu fosc passat i a les conspiracions del present, el vincle que Chris estableix amb dues estudiants rebels (Mariana di Girolamo i Ailín Salas) amenaça de fer prendre un rumb inesperat a l’estada de tots plegats en aquest paradís remot",
 "sinopsi_es": false,
 "poster": "/ulvGcZer26aBaNG0s4IEJGyyLIq.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
+"wildwood": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Travis Knight"
+],
+"original": "Wildwood",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-19",
+"sinopsiCa": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
+"id": 791523,
+"nota": 8.5,
+"vots": 261,
+"sinopsi": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
+"sinopsi_es": false,
+"poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794497251.056594
@@ -595,6 +423,49 @@
 "plataformes": [],
 "enllac": "",
 "t": 1794444752.791398
+},
+"11": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Paula Serra",
+"Clàudia Serra"
+],
+"original": "11",
+"idiomaOriginal": "ca",
+"dataTmdb": "2026-11-06",
+"sinopsiCa": "L’Àlex, una cap de cau alegre i decidida, es queda atrapada amb el seu grup en una casa dels Pirineus durant una tempesta de neu. Però no estan sols: al refugi apareix el Leo, un nen misteriós que ningú sap d’on ha sortit. L’Àlex intenta garantir la seguretat de tothom mentre no arriba el rescat que els traurà d’allà, però el Leo complica la situació i porta la cap al límit de les seves forces i de la seva moral. En la lluita per protegir els seus, l’Àlex es veu obligada a fer coses que mai no hauria imaginat.",
+"id": 1755565,
+"nota": 0,
+"vots": 0,
+"sinopsi": "L’Àlex, una cap de cau alegre i decidida, es queda atrapada amb el seu grup en una casa dels Pirineus durant una tempesta de neu. Però no estan sols: al refugi apareix el Leo, un nen misteriós que ningú sap d’on ha sortit. L’Àlex intenta garantir la seguretat de tothom mentre no arriba el rescat que els traurà d’allà, però el Leo complica la situació i porta la cap al límit de les seves forces i de la seva moral. En la lluita per protegir els seus, l’Àlex es veu obligada a fer coses que mai no hauria imaginat.",
+"sinopsi_es": false,
+"poster": "/7pksyM5i9GeCJzlDscQ5te13vaL.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
+"godzilla minus zero": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Takashi Yamazaki"
+],
+"original": "ゴジラ-0.0",
+"idiomaOriginal": "ja",
+"dataTmdb": "2026-11-03",
+"sinopsiCa": "",
+"id": 1381071,
+"nota": 7.8,
+"vots": 156,
+"sinopsi": "La guerra dejó a Japón en la ruina, y Godzilla lo sumió en una situación aún peor. Han pasado dos años desde entonces, y el país ha librado una lucha ardua por recuperarse y finalmente retomar su vida cotidiana. Justo cuando la humanidad lograba aferrarse a una paz duramente conquistada, una nueva amenaza irrumpe, aplastando la esperanza en un instante.",
+"sinopsi_es": true,
+"poster": "/8VKjocpP0EiUiUzTPWwz7TV2kWP.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
 },
 "verity la sombra de un engano": {
 "v": 6,
@@ -663,6 +534,27 @@
 "v": 6,
 "t": 1794444752.791398
 },
+"los miserables": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Fred Cavayé"
+],
+"original": "Les Misérables",
+"idiomaOriginal": "fr",
+"dataTmdb": "2026-10-14",
+"sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"id": 1241803,
+"nota": 7.188,
+"vots": 69,
+"sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"sinopsi_es": false,
+"poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
 "diversion navidena con peppa la experiencia en cines": {
 "v": 6,
 "t": 1794497251.056594
@@ -684,6 +576,27 @@
 "sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
 "sinopsi_es": false,
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
+"coyote vs acme": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Dave Green"
+],
+"original": "Coyote vs. Acme",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-08-20",
+"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
+"id": 1204680,
+"nota": 8.18,
+"vots": 1453,
+"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
+"sinopsi_es": false,
+"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794497251.056594
@@ -806,6 +719,28 @@
 "v": 6,
 "t": 1794497251.056594
 },
+"hechizo bienvenidos a hexe": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "Encanteri. Benvinguts a Hexe",
+"directors": [
+"Jason Hand",
+"ฝน วีระสุนทร"
+],
+"original": "Hexed",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-11-25",
+"sinopsiCa": "Una adolescent impulsiva i poc convencional anomenada Billie descobreix habilitats màgiques secretes que, un cop alliberades, la impulsen a un viatge ple d'espectacles fora dels suburbis i cap a un immens regne de bruixes anomenat Hexe. Obligades a formar equip amb la seva cautelosa mare, l'Alice, descobreixen misteris familiars que podrien canviar el món de les bruixes per sempre.",
+"id": 1538497,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Una adolescent impulsiva i poc convencional anomenada Billie descobreix habilitats màgiques secretes que, un cop alliberades, la impulsen a un viatge ple d'espectacles fora dels suburbis i cap a un immens regne de bruixes anomenat Hexe. Obligades a formar equip amb la seva cautelosa mare, l'Alice, descobreixen misteris familiars que podrien canviar el món de les bruixes per sempre.",
+"sinopsi_es": false,
+"poster": "/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794497251.056594
+},
 "la invitacion": {
 "v": 6,
 "comprovat": "director",
@@ -869,6 +804,32 @@
 "v": 6,
 "t": 1794444752.791398
 },
+"la pieta": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Rafa Molés",
+"Pepe Andreu"
+],
+"original": "La Pietà",
+"idiomaOriginal": "is",
+"dataTmdb": "2026-03-13",
+"sinopsiCa": "",
+"id": 1648662,
+"nota": 7.0,
+"vots": 1,
+"sinopsi": "",
+"sinopsi_es": false,
+"poster": "/tiAHeGxOLLeXqNTRvd47WBVvYHG.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794527014.254393
+},
+"la llagrima de buda sri lanka": {
+"v": 6,
+"t": 1794527014.254393
+},
 "ahora los suegros son ellos": {
 "v": 6,
 "comprovat": "any",
@@ -890,28 +851,6 @@
 "enllac": "",
 "t": 1794444752.791398
 },
-"hechizo bienvenidos a hexe": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "Encanteri. Benvinguts a Hexe",
-"directors": [
-"Jason Hand",
-"ฝน วีระสุนทร"
-],
-"original": "Hexed",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-11-25",
-"sinopsiCa": "Una adolescent impulsiva i poc convencional anomenada Billie descobreix habilitats màgiques secretes que, un cop alliberades, la impulsen a un viatge ple d'espectacles fora dels suburbis i cap a un immens regne de bruixes anomenat Hexe. Obligades a formar equip amb la seva cautelosa mare, l'Alice, descobreixen misteris familiars que podrien canviar el món de les bruixes per sempre.",
-"id": 1538497,
-"nota": 0,
-"vots": 0,
-"sinopsi": "Una adolescent impulsiva i poc convencional anomenada Billie descobreix habilitats màgiques secretes que, un cop alliberades, la impulsen a un viatge ple d'espectacles fora dels suburbis i cap a un immens regne de bruixes anomenat Hexe. Obligades a formar equip amb la seva cautelosa mare, l'Alice, descobreixen misteris familiars que podrien canviar el món de les bruixes per sempre.",
-"sinopsi_es": false,
-"poster": "/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794497251.056594
-},
 "burundanga": {
 "v": 6,
 "comprovat": "any",
@@ -932,6 +871,27 @@
 "plataformes": [],
 "enllac": "",
 "t": 1794497251.056594
+},
+"desposados": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Vicente Villanueva"
+],
+"original": "Desposados",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-12-04",
+"sinopsiCa": "",
+"id": 1648071,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Nos contará la historia de cuatro matrimonios en diferentes etapas de su relación. Cuando la Iglesia descubre que un impostor ha estado suplantando al sacerdote de una parroquia durante nueve años, los enlaces celebrados por él quedan anulados. Las parejas afectadas deberán, entonces, enfrentarse a una pregunta crucial: ¿Quieren volver a casarse con la misma persona… o aprovechar la ocasión para empezar de nuevo?",
+"sinopsi_es": true,
+"poster": "/A6JtulwvU0fdfF8sPJeST8auhIz.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794527014.254393
 },
 "noche de paz 2": {
 "v": 6,
