@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "19-carregadors"
+RECARREGA_VERSIO = "20-cadascun"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1213,7 +1213,7 @@ RECARREGA_MANUALS = [
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Amatller Origen", "la": 41.969722, "lo": 3.031667, "lliure": True,
      "t": "- Supermercat Amatller Origen: 1 carregador amb 2 punts de recàrrega, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Mercadona", "la": 41.971111, "lo": 3.030833, "lliure": True,
-     "t": "- Supermercat Mercadona: 2 carregadors amb 2 punts de recàrrega, de lliure accés per als clients."},
+     "t": "- Supermercat Mercadona: 2 carregadors amb 2 punts de recàrrega cadascun, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Condis", "la": 41.970000, "lo": 3.030278, "lliure": True,
      "t": "- Supermercat Condis: 3 punts de recàrrega, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Departament d'Agricultura, Ramaderia i Pesca (DARP)", "la": 41.953333, "lo": 3.035556, "lliure": False,
