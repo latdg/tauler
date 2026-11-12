@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "13-pau-casals-lliure"
+RECARREGA_VERSIO = "14-registres-al-mes"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1200,6 +1200,12 @@ CONNECTORS = {
 }
 RECARREGA_NAP_FALLAT = False
 RECARREGA_PUNTS = []   # 05.11.2026: els punts amb coordenades, per al mapa del tauler
+# 12.11.2026: els registres (ICAEN, estatal i OpenStreetMap) es guarden a dades/viu.json
+# i només es tornen a baixar un cop al mes; si canvia RECARREGA_VERSIO (punts corregits
+# a mà), el bloc es refà amb els registres guardats, sense baixar res.
+RECARREGA_DIES_REGISTRES = 28
+RECARREGA_REGISTRES = None       # els guardats (llegits de la memòria)
+RECARREGA_REGISTRES_NOUS = None  # els baixats ara, per guardar-los
 
 # 05.11.2026: punts afegits a mà per La TdG (no surten a cap registre).
 # «lliure»: False si no són d'accés lliure.
@@ -1445,17 +1451,56 @@ def recarrega_osm():
     return llocs
 
 
+def recarrega_registres():
+    """12.11.2026: torna (icaen, nap, osm). Fa servir els guardats si tenen menys de
+    RECARREGA_DIES_REGISTRES dies; si no, els baixa. Si una font falla, se'n fa servir
+    la còpia guardada i es torna a provar l'endemà."""
+    global RECARREGA_NAP_FALLAT, RECARREGA_REGISTRES_NOUS
+    desats = RECARREGA_REGISTRES or {}
+    try:
+        dies = (ara() - dt.datetime.fromisoformat(desats["data"])).total_seconds() / 86400
+    except Exception:
+        dies = None
+    if dies is not None and dies < RECARREGA_DIES_REGISTRES:
+        print(f"· recàrrega: registres guardats (de fa {int(dies)} dies), no es baixa res")
+        return ([dict(p) for p in desats.get(k) or []] for k in ("icaen", "nap", "osm"))
+    nous = {}
+    fallat = False
+    for clau, fn in (("icaen", recarrega_icaen), ("nap", recarrega_nap), ("osm", recarrega_osm)):
+        RECARREGA_NAP_FALLAT = False
+        try:
+            llista = fn()
+        except Exception as e:
+            print(f"⚠️ recàrrega: {clau} ({e})", file=sys.stderr)
+            RECARREGA_NAP_FALLAT = True
+            llista = None
+        if RECARREGA_NAP_FALLAT or llista is None:
+            fallat = True
+            llista = desats.get(clau) or llista or []
+        nous[clau] = [dict(p) for p in llista]
+    RECARREGA_NAP_FALLAT = fallat
+    # Avís als registres de l'acció si hi ha punts que abans no hi eren.
+    clau_punt = lambda p: (p.get("n"), round(p.get("la") or 0, 4), round(p.get("lo") or 0, 4))
+    if desats:
+        abans = {clau_punt(p) for k in ("icaen", "nap", "osm") for p in desats.get(k) or []}
+        for k in ("icaen", "nap", "osm"):
+            for p in nous[k]:
+                if clau_punt(p) not in abans:
+                    print(f"🆕 recàrrega: punt nou al registre {k}: {p.get('m')} · {p.get('t')}")
+    # Si alguna font ha fallat, es manté la data dels guardats perquè es torni a baixar l'endemà.
+    nous["data"] = desats.get("data", "2000-01-01T00:00:00+00:00") if fallat else ara().isoformat()
+    RECARREGA_REGISTRES_NOUS = nous
+    return ([dict(p) for p in nous[k]] for k in ("icaen", "nap", "osm"))
+
+
 def recarrega():
     global RECARREGA_NAP_FALLAT, RECARREGA_PUNTS
     RECARREGA_NAP_FALLAT = False
     # 05.11.2026: primer els punts afegits a mà; els dels registres que hi siguin
     # a menys de 150 m es consideren el mateix punt.
     totes = [dict(p) for p in RECARREGA_MANUALS]
-    try:
-        icaen = recarrega_corregeix(recarrega_icaen())
-    except Exception as e:
-        icaen = []
-        print(f"⚠️ recàrrega: ICAEN ({e})", file=sys.stderr)
+    icaen, nap, osm = recarrega_registres()
+    icaen = recarrega_corregeix(icaen)
     a_prop = lambda p, ll: any(distancia_km(p["la"], p["lo"], q["la"], q["lo"]) * 1000 < 150
                                for q in ll if None not in (p["la"], p["lo"], q["la"], q["lo"]))
     # 09.11.2026: als punts afegits a mà amb «icaen» s'hi sumen les dades del registre.
@@ -1469,7 +1514,7 @@ def recarrega():
                 m["t"] = m["t"] + " " + d[:1].upper() + d[1:] + "."
     # Els de l'ICAEN, com abans, només es comparen amb els afegits a mà.
     totes += [p for p in icaen if not a_prop(p, RECARREGA_MANUALS)]
-    for llista in (recarrega_corregeix(recarrega_nap()), recarrega_corregeix(recarrega_osm())):
+    for llista in (recarrega_corregeix(nap), recarrega_corregeix(osm)):
         for p in llista:
             if not any(distancia_km(p["la"], p["lo"], q["la"], q["lo"]) * 1000 < 150
                        for q in totes if None not in (p["la"], p["lo"], q["la"], q["lo"])):
@@ -2564,7 +2609,7 @@ FUNCIONS = {
 }
 UN_COP_AL_DIA = {"clima"}
 # 21.10.2026: cada quants minuts com a mínim es torna a consultar un bloc.
-CADA_MINUTS = {"pollen": 60, "recarrega": 7 * 24 * 60, "necrologiques": 60, "plujaAhir": 60}
+CADA_MINUTS = {"pollen": 60, "recarrega": RECARREGA_DIES_REGISTRES * 24 * 60, "necrologiques": 60, "plujaAhir": 60}
 
 
 def llegeix(cami, defecte):
@@ -2585,6 +2630,8 @@ def calcula():
     fets = memoria.get("dies") or {}
 
     moments = memoria.get("moments") or {}
+    global RECARREGA_REGISTRES
+    RECARREGA_REGISTRES = memoria.get("recarregaRegistres")
     resultat = {}
     nous_moments = {}
     for nom, fn in FUNCIONS.items():
@@ -2615,6 +2662,8 @@ def calcula():
             resultat[nom] = fn()   # None vol dir «aquest bloc avui no surt»
             if nom == "recarrega" and resultat[nom] is not None:
                 resultat["recarregaMapa"] = RECARREGA_PUNTS   # 05.11.2026: mapa del bloc
+            if nom == "recarrega" and RECARREGA_REGISTRES_NOUS:
+                resultat["_recarregaRegistres"] = RECARREGA_REGISTRES_NOUS   # 12.11.2026
             print(f"✅ {nom}" if resultat[nom] is not None else f"— {nom}: sense dades (el bloc no surt)")
             if nom in CADA_MINUTS:
                 moment = ara()
@@ -2650,6 +2699,8 @@ def fusiona():
     dies = memoria.get("dies") or {}
     moments = memoria.get("moments") or {}
     moments.update(vius.pop("_moments", None) or {})
+    # 12.11.2026: registres de recàrrega guardats (es tornen a baixar un cop al mes)
+    registres = vius.pop("_recarregaRegistres", None) or memoria.get("recarregaRegistres")
     # 07.11.2026: lectures diàries de les estacions de Meteoclimàtic (pluja d'ahir)
     if isinstance(vius.get("_meteoclimatic"), dict):
         escriu(METEOCLIMATIC_REGISTRE, vius["_meteoclimatic"])
@@ -2676,7 +2727,10 @@ def fusiona():
     for nom, valor in vius.items():
         blocs_vius[nom] = valor
         dies[nom] = dia
-    escriu(MEMORIA, {"blocs": blocs_vius, "dies": dies, "moments": moments})
+    memoria_nova = {"blocs": blocs_vius, "dies": dies, "moments": moments}
+    if registres:
+        memoria_nova["recarregaRegistres"] = registres
+    escriu(MEMORIA, memoria_nova)
 
     base = llegeix(DADES / "darrer.json", {})
     blocs = dict(base.get("blocs") or {})
