@@ -1176,7 +1176,7 @@ def pollen():
 #   3. OpenStreetMap (punts que hi afegeixi qualsevol, també La TdG).
 # Si el registre estatal falla, es torna a provar l'endemà.
 # -----------------------------------------------------------------------------
-RECARREGA_VERSIO = "16-total-municipi"
+RECARREGA_VERSIO = "17-sais-gris"
 RECARREGA_MUNICIPIS = [
     {"nom": "La Bisbal d'Empordà", "codi": "170221", "ine": "17022",
      "termes": ["bisbal d'emporda", "bisbal de l'emporda", "bisbal de ampurdan", "bisbal d'ampurdan", "bisbal del ampurdan", "castell d'emporda"]},
@@ -1229,7 +1229,7 @@ RECARREGA_MANUALS = [
     # (connector, potència, accés, gestor) del punt que hi ha a menys de 150 m.
     # Fusteria Sais: just a fora de la fusteria (41° 57' 16" N, 2° 59' 44" E).
     # 12.11.2026: és privat però accessible (confirmat per l'alcalde).
-    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": True,
+    {"m": "Cruïlles, Monells i Sant Sadurní de l'Heura", "n": "Fusteria Sais", "la": 41.954444, "lo": 2.995556, "lliure": False,
      "t": "- Fusteria Sais: 2 punts de recàrrega, privats però accessibles.", "icaen": True, "gestor": "privat"},
     # Mas Savalls, 2, Sant Sadurní de l'Heura (41° 57' 27" N, 2° 59' 35" E).
     # 12.11.2026: públic i gratuït (confirmat per l'alcalde).
