@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-12T00:52:38+00:00",
+ "generat": "2026-11-12T15:27:55+00:00",
  "ambTmdb": true,
  "errors": [
   "TeMePé Palafrugell"
@@ -550,8 +550,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10863",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.1,
-   "vots": 20,
+   "nota": 7.205,
+   "vots": 22,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -700,8 +700,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11017",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11017"
    },
-   "nota": 0,
-   "vots": 0,
+   "nota": 7.0,
+   "vots": 1,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -837,8 +837,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10876",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.426,
-   "vots": 425,
+   "nota": 7.4,
+   "vots": 431,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -988,8 +988,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10696",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 5.8,
-   "vots": 228,
+   "nota": 5.898,
+   "vots": 265,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1300,8 +1300,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10509",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.4,
-   "vots": 610,
+   "nota": 7.5,
+   "vots": 666,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1451,8 +1451,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11042",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.734,
-   "vots": 589,
+   "nota": 6.758,
+   "vots": 612,
    "plataformes": [
     "Rakuten TV"
    ],
@@ -2155,7 +2155,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 8.0,
-   "vots": 207,
+   "vots": 213,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2421,8 +2421,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11112",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.2,
-   "vots": 68,
+   "nota": 7.188,
+   "vots": 69,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2989,8 +2989,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11121",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 0,
-   "vots": 0,
+   "nota": 6.0,
+   "vots": 1,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3028,7 +3028,7 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10996"
    },
    "nota": 7.2,
-   "vots": 163,
+   "vots": 164,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3165,8 +3165,8 @@
    "entrades": {
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11133"
    },
-   "nota": 7.269,
-   "vots": 225,
+   "nota": 7.284,
+   "vots": 227,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3309,7 +3309,7 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11003"
    },
    "nota": 8.5,
-   "vots": 248,
+   "vots": 261,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3513,38 +3513,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.798,
-   "vots": 146,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "wicker",
-   "titol": "Wicker",
-   "titolFont": "Wicker",
-   "sinopsi": "Una pescadora solitària (Olivia Colman), viu sola en una cabana als afores d’un poble, en què els habitants sovint se’n burlen i l’assetgen pel fet de ser soltera i per la pudor de peix de les mercaderies que ven. Quan, de resultes d'un ritual comunitari, se la determina com la següent dona del poble a casar-se (cosa que esvalota la gent de l'indret), ella va i encarrega al cisteller local (Peter Dinklage) un marit fet de vímet. La vigília del casament, aquest Marit de Vímet arriba. Un espòs ben insòlit (Alexander Skarsgård), que tanmateix resultarà tenir una sensibilitat i uns talents que superaran totes les expectatives. Al costat seu, ella anirà descobrint un desig fins aleshores desconegut i, de mica en mica, se n’enamorarà de debò. Ara... ben aviat, aquest estrany marit despertarà la cobdícia, la gelosia i les fantasies dels vilatans, i farà trontollar les certeses d’una comunitat que, fins aleshores, havia viscut en un ordre aparent",
-   "durada": "105",
-   "genere": "Fantasia",
-   "edat": "No recomanada per a menors de 16 anys",
-   "director": "Eleanor Wilson i Alex Huston Fischer",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/ewPz6uvKrbKlQrLRi1r9NTZQLzN.jpg",
-   "web": "https://odeonmulticines.com/odeon-girona",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-12",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 7.557,
-   "vots": 44,
+   "nota": 7.8,
+   "vots": 156,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3617,8 +3587,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.194,
-   "vots": 1443,
+   "nota": 8.18,
+   "vots": 1453,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4104,8 +4074,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11084",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 9.0,
-   "vots": 2,
+   "nota": 7.1,
+   "vots": 5,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4591,8 +4561,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10728",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.333,
-   "vots": 6,
+   "nota": 8.6,
+   "vots": 15,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5251,8 +5221,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11150",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11150"
    },
-   "nota": 8.117,
-   "vots": 137,
+   "nota": 8.083,
+   "vots": 151,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5655,8 +5625,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.0,
-   "vots": 662,
+   "nota": 6.996,
+   "vots": 675,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -6011,8 +5981,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.964,
-   "vots": 140,
+   "nota": 7.958,
+   "vots": 142,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -6380,7 +6350,7 @@
    "director": "Irene Iborra",
    "actors": "",
    "estrena": "",
-   "poster": "https://www.teatremundial.cat/img/image/fotos/1860.webp?w=600&h=400&sx=&sy=&sw=&sh=&zc=1&aoe=1&q=80&f=webp",
+   "poster": "https://www.teatremundial.cat/img/image/fotos/1890.webp?w=600&h=400&sx=&sy=&sw=&sh=&zc=1&aoe=1&q=80&f=webp",
    "web": "https://www.teatremundial.cat/ca/programacio/c/1140-lolivia-i-el-terretremol-invisible.html",
    "sessions": [
     {
