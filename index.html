@@ -2353,6 +2353,18 @@ function textCerimonia(x) {
 }
 // 03.11.2026: del text del Diari de Girona només queda el que no surt a dalt («Era casat amb…»,
 // «Vivia a…»): fora les frases de la mort (l'edat va a dalt) i de les exèquies o el funeral.
+// 13.11.2026: quan la defunció només ve del Diari de Girona (sense Mémora), la cerimònia no
+// arriba al camp «ceremonia» sinó dins del text («Exèquies, a les 11 del matí, a l'església…»).
+// Se'n treu la frase perquè surti «Cerimònia: dd.mm.aaaa, a les 11 del matí, a l'església…».
+const DIES_NECRO = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
+function cerimoniaDetall(x) {
+  const f = String(x.detall || x.biografia || "").split(/(?<=\.)\s+/)
+    .find(f => /^(exèquies|exequies|funeral|cerimònia|missa|enterrament|sepeli)\b/i.test(f.trim()));
+  if (!f) return "";
+  const resta = f.trim().replace(/^\S+\s*,?\s*/, "").replace(/\.$/, "").trim(), fun = dataNecro(x.dataFuneral);
+  const dia = fun ? DIES_NECRO[new Date(fun + "T12:00:00").getDay()] + " " + dataCa(fun) : "";
+  return [dia, resta].filter(Boolean).join(", ");
+}
 const FRASE_REPETIDA = /^(va morir|ha mort|morí|exèquies|exequies|funeral|cerimònia|missa|vetlla|enterrament|sepeli)/i;
 const edatNecro = x => x.edat || ((String(x.detall || x.biografia || "").match(/\bals?\s+(\d{1,3})\s+anys\b/i) || [])[1] || "");
 const detallNecro = x => String(x.detall || x.biografia || "").split(/(?<=\.)\s+/)
@@ -2363,6 +2375,7 @@ function fitxaNecro(x) {
   if (dataNecro(x.dataMort)) linies.push(`Va morir el ${dataCa(dataNecro(x.dataMort))}.`);
   if (x.vetlla) linies.push(`Vetlla: ${textVetlla(x)}`);
   if (x.ceremonia) linies.push(`Cerimònia: ${textCerimonia(x)}`);
+  else if (cerimoniaDetall(x)) linies.push(`Cerimònia: ${esc(cerimoniaDetall(x))}.`);
   else if (dataNecro(x.dataFuneral)) linies.push(`Funeral: ${dataCa(dataNecro(x.dataFuneral))}`);
   const detall = detallNecro(x);
   return `<article class="ag-acte"><div class="ag-text"><b>${esc(String(x.nom).toLocaleUpperCase("ca"))}</b>` +
