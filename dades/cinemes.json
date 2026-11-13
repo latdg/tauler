@@ -1,9 +1,7 @@
 {
- "generat": "2026-11-12T23:43:35+00:00",
+ "generat": "2026-11-13T14:44:35+00:00",
  "ambTmdb": true,
- "errors": [
-  "TeMePé Palafrugell"
- ],
+ "errors": [],
  "films": [
   {
    "key": "como robar un banco",
@@ -1593,7 +1591,7 @@
    "actors": "Tom Rhys Harries, Naomi Ackie, David Dencik, Nancy Carroll",
    "estrena": "2026-10-23",
    "poster": "https://image.tmdb.org/t/p/w342/6ihSDJlBNcvoTWzSA0jonZyOXTs.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
@@ -1697,127 +1695,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "la otra madre",
-   "titol": "L'altra mare",
-   "titolFont": "La otra madre",
-   "sinopsi": "Bela, una nena de 8 anys que viu en una llar tibant pel matrimoni problemàtic dels seus pares, veu com la seva vida es veu trastornada per una entitat sinistra a la qual anomena l'Altra Mamà. Quan aquesta presència malèvola emergeix del seu armari preguntant: \"Puc entrar en el teu cor?\", Bela es nega. Però aviat les manifestacions de l'altra Mamà es tornen cada vegada més agressives, amenaçant la seguretat de la família de Bela.",
-   "durada": "92",
-   "genere": "Thriller",
-   "edat": "16 anys",
-   "director": "Rob Savage",
-   "actors": "Jay Duplass, Jessica Chastain, Arian Moayed, Arabella Olivia Clark",
-   "estrena": "2026-10-09",
-   "poster": "https://image.tmdb.org/t/p/w342/USCOKXrHBCeeK96qXmS0NyDHYL.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-13",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-13",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-14",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-14",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-15",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-15",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 5.898,
-   "vots": 265,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
    "key": "en el corazon de la bestia",
    "titol": "En el cor de la bèstia",
    "titolFont": "En el corazón de la bestia",
@@ -1829,7 +1706,7 @@
    "actors": "Brad Pitt, Anna Lambe, J.K. Simmons",
    "estrena": "2026-09-25",
    "poster": "https://image.tmdb.org/t/p/w342/ya8iLCNyoVpBO7B7JrNJVj3g7tK.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
@@ -2087,123 +1964,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "hope",
-   "titol": "Hope",
-   "titolFont": "Hope",
-   "sinopsi": "En el remot llogaret sud-coreà de Hope Harbor, el cap de policia Bum-seok (Hwang Jung-Min) i l'oficial Sung-ae (Hoyeon) reben la missió de trobar a una misteriosa criatura que ha sembrat el caos entre els habitants.\n\nMentrestant, en el bosc, un grup de caçadors, entre ells Sung-ki (Zo In-Sung), s'endinsa en la seva cerca, però aviat descobreixen que ells són les preses. Mentre la criatura continua fent estralls, res és el que sembla. El que creien que era un conflicte que podia ser resolt pels humans acaba escalant a una catàstrofe de dimensions còsmiques.",
-   "durada": "156",
-   "genere": "Ciència-ficció",
-   "edat": "16 anys",
-   "director": "Na Hong-Jin",
-   "actors": "Hwang Jung-min, Jo In-sung",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/hHPIefotew38oJm3YCJPAzpi26c.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-13",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-13",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-14",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-14",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-15",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-17",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-18",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-19",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11042",
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 6.758,
-   "vots": 612,
-   "plataformes": [
-    "Rakuten TV"
-   ],
-   "plataformesUrl": "https://www.themoviedb.org/movie/1058424/watch?locale=ES"
-  },
-  {
    "key": "jaleos",
    "titol": "Escàndols",
    "titolFont": "Jaleos",
@@ -2272,128 +2032,6 @@
    },
    "nota": 0,
    "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "karateka",
-   "titol": "Karateka",
-   "titolFont": "KARATEKA",
-   "sinopsi": "Andrea Ros és l'encarregada de donar vida en la pantalla gran a Sandra Sánchez des dels seus inicis humils a Talavera de la Reina, fins al triomf d'aconseguir l'or olímpic a Tòquio 2020. Patrick Criado interpreta a Jesús del Moral, el seu entrenador i qui es convertiria en la seva parella sentimental, en una combinació única d'amor i admiració mútua que transcendeix l'esportiu i que acaba transformant les seves vides.",
-   "durada": "110",
-   "genere": "Biografia",
-   "edat": "12 anys",
-   "director": "Aritz Moreno",
-   "actors": "Patrick Criado, Andrea Ros",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-13",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-13",
-     "hora": "17:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-14",
-     "hora": "15:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-14",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-15",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-15",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "17:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-17",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "17:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-18",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "17:40",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-19",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "17:40",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11063",
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 9.5,
-   "vots": 1,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3174,8 +2812,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11106",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.75,
-   "vots": 34,
+   "nota": 7.488,
+   "vots": 41,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3818,92 +3456,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "superthings la pelicula",
-   "titol": "Superthings. La pel·lícula",
-   "titolFont": "Superthings: La película",
-   "sinopsi": "Meva, Kai i Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalópolis, el seu gris i ordenada ciutat, amb Kaboom City, l'absurd univers dels Superthings, on els objectes quotidians han cobrat vida convertits en superherois i malvats. De la nit al dia, el seu món s'omple de poders, rivalitats impossibles i aventures fora de control. Convertits en els Kazoom Kids, hauran d'enfrontar-se a Mr. King, un malvat decidit a fer-se amb el poder del Kazoom. Per a detenir-ho, hauran de confiar en la seva amistat, el seu enginy i la seva valentia i descobrir que, junts, són molt més forts.",
-   "durada": "93",
-   "genere": "Animació",
-   "edat": "Apta",
-   "director": "Víctor Monigote",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-13",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-14",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-14",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-15",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-15",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "16:30",
-     "format": "Vdc",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 7.7,
-   "vots": 3,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
    "key": "wild horse nine",
    "titol": "Wild Horse Nine",
    "titolFont": "Wild Horse Nine",
@@ -4322,7 +3874,7 @@
    "sinopsi": "Primavera de 1992. Pepe, de Getafe però culer fins a la medul·la, regenta una taverna catalana en ple Chueca que va fatal: el banc vol desnonar-li i la seva dona li ha deixat per un altre.\nDesesperat, està a punt de tirar la tovallola quan els seus amics Jaime i Carlos arriben a temps i li ofereixen entrar en el negoci... amb una condició. Carlos, homòfob empedreït, s'ho pren fatal. Per a convèncer-li, es van un cap de setmana a Maspalomas a veure el bé que li va a un amic de Jaime.",
    "durada": "90",
    "genere": "Comèdia",
-   "edat": "Pendent de qualificació",
+   "edat": "No recomanada per a menors de 16 anys",
    "director": "Jordi Calvet",
    "actors": "Santiago Urrialde, Octavi Pujades, Pablo Puyol, Júlia Creus",
    "estrena": "",
@@ -4539,6 +4091,245 @@
    },
    "nota": 0,
    "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "hope",
+   "titol": "Hope",
+   "titolFont": "Hope",
+   "sinopsi": "En el remot llogaret sud-coreà de Hope Harbor, el cap de policia Bum-seok (Hwang Jung-Min) i l'oficial Sung-ae (Hoyeon) reben la missió de trobar a una misteriosa criatura que ha sembrat el caos entre els habitants.\n\nMentrestant, en el bosc, un grup de caçadors, entre ells Sung-ki (Zo In-Sung), s'endinsa en la seva cerca, però aviat descobreixen que ells són les preses. Mentre la criatura continua fent estralls, res és el que sembla. El que creien que era un conflicte que podia ser resolt pels humans acaba escalant a una catàstrofe de dimensions còsmiques.",
+   "durada": "156",
+   "genere": "Ciència-ficció",
+   "edat": "16 anys",
+   "director": "Na Hong-Jin",
+   "actors": "Hwang Jung-min, Jo In-sung",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/hHPIefotew38oJm3YCJPAzpi26c.jpg",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-13",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-13",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-14",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-14",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-15",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-16",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-16",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-17",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-18",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-19",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11042",
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 6.758,
+   "vots": 612,
+   "plataformes": [
+    "Rakuten TV"
+   ],
+   "plataformesUrl": "https://www.themoviedb.org/movie/1058424/watch?locale=ES"
+  },
+  {
+   "key": "karateka",
+   "titol": "Karateka",
+   "titolFont": "KARATEKA",
+   "sinopsi": "Andrea Ros és l'encarregada de donar vida en la pantalla gran a Sandra Sánchez des dels seus inicis humils a Talavera de la Reina, fins al triomf d'aconseguir l'or olímpic a Tòquio 2020. Patrick Criado interpreta a Jesús del Moral, el seu entrenador i qui es convertiria en la seva parella sentimental, en una combinació única d'amor i admiració mútua que transcendeix l'esportiu i que acaba transformant les seves vides.",
+   "durada": "110",
+   "genere": "Biografia",
+   "edat": "12 anys",
+   "director": "Aritz Moreno",
+   "actors": "Patrick Criado, Andrea Ros",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-13",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-13",
+     "hora": "17:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-14",
+     "hora": "15:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-14",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-15",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-15",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-16",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-16",
+     "hora": "17:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-17",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "17:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-18",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "17:40",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-19",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "17:40",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11063",
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 9.5,
+   "vots": 1,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4808,6 +4599,213 @@
    "plataformesUrl": ""
   },
   {
+   "key": "superthings la pelicula",
+   "titol": "Superthings. La pel·lícula",
+   "titolFont": "Superthings: La película",
+   "sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
+   "durada": "93",
+   "genere": "Animació",
+   "edat": "Tots els públics, esp recomanada infància",
+   "director": "Víctor Monigote",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-13",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-14",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-14",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-15",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-15",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-16",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "16:30",
+     "format": "Vdc",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 7.7,
+   "vots": 3,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "la otra madre",
+   "titol": "L'altra mare",
+   "titolFont": "La otra madre",
+   "sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
+   "durada": "93",
+   "genere": "Terror",
+   "edat": "No recomanada per a menors de 16 anys",
+   "director": "Rob Savage",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/USCOKXrHBCeeK96qXmS0NyDHYL.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-13",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-13",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-14",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-14",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-15",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-15",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-16",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-16",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 5.898,
+   "vots": 265,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "verity la sombra de un engano",
    "titol": "Verity. L'ombra d'un engany",
    "titolFont": "Verity. La sombra de un engaño",
@@ -5010,14 +5008,14 @@
    "titol": "Coyote vs. Acme",
    "titolFont": "Coyote vs. Acme",
    "sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-   "durada": "103",
-   "genere": "Comèdia familiar",
-   "edat": "No recomanada per a menors de 7 anys",
+   "durada": "",
+   "genere": "",
+   "edat": "",
    "director": "Dave Green",
    "actors": "",
    "estrena": "",
    "poster": "https://image.tmdb.org/t/p/w342/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
-   "web": "https://odeonmulticines.com/odeon-girona",
+   "web": "https://cultura.palafrugell.cat/ca/programacio/c/6745-cinema-coyote-vs-acme.html",
    "sessions": [
     {
      "cinema": "TeMePé Palafrugell",
@@ -5128,7 +5126,7 @@
    "sinopsi": "En Els Jocs De la Fam: Començar el dia En La Collita tornarem al món de Panem 24 anys abans dels esdeveniments de la primera pel·lícula, començant en el matí de la collita dels 50è Jocs de la Fam, també denominats com el Segon Vassallatge dels Vint-i-cinc.",
    "durada": "160",
    "genere": "Acció",
-   "edat": "Pendent de qualificació",
+   "edat": "No recomanada per a menors de 12 anys",
    "director": "Francis Lawrence",
    "actors": "",
    "estrena": "2026-11-20",
@@ -5716,7 +5714,7 @@
   },
   {
    "key": "la invitacion",
-   "titol": "La Invitació",
+   "titol": "La Invitación",
    "titolFont": "La Invitación",
    "sinopsi": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
    "durada": "",
@@ -5751,8 +5749,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.206,
-   "vots": 951,
+   "nota": 7.208,
+   "vots": 959,
    "plataformes": [],
    "plataformesUrl": ""
   },
