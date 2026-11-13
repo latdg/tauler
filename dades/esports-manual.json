@@ -590,6 +590,26 @@
     }
    ],
    "classificacioActualitzada": "2026-11-07T19:37:30.475Z"
+  },
+  "la_pera_femeni": {
+   "partits": [
+    {
+     "id": "621c121ae1",
+     "competicio": "",
+     "grup": "",
+     "jornada": "1",
+     "data": "2026-11-13",
+     "hora": "21:30",
+     "localVisitant": "Local",
+     "rival": "BESCANO, C.E. A",
+     "resultat": "2 - 3",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4378626"
+    }
+   ],
+   "classificacio": []
   }
  }
 }
