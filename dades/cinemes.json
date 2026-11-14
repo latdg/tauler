@@ -1,7 +1,9 @@
 {
- "generat": "2026-11-13T23:43:34+00:00",
+ "generat": "2026-11-14T13:41:33+00:00",
  "ambTmdb": true,
- "errors": [],
+ "errors": [
+  "Cinema Montgrí"
+ ],
  "films": [
   {
    "key": "como robar un banco",
@@ -3475,7 +3477,7 @@
     }
    ],
    "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11091",
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11092",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 0,
@@ -4118,55 +4120,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "verity la sombra de un engano",
-   "titol": "Verity. L'ombra d'un engany",
-   "titolFont": "Verity. La sombra de un engaño",
-   "sinopsi": "Després d'un accident inquietant, l'exitosa autora Verity Crawford no pot escriure. Lowen Ashleigh és contractada com la seva escriptora fantasma, però",
-   "durada": "116",
-   "genere": "Thriller, Drama",
-   "edat": "",
-   "director": "Michael Showalter",
-   "actors": "Anne Hathaway, Dakota Johnson, Josh Hartnett, Ismael Cruz Cordova, Brady Wagner, Michael Abbott Jr., Emily McEnroe, Alex Cooper",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
-   "web": "https://cinemamontgri.cat/verity-la-sombra-de-un-engano/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-14",
-     "hora": "19:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-14",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-15",
-     "hora": "19:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-16",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {},
-   "nota": 6.991,
-   "vots": 686,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
    "key": "coyote vs acme",
    "titol": "Coyote vs. Acme",
    "titolFont": "Coyote vs. Acme",
@@ -4240,6 +4193,55 @@
    "entrades": {},
    "nota": 6.694,
    "vots": 31,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "verity la sombra de un engano",
+   "titol": "Verity. L'ombra d'un engany",
+   "titolFont": "Verity. La sombra de un engaño",
+   "sinopsi": "Després d'un accident inquietant, l'exitosa autora Verity Crawford no pot escriure. Lowen Ashleigh és contractada com la seva escriptora fantasma, però",
+   "durada": "116",
+   "genere": "Thriller, Drama",
+   "edat": "",
+   "director": "Michael Showalter",
+   "actors": "Anne Hathaway, Dakota Johnson, Josh Hartnett, Ismael Cruz Cordova, Brady Wagner, Michael Abbott Jr., Emily McEnroe, Alex Cooper",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
+   "web": "https://cinemamontgri.cat/verity-la-sombra-de-un-engano/",
+   "sessions": [
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-14",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-14",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-15",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-16",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {},
+   "nota": 6.991,
+   "vots": 686,
    "plataformes": [],
    "plataformesUrl": ""
   },

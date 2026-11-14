@@ -474,48 +474,6 @@
 "enllac": "",
 "t": 1794613396.71765
 },
-"superthings la pel licula": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "Superthings. La pel·lícula",
-"directors": [
-"Víctor Monigote"
-],
-"original": "Superthings: La película",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-23",
-"sinopsiCa": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-"id": 1744346,
-"nota": 7.7,
-"vots": 3,
-"sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-"sinopsi_es": false,
-"poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794613396.71765
-},
-"verity la sombra de un engano": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Michael Showalter"
-],
-"original": "Verity",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-09-30",
-"sinopsiCa": "",
-"id": 1283515,
-"nota": 6.991,
-"vots": 686,
-"sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
-"sinopsi_es": true,
-"poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794613396.71765
-},
 "coyote vs acme": {
 "v": 6,
 "comprovat": "any",
@@ -554,6 +512,27 @@
 "sinopsi": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
 "sinopsi_es": false,
 "poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794613396.71765
+},
+"verity la sombra de un engano": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Michael Showalter"
+],
+"original": "Verity",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-09-30",
+"sinopsiCa": "",
+"id": 1283515,
+"nota": 6.991,
+"vots": 686,
+"sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
+"sinopsi_es": true,
+"poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794613396.71765
@@ -643,10 +622,6 @@
 "plataformes": [],
 "enllac": "",
 "t": 1794581066.438496
-},
-"l ovella shaun missio carbassa": {
-"v": 6,
-"t": 1794613396.71765
 },
 "el precio de la red": {
 "v": 6,
@@ -741,28 +716,6 @@
 "enllac": "",
 "t": 1794581066.438496
 },
-"el gat amb barret": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El gat amb barret",
-"directors": [
-"Erica Rivinoja",
-"Alessandro Carloni"
-],
-"original": "The Cat in the Hat",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-31",
-"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"id": 1117898,
-"nota": 7.109,
-"vots": 23,
-"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"sinopsi_es": false,
-"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794581066.438496
-},
 "torroella terra d hortes": {
 "v": 6,
 "t": 1794581066.438496
@@ -803,11 +756,11 @@
 "poster": "/tiAHeGxOLLeXqNTRvd47WBVvYHG.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794527014.254393
+"t": 1794663692.828559
 },
 "la llagrima de buda sri lanka": {
 "v": 6,
-"t": 1794527014.254393
+"t": 1794663692.828559
 },
 "ahora los suegros son ellos": {
 "v": 6,
@@ -870,7 +823,7 @@
 "poster": "/A6JtulwvU0fdfF8sPJeST8auhIz.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794527014.254393
+"t": 1794663692.828559
 },
 "noche de paz 2": {
 "v": 6,
