@@ -630,6 +630,26 @@
     }
    ],
    "classificacio": []
+  },
+  "monells_a": {
+   "partits": [
+    {
+     "id": "62a0c27228",
+     "competicio": "",
+     "grup": "",
+     "jornada": "9",
+     "data": "2026-11-14",
+     "hora": "18:30",
+     "localVisitant": "Local",
+     "rival": "VILADAMAT C.F. A",
+     "resultat": "4 - 2",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4139849"
+    }
+   ],
+   "classificacio": []
   }
  }
 }
