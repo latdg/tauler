@@ -610,6 +610,26 @@
     }
    ],
    "classificacio": []
+  },
+  "monells_b": {
+   "partits": [
+    {
+     "id": "d8765211c1",
+     "competicio": "",
+     "grup": "",
+     "jornada": "7",
+     "data": "2026-11-14",
+     "hora": "17:15",
+     "localVisitant": "Visitant",
+     "rival": "ARO, C.E. A",
+     "resultat": "",
+     "estat": "Ajornat",
+     "camp": "CAMP DE FUTBOL MPAL. DE CASTELL D´ARO",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4140488"
+    }
+   ],
+   "classificacio": []
   }
  }
 }
