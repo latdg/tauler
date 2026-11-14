@@ -167,7 +167,7 @@
      "hora": "17:45",
      "localVisitant": "Visitant",
      "rival": "CB VALL D’EN BAS SUB25",
-     "resultat": "",
+     "resultat": "56 - 74",
      "estat": "",
      "camp": "CENTRE ESPORTIU D'EN BAS",
      "nota": "",
@@ -447,6 +447,17 @@
    "classificacio": [
     {
      "pos": 1,
+     "equip": "CB VALL D’EN BAS SUB25",
+     "pj": 6,
+     "pg": 5,
+     "pe": 0,
+     "pp": 1,
+     "pf": 386,
+     "pc": 290,
+     "punts": 11
+    },
+    {
+     "pos": 2,
      "equip": "CB BANYOLES",
      "pj": 5,
      "pg": 5,
@@ -457,29 +468,40 @@
      "punts": 10
     },
     {
-     "pos": 2,
-     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
-     "pj": 5,
-     "pg": 4,
-     "pe": 0,
-     "pp": 1,
-     "pf": 336,
-     "pc": 234,
-     "punts": 9
-    },
-    {
      "pos": 3,
-     "equip": "CB VALL D’EN BAS SUB25",
-     "pj": 5,
+     "equip": "SOL GIRONÈS BISBAL BÀSQUET",
+     "pj": 6,
      "pg": 4,
      "pe": 0,
-     "pp": 1,
-     "pf": 312,
-     "pc": 234,
-     "punts": 9
+     "pp": 2,
+     "pf": 392,
+     "pc": 308,
+     "punts": 10
     },
     {
      "pos": 4,
+     "equip": "CB VILOBÍ",
+     "pj": 6,
+     "pg": 4,
+     "pe": 0,
+     "pp": 2,
+     "pf": 316,
+     "pc": 265,
+     "punts": 10
+    },
+    {
+     "pos": 5,
+     "equip": "CBU LLORET RECREATIVOS LLORET",
+     "pj": 6,
+     "pg": 4,
+     "pe": 0,
+     "pp": 2,
+     "pf": 337,
+     "pc": 293,
+     "punts": 10
+    },
+    {
+     "pos": 6,
      "equip": "UNIÓ MARISTES GIRONA",
      "pj": 4,
      "pg": 4,
@@ -490,29 +512,29 @@
      "punts": 8
     },
     {
-     "pos": 5,
-     "equip": "CB VILOBÍ",
-     "pj": 5,
-     "pg": 3,
-     "pe": 0,
-     "pp": 2,
-     "pf": 265,
-     "pc": 224,
-     "punts": 8
-    },
-    {
-     "pos": 6,
-     "equip": "CBU LLORET RECREATIVOS LLORET",
-     "pj": 5,
-     "pg": 3,
-     "pe": 0,
-     "pp": 2,
-     "pf": 278,
-     "pc": 243,
-     "punts": 8
-    },
-    {
      "pos": 7,
+     "equip": "CB SARRIÀ DE TER",
+     "pj": 6,
+     "pg": 2,
+     "pe": 0,
+     "pp": 4,
+     "pf": 336,
+     "pc": 331,
+     "punts": 8
+    },
+    {
+     "pos": 8,
+     "equip": "C.B. FONTCOBERTA",
+     "pj": 6,
+     "pg": 1,
+     "pe": 0,
+     "pp": 5,
+     "pf": 280,
+     "pc": 376,
+     "punts": 7
+    },
+    {
+     "pos": 9,
      "equip": "BC MAÇANET",
      "pj": 5,
      "pg": 2,
@@ -523,7 +545,18 @@
      "punts": 7
     },
     {
-     "pos": 8,
+     "pos": 10,
+     "equip": "CE CALDES U25F",
+     "pj": 4,
+     "pg": 2,
+     "pe": 0,
+     "pp": 2,
+     "pf": 209,
+     "pc": 258,
+     "punts": 6
+    },
+    {
+     "pos": 11,
      "equip": "AE FORNELLS",
      "pj": 5,
      "pg": 1,
@@ -534,62 +567,29 @@
      "punts": 6
     },
     {
-     "pos": 9,
-     "equip": "CB SARRIÀ DE TER",
-     "pj": 4,
-     "pg": 1,
+     "pos": 12,
+     "equip": "CB GRIFEU LLANÇÀ U 25",
+     "pj": 5,
+     "pg": 0,
      "pe": 0,
-     "pp": 3,
-     "pf": 218,
-     "pc": 220,
+     "pp": 5,
+     "pf": 200,
+     "pc": 322,
      "punts": 5
     },
     {
-     "pos": 10,
-     "equip": "CE CALDES U25F",
-     "pj": 3,
-     "pg": 1,
-     "pe": 0,
-     "pp": 2,
-     "pf": 144,
-     "pc": 197,
-     "punts": 4
-    },
-    {
-     "pos": 11,
-     "equip": "C.B. FONTCOBERTA",
+     "pos": 13,
+     "equip": "CB.ROSES",
      "pj": 4,
      "pg": 0,
      "pe": 0,
      "pp": 4,
-     "pf": 166,
-     "pc": 269,
+     "pf": 168,
+     "pc": 281,
      "punts": 4
-    },
-    {
-     "pos": 12,
-     "equip": "CB.ROSES",
-     "pj": 3,
-     "pg": 0,
-     "pe": 0,
-     "pp": 3,
-     "pf": 112,
-     "pc": 208,
-     "punts": 3
-    },
-    {
-     "pos": 13,
-     "equip": "CB GRIFEU LLANÇÀ U 25",
-     "pj": 3,
-     "pg": 0,
-     "pe": 0,
-     "pp": 3,
-     "pf": 104,
-     "pc": 206,
-     "punts": 3
     }
    ],
-   "classificacioActualitzada": "2026-11-07T19:37:30.475Z"
+   "classificacioActualitzada": "2026-11-14T19:27:12.942Z"
   },
   "la_pera_femeni": {
    "partits": [
