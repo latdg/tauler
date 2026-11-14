@@ -5607,10 +5607,10 @@
        "NOMBRE_FUERA": "VILADAMAT C.F. A",
        "ESCUDO_FUERA": "00100_0000486021_VILADAMAT_C.F._copia.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE MONELLS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "4",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-14T18:30:00",
-       "CERRADA": "0",
+       "CERRADA": "1",
        "ESTADO": "0"
       },
       {
