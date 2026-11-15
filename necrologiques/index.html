@@ -30,12 +30,19 @@ a{color:var(--accent)}
 input,select{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);max-width:100%}
 .controls label{display:flex;flex-direction:column;gap:2px;font-size:.8rem;color:var(--suau)}
 .controls label.cerca{grid-column:1/-1}
-.controls select,.controls input{width:100%}
+/* 15.11.2026: camps de data amb el 📅 al costat (no a sota), alineats amb els desplegables */
+.controls label.data{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:2px;align-items:center;position:relative}
+.controls label.data>span{grid-column:1/-1}
+.controls select,.controls input{width:100%;height:2.25em}
 .controls button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer;justify-self:start}
 section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
 .dia{margin:16px 0 8px;font-size:1rem}
 .dia:first-child{margin-top:0}
-.llista{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.llista{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+/* 15.11.2026: els dies (i les seves necrològiques) en dues columnes, cadascun la meitat; al mòbil, una */
+.dies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;align-items:start}
+.dies .dia{margin-top:0}
+@media (max-width:640px){.dies{grid-template-columns:minmax(0,1fr)}}
 .fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;font-size:.95rem;line-height:1.45}
 .pagines{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:16px}
 .pagines button{font:inherit;font-size:.9rem;padding:4px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer}
@@ -73,10 +80,10 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
     <label>Mes
       <select id="mes"><option value="">Tots</option></select>
     </label>
-    <label>Data de mort
+    <label class="data"><span>Data de mort</span>
       <input type="date" id="mortDe">
     </label>
-    <label>Fins al (opcional)
+    <label class="data"><span>Fins al (opcional)</span>
       <input type="date" id="mortFins">
     </label>
     <button type="button" id="netejar" hidden>Treure els filtres</button>
@@ -228,8 +235,8 @@ function pinta() {
     // Agrupades per dia.
     const grups = [];
     tros.forEach(x => { const d = diaNecro(x); const g = grups[grups.length - 1]; if (g && g.d === d) g.l.push(x); else grups.push({ d, l: [x] }); });
-    cos.innerHTML = grups.map(g => `<h2 class="dia">${g.d ? DIES[new Date(g.d + "T12:00:00").getDay()].replace(/^./, c => c.toUpperCase()) + " " + dataCa(g.d) : "Sense data"}</h2>` +
-      `<div class="llista">${g.l.map(fitxa).join("")}</div>`).join("");
+    cos.innerHTML = `<div class="dies">` + grups.map(g => `<div class="grup"><h2 class="dia">${g.d ? DIES[new Date(g.d + "T12:00:00").getDay()].replace(/^./, c => c.toUpperCase()) + " " + dataCa(g.d) : "Sense data"}</h2>` +
+      `<div class="llista">${g.l.map(fitxa).join("")}</div></div>`).join("") + `</div>`;
   }
   const p = document.getElementById("pagines");
   if (pagines < 2) { p.innerHTML = ""; return; }
