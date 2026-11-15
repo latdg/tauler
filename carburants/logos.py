@@ -3,8 +3,8 @@
 # perquè el tauler la mostri al costat de cada benzinera sense dependre de
 # serveis de fora quan algú mira la pàgina. Només baixa les que falten.
 # Si una marca no té icona, el tauler hi posa la inicial.
-# 15.11.2026: fora Servioil, GM Oil i Petrem (els seus webs donaven icones
-# que no eren la marca). Cepsa ja surt amb el logotip de Moeve.
+# 15.11.2026: fora Servioil i GM Oil (els seus webs donaven icones que no
+# eren la marca); Petrem, de petrem.com, sí que és la seva. Cepsa ja surt amb el logotip de Moeve.
 import os
 import struct
 import requests
@@ -28,6 +28,7 @@ MARQUES = {
     "petrocat": ["petrocat.cat"],
     "aneuoil": ["aneuoil.com", "aneuoil.es"],
     "zonazero": ["zonazero.es", "zonazero.cat"],
+    "petrem": ["petrem.com"],
     "eroski": ["eroski.es"],
     "carrefour": ["carrefour.es"],
 }
