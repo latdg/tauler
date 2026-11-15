@@ -685,6 +685,26 @@
     }
    ],
    "classificacio": []
+  },
+  "atletic_bisbalenc": {
+   "partits": [
+    {
+     "id": "68e941afa6",
+     "competicio": "",
+     "grup": "",
+     "jornada": "9",
+     "data": "2026-11-15",
+     "hora": "17:30",
+     "localVisitant": "Visitant",
+     "rival": "SANTJOANENC, C.P. A",
+     "resultat": "0 - 0",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE SANT JOAN LES FONTS",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4109457"
+    }
+   ],
+   "classificacio": []
   }
  }
 }
