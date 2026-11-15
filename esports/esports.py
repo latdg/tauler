@@ -151,28 +151,6 @@ def fcf_casa(tipus, grup_id):
     return dades
 
 
-# 15.11.2026: reserva només per a l'Atlètic Bisbalenc (grup 58161863): les dades
-# de la FCF que serveix la web del Josep Manel Villatoro (atlbisbalenc.jmvk.es),
-# al seu servidor particular. Mateix format que l'API de la FCF, amb CERRADA
-# (acta tancada). Ordre: Worker latdg-fcf → jmvk.es (Atlètic) → fitxer de casa.
-JMVK_FCF = "https://atlbisbalenc.jmvk.es/bisbalenc/fcf.php"
-JMVK_GRUPS = {"58161863"}
-_font_fcf = {}
-
-
-def fcf_jmvk(tipus, grup_id):
-    r = requests.get(JMVK_FCF, params={"tipus": tipus, "grupId": grup_id}, timeout=40,
-                     headers={"User-Agent": UA, "Accept": "application/json",
-                              "Referer": "https://atlbisbalenc.jmvk.es/bisbalenc/"})
-    if not r.ok:
-        print(f"   jmvk.es {r.status_code}: {r.text[:120]!r}", file=sys.stderr)
-    r.raise_for_status()
-    d = r.json()
-    if not isinstance(d, dict) or not d or d.get("error"):
-        raise RuntimeError(f"jmvk.es: resposta buida o d'error ({str(d)[:120]})")
-    return d
-
-
 def fcf(tipus, grup_id):
     clau = (tipus, grup_id)
     if clau not in _cache_fcf:
@@ -183,20 +161,8 @@ def fcf(tipus, grup_id):
                 print(f"   latdg-fcf {r.status_code}: {r.text[:120]!r}", file=sys.stderr)
             r.raise_for_status()
             _cache_fcf[clau] = r.json()
-            _font_fcf[str(grup_id)] = "FCF (via latdg-fcf)"
         except Exception:
-            dades = None
-            if str(grup_id) in JMVK_GRUPS:
-                try:
-                    dades = fcf_jmvk(tipus, grup_id)
-                    _font_fcf[str(grup_id)] = "FCF (via atlbisbalenc.jmvk.es)"
-                    print(f"   (FCF: {tipus} del grup {grup_id} via atlbisbalenc.jmvk.es)")
-                except Exception as e:
-                    print(f"   jmvk.es: {type(e).__name__}: {str(e)[:120]}", file=sys.stderr)
-            if dades is None:
-                dades = fcf_casa(tipus, grup_id)
-                _font_fcf[str(grup_id)] = "FCF (fitxer de casa)"
-            _cache_fcf[clau] = dades
+            _cache_fcf[clau] = fcf_casa(tipus, grup_id)
     return _cache_fcf[clau]
 
 
@@ -262,7 +228,7 @@ def llegeix_futbol(eq):
                 "localVisitant": "Local" if local else "Visitant",
                 "rival": str(m.get("NOMBRE_FUERA") if local else m.get("NOMBRE_CASA") or "").strip(),
                 "resultat": resultat, "estat": "Finalitzat" if jugat else "Programat",
-                "camp": str(m.get("CAMPO") or "").strip(), "font": _font_fcf.get(str(eq["grupId"]), "FCF"),
+                "camp": str(m.get("CAMPO") or "").strip(), "font": "FCF (via latdg-fcf)",
                 "idFont": str(m.get("CODACTA") or ""),
                 "escutPropi": escut_fcf(m.get("ESCUDO_CASA") if local else m.get("ESCUDO_FUERA")),
             })
