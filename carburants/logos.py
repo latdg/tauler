@@ -5,6 +5,8 @@
 # Si una marca no té icona, el tauler hi posa la inicial.
 # 15.11.2026: fora Servioil i GM Oil (els seus webs donaven icones que no
 # eren la marca); Petrem, de petrem.com, sí que és la seva. Cepsa ja surt amb el logotip de Moeve.
+# El d'Esclatoil («OiL») és retallat de la pàgina de benzineres de BonpreuEsclat
+# (no el de Bonpreu); com que ja existeix, aquest script no el toca.
 import os
 import struct
 import requests
