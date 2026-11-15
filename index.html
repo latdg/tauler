@@ -37,6 +37,9 @@ td.ajust{white-space:normal;min-width:220px}
 td.num{text-align:right}
 td.ico{font-size:1.3rem;text-align:center}
 .coord{display:block;color:var(--suau);font-size:.8rem}
+.benz{display:flex;align-items:center;gap:.55rem}
+.logo-benz{flex:0 0 26px;width:26px;height:26px;border-radius:6px;object-fit:contain;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.logo-benz.ini{display:inline-flex;align-items:center;justify-content:center;background:var(--fons);color:var(--suau);font-weight:700;font-size:.8rem;text-decoration:none}
 th{color:var(--suau);font-weight:600}
 tr.propi td{font-weight:700;color:var(--accent)}
 /* Classificacions: totes amb les mateixes columnes (18.10.2026) */
@@ -1869,6 +1872,19 @@ function pinta(d) {
       `<p>${esc(cos.charAt(0).toUpperCase() + cos.slice(1))}</p>`, "PIA, aerobiologia.cat (estació de Girona)");
   }
 
+  // Marca de la benzinera a partir del rètol (per al logotip).
+  function marcaBenzinera(nom) {
+    const n = String(nom || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9 ]/g, " ");
+    const marques = [
+      [/\bbp\b/, "bp"], [/repsol/, "repsol"], [/\bshell\b/, "shell"], [/\bq8\b/, "q8"], [/\bgalp\b/, "galp"],
+      [/\bmoeve\b/, "moeve"], [/\bcepsa\b/, "cepsa"], [/\bcondis\b/, "condis"], [/esclat/, "esclatoil"],
+      [/petrolis independents|petro7/, "petrolis"], [/ballenoil/, "ballenoil"], [/bonarea/, "bonarea"],
+      [/petrocat/, "petrocat"], [/servioil/, "servioil"], [/aneu oil|aneuoil/, "aneuoil"],
+      [/zona zero/, "zonazero"], [/gm oil/, "gmoil"], [/petrem/, "petrem"], [/eroski/, "eroski"], [/carrefour/, "carrefour"],
+    ];
+    for (const [re, m] of marques) if (re.test(n)) return m;
+    return null;
+  }
   // 10. ⛽ CARBURANTS (files = benzineres, de Celrà a Palafrugell; columnes = carburants)
   if (b.carburants && b.carburants.estacions && b.carburants.estacions.length) {
     const c = b.carburants;
@@ -1879,7 +1895,13 @@ function pinta(d) {
     });
     const cap = `<tr><th>Benzinera</th>${c.carburants.map(f => `<th style="text-align:center">${esc(f.nom)}</th>`).join("")}</tr>`;
     const files = c.estacions.map((e, i) => {
-      const nom = `<b>${esc(e.nom)}</b><span class="coord">${esc(e.municipi)}</span>`;
+      // CANVI (15.11.2026): logotip de la marca al costat (carburants/logos/); si no n'hi ha, la inicial.
+      const marca = marcaBenzinera(e.nom);
+      const inicial = esc((String(e.nom || "").replace(/[^A-Za-zÀ-ÿ0-9]/g, "")[0] || "?").toUpperCase());
+      const logo = marca
+        ? `<img class="logo-benz" src="carburants/logos/${marca}.png" alt="" loading="lazy" onerror="this.outerHTML='<span class=&quot;logo-benz ini&quot;>${inicial}</span>'">`
+        : `<span class="logo-benz ini">${inicial}</span>`;
+      const nom = `<span class="benz">${logo}<span><b>${esc(e.nom)}</b><span class="coord">${esc(e.municipi)}</span></span></span>`;
       const enllac = e.lat !== null && e.lon !== null
         ? `<a href="https://www.google.com/maps?q=${e.lat},${e.lon}" target="_blank" rel="noopener">${nom}</a>`
         : nom;
