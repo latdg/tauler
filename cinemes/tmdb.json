@@ -145,7 +145,7 @@
 "poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "la bola negra": {
 "v": 6,
@@ -224,14 +224,14 @@
 "dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 7.6,
-"vots": 44,
+"nota": 7.4,
+"vots": 51,
 "sinopsi": "Una antigua epopeya sigue a un joven príncipe y a una princesa, cuyo matrimonio y posterior exilio marcan el comienzo de un viaje legendario. Su historia de amor, deber y destino prepara el terreno para desafíos aún mayores.",
 "sinopsi_es": true,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "ratones al ataque operacion navidad": {
 "v": 6,
@@ -336,7 +336,7 @@
 "poster": "/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "hope": {
 "v": 6,
@@ -380,10 +380,6 @@
 "enllac": "",
 "t": 1794751701.898476
 },
-"diversion navidena con peppa la experiencia en cines": {
-"v": 6,
-"t": 1794751701.898476
-},
 "victorian psycho": {
 "v": 6,
 "comprovat": "any",
@@ -403,7 +399,7 @@
 "poster": "/eknMIThHWZCxMzDAcUDk4rK2Wpc.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "11": {
 "v": 6,
@@ -490,27 +486,6 @@
 "enllac": "",
 "t": 1794751701.898476
 },
-"superthings la pel licula": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "Superthings. La pel·lícula",
-"directors": [
-"Víctor Monigote"
-],
-"original": "Superthings: La película",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-10-23",
-"sinopsiCa": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-"id": 1744346,
-"nota": 7.7,
-"vots": 3,
-"sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-"sinopsi_es": false,
-"poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794695820.407493
-},
 "verity la sombra de un engano": {
 "v": 6,
 "comprovat": "director",
@@ -528,27 +503,6 @@
 "sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
 "sinopsi_es": true,
 "poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794751701.898476
-},
-"coyote vs acme": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Dave Green"
-],
-"original": "Coyote vs. Acme",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-08-20",
-"sinopsiCa": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"id": 1204680,
-"nota": 8.174,
-"vots": 1473,
-"sinopsi": "Després que els productes Acme fallin una vegada i altra en la seva tenaç persecució del Correcamins, en Wile E. Coyote decideix contractar un advocat que s'anuncia en tanques publicitàries per demandar la Corporació Acme.",
-"sinopsi_es": false,
-"poster": "/e4P8CIoffzsyjTm9e6U87Mng2CU.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794751701.898476
@@ -636,11 +590,15 @@
 "poster": "/kbwAR849GqMmZs01Uwm5MXL6CWd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
+},
+"diversion navidena con peppa la experiencia en cines": {
+"v": 6,
+"t": 1794751701.898476
 },
 "l ovella shaun missio carbassa": {
 "v": 6,
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "el precio de la red": {
 "v": 6,
@@ -727,13 +685,13 @@
 "sinopsiCa": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
 "id": 950028,
 "nota": 7.199,
-"vots": 965,
+"vots": 968,
 "sinopsi": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
 "sinopsi_es": false,
 "poster": "/21JnfyCARiRkms9AZHtTXiZKbIj.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "el gat amb barret": {
 "v": 6,
@@ -748,34 +706,34 @@
 "dataTmdb": "2026-10-31",
 "sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "id": 1117898,
-"nota": 6.904,
-"vots": 26,
+"nota": 6.875,
+"vots": 28,
 "sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "sinopsi_es": false,
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "dune": {
 "v": 6,
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "dune parte dos": {
 "v": 6,
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "la meva mare es una goril la": {
 "v": 6,
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "l olivia i el terretremol invisible": {
 "v": 6,
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "la pieta": {
 "v": 6,
@@ -843,7 +801,7 @@
 "poster": "/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794695820.407493
+"t": 1794783589.255422
 },
 "burundanga": {
 "v": 6,
