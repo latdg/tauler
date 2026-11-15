@@ -7,7 +7,8 @@
 # eren la marca); Petrem, de petrem.com, sí que és la seva. Cepsa ja surt amb el logotip de Moeve.
 # El d'Esclatoil («OiL») és retallat de la pàgina de benzineres de BonpreuEsclat
 # (no el de Bonpreu); com que ja existeix, aquest script no el toca.
-# Aneu Oil, Petrolis Independents i Condis, afegits a mà el 15.11.2026.
+# Aneu Oil, Petrolis Independents, Condis i Zona Zero (retallat del rètol de
+# Palafrugell; no és Gasolineras Zero), afegits a mà el 15.11.2026.
 import os
 import struct
 import requests
