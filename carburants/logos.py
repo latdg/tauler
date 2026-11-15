@@ -9,7 +9,7 @@
 # (no el de Bonpreu); com que ja existeix, aquest script no el toca.
 # Aneu Oil, Petrolis Independents, Condis i Zona Zero (retallat del rètol de
 # Palafrugell; no és Gasolineras Zero) i Regencós Oil (del rètol), afegits a mà
-# el 15.11.2026.
+# el 15.11.2026. Servioil, del rètol de Palafrugell (c. de Cadaqués, 3).
 import os
 import struct
 import requests
