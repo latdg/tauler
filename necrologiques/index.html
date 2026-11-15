@@ -49,6 +49,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 .pagines button.actiu{border-color:var(--accent);color:var(--accent);font-weight:700}
 .pagines button:disabled{opacity:.4;cursor:default}
 .buit{color:var(--suau)}
+.avis{color:var(--suau);font-size:.85rem;margin:0 0 12px}
 .font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
 </style>
 <!-- Visites (GoatCounter, sense galetes) · 01.11.2026 -->
@@ -91,6 +92,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 </header>
 <main>
   <section>
+    <p class="avis" id="avisMes" hidden>Es mostren els difunts de l'últim mes. Els anteriors continuen a l'arxiu: cerca'ls per text, municipi, mes o data de mort.</p>
     <div id="cos"><p class="buit">Carregant…</p></div>
     <div class="pagines" id="pagines"></div>
     <p class="font">Necrològiques dels cinc municipis recollides de Mémora i del Diari de Girona.
@@ -221,7 +223,11 @@ function pinta() {
   if (mDe > mFins) [mDe, mFins] = [mFins, mDe];
   const filtrat = !!(t || mun || mes || mDe);
   document.getElementById("netejar").hidden = !filtrat && camp === "tot";
+  // 15.11.2026: sense cap filtre, la pàgina d'inici mostra només l'últim mes; la resta
+  // continua a l'arxiu i surt quan es cerca (text, municipi, mes o dates).
+  const fa1Mes = (() => { const d = new Date(); d.setMonth(d.getMonth() - 1); const z = n => String(n).padStart(2, "0"); return `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())}`; })();
   const llista = TOTES.filter(x =>
+    (filtrat || diaNecro(x) >= fa1Mes) &&
     (!t || pla(textCamp(x, camp)).includes(t)) &&
     (!mun || (mun === "-" ? !x.municipi : x.municipi === mun)) &&
     (!mes || diaNecro(x).startsWith(mes)) &&
@@ -230,7 +236,7 @@ function pinta() {
   PAGINA = Math.min(Math.max(1, PAGINA), pagines);
   const tros = llista.slice((PAGINA - 1) * PER_PAGINA, PAGINA * PER_PAGINA);
   const cos = document.getElementById("cos");
-  if (!tros.length) cos.innerHTML = `<p class="buit">${filtrat ? "Cap necrològica coincideix amb la cerca i els filtres." : "Encara no hi ha cap necrològica recollida."}</p>`;
+  if (!tros.length) cos.innerHTML = `<p class="buit">${filtrat ? "Cap necrològica coincideix amb la cerca i els filtres." : TOTES.length ? "No hi ha cap necrològica de l'últim mes. Les anteriors es poden cercar amb els filtres." : "Encara no hi ha cap necrològica recollida."}</p>`;
   else {
     // Agrupades per dia.
     const grups = [];
@@ -238,6 +244,7 @@ function pinta() {
     cos.innerHTML = `<div class="dies">` + grups.map(g => `<div class="grup"><h2 class="dia">${g.d ? DIES[new Date(g.d + "T12:00:00").getDay()].replace(/^./, c => c.toUpperCase()) + " " + dataCa(g.d) : "Sense data"}</h2>` +
       `<div class="llista">${g.l.map(fitxa).join("")}</div></div>`).join("") + `</div>`;
   }
+  document.getElementById("avisMes").hidden = filtrat || !TOTES.length;
   const p = document.getElementById("pagines");
   if (pagines < 2) { p.innerHTML = ""; return; }
   let h = `<button data-p="${PAGINA - 1}"${PAGINA === 1 ? " disabled" : ""}>← Més recents</button>`;
