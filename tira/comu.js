@@ -11,11 +11,14 @@
 // · aplica(candidats, tria): el que surt a la tira: canvia el text de les
 //   notícies editades, treu les notícies i els mitjans amagats, hi posa les
 //   notícies afegides a mà i deixa la premsa generalista en un màxim de 10.
+//   La premsa local i la generalista només hi surten si són de les últimes
+//   48 hores (15.11.2026), com fa el resum amb la local.
 // =============================================================================
 (() => {
   const BASE = "https://latdg.github.io/redaccio/dades/";
   const TRIA = "https://raw.githubusercontent.com/latdg/tauler/main/dades/tira.json";
   const MAX_GEN = 10;
+  const HORES = 48;   // 15.11.2026: la generalista dura el mateix que la local
   const NOMS_GEN = [
     [/vilaweb/, "VilaWeb"], [/naciodigital/, "Nació Digital"], [/^ara\.cat$/, "Ara"], [/elperiodico/, "El Periódico"],
     [/lavanguardia/, "La Vanguardia"], [/elpais/, "El País"], [/elnacional/, "El Nacional"], [/rac1/, "RAC1"],
@@ -51,10 +54,10 @@
       linies.forEach((l, i) => {
         const m = l.match(/^▶\s*(.+?):\s*$/);
         if (m) { mitja = m[1].trim(); return; }
-        const n = l.match(/^•\s*(?:\d{2}\.\d{2}\.\d{4}\s*[—–-]\s*)?(.+)$/);
-        if (n && mitja && !/^No s.han trobat/i.test(n[1])) {
+        const n = l.match(/^•\s*(?:(\d{2})\.(\d{2})\.(\d{4})\s*[—–-]\s*)?(.+)$/);
+        if (n && mitja && !/^No s.han trobat/i.test(n[4])) {
           const seg = linies[i + 1] || "";
-          llista.push({ mitja, titol: n[1].trim(), url: /^https?:\/\//.test(seg) ? seg : "" });
+          llista.push({ mitja, titol: n[4].trim(), url: /^https?:\/\//.test(seg) ? seg : "", data: n[1] ? n[3] + "-" + n[2] + "-" + n[1] : "" });
         }
       });
       const vist = new Set();
@@ -97,9 +100,13 @@
     const amagats = new Set(tria.amagats.map(x => x.clau));
     const mitjans = new Set(tria.mitjansAmagats.map(m => m.toLowerCase()));
     const editats = new Map(tria.editats.map(e => [e.clau, e]));
+    // Dia més antic que encara entra: el de fa 48 hores (data sense hora, com al resum).
+    const fa = new Date(Date.now() - HORES * 3600e3);
+    const limit = fa.getFullYear() + "-" + String(fa.getMonth() + 1).padStart(2, "0") + "-" + String(fa.getDate()).padStart(2, "0");
     const decideix = x0 => {
       const e = editats.get(x0.clau);
       const x = e ? Object.assign({}, x0, { titol: e.titol, original: x0.titol, ...(e.mitja != null && e.mitja !== "" ? { mitja: e.mitja } : {}) }) : x0;
+      if (x.grup !== "tdg" && x.data && x.data < limit) return Object.assign({}, x, { surt: false, motiu: "de fa més de " + HORES + " hores" });
       if (amagats.has(x.clau)) return Object.assign({}, x, { surt: false, motiu: "amagada" });
       if (x.grup !== "tdg" && mitjans.has(String(x.mitja).toLowerCase())) return Object.assign({}, x, { surt: false, motiu: "mitjà amagat" });
       return Object.assign({}, x, { surt: true });
