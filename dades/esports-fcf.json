@@ -1169,10 +1169,10 @@
        "NOMBRE_FUERA": "BISBALENC, AT. A",
        "ESCUDO_FUERA": "00100_0000651530_atbisbalenc_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SANT JOAN LES FONTS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "0",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-15T17:30:00",
-       "CERRADA": "0",
+       "CERRADA": "1",
        "ESTADO": "0"
       }
      ],
