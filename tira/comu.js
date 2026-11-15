@@ -8,9 +8,9 @@
 // · candidats(): els titulars de La TdG (titulars.json) i la premsa local i
 //   generalista del darrer resum de La TdG redacció.
 // · carregaTria(): la tria feta a mà a tauler/tira/ (dades/tira.json).
-// · aplica(candidats, tria): el que surt a la tira: treu les notícies i els
-//   mitjans amagats, hi posa les notícies afegides a mà i deixa la premsa
-//   generalista en un màxim de 10.
+// · aplica(candidats, tria): el que surt a la tira: canvia el text de les
+//   notícies editades, treu les notícies i els mitjans amagats, hi posa les
+//   notícies afegides a mà i deixa la premsa generalista en un màxim de 10.
 // =============================================================================
 (() => {
   const BASE = "https://latdg.github.io/redaccio/dades/";
@@ -86,6 +86,7 @@
   }
   const normal = t => ({
     amagats: (t && Array.isArray(t.amagats) ? t.amagats : []).filter(x => x && x.clau),
+    editats: (t && Array.isArray(t.editats) ? t.editats : []).filter(x => x && x.clau && x.titol),
     mitjansAmagats: (t && Array.isArray(t.mitjansAmagats) ? t.mitjansAmagats : []).filter(Boolean),
     afegits: (t && Array.isArray(t.afegits) ? t.afegits : []).filter(x => x && x.titol && (!x.fins || x.fins >= avuiISO())),
     actualitzat: (t && t.actualitzat) || null
@@ -95,7 +96,10 @@
   function aplica(c, tria) {
     const amagats = new Set(tria.amagats.map(x => x.clau));
     const mitjans = new Set(tria.mitjansAmagats.map(m => m.toLowerCase()));
-    const decideix = x => {
+    const editats = new Map(tria.editats.map(e => [e.clau, e]));
+    const decideix = x0 => {
+      const e = editats.get(x0.clau);
+      const x = e ? Object.assign({}, x0, { titol: e.titol, original: x0.titol, ...(e.mitja != null && e.mitja !== "" ? { mitja: e.mitja } : {}) }) : x0;
       if (amagats.has(x.clau)) return Object.assign({}, x, { surt: false, motiu: "amagada" });
       if (x.grup !== "tdg" && mitjans.has(String(x.mitja).toLowerCase())) return Object.assign({}, x, { surt: false, motiu: "mitjà amagat" });
       return Object.assign({}, x, { surt: true });

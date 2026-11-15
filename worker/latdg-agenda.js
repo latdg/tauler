@@ -166,14 +166,14 @@ export default {
 
       // ---------------- TIRA DE TITULARS (15.11.2026) ----------------
       if (cos.accio === "tira-llegeix") {
-        const { dades, sha } = await gh.llegeix(TIRA.repo, TIRA.cami, { amagats: [], mitjansAmagats: [], afegits: [] });
+        const { dades, sha } = await gh.llegeix(TIRA.repo, TIRA.cami, { amagats: [], editats: [], mitjansAmagats: [], afegits: [] });
         return resposta({ ok: true, tria: dades, sha });
       }
 
       if (cos.accio === "tira-desa") {
         const tria = netejaTira(cos.tria);
         if (!tria) return resposta({ ok: false, error: "La tria de la tira té dades que no són vàlides." }, 400);
-        const sha = await gh.desa(TIRA.repo, TIRA.cami, tria, cos.sha, "Tira de titulars: " + tria.amagats.length + " amagades, " + tria.afegits.length + " afegides", "La TdG (tira)");
+        const sha = await gh.desa(TIRA.repo, TIRA.cami, tria, cos.sha, "Tira de titulars: " + tria.editats.length + " editades, " + tria.amagats.length + " amagades, " + tria.afegits.length + " afegides", "La TdG (tira)");
         return resposta({ ok: true, tria, sha });
       }
 
@@ -395,7 +395,7 @@ function netejaFonoteca(llista) {
   return surt;
 }
 
-// Tira de titulars (15.11.2026). Les notícies amagades es guarden amb el dia en
+// Tira de titulars (15.11.2026). Les notícies amagades i les editades es guarden amb el dia en
 // què es van amagar i se'n van soles al cap de 10 dies (ja no surten al resum).
 // Les afegides a mà poden tenir data de caducitat («fins»).
 function netejaTira(t) {
@@ -403,6 +403,8 @@ function netejaTira(t) {
   const txt = (v, max) => String(v == null ? "" : v).replace(/[\u0000-\u001f]/g, " ").trim().slice(0, max);
   const amagats = Array.isArray(t.amagats) ? t.amagats : [];
   const mitjans = Array.isArray(t.mitjansAmagats) ? t.mitjansAmagats : [];
+  const editats = Array.isArray(t.editats) ? t.editats : [];
+  if (editats.length > 2000) return null;
   const afegits = Array.isArray(t.afegits) ? t.afegits : [];
   if (amagats.length > 2000 || mitjans.length > 200 || afegits.length > 50) return null;
   const limit = new Date(Date.now() - 10 * 864e5).toISOString().slice(0, 10);
@@ -417,6 +419,15 @@ function netejaTira(t) {
     vistos.add(clau);
     nets.push({ clau, dia });
   }
+  const nousEditats = [], vistosE = new Set();
+  for (const a of editats) {
+    if (!a || typeof a !== "object") return null;
+    const clau = txt(a.clau, 400), dia = txt(a.dia, 10), titol = txt(a.titol, 300), mitja = txt(a.mitja, 60);
+    if (!clau || !titol || !/^\d{4}-\d{2}-\d{2}$/.test(dia)) return null;
+    if (dia < limit || vistosE.has(clau)) continue;
+    vistosE.add(clau);
+    nousEditats.push({ clau, dia, titol, ...(mitja ? { mitja } : {}) });
+  }
   const nousAfegits = [];
   for (const a of afegits) {
     if (!a || typeof a !== "object") return null;
@@ -430,6 +441,7 @@ function netejaTira(t) {
   return {
     actualitzat: new Date().toISOString(),
     amagats: nets,
+    editats: nousEditats,
     mitjansAmagats: [...new Set(mitjans.map(m => txt(m, 80)).filter(Boolean))],
     afegits: nousAfegits
   };

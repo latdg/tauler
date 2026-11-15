@@ -46,6 +46,12 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 .it.fora .tx a{color:var(--suau)}
 .motiu{display:inline-block;margin-left:6px;font-size:.75rem;color:var(--suau);text-decoration:none;font-style:italic}
 .it .x{padding:1px 9px;font-size:.85rem;background:var(--targeta);color:var(--text);border-color:var(--linia)}
+.it .ed{display:flex;flex-direction:column;gap:6px;flex:1 1 auto;min-width:0}
+.it .ed input,.it .ed textarea{width:100%;font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px}
+.it .ed textarea{resize:vertical;line-height:1.4}
+.it .ed .fila{gap:6px}
+.it .ed button{padding:3px 12px;font-size:.9rem}
+.orig{display:block;font-size:.78rem;color:var(--suau);text-decoration:none}
 .mitja-fora b{color:var(--suau);text-decoration:line-through}
 .barra{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--linia);padding:10px 16px;box-shadow:0 -4px 14px rgba(0,0,0,.06)}
 .barra .dins{max-width:900px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -61,7 +67,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 <body>
 <header>
   <div class="capcalera">
-    <h1>📰 Tira de titulars</h1>
+    <h1>📰 Editar la tira</h1>
     <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
   </div>
   <p class="sub" id="sub">Carregant…</p>
@@ -80,7 +86,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
       </div>
     </div>
     <div id="eines" hidden>
-      <p class="buit">Treu la marca de les notícies que no vols a la tira, o amaga tot un mitjà. Els canvis no queden fets fins que prems «Desa».</p>
+      <p class="buit">Amb ✏️ canvies el text d'una notícia tal com surt a la tira. Treu la marca de les que no vols, o amaga tot un mitjà. Els canvis no queden fets fins que prems «Desa».</p>
       <h2 style="margin-top:14px">➕ Afegir una notícia a mà</h2>
       <div class="camps">
         <label>Titular <input type="text" id="fTitol" maxlength="300" placeholder="El titular tal com ha de sortir"></label>
@@ -118,7 +124,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 </div>
 <datalist id="mitjans"></datalist>
 
-<script src="comu.js?v=1"></script>
+<script src="comu.js?v=2"></script>
 <script>
 const WORKER = "https://latdg-agenda.ignasicorney.workers.dev";
 const CLAU_DESADA = "llampsPin";   // la mateixa clau que es desa a la pàgina dels llamps
@@ -132,7 +138,7 @@ const dataCa = iso => String(iso || "").split("-").reverse().join(".");
 const quan = iso => { const d = new Date(iso); return dos(d.getDate()) + "." + dos(d.getMonth() + 1) + "." + d.getFullYear() + " a les " + dos(d.getHours()) + "." + dos(d.getMinutes()) + " h"; };
 const copia = o => JSON.parse(JSON.stringify(o));
 
-let CAND = null, DESADA = null, TRIA = null, SHA = null, PIN = "", EDITANT = false;
+let CAND = null, DESADA = null, TRIA = null, SHA = null, PIN = "", EDITANT = false, EDIT = null;
 $("maxGen").textContent = TiraTdG.MAX_GEN;
 
 const iguals = () => JSON.stringify(TRIA) === JSON.stringify(DESADA);
@@ -143,32 +149,49 @@ function nCanvis() {
   a.forEach(k => { if (!b.has(k)) n++; }); b.forEach(k => { if (!a.has(k)) n++; });
   const ma = new Set(DESADA.mitjansAmagats), mb = new Set(TRIA.mitjansAmagats);
   ma.forEach(k => { if (!mb.has(k)) n++; }); mb.forEach(k => { if (!ma.has(k)) n++; });
-  const fa = new Set(DESADA.afegits.map(x => x.id)), fb = new Set(TRIA.afegits.map(x => x.id));
-  fa.forEach(k => { if (!fb.has(k)) n++; }); fb.forEach(k => { if (!fa.has(k)) n++; });
+  const sig = l => new Set(l.map(x => JSON.stringify([x.id || x.clau, x.titol, x.mitja || "", x.url || "", x.fins || ""])));
+  [[DESADA.afegits, TRIA.afegits], [DESADA.editats, TRIA.editats]].forEach(([l1, l2]) => {
+    const fa = sig(l1), fb = sig(l2);
+    fa.forEach(k => { if (!fb.has(k)) n++; }); fb.forEach(k => { if (!fa.has(k)) n++; });
+  });
   return n;
 }
 
+function editor(clauEdit, x, ambUrl) {
+  return '<div class="it"><div class="ed" data-ed="' + esc(clauEdit) + '">' +
+    '<textarea class="eT" maxlength="300" rows="3" aria-label="Titular">' + esc(x.titol) + "</textarea>" +
+    '<input type="text" class="eM" maxlength="60" value="' + esc(x.mitja || "") + '" placeholder="Mitjà (si en té)" list="mitjans" aria-label="Mitjà">' +
+    (ambUrl ? '<input type="url" class="eU" maxlength="600" value="' + esc(x.url || "") + '" placeholder="Enllaç (si en té)" aria-label="Enllaç">' : "") +
+    (x.original ? '<span class="orig">Original: ' + esc(x.original) + "</span>" : "") +
+    '<div class="fila"><button type="button" data-ok>D\'acord</button><button type="button" class="suau" data-cancel>Cancel·la</button>' +
+    (x.original ? '<button type="button" class="suau" data-original>Torna a l\'original</button>' : "") + "</div></div></div>";
+}
+
 function fila(x, mostraMitja) {
+  if (EDITANT && x.grup === "afegit" && EDIT === "a:" + x.id) return editor(EDIT, x, true);
+  if (EDITANT && x.grup !== "afegit" && EDIT === "c:" + x.clau) return editor(EDIT, x, false);
+  const llapis = EDITANT ? '<button type="button" class="x" data-edita="' + esc(x.grup === "afegit" ? "a:" + x.id : "c:" + x.clau) + '" title="Edita el text">✏️</button>' : "";
   const titol = x.url ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.titol) + "</a>" : esc(x.titol);
   const mitja = mostraMitja && x.mitja ? "<b style=\"color:#a81116\">" + esc(x.mitja) + " ·</b> " : "";
-  const motiu = !x.surt && x.motiu ? '<span class="motiu">(' + esc(x.motiu) + ")</span>" : "";
+  const motiu = (x.original ? '<span class="motiu" title="Original: ' + esc(x.original) + '">(editada)</span>' : "") +
+    (!x.surt && x.motiu ? '<span class="motiu">(' + esc(x.motiu) + ")</span>" : "");
   if (x.grup === "afegit") {
     return '<div class="it"><span class="tx">' + mitja + titol + (x.fins ? '<span class="motiu">fins al ' + dataCa(x.fins) + "</span>" : "") + "</span>" +
-      (EDITANT ? '<button type="button" class="x" data-treu="' + esc(x.id) + '" title="Treu-la">✕</button>' : "") + "</div>";
+      llapis + (EDITANT ? '<button type="button" class="x" data-treu="' + esc(x.id) + '" title="Treu-la">✕</button>' : "") + "</div>";
   }
   const marcat = !TRIA.amagats.some(a => a.clau === x.clau);
   return '<div class="it' + (x.surt ? "" : " fora") + '"><input type="checkbox" data-clau="' + esc(x.clau) + '"' + (marcat ? " checked" : "") +
-    (EDITANT ? "" : " disabled") + ' aria-label="Surt a la tira"><span class="tx">' + mitja + titol + motiu + "</span></div>";
+    (EDITANT ? "" : " disabled") + ' aria-label="Surt a la tira"><span class="tx">' + mitja + titol + motiu + "</span>" + llapis + "</div>";
 }
 
 function perMitja(llista) {
   if (!llista.length) return '<p class="buit">No n\'hi ha cap al darrer resum.</p>';
   const grups = [];
-  llista.forEach(x => { let g = grups.find(y => y.mitja === x.mitja); if (!g) grups.push(g = { mitja: x.mitja, items: [] }); g.items.push(x); });
+  llista.forEach(x => { let g = grups.find(y => y.mitja === x.mitjaOriginal); if (!g) grups.push(g = { mitja: x.mitjaOriginal, items: [] }); g.items.push(x); });
   return grups.map(g => {
     const amagat = TRIA.mitjansAmagats.some(m => m.toLowerCase() === String(g.mitja).toLowerCase());
     const boto = EDITANT ? '<button type="button" class="suau" data-mitja="' + esc(g.mitja) + '">' + (amagat ? "Torna'l a mostrar" : "Amaga tot el mitjà") + "</button>" : (amagat ? '<span class="motiu">(mitjà amagat)</span>' : "");
-    return '<div class="mitja' + (amagat ? " mitja-fora" : "") + '"><b>' + esc(g.mitja) + "</b>" + boto + "</div>" + g.items.map(x => fila(x, false)).join("");
+    return '<div class="mitja' + (amagat ? " mitja-fora" : "") + '"><b>' + esc(g.mitja) + "</b>" + boto + "</div>" + g.items.map(x => fila(x, x.mitja !== x.mitjaOriginal)).join("");
   }).join("");
 }
 
@@ -176,10 +199,12 @@ function pinta() {
   if (!CAND || !TRIA) return;
   const tria = Object.assign({}, TRIA, { afegits: TRIA.afegits.filter(x => !x.fins || x.fins >= avuiISO()) });
   const r = TiraTdG.aplica(CAND, tria);
+  const orig = new Map(CAND.tdg.concat(CAND.local, CAND.gen).map(x => [x.clau, x.mitja]));
+  ["tdg", "local", "gen"].forEach(g => r[g].forEach(x => { x.mitjaOriginal = orig.get(x.clau); }));
   r.afegits = r.afegits.map((x, i) => Object.assign(x, { fins: tria.afegits[i].fins }));
   $("sAfegits").hidden = !r.afegits.length;
   $("lAfegits").innerHTML = r.afegits.map(x => fila(x, true)).join("");
-  $("lTdg").innerHTML = r.tdg.length ? r.tdg.map(x => fila(x, false)).join("") : '<p class="buit">Avui no n\'hi ha.</p>';
+  $("lTdg").innerHTML = r.tdg.length ? r.tdg.map(x => fila(x, x.mitja !== x.mitjaOriginal)).join("") : '<p class="buit">Avui no n\'hi ha.</p>';
   $("lLocal").innerHTML = perMitja(r.local);
   $("lGen").innerHTML = perMitja(r.gen);
   const [a, b] = TiraTdG.tira(r), totes = a.concat(b);
@@ -211,7 +236,7 @@ async function crida(cos) {
 }
 const normal = t => ({
   actualitzat: t && t.actualitzat || null,
-  amagats: (t && t.amagats) || [], mitjansAmagats: (t && t.mitjansAmagats) || [], afegits: (t && t.afegits) || []
+  amagats: (t && t.amagats) || [], editats: (t && t.editats) || [], mitjansAmagats: (t && t.mitjansAmagats) || [], afegits: (t && t.afegits) || []
 });
 const errText = e => e instanceof TypeError ? "No s'ha pogut connectar amb el Worker." : e.message;
 
@@ -238,7 +263,7 @@ async function desa() {
   $("estat").textContent = "Desant…";
   try {
     const d = await crida({ accio: "tira-desa", tria: TRIA, sha: SHA });
-    DESADA = normal(d.tria); TRIA = copia(DESADA); SHA = d.sha;
+    DESADA = normal(d.tria); TRIA = copia(DESADA); SHA = d.sha; EDIT = null;
     $("estat").textContent = "✅ Desat. A La TdG ampliada es veu en pocs minuts (o en recarregar-la).";
     pinta();
   } catch (e) {
@@ -262,6 +287,8 @@ document.addEventListener("change", e => {
   pinta();
 });
 document.addEventListener("click", e => {
+  const ed = e.target.closest("button[data-edita],button[data-ok],button[data-cancel],button[data-original]");
+  if (ed && EDITANT) { editaClic(ed); return; }
   const b = e.target.closest("button[data-mitja],button[data-treu]");
   if (!b || !EDITANT) return;
   if (b.dataset.mitja) {
@@ -270,6 +297,36 @@ document.addEventListener("click", e => {
   }
   if (b.dataset.treu) TRIA.afegits = TRIA.afegits.filter(x => x.id !== b.dataset.treu);
   pinta();
+});
+function editaClic(b) {
+  if (b.dataset.edita) { EDIT = b.dataset.edita; pinta(); const i = document.querySelector(".ed .eT"); if (i) i.focus(); return; }
+  const caixa = b.closest(".ed"), k = caixa.dataset.ed;
+  if (b.hasAttribute("data-cancel")) { EDIT = null; pinta(); return; }
+  const tipus = k.slice(0, 2), id = k.slice(2);
+  if (tipus === "c:") {
+    const o = CAND.tdg.concat(CAND.local, CAND.gen).find(x => x.clau === id);
+    const abans = TRIA.editats.find(x => x.clau === id);
+    TRIA.editats = TRIA.editats.filter(x => x.clau !== id);
+    if (!b.hasAttribute("data-original")) {
+      const titol = caixa.querySelector(".eT").value.trim(), mitja = caixa.querySelector(".eM").value.trim();
+      if (!titol) { $("estat").textContent = "El titular no pot quedar buit (per treure'l, desmarca'l)."; TRIA.editats.push(...(abans ? [abans] : [])); return; }
+      const canviaMitja = o && mitja !== o.mitja;
+      if (!o || titol !== o.titol || canviaMitja) TRIA.editats.push({ clau: id, dia: abans ? abans.dia : avuiISO(), titol, ...(canviaMitja ? { mitja } : {}) });
+    }
+  } else {
+    const a = TRIA.afegits.find(x => x.id === id);
+    const titol = caixa.querySelector(".eT").value.trim(), url = caixa.querySelector(".eU").value.trim();
+    if (!titol) { $("estat").textContent = "El titular no pot quedar buit."; return; }
+    if (url && !/^https?:\/\/\S+$/i.test(url)) { $("estat").textContent = "L'enllaç ha de començar per https://"; return; }
+    a.titol = titol; a.mitja = caixa.querySelector(".eM").value.trim();
+    if (url) a.url = url; else delete a.url;
+  }
+  EDIT = null; $("estat").textContent = ""; pinta();
+}
+document.addEventListener("keydown", e => {
+  if (!e.target.closest || !e.target.closest(".ed")) return;
+  if (e.key === "Enter") { e.preventDefault(); e.target.closest(".ed").querySelector("[data-ok]").click(); }
+  if (e.key === "Escape") { EDIT = null; pinta(); }
 });
 $("afegeix").onclick = () => {
   const titol = $("fTitol").value.trim(), url = $("fUrl").value.trim(), fins = $("fFins").value;
@@ -281,7 +338,7 @@ $("afegeix").onclick = () => {
   pinta();
 };
 $("desa").onclick = desa;
-$("desfes").onclick = () => { TRIA = copia(DESADA); $("estat").textContent = ""; pinta(); };
+$("desfes").onclick = () => { TRIA = copia(DESADA); EDIT = null; $("estat").textContent = ""; pinta(); };
 $("obre").onclick = () => { $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };
 $("entra").onclick = entra;
 $("pin").onkeydown = e => { if (e.key === "Enter") entra(); };
