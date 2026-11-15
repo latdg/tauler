@@ -1210,8 +1210,8 @@ RECARREGA_REGISTRES_NOUS = None  # els baixats ara, per guardar-los
 # 05.11.2026: punts afegits a mà per La TdG (no surten a cap registre).
 # «lliure»: False si no són d'accés lliure.
 RECARREGA_MANUALS = [
-    {"m": "La Bisbal d'Empordà", "n": "Supermercat Amatller Origen", "la": 41.969722, "lo": 3.031667, "lliure": True,
-     "t": "- Supermercat Amatller Origen: 1 carregador amb 2 punts de recàrrega, de lliure accés per als clients."},
+    {"m": "La Bisbal d'Empordà", "n": "Supermercat Ametller Origen", "la": 41.969722, "lo": 3.031667, "lliure": True,
+     "t": "- Supermercat Ametller Origen: 1 carregador amb 2 punts de recàrrega, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Mercadona", "la": 41.971111, "lo": 3.030833, "lliure": True,
      "t": "- Supermercat Mercadona: 2 carregadors amb 2 punts de recàrrega cadascun, de lliure accés per als clients."},
     {"m": "La Bisbal d'Empordà", "n": "Supermercat Condis", "la": 41.970000, "lo": 3.030278, "lliure": True,
