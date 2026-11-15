@@ -1247,12 +1247,22 @@ RECARREGA_MANUALS = [
 # 05.11.2026: posició corregida (segons Google Maps) dels punts que els registres
 # situen malament. Clau: text que apareix a la línia del punt (sense accents, en minúscules).
 RECARREGA_POSICIONS = {
-    "romaguera": (42.002560, 3.066952),      # Ullastret, c. Josep Romaguera i Vila, 1
+    "romaguera": (42.002560, 3.066952),      # Ullastret, c. Josep Romaguera Vila, 1
+}
+
+
+# 15.11.2026: noms i adreces que els registres escriuen malament (regex: text correcte).
+RECARREGA_TEXTOS = {
+    r"\bC\. Josep Romaguera I Vila\b": "c. Josep Romaguera Vila",
 }
 
 
 def recarrega_corregeix(llista):
     for p in llista:
+        for camp in ("t", "n", "d"):
+            if isinstance(p.get(camp), str):
+                for mal, be in RECARREGA_TEXTOS.items():
+                    p[camp] = re.sub(mal, be, p[camp], flags=re.I)
         t = norm_minuscules(p.get("t", ""))
         for clau, (la, lo) in RECARREGA_POSICIONS.items():
             if clau in t:
