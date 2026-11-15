@@ -56,10 +56,17 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 .barra{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--linia);padding:10px 16px;box-shadow:0 -4px 14px rgba(0,0,0,.06)}
 .barra .dins{max-width:900px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .barra .n{color:var(--suau);font-size:.9rem;margin-right:auto}
-.prev{display:flex;border:1px solid var(--linia);border-radius:10px;overflow:hidden;font-size:.9rem;background:#fbfaf7}
-.prev .t{flex:0 0 auto;display:flex;align-items:center;padding:0 10px;background:var(--vermell);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.prev .p{padding:7px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.prev .p b{color:#a81116;margin-right:4px}
+/* 15.11.2026: la vista prèvia es mou com la tira de La TdG ampliada (mateix estil) */
+.prev{display:flex;align-items:stretch;border:1px solid var(--linia);border-radius:10px;background:#fbfaf7;overflow:hidden;font-size:.92rem;min-width:0}
+.prev .t{flex:0 0 auto;display:flex;align-items:center;padding:0 12px;background:var(--vermell);color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.prev .marc{flex:1 1 auto;min-width:0;overflow:hidden;position:relative}
+.prev .pista{display:inline-flex;white-space:nowrap;padding:7px 0 7px 12px;animation:tira-corre var(--tira-durada,120s) linear infinite}
+.prev:hover .pista{animation-play-state:paused}
+@keyframes tira-corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.prev .grup{display:inline-flex;align-items:center;padding-right:28px}
+.prev .it2{margin-right:22px;color:var(--text)}
+.prev .it2 b{font-weight:700;margin-right:4px;color:#a81116}
+.prev .it2 b::after{content:" ·"}
 </style>
 <!-- Visites (GoatCounter, sense galetes) · 01.11.2026 -->
 <script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -104,7 +111,7 @@ section{background:var(--targeta);border:1px solid var(--linia);border-radius:12
 
   <section>
     <h2>Com es veu ara</h2>
-    <div class="prev"><span class="t">Últimes notícies</span><span class="p" id="prev">…</span></div>
+    <div class="prev"><span class="t">Últimes notícies</span><div class="marc"><div class="pista" id="prev">…</div></div></div>
     <p class="font">La tira passa per ordre: les afegides a mà, els titulars de La TdG, la premsa local i la premsa generalista (un màxim de <span id="maxGen">10</span>).</p>
   </section>
 
@@ -208,7 +215,14 @@ function pinta() {
   $("lLocal").innerHTML = perMitja(r.local);
   $("lGen").innerHTML = perMitja(r.gen);
   const [a, b] = TiraTdG.tira(r), totes = a.concat(b);
-  $("prev").innerHTML = totes.length ? totes.slice(0, 4).map(x => (x.mitja ? "<b>" + esc(x.mitja) + "</b>" : "") + esc(x.titol)).join(" &nbsp;·&nbsp; ") + (totes.length > 4 ? " …" : "") : "<i>La tira no surt: no hi ha cap notícia marcada.</i>";
+  const grupPrev = l => l.length ? '<span class="grup">' + l.map(x => '<span class="it2">' + (x.mitja ? "<b>" + esc(x.mitja) + "</b>" : "") + esc(x.titol) + "</span>").join("") + "</span>" : "";
+  const h = grupPrev(a) + grupPrev(b);
+  if (!h) { $("prev").style.animation = "none"; $("prev").innerHTML = "<i>La tira no surt: no hi ha cap notícia marcada.</i>"; }
+  else {
+    $("prev").style.animation = "";
+    $("prev").innerHTML = '<span style="display:inline-flex">' + h + '</span><span aria-hidden="true" style="display:inline-flex">' + h + "</span>";
+    requestAnimationFrame(() => $("prev").style.setProperty("--tira-durada", Math.max(30, Math.round($("prev").scrollWidth / 2 / 60)) + "s"));
+  }
   $("sub").textContent = "Notícies del resum del " + dataCa(CAND.dia) + " · " + totes.length + " surten a la tira" +
     (DESADA && DESADA.actualitzat ? " · tria desada el " + quan(DESADA.actualitzat) : "");
   const mitjans = new Set(CAND.local.concat(CAND.gen).map(x => x.mitja).concat(["La TdG"]));
