@@ -773,7 +773,7 @@ async function carregaEsports() {
     if (cosP) cosP.innerHTML = '<div class="esp-graella">' + d.equips.map(e => {
       const jugats = e.partits.filter(p => p.resultat && p.data);
       const darrer = jugats[jugats.length - 1];
-      const proper = e.partits.find(p => p.data && p.data >= avuiIso && !p.resultat && !/descans/i.test(p.rival));
+      const proper = e.partits.find(p => p.data && p.data >= avuiIso && !p.resultat && !/descans/i.test(p.rival) && !/susp[eè]s|ajornat/i.test(p.estat || "")); // 15.11.2026: els suspesos i ajornats no es queden com a pròxim
       const g = darrer ? esportsGuanyat(darrer.resultat) : "";
       return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
         <p class="font dalt">${esc(e.categoria)}</p>` +
