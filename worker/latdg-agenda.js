@@ -15,6 +15,10 @@
 //    s'entren a mà (dades/esports-manual.json del repo latdg/tauler) des de la
 //    pàgina latdg.github.io/tauler/esports/.
 //
+// 5) TIRA DE TITULARS (afegit el 15.11.2026): desa la tria de les notícies que
+//    surten a la tira «Últimes notícies» de La TdG ampliada (dades/tira.json
+//    del repo latdg/tauler) des de la pàgina latdg.github.io/tauler/tira/.
+//
 // Sempre amb la mateixa clau que els llamps.
 //
 // Variables secretes del Worker (Settings > Variables and Secrets):
@@ -33,6 +37,8 @@
 //   { accio: "esports-fcf-desa", fcf }           → desa dades/esports-fcf.json (09.11.2026)
 //   { accio: "fonoteca-llegeix" }                 → { fonoteca, sha }   (05.11.2026)
 //   { accio: "fonoteca-desa", fonoteca, sha }     → desa dades/fonoteca.json
+//   { accio: "tira-llegeix" }                     → { tria, sha }       (15.11.2026)
+//   { accio: "tira-desa", tria, sha }             → desa dades/tira.json
 // Si algú altre ha desat entremig (el sha no coincideix), respon 409.
 // =============================================================================
 
@@ -40,6 +46,7 @@ const AGENDA = { repo: "latdg/tauler", cami: "dades/agenda.json" };
 const NOTICIES_REPO = "latdg/noticies";
 const ESPORTS = { repo: "latdg/tauler", cami: "dades/esports-manual.json" };
 const FONOTECA = { repo: "latdg/tauler", cami: "dades/fonoteca.json" };
+const TIRA = { repo: "latdg/tauler", cami: "dades/tira.json" };   // 15.11.2026
 const FCF = { repo: "latdg/tauler", cami: "dades/esports-fcf.json" };   // 09.11.2026
 const GRUPS_FCF = ["58161863", "58161891", "58161893", "58162320"];
 const EQUIPS_ESPORTS = ["atletic_bisbalenc", "monells_a", "monells_b", "la_pera", "la_pera_femeni", "sol_girones", "sol_girones_sots25"];
@@ -155,6 +162,19 @@ export default {
         const fonoteca = { actualitzat: new Date().toISOString(), audios: audios.sort((a, b) => (b.data + b.fitxer).localeCompare(a.data + a.fitxer)) };
         const sha = await gh.desa(FONOTECA.repo, FONOTECA.cami, fonoteca, cos.sha, "Fonoteca (" + audios.length + " fitxes)", "La TdG (fonoteca)");
         return resposta({ ok: true, fonoteca, sha });
+      }
+
+      // ---------------- TIRA DE TITULARS (15.11.2026) ----------------
+      if (cos.accio === "tira-llegeix") {
+        const { dades, sha } = await gh.llegeix(TIRA.repo, TIRA.cami, { amagats: [], mitjansAmagats: [], afegits: [] });
+        return resposta({ ok: true, tria: dades, sha });
+      }
+
+      if (cos.accio === "tira-desa") {
+        const tria = netejaTira(cos.tria);
+        if (!tria) return resposta({ ok: false, error: "La tria de la tira té dades que no són vàlides." }, 400);
+        const sha = await gh.desa(TIRA.repo, TIRA.cami, tria, cos.sha, "Tira de titulars: " + tria.amagats.length + " amagades, " + tria.afegits.length + " afegides", "La TdG (tira)");
+        return resposta({ ok: true, tria, sha });
       }
 
       return resposta({ ok: false, error: "Acció desconeguda" }, 400);
@@ -373,4 +393,44 @@ function netejaFonoteca(llista) {
     });
   }
   return surt;
+}
+
+// Tira de titulars (15.11.2026). Les notícies amagades es guarden amb el dia en
+// què es van amagar i se'n van soles al cap de 10 dies (ja no surten al resum).
+// Les afegides a mà poden tenir data de caducitat («fins»).
+function netejaTira(t) {
+  if (!t || typeof t !== "object") return null;
+  const txt = (v, max) => String(v == null ? "" : v).replace(/[\u0000-\u001f]/g, " ").trim().slice(0, max);
+  const amagats = Array.isArray(t.amagats) ? t.amagats : [];
+  const mitjans = Array.isArray(t.mitjansAmagats) ? t.mitjansAmagats : [];
+  const afegits = Array.isArray(t.afegits) ? t.afegits : [];
+  if (amagats.length > 2000 || mitjans.length > 200 || afegits.length > 50) return null;
+  const limit = new Date(Date.now() - 10 * 864e5).toISOString().slice(0, 10);
+  const avui = new Date().toISOString().slice(0, 10);
+  const vistos = new Set();
+  const nets = [];
+  for (const a of amagats) {
+    if (!a || typeof a !== "object") return null;
+    const clau = txt(a.clau, 400), dia = txt(a.dia, 10);
+    if (!clau || !/^\d{4}-\d{2}-\d{2}$/.test(dia)) return null;
+    if (dia < limit || vistos.has(clau)) continue;
+    vistos.add(clau);
+    nets.push({ clau, dia });
+  }
+  const nousAfegits = [];
+  for (const a of afegits) {
+    if (!a || typeof a !== "object") return null;
+    const titol = txt(a.titol, 300), url = txt(a.url, 600), fins = txt(a.fins, 10);
+    if (!titol) continue;
+    if (url && !/^https?:\/\/\S+$/i.test(url)) return null;
+    if (fins && !/^\d{4}-\d{2}-\d{2}$/.test(fins)) return null;
+    if (fins && fins < avui) continue;
+    nousAfegits.push({ id: txt(a.id, 20) || Math.random().toString(36).slice(2, 12), mitja: txt(a.mitja, 60), titol, ...(url ? { url } : {}), ...(fins ? { fins } : {}) });
+  }
+  return {
+    actualitzat: new Date().toISOString(),
+    amagats: nets,
+    mitjansAmagats: [...new Set(mitjans.map(m => txt(m, 80)).filter(Boolean))],
+    afegits: nousAfegits
+  };
 }

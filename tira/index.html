@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Tira de titulars</title>
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c;--vermell:#c8102e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:80px}
+header,main{max-width:900px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+.capcalera{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
+h2{margin:0 0 10px;font-size:1.1rem}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+input,button{font:inherit;padding:6px 10px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text)}
+button{background:var(--accent);color:#fff;border-color:var(--accent);cursor:pointer}
+button.suau{background:var(--targeta);color:var(--accent)}
+button:disabled{opacity:.5;cursor:default}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.fila{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.camps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:10px}
+.camps label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--suau)}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+.buit{color:var(--suau);margin:0}
+#gestio{border-color:var(--accent)}
+#estat{font-size:.9rem;color:var(--suau);margin:8px 0 0}
+#estat:empty{display:none}
+[hidden]{display:none !important}
+.mitja{margin:14px 0 4px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.95rem}
+.mitja:first-child{margin-top:0}
+.mitja b{color:#a81116}
+.mitja button{padding:1px 10px;font-size:.8rem;border-radius:999px}
+.it{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--linia)}
+.it:first-of-type{border-top:0}
+.it input[type=checkbox]{width:20px;height:20px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--vermell)}
+.it .tx{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.it .tx a{color:var(--text);text-decoration:none}
+.it .tx a:hover{text-decoration:underline}
+.it.fora .tx{color:var(--suau);text-decoration:line-through}
+.it.fora .tx a{color:var(--suau)}
+.motiu{display:inline-block;margin-left:6px;font-size:.75rem;color:var(--suau);text-decoration:none;font-style:italic}
+.it .x{padding:1px 9px;font-size:.85rem;background:var(--targeta);color:var(--text);border-color:var(--linia)}
+.mitja-fora b{color:var(--suau);text-decoration:line-through}
+.barra{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--linia);padding:10px 16px;box-shadow:0 -4px 14px rgba(0,0,0,.06)}
+.barra .dins{max-width:900px;margin:0 auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.barra .n{color:var(--suau);font-size:.9rem;margin-right:auto}
+.prev{display:flex;border:1px solid var(--linia);border-radius:10px;overflow:hidden;font-size:.9rem;background:#fbfaf7}
+.prev .t{flex:0 0 auto;display:flex;align-items:center;padding:0 10px;background:var(--vermell);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.prev .p{padding:7px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.prev .p b{color:#a81116;margin-right:4px}
+</style>
+<!-- Visites (GoatCounter, sense galetes) · 01.11.2026 -->
+<script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header>
+  <div class="capcalera">
+    <h1>📰 Tira de titulars</h1>
+    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+  </div>
+  <p class="sub" id="sub">Carregant…</p>
+</header>
+<main>
+  <!-- Per triar què surt a la tira cal la clau (la mateixa dels llamps i de l'agenda). -->
+  <section id="gestio">
+    <div class="fila" id="entrada">
+      <button type="button" id="obre" class="suau">🔒 Triar les notícies (amb clau)</button>
+    </div>
+    <div id="clau" hidden>
+      <div class="fila">
+        <input type="password" id="pin" placeholder="Clau" autocomplete="current-password" size="10">
+        <button type="button" id="entra">Entra</button>
+        <label class="fila" style="gap:4px"><input type="checkbox" id="recorda"> Recorda la clau en aquest navegador</label>
+      </div>
+    </div>
+    <div id="eines" hidden>
+      <p class="buit">Treu la marca de les notícies que no vols a la tira, o amaga tot un mitjà. Els canvis no queden fets fins que prems «Desa».</p>
+      <h2 style="margin-top:14px">➕ Afegir una notícia a mà</h2>
+      <div class="camps">
+        <label>Titular <input type="text" id="fTitol" maxlength="300" placeholder="El titular tal com ha de sortir"></label>
+        <label>Mitjà (si en té) <input type="text" id="fMitja" maxlength="60" placeholder="La TdG, Diari de Girona…" list="mitjans"></label>
+        <label>Enllaç (si en té) <input type="url" id="fUrl" maxlength="600" placeholder="https://…"></label>
+        <label>Fins al dia (si cal) <input type="date" id="fFins"></label>
+      </div>
+      <div class="fila">
+        <button type="button" id="afegeix" class="suau">Afegeix a la llista</button>
+        <button type="button" id="oblida" class="suau" style="margin-left:auto">Oblida la clau</button>
+      </div>
+    </div>
+    <p id="estat"></p>
+  </section>
+
+  <section>
+    <h2>Com es veu ara</h2>
+    <div class="prev"><span class="t">Últimes notícies</span><span class="p" id="prev">…</span></div>
+    <p class="font">La tira passa per ordre: les afegides a mà, els titulars de La TdG, la premsa local i la premsa generalista (un màxim de <span id="maxGen">10</span>).</p>
+  </section>
+
+  <section id="sAfegits" hidden><h2>✍️ Afegides a mà</h2><div id="lAfegits"></div></section>
+  <section><h2>🗼 Titulars de La TdG</h2><div id="lTdg"><p class="buit">Carregant…</p></div></section>
+  <section><h2>📍 Premsa local</h2><div id="lLocal"><p class="buit">Carregant…</p></div></section>
+  <section><h2>🗞️ Premsa generalista</h2><div id="lGen"><p class="buit">Carregant…</p></div></section>
+  <p class="font">Les notícies surten del darrer resum de <a href="https://latdg.github.io/redaccio/">La TdG redacció</a>. Les que amagues aquí deixen de sortir a <a href="../">La TdG ampliada</a> en pocs minuts; queden amagades 10 dies i després la llista es neteja sola.</p>
+</main>
+
+<div class="barra" id="barra" hidden>
+  <div class="dins">
+    <span class="n" id="canvis">Cap canvi</span>
+    <button type="button" id="desfes" class="suau" disabled>Desfés</button>
+    <button type="button" id="desa" disabled>Desa</button>
+  </div>
+</div>
+<datalist id="mitjans"></datalist>
+
+<script src="comu.js?v=1"></script>
+<script>
+const WORKER = "https://latdg-agenda.ignasicorney.workers.dev";
+const CLAU_DESADA = "llampsPin";   // la mateixa clau que es desa a la pàgina dels llamps
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const llegeix = k => { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } };
+const escriu = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+const dos = n => String(n).padStart(2, "0");
+const avuiISO = () => { const d = new Date(); return d.getFullYear() + "-" + dos(d.getMonth() + 1) + "-" + dos(d.getDate()); };
+const dataCa = iso => String(iso || "").split("-").reverse().join(".");
+const quan = iso => { const d = new Date(iso); return dos(d.getDate()) + "." + dos(d.getMonth() + 1) + "." + d.getFullYear() + " a les " + dos(d.getHours()) + "." + dos(d.getMinutes()) + " h"; };
+const copia = o => JSON.parse(JSON.stringify(o));
+
+let CAND = null, DESADA = null, TRIA = null, SHA = null, PIN = "", EDITANT = false;
+$("maxGen").textContent = TiraTdG.MAX_GEN;
+
+const iguals = () => JSON.stringify(TRIA) === JSON.stringify(DESADA);
+function nCanvis() {
+  if (!TRIA || !DESADA) return 0;
+  const a = new Set(DESADA.amagats.map(x => x.clau)), b = new Set(TRIA.amagats.map(x => x.clau));
+  let n = 0;
+  a.forEach(k => { if (!b.has(k)) n++; }); b.forEach(k => { if (!a.has(k)) n++; });
+  const ma = new Set(DESADA.mitjansAmagats), mb = new Set(TRIA.mitjansAmagats);
+  ma.forEach(k => { if (!mb.has(k)) n++; }); mb.forEach(k => { if (!ma.has(k)) n++; });
+  const fa = new Set(DESADA.afegits.map(x => x.id)), fb = new Set(TRIA.afegits.map(x => x.id));
+  fa.forEach(k => { if (!fb.has(k)) n++; }); fb.forEach(k => { if (!fa.has(k)) n++; });
+  return n;
+}
+
+function fila(x, mostraMitja) {
+  const titol = x.url ? '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.titol) + "</a>" : esc(x.titol);
+  const mitja = mostraMitja && x.mitja ? "<b style=\"color:#a81116\">" + esc(x.mitja) + " ·</b> " : "";
+  const motiu = !x.surt && x.motiu ? '<span class="motiu">(' + esc(x.motiu) + ")</span>" : "";
+  if (x.grup === "afegit") {
+    return '<div class="it"><span class="tx">' + mitja + titol + (x.fins ? '<span class="motiu">fins al ' + dataCa(x.fins) + "</span>" : "") + "</span>" +
+      (EDITANT ? '<button type="button" class="x" data-treu="' + esc(x.id) + '" title="Treu-la">✕</button>' : "") + "</div>";
+  }
+  const marcat = !TRIA.amagats.some(a => a.clau === x.clau);
+  return '<div class="it' + (x.surt ? "" : " fora") + '"><input type="checkbox" data-clau="' + esc(x.clau) + '"' + (marcat ? " checked" : "") +
+    (EDITANT ? "" : " disabled") + ' aria-label="Surt a la tira"><span class="tx">' + mitja + titol + motiu + "</span></div>";
+}
+
+function perMitja(llista) {
+  if (!llista.length) return '<p class="buit">No n\'hi ha cap al darrer resum.</p>';
+  const grups = [];
+  llista.forEach(x => { let g = grups.find(y => y.mitja === x.mitja); if (!g) grups.push(g = { mitja: x.mitja, items: [] }); g.items.push(x); });
+  return grups.map(g => {
+    const amagat = TRIA.mitjansAmagats.some(m => m.toLowerCase() === String(g.mitja).toLowerCase());
+    const boto = EDITANT ? '<button type="button" class="suau" data-mitja="' + esc(g.mitja) + '">' + (amagat ? "Torna'l a mostrar" : "Amaga tot el mitjà") + "</button>" : (amagat ? '<span class="motiu">(mitjà amagat)</span>' : "");
+    return '<div class="mitja' + (amagat ? " mitja-fora" : "") + '"><b>' + esc(g.mitja) + "</b>" + boto + "</div>" + g.items.map(x => fila(x, false)).join("");
+  }).join("");
+}
+
+function pinta() {
+  if (!CAND || !TRIA) return;
+  const tria = Object.assign({}, TRIA, { afegits: TRIA.afegits.filter(x => !x.fins || x.fins >= avuiISO()) });
+  const r = TiraTdG.aplica(CAND, tria);
+  r.afegits = r.afegits.map((x, i) => Object.assign(x, { fins: tria.afegits[i].fins }));
+  $("sAfegits").hidden = !r.afegits.length;
+  $("lAfegits").innerHTML = r.afegits.map(x => fila(x, true)).join("");
+  $("lTdg").innerHTML = r.tdg.length ? r.tdg.map(x => fila(x, false)).join("") : '<p class="buit">Avui no n\'hi ha.</p>';
+  $("lLocal").innerHTML = perMitja(r.local);
+  $("lGen").innerHTML = perMitja(r.gen);
+  const [a, b] = TiraTdG.tira(r), totes = a.concat(b);
+  $("prev").innerHTML = totes.length ? totes.slice(0, 4).map(x => (x.mitja ? "<b>" + esc(x.mitja) + "</b>" : "") + esc(x.titol)).join(" &nbsp;·&nbsp; ") + (totes.length > 4 ? " …" : "") : "<i>La tira no surt: no hi ha cap notícia marcada.</i>";
+  $("sub").textContent = "Notícies del resum del " + dataCa(CAND.dia) + " · " + totes.length + " surten a la tira" +
+    (DESADA && DESADA.actualitzat ? " · tria desada el " + quan(DESADA.actualitzat) : "");
+  const mitjans = new Set(CAND.local.concat(CAND.gen).map(x => x.mitja).concat(["La TdG"]));
+  $("mitjans").innerHTML = [...mitjans].map(m => '<option value="' + esc(m) + '">').join("");
+  const n = nCanvis();
+  $("canvis").textContent = n ? n + (n === 1 ? " canvi sense desar" : " canvis sense desar") : "Cap canvi";
+  $("desa").disabled = $("desfes").disabled = iguals();
+}
+
+async function carregaPublica() {
+  const [c, t] = await Promise.all([TiraTdG.candidats(), TiraTdG.carregaTria()]);
+  if (!c) { $("sub").textContent = "No s'han pogut llegir les notícies de La TdG redacció."; return; }
+  CAND = c;
+  if (!EDITANT) { DESADA = t; TRIA = copia(t); }
+  pinta();
+}
+
+// --- Gestió amb clau ---
+async function crida(cos) {
+  const r = await fetch(WORKER, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pin: PIN, ...cos }) });
+  let d = {};
+  try { d = await r.json(); } catch (e) {}
+  if (!r.ok || !d.ok) { const err = new Error(d.error || ("HTTP " + r.status)); err.estat = r.status; err.conflicte = d.conflicte; throw err; }
+  return d;
+}
+const normal = t => ({
+  actualitzat: t && t.actualitzat || null,
+  amagats: (t && t.amagats) || [], mitjansAmagats: (t && t.mitjansAmagats) || [], afegits: (t && t.afegits) || []
+});
+const errText = e => e instanceof TypeError ? "No s'ha pogut connectar amb el Worker." : e.message;
+
+async function entra() {
+  PIN = $("pin").value.trim();
+  if (!PIN) { $("estat").textContent = "Escriu la clau."; return; }
+  $("estat").textContent = "Comprovant la clau…";
+  try {
+    const d = await crida({ accio: "tira-llegeix" });
+    DESADA = normal(d.tria); TRIA = copia(DESADA); SHA = d.sha;
+    escriu(CLAU_DESADA, $("recorda").checked ? PIN : "");
+    EDITANT = true;
+    $("clau").hidden = true; $("eines").hidden = false; $("barra").hidden = false;
+    $("estat").textContent = "";
+    pinta();
+  } catch (e) {
+    PIN = "";
+    $("estat").textContent = "❌ " + (e.estat === 400 && /desconeguda/i.test(e.message) ? "El Worker latdg-agenda encara no té la part de la tira: cal enganxar-hi el codi nou (worker/latdg-agenda.js)." : errText(e));
+  }
+}
+
+async function desa() {
+  $("desa").disabled = true;
+  $("estat").textContent = "Desant…";
+  try {
+    const d = await crida({ accio: "tira-desa", tria: TRIA, sha: SHA });
+    DESADA = normal(d.tria); TRIA = copia(DESADA); SHA = d.sha;
+    $("estat").textContent = "✅ Desat. A La TdG ampliada es veu en pocs minuts (o en recarregar-la).";
+    pinta();
+  } catch (e) {
+    if (e.conflicte) {
+      try { const d = await crida({ accio: "tira-llegeix" }); DESADA = normal(d.tria); TRIA = copia(DESADA); SHA = d.sha; pinta(); } catch (e2) {}
+      $("estat").textContent = "❌ Algú ha desat una altra tria mentrestant. Ja tens la nova carregada: torna a fer els canvis.";
+    } else $("estat").textContent = "❌ " + errText(e);
+    $("desa").disabled = iguals();
+  }
+}
+
+document.addEventListener("change", e => {
+  const c = e.target.closest("input[data-clau]");
+  if (!c || !EDITANT) return;
+  const k = c.dataset.clau;
+  TRIA.amagats = TRIA.amagats.filter(a => a.clau !== k);
+  if (!c.checked) {
+    const abans = DESADA.amagats.find(a => a.clau === k);
+    TRIA.amagats.push(abans || { clau: k, dia: avuiISO() });
+  }
+  pinta();
+});
+document.addEventListener("click", e => {
+  const b = e.target.closest("button[data-mitja],button[data-treu]");
+  if (!b || !EDITANT) return;
+  if (b.dataset.mitja) {
+    const m = b.dataset.mitja, ja = TRIA.mitjansAmagats.some(x => x.toLowerCase() === m.toLowerCase());
+    TRIA.mitjansAmagats = ja ? TRIA.mitjansAmagats.filter(x => x.toLowerCase() !== m.toLowerCase()) : TRIA.mitjansAmagats.concat(m);
+  }
+  if (b.dataset.treu) TRIA.afegits = TRIA.afegits.filter(x => x.id !== b.dataset.treu);
+  pinta();
+});
+$("afegeix").onclick = () => {
+  const titol = $("fTitol").value.trim(), url = $("fUrl").value.trim(), fins = $("fFins").value;
+  if (!titol) { $("estat").textContent = "Cal el titular."; return; }
+  if (url && !/^https?:\/\/\S+$/i.test(url)) { $("estat").textContent = "L'enllaç ha de començar per https://"; return; }
+  TRIA.afegits.push({ id: Math.random().toString(36).slice(2, 12), mitja: $("fMitja").value.trim(), titol, ...(url ? { url } : {}), ...(fins ? { fins } : {}) });
+  $("fTitol").value = $("fUrl").value = $("fFins").value = ""; $("fMitja").value = "";
+  $("estat").textContent = "Afegida a la llista. Prem «Desa» perquè surti a la tira.";
+  pinta();
+};
+$("desa").onclick = desa;
+$("desfes").onclick = () => { TRIA = copia(DESADA); $("estat").textContent = ""; pinta(); };
+$("obre").onclick = () => { $("entrada").hidden = true; $("clau").hidden = false; $("pin").focus(); };
+$("entra").onclick = entra;
+$("pin").onkeydown = e => { if (e.key === "Enter") entra(); };
+$("oblida").onclick = () => { escriu(CLAU_DESADA, ""); $("recorda").checked = false; $("estat").textContent = "Clau oblidada en aquest navegador."; };
+window.addEventListener("beforeunload", e => { if (EDITANT && !iguals()) { e.preventDefault(); e.returnValue = ""; } });
+
+const desada = llegeix(CLAU_DESADA);
+$("recorda").checked = !!desada;
+carregaPublica().then(() => {
+  if (desada) { $("pin").value = desada; $("entrada").hidden = true; $("clau").hidden = false; entra(); }
+  else if (location.hash === "#gestio") $("obre").click();
+});
+</script>
+</body>
+</html>

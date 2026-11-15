@@ -2885,6 +2885,7 @@ async function inicia() {
 inicia();
 </script>
 <script src="dates-ca.js?v=3"></script>
+<script src="tira/comu.js?v=1"></script>
 <script>
 // =============================================================================
 // CAPÇALERA (12.11.2026): com la de la Bitàcola personal. Data i hora, el temps
@@ -2954,49 +2955,8 @@ inicia();
   setInterval(carregaTemps, 30 * 60 * 1000);
 
   // ---------------- Tira de titulars ----------------
-  const BASE = "https://latdg.github.io/redaccio/dades/";
-  const NOMS_GEN = [
-    [/vilaweb/, "VilaWeb"], [/naciodigital/, "Nació Digital"], [/^ara\.cat$/, "Ara"], [/elperiodico/, "El Periódico"],
-    [/lavanguardia/, "La Vanguardia"], [/elpais/, "El País"], [/elnacional/, "El Nacional"], [/rac1/, "RAC1"],
-    [/elmon/, "El Món"], [/cadenaser/, "Cadena SER"], [/3cat|ccma/, "3Cat"], [/europapress/, "Europa Press"],
-    [/elpuntavui/, "El Punt Avui"], [/rtve/, "RTVE"], [/catradio/, "Catalunya Ràdio"], [/elmundo/, "El Mundo"],
-    [/eldiario/, "elDiario.es"], [/acn\.cat/, "ACN"], [/msn\.com/, "MSN"], [/diaridegirona/, "Diari de Girona"]
-  ];
-  const nomMitja = n => { const t = String(n).toLowerCase(); const m = NOMS_GEN.find(([rx]) => rx.test(t)); return m ? m[1] : n; };
-  const obtenir = async (url, text) => { const r = await fetch(url, { cache: "no-cache" }); if (!r.ok) throw new Error(r.status); return text ? r.text() : r.json(); };
-  function premsaDelResum(html) {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    const RX = /^\s*((?:\d️?⃣)+)\s*(.+)$/s;
-    const blocs = {}; let actual = null;
-    Array.from(doc.body.childNodes).forEach(node => {
-      const text = (node.textContent || "").trim();
-      if (node.nodeType === 1 && node.tagName === "DIV" && text.length < 200) {
-        const m = text.match(RX);
-        if (m) { const t = m[2].trim().toUpperCase(); actual = /^PREMSA LOCAL/.test(t) ? "local" : /^PREMSA GENERALISTA/.test(t) ? "gen" : null; if (actual) blocs[actual] = ""; return; }
-      }
-      if (!actual) return;
-      if (node.nodeType === 1 && node.tagName === "BR") blocs[actual] += "\n";
-      else if (node.nodeType === 1) blocs[actual] += (node.innerHTML || "").replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]+>/g, "");
-      else blocs[actual] += node.textContent || "";
-    });
-    const fora = {};
-    Object.entries(blocs).forEach(([clau, txt]) => {
-      const llista = []; let mitja = "";
-      const linies = txt.split("\n").map(x => x.trim()).filter(Boolean);
-      linies.forEach((l, i) => {
-        const m = l.match(/^▶\s*(.+?):\s*$/);
-        if (m) { mitja = m[1].trim(); return; }
-        const n = l.match(/^•\s*(?:\d{2}\.\d{2}\.\d{4}\s*[—–-]\s*)?(.+)$/);
-        if (n && mitja && !/^No s.han trobat/i.test(n[1])) {
-          const seg = linies[i + 1] || "";
-          llista.push({ mitja, titol: n[1].trim(), url: /^https?:\/\//.test(seg) ? seg : "" });
-        }
-      });
-      const vist = new Set();
-      fora[clau] = llista.filter(x => { const k = x.titol.toLowerCase(); if (vist.has(k)) return false; vist.add(k); return true; });
-    });
-    return fora;
-  }
+  // 15.11.2026: les notícies i la tria feta a mà (latdg.github.io/tauler/tira/)
+  // arriben de tira/comu.js, el mateix codi que fa servir la pàgina de gestió.
   function grup(items) {
     if (!items.length) return "";
     return '<span class="tira-grup">' + items.map(it => {
@@ -3005,16 +2965,11 @@ inicia();
     }).join("") + "</span>";
   }
   async function carregaTira() {
-    let dies = [];
-    try { dies = (await obtenir(BASE + "dies.json")).slice().sort().reverse(); } catch (e) { return; }
-    let tdg = [], premsa = { local: [], gen: [] };
-    for (const d of dies.slice(0, 3)) {
-      if (!tdg.length) { try { const t = await obtenir(BASE + d + "/titulars.json"); tdg = (t.titulars || []).filter(Boolean).map(x => ({ mitja: "La TdG", titol: x, url: "" })); } catch (e) {} }
-      if (!premsa.local.length && !premsa.gen.length) { try { premsa = Object.assign({ local: [], gen: [] }, premsaDelResum(await obtenir(BASE + d + "/resum.html", true))); } catch (e) {} }
-      if (tdg.length && (premsa.local.length || premsa.gen.length)) break;
-    }
-    premsa.gen = premsa.gen.slice(0, 10).map(x => Object.assign({}, x, { mitja: nomMitja(x.mitja) }));
-    const h = grup(tdg) + grup(premsa.local.concat(premsa.gen));
+    if (!window.TiraTdG) return;
+    const c = await TiraTdG.candidats();
+    if (!c) return;
+    const [primer, segon] = TiraTdG.tira(TiraTdG.aplica(c, await TiraTdG.carregaTria()));
+    const h = grup(primer) + grup(segon);
     if (!h) { $("tira").hidden = true; return; }
     $("tiraPista").innerHTML = '<span style="display:inline-flex">' + h + '</span><span class="tira-copia" aria-hidden="true" style="display:inline-flex">' + h + "</span>";
     $("tiraPista").querySelectorAll(".tira-copia a").forEach(a => a.tabIndex = -1);
