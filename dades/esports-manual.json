@@ -665,6 +665,26 @@
     }
    ],
    "classificacio": []
+  },
+  "la_pera": {
+   "partits": [
+    {
+     "id": "76fa0d025c",
+     "competicio": "",
+     "grup": "",
+     "jornada": "9",
+     "data": "2026-11-15",
+     "hora": "16:00",
+     "localVisitant": "Local",
+     "rival": "VERGES, C.F. A",
+     "resultat": "1 - 2",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4139852"
+    }
+   ],
+   "classificacio": []
   }
  }
 }
