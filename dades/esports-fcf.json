@@ -5655,10 +5655,10 @@
        "NOMBRE_FUERA": "VERGES, C.F. A",
        "ESCUDO_FUERA": "00100_0000102854_vergescf.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "1",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-15T16:00:00",
-       "CERRADA": "0",
+       "CERRADA": "1",
        "ESTADO": "0"
       },
       {
