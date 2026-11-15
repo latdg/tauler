@@ -2288,7 +2288,8 @@ const POBLACIONS_FARM = { "LA BISBAL D'EMPORDA": "la Bisbal d'Empordà", "CORCA"
 // 27.10.2026: noms i adreces com els escrivim a La TdG.
 const NOMS_FARM = { "J. GISPERT DOMENECH": "Jordi Gispert Domènech" };
 const nomFarm = t => NOMS_FARM[String(t || "").toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim()] || majFrase(t).replace(/\bC\.b\./g, "C.B.");
-const adrecaFarm = t => String(t || "").replace(/\bC\/\s*/g, "C. ").replace(/\bAvgda\.\s*/gi, "Av. ").replace(/\s+/g, " ").trim();
+// 15.11.2026: la de Josep Irla és avinguda, no carrer (el Col·legi l'escriu «C/Josep Irla»).
+const adrecaFarm = t => String(t || "").replace(/\bC\/\s*(?=Josep Irla\b)/gi, "Av. ").replace(/\bC\/\s*/g, "C. ").replace(/\bAvgda\.\s*/gi, "Av. ").replace(/\s+/g, " ").trim();
 const poblacioFarm = t => POBLACIONS_FARM[String(t || "").toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")] || majFrase(t);
 function pintaFarmacies() {
   const cos = document.getElementById("farmCos"), peu = document.getElementById("farmPeu");
