@@ -607,6 +607,21 @@
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "nota": "Entrat des del bot latdg_infos",
      "substitueix": "FCF-4378626"
+    },
+    {
+     "id": "589419784e",
+     "competicio": "",
+     "grup": "",
+     "jornada": "7",
+     "data": "2026-11-15",
+     "hora": "12:00",
+     "localVisitant": "Local",
+     "rival": "CAL AGUIDO, A.D. A",
+     "resultat": "",
+     "estat": "Suspès",
+     "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4245263"
     }
    ],
    "classificacio": []
