@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-14T11:36:21+00:00",
+ "actualitzat": "2026-11-15T12:01:01+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2036,8 +2036,8 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 241,
-   "especies": 180,
+   "observacions": 240,
+   "especies": 179,
    "observadors": 30,
    "grups": [
     [
@@ -2065,11 +2065,11 @@
      7
     ],
     [
-     "🦊 Mamífers",
-     7
+     "🦎 Rèptils",
+     6
     ],
     [
-     "🦎 Rèptils",
+     "🦊 Mamífers",
      6
     ],
     [
