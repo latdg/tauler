@@ -716,6 +716,22 @@ async function carregaAgenda() {
 const ESPORTS_FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/esports.json";
 // 27.10.2026: els rivals del Sol Gironès (FEB) en majúscules, com els del futbol.
 const rivalEq = (e, p) => e.id === "sol_girones" ? String(p.rival || "").toLocaleUpperCase("ca") : p.rival;
+// 15.11.2026: en camp contrari, «al camp de/del/de l'» (futbol) o «a la pista de/del/de l'» (bàsquet), amb la regla de l'apòstrof.
+function rivalAmbLloc(e, p) {
+  const nom = String(rivalEq(e, p) || "").trim();
+  if (p.localVisitant !== "Visitant") return "vs " + nom;
+  if (/descans/i.test(nom)) return nom;
+  const lloc = e.esport === "Bàsquet" ? "a la pista " : "al camp ";
+  let m;
+  if ((m = nom.match(/^els\s+(.*)$/i))) return lloc + "dels " + m[1];
+  if ((m = nom.match(/^el\s+(.*)$/i))) return lloc + "del " + m[1];
+  if (/^(la|les)\s|^l['’]/i.test(nom)) return lloc + "de " + nom;          // ja duu article: «de La Pera», «de L'Escala»
+  if (/^unió(\s|$)/i.test(nom)) return lloc + "de la " + nom;                   // «la Unió»: u àtona, no s'apostrofa
+  const primer = nom.split(/[\s,.\-]/)[0];
+  const vocal = /^h?[aeiouàáèéíïòóúü]/i.test(nom);
+  const semi = primer.length > 3 && /^h?[iu][aeiouàáèéíòóú]/i.test(nom);  // «del Huesca», «del Iurreta»
+  return lloc + (vocal && !semi ? "de l'" : "del ") + nom;
+}
 const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
 
 // 31.10.2026: el text de l'agenda pot portar format de l'editor (**negreta**, *cursiva*, __subratllat__).
@@ -762,9 +778,9 @@ async function carregaEsports() {
       return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
         <p class="font dalt">${esc(e.categoria)}</p>` +
         (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
-          ${darrer.localVisitant === "Visitant" ? "a " : "vs "}${esc(rivalEq(e, darrer))} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
+          ${esc(rivalAmbLloc(e, darrer))} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
         (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
-          ${proper.localVisitant === "Visitant" ? "a " : "vs "}${esc(rivalEq(e, proper))}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
+          ${esc(rivalAmbLloc(e, proper))}${proper.competicio !== e.competicio ? " (" + esc(proper.competicio) + ")" : ""}</p>` :
           '<p class="esp-linia buit">Sense partits programats.</p>') + "</article>";
     }).join("") + "</div>";
 
