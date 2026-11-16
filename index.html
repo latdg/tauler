@@ -1240,7 +1240,7 @@ function blocsIncidencies(b) {
       (destacats.length ? "<h3>Els més propers o que han superat els llindars d'avís</h3><ul class=\"avisos\">" + destacats.map(x =>
           `<li><b>M ${num(x.magnitud)}</b> ${esc(x.lloc)}${x.avis ? " ⚠️" : ""}<span class="coord">${esc(x.data)} · a ${x.km} km de la Bisbal, ${esc(x.rumb)} · <a href="${esc(x.enllac)}" target="_blank" rel="noopener">fitxa ${x.font === "EMSC" ? "de l'EMSC" : "de l'IGN"}</a></span></li>`).join("") + "</ul>"
         : '<p class="buit">Cap terratrèmol a menys de 100 km aquests dies.</p>') +
-      '<p class="font">⚠️ Supera un llindar d\'avís: magnitud 2,5 o més a menys de 50 km, o magnitud 4 o més a menys de 150 km. Si n\'has notat un, pots explicar-ho a l\'<a href="https://www.ign.es/web/ign/portal/sis-cuestionario-macrosismico" target="_blank" rel="noopener">IGN</a>.</p>',
+      '<p class="font">⚠️ Supera un llindar d\'avís: qualsevol magnitud a menys de 12 km (els quatre municipis), magnitud 2,5 o més a menys de 50 km, o magnitud 4 o més a menys de 150 km. Si n\'has notat un, pots explicar-ho a l\'<a href="https://www.ign.es/web/ign/portal/sis-cuestionario-macrosismico" target="_blank" rel="noopener">IGN</a>.</p>',
       "", false);
   }
 
@@ -1383,8 +1383,10 @@ const obreFitxa = m => m && setTimeout(() => m.openPopup(), 300);
 // mostra un mapa petit amb el punt de l'avís dins del mateix bloc.
 const AVIS_MAPES = {
   bombers: ["mapaBombers", "Bombers"], v16: ["mapaV16", "Balises V16"],
-  llum: ["mapaLlum", "Talls de llum"], transit: ["mapaTransit", "Trànsit"]
+  llum: ["mapaLlum", "Talls de llum"], transit: ["mapaTransit", "Trànsit"],
+  sismes: ["mapaSismes", "Terratrèmols"]   // 16.11.2026
 };
+const AVIS_ZOOM = { sismes: 11 };   // un epicentre no és un punt exacte: vista més oberta
 async function anaAlAvis(b) {
   const tipus = PARAMS_T.get("avis"), def = AVIS_MAPES[tipus];
   if (!def) return;
@@ -1408,7 +1410,7 @@ async function anaAlAvis(b) {
     if (mapa) carrers(mapa);
   }
   if (mapa && ambPunt) {
-    mapa.setView([lat, lon], 16, { animate: false });
+    mapa.setView([lat, lon], AVIS_ZOOM[tipus] || 16, { animate: false });
     L.circleMarker([lat, lon], { radius: 16, color: "#d7191c", weight: 3, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa);
     // La fitxa del punt més proper (a menys de 300 m), si n'hi ha
     let millor = null, dMin = 300;
@@ -1418,7 +1420,7 @@ async function anaAlAvis(b) {
       if (d < dMin) { dMin = d; millor = l; }
     });
     // Sense punt a prop, es tanca la fitxa que s'hagi obert sola i es torna al punt.
-    setTimeout(() => millor ? millor.openPopup() : (mapa.closePopup(), mapa.setView([lat, lon], 16, { animate: false })), 400);
+    setTimeout(() => millor ? millor.openPopup() : (mapa.closePopup(), mapa.setView([lat, lon], AVIS_ZOOM[tipus] || 16, { animate: false })), 400);
   }
   // Els altres blocs encara es carreguen i el fan baixar: s'hi va un cop assentat.
   const ves = () => sec.scrollIntoView({ block: "start" });

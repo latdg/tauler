@@ -2203,9 +2203,27 @@ def sismes_emsc():
             "lloc": SISMES_EMSC_REGIONS.get(regio, regio.title()), "iso": d.isoformat(), "data": dh(d),
             "lat": round(lat, 4), "lon": round(lon, 4), "km": round(km), "rumb": rumb(*BISBAL, lat, lon),
             "enllac": "https://www.seismicportal.eu/eventdetails.html?unid=" + unid,
-            "avis": (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
+            "avis": km < 12 or (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
         })
     return sortida
+
+
+def sisme_municipi_icgc(lat, lon):
+    """16.11.2026: municipi de l'epicentre (geocodificador invers de l'ICGC, només Catalunya).
+    La regió de l'EMSC és massa àmplia: un terratrèmol a Corçà hi surt com a «PYRENEES»."""
+    r = requests.get("https://eines.icgc.cat/geocodificador/invers", params={"lat": lat, "lon": lon},
+                     headers=CAPCALERES, timeout=30)
+    r.raise_for_status()
+    for f in r.json().get("features") or []:
+        p = f.get("properties") or {}
+        if p.get("municipi"):
+            m = str(p["municipi"]).strip()
+            inv = re.match(r"^(.+),\s*(la|el|les|els|l')$", m, re.I)   # "Bisbal d'Empordà, la"
+            if inv:
+                m = inv[2] + ("" if inv[2].endswith("'") else " ") + inv[1]
+            m = m[:1].upper() + m[1:]
+            return m + (" (" + p["comarca"] + ")" if p.get("comarca") else "")
+    return None
 
 
 def terratremols():
@@ -2234,8 +2252,9 @@ def terratremols():
             "id": mid[1], "magnitud": mag, "lloc": sisme_lloc(m[2]), "iso": d.isoformat(), "data": dh(d),
             "lat": round(lat, 4), "lon": round(lon, 4), "km": round(km), "rumb": rumb(*BISBAL, lat, lon),
             "enllac": enllac.replace("http:", "https:", 1),
-            # Els llindars d'avís de l'avisador: M 2,5 a menys de 50 km, o M 4 a menys de 150 km.
-            "avis": (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
+            # Els llindars d'avís de l'avisador: qualsevol a menys de 12 km (16.11.2026),
+            # M 2,5 a menys de 50 km, o M 4 a menys de 150 km.
+            "avis": km < 12 or (km < 50 and mag >= 2.5) or (km < 150 and mag >= 4),
         }
     # 01.11.2026: reforç amb l'EMSC (França, golf de Lleó, Mediterrània), com al bot
     # d'alertes. Els que l'IGN ja dona (menys de 90 s i 40 km de diferència) es descarten.
@@ -2248,6 +2267,19 @@ def terratremols():
         print("Terratrèmols (EMSC):", e)
     limit = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=SISMES_DIES)).isoformat()
     vell = {x["id"]: x for x in ((anterior("terratremols") or {}).get("llista") or [])}
+    # 16.11.2026: als de l'EMSC a menys de 50 km, el municipi de l'ICGC (un sol cop per terratrèmol)
+    for x in nous.values():
+        if x.get("font") != "EMSC" or x["km"] >= 50:
+            continue
+        if (vell.get(x["id"]) or {}).get("llocIcgc"):
+            x["lloc"], x["llocIcgc"] = vell[x["id"]]["lloc"], True
+            continue
+        try:
+            m = sisme_municipi_icgc(x["lat"], x["lon"])
+            if m:
+                x["lloc"], x["llocIcgc"] = m, True
+        except Exception as e:
+            print("Terratrèmols (ICGC):", e)
     vell.update(nous)
     llista = sorted((x for x in vell.values() if x["iso"] >= limit), key=lambda x: x["iso"], reverse=True)
     return {"consultat": ara().isoformat(), "dies": SISMES_DIES, "radi": SISMES_RADI_KM, "llista": llista}
