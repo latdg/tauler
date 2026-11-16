@@ -1597,6 +1597,14 @@ async function mapesIncidencies(b) {
           `M ${num(x.magnitud)} · ${x.lloc}`,
           `<b>Magnitud ${num(x.magnitud)}</b><br>${esc(x.lloc)}<br>${esc(x.data)}<br>A ${x.km} km de la Bisbal, ${esc(x.rumb)}<br><a href="${esc(x.enllac)}" target="_blank" rel="noopener">Fitxa ${x.font === "ICGC" ? "de l'ICGC" : x.font === "EMSC" ? "de l'EMSC" : "de l'IGN"}</a>`);
       });
+      // 16.11.2026: si n'hi ha hagut un als municipis de casa (menys de 12 km, el llindar
+      // d'avís, o el municipi al nom) les darreres 24 hores, el mapa s'hi centra a nivell
+      // de carrer; passades les 24 hores torna a la vista de Catalunya.
+      const CASA_SISMES = /bisbal d'empord|cor[çc]à|forallac|cru[ïi]lles|monells|sant sadurní de l'heura/i;
+      const proper = (b.terratremols.llista || [])
+        .filter(x => x.lat != null && x.lon != null && ara - new Date(x.iso).getTime() < 24 * 3600e3 && (x.km < 12 || CASA_SISMES.test(x.lloc || "")))
+        .sort((p, q) => new Date(q.iso) - new Date(p.iso))[0];
+      if (proper) mapa.setView([proper.lat, proper.lon], 15, { animate: false });
     }
   }
 }
