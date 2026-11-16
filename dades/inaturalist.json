@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-15T12:01:01+00:00",
+ "actualitzat": "2026-11-16T12:53:47+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2036,13 +2036,13 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 240,
+   "observacions": 241,
    "especies": 179,
    "observadors": 30,
    "grups": [
     [
      "🦋 Insectes",
-     100
+     101
     ],
     [
      "🌿 Plantes",
@@ -2115,6 +2115,12 @@
      "n": 3
     },
     {
+     "cientific": "Agrius convolvuli",
+     "nom": "Borinot de les corretjoles",
+     "grup": "🦋 Insectes",
+     "n": 2
+    },
+    {
      "cientific": "Clematis flammula",
      "nom": "Vidiella",
      "grup": "🌿 Plantes",
@@ -2154,12 +2160,6 @@
      "cientific": "Pallenis spinosa",
      "nom": "Ull de bou",
      "grup": "🌿 Plantes",
-     "n": 2
-    },
-    {
-     "cientific": "Lachnaia paradoxa",
-     "nom": "Poriol Dolent",
-     "grup": "🦋 Insectes",
      "n": 2
     }
    ],
@@ -2301,6 +2301,21 @@
     }
    ],
    "recents": [
+    {
+     "id": 415054504,
+     "data": "2026-11-15",
+     "url": "https://www.inaturalist.org/observations/415054504",
+     "nom": "Borinot de les corretjoles",
+     "cientific": "Agrius convolvuli",
+     "rang": "species",
+     "grup": "🦋 Insectes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/764198643/small.jpg",
+     "autor": "Anna Wintle Taylor",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
     {
      "id": 413813222,
      "data": "2026-11-09",
@@ -2885,21 +2900,6 @@
      "qualitat": "research",
      "amenacada": false,
      "introduida": true
-    },
-    {
-     "id": 375010420,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375010420",
-     "nom": "Brocat variable",
-     "cientific": "Euphydryas aurinia",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/685506102/small.jpg",
-     "autor": "Rosa Matesanz",
-     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
-     "qualitat": "needs_id",
-     "amenacada": false,
-     "introduida": false
     }
    ]
   },
