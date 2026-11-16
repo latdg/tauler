@@ -1,6 +1,6 @@
 {
- "generat": "2026-11-09T13:19:58+00:00",
- "actualitzatFont": "2026-11-04T03:15:37+00:00",
+ "generat": "2026-11-16T13:06:53+00:00",
+ "actualitzatFont": "2026-11-11T03:15:25+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -74,7 +74,7 @@
    "aprox": false
   },
   {
-   "num": "2637",
+   "num": "2638",
    "nom": "Ajuntament de la Bisbal d'Empordà",
    "adreca": "Plaça del Castell, s/n",
    "espai": "VIA PÚBLICA",
@@ -86,7 +86,19 @@
    "aprox": false
   },
   {
-   "num": "2621",
+   "num": "2627",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
+   "num": "2637",
    "nom": "Ajuntament de la Bisbal d'Empordà",
    "adreca": "Plaça del Castell, s/n",
    "espai": "VIA PÚBLICA",
@@ -110,31 +122,19 @@
    "aprox": false
   },
   {
+   "num": "2621",
+   "nom": "Ajuntament de la Bisbal d'Empordà",
+   "adreca": "Plaça del Castell, s/n",
+   "espai": "VIA PÚBLICA",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": [],
+   "lat": 41.959597,
+   "lon": 3.037604,
+   "aprox": false
+  },
+  {
    "num": "2629",
-   "nom": "Ajuntament de la Bisbal d'Empordà",
-   "adreca": "Plaça del Castell, s/n",
-   "espai": "VIA PÚBLICA",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": [],
-   "lat": 41.959597,
-   "lon": 3.037604,
-   "aprox": false
-  },
-  {
-   "num": "2638",
-   "nom": "Ajuntament de la Bisbal d'Empordà",
-   "adreca": "Plaça del Castell, s/n",
-   "espai": "VIA PÚBLICA",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": [],
-   "lat": 41.959597,
-   "lon": 3.037604,
-   "aprox": false
-  },
-  {
-   "num": "2627",
    "nom": "Ajuntament de la Bisbal d'Empordà",
    "adreca": "Plaça del Castell, s/n",
    "espai": "VIA PÚBLICA",
@@ -301,10 +301,10 @@
    "aprox": false
   },
   {
-   "num": "15645",
+   "num": "15647",
    "nom": "ANGEL MIR",
-   "adreca": "Carretera C-66 PK12,8, SN",
-   "espai": "NAU N8 DESPATX ENCARREGAT",
+   "adreca": "Carretera C-66 PK 12,8, SN",
+   "espai": "NAU 4 / OFICINES",
    "mun": "17057",
    "titular": "PORTES BISBALS.L.-ANGEL MIR",
    "horari": [
@@ -356,7 +356,7 @@
     {
      "dia": "Divendres",
      "inici": "15:00",
-     "fi": "15:30"
+     "fi": "17:30"
     }
    ],
    "lat": 41.982042,
@@ -427,10 +427,10 @@
    "aprox": false
   },
   {
-   "num": "15647",
+   "num": "15645",
    "nom": "ANGEL MIR",
-   "adreca": "Carretera C-66 PK 12,8, SN",
-   "espai": "NAU 4 / OFICINES",
+   "adreca": "Carretera C-66 PK12,8, SN",
+   "espai": "NAU N8 DESPATX ENCARREGAT",
    "mun": "17057",
    "titular": "PORTES BISBALS.L.-ANGEL MIR",
    "horari": [
@@ -482,7 +482,7 @@
     {
      "dia": "Divendres",
      "inici": "15:00",
-     "fi": "17:30"
+     "fi": "15:30"
     }
    ],
    "lat": 41.982042,
@@ -563,7 +563,7 @@
    "aprox": false
   },
   {
-   "num": "3263",
+   "num": "3266",
    "nom": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
    "adreca": "Plaça FONT, 1",
    "espai": "VIA PÚBLICA",
@@ -587,7 +587,7 @@
    "aprox": false
   },
   {
-   "num": "3266",
+   "num": "3263",
    "nom": "AJUNTAMENT DE CRUÏLLES, MONELLS I SANT SADURNÍ DE L'HEURA",
    "adreca": "Plaça FONT, 1",
    "espai": "VIA PÚBLICA",
@@ -738,25 +738,7 @@
  ],
  "vehicles": [
   {
-   "num": "12354",
-   "nom": "4424KGK",
-   "adreca": "Plaça Castell, 10",
-   "espai": "",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": []
-  },
-  {
-   "num": "12516",
-   "nom": "6601HVL",
-   "adreca": "Plaça Castell, 10",
-   "espai": "",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": []
-  },
-  {
-   "num": "90000532",
+   "num": "90000531",
    "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
    "adreca": "Carretera Peixateries, 1",
    "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
@@ -765,8 +747,8 @@
    "horari": []
   },
   {
-   "num": "12517",
-   "nom": "8031HVL",
+   "num": "12515",
+   "nom": "7832HTY",
    "adreca": "Plaça Castell, 10",
    "espai": "",
    "mun": "17022",
@@ -783,15 +765,6 @@
    "horari": []
   },
   {
-   "num": "90000531",
-   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
-   "adreca": "Carretera Peixateries, 1",
-   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
-   "mun": "17022",
-   "titular": "Ajuntament de la Bisbal d'Empordà",
-   "horari": []
-  },
-  {
    "num": "8365",
    "nom": "Ajuntament de la Bisbal d'Empordà",
    "adreca": "Plaça DEL CASTELL, SN",
@@ -801,8 +774,8 @@
    "horari": []
   },
   {
-   "num": "12515",
-   "nom": "7832HTY",
+   "num": "12516",
+   "nom": "6601HVL",
    "adreca": "Plaça Castell, 10",
    "espai": "",
    "mun": "17022",
@@ -810,12 +783,30 @@
    "horari": []
   },
   {
-   "num": "13040",
-   "nom": "1133KSR",
-   "adreca": "Carrer de la Unió, 3",
-   "espai": "VEHICLE VIGILANTS MUNICIPALS",
-   "mun": "17902",
-   "titular": "AJUNTAMENT DE FORALLAC",
+   "num": "12517",
+   "nom": "8031HVL",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "12354",
+   "nom": "4424KGK",
+   "adreca": "Plaça Castell, 10",
+   "espai": "",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
+   "horari": []
+  },
+  {
+   "num": "90000532",
+   "nom": "Policia Local - LA BISBAL D'EMPORDÀ",
+   "adreca": "Carretera Peixateries, 1",
+   "espai": "Vehicle - Policia Local - LA BISBAL D'EMPORDÀ, CARRER Peixateries, 1",
+   "mun": "17022",
+   "titular": "Ajuntament de la Bisbal d'Empordà",
    "horari": []
   },
   {
@@ -823,6 +814,15 @@
    "nom": "Vigilància Local - FORALLAC",
    "adreca": "Carretera Unió (Vulpellac), 6",
    "espai": "Vehicle - Vigilància Local - FORALLAC, CARRER Unió (Vulpellac), 6",
+   "mun": "17902",
+   "titular": "AJUNTAMENT DE FORALLAC",
+   "horari": []
+  },
+  {
+   "num": "13040",
+   "nom": "1133KSR",
+   "adreca": "Carrer de la Unió, 3",
+   "espai": "VEHICLE VIGILANTS MUNICIPALS",
    "mun": "17902",
    "titular": "AJUNTAMENT DE FORALLAC",
    "horari": []
