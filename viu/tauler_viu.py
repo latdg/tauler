@@ -2226,6 +2226,95 @@ def sisme_municipi_icgc(lat, lon):
     return None
 
 
+# 16.11.2026: a Catalunya mana l'ICGC (magnitud i epicentre del comunicat sísmic).
+SISMES_ICGC_RSS = "https://sismocat.icgc.cat/sisweb2/sisweb_api_rss_external.php?consulta=2init&lang=ca"
+SISMES_ICGC_COMSIS = "https://app.icgc.cat/php/publisis_v2/sisme_comsis.php"
+SISMES_ICGC_PAGINA = "https://app.icgc.cat/publisis_v2/sisme_comsis.html?code="
+
+
+def sismes_icgc_rss():
+    r = requests.get(SISMES_ICGC_RSS, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
+    r.raise_for_status()
+    canal = ET.fromstring(r.content).find("channel")
+    sortida = []
+    for it in (canal.findall("item") if canal is not None else []):
+        codi = re.search(r"codi=(\d+)", it.findtext("link") or "")
+        data = re.search(r"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})Z", it.findtext("title") or "")
+        desc = re.search(r"Regi[óo]:\s*(.*?)\s+Magnitud:\s*(-?[\d.,]+)", it.findtext("description") or "", re.I)
+        if codi and data and desc and num(desc[2]) is not None:
+            sortida.append({"codi": codi[1], "regio": desc[1].strip(), "magnitud": num(desc[2]),
+                            "ts": dt.datetime.fromisoformat(data[1] + "+00:00").timestamp()})
+    return sortida
+
+
+def sismes_icgc_comunicat(codi):
+    """Coordenades del comunicat sísmic de l'ICGC, o None si no n'hi ha."""
+    r = requests.post(SISMES_ICGC_COMSIS, data={"code": codi}, headers=CAPCALERES, timeout=30)
+    r.raise_for_status()
+    d = r.json()
+    lat, lon = num(d.get("latitud")), num(d.get("longitud"))
+    if str(d.get("codi")) != str(codi) or lat is None or lon is None:
+        return None
+    return lat, lon
+
+
+def sismes_amb_icgc(nous, vell):
+    try:
+        icgc = sismes_icgc_rss()
+    except Exception as e:  # si l'ICGC no respon, es queden les dades de l'IGN i l'EMSC
+        print("Terratrèmols (ICGC):", e)
+        return
+    usats = set()
+    for x in list(nous.values()):
+        ts = dt.datetime.fromisoformat(x["iso"]).timestamp()
+        i = next((i for i in icgc if abs(i["ts"] - ts) <= 90), None)
+        if not i:
+            continue
+        usats.add(i["codi"])
+        x["magnitud"], x["icgc"] = i["magnitud"], i["codi"]
+        if x["km"] >= 150:
+            continue
+        antic = vell.get(x["id"]) or {}
+        coord = (antic["lat"], antic["lon"]) if antic.get("icgcCom") else None
+        if coord is None:
+            try:
+                coord = sismes_icgc_comunicat(i["codi"])
+            except Exception as e:
+                print("Terratrèmols (ICGC, comunicat):", e)
+        if coord:
+            km = distancia_km(*BISBAL, *coord)
+            x.update({"lat": round(coord[0], 4), "lon": round(coord[1], 4), "km": round(km),
+                      "rumb": rumb(*BISBAL, *coord), "icgcCom": True, "font": "ICGC", "lloc": i["regio"],
+                      "enllac": SISMES_ICGC_PAGINA + i["codi"],
+                      "avis": km < 12 or (km < 50 and x["magnitud"] >= 2.5) or (km < 150 and x["magnitud"] >= 4)})
+            x.pop("llocIcgc", None)
+    # Els de l'ICGC que no surten ni a l'IGN ni a l'EMSC (només els recents, amb comunicat)
+    limit = time.time() - 2 * 86400
+    for i in icgc:
+        cid = "icgc:" + i["codi"]
+        if i["codi"] in usats or i["ts"] < limit:
+            continue
+        if cid in vell:
+            nous[cid] = vell[cid]
+            continue
+        try:
+            coord = sismes_icgc_comunicat(i["codi"])
+        except Exception as e:
+            print("Terratrèmols (ICGC, comunicat):", e)
+            continue
+        if not coord:
+            continue
+        d = dt.datetime.fromtimestamp(i["ts"], dt.timezone.utc)
+        km = distancia_km(*BISBAL, *coord)
+        if km > SISMES_RADI_KM:
+            continue
+        nous[cid] = {"id": cid, "font": "ICGC", "icgc": i["codi"], "icgcCom": True, "magnitud": i["magnitud"],
+                     "lloc": i["regio"], "iso": d.isoformat(), "data": dh(d),
+                     "lat": round(coord[0], 4), "lon": round(coord[1], 4), "km": round(km), "rumb": rumb(*BISBAL, *coord),
+                     "enllac": SISMES_ICGC_PAGINA + i["codi"],
+                     "avis": km < 12 or (km < 50 and i["magnitud"] >= 2.5) or (km < 150 and i["magnitud"] >= 4)}
+
+
 def terratremols():
     r = requests.get(SISMES_URL, headers={**CAPCALERES, "Accept": "application/xml"}, timeout=60)
     r.raise_for_status()
@@ -2267,11 +2356,13 @@ def terratremols():
         print("Terratrèmols (EMSC):", e)
     limit = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=SISMES_DIES)).isoformat()
     vell = {x["id"]: x for x in ((anterior("terratremols") or {}).get("llista") or [])}
-    # 16.11.2026: als de l'EMSC a menys de 50 km, el municipi de l'ICGC (un sol cop per terratrèmol)
+    sismes_amb_icgc(nous, vell)   # 16.11.2026: l'ICGC mana a Catalunya
+    # 16.11.2026: als de l'EMSC i l'ICGC a menys de 50 km, el municipi (geocodificador de l'ICGC, un sol cop)
     for x in nous.values():
-        if x.get("font") != "EMSC" or x["km"] >= 50:
+        if x.get("font") not in ("EMSC", "ICGC") or x["km"] >= 50:
             continue
-        if (vell.get(x["id"]) or {}).get("llocIcgc"):
+        v = vell.get(x["id"]) or {}
+        if v.get("llocIcgc") and (v.get("lat"), v.get("lon")) == (x["lat"], x["lon"]):   # mateix epicentre
             x["lloc"], x["llocIcgc"] = vell[x["id"]]["lloc"], True
             continue
         try:
