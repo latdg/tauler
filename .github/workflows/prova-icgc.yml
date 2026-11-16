@@ -1,9 +1,0 @@
-name: Prova ICGC (temporal)
-on: workflow_dispatch
-jobs:
-  prova:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          for u in "http://www1.igc.cat/php/mapasis/icgc_infosis.rss" "https://www1.igc.cat/php/mapasis/icgc_infosis.rss" "https://www.icgc.cat/ca/Ambits-tematics/Riscos-i-emergencies/Terratremols/Terratremols-enregistrats/Darrers-terratremols"; do
-            echo "=== $u"; curl -sSL -m 30 -A "LaTdG-tauler/1.0" -D - "$u" | head -c 6000; echo; done
