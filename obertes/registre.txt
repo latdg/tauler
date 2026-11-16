@@ -9,5 +9,4 @@ Farmàcies 2026-11-22: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA
 farmacies fet
 autoconsum fet
 consum fet
-6st4-ptsi: intent 1 fallit (HTTPSConnectionPool(host='analisi.transparenciacatalunya.cat', port=443): Read timed out. (read timeout=300))
 aigua fet
