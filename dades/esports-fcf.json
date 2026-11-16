@@ -1,7 +1,7 @@
 {
  "tipus": "latdg-fcf",
  "versio": 1,
- "generat": "2026-11-13T16:20:15.399Z",
+ "generat": "2026-11-16T19:01:19.279Z",
  "grups": {
   "58161863": {
    "partidos": {
@@ -1057,11 +1057,11 @@
        "NOMBRE_FUERA": "ROSES, A.E. A",
        "ESCUDO_FUERA": "00100_0000816719_aer_200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SANTA COLOMA DE FARNERS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "3",
        "COMIENZO1": "2026-11-14T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109456",
@@ -1073,11 +1073,11 @@
        "NOMBRE_FUERA": "BESALU, C.E. A",
        "ESCUDO_FUERA": "00100_0000651394_besalu_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SANT JAUME DE LLIERCA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-14T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109454",
@@ -1089,11 +1089,11 @@
        "NOMBRE_FUERA": "BANYOLES, C.E. A",
        "ESCUDO_FUERA": "00100_0000651540_cebanyoles_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE BESCANÓ",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-14T16:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109453",
@@ -1105,11 +1105,11 @@
        "NOMBRE_FUERA": "ARBUCIES,CLUB FUTBOL A",
        "ESCUDO_FUERA": "00100_0001381418_Arbucies_CF_HD.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. NOVA CIUTAT ESPORTIVA BLANES",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "1",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-14T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109458",
@@ -1121,11 +1121,11 @@
        "NOMBRE_FUERA": "EMPURIABRAVA CASTELLO, C.F. A",
        "ESCUDO_FUERA": "00100_0001043270_nou_escut_empuriabrava_castello.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SANT GREGORI",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "1",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-14T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109459",
@@ -1137,11 +1137,11 @@
        "NOMBRE_FUERA": "FORNELLS, UE. A",
        "ESCUDO_FUERA": "00100_0000967680_00100_0000946029_escutuef200.png",
        "CAMPO": "CAMP D´ESPORTS MPAL. DE TORDERA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-14T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109455",
@@ -1153,11 +1153,11 @@
        "NOMBRE_FUERA": "SPORTING-VIDRERENCA, C.E.F A",
        "ESCUDO_FUERA": "00100_0000665452_vidrerenca_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE BEGUR",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "0",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-15T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4109457",
@@ -1173,7 +1173,7 @@
        "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-15T17:30:00",
        "CERRADA": "1",
-       "ESTADO": "0"
+       "ESTADO": "1"
       }
      ],
      "10": [
@@ -3912,37 +3912,37 @@
     "data": [
      {
       "position": "1",
-      "points": "16.00",
-      "played": 7,
+      "points": "17.00",
+      "played": 9,
       "won": 5,
-      "drawn": 1,
-      "lost": 1,
-      "goalsFor": "16",
-      "goalsAgainst": "9",
+      "drawn": 2,
+      "lost": 2,
+      "goalsFor": "18",
+      "goalsAgainst": "12",
       "team": {
-       "name": "BEGUR, C.F. A",
-       "logo": "00100_0000654695_begur_200x200.png",
-       "teamId": "35522"
+       "name": "BESCANO, C.D. A",
+       "logo": "00100_0000739644_bescano_200x200.png",
+       "teamId": "33592"
       },
       "form": [
        {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "E"
        },
        {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-21T00:00:00.000Z",
+        "date": "2026-10-27T00:00:00.000Z",
         "result": "P"
        },
        {
-        "date": "2026-10-24T00:00:00.000Z",
+        "date": "2026-10-31T00:00:00.000Z",
         "result": "G"
        },
        {
-        "date": "2026-11-01T00:00:00.000Z",
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
         "result": "E"
        }
       ]
@@ -3957,22 +3957,51 @@
       "goalsFor": "16",
       "goalsAgainst": "10",
       "team": {
-       "name": "BESCANO, C.D. A",
-       "logo": "00100_0000739644_bescano_200x200.png",
-       "teamId": "33592"
+       "name": "BEGUR, C.F. A",
+       "logo": "00100_0000654695_begur_200x200.png",
+       "teamId": "35522"
       },
       "form": [
        {
-        "date": "2026-10-21T00:00:00.000Z",
+        "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
        },
        {
+        "date": "2026-10-21T00:00:00.000Z",
+        "result": "P"
+       },
+       {
         "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
         "result": "E"
        },
        {
-        "date": "2026-10-27T00:00:00.000Z",
+        "date": "2026-11-15T00:00:00.000Z",
         "result": "P"
+       }
+      ]
+     },
+     {
+      "position": "3",
+      "points": "15.00",
+      "played": 9,
+      "won": 5,
+      "drawn": 0,
+      "lost": 4,
+      "goalsFor": "20",
+      "goalsAgainst": "24",
+      "team": {
+       "name": "SPORTING-VIDRERENCA, C.E.F A",
+       "logo": "00100_0000665452_vidrerenca_200x200.png",
+       "teamId": "34936"
+      },
+      "form": [
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
        },
        {
         "date": "2026-10-31T00:00:00.000Z",
@@ -3980,19 +4009,27 @@
        },
        {
         "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-11T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
         "result": "G"
        }
       ]
      },
      {
-      "position": "3",
-      "points": "13.00",
-      "played": 8,
+      "position": "4",
+      "points": "14.00",
+      "played": 9,
       "won": 3,
-      "drawn": 4,
+      "drawn": 5,
       "lost": 1,
-      "goalsFor": "11",
-      "goalsAgainst": "7",
+      "goalsFor": "12",
+      "goalsAgainst": "8",
       "team": {
        "name": "BLANES, C.D. A",
        "logo": "00100_0000808744_cdblanes_200x200.png",
@@ -4000,10 +4037,6 @@
       },
       "form": [
        {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
-       {
         "date": "2026-10-24T00:00:00.000Z",
         "result": "E"
        },
@@ -4018,28 +4051,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
-      "position": "4",
-      "points": "13.00",
-      "played": 8,
+      "position": "5",
+      "points": "14.00",
+      "played": 9,
       "won": 4,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 3,
-      "goalsFor": "11",
-      "goalsAgainst": "9",
+      "goalsFor": "13",
+      "goalsAgainst": "11",
       "team": {
        "name": "FORNELLS, UE. A",
        "logo": "00100_0000967680_00100_0000946029_escutuef200.png",
        "teamId": "37551"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-24T00:00:00.000Z",
         "result": "G"
@@ -4055,28 +4088,65 @@
        {
         "date": "2026-11-11T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
-      "position": "5",
-      "points": "12.00",
-      "played": 8,
+      "position": "6",
+      "points": "14.00",
+      "played": 9,
+      "won": 4,
+      "drawn": 2,
+      "lost": 3,
+      "goalsFor": "14",
+      "goalsAgainst": "17",
+      "team": {
+       "name": "ROSES, A.E. A",
+       "logo": "00100_0000816719_aer_200.png",
+       "teamId": "35894"
+      },
+      "form": [
+       {
+        "date": "2026-10-17T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "7",
+      "points": "13.00",
+      "played": 9,
       "won": 3,
-      "drawn": 3,
+      "drawn": 4,
       "lost": 2,
-      "goalsFor": "17",
-      "goalsAgainst": "13",
+      "goalsFor": "19",
+      "goalsAgainst": "15",
       "team": {
        "name": "TORDERA, C.F. A",
        "logo": "00100_0001128592_Untitled.png",
        "teamId": "15542152"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "E"
@@ -4092,52 +4162,19 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
-      "position": "6",
+      "position": "8",
       "points": "12.00",
-      "played": 8,
-      "won": 4,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": "19",
-      "goalsAgainst": "24",
-      "team": {
-       "name": "SPORTING-VIDRERENCA, C.E.F A",
-       "logo": "00100_0000665452_vidrerenca_200x200.png",
-       "teamId": "34936"
-      },
-      "form": [
-       {
-        "date": "2026-10-21T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-11T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "7",
-      "points": "11.00",
-      "played": 8,
+      "played": 9,
       "won": 3,
-      "drawn": 2,
+      "drawn": 3,
       "lost": 3,
       "goalsFor": "12",
       "goalsAgainst": "8",
@@ -4148,10 +4185,6 @@
       },
       "form": [
        {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
-       {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
        },
@@ -4166,65 +4199,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "E"
-       }
-      ]
-     },
-     {
-      "position": "8",
-      "points": "11.00",
-      "played": 8,
-      "won": 3,
-      "drawn": 2,
-      "lost": 3,
-      "goalsFor": "11",
-      "goalsAgainst": "15",
-      "team": {
-       "name": "ROSES, A.E. A",
-       "logo": "00100_0000816719_aer_200.png",
-       "teamId": "35894"
-      },
-      "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
        },
        {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
+        "date": "2026-11-15T00:00:00.000Z",
         "result": "E"
        }
       ]
      },
      {
       "position": "9",
-      "points": "10.00",
-      "played": 7,
+      "points": "11.00",
+      "played": 8,
       "won": 2,
-      "drawn": 4,
+      "drawn": 5,
       "lost": 1,
-      "goalsFor": "8",
-      "goalsAgainst": "6",
+      "goalsFor": "10",
+      "goalsAgainst": "8",
       "team": {
        "name": "BANYOLES, C.E. A",
        "logo": "00100_0000651540_cebanyoles_200x200.png",
        "teamId": "37524"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "E"
@@ -4240,28 +4236,28 @@
        {
         "date": "2026-10-28T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "10",
-      "points": "10.00",
-      "played": 8,
+      "points": "11.00",
+      "played": 9,
       "won": 2,
-      "drawn": 4,
+      "drawn": 5,
       "lost": 2,
-      "goalsFor": "12",
-      "goalsAgainst": "11",
+      "goalsFor": "14",
+      "goalsAgainst": "13",
       "team": {
        "name": "BESALU, C.E. A",
        "logo": "00100_0000651394_besalu_200x200.png",
        "teamId": "33736"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-18T00:00:00.000Z",
         "result": "G"
@@ -4277,28 +4273,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "11",
-      "points": "10.00",
-      "played": 8,
+      "points": "11.00",
+      "played": 9,
       "won": 3,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 4,
-      "goalsFor": "12",
-      "goalsAgainst": "12",
+      "goalsFor": "14",
+      "goalsAgainst": "14",
       "team": {
        "name": "SANT JAUME OLOT B, C.F A",
        "logo": "00100_0001021755_ESCUTPNGCALITAT__1_.png",
        "teamId": "33356"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "E"
@@ -4314,28 +4310,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "12",
-      "points": "10.00",
-      "played": 8,
+      "points": "11.00",
+      "played": 9,
       "won": 3,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 4,
-      "goalsFor": "14",
-      "goalsAgainst": "20",
+      "goalsFor": "15",
+      "goalsAgainst": "21",
       "team": {
        "name": "ARBUCIES,CLUB FUTBOL A",
        "logo": "00100_0001381418_Arbucies_CF_HD.png",
        "teamId": "34063"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "P"
@@ -4351,28 +4347,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "13",
-      "points": "9.00",
-      "played": 8,
+      "points": "10.00",
+      "played": 9,
       "won": 2,
-      "drawn": 3,
+      "drawn": 4,
       "lost": 3,
-      "goalsFor": "16",
-      "goalsAgainst": "16",
+      "goalsFor": "17",
+      "goalsAgainst": "17",
       "team": {
        "name": "SANT GREGORI, A.E. A",
        "logo": "00100_0000745012_stgregori_200x200.png",
        "teamId": "36719"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "E"
@@ -4388,28 +4384,28 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "14",
-      "points": "8.00",
-      "played": 8,
+      "points": "9.00",
+      "played": 9,
       "won": 2,
-      "drawn": 2,
+      "drawn": 3,
       "lost": 4,
-      "goalsFor": "13",
-      "goalsAgainst": "15",
+      "goalsFor": "14",
+      "goalsAgainst": "16",
       "team": {
        "name": "EMPURIABRAVA CASTELLO, C.F. A",
        "logo": "00100_0001043270_nou_escut_empuriabrava_castello.png",
        "teamId": "21442320"
       },
       "form": [
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-21T00:00:00.000Z",
         "result": "E"
@@ -4425,28 +4421,28 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "15",
       "points": "8.00",
-      "played": 8,
+      "played": 9,
       "won": 2,
       "drawn": 2,
-      "lost": 4,
-      "goalsFor": "5",
-      "goalsAgainst": "10",
+      "lost": 5,
+      "goalsFor": "7",
+      "goalsAgainst": "13",
       "team": {
        "name": "FARNERS, C.E. A",
        "logo": "00100_0000002734_clip_image001.png",
        "teamId": "35018"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "P"
@@ -4462,15 +4458,19 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "16",
-      "points": "4.00",
-      "played": 8,
+      "points": "5.00",
+      "played": 9,
       "won": 1,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 6,
       "goalsFor": "11",
       "goalsAgainst": "19",
@@ -4480,10 +4480,6 @@
        "teamId": "33220"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "E"
-       },
        {
         "date": "2026-10-21T00:00:00.000Z",
         "result": "P"
@@ -4499,6 +4495,10 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "E"
        }
       ]
      }
@@ -5575,11 +5575,11 @@
        "NOMBRE_FUERA": "JAFRE, U.D. A",
        "ESCUDO_FUERA": "00100_0000651338_uejafre_200x200.png",
        "CAMPO": "CAMP D´ESPORTS MPAL. DE FORTIÀ",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "0",
+       "GOLES_FUERA": "6",
        "COMIENZO1": "2026-11-14T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4139851",
@@ -5591,11 +5591,11 @@
        "NOMBRE_FUERA": "ESPORTIU VENTALLÓ, CLUB  A",
        "ESCUDO_FUERA": "00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. D´ARMENTERA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "3",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-14T16:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4139849",
@@ -5611,7 +5611,7 @@
        "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-14T18:30:00",
        "CERRADA": "1",
-       "ESTADO": "0"
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4144248",
@@ -5623,11 +5623,11 @@
        "NOMBRE_FUERA": "BORRASSA, F.C. B",
        "ESCUDO_FUERA": "00100_0001239318_borras_.PNG",
        "CAMPO": "CAMP D'ESPORTS MPAL. D'ALBONS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "1",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-15T11:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4139850",
@@ -5639,11 +5639,11 @@
        "NOMBRE_FUERA": "CAMALLERA, C.F. A",
        "ESCUDO_FUERA": "00100_0000813042_5026_Camallera_200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE VILAFANT",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "0",
+       "GOLES_FUERA": "3",
        "COMIENZO1": "2026-11-15T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4139852",
@@ -5659,7 +5659,7 @@
        "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-15T16:00:00",
        "CERRADA": "1",
-       "ESTADO": "0"
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4139847",
@@ -5671,11 +5671,11 @@
        "NOMBRE_FUERA": "FLAÇA, C.D. A",
        "ESCUDO_FUERA": "00100_0000654599_cefla_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SIURANA D´EMPORDA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "3",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-15T16:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       }
      ],
      "10": [
@@ -5858,22 +5858,6 @@
        "ESTADO": "0"
       },
       {
-       "CODACTA": "4139866",
-       "JORNADA": "11",
-       "CODEQUIPO_CASA": "36200",
-       "NOMBRE_CASA": "MONELLS, A.E. A",
-       "ESCUDO_CASA": "00100_0000669226_aemonells_200x200.png",
-       "CODEQUIPO_FUERA": "47414487",
-       "NOMBRE_FUERA": "ESPORTIU VENTALLÓ, CLUB  A",
-       "ESCUDO_FUERA": "00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE MONELLS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-28T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
        "CODACTA": "4139864",
        "JORNADA": "11",
        "CODEQUIPO_CASA": "33136",
@@ -5886,6 +5870,22 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-28T16:30:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
+       "CODACTA": "4139866",
+       "JORNADA": "11",
+       "CODEQUIPO_CASA": "36200",
+       "NOMBRE_CASA": "MONELLS, A.E. A",
+       "ESCUDO_CASA": "00100_0000669226_aemonells_200x200.png",
+       "CODEQUIPO_FUERA": "47414487",
+       "NOMBRE_FUERA": "ESPORTIU VENTALLÓ, CLUB  A",
+       "ESCUDO_FUERA": "00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE MONELLS",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-28T17:45:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -8415,22 +8415,18 @@
      {
       "position": "1",
       "points": "21.00",
-      "played": 8,
+      "played": 9,
       "won": 7,
       "drawn": 0,
-      "lost": 1,
-      "goalsFor": "20",
-      "goalsAgainst": "6",
+      "lost": 2,
+      "goalsFor": "22",
+      "goalsAgainst": "10",
       "team": {
        "name": "VILADAMAT C.F. A",
        "logo": "00100_0000486021_VILADAMAT_C.F._copia.png",
        "teamId": "36161"
       },
       "form": [
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "G"
@@ -8446,65 +8442,28 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "G"
-       }
-      ]
-     },
-     {
-      "position": "2",
-      "points": "18.00",
-      "played": 7,
-      "won": 6,
-      "drawn": 0,
-      "lost": 1,
-      "goalsFor": "17",
-      "goalsAgainst": "6",
-      "team": {
-       "name": "LA PERA, U.E. A",
-       "logo": "00100_0000205346_imgres.png",
-       "teamId": "36734"
-      },
-      "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
        },
        {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-01T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-04T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
+        "date": "2026-11-14T00:00:00.000Z",
         "result": "P"
        }
       ]
      },
      {
-      "position": "3",
-      "points": "17.00",
-      "played": 8,
-      "won": 5,
+      "position": "2",
+      "points": "20.00",
+      "played": 9,
+      "won": 6,
       "drawn": 2,
       "lost": 1,
-      "goalsFor": "19",
-      "goalsAgainst": "8",
+      "goalsFor": "21",
+      "goalsAgainst": "9",
       "team": {
        "name": "VERGES, C.F. A",
        "logo": "00100_0000102854_vergescf.png",
        "teamId": "36157"
       },
       "form": [
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "E"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "P"
@@ -8520,17 +8479,21 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
-      "position": "4",
-      "points": "16.00",
-      "played": 7,
-      "won": 5,
+      "position": "3",
+      "points": "19.00",
+      "played": 8,
+      "won": 6,
       "drawn": 1,
       "lost": 1,
-      "goalsFor": "20",
+      "goalsFor": "23",
       "goalsAgainst": "9",
       "team": {
        "name": "L'ARMENTERA, C.F. A",
@@ -8538,10 +8501,6 @@
        "teamId": "34493"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
@@ -8557,28 +8516,65 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "4",
+      "points": "18.00",
+      "played": 8,
+      "won": 6,
+      "drawn": 0,
+      "lost": 2,
+      "goalsFor": "18",
+      "goalsAgainst": "8",
+      "team": {
+       "name": "LA PERA, U.E. A",
+       "logo": "00100_0000205346_imgres.png",
+       "teamId": "36734"
+      },
+      "form": [
+       {
+        "date": "2026-10-18T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-04T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "5",
-      "points": "13.00",
-      "played": 7,
-      "won": 4,
+      "points": "16.00",
+      "played": 8,
+      "won": 5,
       "drawn": 1,
       "lost": 2,
-      "goalsFor": "19",
-      "goalsAgainst": "12",
+      "goalsFor": "23",
+      "goalsAgainst": "14",
       "team": {
        "name": "MONELLS, A.E. A",
        "logo": "00100_0000669226_aemonells_200x200.png",
        "teamId": "36200"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
@@ -8594,11 +8590,89 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
       "position": "6",
+      "points": "15.00",
+      "played": 9,
+      "won": 5,
+      "drawn": 0,
+      "lost": 4,
+      "goalsFor": "19",
+      "goalsAgainst": "17",
+      "team": {
+       "name": "CAMALLERA, C.F. A",
+       "logo": "00100_0000813042_5026_Camallera_200.png",
+       "teamId": "50596882"
+      },
+      "form": [
+       {
+        "date": "2026-10-18T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-25T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "7",
+      "points": "15.00",
+      "played": 8,
+      "won": 5,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": "12",
+      "goalsAgainst": "11",
+      "team": {
+       "name": "SIURANA, U.E A",
+       "logo": "00100_0001420673_siura.png",
+       "teamId": "33136"
+      },
+      "form": [
+       {
+        "date": "2026-10-10T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "8",
       "points": "12.00",
       "played": 8,
       "won": 4,
@@ -8635,161 +8709,13 @@
       ]
      },
      {
-      "position": "7",
-      "points": "12.00",
-      "played": 8,
-      "won": 4,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": "16",
-      "goalsAgainst": "17",
-      "team": {
-       "name": "CAMALLERA, C.F. A",
-       "logo": "00100_0000813042_5026_Camallera_200.png",
-       "teamId": "50596882"
-      },
-      "form": [
-       {
-        "date": "2026-10-16T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-25T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-01T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "8",
-      "points": "12.00",
-      "played": 7,
-      "won": 4,
-      "drawn": 0,
-      "lost": 3,
-      "goalsFor": "9",
-      "goalsAgainst": "11",
-      "team": {
-       "name": "SIURANA, U.E A",
-       "logo": "00100_0001420673_siura.png",
-       "teamId": "33136"
-      },
-      "form": [
-       {
-        "date": "2026-10-03T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
       "position": "9",
-      "points": "9.00",
-      "played": 7,
+      "points": "11.00",
+      "played": 8,
       "won": 3,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": "14",
-      "goalsAgainst": "13",
-      "team": {
-       "name": "ALBONS CLUB FUTBOL A",
-       "logo": "00100_0001421640_alb.png",
-       "teamId": "15547977"
-      },
-      "form": [
-       {
-        "date": "2026-10-03T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-25T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "10",
-      "points": "9.00",
-      "played": 7,
-      "won": 3,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": "12",
-      "goalsAgainst": "15",
-      "team": {
-       "name": "VILAFANT FC A",
-       "logo": "00100_0000486031_VILAFANT_F.C..jpeg_copia.png",
-       "teamId": "36533"
-      },
-      "form": [
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-27T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-01T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-08T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "11",
-      "points": "8.00",
-      "played": 7,
-      "won": 2,
       "drawn": 2,
       "lost": 3,
-      "goalsFor": "18",
+      "goalsFor": "24",
       "goalsAgainst": "16",
       "team": {
        "name": "JAFRE, U.D. A",
@@ -8797,10 +8723,6 @@
        "teamId": "43152"
       },
       "form": [
-       {
-        "date": "2026-10-03T00:00:00.000Z",
-        "result": "E"
-       },
        {
         "date": "2026-10-11T00:00:00.000Z",
         "result": "P"
@@ -8816,28 +8738,139 @@
        {
         "date": "2026-10-31T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "10",
+      "points": "10.00",
+      "played": 8,
+      "won": 3,
+      "drawn": 1,
+      "lost": 4,
+      "goalsFor": "15",
+      "goalsAgainst": "14",
+      "team": {
+       "name": "ALBONS CLUB FUTBOL A",
+       "logo": "00100_0001421640_alb.png",
+       "teamId": "15547977"
+      },
+      "form": [
+       {
+        "date": "2026-10-17T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-25T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "E"
+       }
+      ]
+     },
+     {
+      "position": "11",
+      "points": "9.00",
+      "played": 8,
+      "won": 3,
+      "drawn": 0,
+      "lost": 5,
+      "goalsFor": "12",
+      "goalsAgainst": "18",
+      "team": {
+       "name": "VILAFANT FC A",
+       "logo": "00100_0000486031_VILAFANT_F.C..jpeg_copia.png",
+       "teamId": "36533"
+      },
+      "form": [
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-27T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-08T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "12",
       "points": "6.00",
-      "played": 7,
-      "won": 2,
-      "drawn": 0,
+      "played": 9,
+      "won": 1,
+      "drawn": 3,
       "lost": 5,
       "goalsFor": "8",
-      "goalsAgainst": "15",
+      "goalsAgainst": "16",
+      "team": {
+       "name": "BORRASSA, F.C. B",
+       "logo": "00100_0001239318_borras_.PNG",
+       "teamId": "58369234"
+      },
+      "form": [
+       {
+        "date": "2026-10-18T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "E"
+       }
+      ]
+     },
+     {
+      "position": "13",
+      "points": "6.00",
+      "played": 8,
+      "won": 2,
+      "drawn": 0,
+      "lost": 6,
+      "goalsFor": "8",
+      "goalsAgainst": "21",
       "team": {
        "name": "FORTIA, C.E. A",
        "logo": "00100_0000897912_fortia_200.png",
        "teamId": "34397"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "P"
@@ -8853,28 +8886,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
-      "position": "13",
+      "position": "14",
       "points": "6.00",
-      "played": 8,
+      "played": 9,
       "won": 2,
       "drawn": 0,
-      "lost": 6,
+      "lost": 7,
       "goalsFor": "14",
-      "goalsAgainst": "27",
+      "goalsAgainst": "30",
       "team": {
        "name": "FLAÇA, C.D. A",
        "logo": "00100_0000654599_cefla_200x200.png",
        "teamId": "54323485"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-24T00:00:00.000Z",
         "result": "P"
@@ -8890,65 +8923,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
-       }
-      ]
-     },
-     {
-      "position": "14",
-      "points": "5.00",
-      "played": 8,
-      "won": 1,
-      "drawn": 2,
-      "lost": 5,
-      "goalsFor": "7",
-      "goalsAgainst": "15",
-      "team": {
-       "name": "BORRASSA, F.C. B",
-       "logo": "00100_0001239318_borras_.PNG",
-       "teamId": "58369234"
-      },
-      "form": [
+       },
        {
-        "date": "2026-10-16T00:00:00.000Z",
+        "date": "2026-11-15T00:00:00.000Z",
         "result": "P"
-       },
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-01T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "E"
        }
       ]
      },
      {
       "position": "15",
       "points": "0.00",
-      "played": 8,
+      "played": 9,
       "won": 0,
       "drawn": 0,
-      "lost": 8,
+      "lost": 9,
       "goalsFor": "5",
-      "goalsAgainst": "29",
+      "goalsAgainst": "32",
       "team": {
        "name": "ESPORTIU VENTALLÓ, CLUB  A",
        "logo": "00100_0000951465_5402_Esportiu_Ventallo_Club_200x200.png",
        "teamId": "47414487"
       },
       "form": [
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "P"
@@ -8963,6 +8959,10 @@
        },
        {
         "date": "2026-11-08T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
         "result": "P"
        }
       ]
@@ -9668,11 +9668,11 @@
        "NOMBRE_FUERA": "UNIÓ GIRONA A.C.E. A",
        "ESCUDO_FUERA": "00100_0000665462_uniogirona_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SANTA CRISTINA D´ARO",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "3",
        "COMIENZO1": "2026-11-13T21:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4140489",
@@ -9684,11 +9684,11 @@
        "NOMBRE_FUERA": "GIRONA, F.C. C",
        "ESCUDO_FUERA": "00100_0000956159_5282_GironaFC_200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. VILA-ROJA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "0",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-14T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4140490",
@@ -9700,11 +9700,11 @@
        "NOMBRE_FUERA": "LLAGOSTERA, U.E. B",
        "ESCUDO_FUERA": "00100_0001107669_Escutuellagostera.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE RIUDELLOTS DE LA SELVA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "6",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-14T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4140491",
@@ -9716,11 +9716,11 @@
        "NOMBRE_FUERA": "PALAMOS CLUB DE FUTBOL B",
        "ESCUDO_FUERA": "00100_0000654696_palamos_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE VILOBÍ D´ONYAR",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "1",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-14T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4140487",
@@ -9732,11 +9732,27 @@
        "NOMBRE_FUERA": "LA PUNXA , CLUB DE FUTBOL  A",
        "ESCUDO_FUERA": "00100_0000816144_punxa_200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "4",
+       "GOLES_FUERA": "6",
        "COMIENZO1": "2026-11-14T16:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
+      },
+      {
+       "CODACTA": "4140485",
+       "JORNADA": "7",
+       "CODEQUIPO_CASA": "47013351",
+       "NOMBRE_CASA": "GLOBAL-PALAMOS C.F. A",
+       "ESCUDO_CASA": "00100_0000956155_5327_ClobalPalamosCF_200.png",
+       "CODEQUIPO_FUERA": "40731165",
+       "NOMBRE_FUERA": "MAS MASCORT DE PALAFRUGELL,F.C. A",
+       "ESCUDO_FUERA": "00100_0001222354_Sin_t_tulo__11_.png",
+       "CAMPO": "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
+       "GOLES_CASA": "8",
+       "GOLES_FUERA": "0",
+       "COMIENZO1": "2026-11-14T19:00:00",
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4140488",
@@ -9751,22 +9767,6 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-14T17:15:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
-       "CODACTA": "4140485",
-       "JORNADA": "7",
-       "CODEQUIPO_CASA": "47013351",
-       "NOMBRE_CASA": "GLOBAL-PALAMOS C.F. A",
-       "ESCUDO_CASA": "00100_0000956155_5327_ClobalPalamosCF_200.png",
-       "CODEQUIPO_FUERA": "40731165",
-       "NOMBRE_FUERA": "MAS MASCORT DE PALAFRUGELL,F.C. A",
-       "ESCUDO_FUERA": "00100_0001222354_Sin_t_tulo__11_.png",
-       "CAMPO": "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-14T19:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       }
@@ -9832,7 +9832,7 @@
        "CAMPO": "CAMP DE FUTBOL CLUB CENTRE ESPORTIU VEDRUNA",
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-21T17:30:00",
+       "COMIENZO1": "2026-11-21T17:15:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -11943,6 +11943,43 @@
     "data": [
      {
       "position": "1",
+      "points": "19.00",
+      "played": 7,
+      "won": 6,
+      "drawn": 1,
+      "lost": 0,
+      "goalsFor": "22",
+      "goalsAgainst": "3",
+      "team": {
+       "name": "VILOBI FUTBOL CLUB A",
+       "logo": "00100_0001163070_VilobiPNG2.png",
+       "teamId": "34680"
+      },
+      "form": [
+       {
+        "date": "2026-10-17T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "2",
       "points": "18.00",
       "played": 6,
       "won": 6,
@@ -11979,50 +12016,13 @@
       ]
      },
      {
-      "position": "2",
+      "position": "3",
       "points": "16.00",
-      "played": 6,
+      "played": 7,
       "won": 5,
       "drawn": 1,
-      "lost": 0,
-      "goalsFor": "21",
-      "goalsAgainst": "3",
-      "team": {
-       "name": "VILOBI FUTBOL CLUB A",
-       "logo": "00100_0001163070_VilobiPNG2.png",
-       "teamId": "34680"
-      },
-      "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "E"
-       }
-      ]
-     },
-     {
-      "position": "3",
-      "points": "13.00",
-      "played": 6,
-      "won": 4,
-      "drawn": 1,
       "lost": 1,
-      "goalsFor": "14",
+      "goalsFor": "20",
       "goalsAgainst": "7",
       "team": {
        "name": "RIUDELLOTS CLUB ESPORTIU  A",
@@ -12030,10 +12030,6 @@
        "teamId": "50771144"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "E"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
@@ -12049,54 +12045,21 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
       "position": "4",
-      "points": "12.00",
-      "played": 6,
+      "points": "13.00",
+      "played": 7,
       "won": 4,
-      "drawn": 0,
-      "lost": 2,
-      "goalsFor": "26",
-      "goalsAgainst": "13",
-      "team": {
-       "name": "PALAMOS CLUB DE FUTBOL B",
-       "logo": "00100_0000654696_palamos_200x200.png",
-       "teamId": "47004385"
-      },
-      "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-28T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "G"
-       }
-      ]
-     },
-     {
-      "position": "5",
-      "points": "10.00",
-      "played": 6,
-      "won": 3,
       "drawn": 1,
       "lost": 2,
-      "goalsFor": "16",
+      "goalsFor": "24",
       "goalsAgainst": "16",
       "team": {
        "name": "GLOBAL-PALAMOS C.F. A",
@@ -12104,10 +12067,6 @@
        "teamId": "47013351"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "P"
@@ -12123,28 +12082,65 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "5",
+      "points": "12.00",
+      "played": 7,
+      "won": 4,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": "26",
+      "goalsAgainst": "14",
+      "team": {
+       "name": "PALAMOS CLUB DE FUTBOL B",
+       "logo": "00100_0000654696_palamos_200x200.png",
+       "teamId": "47004385"
+      },
+      "form": [
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-28T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "6",
-      "points": "9.00",
-      "played": 6,
-      "won": 3,
+      "points": "12.00",
+      "played": 7,
+      "won": 4,
       "drawn": 0,
       "lost": 3,
-      "goalsFor": "10",
-      "goalsAgainst": "12",
+      "goalsFor": "16",
+      "goalsAgainst": "16",
       "team": {
        "name": "LA PUNXA , CLUB DE FUTBOL  A",
        "logo": "00100_0000816144_punxa_200.png",
        "teamId": "40711302"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "G"
@@ -12160,15 +12156,56 @@
        {
         "date": "2026-11-11T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
       "position": "7",
-      "points": "9.00",
-      "played": 6,
+      "points": "11.00",
+      "played": 7,
       "won": 3,
-      "drawn": 0,
+      "drawn": 2,
+      "lost": 2,
+      "goalsFor": "15",
+      "goalsAgainst": "18",
+      "team": {
+       "name": "UNIÓ GIRONA A.C.E. A",
+       "logo": "00100_0000665462_uniogirona_200x200.png",
+       "teamId": "58155399"
+      },
+      "form": [
+       {
+        "date": "2026-10-17T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-11-13T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "8",
+      "points": "10.00",
+      "played": 7,
+      "won": 3,
+      "drawn": 1,
       "lost": 3,
       "goalsFor": "6",
       "goalsAgainst": "8",
@@ -12178,10 +12215,6 @@
        "teamId": "58137461"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-24T00:00:00.000Z",
         "result": "G"
@@ -12197,42 +12230,9 @@
        {
         "date": "2026-11-11T00:00:00.000Z",
         "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "8",
-      "points": "8.00",
-      "played": 6,
-      "won": 2,
-      "drawn": 2,
-      "lost": 2,
-      "goalsFor": "12",
-      "goalsAgainst": "16",
-      "team": {
-       "name": "UNIÓ GIRONA A.C.E. A",
-       "logo": "00100_0000665462_uniogirona_200x200.png",
-       "teamId": "58155399"
-      },
-      "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
        },
        {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
+        "date": "2026-11-14T00:00:00.000Z",
         "result": "E"
        }
       ]
@@ -12240,22 +12240,55 @@
      {
       "position": "9",
       "points": "6.00",
-      "played": 6,
+      "played": 7,
+      "won": 1,
+      "drawn": 3,
+      "lost": 3,
+      "goalsFor": "9",
+      "goalsAgainst": "11",
+      "team": {
+       "name": "SANT NARCIS, CLUB ATLÈTIC  A",
+       "logo": "00100_0001098683_sn.png",
+       "teamId": "54312621"
+      },
+      "form": [
+       {
+        "date": "2026-10-17T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-07T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
+       }
+      ]
+     },
+     {
+      "position": "10",
+      "points": "6.00",
+      "played": 7,
       "won": 2,
       "drawn": 0,
-      "lost": 4,
+      "lost": 5,
       "goalsFor": "17",
-      "goalsAgainst": "17",
+      "goalsAgainst": "23",
       "team": {
        "name": "LLAGOSTERA, U.E. B",
        "logo": "00100_0001107669_Escutuellagostera.png",
        "teamId": "54324553"
       },
       "form": [
-       {
-        "date": "2026-10-11T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
@@ -12271,28 +12304,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
-      "position": "10",
+      "position": "11",
       "points": "6.00",
-      "played": 6,
+      "played": 7,
       "won": 1,
       "drawn": 3,
-      "lost": 2,
+      "lost": 3,
       "goalsFor": "16",
-      "goalsAgainst": "19",
+      "goalsAgainst": "27",
       "team": {
        "name": "MAS MASCORT DE PALAFRUGELL,F.C. A",
        "logo": "00100_0001222354_Sin_t_tulo__11_.png",
        "teamId": "40731165"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "E"
-       },
        {
         "date": "2026-10-24T00:00:00.000Z",
         "result": "P"
@@ -12308,55 +12341,22 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
-       }
-      ]
-     },
-     {
-      "position": "11",
-      "points": "5.00",
-      "played": 6,
-      "won": 1,
-      "drawn": 2,
-      "lost": 3,
-      "goalsFor": "9",
-      "goalsAgainst": "11",
-      "team": {
-       "name": "SANT NARCIS, CLUB ATLÈTIC  A",
-       "logo": "00100_0001098683_sn.png",
-       "teamId": "54312621"
-      },
-      "form": [
+       },
        {
-        "date": "2026-10-14T00:00:00.000Z",
+        "date": "2026-11-14T00:00:00.000Z",
         "result": "P"
-       },
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-07T00:00:00.000Z",
-        "result": "G"
        }
       ]
      },
      {
       "position": "12",
       "points": "5.00",
-      "played": 6,
+      "played": 7,
       "won": 1,
       "drawn": 2,
-      "lost": 3,
-      "goalsFor": "14",
-      "goalsAgainst": "23",
+      "lost": 4,
+      "goalsFor": "18",
+      "goalsAgainst": "29",
       "team": {
        "name": "CASSA, U.D. B",
        "logo": "00100_0000748761_udcassa_200x200.png",
@@ -12364,10 +12364,6 @@
       },
       "form": [
        {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
-       {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
        },
@@ -12382,28 +12378,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "13",
       "points": "3.00",
-      "played": 6,
+      "played": 7,
       "won": 1,
       "drawn": 0,
-      "lost": 5,
-      "goalsFor": "8",
-      "goalsAgainst": "26",
+      "lost": 6,
+      "goalsFor": "10",
+      "goalsAgainst": "29",
       "team": {
        "name": "CRISTINENC C.E B",
        "logo": "00100_0001232555_cri.jpg",
        "teamId": "58137416"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-24T00:00:00.000Z",
         "result": "P"
@@ -12418,6 +12414,10 @@
        },
        {
         "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-13T00:00:00.000Z",
         "result": "P"
        }
       ]
@@ -12576,7 +12576,7 @@
        "GOLES_FUERA": "3",
        "COMIENZO1": "2026-11-13T21:30:00",
        "CERRADA": "1",
-       "ESTADO": "0"
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4377463",
@@ -13256,11 +13256,11 @@
        "NOMBRE_FUERA": "RIPOLL ATLETIC CLUB FUTBOL A",
        "ESCUDO_FUERA": "00100_0000272464_13095933_1731439670402369_8477283711072030434_n.png",
        "CAMPO": "CAMP D´ESPORTS MPAL. DE MONTAGUT",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-14T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4245261",
@@ -13272,11 +13272,11 @@
        "NOMBRE_FUERA": "PONTENC CLUB ESP. B",
        "ESCUDO_FUERA": "00100_0001186244_5006_PONTENC.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE MIÀNIGUES",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "5",
+       "GOLES_FUERA": "3",
        "COMIENZO1": "2026-11-14T17:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4245256",
@@ -13288,11 +13288,11 @@
        "NOMBRE_FUERA": "CASSA, U.D. B",
        "ESCUDO_FUERA": "00100_0000748761_udcassa_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE SANT ESTEVE D´EN BAS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "6",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-14T18:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4245257",
@@ -13304,11 +13304,11 @@
        "NOMBRE_FUERA": "L'ESCALA, F.C. A",
        "ESCUDO_FUERA": "00100_0001021751_00100_0000820832_fcle_200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. LA VINYASSA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-15T12:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4245262",
@@ -13320,11 +13320,11 @@
        "NOMBRE_FUERA": "SILS, C.F. A",
        "ESCUDO_FUERA": "00100_0000963508_00100_0000954468_escut_sils.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE CORNELLÀ DE TERRI",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-15T12:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4245263",
@@ -13339,8 +13339,8 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-15T12:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "3"
       },
       {
        "CODACTA": "4245260",
@@ -13352,11 +13352,11 @@
        "NOMBRE_FUERA": "BESCANO, C.E. A",
        "ESCUDO_FUERA": "00100_0000739644_bescano_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. VILARTAGUES",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "0",
+       "GOLES_FUERA": "20",
        "COMIENZO1": "2026-11-15T13:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       },
       {
        "CODACTA": "4245259",
@@ -13368,11 +13368,11 @@
        "NOMBRE_FUERA": "REMENCES , ASSOCIACIÓ  ESPORTIVA UNIÓ  A",
        "ESCUDO_FUERA": "00100_0001022042_pixlr_bg_result.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE CABANES",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "7",
+       "GOLES_FUERA": "0",
        "COMIENZO1": "2026-11-15T17:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "CERRADA": "1",
+       "ESTADO": "1"
       }
      ],
      "8": [
@@ -13409,6 +13409,22 @@
        "ESTADO": "0"
       },
       {
+       "CODACTA": "4245270",
+       "JORNADA": "8",
+       "CODEQUIPO_CASA": "51267388",
+       "NOMBRE_CASA": "SILS, C.F. A",
+       "ESCUDO_CASA": "00100_0000963508_00100_0000954468_escut_sils.png",
+       "CODEQUIPO_FUERA": "58923037",
+       "NOMBRE_FUERA": "PORQUERES, U.E. A",
+       "ESCUDO_FUERA": "00100_0000674209_porqueres_200x200.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE LES MALLORQUINES",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-21T19:00:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
        "CODACTA": "4245271",
        "JORNADA": "8",
        "CODEQUIPO_CASA": "7000791",
@@ -13441,22 +13457,6 @@
        "ESTADO": "0"
       },
       {
-       "CODACTA": "4245265",
-       "JORNADA": "8",
-       "CODEQUIPO_CASA": "54391318",
-       "NOMBRE_CASA": "L'ESCALA, F.C. A",
-       "ESCUDO_CASA": "00100_0001021751_00100_0000820832_fcle_200.png",
-       "CODEQUIPO_FUERA": "21691274",
-       "NOMBRE_FUERA": "VALL D'EN BAS CLUB FUTBOL A",
-       "ESCUDO_FUERA": "00100_0000573792_valldenbas_200x200.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-22T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
        "CODACTA": "4245269",
        "JORNADA": "8",
        "CODEQUIPO_CASA": "28940766",
@@ -13473,6 +13473,22 @@
        "ESTADO": "0"
       },
       {
+       "CODACTA": "4245265",
+       "JORNADA": "8",
+       "CODEQUIPO_CASA": "54391318",
+       "NOMBRE_CASA": "L'ESCALA, F.C. A",
+       "ESCUDO_CASA": "00100_0001021751_00100_0000820832_fcle_200.png",
+       "CODEQUIPO_FUERA": "21691274",
+       "NOMBRE_FUERA": "VALL D'EN BAS CLUB FUTBOL A",
+       "ESCUDO_FUERA": "00100_0000573792_valldenbas_200x200.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-22T18:30:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
        "CODACTA": "4245266",
        "JORNADA": "8",
        "CODEQUIPO_CASA": "25841070",
@@ -13485,22 +13501,6 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-22T18:30:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
-       "CODACTA": "4245270",
-       "JORNADA": "8",
-       "CODEQUIPO_CASA": "51267388",
-       "NOMBRE_CASA": "SILS, C.F. A",
-       "ESCUDO_CASA": "00100_0000963508_00100_0000954468_escut_sils.png",
-       "CODEQUIPO_FUERA": "58923037",
-       "NOMBRE_FUERA": "PORQUERES, U.E. A",
-       "ESCUDO_FUERA": "00100_0000674209_porqueres_200x200.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE LES MALLORQUINES",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-22T19:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       }
@@ -16371,12 +16371,12 @@
     "data": [
      {
       "position": "1",
-      "points": "18.00",
-      "played": 6,
-      "won": 6,
+      "points": "21.00",
+      "played": 7,
+      "won": 7,
       "drawn": 0,
       "lost": 0,
-      "goalsFor": "38",
+      "goalsFor": "45",
       "goalsAgainst": "0",
       "team": {
        "name": "CABANES, U.E. A",
@@ -16384,10 +16384,6 @@
        "teamId": "58354562"
       },
       "form": [
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "G"
@@ -16403,65 +16399,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
       "position": "2",
       "points": "18.00",
-      "played": 6,
+      "played": 7,
       "won": 6,
       "drawn": 0,
-      "lost": 0,
-      "goalsFor": "17",
-      "goalsAgainst": "3",
-      "team": {
-       "name": "PONTENC CLUB ESP. B",
-       "logo": "00100_0001186244_5006_PONTENC.png",
-       "teamId": "28940766"
-      },
-      "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-25T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-08T00:00:00.000Z",
-        "result": "G"
-       }
-      ]
-     },
-     {
-      "position": "3",
-      "points": "15.00",
-      "played": 6,
-      "won": 5,
-      "drawn": 0,
       "lost": 1,
-      "goalsFor": "40",
-      "goalsAgainst": "3",
+      "goalsFor": "45",
+      "goalsAgainst": "6",
       "team": {
        "name": "PORQUERES, U.E. A",
        "logo": "00100_0000674209_porqueres_200x200.png",
        "teamId": "58923037"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
@@ -16477,17 +16436,21 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
-      "position": "4",
-      "points": "15.00",
-      "played": 6,
-      "won": 5,
+      "position": "3",
+      "points": "18.00",
+      "played": 7,
+      "won": 6,
       "drawn": 0,
       "lost": 1,
-      "goalsFor": "36",
+      "goalsFor": "38",
       "goalsAgainst": "12",
       "team": {
        "name": "ROSES CITY FUTBOL CLUB  A",
@@ -16496,10 +16459,6 @@
       },
       "form": [
        {
-        "date": "2026-10-11T00:00:00.000Z",
-        "result": "P"
-       },
-       {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "G"
        },
@@ -16514,92 +16473,59 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "4",
+      "points": "18.00",
+      "played": 7,
+      "won": 6,
+      "drawn": 0,
+      "lost": 1,
+      "goalsFor": "20",
+      "goalsAgainst": "8",
+      "team": {
+       "name": "PONTENC CLUB ESP. B",
+       "logo": "00100_0001186244_5006_PONTENC.png",
+       "teamId": "28940766"
+      },
+      "form": [
+       {
+        "date": "2026-10-18T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-25T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-08T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "5",
-      "points": "12.00",
-      "played": 6,
+      "points": "14.00",
+      "played": 7,
       "won": 4,
-      "drawn": 0,
-      "lost": 2,
-      "goalsFor": "12",
+      "drawn": 2,
+      "lost": 1,
+      "goalsFor": "33",
       "goalsAgainst": "9",
-      "team": {
-       "name": "SILS, C.F. A",
-       "logo": "00100_0000963508_00100_0000954468_escut_sils.png",
-       "teamId": "51267388"
-      },
-      "form": [
-       {
-        "date": "2026-10-11T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-25T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-01T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-08T00:00:00.000Z",
-        "result": "G"
-       }
-      ]
-     },
-     {
-      "position": "6",
-      "points": "8.00",
-      "played": 5,
-      "won": 2,
-      "drawn": 2,
-      "lost": 1,
-      "goalsFor": "13",
-      "goalsAgainst": "5",
-      "team": {
-       "name": "CORNELLA TERRI, A.E. A",
-       "logo": "00100_0000649646_cornellaterri_200x200.png",
-       "teamId": "35037123"
-      },
-      "form": [
-       {
-        "date": "2026-10-03T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-11T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "E"
-       },
-       {
-        "date": "2026-11-08T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "7",
-      "points": "8.00",
-      "played": 5,
-      "won": 2,
-      "drawn": 2,
-      "lost": 1,
-      "goalsFor": "10",
-      "goalsAgainst": "7",
       "team": {
        "name": "BESCANO, C.E. A",
        "logo": "00100_0000739644_bescano_200x200.png",
@@ -16607,14 +16533,6 @@
       },
       "form": [
        {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "G"
-       },
-       {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "E"
        },
@@ -16625,28 +16543,106 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-13T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "6",
+      "points": "12.00",
+      "played": 7,
+      "won": 4,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": "13",
+      "goalsAgainst": "11",
+      "team": {
+       "name": "SILS, C.F. A",
+       "logo": "00100_0000963508_00100_0000954468_escut_sils.png",
+       "teamId": "51267388"
+      },
+      "form": [
+       {
+        "date": "2026-10-18T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-25T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-08T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "P"
+       }
+      ]
+     },
+     {
+      "position": "7",
+      "points": "11.00",
+      "played": 6,
+      "won": 3,
+      "drawn": 2,
+      "lost": 1,
+      "goalsFor": "15",
+      "goalsAgainst": "6",
+      "team": {
+       "name": "CORNELLA TERRI, A.E. A",
+       "logo": "00100_0000649646_cornellaterri_200x200.png",
+       "teamId": "35037123"
+      },
+      "form": [
+       {
+        "date": "2026-10-11T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-10-17T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "E"
+       },
+       {
+        "date": "2026-11-08T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
      {
       "position": "8",
-      "points": "6.00",
-      "played": 6,
+      "points": "7.00",
+      "played": 7,
       "won": 2,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 4,
-      "goalsFor": "24",
-      "goalsAgainst": "19",
+      "goalsFor": "26",
+      "goalsAgainst": "21",
       "team": {
        "name": "RIPOLL ATLETIC CLUB FUTBOL A",
        "logo": "00100_0000272464_13095933_1731439670402369_8477283711072030434_n.png",
        "teamId": "25841070"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "P"
@@ -16662,28 +16658,28 @@
        {
         "date": "2026-11-07T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "9",
-      "points": "6.00",
-      "played": 6,
+      "points": "7.00",
+      "played": 7,
       "won": 2,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 4,
-      "goalsFor": "10",
-      "goalsAgainst": "22",
+      "goalsFor": "12",
+      "goalsAgainst": "24",
       "team": {
        "name": "PENYA ESPORTIVA MONTAGUT A",
        "logo": "00100_0000656112_pemontagut_200x200.png",
        "teamId": "58522918"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-23T00:00:00.000Z",
         "result": "G"
@@ -16699,18 +16695,59 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "E"
        }
       ]
      },
      {
       "position": "10",
+      "points": "6.00",
+      "played": 6,
+      "won": 2,
+      "drawn": 0,
+      "lost": 4,
+      "goalsFor": "13",
+      "goalsAgainst": "24",
+      "team": {
+       "name": "VALL D'EN BAS CLUB FUTBOL A",
+       "logo": "00100_0000573792_valldenbas_200x200.png",
+       "teamId": "21691274"
+      },
+      "form": [
+       {
+        "date": "2026-10-18T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-23T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-01T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-08T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "11",
       "points": "4.00",
-      "played": 4,
+      "played": 5,
       "won": 1,
       "drawn": 1,
-      "lost": 2,
+      "lost": 3,
       "goalsFor": "7",
-      "goalsAgainst": "11",
+      "goalsAgainst": "13",
       "team": {
        "name": "L'ESCALA, F.C. A",
        "logo": "00100_0001021751_00100_0000820832_fcle_200.png",
@@ -16732,11 +16769,15 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
-      "position": "11",
+      "position": "12",
       "points": "4.00",
       "played": 5,
       "won": 1,
@@ -16750,10 +16791,6 @@
        "teamId": "7000791"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-18T00:00:00.000Z",
         "result": "G"
@@ -16769,32 +16806,28 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "N"
        }
       ]
      },
      {
-      "position": "12",
+      "position": "13",
       "points": "3.00",
-      "played": 5,
+      "played": 6,
       "won": 1,
       "drawn": 0,
-      "lost": 4,
-      "goalsFor": "11",
-      "goalsAgainst": "13",
+      "lost": 5,
+      "goalsFor": "13",
+      "goalsAgainst": "16",
       "team": {
        "name": "LA PERA, U.E. A",
        "logo": "00100_0000205346_imgres.png",
        "teamId": "15549744"
       },
       "form": [
-       {
-        "date": "2026-10-12T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "P"
@@ -16806,55 +16839,26 @@
        {
         "date": "2026-11-08T00:00:00.000Z",
         "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "13",
-      "points": "3.00",
-      "played": 5,
-      "won": 1,
-      "drawn": 0,
-      "lost": 4,
-      "goalsFor": "7",
-      "goalsAgainst": "23",
-      "team": {
-       "name": "VALL D'EN BAS CLUB FUTBOL A",
-       "logo": "00100_0000573792_valldenbas_200x200.png",
-       "teamId": "21691274"
-      },
-      "form": [
+       },
        {
-        "date": "2026-10-03T00:00:00.000Z",
+        "date": "2026-11-13T00:00:00.000Z",
         "result": "P"
        },
        {
-        "date": "2026-10-18T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-23T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-01T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-11-08T00:00:00.000Z",
-        "result": "G"
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "N"
        }
       ]
      },
      {
       "position": "14",
       "points": "0.00",
-      "played": 4,
+      "played": 5,
       "won": 0,
       "drawn": 0,
-      "lost": 4,
+      "lost": 5,
       "goalsFor": "1",
-      "goalsAgainst": "25",
+      "goalsAgainst": "32",
       "team": {
        "name": "REMENCES , ASSOCIACIÓ  ESPORTIVA UNIÓ  A",
        "logo": "00100_0001022042_pixlr_bg_result.png",
@@ -16876,53 +16880,28 @@
        {
         "date": "2026-11-01T00:00:00.000Z",
         "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
      {
       "position": "15",
       "points": "0.00",
-      "played": 2,
+      "played": 6,
       "won": 0,
       "drawn": 0,
-      "lost": 2,
-      "goalsFor": "0",
-      "goalsAgainst": "32",
-      "team": {
-       "name": "SANT FELIU DE GUIXOLS C.F. A",
-       "logo": "00100_0000817313_guixols_200.png",
-       "teamId": "59177783"
-      },
-      "form": [
-       {
-        "date": "2026-10-03T00:00:00.000Z",
-        "result": "P"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "P"
-       }
-      ]
-     },
-     {
-      "position": "16",
-      "points": "0.00",
-      "played": 5,
-      "won": 0,
-      "drawn": 0,
-      "lost": 5,
-      "goalsFor": "2",
-      "goalsAgainst": "37",
+      "lost": 6,
+      "goalsFor": "3",
+      "goalsAgainst": "43",
       "team": {
        "name": "CASSA, U.D. B",
        "logo": "00100_0000748761_udcassa_200x200.png",
        "teamId": "47012932"
       },
       "form": [
-       {
-        "date": "2026-10-03T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-10T00:00:00.000Z",
         "result": "P"
@@ -16937,6 +16916,39 @@
        },
        {
         "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-14T00:00:00.000Z",
+        "result": "P"
+       }
+      ]
+     },
+     {
+      "position": "16",
+      "points": "0.00",
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
+      "goalsFor": "0",
+      "goalsAgainst": "52",
+      "team": {
+       "name": "SANT FELIU DE GUIXOLS C.F. A",
+       "logo": "00100_0000817313_guixols_200.png",
+       "teamId": "59177783"
+      },
+      "form": [
+       {
+        "date": "2026-10-03T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-15T00:00:00.000Z",
         "result": "P"
        }
       ]
