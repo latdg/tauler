@@ -126,6 +126,27 @@
 "enllac": "",
 "t": 1794845263.3053
 },
+"jaleos": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Isaki Lacuesta"
+],
+"original": "Jaleos",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-09-26",
+"sinopsiCa": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
+"id": 1736729,
+"nota": 0,
+"vots": 0,
+"sinopsi": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
+"sinopsi_es": false,
+"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794880489.151801
+},
 "la bola negra": {
 "v": 6,
 "comprovat": "director",
@@ -148,6 +169,49 @@
 "enllac": "",
 "t": 1794845263.3053
 },
+"la oveja shaun mision calabaza": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El xai Shaun: Missió Carbassa",
+"directors": [
+"Steve Cox",
+"Matthew Walker"
+],
+"original": "Shaun the Sheep: The Beast of Mossy Bottom",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-09-17",
+"sinopsiCa": "Els residents de la granja de Mossy Bottom esperen amb il·lusió Halloween, fins que el maldestre granger destrossa l'estimat hort de carabasses del ramat! En Shaun es converteix en un científic boig per solucionar el problema, però la situació es descontrola ràpidament.",
+"id": 1477104,
+"nota": 7.3,
+"vots": 62,
+"sinopsi": "Els residents de la granja de Mossy Bottom esperen amb il·lusió Halloween, fins que el maldestre granger destrossa l'estimat hort de carabasses del ramat! En Shaun es converteix en un científic boig per solucionar el problema, però la situació es descontrola ràpidament.",
+"sinopsi_es": false,
+"poster": "/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794845263.3053
+},
+"los miserables": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Fred Cavayé"
+],
+"original": "Les Misérables",
+"idiomaOriginal": "fr",
+"dataTmdb": "2026-10-14",
+"sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"id": 1241803,
+"nota": 7.0,
+"vots": 78,
+"sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"sinopsi_es": false,
+"poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794845263.3053
+},
 "ramayana el nacimiento de una leyenda": {
 "v": 6,
 "comprovat": "director",
@@ -160,14 +224,14 @@
 "dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 7.4,
-"vots": 51,
-"sinopsi": "Una antigua epopeya sigue a un joven príncipe y a una princesa, cuyo matrimonio y posterior exilio marcan el comienzo de un viaje legendario. Su historia de amor, deber y destino prepara el terreno para desafíos aún mayores.",
+"nota": 7.5,
+"vots": 55,
+"sinopsi": "ver gratis in vercineo.net  Una antigua epopeya sigue a un joven príncipe y a una princesa, cuyo matrimonio y posterior exilio marcan el comienzo de un viaje legendario. Su historia de amor, deber y destino prepara el terreno para desafíos aún mayores.",
 "sinopsi_es": true,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "ratones al ataque operacion navidad": {
 "v": 6,
@@ -272,7 +336,7 @@
 "poster": "/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "hope": {
 "v": 6,
@@ -328,14 +392,14 @@
 "dataTmdb": "2026-11-11",
 "sinopsiCa": "",
 "id": 1379486,
-"nota": 5.5,
-"vots": 2,
+"nota": 5.7,
+"vots": 3,
 "sinopsi": "En 1858, la misteriosa institutriz Winifred Notty llega a Ensor House para educar a los hijos de la familia. Su disciplina extrema y su inquietante presencia despiertan sospechas, mientras los empleados de la mansión comienzan a desaparecer sin dejar rastro. Los dueños pronto descubren que tras su apariencia impecable se esconden secretos perturbadores.",
 "sinopsi_es": true,
 "poster": "/eknMIThHWZCxMzDAcUDk4rK2Wpc.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "11": {
 "v": 6,
@@ -380,112 +444,6 @@
 "enllac": "",
 "t": 1794845263.3053
 },
-"la otra madre": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Rob Savage"
-],
-"original": "Other Mommy",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-07",
-"sinopsiCa": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
-"id": 1400837,
-"nota": 6.3,
-"vots": 439,
-"sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
-"sinopsi_es": false,
-"poster": "/vnQtwToGRWTuHdLltq3hNdbXkii.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794845263.3053
-},
-"verity la sombra de un engano": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Michael Showalter"
-],
-"original": "Verity",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-09-30",
-"sinopsiCa": "",
-"id": 1283515,
-"nota": 6.982,
-"vots": 714,
-"sinopsi": "Lowen Ashleigh es contratada como escritora fantasma por Jeremy Crawford para escribir las novelas de su esposa Verity, autora de bestsellers, impedida tras un accidente. Lowen descubre las inquietantes verdades de Verity mientras reside en casa de los Crawford para trabajar.",
-"sinopsi_es": true,
-"poster": "/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
-"plataformes": [],
-"enllac": "https://www.themoviedb.org/movie/1283515-verity/watch?locale=ES",
-"t": 1794845263.3053
-},
-"chopin": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Michał Kwieciński"
-],
-"original": "Chopin, Chopin!",
-"idiomaOriginal": "pl",
-"dataTmdb": "2025-10-10",
-"sinopsiCa": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
-"id": 1299799,
-"nota": 6.694,
-"vots": 31,
-"sinopsi": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
-"sinopsi_es": false,
-"poster": "/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794845263.3053
-},
-"jaleos": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Isaki Lacuesta"
-],
-"original": "Jaleos",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-09-26",
-"sinopsiCa": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
-"id": 1736729,
-"nota": 0,
-"vots": 0,
-"sinopsi": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
-"sinopsi_es": false,
-"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794783589.255422
-},
-"la oveja shaun mision calabaza": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El xai Shaun: Missió Carbassa",
-"directors": [
-"Steve Cox",
-"Matthew Walker"
-],
-"original": "Shaun the Sheep: The Beast of Mossy Bottom",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-09-17",
-"sinopsiCa": "Els residents de la granja de Mossy Bottom esperen amb il·lusió Halloween, fins que el maldestre granger destrossa l'estimat hort de carabasses del ramat! En Shaun es converteix en un científic boig per solucionar el problema, però la situació es descontrola ràpidament.",
-"id": 1477104,
-"nota": 7.3,
-"vots": 62,
-"sinopsi": "Els residents de la granja de Mossy Bottom esperen amb il·lusió Halloween, fins que el maldestre granger destrossa l'estimat hort de carabasses del ramat! En Shaun es converteix en un científic boig per solucionar el problema, però la situació es descontrola ràpidament.",
-"sinopsi_es": false,
-"poster": "/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1794845263.3053
-},
 "superthings la pelicula": {
 "v": 6,
 "comprovat": "any",
@@ -507,23 +465,23 @@
 "enllac": "",
 "t": 1794845263.3053
 },
-"los miserables": {
+"la otra madre": {
 "v": 6,
-"comprovat": "director",
+"comprovat": "any",
 "titolCa": "",
 "directors": [
-"Fred Cavayé"
+"Rob Savage"
 ],
-"original": "Les Misérables",
-"idiomaOriginal": "fr",
-"dataTmdb": "2026-10-14",
-"sinopsiCa": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
-"id": 1241803,
-"nota": 7.0,
-"vots": 78,
-"sinopsi": "Després de passar 19 anys a la presó per haver robat una barra de pa, en Jean Valjean (Vincent Lindon) busca la redempció reinventant-se com un dignatari respectat sota una nova identitat. Promet a la Fantine (Noémie Merlant), una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette (Megan Northam), que és explotada i maltractada per la deshonesta família Thénardier (Camille Cottin i Benjamin Lavernhe). Mentre en Valjean cria la Cosette com si fos la seva pròpia filla, és perseguit incansablement per l’inspector Javert (Tahar Rahim). Enmig de l’agitació social que sacseja França, els destins d’en Valjean, la Cosette, el seu enamorat Marius (Vassili Schneider) i l’inspector Javert s’entrellacen en un París convuls i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, en Valjean s’esforça per culminar el seu camí de redempció i oferir a la Cosette un futur d’amor i llibertat",
+"original": "Other Mommy",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-07",
+"sinopsiCa": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
+"id": 1400837,
+"nota": 6.3,
+"vots": 439,
+"sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
 "sinopsi_es": false,
-"poster": "/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
+"poster": "/vnQtwToGRWTuHdLltq3hNdbXkii.jpg",
 "plataformes": [],
 "enllac": "",
 "t": 1794845263.3053
@@ -640,7 +598,7 @@
 "poster": "/kbwAR849GqMmZs01Uwm5MXL6CWd.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "diversion navidena con peppa la experiencia en cines": {
 "v": 6,
@@ -663,7 +621,7 @@
 },
 "l ovella shaun missio carbassa": {
 "v": 6,
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "el precio de la red": {
 "v": 6,
@@ -771,14 +729,14 @@
 "dataTmdb": "2026-06-25",
 "sinopsiCa": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
 "id": 950028,
-"nota": 7.199,
-"vots": 968,
+"nota": 7.201,
+"vots": 969,
 "sinopsi": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
 "sinopsi_es": false,
 "poster": "/21JnfyCARiRkms9AZHtTXiZKbIj.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "el gat amb barret": {
 "v": 6,
@@ -793,34 +751,34 @@
 "dataTmdb": "2026-10-31",
 "sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "id": 1117898,
-"nota": 6.875,
+"nota": 6.9,
 "vots": 28,
 "sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "sinopsi_es": false,
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "dune": {
 "v": 6,
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "dune parte dos": {
 "v": 6,
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "la meva mare es una goril la": {
 "v": 6,
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "l olivia i el terretremol invisible": {
 "v": 6,
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "la pieta": {
 "v": 6,
@@ -869,6 +827,49 @@
 "enllac": "",
 "t": 1794845263.3053
 },
+"vengadores doomsday": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Joe Russo",
+"Anthony Russo"
+],
+"original": "Avengers: Doomsday",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-12-16",
+"sinopsiCa": "Herois estimats de tres universos diferents es troben en una trajectòria de col·lisió mortal i s'enfronten a una amenaça existencial com no l'havien experimentat mai.",
+"id": 1003596,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Herois estimats de tres universos diferents es troben en una trajectòria de col·lisió mortal i s'enfronten a una amenaça existencial com no l'havien experimentat mai.",
+"sinopsi_es": false,
+"poster": "/7bQczUMnjz8iwxNP9YrmLkfI8od.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794880489.151801
+},
+"une si longue lettre": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Angèle Diabang"
+],
+"original": "Une si longue lettre",
+"idiomaOriginal": "fr",
+"dataTmdb": "2025-08-13",
+"sinopsiCa": "",
+"id": 1510409,
+"nota": 0,
+"vots": 0,
+"sinopsi": "",
+"sinopsi_es": false,
+"poster": "/ev3Gf0epb7srDa5tL7CSw72vngu.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1794880489.151801
+},
 "ahora los suegros son ellos": {
 "v": 6,
 "comprovat": "any",
@@ -888,7 +889,7 @@
 "poster": "/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1794783589.255422
+"t": 1794880489.151801
 },
 "burundanga": {
 "v": 6,

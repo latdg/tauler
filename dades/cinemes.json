@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-16T16:08:17+00:00",
+ "generat": "2026-11-17T01:55:00+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -17,69 +17,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "17:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "20:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "21:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-17",
@@ -401,111 +338,69 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "16:00",
      "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "17:00",
      "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "18:00",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "18:15",
      "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "19:30",
      "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "20:15",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "20:30",
      "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "22:00",
      "format": "Atmos",
      "preu": ""
     },
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "22:30",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-17",
-     "hora": "16:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "17:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-17",
-     "hora": "18:15",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "19:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-17",
-     "hora": "20:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-18",
      "hora": "16:00",
      "format": "Atmos",
@@ -516,6 +411,13 @@
      "data": "2026-11-18",
      "hora": "17:00",
      "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "18:00",
+     "format": "",
      "preu": ""
     },
     {
@@ -533,6 +435,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-18",
      "hora": "20:30",
@@ -544,6 +453,13 @@
      "data": "2026-11-18",
      "hora": "22:00",
      "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "22:30",
+     "format": "",
      "preu": ""
     },
     {
@@ -788,48 +704,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "16:15",
-     "format": "4D",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "17:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "18:20",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "18:45",
-     "format": "4D",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "20:30",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
@@ -1144,20 +1018,6 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "22:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-17",
      "hora": "15:45",
      "format": "",
@@ -1224,20 +1084,6 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "20:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-17",
      "hora": "20:30",
      "format": "Atmos",
@@ -1302,34 +1148,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/ya8iLCNyoVpBO7B7JrNJVj3g7tK.jpg",
    "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "16:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "18:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
@@ -1586,6 +1404,50 @@
    "plataformesUrl": ""
   },
   {
+   "key": "jaleos",
+   "titol": "Escàndols",
+   "titolFont": "Jaleos",
+   "sinopsi": "Què pot comptar el flamenc sobre el món en què vivim? Escàndols redescobreix aquest art universal a través d'un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai.",
+   "durada": "",
+   "genere": "Documental",
+   "edat": "",
+   "director": "Isaki Lacuesta",
+   "actors": "C. Tangana, Rocio Molina, Alba Flores",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-17",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-19",
+     "hora": "15:50",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11184"
+   },
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "la bola negra",
    "titol": "La Bola Negra",
    "titolFont": "La Bola Negra",
@@ -1599,62 +1461,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/t1azKLExwUxKj6v6m2L535evuRa.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "15:45",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "17:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "17:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "18:45",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "19:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "20:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "20:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-17",
@@ -2010,6 +1816,138 @@
    "plataformesUrl": ""
   },
   {
+   "key": "la oveja shaun mision calabaza",
+   "titol": "El xai Shaun: Missió Carbassa",
+   "titolFont": "La oveja shaun. Misión calabaza",
+   "sinopsi": "Halloween ha arribat a la granja i porta amb si el caos. Quan el maldestre Granger destrossa l'hort de carabasses, l'Ovella Shaun es converteix en científic boig per a arreglar-ho, i surt terriblement malament! Amb el Granger desaparegut i una bèstia solta en el bosc, Shaun i el ramat viuran la seva aventura més absurda per a salvar la granja i sobreviure a la nit més terrorífica i divertida de l'any.",
+   "durada": "81",
+   "genere": "Animació",
+   "edat": "Apta",
+   "director": "Matthew Walker i Steve Cox",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-17",
+     "hora": "16:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-18",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "16:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-19",
+     "hora": "16:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-21",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-11-22",
+     "hora": "17:00",
+     "format": "CAT",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11036",
+    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11036",
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 7.3,
+   "vots": 62,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "los miserables",
+   "titol": "Els Miserables",
+   "titolFont": "Los Miserables",
+   "sinopsi": "Després de 19 anys a la presó per robar una fogassa de pa, Jean Valjean busca redempció reinventant-se com un respectat dignatari sota una nova identitat. Promet a Fantine, una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette, qui està sent explotada i maltractada per l'enganyosa família Thénardier.\n\nMentre Valjean cria a Cosette com si fos la seva pròpia filla, és perseguit sense descans per l'inspector Javert. Enmig de l'agitació social que sacseja França, els destins de Valjean, Cosette, el seu enamorat Marius i Javert s'entrellacen en un París turbulent i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, Valjean s'esforça per culminar el seu camí de redempció i donar-li a Cosette un futur d'amor i llibertat.",
+   "durada": "178",
+   "genere": "Drama",
+   "edat": "12 anys",
+   "director": "Fred Cavayé",
+   "actors": "Vincent Lindon, Noémie Merlant, Tahar Rahim, Camille Cottin",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-17",
+     "hora": "21:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "21:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-19",
+     "hora": "21:45",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11112"
+   },
+   "nota": 7.0,
+   "vots": 78,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "ramayana el nacimiento de una leyenda",
    "titol": "Ramayana: El naixement d'una llegenda",
    "titolFont": "Ramayana: El nacimiento de una leyenda",
@@ -2023,27 +1961,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "20:20",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "21:15",
-     "format": "4D",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
@@ -2113,8 +2030,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11106",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.4,
-   "vots": 51,
+   "nota": 7.5,
+   "vots": 55,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2134,27 +2051,6 @@
    "sessions": [
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "17:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "18:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
      "data": "2026-11-17",
      "hora": "16:00",
      "format": "",
@@ -2171,6 +2067,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
      "hora": "17:50",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-17",
+     "hora": "18:15",
      "format": "",
      "preu": ""
     },
@@ -2374,48 +2277,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/6CWXhVFfin3zh1LZ5HsWnzTXTPN.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-17",
@@ -2639,41 +2500,13 @@
    "sessions": [
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-16",
+     "data": "2026-11-17",
      "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "20:15",
-     "format": "Versió VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "20:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "22:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-17",
      "hora": "16:00",
      "format": "",
@@ -2697,6 +2530,13 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-17",
      "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-18",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
@@ -2796,20 +2636,6 @@
    "sessions": [
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
      "data": "2026-11-17",
      "hora": "17:45",
      "format": "",
@@ -2875,27 +2701,6 @@
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "17:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "22:30",
-     "format": "",
-     "preu": ""
-    },
-    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
      "hora": "16:00",
@@ -2906,6 +2711,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
      "hora": "17:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-17",
+     "hora": "20:00",
      "format": "",
      "preu": ""
     },
@@ -2998,20 +2810,6 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-17",
      "hora": "15:45",
      "format": "",
@@ -3076,20 +2874,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/bJh97VEUn9TWygQSrOOyJrwQXek.jpg",
    "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-16",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "17:40",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-17",
@@ -3158,20 +2942,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "19:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
      "hora": "19:15",
      "format": "",
@@ -3216,8 +2986,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 5.5,
-   "vots": 2,
+   "nota": 5.7,
+   "vots": 3,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3235,13 +3005,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/7pksyM5i9GeCJzlDscQ5te13vaL.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "22:00",
-     "format": "Voc",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
@@ -3288,13 +3051,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "19:30",
-     "format": "VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-17",
      "hora": "19:30",
      "format": "VOSE",
@@ -3320,322 +3076,6 @@
    },
    "nota": 7.702,
    "vots": 225,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "la otra madre",
-   "titol": "L'altra mare",
-   "titolFont": "La otra madre",
-   "sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
-   "durada": "93",
-   "genere": "Terror",
-   "edat": "No recomanada per a menors de 16 anys",
-   "director": "Rob Savage",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/vnQtwToGRWTuHdLltq3hNdbXkii.jpg",
-   "web": "https://odeonmulticines.com/odeon-girona",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-16",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "20:10",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-20",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-21",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-22",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-25",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-26",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 6.3,
-   "vots": 439,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "verity la sombra de un engano",
-   "titol": "Verity. L'ombra d'un engany",
-   "titolFont": "Verity. La sombra de un engaño",
-   "sinopsi": "Després d'un accident inquietant, l'exitosa autora Verity Crawford no pot escriure. Lowen Ashleigh és contractada com la seva escriptora fantasma, però",
-   "durada": "116",
-   "genere": "Thriller, Drama",
-   "edat": "",
-   "director": "Michael Showalter",
-   "actors": "Anne Hathaway, Dakota Johnson, Josh Hartnett, Ismael Cruz Cordova, Brady Wagner, Michael Abbott Jr., Emily McEnroe, Alex Cooper",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/5j1YUuamobLACkzlkzvWfNuzFNg.jpg",
-   "web": "https://cinemamontgri.cat/verity-la-sombra-de-un-engano/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-16",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {},
-   "nota": 6.982,
-   "vots": 714,
-   "plataformes": [],
-   "plataformesUrl": "https://www.themoviedb.org/movie/1283515-verity/watch?locale=ES"
-  },
-  {
-   "key": "chopin",
-   "titol": "Chopin",
-   "titolFont": "Chopin",
-   "sinopsi": "Qui és aquest jove i atractiu pianista? Qui és aquest compositor polonès que transcendeix el poder de la música? Qui és aquesta estrella que fa que tots els ulls de París es girin cap a ell? L’anomenen Chopin. És el centre de totes les converses, la figura més romàntica de les nits decadents de París. Però, quan els seus pulmons comencen a sagnar, en Chopin sap que li queden els dies comptats. Compondre es converteix en la seva única obsessió. El rellotge, que avança inexorablement, l’empeny a revolucionar la música.",
-   "durada": "",
-   "genere": "",
-   "edat": "",
-   "director": "Michał Kwieciński",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/lwEsL7EhbPtEyfgOuvrDUVXbTyQ.jpg",
-   "web": "https://cultura.palafrugell.cat/ca/programacio/c/6746-cinema-chopin.html",
-   "sessions": [
-    {
-     "cinema": "TeMePé Palafrugell",
-     "data": "2026-11-16",
-     "hora": "21:30",
-     "format": "",
-     "preu": "5 €"
-    }
-   ],
-   "entrades": {},
-   "nota": 6.694,
-   "vots": 31,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "jaleos",
-   "titol": "Escàndols",
-   "titolFont": "Jaleos",
-   "sinopsi": "Què pot comptar el flamenc sobre el món en què vivim? Escàndols redescobreix aquest art universal a través d'un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai.",
-   "durada": "",
-   "genere": "Documental",
-   "edat": "",
-   "director": "Isaki Lacuesta",
-   "actors": "C. Tangana, Rocio Molina, Alba Flores",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-16",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-17",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-18",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-19",
-     "hora": "15:50",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11184"
-   },
-   "nota": 0,
-   "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "la oveja shaun mision calabaza",
-   "titol": "El xai Shaun: Missió Carbassa",
-   "titolFont": "La oveja shaun. Misión calabaza",
-   "sinopsi": "Halloween ha arribat a la granja i porta amb si el caos. Quan el maldestre Granger destrossa l'hort de carabasses, l'Ovella Shaun es converteix en científic boig per a arreglar-ho, i surt terriblement malament! Amb el Granger desaparegut i una bèstia solta en el bosc, Shaun i el ramat viuran la seva aventura més absurda per a salvar la granja i sobreviure a la nit més terrorífica i divertida de l'any.",
-   "durada": "81",
-   "genere": "Animació",
-   "edat": "Apta",
-   "director": "Matthew Walker i Steve Cox",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/ajiSFBxo1h0MNbu7q9I5aSVHUgE.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-17",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-18",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-18",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-18",
-     "hora": "16:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-19",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-19",
-     "hora": "16:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-21",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    },
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-22",
-     "hora": "17:00",
-     "format": "CAT",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11036",
-    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11036",
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 7.3,
-   "vots": 62,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3733,39 +3173,116 @@
    "plataformesUrl": ""
   },
   {
-   "key": "los miserables",
-   "titol": "Els Miserables",
-   "titolFont": "Los Miserables",
-   "sinopsi": "Després de 19 anys a la presó per robar una fogassa de pa, Jean Valjean busca redempció reinventant-se com un respectat dignatari sota una nova identitat. Promet a Fantine, una treballadora de fàbrica moribunda, rescatar i protegir la seva filla, Cosette, qui està sent explotada i maltractada per l'enganyosa família Thénardier.\n\nMentre Valjean cria a Cosette com si fos la seva pròpia filla, és perseguit sense descans per l'inspector Javert. Enmig de l'agitació social que sacseja França, els destins de Valjean, Cosette, el seu enamorat Marius i Javert s'entrellacen en un París turbulent i revolucionari. A través de lluites, sacrificis i un profund anhel de justícia, Valjean s'esforça per culminar el seu camí de redempció i donar-li a Cosette un futur d'amor i llibertat.",
-   "durada": "178",
-   "genere": "Drama",
-   "edat": "12 anys",
-   "director": "Fred Cavayé",
-   "actors": "Vincent Lindon, Noémie Merlant, Tahar Rahim, Camille Cottin",
+   "key": "la otra madre",
+   "titol": "L'altra mare",
+   "titolFont": "La otra madre",
+   "sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
+   "durada": "93",
+   "genere": "Terror",
+   "edat": "No recomanada per a menors de 16 anys",
+   "director": "Rob Savage",
+   "actors": "",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/jwRMUI6rGjAwkXHEqBlSnViT6gG.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "poster": "https://image.tmdb.org/t/p/w342/vnQtwToGRWTuHdLltq3hNdbXkii.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
     {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-18",
-     "hora": "21:45",
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "18:15",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "OCINE Girona",
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-17",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-18",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-19",
-     "hora": "21:45",
+     "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-19",
+     "hora": "20:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-20",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-21",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-22",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-23",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-24",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-25",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-26",
+     "hora": "22:00",
      "format": "",
      "preu": ""
     }
    ],
    "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11112"
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.0,
-   "vots": 78,
+   "nota": 6.3,
+   "vots": 439,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4831,7 +4348,7 @@
    "director": "",
    "actors": "",
    "estrena": "",
-   "poster": "",
+   "poster": "https://cdn.odeonmulticines.com/show-posters/es/ps_12248_anticipada.jpg?width=500",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
     {
@@ -5462,8 +4979,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.199,
-   "vots": 968,
+   "nota": 7.201,
+   "vots": 969,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5710,6 +5227,113 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "vengadores doomsday",
+   "titol": "Venjadors: Doomsday",
+   "titolFont": "Vengadores: Doomsday",
+   "sinopsi": "Herois estimats de tres universos diferents es troben en una trajectòria de col·lisió mortal i s'enfronten a una amenaça existencial com no l'havien experimentat mai.",
+   "durada": "165",
+   "genere": "Acció",
+   "edat": "Pendent de qualificació",
+   "director": "Joe Russo i Anthony Russo",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/7bQczUMnjz8iwxNP9YrmLkfI8od.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "15:45",
+     "format": "Cinity Atmos Infinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "16:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "17:45",
+     "format": "Atmos Infinity Vision",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "19:00",
+     "format": "Cinity Atmos Infinity",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "20:15",
+     "format": "VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "21:00",
+     "format": "Atmos Infinity Vision",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-17",
+     "hora": "22:15",
+     "format": "Cinity Atmos Infinity",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "une si longue lettre",
+   "titol": "Une si longue lettre",
+   "titolFont": "Une si longue lettre",
+   "sinopsi": "Adaptació del clàssic de Mariama Bâ. La Rama, mestra de 50 anys, reescriu la seva vida quan el marit pren una segona esposa. La pel·lícula actualitza el to epistolar cap a un drama íntim sobre agència, tradició i sororitat. Pel·lícula dirigida per Angèle Diabang. Nascuda el 1979 a Dakar, Angèle Diabang va estudiar al Dakar Media Centre, La Fémis de París, la Filmakademie d’Alemanya, i va participar en el programa de formació Eurodoc. Va començar la seva carrera com a operadora de càmera i editora abans de dirigir el seu primer curt documental My Beautiful Smile (2005), presentat en més de cinquanta festivals. Detalls tècnics País: Senegal Any: 2024 Durada: 90' Tipus: Ficció +13 anys",
+   "durada": "1",
+   "genere": "",
+   "edat": "",
+   "director": "Angèle Diabang",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/ev3Gf0epb7srDa5tL7CSw72vngu.jpg",
+   "web": "https://www.teatremundial.cat/ca/programacio/c/1157-une-si-longue-lettre.html",
+   "sessions": [
+    {
+     "cinema": "Teatre Mundial",
+     "data": "2026-12-17",
+     "hora": "18:45",
+     "format": "",
+     "preu": "Gratuït"
+    }
+   ],
+   "entrades": {},
    "nota": 0,
    "vots": 0,
    "plataformes": [],
