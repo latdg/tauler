@@ -2206,7 +2206,9 @@ const EPOQUES_ED = ["abans de 1900", "1900-1939", "1940-1959", "1960-1979", "198
 const COLORS_EP = ["#4a1f14", "#7a2e1d", "#b4462c", "#d9774a", "#ecb27a", "#8fb8c4", "#2f6f8a"];
 const colorAny = any => { if (!any) return "#9a958a"; const lim = [1900, 1940, 1960, 1980, 2000, 2010]; let i = lim.findIndex(l => any < l); return COLORS_EP[i === -1 ? lim.length : i]; };
 const fitxaCadastre = ref => ref && ref.length >= 14 ? `https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=${encodeURIComponent(ref.slice(0, 7))}&rc2=${encodeURIComponent(ref.slice(7, 14))}` : null;
-let EDIF = null, MAPA_EDIF = null;
+let EDIF = null, MAPA_EDIF = null, MAPA_EDIF3 = null;
+let MODE_EDIF = "2d";
+try { if (localStorage.getItem("latdgModeEdificis") === "3d") MODE_EDIF = "3d"; } catch (e) {}
 async function pintaEdificis(codi) {
   const cos = document.getElementById("edificisCos");
   const m = EDIF.municipis[codi];
@@ -2219,30 +2221,118 @@ async function pintaEdificis(codi) {
     `<h3>Edificis per època de construcció</h3><div class="barres">` +
     m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
       `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>` +
+    `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}</div>` +
     `<div id="mapaEdificis" style="height:420px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
     `<div class="llegenda">${EPOQUES_ED.map((e, i) => `<span><i style="background:${COLORS_EP[i]};border-radius:2px"></i>${esc(e)}</span>`).join("")}</div>` +
     `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
     (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
-    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre.</p>`;
-  cos.querySelectorAll(".tria-mun button").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
-  if (typeof L === "undefined") return;
+    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.</p>`;
+  cos.querySelectorAll(".tria-mun button[data-mun]").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
+  // 17.11.2026: 2D (Leaflet, com sempre) o 3D (MapLibre, alçada segons les plantes).
+  cos.querySelectorAll(".mode-edif button").forEach(b => b.onclick = () => {
+    if (b.dataset.mode === MODE_EDIF) return;
+    MODE_EDIF = b.dataset.mode;
+    try { localStorage.setItem("latdgModeEdificis", MODE_EDIF); } catch (e) {}
+    cos.querySelectorAll(".mode-edif button").forEach(x => x.classList.toggle("actiu", x === b));
+    mapaEdificis(codi);
+  });
+  mapaEdificis(codi);
+}
+const popupEdif = p => {
+  const url = fitxaCadastre(p.ref);
+  return `<b>${p.any ? "Construït el " + p.any : "Sense any al Cadastre"}</b>` + (p.us ? `<br>${esc(p.us)}` : "") +
+    (p.hab ? ` · ${nCa(p.hab)} habitatge${p.hab === 1 ? "" : "s"}` : "") + (p.plantes ? ` · ${p.plantes} planta${p.plantes === 1 ? "" : "s"}` : "") +
+    (url ? `<br><a href="${url}" target="_blank" rel="noopener">Fitxa del Cadastre</a>` : "");
+};
+const GEO_EDIF = {};
+const geoEdificis = codi => GEO_EDIF[codi] = GEO_EDIF[codi] || json(`dades/edificis/${codi}.geojson`).catch(e => { delete GEO_EDIF[codi]; throw e; });
+function treuMapesEdif() {
   if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
+  if (MAPA_EDIF3) { MAPA_EDIF3.remove(); MAPA_EDIF3 = null; }
+}
+async function mapaEdificis(codi) {
+  treuMapesEdif();
+  const div = document.getElementById("mapaEdificis");
+  if (!div) return;
+  div.innerHTML = "";
+  if (MODE_EDIF === "3d") {
+    try { await mapa3DEdificis(codi); return; }
+    catch (e) {
+      treuMapesEdif();
+      div.innerHTML = '<p class="buit" style="padding:12px">Aquest navegador no pot mostrar el mapa en 3D. Torna al mode 2D.</p>';
+      return;
+    }
+  }
+  if (typeof L === "undefined") return;
   MAPA_EDIF = L.map("mapaEdificis", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.25 }).setView([41.96, 3.04], 14);
   MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · © OpenStreetMap");
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .45 }).addTo(MAPA_EDIF);
   try {
-    const geo = await json(`dades/edificis/${codi}.geojson`);
+    const geo = await geoEdificis(codi);
+    if (!MAPA_EDIF || MODE_EDIF !== "2d") return;
     const capa = L.geoJSON(geo, {
       style: f => ({ color: colorAny(f.properties.any), weight: .4, fillColor: colorAny(f.properties.any), fillOpacity: .85 }),
-      onEachFeature: (f, l) => {
-        const p = f.properties, url = fitxaCadastre(p.ref);
-        l.bindPopup(`<b>${p.any ? "Construït el " + p.any : "Sense any al Cadastre"}</b>` + (p.us ? `<br>${esc(p.us)}` : "") +
-          (p.hab ? ` · ${nCa(p.hab)} habitatge${p.hab === 1 ? "" : "s"}` : "") + (p.plantes ? ` · ${p.plantes} planta${p.plantes === 1 ? "" : "s"}` : "") +
-          (url ? `<br><a href="${url}" target="_blank" rel="noopener">Fitxa del Cadastre</a>` : ""));
-      }
+      onEachFeature: (f, l) => l.bindPopup(popupEdif(f.properties))
     }).addTo(MAPA_EDIF);
     MAPA_EDIF.fitBounds(capa.getBounds(), { padding: [10, 10] });
   } catch (e) {}
+}
+// MapLibre només es baixa quan es tria el 3D (el mateix que fa servir el radar 3D).
+let PROMESA_MAPLIBRE = null;
+function carregaMapLibre() {
+  if (window.maplibregl) return Promise.resolve();
+  return PROMESA_MAPLIBRE = PROMESA_MAPLIBRE || new Promise((ok, ko) => {
+    const css = document.createElement("link");
+    css.rel = "stylesheet"; css.href = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css";
+    document.head.appendChild(css);
+    const js = document.createElement("script");
+    js.src = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js";
+    js.onload = ok; js.onerror = () => { PROMESA_MAPLIBRE = null; ko(new Error("maplibre")); };
+    document.head.appendChild(js);
+  });
+}
+// Centre del nucli: la mediana dels edificis (el gruix del poble, no les masies escampades).
+function centreEdificis(geo) {
+  const xs = [], ys = [];
+  geo.features.forEach(f => {
+    const g = f.geometry, a = g.type === "Polygon" ? g.coordinates[0] : g.coordinates[0][0];
+    if (a && a[0]) { xs.push(a[0][0]); ys.push(a[0][1]); }
+  });
+  const med = v => { v.sort((p, q) => p - q); return v[Math.floor(v.length / 2)]; };
+  return xs.length ? [med(xs), med(ys)] : [3.04, 41.96];
+}
+async function mapa3DEdificis(codi) {
+  const [geo] = await Promise.all([geoEdificis(codi), carregaMapLibre()]);
+  if (MODE_EDIF !== "3d" || !document.getElementById("mapaEdificis")) return;
+  // Alçada aproximada: 3 m per planta sobre rasant (1 planta si el Cadastre no en diu res).
+  const dades = { type: "FeatureCollection", features: geo.features.map(f => ({ type: "Feature", geometry: f.geometry,
+    properties: { ...f.properties, color: colorAny(f.properties.any), alt: Math.max(1, f.properties.plantes || 1) * 3 } })) };
+  const mapa = MAPA_EDIF3 = new maplibregl.Map({
+    container: "mapaEdificis",
+    style: { version: 8,
+      sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19, attribution: "© OpenStreetMap" } },
+      layers: [{ id: "fons", type: "background", paint: { "background-color": "#ebe9e4" } },
+               { id: "osm", type: "raster", source: "osm", paint: { "raster-opacity": 0.45 } }] },
+    center: centreEdificis(geo), zoom: 16, pitch: 60, bearing: -20, maxPitch: 75,
+    cooperativeGestures: true,
+    attributionControl: { compact: true, customAttribution: "Edificis: Direcció General del Cadastre" }
+  });
+  mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
+  mapa.on("load", () => {
+    // Els crèdits, plegats a la «i» (oberts tapaven el mapa al mòbil).
+    const at = mapa.getContainer().querySelector(".maplibregl-ctrl-attrib");
+    if (at) at.classList.remove("maplibregl-compact-show");
+    mapa.addSource("edificis", { type: "geojson", data: dades });
+    mapa.addLayer({ id: "edificis", type: "fill-extrusion", source: "edificis", paint: {
+      "fill-extrusion-color": ["get", "color"], "fill-extrusion-height": ["get", "alt"],
+      "fill-extrusion-base": 0, "fill-extrusion-opacity": 0.9 } });
+  });
+  mapa.on("click", "edificis", e => {
+    const f = e.features && e.features[0];
+    if (f) new maplibregl.Popup({ maxWidth: "260px" }).setLngLat(e.lngLat).setHTML(popupEdif(f.properties)).addTo(mapa);
+  });
+  mapa.on("mouseenter", "edificis", () => mapa.getCanvas().style.cursor = "pointer");
+  mapa.on("mouseleave", "edificis", () => mapa.getCanvas().style.cursor = "");
 }
 async function carregaEdificis() {
   const cos = document.getElementById("edificisCos");
