@@ -2315,6 +2315,12 @@ async function mapa3DEdificis(codi) {
                { id: "osm", type: "raster", source: "osm", paint: { "raster-opacity": 0.45 } }] },
     center: centreEdificis(geo), zoom: 16, pitch: 60, bearing: -20, maxPitch: 75,
     cooperativeGestures: true,
+    // 17.11.2026: l'avís dels gestos, en català.
+    locale: {
+      "CooperativeGesturesHandler.WindowsHelpText": "Fes servir Ctrl + roda del ratolí per fer zoom al mapa",
+      "CooperativeGesturesHandler.MacHelpText": "Fes servir ⌘ + roda del ratolí per fer zoom al mapa",
+      "CooperativeGesturesHandler.MobileHelpText": "Fes servir dos dits per moure el mapa"
+    },
     attributionControl: { compact: true, customAttribution: "Edificis: Direcció General del Cadastre" }
   });
   mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
