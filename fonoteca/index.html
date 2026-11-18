@@ -586,10 +586,18 @@ async function entra() {
   }
 }
 
+// 18.11.2026: el camp «Enllaç de Copia l'enllaç» surt omplert amb l'enllaç que es genera
+// (la pàgina individual de l'àudio, amb totes les parts); si es deixa tal qual, no es desa.
+function enllacPerDefecte(nom) {
+  const a = TOTS.find(x => x.fitxer === nom);
+  const g = a ? TOTS.filter(x => grupDe(x) === grupDe(a)).sort((x, y) => x.fitxer.localeCompare(y.fitxer)) : [{ fitxer: nom || "" }];
+  return paginaIndividual(g);
+}
+
 function omple(f) {
   $("fFitxer").value = f.fitxer || ""; $("fData").value = f.data || ""; $("fCat").value = f.categoria || "declaracions";
   $("fTitol").value = f.titol || ""; $("fQui").value = (f.qui || []).join(", "); $("fMun").value = f.municipi || "";
-  $("fLloc").value = f.lloc || ""; $("fEnllac").value = f.enllac || ""; $("fDesc").innerHTML = marcaAHtml(f.descripcio || "");
+  $("fLloc").value = f.lloc || ""; $("fEnllac").value = f.enllac || enllacPerDefecte(f.fitxer); $("fDesc").innerHTML = marcaAHtml(f.descripcio || "");
   $("fDestacat").checked = !!f.destacat; $("fAmagat").checked = !!f.amagat;
 }
 
@@ -637,7 +645,7 @@ function desa() {
     qui: $("fQui").value.split(",").map(x => x.trim()).filter(Boolean),
     data: $("fData").value || "",
     categoria: $("fCat").value,
-    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), enllac: $("fEnllac").value.trim(), descripcio: htmlAMarca($("fDesc")),
+    municipi: $("fMun").value.trim(), lloc: $("fLloc").value.trim(), enllac: ($("fEnllac").value.trim() === enllacPerDefecte(fitxer) ? "" : $("fEnllac").value.trim()), descripcio: htmlAMarca($("fDesc")),
     destacat: $("fDestacat").checked, amagat: $("fAmagat").checked, revisar: false
   };
   const audios = (CATAL.audios || []).filter(x => x.fitxer !== fitxer).concat(f);
