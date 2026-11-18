@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-10T09:25:47.386Z",
+ "actualitzat": "2026-11-18T20:23:39.012Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -14,6 +14,22 @@
    "amagat": true,
    "revisar": false,
    "eliminat": true
+  },
+  {
+   "fitxer": "20261118catalaitu.mp3",
+   "titol": "El català i tu",
+   "qui": [
+    "David Vila Ros",
+    "Jessica Neuquelman"
+   ],
+   "data": "2026-11-18",
+   "categoria": "conferencies",
+   "municipi": "",
+   "lloc": "El Mundial (vestíbul)",
+   "descripcio": "Xerrada sobre la situació del català al món, curiositats lingüístiques i reflexió sobre què es pot fer per reforçar l’ús social de la llengua.",
+   "destacat": false,
+   "amagat": false,
+   "revisar": false
   },
   {
    "fitxer": "20261103evigo.mp3",
