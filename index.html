@@ -2222,12 +2222,24 @@ async function pintaEdificis(codi) {
     m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
       `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>` +
     `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}</div>` +
+    (XARXES_MUN[codi] ? `<div class="tria-mun peces xarxes-edif">${Object.entries(GRUPS_XARXA).map(([k, g]) =>
+      `<button type="button" data-xarxa="${k}" class="${XARXES_ACTIVES.has(k) ? "actiu" : ""}">${g.nom}</button>`).join("")}</div>` : "") +
     `<div id="mapaEdificis" style="height:420px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
     `<div class="llegenda">${EPOQUES_ED.map((e, i) => `<span><i style="background:${COLORS_EP[i]};border-radius:2px"></i>${esc(e)}</span>`).join("")}</div>` +
+    (XARXES_MUN[codi] ? `<div class="llegenda" id="llegendaXarxes"></div>` : "") +
     `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
     (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
-    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.</p>`;
+    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
+    (XARXES_MUN[codi] ? ` Les xarxes de serveis (aigua, clavegueram, electricitat i gas) surten dels plànols de serveis urbanístics del POUM (sèrie 4); hi són col·locades sobre el Cadastre i la posició és aproximada (uns metres). Són les xarxes que hi havia quan es va redactar el pla, sense fondàries ni diàmetres.` : "") + `</p>`;
   cos.querySelectorAll(".tria-mun button[data-mun]").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
+  // 18.11.2026: capes de xarxes de serveis del POUM (només on n'hi ha).
+  cos.querySelectorAll(".xarxes-edif button").forEach(b => b.onclick = () => {
+    const k = b.dataset.xarxa;
+    XARXES_ACTIVES.has(k) ? XARXES_ACTIVES.delete(k) : XARXES_ACTIVES.add(k);
+    b.classList.toggle("actiu", XARXES_ACTIVES.has(k));
+    try { localStorage.setItem("latdgXarxesEdificis", [...XARXES_ACTIVES].join(",")); } catch (e) {}
+    pintaXarxes(codi);
+  });
   // 17.11.2026: 2D (Leaflet, com sempre) o 3D (MapLibre, alçada segons les plantes).
   cos.querySelectorAll(".mode-edif button").forEach(b => b.onclick = () => {
     if (b.dataset.mode === MODE_EDIF) return;
@@ -2249,6 +2261,7 @@ const geoEdificis = codi => GEO_EDIF[codi] = GEO_EDIF[codi] || json(`dades/edifi
 function treuMapesEdif() {
   if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
   if (MAPA_EDIF3) { MAPA_EDIF3.remove(); MAPA_EDIF3 = null; }
+  CAPA_XARXES = null;
 }
 async function mapaEdificis(codi) {
   treuMapesEdif();
@@ -2256,7 +2269,7 @@ async function mapaEdificis(codi) {
   if (!div) return;
   div.innerHTML = "";
   if (MODE_EDIF === "3d") {
-    try { await mapa3DEdificis(codi); return; }
+    try { await mapa3DEdificis(codi); pintaXarxes(codi); return; }
     catch (e) {
       treuMapesEdif();
       div.innerHTML = '<p class="buit" style="padding:12px">Aquest navegador no pot mostrar el mapa en 3D. Torna al mode 2D.</p>';
@@ -2276,6 +2289,77 @@ async function mapaEdificis(codi) {
     }).addTo(MAPA_EDIF);
     MAPA_EDIF.fitBounds(capa.getBounds(), { padding: [10, 10] });
   } catch (e) {}
+  pintaXarxes(codi);
+}
+// --- Xarxes de serveis del POUM (18.11.2026) ---
+// Dades: dades/xarxes/<codi>.geojson, extretes dels plànols vectorials 4.1-4.4 del
+// POUM i col·locades sobre el Cadastre. Propietats: xarxa, estat, full.
+const XARXES_MUN = { "17022": { fitxer: "dades/xarxes/17022.geojson", font: "POUM de la Bisbal d'Empordà, plànols de serveis urbanístics 4.1-4.4" } };
+const GRUPS_XARXA = {
+  aigua: { nom: "💧 Aigua", xarxes: ["aigua"] },
+  clavegueram: { nom: "🚰 Clavegueram", xarxes: ["residual", "unitaria", "pluvial"] },
+  electricitat: { nom: "⚡ Electricitat", xarxes: ["electricitat"] },
+  gas: { nom: "🔥 Gas", xarxes: ["gas"] }
+};
+const ESTIL_XARXA = {
+  aigua: { color: "#1565c0", nom: "Aigua potable" },
+  residual: { color: "#c62828", nom: "Aigües residuals" },
+  unitaria: { color: "#2e7d32", nom: "Xarxa unitària (residuals i pluvials)" },
+  pluvial: { color: "#0097a7", nom: "Aigües pluvials" },
+  electricitat: { color: "#8e24aa", nom: "Electricitat (mitja tensió)" },
+  gas: { color: "#ef6c00", nom: "Gas" }
+};
+const NOM_ESTAT = { existent: "existent", estimada: "estimada (traçat suposat)", "col·lector": "col·lector" };
+const XARXES_ACTIVES = new Set();
+try { (localStorage.getItem("latdgXarxesEdificis") || "").split(",").filter(k => GRUPS_XARXA[k]).forEach(k => XARXES_ACTIVES.add(k)); } catch (e) {}
+const GEO_XARXA = {};
+const geoXarxes = codi => GEO_XARXA[codi] = GEO_XARXA[codi] || json(XARXES_MUN[codi].fitxer).catch(e => { delete GEO_XARXA[codi]; throw e; });
+const xarxesVisibles = () => new Set([...XARXES_ACTIVES].flatMap(k => GRUPS_XARXA[k].xarxes));
+const popupXarxa = (p, codi) => `<b>${esc(ESTIL_XARXA[p.xarxa].nom)}</b><br>Traçat ${esc(NOM_ESTAT[p.estat] || p.estat)}` +
+  `<br><span style="font-size:.8em">Font: ${esc(XARXES_MUN[codi].font)} (full ${esc(p.full)}). Posició aproximada.</span>`;
+let CAPA_XARXES = null;
+async function pintaXarxes(codi) {
+  const lleg = document.getElementById("llegendaXarxes");
+  const vis = xarxesVisibles();
+  if (lleg) lleg.innerHTML = [...vis].map(x => `<span><i style="background:${ESTIL_XARXA[x].color};width:18px;height:4px;border:0;border-radius:2px;vertical-align:middle"></i>${esc(ESTIL_XARXA[x].nom)}</span>`).join("") +
+    (vis.size ? `<span style="opacity:.75">Línia discontínua: traçat estimat</span>` : "");
+  if (CAPA_XARXES && MAPA_EDIF) { MAPA_EDIF.removeLayer(CAPA_XARXES); CAPA_XARXES = null; }
+  if (!XARXES_MUN[codi]) return;
+  let geo = null;
+  if (vis.size) { try { geo = await geoXarxes(codi); } catch (e) { return; } }
+  const filtre = { type: "FeatureCollection", features: geo ? geo.features.filter(f => vis.has(f.properties.xarxa)) : [] };
+  if (MODE_EDIF === "2d" && MAPA_EDIF) {
+    if (CAPA_XARXES) { MAPA_EDIF.removeLayer(CAPA_XARXES); CAPA_XARXES = null; }
+    if (!filtre.features.length) return;
+    CAPA_XARXES = L.geoJSON(filtre, {
+      style: f => ({ color: ESTIL_XARXA[f.properties.xarxa].color, weight: 2.5, opacity: .95,
+        dashArray: f.properties.estat === "existent" ? null : "6 4" }),
+      onEachFeature: (f, l) => l.bindPopup(popupXarxa(f.properties, codi))
+    }).addTo(MAPA_EDIF);
+  } else if (MODE_EDIF === "3d" && MAPA_EDIF3) {
+    const posa = () => {
+      const m = MAPA_EDIF3; if (!m) return;
+      const dades = { type: "FeatureCollection", features: filtre.features.map(f => ({ ...f,
+        properties: { ...f.properties, color: ESTIL_XARXA[f.properties.xarxa].color } })) };
+      if (m.getSource("xarxes")) m.getSource("xarxes").setData(dades);
+      else {
+        m.addSource("xarxes", { type: "geojson", data: dades });
+        const base = { type: "line", source: "xarxes", layout: { "line-cap": "round", "line-join": "round" } };
+        m.addLayer({ ...base, id: "xarxes", filter: ["==", ["get", "estat"], "existent"],
+          paint: { "line-color": ["get", "color"], "line-width": 3 } }, "edificis");
+        m.addLayer({ ...base, id: "xarxes-est", filter: ["!=", ["get", "estat"], "existent"],
+          paint: { "line-color": ["get", "color"], "line-width": 3, "line-dasharray": [2, 1.5] } }, "edificis");
+        ["xarxes", "xarxes-est"].forEach(id => {
+          m.on("click", id, e => { const f = e.features && e.features[0];
+            if (f) new maplibregl.Popup({ maxWidth: "260px" }).setLngLat(e.lngLat).setHTML(popupXarxa(f.properties, codi)).addTo(m); });
+          m.on("mouseenter", id, () => m.getCanvas().style.cursor = "pointer");
+          m.on("mouseleave", id, () => m.getCanvas().style.cursor = "");
+        });
+      }
+    };
+    // el «load» de mapa3DEdificis (registrat abans) ja hi haurà posat els edificis
+    if (MAPA_EDIF3.getLayer("edificis")) posa(); else MAPA_EDIF3.once("load", posa);
+  }
 }
 // MapLibre només es baixa quan es tria el 3D (el mateix que fa servir el radar 3D).
 let PROMESA_MAPLIBRE = null;
