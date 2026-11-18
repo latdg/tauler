@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-18T20:23:39.012Z",
+ "actualitzat": "2026-11-18T20:30:41.539Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -45,7 +45,7 @@
    "municipi": "La Bisbal d'Empordà",
    "lloc": "El Mundial",
    "descripcio": "La conferència analitza les connexions polítiques i personals entre l'expresident republicà i el periodista i director de *La Humanitat*. L'acte estava organitzat pel Memorial Democràtic en la commemoració dels 150 anys del naixement d'Irla.",
-   "destacat": true,
+   "destacat": false,
    "amagat": false,
    "revisar": false
   },
