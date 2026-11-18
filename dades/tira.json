@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-18T13:34:39.804Z",
+ "actualitzat": "2026-11-18T13:34:45.906Z",
  "amagats": [
   {
    "clau": "el tiempo en vulpellac",
@@ -23,6 +23,10 @@
   },
   {
    "clau": "percebut un terratrèmol de magnitud 2,2 a la bisbal d'empordà sense causar danys",
+   "dia": "2026-11-18"
+  },
+  {
+   "clau": "registrado un seísmo de baja intensidad y sin daños en la bisbal d'empordà",
    "dia": "2026-11-18"
   }
  ],
