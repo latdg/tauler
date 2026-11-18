@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-18T20:30:41.539Z",
+ "actualitzat": "2026-11-18T20:30:50.053Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -27,7 +27,7 @@
    "municipi": "",
    "lloc": "El Mundial (vestíbul)",
    "descripcio": "Xerrada sobre la situació del català al món, curiositats lingüístiques i reflexió sobre què es pot fer per reforçar l’ús social de la llengua.",
-   "destacat": false,
+   "destacat": true,
    "amagat": false,
    "revisar": false
   },
