@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-17T13:36:43+00:00",
+ "actualitzat": "2026-11-18T13:11:03+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -1611,13 +1611,13 @@
   },
   "17057": {
    "nom": "Corçà",
-   "observacions": 20,
-   "especies": 17,
-   "observadors": 11,
+   "observacions": 19,
+   "especies": 16,
+   "observadors": 10,
    "grups": [
     [
      "🦋 Insectes",
-     8
+     7
     ],
     [
      "🌿 Plantes",
@@ -2016,21 +2016,6 @@
      "qualitat": "research",
      "amenacada": false,
      "introduida": true
-    },
-    {
-     "id": 326940832,
-     "data": "2025-11-17",
-     "url": "https://www.inaturalist.org/observations/326940832",
-     "nom": "Garrotet Vivent Mediterrani",
-     "cientific": "Bacillus rossius",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/592221834/small.jpg",
-     "autor": "mart meos",
-     "lloc": "Corçà, Girona, Spain",
-     "qualitat": "needs_id",
-     "amenacada": false,
-     "introduida": false
     }
    ]
   },
