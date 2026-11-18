@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-18T20:30:50.053Z",
+ "actualitzat": "2026-11-18T20:31:55.904Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -24,8 +24,9 @@
    ],
    "data": "2026-11-18",
    "categoria": "conferencies",
-   "municipi": "",
+   "municipi": "La Bisbal d'Empordà",
    "lloc": "El Mundial (vestíbul)",
+   "enllac": "https://tinyurl.com/257j6rn4",
    "descripcio": "Xerrada sobre la situació del català al món, curiositats lingüístiques i reflexió sobre què es pot fer per reforçar l’ús social de la llengua.",
    "destacat": true,
    "amagat": false,
