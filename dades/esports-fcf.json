@@ -1,7 +1,7 @@
 {
  "tipus": "latdg-fcf",
  "versio": 1,
- "generat": "2026-11-16T19:01:19.279Z",
+ "generat": "2026-11-19T22:06:52.316Z",
  "grups": {
   "58161863": {
    "partidos": {
@@ -3913,10 +3913,10 @@
      {
       "position": "1",
       "points": "17.00",
-      "played": 9,
-      "won": 5,
-      "drawn": 2,
-      "lost": 2,
+      "played": "9",
+      "won": "5",
+      "drawn": "2",
+      "lost": "2",
       "goalsFor": "18",
       "goalsAgainst": "12",
       "team": {
@@ -3950,10 +3950,10 @@
      {
       "position": "2",
       "points": "16.00",
-      "played": 8,
-      "won": 5,
-      "drawn": 1,
-      "lost": 2,
+      "played": "8",
+      "won": "5",
+      "drawn": "1",
+      "lost": "2",
       "goalsFor": "16",
       "goalsAgainst": "10",
       "team": {
@@ -3987,10 +3987,10 @@
      {
       "position": "3",
       "points": "15.00",
-      "played": 9,
-      "won": 5,
-      "drawn": 0,
-      "lost": 4,
+      "played": "9",
+      "won": "5",
+      "drawn": "0",
+      "lost": "4",
       "goalsFor": "20",
       "goalsAgainst": "24",
       "team": {
@@ -4024,10 +4024,10 @@
      {
       "position": "4",
       "points": "14.00",
-      "played": 9,
-      "won": 3,
-      "drawn": 5,
-      "lost": 1,
+      "played": "9",
+      "won": "3",
+      "drawn": "5",
+      "lost": "1",
       "goalsFor": "12",
       "goalsAgainst": "8",
       "team": {
@@ -4061,10 +4061,10 @@
      {
       "position": "5",
       "points": "14.00",
-      "played": 9,
-      "won": 4,
-      "drawn": 2,
-      "lost": 3,
+      "played": "9",
+      "won": "4",
+      "drawn": "2",
+      "lost": "3",
       "goalsFor": "13",
       "goalsAgainst": "11",
       "team": {
@@ -4098,10 +4098,10 @@
      {
       "position": "6",
       "points": "14.00",
-      "played": 9,
-      "won": 4,
-      "drawn": 2,
-      "lost": 3,
+      "played": "9",
+      "won": "4",
+      "drawn": "2",
+      "lost": "3",
       "goalsFor": "14",
       "goalsAgainst": "17",
       "team": {
@@ -4135,10 +4135,10 @@
      {
       "position": "7",
       "points": "13.00",
-      "played": 9,
-      "won": 3,
-      "drawn": 4,
-      "lost": 2,
+      "played": "9",
+      "won": "3",
+      "drawn": "4",
+      "lost": "2",
       "goalsFor": "19",
       "goalsAgainst": "15",
       "team": {
@@ -4172,10 +4172,10 @@
      {
       "position": "8",
       "points": "12.00",
-      "played": 9,
-      "won": 3,
-      "drawn": 3,
-      "lost": 3,
+      "played": "9",
+      "won": "3",
+      "drawn": "3",
+      "lost": "3",
       "goalsFor": "12",
       "goalsAgainst": "8",
       "team": {
@@ -4209,10 +4209,10 @@
      {
       "position": "9",
       "points": "11.00",
-      "played": 8,
-      "won": 2,
-      "drawn": 5,
-      "lost": 1,
+      "played": "8",
+      "won": "2",
+      "drawn": "5",
+      "lost": "1",
       "goalsFor": "10",
       "goalsAgainst": "8",
       "team": {
@@ -4246,10 +4246,10 @@
      {
       "position": "10",
       "points": "11.00",
-      "played": 9,
-      "won": 2,
-      "drawn": 5,
-      "lost": 2,
+      "played": "9",
+      "won": "2",
+      "drawn": "5",
+      "lost": "2",
       "goalsFor": "14",
       "goalsAgainst": "13",
       "team": {
@@ -4283,10 +4283,10 @@
      {
       "position": "11",
       "points": "11.00",
-      "played": 9,
-      "won": 3,
-      "drawn": 2,
-      "lost": 4,
+      "played": "9",
+      "won": "3",
+      "drawn": "2",
+      "lost": "4",
       "goalsFor": "14",
       "goalsAgainst": "14",
       "team": {
@@ -4320,10 +4320,10 @@
      {
       "position": "12",
       "points": "11.00",
-      "played": 9,
-      "won": 3,
-      "drawn": 2,
-      "lost": 4,
+      "played": "9",
+      "won": "3",
+      "drawn": "2",
+      "lost": "4",
       "goalsFor": "15",
       "goalsAgainst": "21",
       "team": {
@@ -4357,10 +4357,10 @@
      {
       "position": "13",
       "points": "10.00",
-      "played": 9,
-      "won": 2,
-      "drawn": 4,
-      "lost": 3,
+      "played": "9",
+      "won": "2",
+      "drawn": "4",
+      "lost": "3",
       "goalsFor": "17",
       "goalsAgainst": "17",
       "team": {
@@ -4394,10 +4394,10 @@
      {
       "position": "14",
       "points": "9.00",
-      "played": 9,
-      "won": 2,
-      "drawn": 3,
-      "lost": 4,
+      "played": "9",
+      "won": "2",
+      "drawn": "3",
+      "lost": "4",
       "goalsFor": "14",
       "goalsAgainst": "16",
       "team": {
@@ -4431,10 +4431,10 @@
      {
       "position": "15",
       "points": "8.00",
-      "played": 9,
-      "won": 2,
-      "drawn": 2,
-      "lost": 5,
+      "played": "9",
+      "won": "2",
+      "drawn": "2",
+      "lost": "5",
       "goalsFor": "7",
       "goalsAgainst": "13",
       "team": {
@@ -4468,10 +4468,10 @@
      {
       "position": "16",
       "points": "5.00",
-      "played": 9,
-      "won": 1,
-      "drawn": 2,
-      "lost": 6,
+      "played": "9",
+      "won": "1",
+      "drawn": "2",
+      "lost": "6",
       "goalsFor": "11",
       "goalsAgainst": "19",
       "team": {
@@ -5885,7 +5885,7 @@
        "CAMPO": "CAMP DE FUTBOL MPAL. DE MONELLS",
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-28T17:45:00",
+       "COMIENZO1": "2026-11-28T17:30:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -5906,22 +5906,6 @@
        "ESTADO": "0"
       },
       {
-       "CODACTA": "4139868",
-       "JORNADA": "11",
-       "CODEQUIPO_CASA": "36734",
-       "NOMBRE_CASA": "LA PERA, U.E. A",
-       "ESCUDO_CASA": "00100_0000205346_imgres.png",
-       "CODEQUIPO_FUERA": "34493",
-       "NOMBRE_FUERA": "L'ARMENTERA, C.F. A",
-       "ESCUDO_FUERA": "00100_0001166991_ArmenteraPNG.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-29T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
        "CODACTA": "4139861",
        "JORNADA": "11",
        "CODEQUIPO_CASA": "43152",
@@ -5934,6 +5918,22 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-29T17:30:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
+       "CODACTA": "4139868",
+       "JORNADA": "11",
+       "CODEQUIPO_CASA": "36734",
+       "NOMBRE_CASA": "LA PERA, U.E. A",
+       "ESCUDO_CASA": "00100_0000205346_imgres.png",
+       "CODEQUIPO_FUERA": "34493",
+       "NOMBRE_FUERA": "L'ARMENTERA, C.F. A",
+       "ESCUDO_FUERA": "00100_0001166991_ArmenteraPNG.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-29T18:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       }
@@ -8415,10 +8415,10 @@
      {
       "position": "1",
       "points": "21.00",
-      "played": 9,
-      "won": 7,
-      "drawn": 0,
-      "lost": 2,
+      "played": "9",
+      "won": "7",
+      "drawn": "0",
+      "lost": "2",
       "goalsFor": "22",
       "goalsAgainst": "10",
       "team": {
@@ -8452,10 +8452,10 @@
      {
       "position": "2",
       "points": "20.00",
-      "played": 9,
-      "won": 6,
-      "drawn": 2,
-      "lost": 1,
+      "played": "9",
+      "won": "6",
+      "drawn": "2",
+      "lost": "1",
       "goalsFor": "21",
       "goalsAgainst": "9",
       "team": {
@@ -8489,10 +8489,10 @@
      {
       "position": "3",
       "points": "19.00",
-      "played": 8,
-      "won": 6,
-      "drawn": 1,
-      "lost": 1,
+      "played": "8",
+      "won": "6",
+      "drawn": "1",
+      "lost": "1",
       "goalsFor": "23",
       "goalsAgainst": "9",
       "team": {
@@ -8526,10 +8526,10 @@
      {
       "position": "4",
       "points": "18.00",
-      "played": 8,
-      "won": 6,
-      "drawn": 0,
-      "lost": 2,
+      "played": "8",
+      "won": "6",
+      "drawn": "0",
+      "lost": "2",
       "goalsFor": "18",
       "goalsAgainst": "8",
       "team": {
@@ -8563,10 +8563,10 @@
      {
       "position": "5",
       "points": "16.00",
-      "played": 8,
-      "won": 5,
-      "drawn": 1,
-      "lost": 2,
+      "played": "8",
+      "won": "5",
+      "drawn": "1",
+      "lost": "2",
       "goalsFor": "23",
       "goalsAgainst": "14",
       "team": {
@@ -8600,10 +8600,10 @@
      {
       "position": "6",
       "points": "15.00",
-      "played": 9,
-      "won": 5,
-      "drawn": 0,
-      "lost": 4,
+      "played": "9",
+      "won": "5",
+      "drawn": "0",
+      "lost": "4",
       "goalsFor": "19",
       "goalsAgainst": "17",
       "team": {
@@ -8637,10 +8637,10 @@
      {
       "position": "7",
       "points": "15.00",
-      "played": 8,
-      "won": 5,
-      "drawn": 0,
-      "lost": 3,
+      "played": "8",
+      "won": "5",
+      "drawn": "0",
+      "lost": "3",
       "goalsFor": "12",
       "goalsAgainst": "11",
       "team": {
@@ -8674,10 +8674,10 @@
      {
       "position": "8",
       "points": "12.00",
-      "played": 8,
-      "won": 4,
-      "drawn": 0,
-      "lost": 4,
+      "played": "8",
+      "won": "4",
+      "drawn": "0",
+      "lost": "4",
       "goalsFor": "15",
       "goalsAgainst": "14",
       "team": {
@@ -8711,10 +8711,10 @@
      {
       "position": "9",
       "points": "11.00",
-      "played": 8,
-      "won": 3,
-      "drawn": 2,
-      "lost": 3,
+      "played": "8",
+      "won": "3",
+      "drawn": "2",
+      "lost": "3",
       "goalsFor": "24",
       "goalsAgainst": "16",
       "team": {
@@ -8748,10 +8748,10 @@
      {
       "position": "10",
       "points": "10.00",
-      "played": 8,
-      "won": 3,
-      "drawn": 1,
-      "lost": 4,
+      "played": "8",
+      "won": "3",
+      "drawn": "1",
+      "lost": "4",
       "goalsFor": "15",
       "goalsAgainst": "14",
       "team": {
@@ -8785,10 +8785,10 @@
      {
       "position": "11",
       "points": "9.00",
-      "played": 8,
-      "won": 3,
-      "drawn": 0,
-      "lost": 5,
+      "played": "8",
+      "won": "3",
+      "drawn": "0",
+      "lost": "5",
       "goalsFor": "12",
       "goalsAgainst": "18",
       "team": {
@@ -8822,10 +8822,10 @@
      {
       "position": "12",
       "points": "6.00",
-      "played": 9,
-      "won": 1,
-      "drawn": 3,
-      "lost": 5,
+      "played": "9",
+      "won": "1",
+      "drawn": "3",
+      "lost": "5",
       "goalsFor": "8",
       "goalsAgainst": "16",
       "team": {
@@ -8859,10 +8859,10 @@
      {
       "position": "13",
       "points": "6.00",
-      "played": 8,
-      "won": 2,
-      "drawn": 0,
-      "lost": 6,
+      "played": "8",
+      "won": "2",
+      "drawn": "0",
+      "lost": "6",
       "goalsFor": "8",
       "goalsAgainst": "21",
       "team": {
@@ -8896,10 +8896,10 @@
      {
       "position": "14",
       "points": "6.00",
-      "played": 9,
-      "won": 2,
-      "drawn": 0,
-      "lost": 7,
+      "played": "9",
+      "won": "2",
+      "drawn": "0",
+      "lost": "7",
       "goalsFor": "14",
       "goalsAgainst": "30",
       "team": {
@@ -8933,10 +8933,10 @@
      {
       "position": "15",
       "points": "0.00",
-      "played": 9,
-      "won": 0,
-      "drawn": 0,
-      "lost": 9,
+      "played": "9",
+      "won": "0",
+      "drawn": "0",
+      "lost": "9",
       "goalsFor": "5",
       "goalsAgainst": "32",
       "team": {
@@ -9764,30 +9764,14 @@
        "NOMBRE_FUERA": "MONELLS, A.E. B",
        "ESCUDO_FUERA": "00100_0000669226_aemonells_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE CASTELL D´ARO",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-14T17:15:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
+       "GOLES_CASA": "7",
+       "GOLES_FUERA": "1",
+       "COMIENZO1": "2026-11-17T20:45:00",
+       "CERRADA": "1",
+       "ESTADO": "1"
       }
      ],
      "8": [
-      {
-       "CODACTA": "4140495",
-       "JORNADA": "8",
-       "CODEQUIPO_CASA": "54312692",
-       "NOMBRE_CASA": "MONELLS, A.E. B",
-       "ESCUDO_CASA": "00100_0000669226_aemonells_200x200.png",
-       "CODEQUIPO_FUERA": "40556456",
-       "NOMBRE_FUERA": "CASSA, U.D. B",
-       "ESCUDO_FUERA": "00100_0000748761_udcassa_200x200.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE MONELLS",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-21T16:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
       {
        "CODACTA": "4140583",
        "JORNADA": "8",
@@ -9833,6 +9817,22 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-21T17:15:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
+       "CODACTA": "4140495",
+       "JORNADA": "8",
+       "CODEQUIPO_CASA": "54312692",
+       "NOMBRE_CASA": "MONELLS, A.E. B",
+       "ESCUDO_CASA": "00100_0000669226_aemonells_200x200.png",
+       "CODEQUIPO_FUERA": "40556456",
+       "NOMBRE_FUERA": "CASSA, U.D. B",
+       "ESCUDO_FUERA": "00100_0000748761_udcassa_200x200.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE MONELLS",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-21T18:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -11943,11 +11943,48 @@
     "data": [
      {
       "position": "1",
+      "points": "21.00",
+      "played": "7",
+      "won": "7",
+      "drawn": "0",
+      "lost": "0",
+      "goalsFor": "36",
+      "goalsAgainst": "3",
+      "team": {
+       "name": "ARO, C.E. A",
+       "logo": "00100_0000037181_escut_aro.png",
+       "teamId": "35955"
+      },
+      "form": [
+       {
+        "date": "2026-10-24T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-27T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-10-31T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-08T00:00:00.000Z",
+        "result": "G"
+       },
+       {
+        "date": "2026-11-17T00:00:00.000Z",
+        "result": "G"
+       }
+      ]
+     },
+     {
+      "position": "2",
       "points": "19.00",
-      "played": 7,
-      "won": 6,
-      "drawn": 1,
-      "lost": 0,
+      "played": "7",
+      "won": "6",
+      "drawn": "1",
+      "lost": "0",
       "goalsFor": "22",
       "goalsAgainst": "3",
       "team": {
@@ -11979,49 +12016,12 @@
       ]
      },
      {
-      "position": "2",
-      "points": "18.00",
-      "played": 6,
-      "won": 6,
-      "drawn": 0,
-      "lost": 0,
-      "goalsFor": "29",
-      "goalsAgainst": "2",
-      "team": {
-       "name": "ARO, C.E. A",
-       "logo": "00100_0000037181_escut_aro.png",
-       "teamId": "35955"
-      },
-      "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-24T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-27T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-10-31T00:00:00.000Z",
-        "result": "G"
-       },
-       {
-        "date": "2026-11-08T00:00:00.000Z",
-        "result": "G"
-       }
-      ]
-     },
-     {
       "position": "3",
       "points": "16.00",
-      "played": 7,
-      "won": 5,
-      "drawn": 1,
-      "lost": 1,
+      "played": "7",
+      "won": "5",
+      "drawn": "1",
+      "lost": "1",
       "goalsFor": "20",
       "goalsAgainst": "7",
       "team": {
@@ -12055,10 +12055,10 @@
      {
       "position": "4",
       "points": "13.00",
-      "played": 7,
-      "won": 4,
-      "drawn": 1,
-      "lost": 2,
+      "played": "7",
+      "won": "4",
+      "drawn": "1",
+      "lost": "2",
       "goalsFor": "24",
       "goalsAgainst": "16",
       "team": {
@@ -12092,10 +12092,10 @@
      {
       "position": "5",
       "points": "12.00",
-      "played": 7,
-      "won": 4,
-      "drawn": 0,
-      "lost": 3,
+      "played": "7",
+      "won": "4",
+      "drawn": "0",
+      "lost": "3",
       "goalsFor": "26",
       "goalsAgainst": "14",
       "team": {
@@ -12129,10 +12129,10 @@
      {
       "position": "6",
       "points": "12.00",
-      "played": 7,
-      "won": 4,
-      "drawn": 0,
-      "lost": 3,
+      "played": "7",
+      "won": "4",
+      "drawn": "0",
+      "lost": "3",
       "goalsFor": "16",
       "goalsAgainst": "16",
       "team": {
@@ -12166,10 +12166,10 @@
      {
       "position": "7",
       "points": "11.00",
-      "played": 7,
-      "won": 3,
-      "drawn": 2,
-      "lost": 2,
+      "played": "7",
+      "won": "3",
+      "drawn": "2",
+      "lost": "2",
       "goalsFor": "15",
       "goalsAgainst": "18",
       "team": {
@@ -12203,10 +12203,10 @@
      {
       "position": "8",
       "points": "10.00",
-      "played": 7,
-      "won": 3,
-      "drawn": 1,
-      "lost": 3,
+      "played": "7",
+      "won": "3",
+      "drawn": "1",
+      "lost": "3",
       "goalsFor": "6",
       "goalsAgainst": "8",
       "team": {
@@ -12240,10 +12240,10 @@
      {
       "position": "9",
       "points": "6.00",
-      "played": 7,
-      "won": 1,
-      "drawn": 3,
-      "lost": 3,
+      "played": "7",
+      "won": "1",
+      "drawn": "3",
+      "lost": "3",
       "goalsFor": "9",
       "goalsAgainst": "11",
       "team": {
@@ -12277,10 +12277,10 @@
      {
       "position": "10",
       "points": "6.00",
-      "played": 7,
-      "won": 2,
-      "drawn": 0,
-      "lost": 5,
+      "played": "7",
+      "won": "2",
+      "drawn": "0",
+      "lost": "5",
       "goalsFor": "17",
       "goalsAgainst": "23",
       "team": {
@@ -12314,10 +12314,10 @@
      {
       "position": "11",
       "points": "6.00",
-      "played": 7,
-      "won": 1,
-      "drawn": 3,
-      "lost": 3,
+      "played": "7",
+      "won": "1",
+      "drawn": "3",
+      "lost": "3",
       "goalsFor": "16",
       "goalsAgainst": "27",
       "team": {
@@ -12351,10 +12351,10 @@
      {
       "position": "12",
       "points": "5.00",
-      "played": 7,
-      "won": 1,
-      "drawn": 2,
-      "lost": 4,
+      "played": "7",
+      "won": "1",
+      "drawn": "2",
+      "lost": "4",
       "goalsFor": "18",
       "goalsAgainst": "29",
       "team": {
@@ -12388,10 +12388,10 @@
      {
       "position": "13",
       "points": "3.00",
-      "played": 7,
-      "won": 1,
-      "drawn": 0,
-      "lost": 6,
+      "played": "7",
+      "won": "1",
+      "drawn": "0",
+      "lost": "6",
       "goalsFor": "10",
       "goalsAgainst": "29",
       "team": {
@@ -12425,22 +12425,18 @@
      {
       "position": "14",
       "points": "0.00",
-      "played": 6,
-      "won": 0,
-      "drawn": 0,
-      "lost": 6,
-      "goalsFor": "5",
-      "goalsAgainst": "30",
+      "played": "7",
+      "won": "0",
+      "drawn": "0",
+      "lost": "7",
+      "goalsFor": "6",
+      "goalsAgainst": "37",
       "team": {
        "name": "MONELLS, A.E. B",
        "logo": "00100_0000669226_aemonells_200x200.png",
        "teamId": "54312692"
       },
       "form": [
-       {
-        "date": "2026-10-10T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-17T00:00:00.000Z",
         "result": "P"
@@ -12455,6 +12451,10 @@
        },
        {
         "date": "2026-11-07T00:00:00.000Z",
+        "result": "P"
+       },
+       {
+        "date": "2026-11-17T00:00:00.000Z",
         "result": "P"
        }
       ]
@@ -13457,6 +13457,22 @@
        "ESTADO": "0"
       },
       {
+       "CODACTA": "4245265",
+       "JORNADA": "8",
+       "CODEQUIPO_CASA": "54391318",
+       "NOMBRE_CASA": "L'ESCALA, F.C. A",
+       "ESCUDO_CASA": "00100_0001021751_00100_0000820832_fcle_200.png",
+       "CODEQUIPO_FUERA": "21691274",
+       "NOMBRE_FUERA": "VALL D'EN BAS CLUB FUTBOL A",
+       "ESCUDO_FUERA": "00100_0000573792_valldenbas_200x200.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-22T17:00:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
        "CODACTA": "4245269",
        "JORNADA": "8",
        "CODEQUIPO_CASA": "28940766",
@@ -13469,22 +13485,6 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-22T18:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
-       "CODACTA": "4245265",
-       "JORNADA": "8",
-       "CODEQUIPO_CASA": "54391318",
-       "NOMBRE_CASA": "L'ESCALA, F.C. A",
-       "ESCUDO_CASA": "00100_0001021751_00100_0000820832_fcle_200.png",
-       "CODEQUIPO_FUERA": "21691274",
-       "NOMBRE_FUERA": "VALL D'EN BAS CLUB FUTBOL A",
-       "ESCUDO_FUERA": "00100_0000573792_valldenbas_200x200.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-22T18:30:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -13518,23 +13518,7 @@
        "CAMPO": "CAMP DE FUTBOL MPAL. JOSEP SUNYER I ARXER",
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-28T15:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
-       "CODACTA": "4245272",
-       "JORNADA": "9",
-       "CODEQUIPO_CASA": "47012932",
-       "NOMBRE_CASA": "CASSA, U.D. B",
-       "ESCUDO_CASA": "00100_0000748761_udcassa_200x200.png",
-       "CODEQUIPO_FUERA": "54391318",
-       "NOMBRE_FUERA": "L'ESCALA, F.C. A",
-       "ESCUDO_FUERA": "00100_0001021751_00100_0000820832_fcle_200.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-28T17:30:00",
+       "COMIENZO1": "2026-11-28T13:30:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -13587,22 +13571,6 @@
        "ESTADO": "0"
       },
       {
-       "CODACTA": "4245276",
-       "JORNADA": "9",
-       "CODEQUIPO_CASA": "58354562",
-       "NOMBRE_CASA": "CABANES, U.E. A",
-       "ESCUDO_CASA": "00100_0000012280_escanear0001.png",
-       "CODEQUIPO_FUERA": "28940766",
-       "NOMBRE_FUERA": "PONTENC CLUB ESP. B",
-       "ESCUDO_FUERA": "00100_0001186244_5006_PONTENC.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE CABANES",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-29T12:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
        "CODACTA": "4245279",
        "JORNADA": "9",
        "CODEQUIPO_CASA": "15549744",
@@ -13631,6 +13599,38 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-29T15:00:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
+       "CODACTA": "4245276",
+       "JORNADA": "9",
+       "CODEQUIPO_CASA": "58354562",
+       "NOMBRE_CASA": "CABANES, U.E. A",
+       "ESCUDO_CASA": "00100_0000012280_escanear0001.png",
+       "CODEQUIPO_FUERA": "28940766",
+       "NOMBRE_FUERA": "PONTENC CLUB ESP. B",
+       "ESCUDO_FUERA": "00100_0001186244_5006_PONTENC.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE CABANES",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-29T16:00:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
+       "CODACTA": "4245272",
+       "JORNADA": "9",
+       "CODEQUIPO_CASA": "47012932",
+       "NOMBRE_CASA": "CASSA, U.D. B",
+       "ESCUDO_CASA": "00100_0000748761_udcassa_200x200.png",
+       "CODEQUIPO_FUERA": "54391318",
+       "NOMBRE_FUERA": "L'ESCALA, F.C. A",
+       "ESCUDO_FUERA": "00100_0001021751_00100_0000820832_fcle_200.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-29T18:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       }
@@ -16372,10 +16372,10 @@
      {
       "position": "1",
       "points": "21.00",
-      "played": 7,
-      "won": 7,
-      "drawn": 0,
-      "lost": 0,
+      "played": "7",
+      "won": "7",
+      "drawn": "0",
+      "lost": "0",
       "goalsFor": "45",
       "goalsAgainst": "0",
       "team": {
@@ -16409,10 +16409,10 @@
      {
       "position": "2",
       "points": "18.00",
-      "played": 7,
-      "won": 6,
-      "drawn": 0,
-      "lost": 1,
+      "played": "7",
+      "won": "6",
+      "drawn": "0",
+      "lost": "1",
       "goalsFor": "45",
       "goalsAgainst": "6",
       "team": {
@@ -16446,10 +16446,10 @@
      {
       "position": "3",
       "points": "18.00",
-      "played": 7,
-      "won": 6,
-      "drawn": 0,
-      "lost": 1,
+      "played": "7",
+      "won": "6",
+      "drawn": "0",
+      "lost": "1",
       "goalsFor": "38",
       "goalsAgainst": "12",
       "team": {
@@ -16483,10 +16483,10 @@
      {
       "position": "4",
       "points": "18.00",
-      "played": 7,
-      "won": 6,
-      "drawn": 0,
-      "lost": 1,
+      "played": "7",
+      "won": "6",
+      "drawn": "0",
+      "lost": "1",
       "goalsFor": "20",
       "goalsAgainst": "8",
       "team": {
@@ -16520,10 +16520,10 @@
      {
       "position": "5",
       "points": "14.00",
-      "played": 7,
-      "won": 4,
-      "drawn": 2,
-      "lost": 1,
+      "played": "7",
+      "won": "4",
+      "drawn": "2",
+      "lost": "1",
       "goalsFor": "33",
       "goalsAgainst": "9",
       "team": {
@@ -16557,10 +16557,10 @@
      {
       "position": "6",
       "points": "12.00",
-      "played": 7,
-      "won": 4,
-      "drawn": 0,
-      "lost": 3,
+      "played": "7",
+      "won": "4",
+      "drawn": "0",
+      "lost": "3",
       "goalsFor": "13",
       "goalsAgainst": "11",
       "team": {
@@ -16594,10 +16594,10 @@
      {
       "position": "7",
       "points": "11.00",
-      "played": 6,
-      "won": 3,
-      "drawn": 2,
-      "lost": 1,
+      "played": "6",
+      "won": "3",
+      "drawn": "2",
+      "lost": "1",
       "goalsFor": "15",
       "goalsAgainst": "6",
       "team": {
@@ -16631,10 +16631,10 @@
      {
       "position": "8",
       "points": "7.00",
-      "played": 7,
-      "won": 2,
-      "drawn": 1,
-      "lost": 4,
+      "played": "7",
+      "won": "2",
+      "drawn": "1",
+      "lost": "4",
       "goalsFor": "26",
       "goalsAgainst": "21",
       "team": {
@@ -16668,10 +16668,10 @@
      {
       "position": "9",
       "points": "7.00",
-      "played": 7,
-      "won": 2,
-      "drawn": 1,
-      "lost": 4,
+      "played": "7",
+      "won": "2",
+      "drawn": "1",
+      "lost": "4",
       "goalsFor": "12",
       "goalsAgainst": "24",
       "team": {
@@ -16705,10 +16705,10 @@
      {
       "position": "10",
       "points": "6.00",
-      "played": 6,
-      "won": 2,
-      "drawn": 0,
-      "lost": 4,
+      "played": "6",
+      "won": "2",
+      "drawn": "0",
+      "lost": "4",
       "goalsFor": "13",
       "goalsAgainst": "24",
       "team": {
@@ -16742,10 +16742,10 @@
      {
       "position": "11",
       "points": "4.00",
-      "played": 5,
-      "won": 1,
-      "drawn": 1,
-      "lost": 3,
+      "played": "5",
+      "won": "1",
+      "drawn": "1",
+      "lost": "3",
       "goalsFor": "7",
       "goalsAgainst": "13",
       "team": {
@@ -16779,10 +16779,10 @@
      {
       "position": "12",
       "points": "4.00",
-      "played": 5,
-      "won": 1,
-      "drawn": 1,
-      "lost": 3,
+      "played": "5",
+      "won": "1",
+      "drawn": "1",
+      "lost": "3",
       "goalsFor": "7",
       "goalsAgainst": "14",
       "team": {
@@ -16816,10 +16816,10 @@
      {
       "position": "13",
       "points": "3.00",
-      "played": 6,
-      "won": 1,
-      "drawn": 0,
-      "lost": 5,
+      "played": "6",
+      "won": "1",
+      "drawn": "0",
+      "lost": "5",
       "goalsFor": "13",
       "goalsAgainst": "16",
       "team": {
@@ -16853,10 +16853,10 @@
      {
       "position": "14",
       "points": "0.00",
-      "played": 5,
-      "won": 0,
-      "drawn": 0,
-      "lost": 5,
+      "played": "5",
+      "won": "0",
+      "drawn": "0",
+      "lost": "5",
       "goalsFor": "1",
       "goalsAgainst": "32",
       "team": {
@@ -16890,10 +16890,10 @@
      {
       "position": "15",
       "points": "0.00",
-      "played": 6,
-      "won": 0,
-      "drawn": 0,
-      "lost": 6,
+      "played": "6",
+      "won": "0",
+      "drawn": "0",
+      "lost": "6",
       "goalsFor": "3",
       "goalsAgainst": "43",
       "team": {
@@ -16927,10 +16927,10 @@
      {
       "position": "16",
       "points": "0.00",
-      "played": 3,
-      "won": 0,
-      "drawn": 0,
-      "lost": 3,
+      "played": "3",
+      "won": "0",
+      "drawn": "0",
+      "lost": "3",
       "goalsFor": "0",
       "goalsAgainst": "52",
       "team": {
