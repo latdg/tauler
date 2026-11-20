@@ -1,7 +1,7 @@
 {
  "tipus": "latdg-fcf",
  "versio": 1,
- "generat": "2026-11-19T22:06:52.316Z",
+ "generat": "2026-11-20T16:38:19.967Z",
  "grups": {
   "58161863": {
    "partidos": {
@@ -3913,10 +3913,10 @@
      {
       "position": "1",
       "points": "17.00",
-      "played": "9",
-      "won": "5",
-      "drawn": "2",
-      "lost": "2",
+      "played": 9,
+      "won": 5,
+      "drawn": 2,
+      "lost": 2,
       "goalsFor": "18",
       "goalsAgainst": "12",
       "team": {
@@ -3950,10 +3950,10 @@
      {
       "position": "2",
       "points": "16.00",
-      "played": "8",
-      "won": "5",
-      "drawn": "1",
-      "lost": "2",
+      "played": 8,
+      "won": 5,
+      "drawn": 1,
+      "lost": 2,
       "goalsFor": "16",
       "goalsAgainst": "10",
       "team": {
@@ -3987,10 +3987,10 @@
      {
       "position": "3",
       "points": "15.00",
-      "played": "9",
-      "won": "5",
-      "drawn": "0",
-      "lost": "4",
+      "played": 9,
+      "won": 5,
+      "drawn": 0,
+      "lost": 4,
       "goalsFor": "20",
       "goalsAgainst": "24",
       "team": {
@@ -4024,10 +4024,10 @@
      {
       "position": "4",
       "points": "14.00",
-      "played": "9",
-      "won": "3",
-      "drawn": "5",
-      "lost": "1",
+      "played": 9,
+      "won": 3,
+      "drawn": 5,
+      "lost": 1,
       "goalsFor": "12",
       "goalsAgainst": "8",
       "team": {
@@ -4061,10 +4061,10 @@
      {
       "position": "5",
       "points": "14.00",
-      "played": "9",
-      "won": "4",
-      "drawn": "2",
-      "lost": "3",
+      "played": 9,
+      "won": 4,
+      "drawn": 2,
+      "lost": 3,
       "goalsFor": "13",
       "goalsAgainst": "11",
       "team": {
@@ -4098,10 +4098,10 @@
      {
       "position": "6",
       "points": "14.00",
-      "played": "9",
-      "won": "4",
-      "drawn": "2",
-      "lost": "3",
+      "played": 9,
+      "won": 4,
+      "drawn": 2,
+      "lost": 3,
       "goalsFor": "14",
       "goalsAgainst": "17",
       "team": {
@@ -4135,10 +4135,10 @@
      {
       "position": "7",
       "points": "13.00",
-      "played": "9",
-      "won": "3",
-      "drawn": "4",
-      "lost": "2",
+      "played": 9,
+      "won": 3,
+      "drawn": 4,
+      "lost": 2,
       "goalsFor": "19",
       "goalsAgainst": "15",
       "team": {
@@ -4172,10 +4172,10 @@
      {
       "position": "8",
       "points": "12.00",
-      "played": "9",
-      "won": "3",
-      "drawn": "3",
-      "lost": "3",
+      "played": 9,
+      "won": 3,
+      "drawn": 3,
+      "lost": 3,
       "goalsFor": "12",
       "goalsAgainst": "8",
       "team": {
@@ -4209,10 +4209,10 @@
      {
       "position": "9",
       "points": "11.00",
-      "played": "8",
-      "won": "2",
-      "drawn": "5",
-      "lost": "1",
+      "played": 8,
+      "won": 2,
+      "drawn": 5,
+      "lost": 1,
       "goalsFor": "10",
       "goalsAgainst": "8",
       "team": {
@@ -4246,10 +4246,10 @@
      {
       "position": "10",
       "points": "11.00",
-      "played": "9",
-      "won": "2",
-      "drawn": "5",
-      "lost": "2",
+      "played": 9,
+      "won": 2,
+      "drawn": 5,
+      "lost": 2,
       "goalsFor": "14",
       "goalsAgainst": "13",
       "team": {
@@ -4283,10 +4283,10 @@
      {
       "position": "11",
       "points": "11.00",
-      "played": "9",
-      "won": "3",
-      "drawn": "2",
-      "lost": "4",
+      "played": 9,
+      "won": 3,
+      "drawn": 2,
+      "lost": 4,
       "goalsFor": "14",
       "goalsAgainst": "14",
       "team": {
@@ -4320,10 +4320,10 @@
      {
       "position": "12",
       "points": "11.00",
-      "played": "9",
-      "won": "3",
-      "drawn": "2",
-      "lost": "4",
+      "played": 9,
+      "won": 3,
+      "drawn": 2,
+      "lost": 4,
       "goalsFor": "15",
       "goalsAgainst": "21",
       "team": {
@@ -4357,10 +4357,10 @@
      {
       "position": "13",
       "points": "10.00",
-      "played": "9",
-      "won": "2",
-      "drawn": "4",
-      "lost": "3",
+      "played": 9,
+      "won": 2,
+      "drawn": 4,
+      "lost": 3,
       "goalsFor": "17",
       "goalsAgainst": "17",
       "team": {
@@ -4394,10 +4394,10 @@
      {
       "position": "14",
       "points": "9.00",
-      "played": "9",
-      "won": "2",
-      "drawn": "3",
-      "lost": "4",
+      "played": 9,
+      "won": 2,
+      "drawn": 3,
+      "lost": 4,
       "goalsFor": "14",
       "goalsAgainst": "16",
       "team": {
@@ -4431,10 +4431,10 @@
      {
       "position": "15",
       "points": "8.00",
-      "played": "9",
-      "won": "2",
-      "drawn": "2",
-      "lost": "5",
+      "played": 9,
+      "won": 2,
+      "drawn": 2,
+      "lost": 5,
       "goalsFor": "7",
       "goalsAgainst": "13",
       "team": {
@@ -4468,10 +4468,10 @@
      {
       "position": "16",
       "points": "5.00",
-      "played": "9",
-      "won": "1",
-      "drawn": "2",
-      "lost": "6",
+      "played": 9,
+      "won": 1,
+      "drawn": 2,
+      "lost": 6,
       "goalsFor": "11",
       "goalsAgainst": "19",
       "team": {
@@ -8415,10 +8415,10 @@
      {
       "position": "1",
       "points": "21.00",
-      "played": "9",
-      "won": "7",
-      "drawn": "0",
-      "lost": "2",
+      "played": 9,
+      "won": 7,
+      "drawn": 0,
+      "lost": 2,
       "goalsFor": "22",
       "goalsAgainst": "10",
       "team": {
@@ -8452,10 +8452,10 @@
      {
       "position": "2",
       "points": "20.00",
-      "played": "9",
-      "won": "6",
-      "drawn": "2",
-      "lost": "1",
+      "played": 9,
+      "won": 6,
+      "drawn": 2,
+      "lost": 1,
       "goalsFor": "21",
       "goalsAgainst": "9",
       "team": {
@@ -8489,10 +8489,10 @@
      {
       "position": "3",
       "points": "19.00",
-      "played": "8",
-      "won": "6",
-      "drawn": "1",
-      "lost": "1",
+      "played": 8,
+      "won": 6,
+      "drawn": 1,
+      "lost": 1,
       "goalsFor": "23",
       "goalsAgainst": "9",
       "team": {
@@ -8526,10 +8526,10 @@
      {
       "position": "4",
       "points": "18.00",
-      "played": "8",
-      "won": "6",
-      "drawn": "0",
-      "lost": "2",
+      "played": 8,
+      "won": 6,
+      "drawn": 0,
+      "lost": 2,
       "goalsFor": "18",
       "goalsAgainst": "8",
       "team": {
@@ -8563,10 +8563,10 @@
      {
       "position": "5",
       "points": "16.00",
-      "played": "8",
-      "won": "5",
-      "drawn": "1",
-      "lost": "2",
+      "played": 8,
+      "won": 5,
+      "drawn": 1,
+      "lost": 2,
       "goalsFor": "23",
       "goalsAgainst": "14",
       "team": {
@@ -8600,10 +8600,10 @@
      {
       "position": "6",
       "points": "15.00",
-      "played": "9",
-      "won": "5",
-      "drawn": "0",
-      "lost": "4",
+      "played": 9,
+      "won": 5,
+      "drawn": 0,
+      "lost": 4,
       "goalsFor": "19",
       "goalsAgainst": "17",
       "team": {
@@ -8637,10 +8637,10 @@
      {
       "position": "7",
       "points": "15.00",
-      "played": "8",
-      "won": "5",
-      "drawn": "0",
-      "lost": "3",
+      "played": 8,
+      "won": 5,
+      "drawn": 0,
+      "lost": 3,
       "goalsFor": "12",
       "goalsAgainst": "11",
       "team": {
@@ -8674,10 +8674,10 @@
      {
       "position": "8",
       "points": "12.00",
-      "played": "8",
-      "won": "4",
-      "drawn": "0",
-      "lost": "4",
+      "played": 8,
+      "won": 4,
+      "drawn": 0,
+      "lost": 4,
       "goalsFor": "15",
       "goalsAgainst": "14",
       "team": {
@@ -8711,10 +8711,10 @@
      {
       "position": "9",
       "points": "11.00",
-      "played": "8",
-      "won": "3",
-      "drawn": "2",
-      "lost": "3",
+      "played": 8,
+      "won": 3,
+      "drawn": 2,
+      "lost": 3,
       "goalsFor": "24",
       "goalsAgainst": "16",
       "team": {
@@ -8748,10 +8748,10 @@
      {
       "position": "10",
       "points": "10.00",
-      "played": "8",
-      "won": "3",
-      "drawn": "1",
-      "lost": "4",
+      "played": 8,
+      "won": 3,
+      "drawn": 1,
+      "lost": 4,
       "goalsFor": "15",
       "goalsAgainst": "14",
       "team": {
@@ -8785,10 +8785,10 @@
      {
       "position": "11",
       "points": "9.00",
-      "played": "8",
-      "won": "3",
-      "drawn": "0",
-      "lost": "5",
+      "played": 8,
+      "won": 3,
+      "drawn": 0,
+      "lost": 5,
       "goalsFor": "12",
       "goalsAgainst": "18",
       "team": {
@@ -8822,10 +8822,10 @@
      {
       "position": "12",
       "points": "6.00",
-      "played": "9",
-      "won": "1",
-      "drawn": "3",
-      "lost": "5",
+      "played": 9,
+      "won": 1,
+      "drawn": 3,
+      "lost": 5,
       "goalsFor": "8",
       "goalsAgainst": "16",
       "team": {
@@ -8859,10 +8859,10 @@
      {
       "position": "13",
       "points": "6.00",
-      "played": "8",
-      "won": "2",
-      "drawn": "0",
-      "lost": "6",
+      "played": 8,
+      "won": 2,
+      "drawn": 0,
+      "lost": 6,
       "goalsFor": "8",
       "goalsAgainst": "21",
       "team": {
@@ -8896,10 +8896,10 @@
      {
       "position": "14",
       "points": "6.00",
-      "played": "9",
-      "won": "2",
-      "drawn": "0",
-      "lost": "7",
+      "played": 9,
+      "won": 2,
+      "drawn": 0,
+      "lost": 7,
       "goalsFor": "14",
       "goalsAgainst": "30",
       "team": {
@@ -8933,10 +8933,10 @@
      {
       "position": "15",
       "points": "0.00",
-      "played": "9",
-      "won": "0",
-      "drawn": "0",
-      "lost": "9",
+      "played": 9,
+      "won": 0,
+      "drawn": 0,
+      "lost": 9,
       "goalsFor": "5",
       "goalsAgainst": "32",
       "team": {
@@ -9994,7 +9994,7 @@
        "CAMPO": "CAMP DE FUTBOL ZEM JOSEP MASSOT I SAIS ANNEX 1",
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-28T19:00:00",
+       "COMIENZO1": "2026-11-28T18:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       }
@@ -11944,10 +11944,10 @@
      {
       "position": "1",
       "points": "21.00",
-      "played": "7",
-      "won": "7",
-      "drawn": "0",
-      "lost": "0",
+      "played": 7,
+      "won": 7,
+      "drawn": 0,
+      "lost": 0,
       "goalsFor": "36",
       "goalsAgainst": "3",
       "team": {
@@ -11981,10 +11981,10 @@
      {
       "position": "2",
       "points": "19.00",
-      "played": "7",
-      "won": "6",
-      "drawn": "1",
-      "lost": "0",
+      "played": 7,
+      "won": 6,
+      "drawn": 1,
+      "lost": 0,
       "goalsFor": "22",
       "goalsAgainst": "3",
       "team": {
@@ -12018,10 +12018,10 @@
      {
       "position": "3",
       "points": "16.00",
-      "played": "7",
-      "won": "5",
-      "drawn": "1",
-      "lost": "1",
+      "played": 7,
+      "won": 5,
+      "drawn": 1,
+      "lost": 1,
       "goalsFor": "20",
       "goalsAgainst": "7",
       "team": {
@@ -12055,10 +12055,10 @@
      {
       "position": "4",
       "points": "13.00",
-      "played": "7",
-      "won": "4",
-      "drawn": "1",
-      "lost": "2",
+      "played": 7,
+      "won": 4,
+      "drawn": 1,
+      "lost": 2,
       "goalsFor": "24",
       "goalsAgainst": "16",
       "team": {
@@ -12092,10 +12092,10 @@
      {
       "position": "5",
       "points": "12.00",
-      "played": "7",
-      "won": "4",
-      "drawn": "0",
-      "lost": "3",
+      "played": 7,
+      "won": 4,
+      "drawn": 0,
+      "lost": 3,
       "goalsFor": "26",
       "goalsAgainst": "14",
       "team": {
@@ -12129,10 +12129,10 @@
      {
       "position": "6",
       "points": "12.00",
-      "played": "7",
-      "won": "4",
-      "drawn": "0",
-      "lost": "3",
+      "played": 7,
+      "won": 4,
+      "drawn": 0,
+      "lost": 3,
       "goalsFor": "16",
       "goalsAgainst": "16",
       "team": {
@@ -12166,10 +12166,10 @@
      {
       "position": "7",
       "points": "11.00",
-      "played": "7",
-      "won": "3",
-      "drawn": "2",
-      "lost": "2",
+      "played": 7,
+      "won": 3,
+      "drawn": 2,
+      "lost": 2,
       "goalsFor": "15",
       "goalsAgainst": "18",
       "team": {
@@ -12203,10 +12203,10 @@
      {
       "position": "8",
       "points": "10.00",
-      "played": "7",
-      "won": "3",
-      "drawn": "1",
-      "lost": "3",
+      "played": 7,
+      "won": 3,
+      "drawn": 1,
+      "lost": 3,
       "goalsFor": "6",
       "goalsAgainst": "8",
       "team": {
@@ -12240,10 +12240,10 @@
      {
       "position": "9",
       "points": "6.00",
-      "played": "7",
-      "won": "1",
-      "drawn": "3",
-      "lost": "3",
+      "played": 7,
+      "won": 1,
+      "drawn": 3,
+      "lost": 3,
       "goalsFor": "9",
       "goalsAgainst": "11",
       "team": {
@@ -12277,10 +12277,10 @@
      {
       "position": "10",
       "points": "6.00",
-      "played": "7",
-      "won": "2",
-      "drawn": "0",
-      "lost": "5",
+      "played": 7,
+      "won": 2,
+      "drawn": 0,
+      "lost": 5,
       "goalsFor": "17",
       "goalsAgainst": "23",
       "team": {
@@ -12314,10 +12314,10 @@
      {
       "position": "11",
       "points": "6.00",
-      "played": "7",
-      "won": "1",
-      "drawn": "3",
-      "lost": "3",
+      "played": 7,
+      "won": 1,
+      "drawn": 3,
+      "lost": 3,
       "goalsFor": "16",
       "goalsAgainst": "27",
       "team": {
@@ -12351,10 +12351,10 @@
      {
       "position": "12",
       "points": "5.00",
-      "played": "7",
-      "won": "1",
-      "drawn": "2",
-      "lost": "4",
+      "played": 7,
+      "won": 1,
+      "drawn": 2,
+      "lost": 4,
       "goalsFor": "18",
       "goalsAgainst": "29",
       "team": {
@@ -12388,10 +12388,10 @@
      {
       "position": "13",
       "points": "3.00",
-      "played": "7",
-      "won": "1",
-      "drawn": "0",
-      "lost": "6",
+      "played": 7,
+      "won": 1,
+      "drawn": 0,
+      "lost": 6,
       "goalsFor": "10",
       "goalsAgainst": "29",
       "team": {
@@ -12425,10 +12425,10 @@
      {
       "position": "14",
       "points": "0.00",
-      "played": "7",
-      "won": "0",
-      "drawn": "0",
-      "lost": "7",
+      "played": 7,
+      "won": 0,
+      "drawn": 0,
+      "lost": 7,
       "goalsFor": "6",
       "goalsAgainst": "37",
       "team": {
@@ -12964,7 +12964,7 @@
        "CAMPO": "CAMP DE FUTBOL MPAL. D´AMER",
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-25T20:00:00",
+       "COMIENZO1": "2026-11-23T20:15:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -13555,22 +13555,6 @@
        "ESTADO": "0"
       },
       {
-       "CODACTA": "4245274",
-       "JORNADA": "9",
-       "CODEQUIPO_CASA": "54313561",
-       "NOMBRE_CASA": "ROSES CITY FUTBOL CLUB  A",
-       "ESCUDO_CASA": "00100_0000511684_rosescity.png",
-       "CODEQUIPO_FUERA": "59408331",
-       "NOMBRE_FUERA": "REMENCES , ASSOCIACIÓ  ESPORTIVA UNIÓ  A",
-       "ESCUDO_FUERA": "00100_0001022042_pixlr_bg_result.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. LA VINYASSA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-11-29T12:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
        "CODACTA": "4245279",
        "JORNADA": "9",
        "CODEQUIPO_CASA": "15549744",
@@ -13599,6 +13583,22 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-11-29T15:00:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
+       "CODACTA": "4245274",
+       "JORNADA": "9",
+       "CODEQUIPO_CASA": "54313561",
+       "NOMBRE_CASA": "ROSES CITY FUTBOL CLUB  A",
+       "ESCUDO_CASA": "00100_0000511684_rosescity.png",
+       "CODEQUIPO_FUERA": "59408331",
+       "NOMBRE_FUERA": "REMENCES , ASSOCIACIÓ  ESPORTIVA UNIÓ  A",
+       "ESCUDO_FUERA": "00100_0001022042_pixlr_bg_result.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. LA VINYASSA",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-11-29T16:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -16372,10 +16372,10 @@
      {
       "position": "1",
       "points": "21.00",
-      "played": "7",
-      "won": "7",
-      "drawn": "0",
-      "lost": "0",
+      "played": 7,
+      "won": 7,
+      "drawn": 0,
+      "lost": 0,
       "goalsFor": "45",
       "goalsAgainst": "0",
       "team": {
@@ -16409,10 +16409,10 @@
      {
       "position": "2",
       "points": "18.00",
-      "played": "7",
-      "won": "6",
-      "drawn": "0",
-      "lost": "1",
+      "played": 7,
+      "won": 6,
+      "drawn": 0,
+      "lost": 1,
       "goalsFor": "45",
       "goalsAgainst": "6",
       "team": {
@@ -16446,10 +16446,10 @@
      {
       "position": "3",
       "points": "18.00",
-      "played": "7",
-      "won": "6",
-      "drawn": "0",
-      "lost": "1",
+      "played": 7,
+      "won": 6,
+      "drawn": 0,
+      "lost": 1,
       "goalsFor": "38",
       "goalsAgainst": "12",
       "team": {
@@ -16483,10 +16483,10 @@
      {
       "position": "4",
       "points": "18.00",
-      "played": "7",
-      "won": "6",
-      "drawn": "0",
-      "lost": "1",
+      "played": 7,
+      "won": 6,
+      "drawn": 0,
+      "lost": 1,
       "goalsFor": "20",
       "goalsAgainst": "8",
       "team": {
@@ -16520,10 +16520,10 @@
      {
       "position": "5",
       "points": "14.00",
-      "played": "7",
-      "won": "4",
-      "drawn": "2",
-      "lost": "1",
+      "played": 7,
+      "won": 4,
+      "drawn": 2,
+      "lost": 1,
       "goalsFor": "33",
       "goalsAgainst": "9",
       "team": {
@@ -16557,10 +16557,10 @@
      {
       "position": "6",
       "points": "12.00",
-      "played": "7",
-      "won": "4",
-      "drawn": "0",
-      "lost": "3",
+      "played": 7,
+      "won": 4,
+      "drawn": 0,
+      "lost": 3,
       "goalsFor": "13",
       "goalsAgainst": "11",
       "team": {
@@ -16594,10 +16594,10 @@
      {
       "position": "7",
       "points": "11.00",
-      "played": "6",
-      "won": "3",
-      "drawn": "2",
-      "lost": "1",
+      "played": 6,
+      "won": 3,
+      "drawn": 2,
+      "lost": 1,
       "goalsFor": "15",
       "goalsAgainst": "6",
       "team": {
@@ -16631,10 +16631,10 @@
      {
       "position": "8",
       "points": "7.00",
-      "played": "7",
-      "won": "2",
-      "drawn": "1",
-      "lost": "4",
+      "played": 7,
+      "won": 2,
+      "drawn": 1,
+      "lost": 4,
       "goalsFor": "26",
       "goalsAgainst": "21",
       "team": {
@@ -16668,10 +16668,10 @@
      {
       "position": "9",
       "points": "7.00",
-      "played": "7",
-      "won": "2",
-      "drawn": "1",
-      "lost": "4",
+      "played": 7,
+      "won": 2,
+      "drawn": 1,
+      "lost": 4,
       "goalsFor": "12",
       "goalsAgainst": "24",
       "team": {
@@ -16705,10 +16705,10 @@
      {
       "position": "10",
       "points": "6.00",
-      "played": "6",
-      "won": "2",
-      "drawn": "0",
-      "lost": "4",
+      "played": 6,
+      "won": 2,
+      "drawn": 0,
+      "lost": 4,
       "goalsFor": "13",
       "goalsAgainst": "24",
       "team": {
@@ -16742,10 +16742,10 @@
      {
       "position": "11",
       "points": "4.00",
-      "played": "5",
-      "won": "1",
-      "drawn": "1",
-      "lost": "3",
+      "played": 5,
+      "won": 1,
+      "drawn": 1,
+      "lost": 3,
       "goalsFor": "7",
       "goalsAgainst": "13",
       "team": {
@@ -16779,10 +16779,10 @@
      {
       "position": "12",
       "points": "4.00",
-      "played": "5",
-      "won": "1",
-      "drawn": "1",
-      "lost": "3",
+      "played": 5,
+      "won": 1,
+      "drawn": 1,
+      "lost": 3,
       "goalsFor": "7",
       "goalsAgainst": "14",
       "team": {
@@ -16816,10 +16816,10 @@
      {
       "position": "13",
       "points": "3.00",
-      "played": "6",
-      "won": "1",
-      "drawn": "0",
-      "lost": "5",
+      "played": 6,
+      "won": 1,
+      "drawn": 0,
+      "lost": 5,
       "goalsFor": "13",
       "goalsAgainst": "16",
       "team": {
@@ -16853,10 +16853,10 @@
      {
       "position": "14",
       "points": "0.00",
-      "played": "5",
-      "won": "0",
-      "drawn": "0",
-      "lost": "5",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
       "goalsFor": "1",
       "goalsAgainst": "32",
       "team": {
@@ -16890,10 +16890,10 @@
      {
       "position": "15",
       "points": "0.00",
-      "played": "6",
-      "won": "0",
-      "drawn": "0",
-      "lost": "6",
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
       "goalsFor": "3",
       "goalsAgainst": "43",
       "team": {
@@ -16927,10 +16927,10 @@
      {
       "position": "16",
       "points": "0.00",
-      "played": "3",
-      "won": "0",
-      "drawn": "0",
-      "lost": "3",
+      "played": 3,
+      "won": 0,
+      "drawn": 0,
+      "lost": 3,
       "goalsFor": "0",
       "goalsAgainst": "52",
       "team": {
