@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-20T00:43:41+00:00",
+ "generat": "2026-11-20T15:38:23+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -2711,78 +2711,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "jaleos",
-   "titol": "Escàndols",
-   "titolFont": "Jaleos",
-   "sinopsi": "Què pot comptar el flamenc sobre el món en què vivim? Escàndols redescobreix aquest art universal a través d'un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai.",
-   "durada": "80",
-   "genere": "Documental",
-   "edat": "7 anys",
-   "director": "Isaki Lacuesta",
-   "actors": "C. Tangana, Rocio Molina, Alba Flores",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-20",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-21",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-22",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-24",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-25",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-26",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11184"
-   },
-   "nota": 0,
-   "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
    "key": "la bola negra",
    "titol": "La bola negra",
    "titolFont": "La Bola Negra",
@@ -3752,7 +3680,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-20",
      "hora": "20:00",
-     "format": "",
+     "format": "Versió VOSE",
      "preu": ""
     },
     {
@@ -3780,7 +3708,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-21",
      "hora": "20:00",
-     "format": "",
+     "format": "Versió VOSE",
      "preu": ""
     },
     {
@@ -3808,7 +3736,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-22",
      "hora": "20:00",
-     "format": "",
+     "format": "Versió VOSE",
      "preu": ""
     },
     {
@@ -3829,7 +3757,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-23",
      "hora": "20:00",
-     "format": "",
+     "format": "Versió VOSE",
      "preu": ""
     },
     {
@@ -3850,7 +3778,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-24",
      "hora": "20:00",
-     "format": "",
+     "format": "Versió VOSE",
      "preu": ""
     },
     {
@@ -3871,7 +3799,7 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-25",
      "hora": "20:00",
-     "format": "",
+     "format": "Versió VOSE",
      "preu": ""
     },
     {
@@ -4256,78 +4184,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "superthings la pelicula",
-   "titol": "Superthings. La pel·lícula",
-   "titolFont": "Superthings: La película",
-   "sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
-   "durada": "93",
-   "genere": "Animació",
-   "edat": "Tots els públics, esp recomanada infància",
-   "director": "Víctor Monigote",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
-   "web": "https://odeonmulticines.com/odeon-girona",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-20",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-21",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-22",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-25",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-26",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 6.5,
-   "vots": 4,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
    "key": "la otra madre",
    "titol": "L'altra mare",
    "titolFont": "La otra madre",
@@ -4496,72 +4352,76 @@
    }
   },
   {
-   "key": "willow y las guardianas de los 4 elementos",
-   "titol": "Willow i les guardianes dels 4 elements",
-   "titolFont": "Willow y las guardianas de los 4 elementos",
-   "sinopsi": "",
-   "durada": "99",
-   "genere": "Familiar",
-   "edat": "Tots els públics",
-   "director": "",
-   "actors": "",
+   "key": "jaleos",
+   "titol": "Escàndols",
+   "titolFont": "Jaleos",
+   "sinopsi": "Què pot comptar el flamenc sobre el món en què vivim? Escàndols redescobreix aquest art universal a través d'un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai.",
+   "durada": "80",
+   "genere": "Documental",
+   "edat": "7 anys",
+   "director": "Isaki Lacuesta",
+   "actors": "C. Tangana, Rocio Molina, Alba Flores",
    "estrena": "",
-   "poster": "https://cdn.odeonmulticines.com/show-posters/es/ps_12202.jpg?width=500",
-   "web": "https://odeonmulticines.com/odeon-girona",
+   "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-20",
-     "hora": "16:00",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-21",
-     "hora": "16:00",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-22",
-     "hora": "16:00",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-23",
-     "hora": "16:00",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-25",
-     "hora": "16:00",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Girona",
      "data": "2026-11-26",
-     "hora": "17:40",
-     "format": "Vdc",
+     "hora": "15:45",
+     "format": "",
      "preu": ""
     }
    ],
    "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   }
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11184"
+   },
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
   },
   {
    "key": "diversion navidena con peppa la experiencia en cines",
@@ -4601,6 +4461,71 @@
    "plataformesUrl": ""
   },
   {
+   "key": "superthings la pelicula",
+   "titol": "Superthings. La pel·lícula",
+   "titolFont": "Superthings: La película",
+   "sinopsi": "La Mía, en Kai i en Finn, tres amics de sisè de primària, descobreixen per accident un fragment de Kazoom que fusiona Normalòpolis, la seva ciutat grisa i ordenada, amb Kaboom City, el món esbojarrat dels SuperThings, en què els objectes quotidians han cobrat vida i s'han convertit en superherois i supermalvats.",
+   "durada": "93",
+   "genere": "Animació",
+   "edat": "Tots els públics, esp recomanada infància",
+   "director": "Víctor Monigote",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-21",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-22",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-23",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-24",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-25",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-26",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 6.5,
+   "vots": 4,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "el precio de la red",
    "titol": "El preu de la xarxa",
    "titolFont": "El precio de la red",
@@ -4618,7 +4543,7 @@
      "cinema": "Cinema Montgrí",
      "data": "2026-11-21",
      "hora": "19:00",
-     "format": "VOSE",
+     "format": "",
      "preu": ""
     },
     {
@@ -4687,6 +4612,67 @@
    ],
    "entrades": {
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11138",
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   }
+  },
+  {
+   "key": "willow y las guardianas de los 4 elementos",
+   "titol": "Willow i les guardianes dels 4 elements",
+   "titolFont": "Willow y las guardianas de los 4 elementos",
+   "sinopsi": "",
+   "durada": "99",
+   "genere": "Familiar",
+   "edat": "Tots els públics",
+   "director": "",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://cdn.odeonmulticines.com/show-posters/es/ps_12202.jpg?width=500",
+   "web": "https://odeonmulticines.com/odeon-girona",
+   "sessions": [
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-21",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-22",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-23",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-24",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-25",
+     "hora": "16:00",
+     "format": "Vdc",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-26",
+     "hora": "17:40",
+     "format": "Vdc",
+     "preu": ""
+    }
+   ],
+   "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    }
   },
