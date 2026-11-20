@@ -1,5 +1,5 @@
 {
- "generat": "2026-10-31T05:32:35+00:00",
+ "generat": "2026-11-20T14:15:25+00:00",
  "font": "INE, estadística experimental «Medición del turismo a partir de teléfonos móviles»",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
@@ -361,31 +361,35 @@
       [
        "2026-08",
        4205
+      ],
+      [
+       "2026-09",
+       3591
       ]
      ],
-     "darrerMes": "2026-08",
+     "darrerMes": "2026-09",
      "periode": [
-      "2025-09",
-      "2026-08"
+      "2025-10",
+      "2026-09"
      ],
-     "total12": 34834,
-     "totalAbans12": 27054,
+     "total12": 35212,
+     "totalAbans12": 27875,
      "llocs": [
       [
        "Barcelona",
-       31021
+       31329
       ],
       [
        "Tarragona",
-       707
+       788
       ],
       [
        "Madrid",
-       622
+       618
       ],
       [
        "Lleida",
-       323
+       347
       ],
       [
        "Valencia/València",
@@ -401,7 +405,7 @@
       ],
       [
        "Balears, Illes",
-       32
+       34
       ],
       [
        "Asturias",
@@ -870,19 +874,19 @@
       "2026": [
        [
         "Barcelona",
-        22041
+        25268
        ],
        [
         "Tarragona",
-        567
+        648
        ],
        [
         "Madrid",
-        446
+        504
        ],
        [
         "Lleida",
-        290
+        347
        ],
        [
         "Valencia/València",
@@ -890,6 +894,10 @@
        ],
        [
         "Zaragoza",
+        34
+       ],
+       [
+        "Balears, Illes",
         34
        ],
        [
@@ -910,10 +918,6 @@
        ],
        [
         "Huesca",
-        0
-       ],
-       [
-        "Balears, Illes",
         0
        ],
        [
@@ -1276,19 +1280,23 @@
       [
        "2026-08",
        1105
+      ],
+      [
+       "2026-09",
+       779
       ]
      ],
-     "darrerMes": "2026-08",
+     "darrerMes": "2026-09",
      "periode": [
-      "2025-09",
-      "2026-08"
+      "2025-10",
+      "2026-09"
      ],
-     "total12": 8563,
-     "totalAbans12": 9940,
+     "total12": 8725,
+     "totalAbans12": 9350,
      "llocs": [
       [
        "Barcelona",
-       7795
+       7951
       ],
       [
        "Madrid",
@@ -1593,7 +1601,7 @@
       "2026": [
        [
         "Barcelona",
-        5670
+        6384
        ],
        [
         "Madrid",
@@ -1975,27 +1983,31 @@
       [
        "2026-08",
        1738
+      ],
+      [
+       "2026-09",
+       1301
       ]
      ],
-     "darrerMes": "2026-08",
+     "darrerMes": "2026-09",
      "periode": [
-      "2025-09",
-      "2026-08"
+      "2025-10",
+      "2026-09"
      ],
-     "total12": 15622,
-     "totalAbans12": 15334,
+     "total12": 15677,
+     "totalAbans12": 14687,
      "llocs": [
       [
        "Barcelona",
-       13882
-      ],
-      [
-       "Madrid",
-       179
+       13918
       ],
       [
        "Tarragona",
        176
+      ],
+      [
+       "Madrid",
+       148
       ],
       [
        "Lleida",
@@ -2324,7 +2336,7 @@
       "2026": [
        [
         "Barcelona",
-        10156
+        11320
        ],
        [
         "Tarragona",
@@ -2710,19 +2722,23 @@
       [
        "2026-08",
        1492
+      ],
+      [
+       "2026-09",
+       1046
       ]
      ],
-     "darrerMes": "2026-08",
+     "darrerMes": "2026-09",
      "periode": [
-      "2025-09",
-      "2026-08"
+      "2025-10",
+      "2026-09"
      ],
-     "total12": 11930,
-     "totalAbans12": 20986,
+     "total12": 12101,
+     "totalAbans12": 19142,
      "llocs": [
       [
        "Barcelona",
-       10451
+       10615
       ],
       [
        "Madrid",
@@ -3027,7 +3043,7 @@
       "2026": [
        [
         "Barcelona",
-        7669
+        8609
        ],
        [
         "Madrid",
@@ -3397,19 +3413,23 @@
       [
        "2026-08",
        1077
+      ],
+      [
+       "2026-09",
+       467
       ]
      ],
-     "darrerMes": "2026-08",
+     "darrerMes": "2026-09",
      "periode": [
-      "2025-09",
-      "2026-08"
+      "2025-10",
+      "2026-09"
      ],
-     "total12": 6640,
-     "totalAbans12": 7223,
+     "total12": 6630,
+     "totalAbans12": 6772,
      "llocs": [
       [
        "Barcelona",
-       6193
+       6187
       ],
       [
        "Madrid",
@@ -3490,7 +3510,7 @@
       "2026": [
        [
         "Barcelona",
-        4664
+        5102
        ],
        [
         "Madrid",
