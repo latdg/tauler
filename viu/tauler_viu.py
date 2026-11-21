@@ -1572,7 +1572,7 @@ def blocs_webs():
 # -----------------------------------------------------------------------------
 # HISTÒRIC DEL BORME (21.11.2026; recuperat de l'historial de Git des del 20.10.2026). Cada acte que surt al bloc BORME
 # s'acumula a dades/borme.json (no es perd quan surt un BORME nou).
-# El bloc del BORME de La TdG ampliada el mostra plegat, a sota dels actes del dia.
+# La pàgina borme/ en fa la consulta. El bloc del dia no canvia.
 # -----------------------------------------------------------------------------
 def borme_net(text):
     t = html.unescape(str(text or ""))
