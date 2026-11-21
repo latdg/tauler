@@ -642,6 +642,21 @@
      "camp": "CAMP DE FUTBOL MPAL. DE CASTELL D´ARO",
      "nota": "Entrat des del bot latdg_infos",
      "substitueix": "FCF-4140488"
+    },
+    {
+     "id": "a19c167a72",
+     "competicio": "",
+     "grup": "",
+     "jornada": "8",
+     "data": "2026-11-21",
+     "hora": "18:00",
+     "localVisitant": "Local",
+     "rival": "CASSA, U.D. B",
+     "resultat": "2 - 5",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4140495"
     }
    ],
    "classificacio": []
