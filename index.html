@@ -869,7 +869,7 @@ async function carregaLlum() {
   const madrid = t => { const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Madrid", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hour12: false })
     .formatToParts(new Date(t)).map(x => [x.type, x.value])); return { iso: `${p.year}-${p.month}-${p.day}`, hora: +p.hour % 24 }; };
   const avuiM = madrid(Date.now()), demaM = madrid(Date.now() + 86400000);
-  const avui = { getHours: () => avuiM.hora }, dema = null;
+  const avui = { getHours: () => avuiM.hora };
   let vals;
   try {
     const r = await fetch(`https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date=${avuiM.iso}T00:00&end_date=${demaM.iso}T23:59&time_trunc=hour`);
@@ -1035,7 +1035,7 @@ async function carregaLlamps() {
     const g = new Date(d.generat);
     const quan = String(g.getDate()).padStart(2, "0") + "." + String(g.getMonth() + 1).padStart(2, "0") + "." + g.getFullYear() +
       " a les " + String(g.getHours()).padStart(2, "0") + "." + String(g.getMinutes()).padStart(2, "0") + " h";
-    const a10 = d.llamps.filter(l => l.km <= 10).length, a30 = d.llamps.filter(l => l.km <= 30).length;
+    const a30 = d.llamps.filter(l => l.km <= 30).length;
     cos.innerHTML = `<p class="font dalt">Darrera revisió: ${esc(quan)}, de les ${d.hores} hores anteriors</p>` +
       (d.textPublic
         ? `<p style="white-space:pre-line">${esc(d.textPublic.split("\n").slice(1, 3).join("\n"))}</p>`
@@ -1125,7 +1125,6 @@ function consulta(iso, font) {
   const vell = ES_AVUI() && Date.now() - new Date(iso).getTime() > 3600e3;
   return `<p class="font dalt">Darrera consulta: ${hmIso(iso)}${vell ? " · ⚠️ des d'aleshores la font no respon" : ""}${font ? " · Font: " + esc(font) : ""}</p>`;
 }
-const enllacMapa = (lat, lon) => lat != null && lon != null ? ` · <a href="https://www.google.com/maps?q=${lat},${lon}" target="_blank" rel="noopener">mapa</a>` : "";
 const nomMun = m => String(m || "").replace(/^Castell-platja d'Aro$/i, "Castell-Platja d'Aro");
 const diaCa = iso => String(iso || "").slice(0, 10).split("-").reverse().join(".");
 
@@ -1558,7 +1557,7 @@ async function mapesIncidencies(b) {
         [["França", [44.0, 2.2]], ["Aragó", [41.3, -0.25]]].forEach(([n, ll]) =>
           L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false }).setLatLng(ll).setContent(n).addTo(mapa));
       } catch (e) { console.error("Mapa de terratrèmols (països):", e); }
-      const cercles = [50, 150].map(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
+      [50, 150].forEach(km => L.circle(BISBAL_LL, { radius: km * 1000, color: "#b4462c", weight: 1, dashArray: "4 4", fill: false, interactive: false }).addTo(mapa));
       const ara = Date.now();
       (b.terratremols.llista || []).slice().reverse().forEach(x => {
         const fa = (ara - new Date(x.iso).getTime()) / 3600e3;
@@ -2095,51 +2094,12 @@ async function carregaDea() {
 }
 
 // -----------------------------------------------------------------------------
-// TURISTES QUE HI ARRIBEN (27.10.2026). L'edat dels edificis és a La TdG dades
-// (21.11.2026).
+// NOMS I ESCUTS DELS MUNICIPIS (per als blocs per municipi). L'edat dels edificis
+// i els turistes són a La TdG dades (21.11.2026).
 // -----------------------------------------------------------------------------
-const NOMS_CURTS_MUN = { "17022": "la Bisbal", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret" };
 const NOMS_LLARGS_MUN = { "17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret" };
 const ESCUT_MUN = { "17022": "escuts/17022.svg", "17057": "escuts/17057.svg", "17902": "escuts/17902.svg", "17901": "escuts/17901.png", "17205": "escuts/17205.svg" };
 const nCa = n => Number(n || 0).toLocaleString("ca-ES");
-const triadorMun = (codis, actiu) => `<div class="tria-mun">` + codis.map(c => `<button type="button" data-mun="${c}" class="${c === actiu ? "actiu" : ""}">` +
-  `<img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()">${esc(NOMS_CURTS_MUN[c])}</button>`).join("") + `</div>`;
-const MESOS_CA = ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"];
-const nomMes = ym => { if (!ym) return "—"; const [a, m] = ym.split("-").map(Number); return MESOS_CA[m - 1] + " de " + a; };
-const periodeCa = p => { if (!p) return "—"; const t0 = nomMes(p[0]); const t = (/^[aeiouàèéíòóú]/i.test(t0) ? "d'" : "de ") + t0 + " a " + nomMes(p[1]); return t.charAt(0).toUpperCase() + t.slice(1); };
-
-// --- Turistes que hi arriben ---
-let TUR = null;
-function serieBarres(serie, n = 24) {
-  const s = serie.slice(-n), max = Math.max(1, ...s.map(x => x[1]));
-  return `<div class="serie">${s.map((x, i) => `<span class="${i < s.length - 12 ? "ant" : ""}" style="height:${(x[1] / max * 100).toFixed(0)}%" title="${esc(nomMes(x[0]))}: ${nCa(x[1])}"></span>`).join("")}</div>` +
-    `<div class="serie-eix"><span>${esc(nomMes(s[0] && s[0][0]))}</span><span>${esc(nomMes(s[s.length - 1] && s[s.length - 1][0]))}</span></div>`;
-}
-function pintaTurisme(codi) {
-  const cos = document.getElementById("turismeCos");
-  const t = TUR.taules.nacionals, d = t && t.ok ? (t.municipis || {})[codi] : null;
-  const codis = MUN_ANTENES.filter(c => t && t.municipis && t.municipis[c]);
-  let h = `<p class="font dalt">Revisat el ${dataDMA(TUR.generat)} · Font: <a href="https://www.ine.es/experimental/turismo_moviles/experimental_turismo_moviles.htm" target="_blank" rel="noopener">INE</a></p>` +
-    triadorMun(codis.length ? codis : ["17022"], codi);
-  if (d) {
-    const var12 = d.totalAbans12 ? (d.total12 - d.totalAbans12) / d.totalAbans12 * 100 : null;
-    const max = Math.max(1, ...d.llocs.map(x => x[1]));
-    h += `<p>${esc(periodeCa(d.periode))}, ${esc(NOMS_LLARGS_MUN[codi])} ha rebut <b>${nCa(d.total12)}</b> turistes de la resta de l'Estat` +
-      (var12 !== null ? ` (<span class="${var12 >= 0 ? "puja" : "baixa"}">${var12 >= 0 ? "+" : "−"}${Math.abs(var12).toLocaleString("ca-ES", { maximumFractionDigits: 0 })} %</span> respecte als 12 mesos anteriors)` : "") + `.</p>` +
-      `<h3>Cada mes</h3>${serieBarres(d.serie)}` +
-      (d.llocs.length ? `<h3>D'on vénen</h3><div class="barres" style="grid-template-columns:minmax(0,1.3fr) minmax(40px,1fr) auto">` +
-        d.llocs.filter(x => x[1] > 0).slice(0, 8).map(([n, v]) => `<span>${esc(String(n).replace(/^\d+\s+/, ""))}</span><span class="barra" style="width:${(v / max * 100).toFixed(0)}%"></span><span class="num">${nCa(v)}</span>`).join("") + `</div>` : "");
-  } else h += '<p class="buit">L\'INE no dona dades d\'aquest municipi.</p>';
-  h += `<p class="font">L'INE compta com a turista qui passa almenys una nit fora del seu municipi habitual (en un hotel, un pis turístic, una segona residència o a casa de família), a partir de les dades anònimes de les companyies de telefonia mòbil. Les barres grises són l'any anterior.</p>`;
-  cos.innerHTML = h;
-  cos.querySelectorAll(".tria-mun button").forEach(b => b.onclick = () => pintaTurisme(b.dataset.mun));
-}
-async function carregaTurisme() {
-  const cos = document.getElementById("turismeCos");
-  if (!cos) return;
-  try { TUR = await json("dades/turisme.json"); } catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades de l\'INE.</p>'; return; }
-  pintaTurisme("17022");
-}
 
 // -----------------------------------------------------------------------------
 // FARMÀCIES DE GUÀRDIA (27.10.2026). Dades: dades/serveis.json (workflow «Serveis i
