@@ -83,6 +83,7 @@ main section{scroll-margin-top:16px}
 /* ANTENES (26.10.2026) */
 #mapaAntenes{height:480px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4}
 @media (max-width:600px){#mapaAntenes{height:380px}}
+.edif-marc.ple{position:fixed;inset:0;z-index:5000;background:var(--fons);padding:10px 12px;display:flex;flex-direction:column;gap:2px;overflow:auto}.edif-marc.ple #mapaEdificis{flex:1 1 auto;height:auto!important;min-height:280px}.edif-marc .tanca-ple{display:none}.edif-marc.ple .tanca-ple{display:inline-flex}.edif-marc.ple .obre-ple{display:none}
 .llegenda{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:.85rem;color:var(--suau);margin-top:8px}
 .llegenda i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:4px;vertical-align:-1px;border:1px solid #1d1d1b}
 .xifres{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:12px}
@@ -2222,16 +2223,18 @@ async function pintaEdificis(codi) {
     `<h3>Edificis per època de construcció</h3><div class="barres">` +
     m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
       `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>` +
-    `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}</div>` +
+    `<div id="edifMarc" class="edif-marc${EDIF_PLE ? " ple" : ""}">` +
+    `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}` +
+    `<button type="button" class="obre-ple" data-ple="1">⛶ Pantalla completa</button><button type="button" class="tanca-ple" data-ple="0">✕ Tanca</button></div>` +
     `<div class="tria-mun peces capes-edif"><button type="button" data-orto="1" class="${ORTO_EDIF ? "actiu" : ""}">🛰️ Ortofoto</button>` +
     (XARXES_MUN[codi] ? Object.entries(GRUPS_XARXA).map(([k, g]) =>
       `<button type="button" data-xarxa="${k}" class="${XARXES_ACTIVES.has(k) ? "actiu" : ""}">${g.nom}</button>`).join("") : "") + `</div>` +
     `<div id="mapaEdificis" style="height:420px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
     `<div class="llegenda">${EPOQUES_ED.map((e, i) => `<span><i style="background:${COLORS_EP[i]};border-radius:2px"></i>${esc(e)}</span>`).join("")}</div>` +
-    (XARXES_MUN[codi] ? `<div class="llegenda" id="llegendaXarxes"></div>` : "") +
+    (XARXES_MUN[codi] ? `<div class="llegenda" id="llegendaXarxes"></div>` : "") + `</div>` +
     `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
     (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
-    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. Amb l'ortofoto, la foto aèria (ICGC i PNOA) es veu sota els edificis, amb els arbres i les teulades reals. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
+    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre (també pots <a href="#" class="obre-ple-enllac">obrir el mapa a pantalla completa</a>). Amb l'ortofoto, la foto aèria (ICGC i PNOA) es veu sota els edificis, amb els arbres i les teulades reals. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
     (XARXES_MUN[codi] ? ` Les xarxes de serveis (aigua, clavegueram, electricitat i gas) surten dels plànols de serveis urbanístics del POUM (sèrie 4); hi són col·locades sobre el Cadastre i la posició és aproximada (uns metres). Són les xarxes que hi havia quan es va redactar el pla, sense fondàries ni diàmetres.` : "") + `</p>`;
   cos.querySelectorAll(".tria-mun button[data-mun]").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
   // 18.11.2026: capes de xarxes de serveis del POUM (només on n'hi ha).
@@ -2250,15 +2253,31 @@ async function pintaEdificis(codi) {
     pintaXarxes(codi);
   });
   // 17.11.2026: 2D (Leaflet, com sempre) o 3D (MapLibre, alçada segons les plantes).
-  cos.querySelectorAll(".mode-edif button").forEach(b => b.onclick = () => {
+  cos.querySelectorAll(".mode-edif button[data-mode]").forEach(b => b.onclick = () => {
     if (b.dataset.mode === MODE_EDIF) return;
     MODE_EDIF = b.dataset.mode;
     try { localStorage.setItem("latdgModeEdificis", MODE_EDIF); } catch (e) {}
-    cos.querySelectorAll(".mode-edif button").forEach(x => x.classList.toggle("actiu", x === b));
+    cos.querySelectorAll(".mode-edif button[data-mode]").forEach(x => x.classList.toggle("actiu", x === b));
     mapaEdificis(codi);
   });
+  // 21.11.2026: el mapa a pantalla completa (com el radar 3D); el botó «enrere» del mòbil el tanca.
+  cos.querySelectorAll(".mode-edif button[data-ple]").forEach(b => b.onclick = () => edifPle(b.dataset.ple === "1"));
+  cos.querySelectorAll(".obre-ple-enllac").forEach(a => a.onclick = e => { e.preventDefault(); edifPle(true); });
   mapaEdificis(codi);
 }
+let EDIF_PLE = false;
+function edifPle(obre, desDeHistorial) {
+  const marc = document.getElementById("edifMarc");
+  if (!marc || obre === EDIF_PLE) return;
+  EDIF_PLE = obre;
+  marc.classList.toggle("ple", obre);
+  document.body.style.overflow = obre ? "hidden" : "";
+  if (obre) { try { history.pushState({ edifPle: 1 }, ""); } catch (e) {} }
+  else if (!desDeHistorial && history.state && history.state.edifPle) { try { history.back(); } catch (e) {} }
+  setTimeout(() => { if (MAPA_EDIF) MAPA_EDIF.invalidateSize(); if (MAPA_EDIF3) MAPA_EDIF3.resize(); }, 60);
+}
+window.addEventListener("popstate", () => { if (EDIF_PLE) edifPle(false, true); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && EDIF_PLE) edifPle(false); });
 const popupEdif = p => {
   const url = fitxaCadastre(p.ref);
   return `<b>${p.any ? "Construït el " + p.any : "Sense any al Cadastre"}</b>` + (p.us ? `<br>${esc(p.us)}` : "") +
