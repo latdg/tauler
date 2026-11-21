@@ -2223,7 +2223,8 @@ async function pintaEdificis(codi) {
     m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
       `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>`;
   const mapa = `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}</div>` +
-    `<div class="tria-mun peces capes-edif"><button type="button" data-orto="1" class="${ORTO_EDIF ? "actiu" : ""}">🛰️ Ortofoto</button>` +
+    `<div class="tria-mun peces capes-edif"><button type="button" data-orto="1" class="${ORTO_EDIF && !ORTO_SOLA ? "actiu" : ""}">🛰️ Ortofoto</button>` +
+    `<button type="button" data-orto="sola" class="${ORTO_SOLA ? "actiu" : ""}">🛰️ Només ortofoto</button>` +
     (XARXES_MUN[codi] ? Object.entries(GRUPS_XARXA).map(([k, g]) =>
       `<button type="button" data-xarxa="${k}" class="${XARXES_ACTIVES.has(k) ? "actiu" : ""}">${g.nom}</button>`).join("") : "") + `</div>` +
     `<div id="mapaEdificis" style="height:${EDIF_GRAN ? altGran() + "px" : "420px"};border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
@@ -2231,7 +2232,7 @@ async function pintaEdificis(codi) {
   const nota = (XARXES_MUN[codi] ? `<div class="llegenda" id="llegendaXarxes"></div>` : "") +
     `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
     (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
-    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. Amb l'ortofoto, la foto aèria (ICGC i PNOA) es veu sota els edificis, amb els arbres i les teulades reals. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
+    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. Amb l'ortofoto, la foto aèria (ICGC i PNOA) es veu sota els edificis, amb els arbres i les teulades reals; amb «Només ortofoto», sense els edificis a sobre. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
     (XARXES_MUN[codi] ? ` Les xarxes de serveis (aigua, clavegueram, electricitat i gas) surten dels plànols de serveis urbanístics del POUM (sèrie 4); hi són col·locades sobre el Cadastre i la posició és aproximada (uns metres). Són les xarxes que hi havia quan es va redactar el pla, sense fondàries ni diàmetres.` : "") +
     (EDIF_GRAN ? "" : ` <a href="https://latdg.github.io/tauler/edificis/" target="_top">Obre el mapa dels edificis a pantalla completa</a>`) + `</p>`;
   cos.innerHTML = EDIF_GRAN ? cap + mun + mapa + estad + nota : cap + mun + estad + mapa + nota;
@@ -2239,9 +2240,12 @@ async function pintaEdificis(codi) {
   // 18.11.2026: capes de xarxes de serveis del POUM (només on n'hi ha).
   // 21.11.2026: l'ortofoto és una capa més (fons de foto aèria amb arbres i teulades reals).
   cos.querySelectorAll(".capes-edif button[data-orto]").forEach(b => b.onclick = () => {
-    ORTO_EDIF = !ORTO_EDIF;
-    b.classList.toggle("actiu", ORTO_EDIF);
-    try { localStorage.setItem("latdgOrtoEdificis", ORTO_EDIF ? "1" : ""); } catch (e) {}
+    // 21.11.2026: «Ortofoto» (foto amb els edificis a sobre) o «Només ortofoto» (sense edificis); tornar a tocar l'actiu l'apaga.
+    const sola = b.dataset.orto === "sola", jaActiu = b.classList.contains("actiu");
+    ORTO_EDIF = !jaActiu; ORTO_SOLA = !jaActiu && sola;
+    cos.querySelectorAll(".capes-edif button[data-orto]").forEach(x => x.classList.toggle("actiu",
+      x.dataset.orto === "sola" ? ORTO_SOLA : ORTO_EDIF && !ORTO_SOLA));
+    try { localStorage.setItem("latdgOrtoEdificis", ORTO_SOLA ? "sola" : ORTO_EDIF ? "1" : ""); } catch (e) {}
     aplicaOrto();
   });
   cos.querySelectorAll(".capes-edif button[data-xarxa]").forEach(b => b.onclick = () => {
@@ -2310,8 +2314,8 @@ async function mapaEdificis(codi) {
 // --- Ortofoto com a capa (21.11.2026) ---
 // A sota, el PNOA de l'IGN (tessel·les); a sobre, l'ortofoto vigent de l'ICGC (WMS).
 // Si l'ICGC no respon, es continua veient el PNOA.
-let ORTO_EDIF = false;
-try { ORTO_EDIF = localStorage.getItem("latdgOrtoEdificis") === "1"; } catch (e) {}
+let ORTO_EDIF = false, ORTO_SOLA = false;
+try { const v = localStorage.getItem("latdgOrtoEdificis"); ORTO_EDIF = v === "1" || v === "sola"; ORTO_SOLA = v === "sola"; } catch (e) {}
 const OPAC_EDIF_ORTO = .45;
 const ORTO_ICGC_WMS = "https://geoserveis.icgc.cat/servei/catalunya/orto-territorial/wms";
 const ORTO_PNOA = "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&VERSION=1.0.0&Layer=OI.OrthoimageCoverage&Style=default&Format=image/jpeg&TileMatrixSet=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}";
@@ -2329,13 +2333,20 @@ function aplicaOrto() {
       MAPA_EDIF.removeLayer(ORTO_2D); ORTO_2D = null;
       MAPA_EDIF.attributionControl.removeAttribution(ATRIB_ORTO);
     }
-    if (CAPA_EDIF) CAPA_EDIF.setStyle({ fillOpacity: ORTO_EDIF ? OPAC_EDIF_ORTO : .85 });
+    if (CAPA_EDIF) {
+      CAPA_EDIF.setStyle({ fillOpacity: ORTO_EDIF ? OPAC_EDIF_ORTO : .85 });
+      if (ORTO_SOLA && MAPA_EDIF.hasLayer(CAPA_EDIF)) MAPA_EDIF.removeLayer(CAPA_EDIF);
+      else if (!ORTO_SOLA && !MAPA_EDIF.hasLayer(CAPA_EDIF)) { CAPA_EDIF.addTo(MAPA_EDIF); if (CAPA_XARXES) CAPA_XARXES.bringToFront(); }
+    }
   } else if (MODE_EDIF === "3d" && MAPA_EDIF3) {
     const m = MAPA_EDIF3;
     const posa = () => {
       if (!m.getLayer("orto-pnoa")) return;
       ["orto-pnoa", "orto-icgc"].forEach(id => m.setLayoutProperty(id, "visibility", ORTO_EDIF ? "visible" : "none"));
-      if (m.getLayer("edificis")) m.setPaintProperty("edificis", "fill-extrusion-opacity", ORTO_EDIF ? .75 : .9);
+      if (m.getLayer("edificis")) {
+        m.setPaintProperty("edificis", "fill-extrusion-opacity", ORTO_EDIF ? .75 : .9);
+        m.setLayoutProperty("edificis", "visibility", ORTO_SOLA ? "none" : "visible");
+      }
     };
     if (m.getLayer("orto-pnoa")) posa(); else m.once("load", posa);
   }
