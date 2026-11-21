@@ -404,15 +404,9 @@ const horaAra = () => {
 };
 
 async function json(cami) {
-  // 31.10.2026: dins de La TdG slow aquesta pàgina surt en diversos iframes; cada
-  // fitxer es baixa un sol cop i el comparteixen tots.
-  let cau = null;
-  try { if (window.parent !== window && /[?&]incrustat\b/.test(location.search)) cau = window.parent.__cauSlow = window.parent.__cauSlow || {}; } catch (e) {}
-  const baixa = () => fetch(cami + "?v=" + Date.now()).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); });
-  if (!cau) return JSON.parse(await baixa());
-  const clau = new URL(cami, location.href).href;
-  if (!cau[clau]) cau[clau] = baixa();
-  try { return JSON.parse(await cau[clau]); } catch (e) { delete cau[clau]; throw e; }
+  const r = await fetch(cami + "?v=" + Date.now());
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
 }
 
 // Nom curt de cada apartat per a la barra de navegació (com a la redacció).
@@ -439,32 +433,23 @@ const nomCurt = titol => {
   return trobat ? trobat[1] : titol.replace(/^[^\p{L}]+/u, "");
 };
 
-// 31.10.2026: LA TdG SLOW. Aquests blocs (de menys actualització) ja no surten
-// aquí: són al panell «La TdG slow» de la redacció, que carrega aquesta pàgina amb
-// ?slow&incrustat (i aleshores només es mostren ells, sense capçalera ni peu).
+// 21.11.2026: els blocs de La TdG dades (atur i afiliació, edat dels edificis, preu de
+// l'aigua, piezòmetres, plaques solars i consum) ja no es fan aquí: són a La TdG
+// dades, amb el seu codi. Les dades es continuen desant en aquest repo (dades/).
 const PARAMS_T = new URLSearchParams(location.search);
-const MODE_SLOW = PARAMS_T.has("slow");
 if (PARAMS_T.has("incrustat")) document.documentElement.classList.add("incrustat");
-const RX_SLOW = /edat dels edificis|aig[üu]es subterr[àa]nies|piez[òo]metres|plaques solars|preu de l'aigua|atur i afiliaci/i;
-// 31.10.2026: la clau de cada bloc slow (La TdG slow els ordena per àmbits amb ?blocs=...).
-const CLAUS_SLOW = [[/edat dels edificis/i, "edificis"], [/aig[üu]es subterr|piez[òo]metres/i, "piezometres"],
-  [/plaques solars/i, "energia"], [/preu de l'aigua/i, "preu-aigua"], [/atur i afiliaci/i, "atur"]];
-const BLOCS_TRIATS = (PARAMS_T.get("blocs") || "").split(",").filter(Boolean);
-const BLOCS_ALTRES = (PARAMS_T.get("altres") || "").split(",").filter(Boolean);
 let NUM_SECCIO = 0;
 
 function seccio(titol, cos, font, ambData = true) {
   const id = "apartat-" + (++NUM_SECCIO);
-  const amagat = RX_SLOW.test(titol) !== MODE_SLOW;
-  if (!amagat) NAV.push({ id, nom: nomCurt(titol) });
+  NAV.push({ id, nom: nomCurt(titol) });
   const peu = [];
   if (ambData && ACTUALITZAT) peu.push("Actualitzat el " + esc(quan(ACTUALITZAT)));
   if (font) peu.push("Font: " + esc(font));
-  const clau = (CLAUS_SLOW.find(([rx]) => rx.test(titol)) || [])[1];
   const capPeu = peu.length ? `<p class="font dalt">${peu.join(" · ")}</p>` : "";
-  if (!MODE_SLOW && blocPlegat(titol))
-    return `<section id="${id}" class="bloc-plegat" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><details><summary><h2>${titol}</h2></summary>${capPeu}${cos}</details></section>`;
-  return `<section id="${id}" data-nom="${esc(nomCurt(titol))}"${clau ? ` data-clau="${clau}"` : ""}${amagat ? " hidden" : ""}><h2>${titol}</h2>${capPeu}${cos}</section>`;
+  if (blocPlegat(titol))
+    return `<section id="${id}" class="bloc-plegat" data-nom="${esc(nomCurt(titol))}"><details><summary><h2>${titol}</h2></summary>${capPeu}${cos}</details></section>`;
+  return `<section id="${id}" data-nom="${esc(nomCurt(titol))}"><h2>${titol}</h2>${capPeu}${cos}</section>`;
 }
 
 // 09.11.2026: quilòmetres de carretera amb coma decimal («7,9»), no amb punt.
@@ -1124,22 +1109,6 @@ async function carregaAntenes() {
 }
 
   
-// 31.10.2026: a La TdG slow, cada tros d'aquesta pàgina mostra només els blocs de
-// ?blocs=..., en aquell ordre (amb &resta, també els slow que no són a cap tros).
-function triaBlocsSlow() {
-  if (!MODE_SLOW || !BLOCS_TRIATS.length) return;
-  const cont = document.getElementById("blocs"), nav = document.getElementById("nav");
-  const visibles = Array.from(cont.querySelectorAll("section")).filter(s => !s.hidden);
-  const resta = PARAMS_T.has("resta") ? visibles.filter(s => !BLOCS_TRIATS.includes(s.dataset.clau) && !BLOCS_ALTRES.includes(s.dataset.clau)) : [];
-  visibles.forEach(s => { if (!BLOCS_TRIATS.includes(s.dataset.clau) && !resta.includes(s)) s.hidden = true; });
-  const ordre = BLOCS_TRIATS.map(c => visibles.find(s => s.dataset.clau === c)).filter(Boolean).concat(resta);
-  ordre.forEach(s => cont.appendChild(s));
-  const enllacos = Array.from(nav.querySelectorAll("a"));
-  nav.innerHTML = "";
-  ordre.forEach(s => { const a = enllacos.find(x => x.getAttribute("href") === "#" + s.id); if (a) nav.appendChild(a); });
-  document.documentElement.dataset.triat = "1";
-}
-
 // -----------------------------------------------------------------------------
 // INCIDÈNCIES (31.10.2026): la informació dels avisadors d'incidències. Les dades
 // arriben al tauler del dia (viu/tauler_viu.py, cada 15 minuts): avisos
@@ -1617,15 +1586,14 @@ const APARTATS = [
   ["📌 El que cal saber avui", ["Agenda", "Farmàcies", "Necrològiques"]],
   ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Focus de calor", "Llamps", "Terratrèmols"]],
   ["🚗 Trànsit i mobilitat", ["Trànsit", "Busos", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
-  ["💡 Subministraments i serveis", ["Preu de la llum", "Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Plaques solars i consum elèctric", "Preu de l'aigua"]],
-  ["🌿 Temps, aigua i natura", ["Radar 3D", "Pluja d'ahir", "Rius", "Piezòmetres", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura", "Verdor"]],
-  ["🏛️ Economia i territori", ["Atur i afiliació", "BORME", "Subhastes", "Edat dels edificis"]],
+  ["💡 Subministraments i serveis", ["Preu de la llum", "Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes"]],
+  ["🌿 Temps, aigua i natura", ["Radar 3D", "Pluja d'ahir", "Rius", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura", "Verdor"]],
+  ["🏛️ Economia i territori", ["BORME", "Subhastes"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
   ["🎙️ Fonoteca", ["Fonoteca"]],
   ["🎬 La cartellera de la Bisbal d'Empordà, Torroella de Montgrí, Palafrugell, Platja d'Aro, Girona i Salt", ["Cartellera"]]
 ];
 function ordenaApartats() {
-  if (MODE_SLOW) return;
   const cont = document.getElementById("blocs");
   const seccions = Array.from(cont.querySelectorAll(":scope > section"));
   const perNom = {};
@@ -1750,10 +1718,6 @@ function pinta(d) {
   // 2c-bis. 🦎 NATURA A PROP (31.10.2026): observacions d'iNaturalist per municipi.
   h += seccio("🦎 Natura a prop: què s'hi ha vist?", '<div id="naturaCos"><p class="buit">Carregant…</p></div>', "", false);
 
-  // 2d. 🏘️ EDAT DELS EDIFICIS (27.10.2026, abans a La TdG redacció). Els turistes
-  // tornen a La TdG redacció (27.10.2026); les dades es continuen desant aquí.
-  h += seccio("🏘️ Edat dels edificis", '<div id="edificisCos"><p class="buit">Carregant…</p></div>', "", false);
-
   // 3. 🔥 RISC D'INCENDI, SEQUERA I REFUGIS CLIMÀTICS
   // 01.11.2026: «La Bisbal d'Empordà» amb majúscula a l'inici de cada línia.
   const majBisbal = t => String(t || "").replace(/(^|\|\s*|\n)la Bisbal d'Empordà/g, "$1La Bisbal d'Empordà");
@@ -1781,41 +1745,6 @@ function pinta(d) {
     '<p class="font">Darreres 6 hores · <a href="riu/">gràfica ampliada i registre hora a hora</a></p>' : "") +
     (b.rius ? taulaRius(b.rius) : ""),
     "Agència Catalana de l'Aigua");
-
-  // 5 bis. 💧 PIEZÒMETRES (després del riu Daró)
-  if (b.piezometres && b.piezometres.estacions && b.piezometres.estacions.length) {
-    const p = b.piezometres;
-    const m = n => (n === null || n === undefined) ? "—" : n.toFixed(2).replace(".", ",") + " m";
-    const data = iso => iso ? iso.split("-").reverse().join(".") : "";
-    const vari = (v, iso, avis) => {
-      if (v === null || v === undefined) return "—";
-      const t = Math.abs(v) < 0.005 ? "= sense canvis" : (v > 0 ? "▲ +" : "▼ −") + Math.abs(v).toFixed(2).replace(".", ",") + " m";
-      return (avis && Math.abs(v) >= 1.5 ? "⚠️ " : "") + t + `<span class="coord">${esc(data(iso))}</span>`;
-    };
-    const files = p.estacions.map(e => {
-      const nom = `<b>${esc(e.nom)}</b><span class="coord">${esc(e.municipi)}${e.municipi ? ", " : ""}a ${String(e.distancia).replace(".", ",")} km${e.massa ? " · " + esc(e.massa) : ""}</span>`;
-      const enllac = e.lat !== null && e.lon !== null
-        ? `<a href="https://www.google.com/maps?q=${e.lat},${e.lon}" target="_blank" rel="noopener">${nom}</a>`
-        : nom;
-      return `<tr><td class="ajust">${enllac}</td>` +
-        `<td style="text-align:center">${esc(data(e.data))}</td>` +
-        `<td style="text-align:center">${m(e.cota)}</td>` +
-        `<td style="text-align:center">${m(e.fondaria)}</td>` +
-        `<td style="text-align:center">${vari(e.varAnterior, e.dataAnterior, true)}</td>` +
-        `<td style="text-align:center">${vari(e.varFaUnAny, e.dataFaUnAny, false)}</td></tr>`;
-    }).join("");
-    // 31.10.2026: plegat; s'obre amb un clic.
-    const darrera = p.estacions.map(e => e.data).filter(Boolean).sort().pop();
-    h += seccio("💧 Aigües subterrànies (piezòmetres)",
-      `<details class="plegable"><summary><b>Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km</b>` +
-      `<span class="resum-mun">${p.estacions.length} punts de mesura${darrera ? " · darrera mesura el " + esc(data(darrera)) : ""}</span></summary>` +
-      `<div class="taula"><table><thead><tr><th>Piezòmetre</th>` +
-      `<th style="text-align:center">Darrera mesura</th><th style="text-align:center">Nivell (s.n.m.)</th>` +
-      `<th style="text-align:center">Fondària de l'aigua</th><th style="text-align:center">Respecte a l'anterior</th>` +
-      `<th style="text-align:center">Respecte a fa un any</th></tr></thead><tbody>${files}</tbody></table></div>` +
-      `<p class="font">Piezòmetres a menys de ${String(p.radi).replace(".", ",")} km de la Bisbal. Les mesures són campanyes manuals, unes quantes vegades l'any. ▲ el nivell ha pujat, ▼ ha baixat; ⚠️ canvi d'1,5 m o més respecte a la mesura anterior.</p></details>`,
-      "Agència Catalana de l'Aigua (Dades Obertes de Catalunya)");
-  }
 
   // 5b. 🌧️ RADAR 3D (07.11.2026): la pluja de les dues últimes hores en columnes que
   // s'aixequen segons la intensitat (RainViewer). La pàgina és radar/ i aquí va incrustada.
@@ -1957,27 +1886,7 @@ function pinta(d) {
         '<div class="llegenda"><span><i style="background:#2e8b57"></i>d\'accés lliure o per als clients</span><span><i style="background:#9a958a"></i>privats o no de lliure accés</span></div>'
       : ""), "ICAEN, MITERD / DGT, OpenStreetMap i La TdG");
 
-  // 11b. ☀️ PLAQUES SOLARS I CONSUM ELÈCTRIC i 🚰 PREU DE L'AIGUA (27.10.2026): dades/serveis.json.
-  h += seccio("☀️ Plaques solars i consum elèctric", '<div id="energiaCos"><p class="buit">Carregant…</p></div>', "", false);
-  h += seccio("🚰 Preu de l'aigua", '<div id="aiguaCos"><p class="buit">Carregant…</p></div>', "", false);
-
-  // 12. 📉 ATUR I AFILIACIÓ
-  if (b.atur && b.atur.municipis) {
-    const vari = v => (v === null || v === undefined) ? "—" : (v > 0 ? "+" : "") + v;
-    const nomMes = t => String(t || "").split(" de ")[0];
-    const ambAfiliacio = b.atur.municipis.some(m => m.afiliats !== null && m.afiliats !== undefined);
-    const mesAtur = nomMes(b.atur.mes);
-    const mesAfil = nomMes(b.atur.mesAfiliacio || b.atur.mes);
-    h += seccio("📉 Atur i afiliació",
-      ambAfiliacio
-        ? taula(["Municipi", `Atur (${mesAtur})`, "Variació", `Afiliats (${mesAfil})`, "Variació", "Homes", "Dones"],
-            b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio), num(m.afiliats), vari(m.variacioAfiliats), num(m.homes), num(m.dones)]))
-        : taula(["Municipi", `Atur (${mesAtur})`, "Variació"],
-            b.atur.municipis.map(m => [m.nom, num(m.valor), vari(m.variacio)])),
-      "atur, Observatori del Treball i Model Productiu (Generalitat de Catalunya); afiliació a la Seguretat Social, Idescat");
-  }
-
-  // 13. 🏢 BORME (sota d'atur i afiliació)
+  // 13. 🏢 BORME
   if (b.borme) {
     const bo = b.borme;
     let cos;
@@ -2040,12 +1949,11 @@ function pinta(d) {
 
   document.getElementById("blocs").innerHTML = h;
   document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
-  triaBlocsSlow();
-  ordenaApartats();   // 31.10.2026: blocs per apartats (no a La TdG slow)
+  ordenaApartats();   // 31.10.2026: blocs per apartats
   normalitzaDates(document.getElementById("blocs")); // CANVI (20.10.2026): dates en dd.mm.aaaa
 
   iniciaCamera();
-  if (!MODE_SLOW) mapesIncidencies(b).catch(e => console.error(e)).then(() => anaAlAvis(b));   // 31.10.2026
+  mapesIncidencies(b).catch(e => console.error(e)).then(() => anaAlAvis(b));   // 31.10.2026
 
   if (b.riu && b.riu.hores && b.riu.hores.length && window.Chart) {
     const css = getComputedStyle(document.documentElement);
@@ -2187,10 +2095,8 @@ async function carregaDea() {
 }
 
 // -----------------------------------------------------------------------------
-// EDAT DELS EDIFICIS i TURISTES QUE HI ARRIBEN (27.10.2026; abans eren a La TdG
-// redacció). Dades: dades/edificis.json i dades/edificis/<codi>.geojson
-// (Cadastre, workflow «Edat dels edificis») i dades/turisme.json (INE,
-// workflow «Turistes que hi arriben»).
+// TURISTES QUE HI ARRIBEN (27.10.2026). L'edat dels edificis és a La TdG dades
+// (21.11.2026).
 // -----------------------------------------------------------------------------
 const NOMS_CURTS_MUN = { "17022": "la Bisbal", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret" };
 const NOMS_LLARGS_MUN = { "17022": "la Bisbal d'Empordà", "17057": "Corçà", "17902": "Forallac", "17901": "Cruïlles, Monells i Sant Sadurní de l'Heura", "17205": "Ullastret" };
@@ -2201,300 +2107,6 @@ const triadorMun = (codis, actiu) => `<div class="tria-mun">` + codis.map(c => `
 const MESOS_CA = ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"];
 const nomMes = ym => { if (!ym) return "—"; const [a, m] = ym.split("-").map(Number); return MESOS_CA[m - 1] + " de " + a; };
 const periodeCa = p => { if (!p) return "—"; const t0 = nomMes(p[0]); const t = (/^[aeiouàèéíòóú]/i.test(t0) ? "d'" : "de ") + t0 + " a " + nomMes(p[1]); return t.charAt(0).toUpperCase() + t.slice(1); };
-
-// --- Edat dels edificis ---
-const EPOQUES_ED = ["abans de 1900", "1900-1939", "1940-1959", "1960-1979", "1980-1999", "2000-2009", "des de 2010"];
-const COLORS_EP = ["#4a1f14", "#7a2e1d", "#b4462c", "#d9774a", "#ecb27a", "#8fb8c4", "#2f6f8a"];
-const colorAny = any => { if (!any) return "#9a958a"; const lim = [1900, 1940, 1960, 1980, 2000, 2010]; let i = lim.findIndex(l => any < l); return COLORS_EP[i === -1 ? lim.length : i]; };
-const fitxaCadastre = ref => ref && ref.length >= 14 ? `https://www1.sedecatastro.gob.es/CYCBienInmueble/OVCListaBienes.aspx?rc1=${encodeURIComponent(ref.slice(0, 7))}&rc2=${encodeURIComponent(ref.slice(7, 14))}` : null;
-let EDIF = null, MAPA_EDIF = null, MAPA_EDIF3 = null;
-let MODE_EDIF = "2d";
-try { if (localStorage.getItem("latdgModeEdificis") === "3d") MODE_EDIF = "3d"; } catch (e) {}
-async function pintaEdificis(codi) {
-  const cos = document.getElementById("edificisCos");
-  const m = EDIF.municipis[codi];
-  const maxE = Math.max(1, ...m.epoques.map(e => e.edificis));
-  const cap = `<p class="font dalt">Cadastre actualitzat el ${m.actualitzatCadastre ? dataCa(m.actualitzatCadastre) : "—"} · revisat el ${dataDMA(EDIF.generat)} · Font: Direcció General del Cadastre</p>`;
-  const mun = triadorMun(MUN_ANTENES.filter(c => EDIF.municipis[c]), codi);
-  const estad = `<div class="xifres"><div class="xifra"><b>${nCa(m.edificis)}</b><span>edificis (${nCa(m.habitatges)} habitatges)</span></div>` +
-    `<div class="xifra"><b>${m.mediana || "—"}</b><span>any mitjà de construcció</span></div>` +
-    `<div class="xifra"><b>${nCa(m.ultims10anys)}</b><span>construïts els últims 10 anys</span></div></div>` +
-    `<h3>Edificis per època de construcció</h3><div class="barres">` +
-    m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
-      `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>`;
-  const mapa = `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}</div>` +
-    `<div class="tria-mun peces capes-edif"><button type="button" data-orto="1" class="${ORTO_EDIF && !ORTO_SOLA ? "actiu" : ""}">🛰️ Ortofoto</button>` +
-    `<button type="button" data-orto="sola" class="${ORTO_SOLA ? "actiu" : ""}">🛰️ Només ortofoto</button>` +
-    (XARXES_MUN[codi] ? Object.entries(GRUPS_XARXA).map(([k, g]) =>
-      `<button type="button" data-xarxa="${k}" class="${XARXES_ACTIVES.has(k) ? "actiu" : ""}">${g.nom}</button>`).join("") : "") + `</div>` +
-    `<div id="mapaEdificis" style="height:${EDIF_GRAN ? altGran() + "px" : "420px"};border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
-    `<div class="llegenda">${EPOQUES_ED.map((e, i) => `<span><i style="background:${COLORS_EP[i]};border-radius:2px"></i>${esc(e)}</span>`).join("")}</div>`;
-  const nota = (XARXES_MUN[codi] ? `<div class="llegenda" id="llegendaXarxes"></div>` : "") +
-    `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
-    (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
-    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. Amb l'ortofoto, la foto aèria (ICGC i PNOA) es veu sota els edificis, amb els arbres i les teulades reals; amb «Només ortofoto», sense els edificis a sobre. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
-    (XARXES_MUN[codi] ? ` Les xarxes de serveis (aigua, clavegueram, electricitat i gas) surten dels plànols de serveis urbanístics del POUM (sèrie 4); hi són col·locades sobre el Cadastre i la posició és aproximada (uns metres). Són les xarxes que hi havia quan es va redactar el pla, sense fondàries ni diàmetres.` : "") +
-    (EDIF_GRAN ? "" : ` <a href="https://latdg.github.io/tauler/edificis/" target="_top">Obre el mapa dels edificis a pantalla completa</a>`) + `</p>`;
-  cos.innerHTML = EDIF_GRAN ? cap + mun + mapa + estad + nota : cap + mun + estad + mapa + nota;
-  cos.querySelectorAll(".tria-mun button[data-mun]").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
-  // 18.11.2026: capes de xarxes de serveis del POUM (només on n'hi ha).
-  // 21.11.2026: l'ortofoto és una capa més (fons de foto aèria amb arbres i teulades reals).
-  cos.querySelectorAll(".capes-edif button[data-orto]").forEach(b => b.onclick = () => {
-    // 21.11.2026: «Ortofoto» (foto amb els edificis a sobre) o «Només ortofoto» (sense edificis); tornar a tocar l'actiu l'apaga.
-    const sola = b.dataset.orto === "sola", jaActiu = b.classList.contains("actiu");
-    ORTO_EDIF = !jaActiu; ORTO_SOLA = !jaActiu && sola;
-    cos.querySelectorAll(".capes-edif button[data-orto]").forEach(x => x.classList.toggle("actiu",
-      x.dataset.orto === "sola" ? ORTO_SOLA : ORTO_EDIF && !ORTO_SOLA));
-    try { localStorage.setItem("latdgOrtoEdificis", ORTO_SOLA ? "sola" : ORTO_EDIF ? "1" : ""); } catch (e) {}
-    aplicaOrto();
-  });
-  cos.querySelectorAll(".capes-edif button[data-xarxa]").forEach(b => b.onclick = () => {
-    const k = b.dataset.xarxa;
-    XARXES_ACTIVES.has(k) ? XARXES_ACTIVES.delete(k) : XARXES_ACTIVES.add(k);
-    b.classList.toggle("actiu", XARXES_ACTIVES.has(k));
-    try { localStorage.setItem("latdgXarxesEdificis", [...XARXES_ACTIVES].join(",")); } catch (e) {}
-    pintaXarxes(codi);
-  });
-  // 17.11.2026: 2D (Leaflet, com sempre) o 3D (MapLibre, alçada segons les plantes).
-  cos.querySelectorAll(".mode-edif button").forEach(b => b.onclick = () => {
-    if (b.dataset.mode === MODE_EDIF) return;
-    MODE_EDIF = b.dataset.mode;
-    try { localStorage.setItem("latdgModeEdificis", MODE_EDIF); } catch (e) {}
-    cos.querySelectorAll(".mode-edif button").forEach(x => x.classList.toggle("actiu", x === b));
-    mapaEdificis(codi);
-  });
-  mapaEdificis(codi);
-}
-// 21.11.2026: a la pàgina edificis/ (pantalla completa, com el radar 3D) el bloc ve amb ?gran:
-// el mapa va primer i és més alt (l'alçada, sobre la finestra de la pàgina, no sobre el marc).
-const EDIF_GRAN = PARAMS_T.has("gran");
-const altGran = () => { let h = innerHeight; try { h = window.top.innerHeight || h; } catch (e) {} return Math.round(Math.min(900, Math.max(420, h - 150))); };
-const popupEdif = p => {
-  const url = fitxaCadastre(p.ref);
-  return `<b>${p.any ? "Construït el " + p.any : "Sense any al Cadastre"}</b>` + (p.us ? `<br>${esc(p.us)}` : "") +
-    (p.hab ? ` · ${nCa(p.hab)} habitatge${p.hab === 1 ? "" : "s"}` : "") + (p.plantes ? ` · ${p.plantes} planta${p.plantes === 1 ? "" : "s"}` : "") +
-    (url ? `<br><a href="${url}" target="_blank" rel="noopener">Fitxa del Cadastre</a>` : "");
-};
-const GEO_EDIF = {};
-const geoEdificis = codi => GEO_EDIF[codi] = GEO_EDIF[codi] || json(`dades/edificis/${codi}.geojson`).catch(e => { delete GEO_EDIF[codi]; throw e; });
-function treuMapesEdif() {
-  if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
-  if (MAPA_EDIF3) { MAPA_EDIF3.remove(); MAPA_EDIF3 = null; }
-  CAPA_XARXES = null; CAPA_EDIF = null; ORTO_2D = null;
-}
-async function mapaEdificis(codi) {
-  treuMapesEdif();
-  const div = document.getElementById("mapaEdificis");
-  if (!div) return;
-  div.innerHTML = "";
-  if (MODE_EDIF === "3d") {
-    try { await mapa3DEdificis(codi); aplicaOrto(); pintaXarxes(codi); return; }
-    catch (e) {
-      treuMapesEdif();
-      div.innerHTML = '<p class="buit" style="padding:12px">Aquest navegador no pot mostrar el mapa en 3D. Torna al mode 2D.</p>';
-      return;
-    }
-  }
-  if (typeof L === "undefined") return;
-  MAPA_EDIF = L.map("mapaEdificis", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: 0.25 }).setView([41.96, 3.04], 14);
-  MAPA_EDIF.attributionControl.setPrefix("").addAttribution("Edificis: Direcció General del Cadastre · © OpenStreetMap");
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, opacity: .45 }).addTo(MAPA_EDIF);
-  try {
-    const geo = await geoEdificis(codi);
-    if (!MAPA_EDIF || MODE_EDIF !== "2d") return;
-    const capa = CAPA_EDIF = L.geoJSON(geo, {
-      style: f => ({ color: colorAny(f.properties.any), weight: .4, fillColor: colorAny(f.properties.any), fillOpacity: ORTO_EDIF ? OPAC_EDIF_ORTO : .85 }),
-      onEachFeature: (f, l) => l.bindPopup(popupEdif(f.properties))
-    }).addTo(MAPA_EDIF);
-    MAPA_EDIF.fitBounds(capa.getBounds(), { padding: [10, 10] });
-  } catch (e) {}
-  aplicaOrto();
-  pintaXarxes(codi);
-}
-// --- Ortofoto com a capa (21.11.2026) ---
-// A sota, el PNOA de l'IGN (tessel·les); a sobre, l'ortofoto vigent de l'ICGC (WMS).
-// Si l'ICGC no respon, es continua veient el PNOA.
-let ORTO_EDIF = false, ORTO_SOLA = false;
-try { const v = localStorage.getItem("latdgOrtoEdificis"); ORTO_EDIF = v === "1" || v === "sola"; ORTO_SOLA = v === "sola"; } catch (e) {}
-const OPAC_EDIF_ORTO = .45;
-const ORTO_ICGC_WMS = "https://geoserveis.icgc.cat/servei/catalunya/orto-territorial/wms";
-const ORTO_PNOA = "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&VERSION=1.0.0&Layer=OI.OrthoimageCoverage&Style=default&Format=image/jpeg&TileMatrixSet=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}";
-const ATRIB_ORTO = "Ortofoto: ICGC (CC BY 4.0) · PNOA CC BY 4.0 scne.es";
-let CAPA_EDIF = null, ORTO_2D = null;
-function aplicaOrto() {
-  if (MODE_EDIF === "2d" && MAPA_EDIF) {
-    if (ORTO_EDIF && !ORTO_2D) {
-      const pnoa = L.tileLayer(ORTO_PNOA, { maxZoom: 19, maxNativeZoom: 19 });
-      const icgc = L.tileLayer.wms(ORTO_ICGC_WMS, { layers: "ortofoto_color_vigent", format: "image/jpeg", version: "1.1.1", maxZoom: 19 });
-      ORTO_2D = L.layerGroup([pnoa, icgc]).addTo(MAPA_EDIF);
-      pnoa.bringToFront(); icgc.bringToFront();   // per sobre del fons d'OpenStreetMap
-      MAPA_EDIF.attributionControl.addAttribution(ATRIB_ORTO);
-    } else if (!ORTO_EDIF && ORTO_2D) {
-      MAPA_EDIF.removeLayer(ORTO_2D); ORTO_2D = null;
-      MAPA_EDIF.attributionControl.removeAttribution(ATRIB_ORTO);
-    }
-    if (CAPA_EDIF) {
-      CAPA_EDIF.setStyle({ fillOpacity: ORTO_EDIF ? OPAC_EDIF_ORTO : .85 });
-      if (ORTO_SOLA && MAPA_EDIF.hasLayer(CAPA_EDIF)) MAPA_EDIF.removeLayer(CAPA_EDIF);
-      else if (!ORTO_SOLA && !MAPA_EDIF.hasLayer(CAPA_EDIF)) { CAPA_EDIF.addTo(MAPA_EDIF); if (CAPA_XARXES) CAPA_XARXES.bringToFront(); }
-    }
-  } else if (MODE_EDIF === "3d" && MAPA_EDIF3) {
-    const m = MAPA_EDIF3;
-    const posa = () => {
-      if (!m.getLayer("orto-pnoa")) return;
-      ["orto-pnoa", "orto-icgc"].forEach(id => m.setLayoutProperty(id, "visibility", ORTO_EDIF ? "visible" : "none"));
-      if (m.getLayer("edificis")) {
-        m.setPaintProperty("edificis", "fill-extrusion-opacity", ORTO_EDIF ? .75 : .9);
-        m.setLayoutProperty("edificis", "visibility", ORTO_SOLA ? "none" : "visible");
-      }
-    };
-    if (m.getLayer("orto-pnoa")) posa(); else m.once("load", posa);
-  }
-}
-// --- Xarxes de serveis del POUM (18.11.2026) ---
-// Dades: dades/xarxes/<codi>.geojson, extretes dels plànols vectorials 4.1-4.4 del
-// POUM i col·locades sobre el Cadastre. Propietats: xarxa, estat, full.
-const XARXES_MUN = { "17022": { fitxer: "dades/xarxes/17022.geojson", font: "POUM de la Bisbal d'Empordà, plànols de serveis urbanístics 4.1-4.4" } };
-const GRUPS_XARXA = {
-  aigua: { nom: "💧 Aigua", xarxes: ["aigua"] },
-  clavegueram: { nom: "🚰 Clavegueram", xarxes: ["residual", "unitaria", "pluvial"] },
-  electricitat: { nom: "⚡ Electricitat", xarxes: ["electricitat"] },
-  gas: { nom: "🔥 Gas", xarxes: ["gas"] }
-};
-const ESTIL_XARXA = {
-  aigua: { color: "#1565c0", nom: "Aigua potable" },
-  residual: { color: "#c62828", nom: "Aigües residuals" },
-  unitaria: { color: "#2e7d32", nom: "Xarxa unitària (residuals i pluvials)" },
-  pluvial: { color: "#0097a7", nom: "Aigües pluvials" },
-  electricitat: { color: "#8e24aa", nom: "Electricitat (mitja tensió)" },
-  gas: { color: "#ef6c00", nom: "Gas" }
-};
-const NOM_ESTAT = { existent: "existent", estimada: "estimada (traçat suposat)", "col·lector": "col·lector" };
-const XARXES_ACTIVES = new Set();
-try { (localStorage.getItem("latdgXarxesEdificis") || "").split(",").filter(k => GRUPS_XARXA[k]).forEach(k => XARXES_ACTIVES.add(k)); } catch (e) {}
-const GEO_XARXA = {};
-const geoXarxes = codi => GEO_XARXA[codi] = GEO_XARXA[codi] || json(XARXES_MUN[codi].fitxer).catch(e => { delete GEO_XARXA[codi]; throw e; });
-const xarxesVisibles = () => new Set([...XARXES_ACTIVES].flatMap(k => GRUPS_XARXA[k].xarxes));
-const popupXarxa = (p, codi) => `<b>${esc(ESTIL_XARXA[p.xarxa].nom)}</b><br>Traçat ${esc(NOM_ESTAT[p.estat] || p.estat)}` +
-  `<br><span style="font-size:.8em">Font: ${esc(XARXES_MUN[codi].font)} (full ${esc(p.full)}). Posició aproximada.</span>`;
-let CAPA_XARXES = null;
-async function pintaXarxes(codi) {
-  const lleg = document.getElementById("llegendaXarxes");
-  const vis = xarxesVisibles();
-  if (lleg) lleg.innerHTML = [...vis].map(x => `<span><i style="background:${ESTIL_XARXA[x].color};width:18px;height:4px;border:0;border-radius:2px;vertical-align:middle"></i>${esc(ESTIL_XARXA[x].nom)}</span>`).join("") +
-    (vis.size ? `<span style="opacity:.75">Línia discontínua: traçat estimat</span>` : "");
-  if (CAPA_XARXES && MAPA_EDIF) { MAPA_EDIF.removeLayer(CAPA_XARXES); CAPA_XARXES = null; }
-  if (!XARXES_MUN[codi]) return;
-  let geo = null;
-  if (vis.size) { try { geo = await geoXarxes(codi); } catch (e) { return; } }
-  const filtre = { type: "FeatureCollection", features: geo ? geo.features.filter(f => vis.has(f.properties.xarxa)) : [] };
-  if (MODE_EDIF === "2d" && MAPA_EDIF) {
-    if (CAPA_XARXES) { MAPA_EDIF.removeLayer(CAPA_XARXES); CAPA_XARXES = null; }
-    if (!filtre.features.length) return;
-    CAPA_XARXES = L.geoJSON(filtre, {
-      style: f => ({ color: ESTIL_XARXA[f.properties.xarxa].color, weight: 2.5, opacity: .95,
-        dashArray: f.properties.estat === "existent" ? null : "6 4" }),
-      onEachFeature: (f, l) => l.bindPopup(popupXarxa(f.properties, codi))
-    }).addTo(MAPA_EDIF);
-  } else if (MODE_EDIF === "3d" && MAPA_EDIF3) {
-    const posa = () => {
-      const m = MAPA_EDIF3; if (!m) return;
-      const dades = { type: "FeatureCollection", features: filtre.features.map(f => ({ ...f,
-        properties: { ...f.properties, color: ESTIL_XARXA[f.properties.xarxa].color } })) };
-      if (m.getSource("xarxes")) m.getSource("xarxes").setData(dades);
-      else {
-        m.addSource("xarxes", { type: "geojson", data: dades });
-        const base = { type: "line", source: "xarxes", layout: { "line-cap": "round", "line-join": "round" } };
-        m.addLayer({ ...base, id: "xarxes", filter: ["==", ["get", "estat"], "existent"],
-          paint: { "line-color": ["get", "color"], "line-width": 3 } }, "edificis");
-        m.addLayer({ ...base, id: "xarxes-est", filter: ["!=", ["get", "estat"], "existent"],
-          paint: { "line-color": ["get", "color"], "line-width": 3, "line-dasharray": [2, 1.5] } }, "edificis");
-        ["xarxes", "xarxes-est"].forEach(id => {
-          m.on("click", id, e => { const f = e.features && e.features[0];
-            if (f) new maplibregl.Popup({ maxWidth: "260px" }).setLngLat(e.lngLat).setHTML(popupXarxa(f.properties, codi)).addTo(m); });
-          m.on("mouseenter", id, () => m.getCanvas().style.cursor = "pointer");
-          m.on("mouseleave", id, () => m.getCanvas().style.cursor = "");
-        });
-      }
-    };
-    // el «load» de mapa3DEdificis (registrat abans) ja hi haurà posat els edificis
-    if (MAPA_EDIF3.getLayer("edificis")) posa(); else MAPA_EDIF3.once("load", posa);
-  }
-}
-// MapLibre només es baixa quan es tria el 3D (el mateix que fa servir el radar 3D).
-let PROMESA_MAPLIBRE = null;
-function carregaMapLibre() {
-  if (window.maplibregl) return Promise.resolve();
-  return PROMESA_MAPLIBRE = PROMESA_MAPLIBRE || new Promise((ok, ko) => {
-    const css = document.createElement("link");
-    css.rel = "stylesheet"; css.href = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css";
-    document.head.appendChild(css);
-    const js = document.createElement("script");
-    js.src = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js";
-    js.onload = ok; js.onerror = () => { PROMESA_MAPLIBRE = null; ko(new Error("maplibre")); };
-    document.head.appendChild(js);
-  });
-}
-// Centre del nucli: la mediana dels edificis (el gruix del poble, no les masies escampades).
-function centreEdificis(geo) {
-  const xs = [], ys = [];
-  geo.features.forEach(f => {
-    const g = f.geometry, a = g.type === "Polygon" ? g.coordinates[0] : g.coordinates[0][0];
-    if (a && a[0]) { xs.push(a[0][0]); ys.push(a[0][1]); }
-  });
-  const med = v => { v.sort((p, q) => p - q); return v[Math.floor(v.length / 2)]; };
-  return xs.length ? [med(xs), med(ys)] : [3.04, 41.96];
-}
-async function mapa3DEdificis(codi) {
-  const [geo] = await Promise.all([geoEdificis(codi), carregaMapLibre()]);
-  if (MODE_EDIF !== "3d" || !document.getElementById("mapaEdificis")) return;
-  // Alçada aproximada: 3 m per planta sobre rasant (1 planta si el Cadastre no en diu res).
-  const dades = { type: "FeatureCollection", features: geo.features.map(f => ({ type: "Feature", geometry: f.geometry,
-    properties: { ...f.properties, color: colorAny(f.properties.any), alt: Math.max(1, f.properties.plantes || 1) * 3 } })) };
-  const mapa = MAPA_EDIF3 = new maplibregl.Map({
-    container: "mapaEdificis",
-    style: { version: 8,
-      sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19, attribution: "© OpenStreetMap" },
-        "orto-pnoa": { type: "raster", tiles: [ORTO_PNOA], tileSize: 256, maxzoom: 19, attribution: "PNOA CC BY 4.0 scne.es" },
-        "orto-icgc": { type: "raster", tileSize: 256, maxzoom: 19, attribution: "Ortofoto: ICGC (CC BY 4.0)",
-          tiles: [ORTO_ICGC_WMS + "?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=ortofoto_color_vigent&STYLES=&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256"] } },
-      layers: [{ id: "fons", type: "background", paint: { "background-color": "#ebe9e4" } },
-               { id: "osm", type: "raster", source: "osm", paint: { "raster-opacity": 0.45 } },
-               { id: "orto-pnoa", type: "raster", source: "orto-pnoa", layout: { visibility: ORTO_EDIF ? "visible" : "none" } },
-               { id: "orto-icgc", type: "raster", source: "orto-icgc", layout: { visibility: ORTO_EDIF ? "visible" : "none" } }] },
-    center: centreEdificis(geo), zoom: 16, pitch: 60, bearing: -20, maxPitch: 75,
-    cooperativeGestures: true,
-    // 17.11.2026: l'avís dels gestos, en català.
-    locale: {
-      "CooperativeGesturesHandler.WindowsHelpText": "Fes servir Ctrl + roda del ratolí per fer zoom al mapa",
-      "CooperativeGesturesHandler.MacHelpText": "Fes servir ⌘ + roda del ratolí per fer zoom al mapa",
-      "CooperativeGesturesHandler.MobileHelpText": "Fes servir dos dits per moure el mapa"
-    },
-    attributionControl: { compact: true, customAttribution: "Edificis: Direcció General del Cadastre" }
-  });
-  mapa.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "top-right");
-  mapa.on("load", () => {
-    // Els crèdits, plegats a la «i» (oberts tapaven el mapa al mòbil).
-    const at = mapa.getContainer().querySelector(".maplibregl-ctrl-attrib");
-    if (at) at.classList.remove("maplibregl-compact-show");
-    mapa.addSource("edificis", { type: "geojson", data: dades });
-    mapa.addLayer({ id: "edificis", type: "fill-extrusion", source: "edificis", paint: {
-      "fill-extrusion-color": ["get", "color"], "fill-extrusion-height": ["get", "alt"],
-      "fill-extrusion-base": 0, "fill-extrusion-opacity": ORTO_EDIF ? .75 : .9 } });
-  });
-  mapa.on("click", "edificis", e => {
-    const f = e.features && e.features[0];
-    if (f) new maplibregl.Popup({ maxWidth: "260px" }).setLngLat(e.lngLat).setHTML(popupEdif(f.properties)).addTo(mapa);
-  });
-  mapa.on("mouseenter", "edificis", () => mapa.getCanvas().style.cursor = "pointer");
-  mapa.on("mouseleave", "edificis", () => mapa.getCanvas().style.cursor = "");
-}
-async function carregaEdificis() {
-  const cos = document.getElementById("edificisCos");
-  if (!cos) return;
-  try { EDIF = await json("dades/edificis.json"); } catch (e) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades del Cadastre.</p>'; return; }
-  pintaEdificis(EDIF.municipis["17022"] ? "17022" : Object.keys(EDIF.municipis)[0]);
-}
 
 // --- Turistes que hi arriben ---
 let TUR = null;
@@ -2530,8 +2142,8 @@ async function carregaTurisme() {
 }
 
 // -----------------------------------------------------------------------------
-// FARMÀCIES DE GUÀRDIA, PLAQUES SOLARS I CONSUM ELÈCTRIC, PREU DE L'AIGUA
-// (27.10.2026). Dades: dades/serveis.json (workflow «Serveis i energia»).
+// FARMÀCIES DE GUÀRDIA (27.10.2026). Dades: dades/serveis.json (workflow «Serveis i
+// energia»). Les plaques solars i el preu de l'aigua són a La TdG dades (21.11.2026).
 // -----------------------------------------------------------------------------
 let SERV = null;
 const majFrase = t => String(t || "").toLowerCase().replace(/(^|[\s'(\-])(\p{L})/gu, (x, a, b) => a + b.toUpperCase())
@@ -2996,92 +2608,10 @@ async function carregaBusos() {
   }, 1200);
 }
 
-const SECTORS = { "USOS DOMESTICS": "Llars", "SERVEIS": "Serveis", "INDUSTRIAL": "Indústria", "CONSTRUCCIO I OBRES PUBLIQUES": "Construcció", "PRIMARI": "Sector primari", "TRANSPORT": "Transport" };
-function serieAnys(serie, valor, etiq) {
-  const max = Math.max(1, ...serie.map(valor));
-  return `<div class="serie serie-anys">${serie.map(x => `<span style="height:${(valor(x) / max * 100).toFixed(0)}%" title="${esc(etiq(x))}"></span>`).join("")}</div>` +
-    `<div class="serie-eix"><span>${esc(serie[0] ? (serie[0].any || serie[0][0]) : "")}</span><span>${esc(serie.length ? (serie[serie.length - 1].any || serie[serie.length - 1][0]) : "")}</span></div>`;
-}
-// 27.10.2026: una fitxa plegada per municipi (escut, nom i xifra); el detall es pinta en obrir-la.
-function pintaEnergia() {
-  const cos = document.getElementById("energiaCos");
-  const au = (SERV.autoconsum || {}).municipis || {}, co = (SERV.consum || {}).municipis || {};
-  const darrerConsum = Object.values(co).map(s => (s[s.length - 1] || {}).any).filter(Boolean).sort().pop();
-  cos.innerHTML = `<p class="pista-plega">Clica el nom d'un municipi per veure'n el detall.</p>` +
-    MUN_ANTENES.map(c => {
-      const a = au[c];
-      return `<details class="plegable" data-mun="${c}"><summary><img src="${ESCUT_MUN[c]}" alt="" onerror="this.remove()"><b>${esc(NOMS_LLARGS_MUN[c].replace(/^./, x => x.toUpperCase()))}</b>` +
-        `<span class="resum-mun">${a ? `${nCa(a.n)} instal·lacions · ${dec(a.kw / 1000, 2)} MW` : ""}</span></summary><div class="cos-plega"></div></details>`;
-    }).join("") +
-    `<p class="font">Autoconsum: registre d'instal·lacions d'autoconsum d'energia elèctrica (actualitzat el ${esc(dataDMA((SERV.autoconsum || {}).actualitzat))}). ` +
-    `Consum: Institut Català d'Energia (actualitzat el ${esc(dataDMA((SERV.consum || {}).actualitzat))}); el darrer any publicat és el ${darrerConsum || "—"}. Dades obertes de la Generalitat.</p>`;
-  cos.querySelectorAll("details.plegable").forEach(d => d.addEventListener("toggle", () => {
-    if (!d.open || d.dataset.fet) return;
-    d.dataset.fet = "1";
-    try { d.querySelector(".cos-plega").innerHTML = cosEnergia(d.dataset.mun); }
-    catch (e) { console.error(e); d.querySelector(".cos-plega").innerHTML = '<p class="buit">No s\'han pogut mostrar les dades.</p>'; }
-  }));
-}
-function cosEnergia(codi) {
-  const a = ((SERV.autoconsum || {}).municipis || {})[codi], c = ((SERV.consum || {}).municipis || {})[codi] || [];
-  let h = "";
-  if (a) {
-    const anys = a.perAny.filter(x => Number(x[0]) >= 2015);
-    const darrerComplet = anys.filter(x => Number(x[0]) < new Date().getFullYear()).slice(-1)[0];
-    h += `<h3>Instal·lacions d'autoconsum (plaques solars)</h3>` +
-      `<div class="xifres"><div class="xifra"><b>${nCa(a.n)}</b><span>instal·lacions inscrites</span></div>` +
-      `<div class="xifra"><b>${dec(a.kw / 1000, 2)} MW</b><span>de potència en total</span></div>` +
-      (darrerComplet ? `<div class="xifra"><b>${nCa(darrerComplet[1])}</b><span>de noves el ${esc(darrerComplet[0])}</span></div>` : "") + `</div>` +
-      (anys.length ? `<p class="font" style="margin:0">Noves instal·lacions cada any</p>` + serieAnys(anys, x => x[1], x => `${x[0]}: ${x[1]} instal·lacions, ${dec(x[2], 1)} kW`) : "") +
-      (a.darreres && a.darreres.length ? `<p class="font">Darreres inscrites: ${a.darreres.slice(0, 5).map(x => `${esc(dataDMA(x.data))} (${dec(x.kw, 1)} kW)`).join(" · ")}.</p>` : "");
-  }
-  const u = c[c.length - 1];
-  if (u) {
-    const sec = Object.entries(u.sectors).filter(([, v]) => v > 0).sort((x, y) => y[1] - x[1]), max = Math.max(1, ...sec.map(x => x[1]));
-    const ant = c.find(x => x.any === u.any - 5);
-    const v5 = ant && ant.total ? (u.total - ant.total) / ant.total * 100 : null;
-    h += `<h3>Consum d'electricitat el ${u.any}</h3><p><b>${dec(u.total / 1e6, 1)} GWh</b> en tot el municipi` +
-      (v5 !== null ? ` (<span class="${v5 <= 0 ? "puja" : "baixa"}">${v5 >= 0 ? "+" : "−"}${dec(Math.abs(v5), 0)} %</span> respecte al ${ant.any})` : "") + `.</p>` +
-      `<div class="barres">${sec.map(([k, v]) => `<span>${esc(SECTORS[k] || majFrase(k))}</span><span class="barra" style="width:${(v / max * 100).toFixed(0)}%"></span><span class="num">${dec(v / 1e6, 2)} GWh · ${dec(v / u.total * 100, 0)} %</span>`).join("")}</div>` +
-      `<p class="font" style="margin:10px 0 0">Evolució del consum total</p>` + serieAnys(c, x => x.total, x => `${x.any}: ${dec(x.total / 1e6, 1)} GWh`);
-  }
-  return h || '<p class="buit">No hi ha dades d\'aquest municipi.</p>';
-}
-
-// 27.10.2026: el registre de l'ACA encara porta el nom antic d'alguna gestora.
-const GESTORA_ACTUAL = { "17022": "Aqlara" };
-function pintaAigua() {
-  const cos = document.getElementById("aiguaCos"), w = SERV.aigua;
-  if (!w || !w.municipis) { cos.innerHTML = '<p class="buit">Encara no s\'han baixat les dades.</p>'; return; }
-  const files = MUN_ANTENES.map(c => [c, (w.municipis[c] || []).slice(-1)[0], (w.municipis[c] || [])]).filter(x => x[1]);
-  const anyP = files.length ? files[0][1].any : "—";
-  const cat = w.catalunya;
-  const cel = v => v === null || v === undefined ? "—" : dec(v, 3);
-  let h = `<p class="font dalt">Actualitzat el ${esc(dataDMA(w.actualitzat))} · Font: Agència Catalana de l'Aigua, dades obertes de la Generalitat</p>` +
-    // 31.10.2026: plegat; s'obre amb un clic.
-    `<details class="plegable"><summary><b>Preu del metre cúbic per municipi (${anyP})</b>` +
-    `<span class="resum-mun">${files.length} municipis${cat ? " · mitjana de Catalunya, " + cel(cat.preu) + " €" : ""}</span></summary>` +
-    `<div class="taula"><table class="compara aigua"><thead><tr><th>Municipi</th><th class="num">Preu total ${anyP}</th><th class="num">Submi­nistrament</th><th class="num">Cànon de l'aigua</th><th class="num">Clave­gueram</th><th>Qui la gestiona</th></tr></thead><tbody>` +
-    files.map(([c, x, s]) => {
-      const pri = s.find(y => y.any === x.any - 5);
-      return `<tr><td class="nostre">${esc(NOMS_CURTS_MUN[c])}</td><td class="num"><b>${cel(x.preu)} €</b>` +
-        (pri && pri.preu ? `<br><span class="font">el ${pri.any}, ${cel(pri.preu)} €</span>` : "") +
-        `</td><td class="num">${cel(x.subministrament)} €</td><td class="num">${cel(x.canon)} €</td><td class="num">${cel(x.clavegueram)} €</td>` +
-        `<td class="gest">${esc(GESTORA_ACTUAL[c] || majFrase(x.gestora))}${x.gestio ? `<br><span class="font">Gestió ${esc(String(x.gestio).toLowerCase())}${x.tarifesSocials === "Sí" ? " · té tarifes socials" : ""}</span>` : ""}</td></tr>`;
-    }).join("") +
-    (cat ? `<tr><td>Mitjana de Catalunya</td><td class="num"><b>${cel(cat.preu)} €</b></td><td colspan="4" class="font">${nCa(cat.municipis || 0)} municipis</td></tr>` : "") +
-    `</tbody></table></div>` +
-    `<p class="font">Preu per metre cúbic (1.000 litres) del ${anyP}, el darrer any publicat per l'ACA, amb impostos, per a un consum domèstic de referència. ` +
-    `El preu total suma el subministrament, el cànon de l'Agència Catalana de l'Aigua i el clavegueram.</p></details>`;
-  cos.innerHTML = h;
-}
-
 async function carregaServeis() {
   try { SERV = await json("dades/serveis.json"); }
-  catch (e) { ["farmCos", "energiaCos", "aiguaCos"].forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = '<p class="buit">Ara mateix no s\'han pogut carregar les dades.</p>'; }); return; }
+  catch (e) { const el = document.getElementById("farmCos"); if (el) el.innerHTML = '<p class="buit">Ara mateix no s\'han pogut carregar les dades.</p>'; return; }
   try { pintaFarmacies(); } catch (e) { console.error(e); }
-  try { pintaEnergia(); } catch (e) { console.error(e); }
-  try { pintaAigua(); } catch (e) { console.error(e); }
   normalitzaDates(document.querySelector("main"));
 }
 
@@ -3131,7 +2661,6 @@ async function inicia() {
     carregaAntenes();
     carregaDea();
     carregaNatura();
-    carregaEdificis();
     carregaServeis();
     carregaEsports();
   } catch (e) {

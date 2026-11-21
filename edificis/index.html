@@ -6,7 +6,8 @@
 <meta name="color-scheme" content="light only">
 <title>Edat dels edificis · La TdG</title>
 <!-- EDAT DELS EDIFICIS a pantalla completa (21.11.2026), com el radar 3D.
-     El bloc és el mateix de La TdG dades: s'hi carrega ../?slow&incrustat&blocs=edificis&gran
+     El bloc és el mateix de La TdG dades (21.11.2026: el codi és allà): s'hi carrega
+     ../../redaccio/dades/?incrustat&blocs=edificis&gran
      (mapa més alt), i el marc s'ajusta a l'alçada del contingut. -->
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
@@ -26,7 +27,7 @@ a{color:var(--accent)}
   <p class="sub">Any de construcció de cada edifici segons el Cadastre, en 2D o en 3D, amb l'ortofoto i les xarxes de serveis del POUM com a capes. <a href="https://latdg.github.io/redaccio/dades/">Torna a La TdG dades</a></p>
 </header>
 <main>
-    <iframe id="bloc" src="../?slow&amp;incrustat&amp;blocs=edificis&amp;gran" title="Edat dels edificis"></iframe>
+    <iframe id="bloc" src="../../redaccio/dades/?incrustat&amp;blocs=edificis&amp;gran" title="Edat dels edificis"></iframe>
 </main>
 <script>
 // El marc pren l'alçada del bloc (la pàgina és del mateix lloc, latdg.github.io).
