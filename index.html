@@ -2223,18 +2223,26 @@ async function pintaEdificis(codi) {
     m.epoques.map((e, i) => `<span><i style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${COLORS_EP[i]};margin-right:5px"></i>${esc(e.epoca)}</span>` +
       `<span class="barra" style="width:${(e.edificis / maxE * 100).toFixed(0)}%;background:${COLORS_EP[i]}"></span><span class="num">${nCa(e.edificis)}</span>`).join("") + `</div>` +
     `<div class="tria-mun peces mode-edif">${["2d", "3d"].map(x => `<button type="button" data-mode="${x}" class="${x === MODE_EDIF ? "actiu" : ""}">${x === "2d" ? "🗺️ 2D" : "🏙️ 3D"}</button>`).join("")}</div>` +
-    (XARXES_MUN[codi] ? `<div class="tria-mun peces xarxes-edif">${Object.entries(GRUPS_XARXA).map(([k, g]) =>
-      `<button type="button" data-xarxa="${k}" class="${XARXES_ACTIVES.has(k) ? "actiu" : ""}">${g.nom}</button>`).join("")}</div>` : "") +
+    `<div class="tria-mun peces capes-edif"><button type="button" data-orto="1" class="${ORTO_EDIF ? "actiu" : ""}">🛰️ Ortofoto</button>` +
+    (XARXES_MUN[codi] ? Object.entries(GRUPS_XARXA).map(([k, g]) =>
+      `<button type="button" data-xarxa="${k}" class="${XARXES_ACTIVES.has(k) ? "actiu" : ""}">${g.nom}</button>`).join("") : "") + `</div>` +
     `<div id="mapaEdificis" style="height:420px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-top:12px"></div>` +
     `<div class="llegenda">${EPOQUES_ED.map((e, i) => `<span><i style="background:${COLORS_EP[i]};border-radius:2px"></i>${esc(e)}</span>`).join("")}</div>` +
     (XARXES_MUN[codi] ? `<div class="llegenda" id="llegendaXarxes"></div>` : "") +
     `<p class="font">Any de construcció segons el Cadastre (el de la construcció principal; les reformes no hi compten). ` +
     (m.any1900 ? `Molts edificis antics hi consten amb l'any 1900 quan no se'n sap la data (aquí, ${nCa(m.any1900)}): la franja 1900-1939 n'està inflada. ` : "") +
-    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
+    `Toca un edifici per veure'n l'any, l'ús i la fitxa del Cadastre. Amb l'ortofoto, la foto aèria (ICGC i PNOA) es veu sota els edificis, amb els arbres i les teulades reals. En 3D, l'alçada és aproximada (uns 3 m per planta); per girar i inclinar el mapa, fes servir dos dits o els botons de la cantonada.` +
     (XARXES_MUN[codi] ? ` Les xarxes de serveis (aigua, clavegueram, electricitat i gas) surten dels plànols de serveis urbanístics del POUM (sèrie 4); hi són col·locades sobre el Cadastre i la posició és aproximada (uns metres). Són les xarxes que hi havia quan es va redactar el pla, sense fondàries ni diàmetres.` : "") + `</p>`;
   cos.querySelectorAll(".tria-mun button[data-mun]").forEach(b => b.onclick = () => pintaEdificis(b.dataset.mun));
   // 18.11.2026: capes de xarxes de serveis del POUM (només on n'hi ha).
-  cos.querySelectorAll(".xarxes-edif button").forEach(b => b.onclick = () => {
+  // 21.11.2026: l'ortofoto és una capa més (fons de foto aèria amb arbres i teulades reals).
+  cos.querySelectorAll(".capes-edif button[data-orto]").forEach(b => b.onclick = () => {
+    ORTO_EDIF = !ORTO_EDIF;
+    b.classList.toggle("actiu", ORTO_EDIF);
+    try { localStorage.setItem("latdgOrtoEdificis", ORTO_EDIF ? "1" : ""); } catch (e) {}
+    aplicaOrto();
+  });
+  cos.querySelectorAll(".capes-edif button[data-xarxa]").forEach(b => b.onclick = () => {
     const k = b.dataset.xarxa;
     XARXES_ACTIVES.has(k) ? XARXES_ACTIVES.delete(k) : XARXES_ACTIVES.add(k);
     b.classList.toggle("actiu", XARXES_ACTIVES.has(k));
@@ -2262,7 +2270,7 @@ const geoEdificis = codi => GEO_EDIF[codi] = GEO_EDIF[codi] || json(`dades/edifi
 function treuMapesEdif() {
   if (MAPA_EDIF) { MAPA_EDIF.remove(); MAPA_EDIF = null; }
   if (MAPA_EDIF3) { MAPA_EDIF3.remove(); MAPA_EDIF3 = null; }
-  CAPA_XARXES = null;
+  CAPA_XARXES = null; CAPA_EDIF = null; ORTO_2D = null;
 }
 async function mapaEdificis(codi) {
   treuMapesEdif();
@@ -2270,7 +2278,7 @@ async function mapaEdificis(codi) {
   if (!div) return;
   div.innerHTML = "";
   if (MODE_EDIF === "3d") {
-    try { await mapa3DEdificis(codi); pintaXarxes(codi); return; }
+    try { await mapa3DEdificis(codi); aplicaOrto(); pintaXarxes(codi); return; }
     catch (e) {
       treuMapesEdif();
       div.innerHTML = '<p class="buit" style="padding:12px">Aquest navegador no pot mostrar el mapa en 3D. Torna al mode 2D.</p>';
@@ -2284,13 +2292,47 @@ async function mapaEdificis(codi) {
   try {
     const geo = await geoEdificis(codi);
     if (!MAPA_EDIF || MODE_EDIF !== "2d") return;
-    const capa = L.geoJSON(geo, {
-      style: f => ({ color: colorAny(f.properties.any), weight: .4, fillColor: colorAny(f.properties.any), fillOpacity: .85 }),
+    const capa = CAPA_EDIF = L.geoJSON(geo, {
+      style: f => ({ color: colorAny(f.properties.any), weight: .4, fillColor: colorAny(f.properties.any), fillOpacity: ORTO_EDIF ? OPAC_EDIF_ORTO : .85 }),
       onEachFeature: (f, l) => l.bindPopup(popupEdif(f.properties))
     }).addTo(MAPA_EDIF);
     MAPA_EDIF.fitBounds(capa.getBounds(), { padding: [10, 10] });
   } catch (e) {}
+  aplicaOrto();
   pintaXarxes(codi);
+}
+// --- Ortofoto com a capa (21.11.2026) ---
+// A sota, el PNOA de l'IGN (tessel·les); a sobre, l'ortofoto vigent de l'ICGC (WMS).
+// Si l'ICGC no respon, es continua veient el PNOA.
+let ORTO_EDIF = false;
+try { ORTO_EDIF = localStorage.getItem("latdgOrtoEdificis") === "1"; } catch (e) {}
+const OPAC_EDIF_ORTO = .45;
+const ORTO_ICGC_WMS = "https://geoserveis.icgc.cat/servei/catalunya/orto-territorial/wms";
+const ORTO_PNOA = "https://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&VERSION=1.0.0&Layer=OI.OrthoimageCoverage&Style=default&Format=image/jpeg&TileMatrixSet=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}";
+const ATRIB_ORTO = "Ortofoto: ICGC (CC BY 4.0) · PNOA CC BY 4.0 scne.es";
+let CAPA_EDIF = null, ORTO_2D = null;
+function aplicaOrto() {
+  if (MODE_EDIF === "2d" && MAPA_EDIF) {
+    if (ORTO_EDIF && !ORTO_2D) {
+      const pnoa = L.tileLayer(ORTO_PNOA, { maxZoom: 19, maxNativeZoom: 19 });
+      const icgc = L.tileLayer.wms(ORTO_ICGC_WMS, { layers: "ortofoto_color_vigent", format: "image/jpeg", version: "1.1.1", maxZoom: 19 });
+      ORTO_2D = L.layerGroup([pnoa, icgc]).addTo(MAPA_EDIF);
+      pnoa.bringToFront(); icgc.bringToFront();   // per sobre del fons d'OpenStreetMap
+      MAPA_EDIF.attributionControl.addAttribution(ATRIB_ORTO);
+    } else if (!ORTO_EDIF && ORTO_2D) {
+      MAPA_EDIF.removeLayer(ORTO_2D); ORTO_2D = null;
+      MAPA_EDIF.attributionControl.removeAttribution(ATRIB_ORTO);
+    }
+    if (CAPA_EDIF) CAPA_EDIF.setStyle({ fillOpacity: ORTO_EDIF ? OPAC_EDIF_ORTO : .85 });
+  } else if (MODE_EDIF === "3d" && MAPA_EDIF3) {
+    const m = MAPA_EDIF3;
+    const posa = () => {
+      if (!m.getLayer("orto-pnoa")) return;
+      ["orto-pnoa", "orto-icgc"].forEach(id => m.setLayoutProperty(id, "visibility", ORTO_EDIF ? "visible" : "none"));
+      if (m.getLayer("edificis")) m.setPaintProperty("edificis", "fill-extrusion-opacity", ORTO_EDIF ? .75 : .9);
+    };
+    if (m.getLayer("orto-pnoa")) posa(); else m.once("load", posa);
+  }
 }
 // --- Xarxes de serveis del POUM (18.11.2026) ---
 // Dades: dades/xarxes/<codi>.geojson, extretes dels plànols vectorials 4.1-4.4 del
@@ -2395,9 +2437,14 @@ async function mapa3DEdificis(codi) {
   const mapa = MAPA_EDIF3 = new maplibregl.Map({
     container: "mapaEdificis",
     style: { version: 8,
-      sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19, attribution: "© OpenStreetMap" } },
+      sources: { osm: { type: "raster", tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 19, attribution: "© OpenStreetMap" },
+        "orto-pnoa": { type: "raster", tiles: [ORTO_PNOA], tileSize: 256, maxzoom: 19, attribution: "PNOA CC BY 4.0 scne.es" },
+        "orto-icgc": { type: "raster", tileSize: 256, maxzoom: 19, attribution: "Ortofoto: ICGC (CC BY 4.0)",
+          tiles: [ORTO_ICGC_WMS + "?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=ortofoto_color_vigent&STYLES=&FORMAT=image/jpeg&SRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256"] } },
       layers: [{ id: "fons", type: "background", paint: { "background-color": "#ebe9e4" } },
-               { id: "osm", type: "raster", source: "osm", paint: { "raster-opacity": 0.45 } }] },
+               { id: "osm", type: "raster", source: "osm", paint: { "raster-opacity": 0.45 } },
+               { id: "orto-pnoa", type: "raster", source: "orto-pnoa", layout: { visibility: ORTO_EDIF ? "visible" : "none" } },
+               { id: "orto-icgc", type: "raster", source: "orto-icgc", layout: { visibility: ORTO_EDIF ? "visible" : "none" } }] },
     center: centreEdificis(geo), zoom: 16, pitch: 60, bearing: -20, maxPitch: 75,
     cooperativeGestures: true,
     // 17.11.2026: l'avís dels gestos, en català.
@@ -2416,7 +2463,7 @@ async function mapa3DEdificis(codi) {
     mapa.addSource("edificis", { type: "geojson", data: dades });
     mapa.addLayer({ id: "edificis", type: "fill-extrusion", source: "edificis", paint: {
       "fill-extrusion-color": ["get", "color"], "fill-extrusion-height": ["get", "alt"],
-      "fill-extrusion-base": 0, "fill-extrusion-opacity": 0.9 } });
+      "fill-extrusion-base": 0, "fill-extrusion-opacity": ORTO_EDIF ? .75 : .9 } });
   });
   mapa.on("click", "edificis", e => {
     const f = e.features && e.features[0];
