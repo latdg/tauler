@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-21T00:03:23+00:00",
+ "generat": "2026-11-21T14:49:25+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -14,7 +14,7 @@
    "director": "Francis Lawrence",
    "actors": "Joseph Zada, Elle Fanning, Mckenna Grace",
    "estrena": "2026-11-20",
-   "poster": "https://image.tmdb.org/t/p/w342/nijGyrqQbDhSGss4uugQokvBAsG.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/8K4lZ5oepk3kArMWfQuqSegxSRe.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
@@ -751,8 +751,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10874",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.5,
-   "vots": 50,
+   "nota": 7.602,
+   "vots": 137,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -958,14 +958,14 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11084",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.196,
-   "vots": 46,
+   "nota": 6.235,
+   "vots": 49,
    "plataformes": [],
    "plataformesUrl": ""
   },
   {
    "key": "scrooge y los fantasmas de la navidad",
-   "titol": "Scrooge i els fantasmes del Nadal",
+   "titol": "Scrooge i els fantasmes de Nadal",
    "titolFont": "Scrooge y los fantasmas de la navidad",
    "sinopsi": "Reimaginació del clàssic literari, una història de fantasmes ambientada al Londres de Dickens que segueix el viatge sobrenatural d'un home per a enfrontar-se al seu passat, present i futur i lluitar per una segona oportunitat.",
    "durada": "115",
@@ -1326,6 +1326,34 @@
      "hora": "22:00",
      "format": "Atmos",
      "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-12",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-12",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-13",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-14",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
     }
    ],
    "entrades": {
@@ -1333,8 +1361,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10728",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.617,
-   "vots": 120,
+   "nota": 7.5,
+   "vots": 138,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1781,8 +1809,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10509",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.762,
-   "vots": 1042,
+   "nota": 7.8,
+   "vots": 1092,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1804,6 +1832,13 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-21",
      "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-21",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -1843,6 +1878,13 @@
      "preu": ""
     },
     {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-22",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "OCINE Girona",
      "data": "2026-11-22",
      "hora": "20:30",
@@ -1867,6 +1909,13 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-23",
      "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-23",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -1895,6 +1944,13 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
      "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-24",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -1923,6 +1979,13 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-25",
      "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-25",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -1958,6 +2021,13 @@
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-26",
      "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-26",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -1984,6 +2054,7 @@
     }
    ],
    "entrades": {
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona",
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11207",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11207"
    },
@@ -2326,71 +2397,6 @@
    "plataformesUrl": ""
   },
   {
-   "key": "jaleos",
-   "titol": "Escàndols",
-   "titolFont": "Jaleos",
-   "sinopsi": "Què pot comptar el flamenc sobre el món en què vivim? Escàndols redescobreix aquest art universal a través d'un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai.",
-   "durada": "80",
-   "genere": "Documental",
-   "edat": "7 anys",
-   "director": "Isaki Lacuesta",
-   "actors": "C. Tangana, Rocio Molina, Alba Flores",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-21",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-22",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-24",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-25",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-26",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11184"
-   },
-   "nota": 0,
-   "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
    "key": "la bola negra",
    "titol": "La bola negra",
    "titolFont": "La Bola Negra",
@@ -2712,7 +2718,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 8.0,
-   "vots": 231,
+   "vots": 243,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3211,8 +3217,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11121",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.2,
-   "vots": 4,
+   "nota": 7.0,
+   "vots": 5,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3362,108 +3368,21 @@
      "hora": "20:00",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-04",
+     "hora": "21:30",
+     "format": "VOSE",
+     "preu": ""
     }
    ],
    "entrades": {
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11150",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11150"
    },
-   "nota": 7.9,
-   "vots": 274,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "wildwood",
-   "titol": "Wildwood",
-   "titolFont": "Wildwood",
-   "sinopsi": "Quan el germanet de Prue McKeel és raptat per un esbart de corbs, es veurà obligada a emprendre una desesperada missió de rescat. Acompanyada pel seu maldestre però lleial company de classe Curtis Mehlberg, Prue s'endinsa en un món d'animals parlants, bandits i poderosos personatges moguts pel dolor i l'ambició. A mesura que tots dos es veuen arrossegats a un conflicte que amenaça l'equilibri del bosc, Prue haurà de descobrir una fortalesa i una determinació que mai va saber que posseïa. Si vol salvar al seu germà i protegir el fràgil futur de Wildwood, haurà d'arriscar-lo tot.\n\nBasada en el llibre escrit per Colin Meloy i il·lustrat per Carson Ellis.",
-   "durada": "130",
-   "genere": "Animació",
-   "edat": "12 anys",
-   "director": "Travis Knight",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/3AxfnEViGaVspgifEag5au5bVJc.jpg",
-   "web": "https://tickets.ocinegirona.es/?idioma=ca",
-   "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-21",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-22",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-22",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-24",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-24",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-25",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-25",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-26",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11003",
-    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11003"
-   },
-   "nota": 8.483,
-   "vots": 302,
+   "nota": 7.943,
+   "vots": 296,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3529,12 +3448,12 @@
    "key": "el director",
    "titol": "El director",
    "titolFont": "El director",
-   "sinopsi": "Després de més de dues dècades treballant com a corresponsal de guerra, David Jiménez és nomenat director d'un dels principals periòdics del país. El seu defensa d'un periodisme independent i rigorós xoca ràpidament amb els interessos de l'empresa editora i amb Cardenal, l'home encarregat de protegir-los. Mentre les seves recerques retornen prestigi al diari, David descobreix que també està trencant delicats equilibris entre mitjans, empreses i poder polític.",
+   "sinopsi": "Després de vint anys com a corresponsal de guerra, David Jiménez accepta la direcció d’un dels grans diaris espanyols. Vol renovar la redacció, però les",
    "durada": "115",
-   "genere": "Drama",
+   "genere": "Drama, Thriller",
    "edat": "No recomanada per a menors de 7 anys",
    "director": "Dani de la Orden",
-   "actors": "",
+   "actors": "David Verdaguer, Alberto San Juan, Fernando Colomo, Carmen Machi, Emma Vilarasau, Willy Toledo, Fernando Cayo",
    "estrena": "",
    "poster": "https://image.tmdb.org/t/p/w342/9FKhEtXhX2Omvc7kVcjvDYk8DWG.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
@@ -3662,6 +3581,27 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-26",
      "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-05",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-07",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-08",
+     "hora": "21:30",
      "format": "",
      "preu": ""
     }
@@ -3836,8 +3776,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.426,
-   "vots": 517,
+   "nota": 6.4,
+   "vots": 548,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3912,13 +3852,6 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-21",
-     "hora": "11:45",
-     "format": "VO",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
      "data": "2026-11-21",
      "hora": "16:00",
@@ -3927,69 +3860,7 @@
     }
    ],
    "entrades": {
-    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11138",
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   }
-  },
-  {
-   "key": "citas la pelicula",
-   "titol": "Cites: La pel·lícula",
-   "titolFont": "Citas: La película",
-   "sinopsi": "",
-   "durada": "87",
-   "genere": "Comèdia romantica",
-   "edat": "No recomanada per a menors de 12 anys",
-   "director": "",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://cdn.odeonmulticines.com/show-posters/es/ps_12248.jpg?width=500",
-   "web": "https://odeonmulticines.com/odeon-girona",
-   "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-21",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-22",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-25",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-26",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11138"
    }
   },
   {
@@ -4085,6 +3956,193 @@
    "entrades": {}
   },
   {
+   "key": "jaleos",
+   "titol": "Escàndols",
+   "titolFont": "Jaleos",
+   "sinopsi": "Què pot comptar el flamenc sobre el món en què vivim? Escàndols redescobreix aquest art universal a través d'un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai.",
+   "durada": "80",
+   "genere": "Documental",
+   "edat": "7 anys",
+   "director": "Isaki Lacuesta",
+   "actors": "C. Tangana, Rocio Molina, Alba Flores",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-21",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-22",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-23",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-24",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-25",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-26",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11184"
+   },
+   "nota": 0,
+   "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "wildwood",
+   "titol": "Wildwood",
+   "titolFont": "Wildwood",
+   "sinopsi": "Quan el germanet de Prue McKeel és raptat per un esbart de corbs, es veurà obligada a emprendre una desesperada missió de rescat. Acompanyada pel seu maldestre però lleial company de classe Curtis Mehlberg, Prue s'endinsa en un món d'animals parlants, bandits i poderosos personatges moguts pel dolor i l'ambició. A mesura que tots dos es veuen arrossegats a un conflicte que amenaça l'equilibri del bosc, Prue haurà de descobrir una fortalesa i una determinació que mai va saber que posseïa. Si vol salvar al seu germà i protegir el fràgil futur de Wildwood, haurà d'arriscar-lo tot.\n\nBasada en el llibre escrit per Colin Meloy i il·lustrat per Carson Ellis.",
+   "durada": "130",
+   "genere": "Animació",
+   "edat": "12 anys",
+   "director": "Travis Knight",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/3AxfnEViGaVspgifEag5au5bVJc.jpg",
+   "web": "https://tickets.ocinegirona.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-21",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-22",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-22",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-23",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-23",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-24",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-24",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-25",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Girona",
+     "data": "2026-11-25",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-26",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-05",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-06",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-07",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-08",
+     "hora": "17:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11003",
+    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11003"
+   },
+   "nota": 8.4,
+   "vots": 308,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "tanit",
    "titol": "Tanit",
    "titolFont": "Tanit",
@@ -4161,8 +4219,8 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.831,
-   "vots": 136,
+   "nota": 8.8,
+   "vots": 143,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4551,6 +4609,104 @@
    }
   },
   {
+   "key": "sentido y sensibilidad",
+   "titol": "Sentit i sensibilitat",
+   "titolFont": "Sentido y sensibilidad",
+   "sinopsi": "Després de perdre el pare i la casa familiar, les germanes Dashwood comencen de nou amb la mare en una llar més modesta. L’Elinor es guarda per a ella allò",
+   "durada": "132",
+   "genere": "Drama, Romàntica",
+   "edat": "",
+   "director": "Georgia Oakley",
+   "actors": "Daisy Edgar-Jones, Esmé Creed-Miles, Caitríona Balfe, Frank Dillane, George MacKay, Fiona Shaw",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/9BvQHFAQ3BhKk5NSYxtYSMn5lrb.jpg",
+   "web": "https://cinemamontgri.cat/sentido-y-sensibilidad/",
+   "sessions": [
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-05",
+     "hora": "21:30",
+     "format": "VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-06",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {},
+   "nota": 7.228,
+   "vots": 173,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "tiempos de ilusion",
+   "titol": "Tiempos de ilusión",
+   "titolFont": "Tiempos de ilusión",
+   "sinopsi": "Als afores de París, l’any 1985, en Vincent és a punt de fer tretze anys. El seu germà gran té poc temps per a ell i els pares es passen el dia discutint.",
+   "durada": "119",
+   "genere": "Drama, Comèdia",
+   "edat": "",
+   "director": "Olivier Nakache i Éric Toledano",
+   "actors": "Camille Cottin, Louis Garrel, Pierre Lottin, Simon Boublil, Alexis Rosenstiehl",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
+   "web": "https://cinemamontgri.cat/tiempos-de-ilusion/",
+   "sessions": [
+    {
+     "cinema": "TeMePé Palafrugell",
+     "data": "2026-12-05",
+     "hora": "21:30",
+     "format": "",
+     "preu": "Gratuït"
+    },
+    {
+     "cinema": "TeMePé Palafrugell",
+     "data": "2026-12-06",
+     "hora": "21:30",
+     "format": "",
+     "preu": "Gratuït"
+    },
+    {
+     "cinema": "TeMePé Palafrugell",
+     "data": "2026-12-08",
+     "hora": "21:30",
+     "format": "",
+     "preu": "Gratuït"
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-11",
+     "hora": "21:30",
+     "format": "VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-12",
+     "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-13",
+     "hora": "19:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {},
+   "nota": 7.31,
+   "vots": 245,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "primavera",
    "titol": "Primavera",
    "titolFont": "Primavera",
@@ -4596,48 +4752,6 @@
    "entrades": {},
    "nota": 0,
    "vots": 0,
-   "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "tiempos de ilusion",
-   "titol": "Tiempos de ilusión",
-   "titolFont": "Tiempos de ilusión",
-   "sinopsi": "Som al 1985. En Vincent (Simon Boublil ), que aviat farà 13 anys, viu als afores de París, en una família de classe mitjana, entre un germà gran distant (Alexis Rosenstiehl) i uns pares enfrontats permanentment (Louis Garrel i Camille Cottin). Quan ja no és pas un nen, però encara no acaba de ser un adult, en compartirem les preguntes i els dubtes sobre la identitat, l’amistat, la família, la religió, el desig i els primers impulsos amorosos. Una comèdia sobre aquella etapa tendra de la vida en què l’esperança de canviar el món no era 'Només una il·lusió...'",
-   "durada": "",
-   "genere": "",
-   "edat": "",
-   "director": "Olivier Nakache i Éric Toledano",
-   "actors": "",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/ku7zVdj7yUZn71cG6YvCoC3Rxjm.jpg",
-   "web": "https://cultura.palafrugell.cat/ca/programacio/c/6780-cinema-tiempos-de-ilusion.html",
-   "sessions": [
-    {
-     "cinema": "TeMePé Palafrugell",
-     "data": "2026-12-05",
-     "hora": "21:30",
-     "format": "",
-     "preu": "Gratuït"
-    },
-    {
-     "cinema": "TeMePé Palafrugell",
-     "data": "2026-12-06",
-     "hora": "21:30",
-     "format": "",
-     "preu": "Gratuït"
-    },
-    {
-     "cinema": "TeMePé Palafrugell",
-     "data": "2026-12-08",
-     "hora": "21:30",
-     "format": "",
-     "preu": "Gratuït"
-    }
-   ],
-   "entrades": {},
-   "nota": 7.3,
-   "vots": 244,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5370,6 +5484,34 @@
    "entrades": {},
    "nota": 0,
    "vots": 0,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
+   "key": "fatherland",
+   "titol": "Fatherland",
+   "titolFont": "Fatherland",
+   "sinopsi": "L’estiu de 1949, Erika Mann acompanya el seu pare, l’escriptor Thomas Mann, en el primer retorn a Alemanya des de l’exili. En un Buick negre, travessen un",
+   "durada": "82",
+   "genere": "Drama, Històric",
+   "edat": "",
+   "director": "Paweł Pawlikowski",
+   "actors": "Sandra Hüller, Hanns Zischler, August Diehl",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/7VjwmvDG5mksJBXMcmK6PudqH88.jpg",
+   "web": "https://cinemamontgri.cat/fatherland/",
+   "sessions": [
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-18",
+     "hora": "21:30",
+     "format": "VOSE",
+     "preu": ""
+    }
+   ],
+   "entrades": {},
+   "nota": 7.217,
+   "vots": 83,
    "plataformes": [],
    "plataformesUrl": ""
   },
