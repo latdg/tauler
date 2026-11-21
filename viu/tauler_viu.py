@@ -1570,6 +1570,42 @@ def blocs_webs():
 
 
 # -----------------------------------------------------------------------------
+# HISTÒRIC DEL BORME (21.11.2026; recuperat de l'historial de Git des del 20.10.2026). Cada acte que surt al bloc BORME
+# s'acumula a dades/borme.json (no es perd quan surt un BORME nou). La pàgina
+# borme/ en fa la consulta. El bloc del dia no canvia.
+# -----------------------------------------------------------------------------
+def borme_net(text):
+    t = html.unescape(str(text or ""))
+    t = re.split(r"\s+subir\s+Contactar\b", t)[0]    # peu de la web del BOE que de vegades s'hi enganxa
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def desa_borme(bloc):
+    if not isinstance(bloc, dict) or bloc.get("estat") != "ok":
+        return
+    m = re.match(r"(\d{2})\.(\d{2})\.(\d{4})$", str(bloc.get("data") or ""))
+    if not m:
+        return
+    iso = f"{m[3]}-{m[2]}-{m[1]}"
+    cami = DADES / "borme.json"
+    arxiu = llegeix(cami, {})
+    llista = arxiu.get("llista") or []
+    claus = {(x.get("link"), (x.get("empresa") or "").upper()) for x in llista}
+    nous = 0
+    for e in bloc.get("entrades") or []:
+        clau = (e.get("link"), (e.get("empresa") or "").upper())
+        if not e.get("empresa") or clau in claus:
+            continue
+        claus.add(clau)
+        llista.append({"dia": iso, "empresa": str(e["empresa"]).strip(), "text": borme_net(e.get("text")),
+                       "cita": e.get("cita") or [], "link": e.get("link") or ""})
+        nous += 1
+    if nous or not arxiu:
+        llista.sort(key=lambda x: (x["dia"], x["empresa"]), reverse=True)
+        escriu(cami, {"actualitzat": ara().isoformat(), "llista": llista})
+
+
+# -----------------------------------------------------------------------------
 # NECROLÒGIQUES (31.10.2026): les defuncions que el bucle dels bots prepara per al
 # guió (branca «dades-guio» de latdg/bots: Mémora i Diari de Girona ja creuats, els
 # últims 5 dies). El tauler les acumula a dades/necrologiques.json (historial).
@@ -2866,6 +2902,12 @@ def fusiona():
     if isinstance(vius.get("necrologiques"), list):
         desa_necrologiques(vius.pop("necrologiques"), dia)
     vius.pop("necrologiques", None)
+
+    # 21.11.2026: el BORME continua al bloc del dia i, a més, s'acumula a l'històric.
+    try:
+        desa_borme(vius.get("borme"))
+    except Exception as e:
+        print(f"❌ històric del BORME: {e}", file=sys.stderr)
 
     for nom, valor in vius.items():
         blocs_vius[nom] = valor

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Històric del BORME</title>
+<!--
+  HISTÒRIC DEL BORME — La TdG ampliada · 21.11.2026
+  Tots els actes del Registre Mercantil (BORME de Girona) d'empreses dels cinc
+  municipis que han sortit al bloc «Registre Mercantil (BORME)» del tauler.
+  dades/borme.json l'omple el tauler en directe (viu/tauler_viu.py, desa_borme);
+  el que hi havia abans d'aquesta data s'ha recuperat de l'historial de Git
+  (des del 20.10.2026). Paginat per mesos (pàgina 1, l'últim mes), amb cercador
+  i filtres per municipi, tipus d'acte i mes.
+-->
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+.capcalera{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;align-items:end;margin:8px 0 16px}
+input,select{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);max-width:100%}
+.controls label{display:flex;flex-direction:column;gap:2px;font-size:.8rem;color:var(--suau)}
+.controls label.cerca{grid-column:1/-1}
+.controls select,.controls input{width:100%;height:2.25em}
+.controls button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer;justify-self:start}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.dia{margin:18px 0 8px;font-size:1rem}
+.dia:first-child{margin-top:0}
+.llista{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;font-size:.95rem;line-height:1.45}
+.fitxa .text{margin:4px 0}
+.etiq{display:inline-block;font-size:.75rem;padding:1px 8px;margin:0 4px 4px 0;border-radius:999px;border:1px solid var(--linia);background:var(--targeta);color:var(--suau)}
+.etiq.nova{border-color:var(--accent);color:var(--accent)}
+.coord{display:block;color:var(--suau);font-size:.85rem}
+.resum{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;font-size:.9rem;color:var(--suau)}
+.resum b{color:var(--text)}
+.pagines{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.pagines button{font:inherit;font-size:.9rem;padding:4px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer}
+.pagines button.actiu{border-color:var(--accent);color:var(--accent);font-weight:700}
+.pagines button:disabled{opacity:.4;cursor:default}
+.buit{color:var(--suau)}
+.avis{color:var(--suau);font-size:.85rem;margin:0 0 12px}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+</style>
+<!-- Visites (GoatCounter, sense galetes) -->
+<script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header>
+  <div class="capcalera">
+    <h1>🏢 Històric del BORME</h1>
+    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+  </div>
+  <p class="sub" id="sub">Carregant…</p>
+  <div class="controls">
+    <label class="cerca">Text (empresa, persona, adreça, activitat…)
+      <input type="search" id="cerca" placeholder="Escriu per cercar…">
+    </label>
+    <label>Municipi
+      <select id="municipi"><option value="">Tots</option></select>
+    </label>
+    <label>Tipus d'acte
+      <select id="tipus"><option value="">Tots</option></select>
+    </label>
+    <label>Mes
+      <select id="mes"><option value="">Tots</option></select>
+    </label>
+    <button type="button" id="netejar" hidden>Treure els filtres</button>
+  </div>
+</header>
+<main>
+  <section>
+    <div class="resum" id="resum"></div>
+    <p class="avis" id="avisMes" hidden></p>
+    <div id="cos"><p class="buit">Carregant…</p></div>
+    <div class="pagines" id="pagines"></div>
+    <p class="font">Actes inscrits al Registre Mercantil de Girona d'empreses de la Bisbal d'Empordà, Corçà, Forallac,
+      Cruïlles, Monells i Sant Sadurní de l'Heura i Ullastret. Font: Boletín Oficial del Registro Mercantil (Agència Estatal BOE).
+      <a href="../">Tornar a La TdG ampliada</a></p>
+  </section>
+</main>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dataCa = iso => iso ? iso.split("-").reverse().join(".") : "";
+const pla = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const MESOS = ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"];
+const DIES = ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"];
+
+// Municipi de cada acte, a partir dels llocs que cita el BORME (nuclis inclosos).
+const MUNICIPIS = [
+  ["la Bisbal d'Empordà", ["bisbal", "castell d'emporda"]],
+  ["Corçà", ["corca", "casavells", "matajudaica", "cassa de pelras"]],
+  ["Forallac", ["forallac", "vulpellac", "peratallada", "fonteta", "canapost", "fitor", "peralta"]],
+  ["Cruïlles, Monells i Sant Sadurní de l'Heura", ["cruilles", "monells", "sant sadurni"]],
+  ["Ullastret", ["ullastret"]],
+];
+const municipis = x => {
+  const troba = t => MUNICIPIS.filter(([, cl]) => cl.some(c => pla(t).includes(c))).map(([n]) => n);
+  const r = troba((x.cita || []).join(" | "));
+  return r.length ? r : (troba(x.text).length ? troba(x.text) : ["Altres"]);
+};
+
+// Tipus d'acte (els encapçalaments del BORME), en català.
+const TIPUS = [
+  [/Constituci[oó]n/i, "Constitució"],
+  [/Nombramientos/i, "Nomenaments"],
+  [/Reelecciones/i, "Reeleccions"],
+  [/Ceses\/Dimisiones/i, "Cessaments i dimissions"],
+  [/Revocaciones/i, "Revocacions"],
+  [/Cambio de domicilio social/i, "Canvi de domicili"],
+  [/Cambio de objeto social/i, "Canvi d'objecte social"],
+  [/Cambio de denominaci[oó]n social/i, "Canvi de denominació"],
+  [/Ampliaci[oó]n de capital/i, "Ampliació de capital"],
+  [/Reducci[oó]n de capital/i, "Reducció de capital"],
+  [/Modificaciones estatutarias/i, "Modificació d'estatuts"],
+  [/Transformaci[oó]n de sociedad/i, "Transformació"],
+  [/Fusi[oó]n/i, "Fusió"],
+  [/Escisi[oó]n/i, "Escissió"],
+  [/P[ée]rdida del caracter de unipersonalidad/i, "Pèrdua de la unipersonalitat"],
+  [/Declaraci[oó]n de unipersonalidad/i, "Unipersonalitat"],
+  [/Disoluci[oó]n/i, "Dissolució"],
+  [/Extinci[oó]n/i, "Extinció"],
+  [/Situaci[oó]n concursal|concurso/i, "Situació concursal"],
+  [/Fe de erratas/i, "Fe d'errates"],
+  [/Otros conceptos/i, "Altres conceptes"],
+];
+const tipus = x => { const r = TIPUS.filter(([rx]) => rx.test(x.text || "")).map(([, n]) => n); return r.length ? r : ["Altres conceptes"]; };
+
+let TOTS = [], PAGINA = 1;
+const deData = iso => (/^(01|11)$/.test(iso.slice(8)) ? "de l'" : "del ") + dataCa(iso);
+
+function fitxa(x) {
+  const t = x._tipus.map(n => `<span class="etiq${n === "Constitució" ? " nova" : ""}">${esc(n)}</span>`).join("");
+  return `<article class="fitxa"><b>${esc(x.empresa)}</b><div>${t}</div><div class="text">${esc(x.text)}</div>` +
+    `<span class="coord">${esc(x._mun.join(" · "))}${x.link ? ` · <a href="${esc(x.link)}" target="_blank" rel="noopener">veure el BORME</a>` : ""}</span></article>`;
+}
+
+const faMesos = n => { const d = new Date(); d.setHours(12, 0, 0, 0); d.setMonth(d.getMonth() - n); return d.toISOString().slice(0, 10); };
+
+function pinta() {
+  const t = pla(document.getElementById("cerca").value.trim());
+  const mun = document.getElementById("municipi").value, tip = document.getElementById("tipus").value, mes = document.getElementById("mes").value;
+  const filtrat = !!(t || mun || tip || mes);
+  document.getElementById("netejar").hidden = !filtrat;
+  const llista = TOTS.filter(x => (!t || x._cerca.includes(t)) && (!mun || x._mun.includes(mun)) &&
+    (!tip || x._tipus.includes(tip)) && (!mes || x.dia.startsWith(mes)));
+
+  // Resum del que es veu (amb filtres) o de tot l'històric.
+  const empreses = new Set(llista.map(x => x.empresa.toUpperCase())).size;
+  const constit = llista.filter(x => x._tipus.includes("Constitució")).length;
+  const extin = llista.filter(x => x._tipus.some(n => n === "Extinció" || n === "Dissolució")).length;
+  const n = (x, u, v) => `<span><b>${x}</b> ${x === 1 ? u : v}</span>`;
+  document.getElementById("resum").innerHTML = n(llista.length, "acte", "actes") + n(empreses, "empresa", "empreses") +
+    n(constit, "constitució", "constitucions") + n(extin, "dissolució o extinció", "dissolucions o extincions");
+
+  // Sense filtres, per mesos: la pàgina 1 és l'últim mes, la 2 el mes anterior…
+  let tros = llista, pagines = 1, periode = "";
+  if (!filtrat) {
+    const vella = llista.length ? llista[llista.length - 1].dia : "";
+    while (vella && faMesos(pagines) > vella && pagines < 600) pagines++;
+    PAGINA = Math.min(Math.max(1, PAGINA), pagines);
+    const de = faMesos(PAGINA), fins = PAGINA > 1 ? faMesos(PAGINA - 1) : "";
+    tros = llista.filter(x => x.dia > de && (!fins || x.dia <= fins));
+    periode = PAGINA === 1 ? `Actes de l'últim mes.` : `Actes ${deData(de)} al ${dataCa(fins)}.`;
+  }
+  const avis = document.getElementById("avisMes");
+  avis.hidden = filtrat;
+  avis.textContent = periode + (PAGINA < pagines ? " Els mesos anteriors, a les pàgines següents." : "");
+
+  const perDia = {};
+  tros.forEach(x => (perDia[x.dia] = perDia[x.dia] || []).push(x));
+  const dies = Object.keys(perDia).sort().reverse();
+  document.getElementById("cos").innerHTML = dies.length
+    ? dies.map(d => `<h2 class="dia">BORME ${deData(d)} (${DIES[new Date(d + "T12:00:00").getDay()]})</h2>` +
+        `<div class="llista">${perDia[d].map(fitxa).join("")}</div>`).join("")
+    : `<p class="buit">${filtrat ? "Cap acte no coincideix amb la cerca." : "Aquest mes no hi ha cap acte d'empreses dels cinc municipis."}</p>`;
+
+  const p = document.getElementById("pagines");
+  if (pagines < 2) { p.innerHTML = ""; return; }
+  let h = `<button data-p="${PAGINA - 1}"${PAGINA === 1 ? " disabled" : ""}>← Més recents</button>`;
+  for (let i = 1; i <= pagines; i++) h += `<button data-p="${i}" class="${i === PAGINA ? "actiu" : ""}">${i}</button>`;
+  h += `<button data-p="${PAGINA + 1}"${PAGINA === pagines ? " disabled" : ""}>Més antics →</button>`;
+  p.innerHTML = h;
+  p.querySelectorAll("button").forEach(b => b.onclick = () => { PAGINA = +b.dataset.p; pinta(); scrollTo(0, 0); });
+}
+
+(async () => {
+  let d;
+  try { d = await (await fetch("../dades/borme.json?v=" + Date.now(), { cache: "no-store" })).json(); }
+  catch (e) { document.getElementById("cos").innerHTML = '<p class="buit">No s\'ha pogut carregar l\'històric.</p>'; document.getElementById("sub").textContent = ""; return; }
+  TOTS = (d.llista || []).filter(x => x && x.empresa && x.dia).map(x => ({ ...x, _mun: municipis(x), _tipus: tipus(x),
+    _cerca: pla(x.empresa + " " + x.text + " " + (x.cita || []).join(" ")) }))
+    .sort((a, b) => b.dia.localeCompare(a.dia) || a.empresa.localeCompare(b.empresa));
+  const vella = TOTS.length ? TOTS[TOTS.length - 1].dia : "";
+  document.getElementById("sub").textContent = `${TOTS.length} actes recollits` + (vella ? ` des ${deData(vella)}` : "") +
+    (d.actualitzat ? `. Actualitzat el ${dataCa(d.actualitzat.slice(0, 10))}.` : ".");
+  const compta = f => TOTS.reduce((o, x) => { [].concat(f(x)).forEach(k => o[k] = (o[k] || 0) + 1); return o; }, {});
+  const mun = compta(x => x._mun), tip = compta(x => x._tipus), mes = compta(x => x.dia.slice(0, 7));
+  document.getElementById("municipi").innerHTML = `<option value="">Tots</option>` +
+    [...MUNICIPIS.map(([n]) => n), "Altres"].filter(n => mun[n]).map(n => `<option value="${esc(n)}">${esc(n)} (${mun[n]})</option>`).join("");
+  document.getElementById("tipus").innerHTML = `<option value="">Tots</option>` +
+    Object.keys(tip).sort((a, b) => a.localeCompare(b, "ca")).map(n => `<option value="${esc(n)}">${esc(n)} (${tip[n]})</option>`).join("");
+  document.getElementById("mes").innerHTML = `<option value="">Tots</option>` +
+    Object.keys(mes).sort().reverse().map(k => `<option value="${k}">${MESOS[+k.slice(5) - 1].replace(/^./, c => c.toUpperCase())} ${k.slice(0, 4)} (${mes[k]})</option>`).join("");
+  const torna = () => { PAGINA = 1; pinta(); };
+  document.getElementById("cerca").oninput = torna;
+  ["municipi", "tipus", "mes"].forEach(id => document.getElementById(id).onchange = torna);
+  document.getElementById("netejar").onclick = () => {
+    document.getElementById("cerca").value = "";
+    ["municipi", "tipus", "mes"].forEach(id => document.getElementById(id).selectedIndex = 0);
+    torna();
+  };
+  pinta();
+})();
+</script>
+<script src="../dates-ca.js?v=3"></script>
+</body>
+</html>
