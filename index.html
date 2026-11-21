@@ -1995,7 +1995,7 @@ function pinta(d) {
     } else {
       cos = '<p class="buit">No hi ha cap BORME publicat els últims dies.</p>';
     }
-    cos += '<p class="font"><a href="borme/">Històric del BORME</a></p>';   // 21.11.2026
+    cos += '<div id="bormeHist"></div>';   // 21.11.2026: històric dins del mateix bloc
     h += seccio("🏢 Registre Mercantil (BORME)", cos, "Boletín Oficial del Registro Mercantil (Agència Estatal BOE)");
   }
 
@@ -2634,6 +2634,56 @@ async function carregaNecrologiques() {
 }
 
 // -----------------------------------------------------------------------------
+// HISTÒRIC DEL BORME (21.11.2026). dades/borme.json l'omple el tauler en directe
+// (viu/tauler_viu.py, desa_borme). Es mostra dins del bloc del BORME, plegat:
+// fins a 50 actes, tots; a partir de 50, es pot triar de veure'n 50, 100 o 200
+// per pàgina (les mides que encara no s'han assolit no surten al selector).
+// -----------------------------------------------------------------------------
+let BORME_HIST = [], BORME_MIDA = 50, BORME_PAG = 1;
+const deDiaBorme = iso => (/^(01|11)$/.test(iso.slice(8)) ? "de l'" : "del ") + dataCa(iso);
+function pintaBormeHistoric() {
+  const cos = document.getElementById("bormeHistCos");
+  if (!cos) return;
+  const total = BORME_HIST.length, paginat = total > 50;
+  const mida = paginat ? BORME_MIDA : total, pagines = Math.max(1, Math.ceil(total / mida));
+  BORME_PAG = Math.min(Math.max(1, BORME_PAG), pagines);
+  const tros = BORME_HIST.slice((BORME_PAG - 1) * mida, BORME_PAG * mida);
+  const perDia = {};
+  tros.forEach(x => (perDia[x.dia] = perDia[x.dia] || []).push(x));
+  let h = "";
+  if (paginat) {
+    h += `<p class="font">Actes per pàgina: <select id="bormeMida">` +
+      [50, 100, 200].filter((n, i, v) => i === 0 || total > v[i - 1])
+        .map(n => `<option value="${n}"${n === BORME_MIDA ? " selected" : ""}>${n}</option>`).join("") + "</select></p>";
+  }
+  h += Object.keys(perDia).sort().reverse().map(d => `<p style="margin:12px 0 4px"><b>BORME ${deDiaBorme(d)}</b></p><ul>` +
+    perDia[d].map(e => `<li style="margin-bottom:8px"><b>${esc(e.empresa)}</b>. ${esc(e.text)}` +
+      `<span class="coord">Cita: ${esc((e.cita || []).join(", "))}` +
+      (e.link ? ` · <a href="${esc(e.link)}" target="_blank" rel="noopener">veure el BORME</a>` : "") + "</span></li>").join("") + "</ul>").join("");
+  if (pagines > 1) {
+    h += `<p class="font">` + Array.from({ length: pagines }, (_, i) => i + 1).map(i => i === BORME_PAG ? `<b>${i}</b>`
+      : `<a href="#" data-bp="${i}">${i}</a>`).join(" · ") + ` (pàgina ${BORME_PAG} de ${pagines})</p>`;
+  }
+  cos.innerHTML = h;
+  const sel = document.getElementById("bormeMida");
+  if (sel) sel.onchange = () => { BORME_MIDA = +sel.value; BORME_PAG = 1; pintaBormeHistoric(); };
+  cos.querySelectorAll("[data-bp]").forEach(a => a.onclick = ev => { ev.preventDefault(); BORME_PAG = +a.dataset.bp; pintaBormeHistoric(); });
+}
+async function carregaBormeHistoric() {
+  const lloc = document.getElementById("bormeHist");
+  if (!lloc) return;
+  let d;
+  try { d = await json("dades/borme.json"); } catch (e) { return; }
+  BORME_HIST = (d.llista || []).filter(x => x && x.empresa && x.dia)
+    .sort((a, b) => b.dia.localeCompare(a.dia) || a.empresa.localeCompare(b.empresa));
+  if (!BORME_HIST.length) return;
+  const vell = BORME_HIST[BORME_HIST.length - 1].dia;
+  lloc.innerHTML = `<details class="fa-setmana"><summary>Històric del BORME (${BORME_HIST.length} actes des ${deDiaBorme(vell)})</summary>` +
+    `<div id="bormeHistCos"></div></details>`;
+  pintaBormeHistoric();
+}
+
+// -----------------------------------------------------------------------------
 // CINEMES (01.11.2026). La cartellera de la Bisbal, Torroella, Palafrugell, Platja
 // d'Aro, Girona i Salt: dades/cinemes.json, del workflow «Cinemes». Un carrusel de
 // pòsters; en clicar-ne un, a sota, la fitxa amb totes les sessions.
@@ -3057,6 +3107,7 @@ async function inicia() {
     pinta(d);
     carregaAgenda();
     carregaNecrologiques();
+    carregaBormeHistoric();
     carregaCinemes();
     carregaFonoteca();
     carregaBusos();
