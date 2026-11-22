@@ -622,6 +622,21 @@
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "nota": "Entrat des del bot latdg_infos",
      "substitueix": "FCF-4245263"
+    },
+    {
+     "id": "43c69c9551",
+     "competicio": "",
+     "grup": "",
+     "jornada": "8",
+     "data": "2026-11-22",
+     "hora": "16:00",
+     "localVisitant": "Visitant",
+     "rival": "CASSA, U.D. B",
+     "resultat": "6 - 2",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4245264"
     }
    ],
    "classificacio": []
