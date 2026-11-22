@@ -732,6 +732,21 @@
      "camp": "CAMP DE FUTBOL MPAL. DE SANT JOAN LES FONTS",
      "nota": "Entrat des del bot latdg_infos",
      "substitueix": "FCF-4109457"
+    },
+    {
+     "id": "72368d79e8",
+     "competicio": "",
+     "grup": "",
+     "jornada": "10",
+     "data": "2026-11-22",
+     "hora": "16:00",
+     "localVisitant": "Local",
+     "rival": "SANT JAUME OLOT B, C.F A",
+     "resultat": "4 - 2",
+     "estat": "Finalitzat",
+     "camp": "CAMP D´ESPORTS MPAL. DE LA BISBAL D´EMPORDÀ",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4109465"
     }
    ],
    "classificacio": []
