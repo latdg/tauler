@@ -727,6 +727,21 @@
      "camp": "CAMP DE FUTBOL MPAL. DE FLAÇÀ",
      "nota": "Entrat des del bot latdg_infos",
      "substitueix": "FCF-4139852"
+    },
+    {
+     "id": "6f5aed9986",
+     "competicio": "",
+     "grup": "",
+     "jornada": "10",
+     "data": "2026-11-22",
+     "hora": "17:30",
+     "localVisitant": "Visitant",
+     "rival": "JAFRE, U.D. A",
+     "resultat": "2 - 2",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DEL PADRÓ",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4139853"
     }
    ],
    "classificacio": []
