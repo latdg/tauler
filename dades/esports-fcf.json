@@ -5753,10 +5753,10 @@
        "NOMBRE_FUERA": "MONELLS, A.E. A",
        "ESCUDO_FUERA": "00100_0000669226_aemonells_200x200.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE CAMALLERA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "3",
+       "GOLES_FUERA": "2",
        "COMIENZO1": "2026-11-22T11:30:00",
-       "CERRADA": "0",
+       "CERRADA": "1",
        "ESTADO": "0"
       },
       {
