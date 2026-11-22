@@ -677,6 +677,21 @@
      "camp": "CAMP DE FUTBOL MPAL. DE MONELLS",
      "nota": "Entrat des del bot latdg_infos",
      "substitueix": "FCF-4139849"
+    },
+    {
+     "id": "2c9374c08a",
+     "competicio": "",
+     "grup": "",
+     "jornada": "10",
+     "data": "2026-11-22",
+     "hora": "11:30",
+     "localVisitant": "Visitant",
+     "rival": "CAMALLERA, C.F. A",
+     "resultat": "2 - 3",
+     "estat": "Finalitzat",
+     "camp": "CAMP DE FUTBOL MPAL. DE CAMALLERA",
+     "nota": "Entrat des del bot latdg_infos",
+     "substitueix": "FCF-4139858"
     }
    ],
    "classificacio": []
