@@ -13450,10 +13450,10 @@
        "NOMBRE_FUERA": "LA PERA, U.E. A",
        "ESCUDO_FUERA": "00100_0000205346_imgres.png",
        "CAMPO": "CAMP DE FUTBOL MPAL. DE CASSÀ DE LA SELVA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "6",
        "COMIENZO1": "2026-11-22T16:00:00",
-       "CERRADA": "0",
+       "CERRADA": "1",
        "ESTADO": "0"
       },
       {
