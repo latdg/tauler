@@ -1,0 +1,35 @@
+{
+ "generat": "2026-11-23T23:13:53+00:00",
+ "actualitzatFont": "2020-04-02T07:37:53+00:00",
+ "font": "CAT112, Departament d'Interior i Seguretat Pública",
+ "pals": [
+  {
+   "matricula": "G-9000",
+   "nom": "Puig d'Arques",
+   "zona": "les Gavarres",
+   "lat": 41.887775,
+   "lon": 2.999422
+  },
+  {
+   "matricula": "G-9001",
+   "nom": "Fitor",
+   "zona": "les Gavarres",
+   "lat": 41.905747,
+   "lon": 3.086606
+  },
+  {
+   "matricula": "G-9002",
+   "nom": "Santa Llúcia de l'Arboç",
+   "zona": "les Gavarres",
+   "lat": 41.91248,
+   "lon": 3.044045
+  },
+  {
+   "matricula": "G-9003",
+   "nom": "Sant Miquel",
+   "zona": "les Gavarres",
+   "lat": 42.006993,
+   "lon": 2.861549
+  }
+ ]
+}

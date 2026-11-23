@@ -1,0 +1,43 @@
+# Pals de cobertura del 112 — La TdG · 24.11.2026
+# Baixa de les dades obertes de la Generalitat (CAT112) els pals de la zona i
+# desa dades/pals112.json. Canvien molt poc: un cop al mes (el dia 12). També es
+# pot llançar a mà.
+name: Pals del 112
+
+on:
+  schedule:
+    - cron: "41 5 12 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pals112
+  cancel-in-progress: false
+
+jobs:
+  pals112:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Genera i desa
+        run: |
+          python pals112/pals112.py
+          git config user.name "La TdG (pals del 112)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Només es puja si han canviat els pals (no per la data de revisió).
+          if git diff --quiet -I '"generat"' dades/pals112.json; then echo "Sense canvis"; git checkout -- dades/pals112.json; exit 0; fi
+          git add dades/pals112.json
+          git commit -qm "Pals del 112 ($(TZ=Europe/Madrid date '+%d.%m.%Y'))"
+          for intent in 1 2 3 4 5 6; do
+            git push -q origin HEAD:main && exit 0
+            sleep $((intent * 5))
+            git pull -q --rebase origin main || { git rebase --abort; exit 1; }
+          done
+          echo "No s'han pogut pujar els canvis"; exit 1

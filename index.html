@@ -418,7 +418,7 @@ const NOMS_CURTS = [
   [/terratr[èe]mols/i, "Terratrèmols"], [/balises v16/i, "Balises V16"], [/talls de llum/i, "Talls de llum"],
   [/talls d'aigua/i, "Talls d'aigua"], [/rius:/i, "Rius"],
   [/agenda/i, "Agenda"], [/necrol[òo]giques/i, "Necrològiques"],
-  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/desfibril/i, "Desfibril·ladors"],
+  [/tr[àa]nsit/i, "Trànsit"], [/aviaci/i, "Aviació"], [/antenes/i, "Antenes"], [/cobertura del 112/i, "Cobertura del 112"], [/desfibril/i, "Desfibril·ladors"],
   [/edat dels edificis/i, "Edat dels edificis"], [/turistes/i, "Turistes"], [/incendi/i, "Incendis i sequera"],
   [/llamps/i, "Llamps"], [/dar[óo]/i, "Riu Daró"], [/piez[òo]metres/i, "Piezòmetres"], [/ultraviolada/i, "Radiació UV"],
   [/clima en context/i, "Clima"], [/qualitat de l'aire/i, "Aire"], [/p[òo]l·lens/i, "Pòl·lens"],
@@ -457,7 +457,7 @@ const kmCa = k => String(k || "").replace(/(\d)\.(\d)/g, "$1,$2");
 
 // 09.11.2026: BLOCS PLEGATS a La TdG ampliada (només es veu el títol; s'obren en clicar-hi).
 // Incendis i sequera i focus de calor, plegats tot l'any excepte a l'estiu (del 21.06 al 22.09).
-const RX_PLEGAT = /rec[àa]rrega|desfibril|antenes|borme|subhastes|verdor|p[òo]l·lens|qualitat de l'aire|clima en context|pluja d'ahir|ultraviolada/i;   // 12.11.2026: també la radiació ultraviolada
+const RX_PLEGAT = /rec[àa]rrega|desfibril|antenes|cobertura del 112|borme|subhastes|verdor|p[òo]l·lens|qualitat de l'aire|clima en context|pluja d'ahir|ultraviolada/i;   // 12.11.2026: també la radiació ultraviolada
 const RX_PLEGAT_FORA_ESTIU = /incendi|focus de calor/i;
 function esEstiu(d = new Date()) {
   const md = (d.getMonth() + 1) * 100 + d.getDate();
@@ -1585,7 +1585,7 @@ const APARTATS = [
   ["📌 El que cal saber avui", ["Agenda", "Farmàcies", "Necrològiques"]],
   ["⚠️ Avisos i emergències", ["Avisos meteorològics", "Protecció Civil", "Bombers", "Incendis i sequera", "Focus de calor", "Llamps", "Terratrèmols"]],
   ["🚗 Trànsit i mobilitat", ["Trànsit", "Busos", "Balises V16", "Carburants", "Recàrrega", "Aviació"]],
-  ["💡 Subministraments i serveis", ["Preu de la llum", "Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes"]],
+  ["💡 Subministraments i serveis", ["Preu de la llum", "Talls de llum", "Talls d'aigua", "Desfibril·ladors", "Antenes", "Cobertura del 112"]],
   ["🌿 Temps, aigua i natura", ["Radar 3D", "Pluja d'ahir", "Rius", "Radiació UV", "Clima", "Aire", "Pòl·lens", "Natura", "Verdor"]],
   ["🏛️ Economia i territori", ["BORME", "Subhastes"]],
   ["🏅 Esports", ["Partits i resultats", "Classificacions"]],
@@ -1705,6 +1705,13 @@ function pinta(d) {
     '<p class="font dalt" id="antenesPeu"></p><div class="xifres" id="antenesXifres"></div>' +
     '<div id="mapaAntenes"></div><div class="llegenda" id="antenesLlegenda"></div>' +
     '<p class="font" id="antenesNota"></p>',
+    "", false);
+
+  // 2b-bis. 📶 PALS DE COBERTURA DEL 112 (24.11.2026): el contingut arriba després (carregaPals112).
+  h += seccio("📶 Pals de cobertura del 112",
+    '<p class="font dalt" id="pals112Peu"></p><div class="xifres" id="pals112Xifres"></div>' +
+    '<div id="mapaPals112" style="height:420px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4"></div>' +
+    '<p class="font" id="pals112Nota"></p>',
     "", false);
 
   // 2c. ❤️ DESFIBRIL·LADORS (26.10.2026): el contingut arriba després (carregaDea).
@@ -2090,6 +2097,49 @@ async function carregaDea() {
       }).filter((t, i, a) => a.indexOf(t) === i).join("<hr style='border:0;border-top:1px solid #e3e1db;margin:6px 0'>");
     L.marker([g[0].lat, g[0].lon], { icon: icona }).bindTooltip(majuscules(g[0].nom) + (g.length > 1 ? ` (${g.length})` : ""))
       .bindPopup(html, { maxWidth: 290, maxHeight: 300 }).addTo(mapa);
+  });
+}
+
+// -----------------------------------------------------------------------------
+// PALS DE COBERTURA DEL 112 (24.11.2026): punts senyalitzats on hi ha cobertura de
+// mòbil per trucar al 112 (CAT112, dades obertes u4c3-bcwc), baixats un cop al mes
+// pel workflow «Pals del 112» (pals112/pals112.py) a dades/pals112.json.
+// Surten tots els de Catalunya, però el mapa s'obre a la nostra zona (els cinc
+// municipis i les Gavarres).
+// -----------------------------------------------------------------------------
+const ZONA_PALS = { s: 41.80, n: 42.06, o: 2.80, e: 3.20 };
+const palAprop = p => p.lat >= ZONA_PALS.s && p.lat <= ZONA_PALS.n && p.lon >= ZONA_PALS.o && p.lon <= ZONA_PALS.e;
+async function carregaPals112() {
+  const peu = document.getElementById("pals112Peu");
+  if (!peu) return;
+  let d;
+  try { d = await json("dades/pals112.json"); }
+  catch (e) { peu.textContent = "Encara no s'han baixat les dades dels pals del 112."; document.getElementById("mapaPals112").hidden = true; return; }
+  const pals = (d.pals || []).filter(p => p.lat != null && p.lon != null);
+  peu.textContent = (d.actualitzatFont ? `Registre del 112 actualitzat el ${dataDMA(d.actualitzatFont)} · ` : "") + "es revisa cada mes";
+  const aprop = pals.filter(palAprop);
+  document.getElementById("pals112Xifres").innerHTML =
+    `<div class="xifra"><b>${aprop.length}</b><span>a la nostra zona (les Gavarres)</span></div>` +
+    `<div class="xifra"><b>${pals.length}</b><span>a tot Catalunya</span></div>`;
+  document.getElementById("pals112Nota").innerHTML =
+    "Són pals col·locats en camins i parcs naturals, en llocs on hi ha cobertura de mòbil segura. Cada pal porta una matrícula: " +
+    "si truques al 112 des d'allà i la dius, l'operador sap exactament on ets. Si tens una emergència en una zona sense cobertura, " +
+    "torna a l'últim pal que hagis vist i truca des d'allà. " +
+    `Font: ${esc(d.font || "CAT112, Departament d'Interior i Seguretat Pública")}, dades obertes de la Generalitat.`;
+  if (!pals.length) { document.getElementById("mapaPals112").hidden = true; return; }
+  const mapa = await mapaBase("mapaPals112", MUN_ANTENES, "Pals: CAT112 (Interior)", null,
+    aprop.length ? vistaDe(aprop.map(p => [p.lat, p.lon])) : null);
+  if (!mapa) return;
+  carrers(mapa);
+  pals.forEach(p => {
+    const icona = L.divIcon({ className: "", iconSize: [34, 22], iconAnchor: [17, 11],
+      html: '<div style="width:34px;height:22px;border-radius:6px;background:#c8102e;border:2px solid #fff;box-shadow:0 0 0 1px #1d1d1b55;color:#fff;font:700 11px/18px system-ui;text-align:center">112</div>' });
+    L.marker([p.lat, p.lon], { icon: icona }).bindTooltip(esc(p.nom))
+      .bindPopup(`<b>${esc(p.nom)}</b>` + (p.zona ? `<br>${esc(p.zona)}` : "") +
+        `<br>Matrícula del pal: <b>${esc(p.matricula)}</b>` +
+        `<br><span style="color:#6b6b66">Des d'aquí hi ha cobertura per trucar al 112.</span>` +
+        `<br><a href="https://www.openstreetmap.org/?mlat=${p.lat}&mlon=${p.lon}#map=16/${p.lat}/${p.lon}" target="_blank" rel="noopener">Obre-ho al mapa</a>`,
+        { maxWidth: 260 }).addTo(mapa);
   });
 }
 
@@ -2619,6 +2669,7 @@ async function inicia() {
     carregaLlum();
     carregaVerdor();
     carregaAntenes();
+    carregaPals112();
     carregaDea();
     carregaNatura();
     carregaServeis();
