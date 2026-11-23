@@ -28,7 +28,7 @@ def nom_i_zona(ressenya):
     nom = re.sub(r"\bSta\.\s*", "Santa ", nom)
     nom = re.sub(r"\bSt\.\s*", "Sant ", nom)
     zona = zona.strip().lower()
-    zona = " ".join(p if p in ("les", "els", "la", "el", "de", "del", "d'") else p.capitalize() for p in zona.split())
+    zona = " ".join(p if p in ("les", "els", "la", "el", "de", "del", "d'") else "-".join(t.capitalize() for t in p.split("-")) for p in zona.split())
     return nom.strip(), zona
 
 
