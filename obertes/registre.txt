@@ -1,11 +1,11 @@
 Farmàcies: camps del formulari «city» i «date»
-Farmàcies 2026-11-22: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 22/11/2026
 Farmàcies 2026-11-23: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 23/11/2026
 Farmàcies 2026-11-24: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 24/11/2026
 Farmàcies 2026-11-25: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 25/11/2026
 Farmàcies 2026-11-26: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 26/11/2026
 Farmàcies 2026-11-27: 2 de guàrdia; 2 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 27/11/2026
 Farmàcies 2026-11-28: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 28/11/2026
+Farmàcies 2026-11-29: 1 de guàrdia; 1 a la zona · FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 29/11/2026
 farmacies fet
 autoconsum fet
 consum fet
