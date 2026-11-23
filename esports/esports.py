@@ -413,8 +413,11 @@ def llegeix_feb(eq):
             time.sleep(0.25)
             h = feb_postback(ses, h, "_ctl0$jornadasDropDownList", {"_ctl0:jornadasDropDownList": j["id"]}, FEB["url"])
         pagina = feb_partits_pagina(h)
-        resultats_grup.append({p2["local"][0]: ("V" if p2["resultat"][0] > p2["resultat"][1] else "D") for p2 in pagina if p2["resultat"]}
-                              | {p2["visitant"][0]: ("V" if p2["resultat"][1] > p2["resultat"][0] else "D") for p2 in pagina if p2["resultat"]})
+        # 23.11.2026: cada partit jugat, amb la seva data real (no la de la
+        # jornada), per ordenar la ratxa pels partits que ha jugat cada equip.
+        for p2 in pagina:
+            if p2["resultat"]:
+                resultats_grup.append((p2["id"], p2["data"], j["num"], p2["local"][0], p2["visitant"][0], p2["resultat"]))
         for p in pagina:
             if FEB["idBisbal"] not in (p["local"][0], p["visitant"][0]):
                 continue
@@ -457,13 +460,34 @@ def llegeix_feb(eq):
     except Exception as e:  # la classificació no ha de fer perdre el calendari
         print("  ⚠️ FEB classificació:", e)
     # 01.11.2026: ratxa dels cinc darrers partits, com la de la Federació
-    # Catalana: el més recent a l'esquerra (només jornades on ja s'ha jugat
-    # algun partit). Si no es pot fer, es queda la xifra de la FEB.
-    jugades = [r for r in resultats_grup if r]
+    # Catalana: el més recent a l'esquerra (el tauler la gira).
+    # 23.11.2026: es fa amb els partits jugats de cada equip (fins avui, sense
+    # repetir-ne cap), ordenats per data, i no per jornades: abans hi entrava
+    # una jornada de més i sortia un «sense partit» on hi havia hagut partit.
+    # Es comprova amb la ratxa numèrica de la FEB (7 = set victòries seguides,
+    # -1 = una derrota); si no hi quadra, es deixa la xifra de la FEB.
+    avui = ara().date().isoformat()
+    per_equip, vistos = {}, set()
+    for pid, data, jn, loc, vis, (a, b) in sorted(resultats_grup, key=lambda r: (r[1], r[2])):
+        if pid in vistos or data > avui:
+            continue
+        vistos.add(pid)
+        per_equip.setdefault(loc, []).append("V" if a > b else "D")
+        per_equip.setdefault(vis, []).append("V" if b > a else "D")
     for f in files:
-        rx = "".join(r.get(f.get("idFeb"), "X") for r in jugades)[-5:][::-1]
-        if f.get("idFeb") and rx.strip("X"):
+        seq = per_equip.get(f.get("idFeb"), [])
+        rx = "".join(seq[-5:])[::-1]
+        try:
+            n = int(str(f.get("ratxa", "")).strip())
+        except ValueError:
+            n = None
+        quadra = bool(rx) and len(seq) == f.get("pj") and (
+            n is None or (n != 0 and rx[0] == ("V" if n > 0 else "D")
+                          and len(rx) - len(rx.lstrip(rx[0])) == min(abs(n), len(rx))))
+        if quadra:
             f["ratxa"] = rx
+        elif rx:
+            print(f"  ⚠️ FEB ratxa de {f.get('equip')}: calculada {rx}, la FEB diu {f.get('ratxa')}; es deixa la de la FEB")
         f.pop("idFeb", None)
     return partits, ({"tipus": "basquet", "files": files} if files else None)
 
