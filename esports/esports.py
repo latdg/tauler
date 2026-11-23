@@ -441,7 +441,7 @@ def llegeix_feb(eq):
 
     # Classificació: la de la darrera jornada ja començada; si surt buida
     # (el dissabte d'una jornada), la de l'anterior.
-    files = []
+    files, jornada_cls = [], None
     try:
         ses2 = feb_sessio()
         url = FEB["urlClassificacio"]
@@ -456,6 +456,7 @@ def llegeix_feb(eq):
                 hc = feb_postback(ses2, hc, "_ctl0$jornadasDropDownList", {"_ctl0:jornadasDropDownList": j["id"]}, url)
             files = feb_classificacio(hc)
             if files:
+                jornada_cls = j["num"]
                 break
     except Exception as e:  # la classificació no ha de fer perdre el calendari
         print("  ⚠️ FEB classificació:", e)
@@ -468,8 +469,10 @@ def llegeix_feb(eq):
     # -1 = una derrota); si no hi quadra, es deixa la xifra de la FEB.
     avui = ara().date().isoformat()
     per_equip, vistos = {}, set()
+    # 23.11.2026: només els partits de les jornades que compta la classificació
+    # de la FEB (un partit avançat d'una jornada posterior encara no hi entra).
     for pid, data, jn, loc, vis, (a, b) in sorted(resultats_grup, key=lambda r: (r[1], r[2])):
-        if pid in vistos or data > avui:
+        if pid in vistos or data > avui or (jornada_cls and jn > jornada_cls):
             continue
         vistos.add(pid)
         per_equip.setdefault(loc, []).append("V" if a > b else "D")
