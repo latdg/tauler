@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-23T23:15:51+00:00",
+ "generat": "2026-11-23T23:16:48+00:00",
  "actualitzatFont": "2020-04-02T07:37:53+00:00",
  "font": "CAT112, Departament d'Interior i Seguretat Pública",
  "pals": [
@@ -2771,21 +2771,21 @@
   {
    "matricula": "P-1102",
    "nom": "Pla del Goleró. Cruïlla entre el PR-C 122 que puja a la Torreta de Cadí i el camí que va a Cornellana.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.278838,
    "lon": 1.542143
   },
   {
    "matricula": "P-1103",
    "nom": "Torreta del Cadí. Inici del tram de carena del PR-C 122.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.282693,
    "lon": 1.562841
   },
   {
    "matricula": "P-1104",
    "nom": "Carena del Cadí. Cruïlla entre el GR 150-1 i el PR-C 122, abans de la baixada cap a coll Jovell.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.284783,
    "lon": 1.602224
   },
@@ -2841,28 +2841,28 @@
   {
    "matricula": "P-1310",
    "nom": "Prat de Cadí, final del camí que hi puja des d'Estana.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.296102,
    "lon": 1.663319
   },
   {
    "matricula": "P-1311",
    "nom": "Coll del Cristall.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.283003,
    "lon": 1.656744
   },
   {
    "matricula": "P-1312",
    "nom": "Pas dels Gosolans.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.286735,
    "lon": 1.711245
   },
   {
    "matricula": "P-1313",
    "nom": "Pla de Moixeró. Cruïlla entre el GR 150-1 i el camí de Cavalls del Vent que baixa cap al refugi del serrat de les Esposes.",
-   "zona": "Parc Natural del Cadí-moixeró",
+   "zona": "Parc Natural del Cadí-Moixeró",
    "lat": 42.302849,
    "lon": 1.833378
   },
