@@ -1,7 +1,7 @@
 {
  "tipus": "latdg-fcf",
  "versio": 1,
- "generat": "2026-11-22T18:41:00.037Z",
+ "generat": "2026-11-23T18:42:38.145Z",
  "grups": {
   "58161863": {
    "partidos": {
@@ -13498,11 +13498,11 @@
        "NOMBRE_FUERA": "ROSES CITY FUTBOL CLUB  A",
        "ESCUDO_FUERA": "00100_0000511684_rosescity.png",
        "CAMPO": "CAMP DE FUTBOL ZEM DE RIPOLL (1)",
-       "GOLES_CASA": "1",
-       "GOLES_FUERA": "0",
+       "GOLES_CASA": "2",
+       "GOLES_FUERA": "1",
        "COMIENZO1": "2026-11-22T18:30:00",
-       "CERRADA": "0",
-       "ESTADO": "6"
+       "CERRADA": "1",
+       "ESTADO": "1"
       }
      ],
      "9": [
@@ -13685,6 +13685,22 @@
        "ESTADO": "0"
       },
       {
+       "CODACTA": "4245280",
+       "JORNADA": "10",
+       "CODEQUIPO_CASA": "54391318",
+       "NOMBRE_CASA": "L'ESCALA, F.C. A",
+       "ESCUDO_CASA": "00100_0001021751_00100_0000820832_fcle_200.png",
+       "CODEQUIPO_FUERA": "15549744",
+       "NOMBRE_FUERA": "LA PERA, U.E. A",
+       "ESCUDO_FUERA": "00100_0000205346_imgres.png",
+       "CAMPO": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
+       "GOLES_CASA": null,
+       "GOLES_FUERA": null,
+       "COMIENZO1": "2026-12-13T12:00:00",
+       "CERRADA": "0",
+       "ESTADO": "0"
+      },
+      {
        "CODACTA": "4245286",
        "JORNADA": "10",
        "CODEQUIPO_CASA": "7000791",
@@ -13729,22 +13745,6 @@
        "GOLES_CASA": null,
        "GOLES_FUERA": null,
        "COMIENZO1": "2026-12-13T17:00:00",
-       "CERRADA": "0",
-       "ESTADO": "0"
-      },
-      {
-       "CODACTA": "4245280",
-       "JORNADA": "10",
-       "CODEQUIPO_CASA": "54391318",
-       "NOMBRE_CASA": "L'ESCALA, F.C. A",
-       "ESCUDO_CASA": "00100_0001021751_00100_0000820832_fcle_200.png",
-       "CODEQUIPO_FUERA": "15549744",
-       "NOMBRE_FUERA": "LA PERA, U.E. A",
-       "ESCUDO_FUERA": "00100_0000205346_imgres.png",
-       "CAMPO": "CAMP DE FUTBOL MPAL. DE L´ESCALA",
-       "GOLES_CASA": null,
-       "GOLES_FUERA": null,
-       "COMIENZO1": "2026-12-13T18:00:00",
        "CERRADA": "0",
        "ESTADO": "0"
       },
@@ -16450,18 +16450,14 @@
       "won": "6",
       "drawn": "0",
       "lost": "2",
-      "goalsFor": "38",
-      "goalsAgainst": "13",
+      "goalsFor": "39",
+      "goalsAgainst": "14",
       "team": {
        "name": "ROSES CITY FUTBOL CLUB  A",
        "logo": "00100_0000511684_rosescity.png",
        "teamId": "54313561"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "G"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "G"
@@ -16477,6 +16473,10 @@
        {
         "date": "2026-11-15T00:00:00.000Z",
         "result": "G"
+       },
+       {
+        "date": "2026-11-22T00:00:00.000Z",
+        "result": "P"
        }
       ]
      },
@@ -16635,18 +16635,14 @@
       "won": "3",
       "drawn": "1",
       "lost": "4",
-      "goalsFor": "27",
-      "goalsAgainst": "21",
+      "goalsFor": "28",
+      "goalsAgainst": "22",
       "team": {
        "name": "RIPOLL ATLETIC CLUB FUTBOL A",
        "logo": "00100_0000272464_13095933_1731439670402369_8477283711072030434_n.png",
        "teamId": "25841070"
       },
       "form": [
-       {
-        "date": "2026-10-17T00:00:00.000Z",
-        "result": "P"
-       },
        {
         "date": "2026-10-25T00:00:00.000Z",
         "result": "P"
@@ -16662,6 +16658,10 @@
        {
         "date": "2026-11-14T00:00:00.000Z",
         "result": "E"
+       },
+       {
+        "date": "2026-11-22T00:00:00.000Z",
+        "result": "G"
        }
       ]
      },
