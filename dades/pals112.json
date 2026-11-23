@@ -1,8 +1,2605 @@
 {
- "generat": "2026-11-23T23:13:53+00:00",
+ "generat": "2026-11-23T23:15:51+00:00",
  "actualitzatFont": "2020-04-02T07:37:53+00:00",
  "font": "CAT112, Departament d'Interior i Seguretat Pública",
  "pals": [
+  {
+   "matricula": "B-1000",
+   "nom": "Refugi Bartomeu Puiggròs - Santa Cecília",
+   "zona": "Montserrat",
+   "lat": 41.610389,
+   "lon": 1.818267
+  },
+  {
+   "matricula": "B-1001",
+   "nom": "Cruïlla Refugi Sant Benet",
+   "zona": "Montserrat",
+   "lat": 41.593081,
+   "lon": 1.831797
+  },
+  {
+   "matricula": "B-1003",
+   "nom": "Pla de la Trinitat",
+   "zona": "Montserrat",
+   "lat": 41.596438,
+   "lon": 1.834992
+  },
+  {
+   "matricula": "B-1005",
+   "nom": "Pla de Sant Miquel",
+   "zona": "Montserrat",
+   "lat": 41.584219,
+   "lon": 1.841542
+  },
+  {
+   "matricula": "B-1007",
+   "nom": "Cruïlla Camí Feixades - Santa Cova",
+   "zona": "Montserrat",
+   "lat": 41.588996,
+   "lon": 1.843429
+  },
+  {
+   "matricula": "B-1009",
+   "nom": "Àrea de descans Roc de Degotalls",
+   "zona": "Montserrat",
+   "lat": 41.603245,
+   "lon": 1.832279
+  },
+  {
+   "matricula": "B-1010",
+   "nom": "Àrea de descans Torrent de Balaguer",
+   "zona": "Montserrat",
+   "lat": 41.603683,
+   "lon": 1.827901
+  },
+  {
+   "matricula": "B-1011",
+   "nom": "Estació inferior Santa Cova",
+   "zona": "Montserrat",
+   "lat": 41.5924,
+   "lon": 1.839845
+  },
+  {
+   "matricula": "B-1012",
+   "nom": "Àrea de descans Collcabiró",
+   "zona": "Montserrat",
+   "lat": 41.607933,
+   "lon": 1.837815
+  },
+  {
+   "matricula": "B-1013",
+   "nom": "Àrea de descans La Font dels Monjos",
+   "zona": "Montserrat",
+   "lat": 41.609738,
+   "lon": 1.821574
+  },
+  {
+   "matricula": "B-1015",
+   "nom": "La Salut- Coves del Salnitre",
+   "zona": "Montserrat",
+   "lat": 41.573386,
+   "lon": 1.833098
+  },
+  {
+   "matricula": "B-1017",
+   "nom": "Cruïlla camí dels Matxos (Colònia Puig)",
+   "zona": "Montserrat",
+   "lat": 41.608014,
+   "lon": 1.825687
+  },
+  {
+   "matricula": "B-1018",
+   "nom": "Aparcament La Vinya Nova",
+   "zona": "Montserrat",
+   "lat": 41.581882,
+   "lon": 1.809413
+  },
+  {
+   "matricula": "B-1019",
+   "nom": "Camí de les Aigües, cruïlla C.Tres Quarts",
+   "zona": "Montserrat",
+   "lat": 41.604788,
+   "lon": 1.843072
+  },
+  {
+   "matricula": "B-1020",
+   "nom": "Camí Feixades, cruïlla Ca n'Astruc",
+   "zona": "Montserrat",
+   "lat": 41.575068,
+   "lon": 1.847821
+  },
+  {
+   "matricula": "B-1021",
+   "nom": "Camí de Degotalls, cruïlla corriol Crta.",
+   "zona": "Montserrat",
+   "lat": 41.60055,
+   "lon": 1.832748
+  },
+  {
+   "matricula": "B-3000",
+   "nom": "Castell de Pera",
+   "zona": "Sant Llorenç",
+   "lat": 41.689778,
+   "lon": 2.031318
+  },
+  {
+   "matricula": "B-3001",
+   "nom": "Coll de Boix",
+   "zona": "Sant Llorenç",
+   "lat": 41.663034,
+   "lon": 1.971926
+  },
+  {
+   "matricula": "B-3002",
+   "nom": "Roca Sareny",
+   "zona": "Sant Llorenç",
+   "lat": 41.696686,
+   "lon": 2.021732
+  },
+  {
+   "matricula": "B-3003",
+   "nom": "Torrota de Vacarisses, trencall camí de baixada",
+   "zona": "Sant Llorenç",
+   "lat": 41.610879,
+   "lon": 1.910801
+  },
+  {
+   "matricula": "B-3004",
+   "nom": "Tubs de l'aigua, enmig de l'itinerari",
+   "zona": "Sant Llorenç",
+   "lat": 41.608607,
+   "lon": 1.91924
+  },
+  {
+   "matricula": "B-3005",
+   "nom": "Coll d'Eres",
+   "zona": "Sant Llorenç",
+   "lat": 41.670641,
+   "lon": 2.007447
+  },
+  {
+   "matricula": "B-3006",
+   "nom": "Bauma dels Gobians",
+   "zona": "Sant Llorenç",
+   "lat": 41.741226,
+   "lon": 1.98237
+  },
+  {
+   "matricula": "B-3007",
+   "nom": "L'Obac Vell",
+   "zona": "Sant Llorenç",
+   "lat": 41.626724,
+   "lon": 1.956705
+  },
+  {
+   "matricula": "B-3008",
+   "nom": "Collet del Llor",
+   "zona": "Sant Llorenç",
+   "lat": 41.678176,
+   "lon": 2.01007
+  },
+  {
+   "matricula": "B-3009",
+   "nom": "Creu de Ricó",
+   "zona": "Sant Llorenç",
+   "lat": 41.675094,
+   "lon": 2.048273
+  },
+  {
+   "matricula": "B-3010",
+   "nom": "Camí dels Monjos/trencall camí de Can Pobla",
+   "zona": "Sant Llorenç",
+   "lat": 41.6346,
+   "lon": 2.020642
+  },
+  {
+   "matricula": "B-3011",
+   "nom": "Font de la Portella",
+   "zona": "Sant Llorenç",
+   "lat": 41.630858,
+   "lon": 1.960672
+  },
+  {
+   "matricula": "B-3012",
+   "nom": "Morral del Drac",
+   "zona": "Sant Llorenç",
+   "lat": 41.645279,
+   "lon": 2.014897
+  },
+  {
+   "matricula": "B-3013",
+   "nom": "Casajoana",
+   "zona": "Sant Llorenç",
+   "lat": 41.646526,
+   "lon": 1.922042
+  },
+  {
+   "matricula": "B-3014",
+   "nom": "Mare de Déu de les Arenes",
+   "zona": "Sant Llorenç",
+   "lat": 41.647283,
+   "lon": 2.053005
+  },
+  {
+   "matricula": "B-3015",
+   "nom": "Coves de Mura",
+   "zona": "Sant Llorenç",
+   "lat": 41.684165,
+   "lon": 1.975086
+  },
+  {
+   "matricula": "B-3016",
+   "nom": "Sant Jaume de Vallhonesta",
+   "zona": "Sant Llorenç",
+   "lat": 41.677558,
+   "lon": 1.90235
+  },
+  {
+   "matricula": "B-3017",
+   "nom": "Font del Janet",
+   "zona": "Sant Llorenç",
+   "lat": 41.734055,
+   "lon": 1.971059
+  },
+  {
+   "matricula": "B-5000",
+   "nom": "Pujada Turó de Tagamanent",
+   "zona": "Montseny B",
+   "lat": 41.746573,
+   "lon": 2.295985
+  },
+  {
+   "matricula": "B-5001",
+   "nom": "Pla de l'Ase Mort",
+   "zona": "Montseny B",
+   "lat": 41.792532,
+   "lon": 2.342542
+  },
+  {
+   "matricula": "B-5002",
+   "nom": "Pla de la Barraca",
+   "zona": "Montseny B",
+   "lat": 41.806365,
+   "lon": 2.361397
+  },
+  {
+   "matricula": "B-5003",
+   "nom": "Coll Pregon",
+   "zona": "Montseny B",
+   "lat": 41.804929,
+   "lon": 2.390603
+  },
+  {
+   "matricula": "B-5004",
+   "nom": "Plana Amagada",
+   "zona": "Montseny B",
+   "lat": 41.771205,
+   "lon": 2.441552
+  },
+  {
+   "matricula": "B-5005",
+   "nom": "Àrea d'esplai La Guardiola",
+   "zona": "Montseny B",
+   "lat": 41.768765,
+   "lon": 2.464504
+  },
+  {
+   "matricula": "B-5006",
+   "nom": "Empedrat de Morou (Pla Molladius)",
+   "zona": "Montseny B",
+   "lat": 41.774922,
+   "lon": 2.475499
+  },
+  {
+   "matricula": "B-5007",
+   "nom": "Àrea d'esplai La Plana del Coll",
+   "zona": "Montseny B",
+   "lat": 41.757105,
+   "lon": 2.426192
+  },
+  {
+   "matricula": "B-5008",
+   "nom": "Montseny d'Amunt (Sant Martí)",
+   "zona": "Montseny B",
+   "lat": 41.778362,
+   "lon": 2.379484
+  },
+  {
+   "matricula": "B-5009",
+   "nom": "Can Vidal del Puig",
+   "zona": "Montseny B",
+   "lat": 41.697187,
+   "lon": 2.385395
+  },
+  {
+   "matricula": "B-5010",
+   "nom": "Sant Elies (entorn de l'Ermita)",
+   "zona": "Montseny B",
+   "lat": 41.731058,
+   "lon": 2.379638
+  },
+  {
+   "matricula": "B-5011",
+   "nom": "Can Coll",
+   "zona": "Montseny B",
+   "lat": 41.740321,
+   "lon": 2.29289
+  },
+  {
+   "matricula": "B-5012",
+   "nom": "Aiguafreda de Dalt",
+   "zona": "Montseny B",
+   "lat": 41.788159,
+   "lon": 2.257476
+  },
+  {
+   "matricula": "B-5013",
+   "nom": "Dolmen de Can Serra de l'Arca",
+   "zona": "Montseny B",
+   "lat": 41.785912,
+   "lon": 2.272257
+  },
+  {
+   "matricula": "B-5014",
+   "nom": "Can Serra de l'Arca",
+   "zona": "Montseny B",
+   "lat": 41.77587,
+   "lon": 2.269506
+  },
+  {
+   "matricula": "B-5015",
+   "nom": "Puig-agut",
+   "zona": "Montseny B",
+   "lat": 41.760099,
+   "lon": 2.273751
+  },
+  {
+   "matricula": "B-5016",
+   "nom": "Can Perepoc",
+   "zona": "Montseny B",
+   "lat": 41.738929,
+   "lon": 2.469225
+  },
+  {
+   "matricula": "B-6000",
+   "nom": "GR 92.3: A prop de la cadena Puig de l'Àliga/Tres partions",
+   "zona": "Foix",
+   "lat": 41.281315,
+   "lon": 1.689203
+  },
+  {
+   "matricula": "B-6001",
+   "nom": "GR92 / GR92.3 /PR-C 143: Encreuament GRs, cadena Casa Alta",
+   "zona": "Foix",
+   "lat": 41.274292,
+   "lon": 1.67923
+  },
+  {
+   "matricula": "B-6002",
+   "nom": "PR-C-143 / PR-C 142.2: Pla de les Palmeres",
+   "zona": "Foix",
+   "lat": 41.267204,
+   "lon": 1.677738
+  },
+  {
+   "matricula": "B-6003",
+   "nom": "GR 92 : Cruïlla pista Casa Alta",
+   "zona": "Foix",
+   "lat": 41.274535,
+   "lon": 1.675321
+  },
+  {
+   "matricula": "B-6004",
+   "nom": "GR 92: Cruïlla pista Cal Balaguer",
+   "zona": "Foix",
+   "lat": 41.27193,
+   "lon": 1.663447
+  },
+  {
+   "matricula": "B-6005",
+   "nom": "It. Font d'Horta: Pista a Llac Foix, principi escales itinerari",
+   "zona": "Foix",
+   "lat": 41.257903,
+   "lon": 1.628722
+  },
+  {
+   "matricula": "B-6006",
+   "nom": "It. Font d'Horta: Cal Bladet",
+   "zona": "Foix",
+   "lat": 41.255482,
+   "lon": 1.638036
+  },
+  {
+   "matricula": "B-6007",
+   "nom": "It. Font d'Horta :la Creu",
+   "zona": "Foix",
+   "lat": 41.249782,
+   "lon": 1.632139
+  },
+  {
+   "matricula": "B-6008",
+   "nom": "It. dels Castells: 1a Cementiri",
+   "zona": "Foix",
+   "lat": 41.265628,
+   "lon": 1.63761
+  },
+  {
+   "matricula": "B-6009",
+   "nom": "It. dels Castells: Principi camí corral de muntanya",
+   "zona": "Foix",
+   "lat": 41.282218,
+   "lon": 1.654245
+  },
+  {
+   "matricula": "B-6010",
+   "nom": "It. dels Castells: Mas Pigot",
+   "zona": "Foix",
+   "lat": 41.29113,
+   "lon": 1.654588
+  },
+  {
+   "matricula": "B-6011",
+   "nom": "It. dels Castells: Mas Bellestar",
+   "zona": "Foix",
+   "lat": 41.294321,
+   "lon": 1.655549
+  },
+  {
+   "matricula": "B-6012",
+   "nom": "It. dels Castells: Castell Penyafort",
+   "zona": "Foix",
+   "lat": 41.306256,
+   "lon": 1.658649
+  },
+  {
+   "matricula": "B-6200",
+   "nom": "GR-92.4 (GRF00316): Jafre",
+   "zona": "Garraf",
+   "lat": 41.282124,
+   "lon": 1.834868
+  },
+  {
+   "matricula": "B-6201",
+   "nom": "GR-92.4 (GRF00313): Mas Morsell",
+   "zona": "Garraf",
+   "lat": 41.285434,
+   "lon": 1.848745
+  },
+  {
+   "matricula": "B-6202",
+   "nom": "GR-92.4 (GRF00274): Pla de Querol",
+   "zona": "Garraf",
+   "lat": 41.281154,
+   "lon": 1.90025
+  },
+  {
+   "matricula": "B-6203",
+   "nom": "GR-5 (GRF00065): Avenc de l'Esquerrà",
+   "zona": "Garraf",
+   "lat": 41.317932,
+   "lon": 1.837863
+  },
+  {
+   "matricula": "B-6204",
+   "nom": "GR-5 (GRF00067): Can Grau",
+   "zona": "Garraf",
+   "lat": 41.309354,
+   "lon": 1.837561
+  },
+  {
+   "matricula": "B-6205",
+   "nom": "GR-5 (GRF00072): Quatre Camins",
+   "zona": "Garraf",
+   "lat": 41.293506,
+   "lon": 1.818638
+  },
+  {
+   "matricula": "B-6206",
+   "nom": "PR-C37 (GRF00398): Els Vinyals",
+   "zona": "Garraf",
+   "lat": 41.27185,
+   "lon": 1.87697
+  },
+  {
+   "matricula": "B-6207",
+   "nom": "PR-C37 (GRF00412): Penya Riscla",
+   "zona": "Garraf",
+   "lat": 41.270645,
+   "lon": 1.841662
+  },
+  {
+   "matricula": "B-6208",
+   "nom": "SL-C100 (GRF00534): Barret del rector",
+   "zona": "Garraf",
+   "lat": 41.312447,
+   "lon": 1.818463
+  },
+  {
+   "matricula": "B-6209",
+   "nom": "SL-C100 (GRF00566): Can Muntaner",
+   "zona": "Garraf",
+   "lat": 41.31554,
+   "lon": 1.805672
+  },
+  {
+   "matricula": "B-6210",
+   "nom": "GR-92.3: Pla del Albats",
+   "zona": "Garraf",
+   "lat": 41.306988,
+   "lon": 1.712497
+  },
+  {
+   "matricula": "B-6211",
+   "nom": "GR-5 (GRF00055): Entrada Fitó",
+   "zona": "Garraf",
+   "lat": 41.340345,
+   "lon": 1.838935
+  },
+  {
+   "matricula": "B-6212",
+   "nom": "GR-92.3 (GRF00104): Els Casals",
+   "zona": "Garraf",
+   "lat": 41.320567,
+   "lon": 1.854556
+  },
+  {
+   "matricula": "B-6213",
+   "nom": "GR-92.4 (GRF00344): Can Mercè de la Penya",
+   "zona": "Garraf",
+   "lat": 41.269825,
+   "lon": 1.801992
+  },
+  {
+   "matricula": "B-6214",
+   "nom": "GR-92.4 (GRF00300): Plana Novella",
+   "zona": "Garraf",
+   "lat": 41.295827,
+   "lon": 1.853053
+  },
+  {
+   "matricula": "B-6215",
+   "nom": "GR-92 (GRF00180): Can Lluçà",
+   "zona": "Garraf",
+   "lat": 41.267017,
+   "lon": 1.88572
+  },
+  {
+   "matricula": "B-6216",
+   "nom": "GR-92 (GRF00178): La Trinitat",
+   "zona": "Garraf",
+   "lat": 41.239106,
+   "lon": 1.852184
+  },
+  {
+   "matricula": "B-6217",
+   "nom": "GR-92 (GRF00154): La Pleta",
+   "zona": "Garraf",
+   "lat": 41.274348,
+   "lon": 1.917689
+  },
+  {
+   "matricula": "B-6218",
+   "nom": "GR-92 (GRF00145): Coll Sostrell",
+   "zona": "Garraf",
+   "lat": 41.30231,
+   "lon": 1.924705
+  },
+  {
+   "matricula": "B-6219",
+   "nom": "PRC-39 (GRF00041): Castell d'Eramprunyà",
+   "zona": "Garraf",
+   "lat": 41.31348,
+   "lon": 1.956109
+  },
+  {
+   "matricula": "B-6220",
+   "nom": "GR-92 (GRF00199): Fondo de les Oliveres",
+   "zona": "Garraf",
+   "lat": 41.264176,
+   "lon": 1.686227
+  },
+  {
+   "matricula": "B-7000",
+   "nom": "Dolmen de Pedra Gentil",
+   "zona": "Montnegre",
+   "lat": 41.651899,
+   "lon": 2.486663
+  },
+  {
+   "matricula": "B-7001",
+   "nom": "Pi cargolat",
+   "zona": "Montnegre",
+   "lat": 41.626954,
+   "lon": 2.47025
+  },
+  {
+   "matricula": "B-7002",
+   "nom": "Pedrera",
+   "zona": "Montnegre",
+   "lat": 41.628681,
+   "lon": 2.476542
+  },
+  {
+   "matricula": "B-7003",
+   "nom": "Alzines de can Portell",
+   "zona": "Montnegre",
+   "lat": 41.667838,
+   "lon": 2.625622
+  },
+  {
+   "matricula": "B-7004",
+   "nom": "Cruïlla mirador d'en Dori",
+   "zona": "Montnegre",
+   "lat": 41.569209,
+   "lon": 2.426792
+  },
+  {
+   "matricula": "B-7005",
+   "nom": "Creu de Rupit",
+   "zona": "Montnegre",
+   "lat": 41.612597,
+   "lon": 2.495766
+  },
+  {
+   "matricula": "B-7006",
+   "nom": "Font dels Tres Raigs (costat)",
+   "zona": "Montnegre",
+   "lat": 41.56909,
+   "lon": 2.431084
+  },
+  {
+   "matricula": "B-7007",
+   "nom": "Suro del Llamp",
+   "zona": "Montnegre",
+   "lat": 41.63805,
+   "lon": 2.496498
+  },
+  {
+   "matricula": "B-7008",
+   "nom": "Collet del vent",
+   "zona": "Montnegre",
+   "lat": 41.668768,
+   "lon": 2.628802
+  },
+  {
+   "matricula": "B-7009",
+   "nom": "Pou de glaç de can Draper",
+   "zona": "Montnegre",
+   "lat": 41.679007,
+   "lon": 2.496741
+  },
+  {
+   "matricula": "B-7010",
+   "nom": "Quatre camins",
+   "zona": "Montnegre",
+   "lat": 41.675893,
+   "lon": 2.513687
+  },
+  {
+   "matricula": "B-7011",
+   "nom": "Fondo Llavaneres",
+   "zona": "Montnegre",
+   "lat": 41.589158,
+   "lon": 2.469337
+  },
+  {
+   "matricula": "B-7012",
+   "nom": "Dolmen de ca l'Arenes",
+   "zona": "Montnegre",
+   "lat": 41.626788,
+   "lon": 2.46134
+  },
+  {
+   "matricula": "B-7013",
+   "nom": "Càmping El Solell",
+   "zona": "Montnegre",
+   "lat": 41.619128,
+   "lon": 2.469997
+  },
+  {
+   "matricula": "B-7014",
+   "nom": "Puig Aguilar",
+   "zona": "Montnegre",
+   "lat": 41.615869,
+   "lon": 2.45289
+  },
+  {
+   "matricula": "B-7015",
+   "nom": "Vallmanya",
+   "zona": "Montnegre",
+   "lat": 41.669393,
+   "lon": 2.655201
+  },
+  {
+   "matricula": "B-7016",
+   "nom": "Font de la Brinxa",
+   "zona": "Montnegre",
+   "lat": 41.662308,
+   "lon": 2.595817
+  },
+  {
+   "matricula": "B-7017",
+   "nom": "Coll dels Altars",
+   "zona": "Montnegre",
+   "lat": 41.64171,
+   "lon": 2.665658
+  },
+  {
+   "matricula": "B-7018",
+   "nom": "Collet de Sant Andreu",
+   "zona": "Montnegre",
+   "lat": 41.643189,
+   "lon": 2.629559
+  },
+  {
+   "matricula": "B-7019",
+   "nom": "Coll de Basses",
+   "zona": "Montnegre",
+   "lat": 41.662452,
+   "lon": 2.566677
+  },
+  {
+   "matricula": "B-7020",
+   "nom": "Santa Maria de Montnegre",
+   "zona": "Montnegre",
+   "lat": 41.660797,
+   "lon": 2.592951
+  },
+  {
+   "matricula": "B-7021",
+   "nom": "Sant Pere de Riu",
+   "zona": "Montnegre",
+   "lat": 41.647843,
+   "lon": 2.677816
+  },
+  {
+   "matricula": "B-7022",
+   "nom": "Pla de Forcs",
+   "zona": "Montnegre",
+   "lat": 41.649467,
+   "lon": 2.544343
+  },
+  {
+   "matricula": "B-7200",
+   "nom": "Creu Can boquet",
+   "zona": "Serr. Litoral",
+   "lat": 41.525714,
+   "lon": 2.340381
+  },
+  {
+   "matricula": "B-7201",
+   "nom": "Mirador Cornisa",
+   "zona": "Serr. Litoral",
+   "lat": 41.512216,
+   "lon": 2.324065
+  },
+  {
+   "matricula": "B-7202",
+   "nom": "Coll Sant Bartomeu",
+   "zona": "Serr. Litoral",
+   "lat": 41.562355,
+   "lon": 2.34339
+  },
+  {
+   "matricula": "B-7203",
+   "nom": "Zona escalada Céllecs",
+   "zona": "Serr. Litoral",
+   "lat": 41.556152,
+   "lon": 2.337589
+  },
+  {
+   "matricula": "B-7204",
+   "nom": "Coll Gironella",
+   "zona": "Serr. Litoral",
+   "lat": 41.54328,
+   "lon": 2.369552
+  },
+  {
+   "matricula": "B-7205",
+   "nom": "Mirador Montcabrer",
+   "zona": "Serr. Litoral",
+   "lat": 41.524296,
+   "lon": 2.38521
+  },
+  {
+   "matricula": "B-7206",
+   "nom": "Castell de Burriac",
+   "zona": "Serr. Litoral",
+   "lat": 41.537385,
+   "lon": 2.387148
+  },
+  {
+   "matricula": "B-7207",
+   "nom": "Turó d'en Galceran",
+   "zona": "Serr. Litoral",
+   "lat": 41.504224,
+   "lon": 2.266226
+  },
+  {
+   "matricula": "B-7208",
+   "nom": "Castellruf",
+   "zona": "Serr. Litoral",
+   "lat": 41.513551,
+   "lon": 2.26702
+  },
+  {
+   "matricula": "B-7209",
+   "nom": "Coll Can Corbera",
+   "zona": "Serr. Litoral",
+   "lat": 41.52538,
+   "lon": 2.2759
+  },
+  {
+   "matricula": "B-7210",
+   "nom": "Coll font de Cera",
+   "zona": "Serr. Litoral",
+   "lat": 41.514591,
+   "lon": 2.293469
+  },
+  {
+   "matricula": "B-7211",
+   "nom": "Can Maimó",
+   "zona": "Serr. Litoral",
+   "lat": 41.537332,
+   "lon": 2.312462
+  },
+  {
+   "matricula": "B-7212",
+   "nom": "Coll de Parpers",
+   "zona": "Serr. Litoral",
+   "lat": 41.582192,
+   "lon": 2.364783
+  },
+  {
+   "matricula": "B-7213",
+   "nom": "Masia Riudemeia",
+   "zona": "Serr. Litoral",
+   "lat": 41.569132,
+   "lon": 2.363316
+  },
+  {
+   "matricula": "B-7400",
+   "nom": "Coll de la Torre dels Frares",
+   "zona": "Serr. Marina",
+   "lat": 41.472906,
+   "lon": 2.198035
+  },
+  {
+   "matricula": "B-7401",
+   "nom": "Pla de les alzines al Puig Castellar",
+   "zona": "Serr. Marina",
+   "lat": 41.469439,
+   "lon": 2.207985
+  },
+  {
+   "matricula": "B-7402",
+   "nom": "Sortida porta itinerari de Torribera cruïlla camí A-12 amb A-27",
+   "zona": "Serr. Marina",
+   "lat": 41.469008,
+   "lon": 2.214714
+  },
+  {
+   "matricula": "B-7403",
+   "nom": "Can Alemany, Badalona",
+   "zona": "Serr. Marina",
+   "lat": 41.465749,
+   "lon": 2.225722
+  },
+  {
+   "matricula": "B-7404",
+   "nom": "Itinerari Font de l'Amigó SL- C-141 Fita safareig, Badalona",
+   "zona": "Serr. Marina",
+   "lat": 41.487535,
+   "lon": 2.235894
+  },
+  {
+   "matricula": "B-7405",
+   "nom": "Cementiri empastats, Tiana",
+   "zona": "Serr. Marina",
+   "lat": 41.491989,
+   "lon": 2.25525
+  },
+  {
+   "matricula": "B-7406",
+   "nom": "Carena entre Ca l'Andreu i Can Fàbregues, Tiana",
+   "zona": "Serr. Marina",
+   "lat": 41.49381,
+   "lon": 2.274011
+  },
+  {
+   "matricula": "B-7407",
+   "nom": "Camí C1  cruïlla amb C-19, itinerari GR-92",
+   "zona": "Serr. Marina",
+   "lat": 41.50148,
+   "lon": 2.263712
+  },
+  {
+   "matricula": "B-7408",
+   "nom": "Turó del pi Candeler (les Maleses)",
+   "zona": "Serr. Marina",
+   "lat": 41.492156,
+   "lon": 2.224401
+  },
+  {
+   "matricula": "B-7409",
+   "nom": "Coll de Moià, Montcada i Reixac",
+   "zona": "Serr. Marina",
+   "lat": 41.488306,
+   "lon": 2.206008
+  },
+  {
+   "matricula": "B-7410",
+   "nom": "Costat del dipòsit d'aigua del tenis Reixac",
+   "zona": "Serr. Marina",
+   "lat": 41.49418,
+   "lon": 2.202541
+  },
+  {
+   "matricula": "B-7411",
+   "nom": "Pista B-9 al costat de la font dels Caçadors Montcada i Reixac",
+   "zona": "Serr. Marina",
+   "lat": 41.492186,
+   "lon": 2.217808
+  },
+  {
+   "matricula": "B-8000",
+   "nom": "Fita inici Obaga del Castell",
+   "zona": "C. Montesquiu",
+   "lat": 42.111801,
+   "lon": 2.212225
+  },
+  {
+   "matricula": "B-8001",
+   "nom": "Casanova",
+   "zona": "C. Montesquiu",
+   "lat": 42.11429,
+   "lon": 2.21661
+  },
+  {
+   "matricula": "B-8002",
+   "nom": "Les codines",
+   "zona": "C. Montesquiu",
+   "lat": 42.120391,
+   "lon": 2.195074
+  },
+  {
+   "matricula": "B-8003",
+   "nom": "Àrea Devesa de les Codines",
+   "zona": "C. Montesquiu",
+   "lat": 42.120019,
+   "lon": 2.193288
+  },
+  {
+   "matricula": "B-8004",
+   "nom": "Sant Moí",
+   "zona": "C. Montesquiu",
+   "lat": 42.134016,
+   "lon": 2.210402
+  },
+  {
+   "matricula": "B-8005",
+   "nom": "Pas a nivell Font Codineta",
+   "zona": "C. Montesquiu",
+   "lat": 42.113966,
+   "lon": 2.208848
+  },
+  {
+   "matricula": "B-8006",
+   "nom": "Les Planeses",
+   "zona": "C. Montesquiu",
+   "lat": 42.120914,
+   "lon": 2.209415
+  },
+  {
+   "matricula": "B-8007",
+   "nom": "Cruïlla Torrent de les Dous",
+   "zona": "C. Montesquiu",
+   "lat": 42.124859,
+   "lon": 2.21066
+  },
+  {
+   "matricula": "B-8008",
+   "nom": "Font Castell Xic",
+   "zona": "C. Montesquiu",
+   "lat": 42.114048,
+   "lon": 2.214109
+  },
+  {
+   "matricula": "B-8009",
+   "nom": "Font del Castell",
+   "zona": "C. Montesquiu",
+   "lat": 42.112293,
+   "lon": 2.214397
+  },
+  {
+   "matricula": "B-8200",
+   "nom": "E1. Plafó de Parc: Plànol de Parc de l'Àrea d'Esplai",
+   "zona": "Guilleries",
+   "lat": 41.937516,
+   "lon": 2.32564
+  },
+  {
+   "matricula": "B-8201",
+   "nom": "E1. Plafó de Parc: Plànol de Parc de l'Àrea d'Esplai",
+   "zona": "Guilleries",
+   "lat": 41.950013,
+   "lon": 2.387488
+  },
+  {
+   "matricula": "B-8202",
+   "nom": "E1. Plafó de Parc: Plànol de Parc de l'Àrea d'Esplai",
+   "zona": "Guilleries",
+   "lat": 41.975524,
+   "lon": 2.395161
+  },
+  {
+   "matricula": "B-8203",
+   "nom": "Banderola: Banderola al costat de la presa",
+   "zona": "Guilleries",
+   "lat": 41.967145,
+   "lon": 2.411943
+  },
+  {
+   "matricula": "B-8204",
+   "nom": "E1. Plafó de Parc: Plànol de Parc de l'aparcament",
+   "zona": "Guilleries",
+   "lat": 41.975595,
+   "lon": 2.361702
+  },
+  {
+   "matricula": "B-8205",
+   "nom": "E1. Plafó de Parc: Plànol del Parc al costat de l'aparcament",
+   "zona": "Guilleries",
+   "lat": 41.885399,
+   "lon": 2.326453
+  },
+  {
+   "matricula": "B-8206",
+   "nom": "C4a. Seguiment: Sortida en direcció Folgueroles",
+   "zona": "Guilleries",
+   "lat": 41.925201,
+   "lon": 2.32671
+  },
+  {
+   "matricula": "B-8207",
+   "nom": "C4a. Seguiment: Sortida en direcció Sant Julià de Vilatorta",
+   "zona": "Guilleries",
+   "lat": 41.937922,
+   "lon": 2.324236
+  },
+  {
+   "matricula": "B-8208",
+   "nom": "C4a. Seguiment: Sortida en direcció Sant Pere de Casserres (la Damunt)",
+   "zona": "Guilleries",
+   "lat": 41.944237,
+   "lon": 2.322891
+  },
+  {
+   "matricula": "B-8209",
+   "nom": "C4c. Seguiment: Entrada a Tavèrnoles",
+   "zona": "Guilleries",
+   "lat": 41.951975,
+   "lon": 2.326188
+  },
+  {
+   "matricula": "B-8210",
+   "nom": "C4a. Seguiment: Serrat del Moros",
+   "zona": "Guilleries",
+   "lat": 41.988819,
+   "lon": 2.352456
+  },
+  {
+   "matricula": "B-8211",
+   "nom": "Banderola: Pla de Brugueres",
+   "zona": "Guilleries",
+   "lat": 41.956182,
+   "lon": 2.36922
+  },
+  {
+   "matricula": "B-8212",
+   "nom": "Banderola: Sortida de Vilanova de Sau en direcció Sant Pere de Casserres",
+   "zona": "Guilleries",
+   "lat": 41.948345,
+   "lon": 2.38053
+  },
+  {
+   "matricula": "B-8213",
+   "nom": "Banderola: Sortida de Vilanova de Sau en direcció Tavertet",
+   "zona": "Guilleries",
+   "lat": 41.948039,
+   "lon": 2.387181
+  },
+  {
+   "matricula": "B-8214",
+   "nom": "C4a: Fita abans d'arribar al Puig del Far",
+   "zona": "Guilleries",
+   "lat": 41.959659,
+   "lon": 2.375787
+  },
+  {
+   "matricula": "B-8215",
+   "nom": "Ca: Casol de Puigcastellet",
+   "zona": "Guilleries",
+   "lat": 41.934226,
+   "lon": 2.340692
+  },
+  {
+   "matricula": "B-8216",
+   "nom": "Ca: Primera fita d'itinerari",
+   "zona": "Guilleries",
+   "lat": 41.964108,
+   "lon": 2.397695
+  },
+  {
+   "matricula": "B-8217",
+   "nom": "C4a: Primera fita d'itinerari",
+   "zona": "Guilleries",
+   "lat": 41.92178,
+   "lon": 2.319245
+  },
+  {
+   "matricula": "B-8218",
+   "nom": "C4a: Primera fita d'itinerari",
+   "zona": "Guilleries",
+   "lat": 41.936774,
+   "lon": 2.318881
+  },
+  {
+   "matricula": "B-8219",
+   "nom": "C4a: Font de la Riera",
+   "zona": "Guilleries",
+   "lat": 41.907174,
+   "lon": 2.322776
+  },
+  {
+   "matricula": "B-8220",
+   "nom": "C4a: Primera fita d'itinerari",
+   "zona": "Guilleries",
+   "lat": 41.920264,
+   "lon": 2.326437
+  },
+  {
+   "matricula": "B-8221",
+   "nom": "C4a: Sant Feliuet de Savassona",
+   "zona": "Guilleries",
+   "lat": 41.959126,
+   "lon": 2.341558
+  },
+  {
+   "matricula": "B-8222",
+   "nom": "C4a: Gorg de Llitons",
+   "zona": "Guilleries",
+   "lat": 41.930533,
+   "lon": 2.350138
+  },
+  {
+   "matricula": "B-8223",
+   "nom": "C4a: Sant Llorenç de Munt",
+   "zona": "Guilleries",
+   "lat": 41.92543,
+   "lon": 2.358753
+  },
+  {
+   "matricula": "B-8224",
+   "nom": "C4a: Entrada al mirador del salt de la Minyona",
+   "zona": "Guilleries",
+   "lat": 41.934332,
+   "lon": 2.369218
+  },
+  {
+   "matricula": "B-9000",
+   "nom": "Quatre camins A. Polígon industrial Sant Pere de Torelló. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.068368,
+   "lon": 2.291374
+  },
+  {
+   "matricula": "B-9001",
+   "nom": "Quatre camins A. Cruïlla prèvia a Can Font. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.057283,
+   "lon": 2.288827
+  },
+  {
+   "matricula": "B-9002",
+   "nom": "Quatre camins A. Paratge de Casa de l'Hora. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.036751,
+   "lon": 2.295012
+  },
+  {
+   "matricula": "B-9003",
+   "nom": "Quatre camins A. Paratge de Casa de l'Hora. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.037605,
+   "lon": 2.294833
+  },
+  {
+   "matricula": "B-9004",
+   "nom": "Quatre camins A. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.020014,
+   "lon": 2.282937
+  },
+  {
+   "matricula": "B-9005",
+   "nom": "Quatre camins A. Cruïlla carretera BV-5224. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.016423,
+   "lon": 2.277591
+  },
+  {
+   "matricula": "B-9006",
+   "nom": "Camí d'Alpens a Lluçà. Cruïlla carretera BP-4654. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.122016,
+   "lon": 2.09835
+  },
+  {
+   "matricula": "B-9007",
+   "nom": "Camí d'Alpens a Lluçà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.102692,
+   "lon": 2.086252
+  },
+  {
+   "matricula": "B-9008",
+   "nom": "Camí d'Alpens a Lluçà. Cruïlla carretera BV-4341. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.082976,
+   "lon": 2.077213
+  },
+  {
+   "matricula": "B-9009",
+   "nom": "Camí de Collsuspina a Muntanyola. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.854753,
+   "lon": 2.182324
+  },
+  {
+   "matricula": "B-9010",
+   "nom": "Camí de Collsuspina a Muntanyola. Cruïlla carretera N-141c. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.85519,
+   "lon": 2.199522
+  },
+  {
+   "matricula": "B-9011",
+   "nom": "Camí de Folgueroles a Tavèrnoles. Cementiri de Folgueroles. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.940771,
+   "lon": 2.321138
+  },
+  {
+   "matricula": "B-9012",
+   "nom": "Camí de Folgueroles a Tavèrnoles. Cruïlla carretera BV-5213. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.953087,
+   "lon": 2.317243
+  },
+  {
+   "matricula": "B-9013",
+   "nom": "Camí de Vilanova de Sau a Rupit. Nucli urbà de Rupit i Pruït. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.0226,
+   "lon": 2.462872
+  },
+  {
+   "matricula": "B-9014",
+   "nom": "Camí de Perafita a la Blava. Cruïlla carretera BP-4653, nucli urbà Perafita. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.041669,
+   "lon": 2.10635
+  },
+  {
+   "matricula": "B-9015",
+   "nom": "Camí de Perafita a la Blava. Cruïlla carretera BV-4342, nucli urbà Sant Martí d'Albars. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.04518,
+   "lon": 2.069822
+  },
+  {
+   "matricula": "B-9016",
+   "nom": "Camí de Sora a Alpens. Nucli urbà de Sora. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.110199,
+   "lon": 2.157495
+  },
+  {
+   "matricula": "B-9017",
+   "nom": "Camí de Sora a Alpens. Cruïlla carretera BP-4654. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.104798,
+   "lon": 2.126629
+  },
+  {
+   "matricula": "B-9018",
+   "nom": "Camí de les Ferreres. Cruïlla carretera BV-4601, nucli urbà Sant Bartomeu del Grau. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.98714,
+   "lon": 2.169369
+  },
+  {
+   "matricula": "B-9019",
+   "nom": "Camí de les Ferreres. Cruïlla carretera C-154. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.967983,
+   "lon": 2.141269
+  },
+  {
+   "matricula": "B-9020",
+   "nom": "Camí de Sant Boi a Sobremunt. Nucli urbà Sant Boi de Lluçanès. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.054966,
+   "lon": 2.151857
+  },
+  {
+   "matricula": "B-9021",
+   "nom": "Camí de Sant Boi a Sobremunt. Paratge Granja Norra. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.039301,
+   "lon": 2.156427
+  },
+  {
+   "matricula": "B-9022",
+   "nom": "Camí de Sant Boi a Sobremunt. Nucli urbà Sobremunt. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.035325,
+   "lon": 2.164429
+  },
+  {
+   "matricula": "B-9023",
+   "nom": "Camí de Sant Julià a Santa Eugènia. Cruïlla carretera B-520, Santa Eugènia de Berga. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.907872,
+   "lon": 2.280022
+  },
+  {
+   "matricula": "B-9024",
+   "nom": "Camí de Sant Julià a Santa Eugènia. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.907051,
+   "lon": 2.29298
+  },
+  {
+   "matricula": "B-9025",
+   "nom": "Camí de Sant Julià a Santa Eugènia. Cruïlla carretera BV-5202. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.908483,
+   "lon": 2.313703
+  },
+  {
+   "matricula": "B-9026",
+   "nom": "Camí de Tavertet a Rupit. Nucli urbà Tavertet. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.996157,
+   "lon": 2.420377
+  },
+  {
+   "matricula": "B-9027",
+   "nom": "Camí de Tavertet a Rupit. Cruïlla carretera C-153. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.029687,
+   "lon": 2.436272
+  },
+  {
+   "matricula": "B-9028",
+   "nom": "Camí de Tona a Balenyà. Nucli urbà Tona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.843389,
+   "lon": 2.226927
+  },
+  {
+   "matricula": "B-9029",
+   "nom": "Camí de Tona a Balenyà. Mare de Déu de l'Ajuda. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.82133,
+   "lon": 2.221305
+  },
+  {
+   "matricula": "B-9030",
+   "nom": "Camí de Tona a Balenyà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.819859,
+   "lon": 2.222226
+  },
+  {
+   "matricula": "B-9031",
+   "nom": "Camí de Tona a Balenyà. Cruïlla carretera C-1413B. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.806132,
+   "lon": 2.222247
+  },
+  {
+   "matricula": "B-9032",
+   "nom": "Camí de Vilanova a Bojons. Cruïlla carretera BV-5201. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.91239,
+   "lon": 2.395041
+  },
+  {
+   "matricula": "B-9033",
+   "nom": "Camí d'Oristà a Olost. Cruïlla carretera B-432. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.979224,
+   "lon": 2.08546
+  },
+  {
+   "matricula": "B-9034",
+   "nom": "Camí d'Oristà a Olost. Paratge La Coromina. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.960302,
+   "lon": 2.073217
+  },
+  {
+   "matricula": "B-9035",
+   "nom": "Camí d'Oristà a Olost. Paratge Camp de Devesa. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.943419,
+   "lon": 2.06591
+  },
+  {
+   "matricula": "B-9036",
+   "nom": "Camí d'Oristà a Olost. Cruïlla carretera B-433. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.934666,
+   "lon": 2.059476
+  },
+  {
+   "matricula": "B-9037",
+   "nom": "Camí d'Oristà a la Torre d'Oristà. Cruïlla carretera BV-4404, nucli urbà La Torre d'Oristà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.953698,
+   "lon": 2.052982
+  },
+  {
+   "matricula": "B-9038",
+   "nom": "Camí del Sorreig. Final carretera BV-4602. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.002567,
+   "lon": 2.204802
+  },
+  {
+   "matricula": "B-9039",
+   "nom": "Camí d'Oristà a la Torre d'Oristà. Paratge La Fàbrega. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.945899,
+   "lon": 2.062966
+  },
+  {
+   "matricula": "B-9040",
+   "nom": "Camí del Sorreig. Paratge Granja Norra. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.039254,
+   "lon": 2.156161
+  },
+  {
+   "matricula": "B-9041",
+   "nom": "Camí de Tavertet a Cantonigròs. Cruïlla carretera C-153. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.041913,
+   "lon": 2.415599
+  },
+  {
+   "matricula": "B-9042",
+   "nom": "Camí de Tavertet a Cantonigròs. Nucli urbà Tavertet. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.996604,
+   "lon": 2.419793
+  },
+  {
+   "matricula": "B-9043",
+   "nom": "Camí de Malars. Cruïlla carretera B-522. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.98734,
+   "lon": 2.27897
+  },
+  {
+   "matricula": "B-9044",
+   "nom": "Camí de Malars. Nucli urbà Roda de Ter. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.981716,
+   "lon": 2.306121
+  },
+  {
+   "matricula": "B-9045",
+   "nom": "Camí de Puigsagordi. Cruïlla carretera C-1413B. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.804872,
+   "lon": 2.21829
+  },
+  {
+   "matricula": "B-9046",
+   "nom": "Camí de Puigsagordi. Urbanització Puigsagordi. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.807184,
+   "lon": 2.195738
+  },
+  {
+   "matricula": "B-9047",
+   "nom": "Camí de Puigsagordi. Urbanització Puigsagordi. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.813507,
+   "lon": 2.19584
+  },
+  {
+   "matricula": "B-9048",
+   "nom": "Camí de Puigsagordi. Urbanització Puigsagordi. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.81396,
+   "lon": 2.194883
+  },
+  {
+   "matricula": "B-9049",
+   "nom": "Camí de Puigsagordi. Urbanització Puigsagordi. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.817547,
+   "lon": 2.191394
+  },
+  {
+   "matricula": "B-9050",
+   "nom": "Camí de Puigsagordi. Cruïlla carretera N-141c. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.824824,
+   "lon": 2.193832
+  },
+  {
+   "matricula": "B-9051",
+   "nom": "Camí de Manlleu a Roda de Ter. Urbanització el Vicenç de Masies de Roda de Ter. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.994284,
+   "lon": 2.294937
+  },
+  {
+   "matricula": "B-9052",
+   "nom": "Camí de Manlleu a Roda de Ter. Paratge Sant Miquel de la Guàrdia. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.992864,
+   "lon": 2.293975
+  },
+  {
+   "matricula": "B-9053",
+   "nom": "Camí de Manlleu a Roda de Ter. Trencant La Teuleria del Torrent. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.990311,
+   "lon": 2.303613
+  },
+  {
+   "matricula": "B-9054",
+   "nom": "Camí de Manlleu a Roda de Ter. El Bac de Roda. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.989066,
+   "lon": 2.306271
+  },
+  {
+   "matricula": "B-9055",
+   "nom": "Camí Parador - Sau. Cruïlla carretera BV-5213. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.975077,
+   "lon": 2.361823
+  },
+  {
+   "matricula": "B-9056",
+   "nom": "Ronda de Gurb. Cruïlla carretera BV-4601, l'Argila. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.972067,
+   "lon": 2.217408
+  },
+  {
+   "matricula": "B-9057",
+   "nom": "Ronda de Gurb. Cruïlla carretera C-17. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.974646,
+   "lon": 2.242083
+  },
+  {
+   "matricula": "B-9058",
+   "nom": "Ronda de Gurb. Cruïlla carretera C-17. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.975818,
+   "lon": 2.246354
+  },
+  {
+   "matricula": "B-9059",
+   "nom": "Ronda de Gurb. Cruïlla carretera B-522, Granollers de la Plana. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.976733,
+   "lon": 2.273658
+  },
+  {
+   "matricula": "B-9060",
+   "nom": "Ronda de Gurb. Cruïlla carretera B-522, Granollers de la Plana. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.976429,
+   "lon": 2.274108
+  },
+  {
+   "matricula": "B-9061",
+   "nom": "Ronda de Gurb. Cruïlla carretera C-153. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.96744,
+   "lon": 2.295752
+  },
+  {
+   "matricula": "B-9062",
+   "nom": "Camí de Sant Julià Sassorba a Sant Bartomeu. Cruïlla carretera BV-4601, Sant Bartomeu del Grau. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.96994,
+   "lon": 2.174746
+  },
+  {
+   "matricula": "B-9063",
+   "nom": "Camí de Sant Julià Sassorba a Sant Bartomeu. Cruïlla carretera C-154, Font Salada. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.938006,
+   "lon": 2.172733
+  },
+  {
+   "matricula": "B-9064",
+   "nom": "Camí de Santa Cecília a la Trona. Cruïlla carretera BV-4602, paratge Gallissans. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.001342,
+   "lon": 2.210009
+  },
+  {
+   "matricula": "B-9065",
+   "nom": "Camí de Santa Cecília a la Trona. Collet de Serratosa. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.017267,
+   "lon": 2.21689
+  },
+  {
+   "matricula": "B-9066",
+   "nom": "Camí de Santa Cecília a la Trona. Cruïlla carretera BV-4608, Puiggròs. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.023015,
+   "lon": 2.222388
+  },
+  {
+   "matricula": "B-9067",
+   "nom": "Camí de Santa Creu de Jutglar-Coll de l'Arç. Nucli urbà Santa Creu de Jutglar. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.005507,
+   "lon": 2.060003
+  },
+  {
+   "matricula": "B-9068",
+   "nom": "Camí de Santa Creu de Jutglar-Coll de l'Arç. Cruïlla carretera B-432, Coll de l'Arç. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.987377,
+   "lon": 2.051252
+  },
+  {
+   "matricula": "B-9069",
+   "nom": "Camí de Tavèrnoles a Roda de Ter. Nucli urbà Roda de Ter. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.974679,
+   "lon": 2.305618
+  },
+  {
+   "matricula": "B-9070",
+   "nom": "Camí de Tavèrnoles a Roda de Ter. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.96725,
+   "lon": 2.316379
+  },
+  {
+   "matricula": "B-9071",
+   "nom": "Camí de Tavèrnoles a Roda de Ter. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.962132,
+   "lon": 2.32674
+  },
+  {
+   "matricula": "B-9072",
+   "nom": "Camí de Tavèrnoles a Roda de Ter. Nucli urbà Tavèrnoles. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.958673,
+   "lon": 2.325063
+  },
+  {
+   "matricula": "B-9073",
+   "nom": "Camí de Vic a Folgueroles. Nucli urbà de Vic, paratge El Bruguer. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.937524,
+   "lon": 2.271847
+  },
+  {
+   "matricula": "B-9074",
+   "nom": "Camí de Vic a Folgueroles. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.93996,
+   "lon": 2.295657
+  },
+  {
+   "matricula": "B-9075",
+   "nom": "Camí de Vic a Folgueroles. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.939242,
+   "lon": 2.296002
+  },
+  {
+   "matricula": "B-9076",
+   "nom": "Camí de Vic a Folgueroles. Polígon industrial de Folgueroles. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.937936,
+   "lon": 2.30937
+  },
+  {
+   "matricula": "B-9077",
+   "nom": "Camí de Vic a Mont-rodon. Paratge Plaça Osona, Vic. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.912531,
+   "lon": 2.260592
+  },
+  {
+   "matricula": "B-9078",
+   "nom": "Camí de Vic a Mont-rodon. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.900809,
+   "lon": 2.255748
+  },
+  {
+   "matricula": "B-9079",
+   "nom": "Camí de Vic a Mont-rodon. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.893137,
+   "lon": 2.256042
+  },
+  {
+   "matricula": "B-9080",
+   "nom": "Camí de Vic a Mont-rodon. Cruïlla carretera BV-5306, Mont-rodon. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.882743,
+   "lon": 2.260285
+  },
+  {
+   "matricula": "B-9081",
+   "nom": "Camí d'Alboquers. Cruïlla carretera BV-4316, paratge Font Cremada. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.916886,
+   "lon": 2.135008
+  },
+  {
+   "matricula": "B-9082",
+   "nom": "Camí d'Alboquers. Cruïlla carretera C-651, paratge Alboquers. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.932917,
+   "lon": 2.139689
+  },
+  {
+   "matricula": "B-9083",
+   "nom": "Camí d'Orís a la Trona. Paratge Sant Genís d'Orís. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.059929,
+   "lon": 2.220596
+  },
+  {
+   "matricula": "B-9084",
+   "nom": "Camí d'Orís a la Trona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.06583,
+   "lon": 2.205076
+  },
+  {
+   "matricula": "B-9085",
+   "nom": "Camí d'Orís a la Trona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.042998,
+   "lon": 2.193399
+  },
+  {
+   "matricula": "B-9086",
+   "nom": "Camí d'Orís a la Trona. Cruïlla carretera BV-4608, trencant Les Feixes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.040004,
+   "lon": 2.194041
+  },
+  {
+   "matricula": "B-9087",
+   "nom": "Camí de Perafita a Lluçà. Nucli urbà Perafita. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.046727,
+   "lon": 2.108224
+  },
+  {
+   "matricula": "B-9088",
+   "nom": "Camí de Perafita a Lluçà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.051596,
+   "lon": 2.095045
+  },
+  {
+   "matricula": "B-9089",
+   "nom": "Camí de Perafita a Lluçà. Cruïlla carretera BV-4342, nucli urbà de Lluçà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.062465,
+   "lon": 2.075637
+  },
+  {
+   "matricula": "B-9090",
+   "nom": "Camí de Rocafarigola. Urbanització La Roca, Taradell. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.884652,
+   "lon": 2.294469
+  },
+  {
+   "matricula": "B-9091",
+   "nom": "Camí de Rocafarigola. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.889882,
+   "lon": 2.304343
+  },
+  {
+   "matricula": "B-9092",
+   "nom": "Camí de Rocafarigola. Cruïlla carretera BV-5202. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.898907,
+   "lon": 2.313311
+  },
+  {
+   "matricula": "B-9093",
+   "nom": "Camí de Sant Julià de Cabrera. Cruïlla carretera C-153, Pont de les Perxes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.051313,
+   "lon": 2.392553
+  },
+  {
+   "matricula": "B-9094",
+   "nom": "Camí de Bellmunt. Cementiri Sant Pere de Torelló. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.078788,
+   "lon": 2.29127
+  },
+  {
+   "matricula": "B-9095",
+   "nom": "Camí dels Munts. L'Hostal del Vilar, Sant Agustí de Lluçanès. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.077845,
+   "lon": 2.130577
+  },
+  {
+   "matricula": "B-9096",
+   "nom": "Camí de Puig-l'agulla. Nucli urbà de Vilalleons. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.890978,
+   "lon": 2.318905
+  },
+  {
+   "matricula": "B-9097",
+   "nom": "Camí de Sant Pere de Casserres. Final carretera BV-5213. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.979479,
+   "lon": 2.361333
+  },
+  {
+   "matricula": "B-9098",
+   "nom": "Camí de Sant Salvador de Bellver. Cruïlla carretera BV-4608. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.054989,
+   "lon": 2.159941
+  },
+  {
+   "matricula": "B-9099",
+   "nom": "Camí de Llaers. Nucli urbà Santa Maria de Besora. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.127638,
+   "lon": 2.261229
+  },
+  {
+   "matricula": "B-9100",
+   "nom": "Camí de Llaers. Coll de Beví. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.138745,
+   "lon": 2.253113
+  },
+  {
+   "matricula": "B-9101",
+   "nom": "Camí del Brull a Aiguafreda. Nucli urbà El Brull. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.815902,
+   "lon": 2.304639
+  },
+  {
+   "matricula": "B-9102",
+   "nom": "Camí del Prat de la Barroca. Cruïlla carretera N-141c, pk 43. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.859575,
+   "lon": 2.203239
+  },
+  {
+   "matricula": "B-9103",
+   "nom": "Camí del Prat de la Barroca. Nucli urbà de Tona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.852308,
+   "lon": 2.219243
+  },
+  {
+   "matricula": "B-9104",
+   "nom": "Camí de la Comella de Palau. Final carrer del Fugurull, Manlleu. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.995095,
+   "lon": 2.28044
+  },
+  {
+   "matricula": "B-9105",
+   "nom": "Camí de la Comella de Palau.  (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.988314,
+   "lon": 2.27343
+  },
+  {
+   "matricula": "B-9106",
+   "nom": "Camí de la Comella de Palau. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.985903,
+   "lon": 2.259828
+  },
+  {
+   "matricula": "B-9107",
+   "nom": "Camí de la Comella de Palau. Paratge La Comella de Palau. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.98205,
+   "lon": 2.260102
+  },
+  {
+   "matricula": "B-9108",
+   "nom": "Camí de Calldetenes a Sant Marc. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.920516,
+   "lon": 2.294375
+  },
+  {
+   "matricula": "B-9109",
+   "nom": "Camí de Calldetenes a Sant Marc. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.913409,
+   "lon": 2.294273
+  },
+  {
+   "matricula": "B-9110",
+   "nom": "Camí de Santa Eugènia de Berga a Vic. Polígon industrial el Bolló, Santa Eugènia de Berga. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.90464,
+   "lon": 2.274524
+  },
+  {
+   "matricula": "B-9111",
+   "nom": "Camí de Santa Eugènia de Berga a Vic. Plaça Osona, Vic. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.913398,
+   "lon": 2.260956
+  },
+  {
+   "matricula": "B-9112",
+   "nom": "Camí de Santa Eugènia a Calldetenes. Nucli urbà Calldetenes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.922112,
+   "lon": 2.283033
+  },
+  {
+   "matricula": "B-9113",
+   "nom": "Camí de Santa Eugènia a Calldetenes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.916793,
+   "lon": 2.279318
+  },
+  {
+   "matricula": "B-9114",
+   "nom": "Camí de Santa Eugènia a Calldetenes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.907822,
+   "lon": 2.282229
+  },
+  {
+   "matricula": "B-9115",
+   "nom": "Camí del Quadre de Malla. Cruïlla carretera BV-5305. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.847948,
+   "lon": 2.257144
+  },
+  {
+   "matricula": "B-9116",
+   "nom": "Camí del Quadre de Malla. Paratge Can Tosell. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.863893,
+   "lon": 2.249272
+  },
+  {
+   "matricula": "B-9117",
+   "nom": "Camí del Quadre de Malla. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.866478,
+   "lon": 2.246519
+  },
+  {
+   "matricula": "B-9118",
+   "nom": "Camí a l'ermita de Sant Sebastià. Cruïlla carretera BV-4316. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.913463,
+   "lon": 2.195563
+  },
+  {
+   "matricula": "B-9119",
+   "nom": "Camí de la Cinglera. Nucli urbà Sant Martí de Centelles, l'Abella. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.760268,
+   "lon": 2.246379
+  },
+  {
+   "matricula": "B-9120",
+   "nom": "Camí de la Cinglera. Paratge Sant Miquel de Sesperxes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.747525,
+   "lon": 2.223737
+  },
+  {
+   "matricula": "B-9121",
+   "nom": "Camí de la Cinglera. Cruïlla carretera C-1413B, Coll de Can Taló. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.75384,
+   "lon": 2.210682
+  },
+  {
+   "matricula": "B-9122",
+   "nom": "Camí de Sant Jaume de Viladrover. Nucli urbà Sant Miquel de Balenyà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.837927,
+   "lon": 2.249419
+  },
+  {
+   "matricula": "B-9123",
+   "nom": "Camí de Sant Jaume de Viladrover. Polígon industrial La Bòvila, Balenyà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.820452,
+   "lon": 2.243675
+  },
+  {
+   "matricula": "B-9124",
+   "nom": "Camí Torre d'Oristà - Sant Feliu Sasserra. Nucli urbà, La Torre d'Oristà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.955664,
+   "lon": 2.051131
+  },
+  {
+   "matricula": "B-9125",
+   "nom": "Camí Torre d'Oristà - Sant Feliu Sasserra. Nucli urbà, La Torre d'Oristà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.957341,
+   "lon": 2.05142
+  },
+  {
+   "matricula": "B-9126",
+   "nom": "Camí Torre d'Oristà - Sant Feliu Sasserra. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.956692,
+   "lon": 2.040413
+  },
+  {
+   "matricula": "B-9127",
+   "nom": "Camí Torre d'Oristà - Sant Feliu Sasserra. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.954074,
+   "lon": 2.038654
+  },
+  {
+   "matricula": "B-9128",
+   "nom": "Camí Torre d'Oristà - Sant Feliu Sasserra. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.948463,
+   "lon": 2.029002
+  },
+  {
+   "matricula": "B-9129",
+   "nom": "Camí Torre d'Oristà - Sant Feliu Sasserra. Paratge El Raval de Sant Feliu. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.944791,
+   "lon": 2.028298
+  },
+  {
+   "matricula": "B-9130",
+   "nom": "Camí de Vernera. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.04591,
+   "lon": 2.153669
+  },
+  {
+   "matricula": "B-9131",
+   "nom": "Camí de Vernera. Cruïlla carretera BV-4601 pk 19. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.025418,
+   "lon": 2.136534
+  },
+  {
+   "matricula": "B-9132",
+   "nom": "Camí de Sant Vicenç a Sant Pere. Cruïlla carretera BV-5224. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.060277,
+   "lon": 2.276477
+  },
+  {
+   "matricula": "B-9133",
+   "nom": "Camí de Sant Vicenç a Sant Pere. Paratge La Casanova . (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.059989,
+   "lon": 2.286548
+  },
+  {
+   "matricula": "B-9134",
+   "nom": "Camí d'Olost a la ctra. de Sant Bartomeu. Nucli urbà d'Olost. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.985819,
+   "lon": 2.098258
+  },
+  {
+   "matricula": "B-9135",
+   "nom": "Camí d'Olost a la ctra. de Sant Bartomeu. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.986701,
+   "lon": 2.103884
+  },
+  {
+   "matricula": "B-9136",
+   "nom": "Camí d'Olost a la ctra. de Sant Bartomeu. Cruïlla carretera BV-4601 pk 19. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.025623,
+   "lon": 2.13269
+  },
+  {
+   "matricula": "B-9137",
+   "nom": "Camí de Sant Bartomeu al Sorreig. Cruïlla carretera BV-4601, Sant Bartomeu del Grau. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.987126,
+   "lon": 2.170033
+  },
+  {
+   "matricula": "B-9138",
+   "nom": "Camí de Sant Bartomeu al Sorreig. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.992508,
+   "lon": 2.168128
+  },
+  {
+   "matricula": "B-9139",
+   "nom": "Camí de Sant Bartomeu al Sorreig. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.005526,
+   "lon": 2.178754
+  },
+  {
+   "matricula": "B-9140",
+   "nom": "Camí de l'Alou. Cruïlla carretera BP-4654. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.103541,
+   "lon": 2.127154
+  },
+  {
+   "matricula": "B-9141",
+   "nom": "Camí de l'Alou. Nucli urbà de Sant Agustí de Lluçanès, l'Alou. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.094964,
+   "lon": 2.131492
+  },
+  {
+   "matricula": "B-9142",
+   "nom": "Camí de Beulaigua a Lluçà. Cruïlla carretera BV-4342, PK 6. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.025277,
+   "lon": 2.062333
+  },
+  {
+   "matricula": "B-9143",
+   "nom": "Camí de Beulaigua a Lluçà. Cruïlla carretera BV-4341. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.047781,
+   "lon": 2.044481
+  },
+  {
+   "matricula": "B-9144",
+   "nom": "Camí de Sora a Cussons. Cruïlla carretera BV-4655. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.1091,
+   "lon": 2.163606
+  },
+  {
+   "matricula": "B-9145",
+   "nom": "Camí de Sora a Cussons. Paratge Casa Ramona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.100077,
+   "lon": 2.171246
+  },
+  {
+   "matricula": "B-9146",
+   "nom": "Camí de Sora a Cussons. Cruïlla carretera BP-4654. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.096322,
+   "lon": 2.189072
+  },
+  {
+   "matricula": "B-9147",
+   "nom": "Camí de Sant Andreu de Llanars. Cruïlla carretera BV-4401. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.998967,
+   "lon": 2.016788
+  },
+  {
+   "matricula": "B-9151",
+   "nom": "Camí de Sant Andreu de Llanars. Cruïlla carretera BV-4401. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.007015,
+   "lon": 2.024876
+  },
+  {
+   "matricula": "B-9152",
+   "nom": "Camí de Falgars. Cruïlla carretera C-153, PK 34. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.052497,
+   "lon": 2.47149
+  },
+  {
+   "matricula": "B-9153",
+   "nom": "Camí de Falgars. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.073943,
+   "lon": 2.448948
+  },
+  {
+   "matricula": "B-9154",
+   "nom": "Camí de Cantonigròs a Can Codina. Nucli urbà de Cantonigròs. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.030528,
+   "lon": 2.399697
+  },
+  {
+   "matricula": "B-9155",
+   "nom": "Camí de Cantonigròs a Can Codina. Cruïlla carretera BV-5207. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.020999,
+   "lon": 2.386162
+  },
+  {
+   "matricula": "B-9156",
+   "nom": "Camí de Centelles a Sant Martí de Centelles. Polígon industrial Centelles. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.79159,
+   "lon": 2.233508
+  },
+  {
+   "matricula": "B-9157",
+   "nom": "Camí de Centelles a Sant Martí de Centelles. Nucli urbà Sant Martí de Centelles, l'Abella. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.763869,
+   "lon": 2.248839
+  },
+  {
+   "matricula": "B-9158",
+   "nom": "Camí del Pla de Tona a Múnter i Cal Ros. Cruïlla carretera N-141c, pk 45. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.872864,
+   "lon": 2.217028
+  },
+  {
+   "matricula": "B-9159",
+   "nom": "Camí del Pla de Tona a Múnter i Cal Ros. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.878545,
+   "lon": 2.210089
+  },
+  {
+   "matricula": "B-9160",
+   "nom": "Camí de Muntanyola a Múnter. Urbanització Fontanelles, Muntanyola. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.876131,
+   "lon": 2.184257
+  },
+  {
+   "matricula": "B-9161",
+   "nom": "Camí antic de Muntanyola. Cruïlla carretera BV-4316, la Guixa. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.911958,
+   "lon": 2.221603
+  },
+  {
+   "matricula": "B-9163",
+   "nom": "Camí de Calldetenes a Sant Martí de Riudeperes. Sant Martí de Riudeperes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.927131,
+   "lon": 2.308281
+  },
+  {
+   "matricula": "B-9164",
+   "nom": "Camí de Calldetenes a Sant Martí de Riudeperes. Paratge El Tei. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.920577,
+   "lon": 2.308762
+  },
+  {
+   "matricula": "B-9165",
+   "nom": "Camí de Calldetenes a Sant Martí de Riudeperes. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.913887,
+   "lon": 2.301671
+  },
+  {
+   "matricula": "B-9166",
+   "nom": "Camí de Calldetenes a Sant Martí de Riudeperes. Paratge Mas Ponç. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.91732,
+   "lon": 2.297558
+  },
+  {
+   "matricula": "B-9167",
+   "nom": "Camí ramader de Fontfreda. Cruïlla carretera BV-4316. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.915095,
+   "lon": 2.135165
+  },
+  {
+   "matricula": "B-9168",
+   "nom": "Camí ramader de Fontfreda. Paratge Puig Espeltós. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.862479,
+   "lon": 2.134127
+  },
+  {
+   "matricula": "B-9169",
+   "nom": "Camí de la Vila. Cruïlla carretera C-25D. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.929479,
+   "lon": 2.219484
+  },
+  {
+   "matricula": "B-9170",
+   "nom": "Camí de la Vila. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.922802,
+   "lon": 2.207156
+  },
+  {
+   "matricula": "B-9171",
+   "nom": "Camí de la Vila. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.915247,
+   "lon": 2.196987
+  },
+  {
+   "matricula": "B-9172",
+   "nom": "Camí de Milany. Cruïlla carretera BV-5227. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.12555,
+   "lon": 2.282643
+  },
+  {
+   "matricula": "B-9173",
+   "nom": "Camí de casa l'Hora. Cruïlla carretera B-522. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.011798,
+   "lon": 2.316639
+  },
+  {
+   "matricula": "B-9174",
+   "nom": "Camí de casa l'Hora. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.018216,
+   "lon": 2.31302
+  },
+  {
+   "matricula": "B-9175",
+   "nom": "Camí de casa l'Hora. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.03906,
+   "lon": 2.286879
+  },
+  {
+   "matricula": "B-9176",
+   "nom": "Camí Santa Eugènia de Berga - Mont-rodon. Nucli urbà Santa Eugènia de Berga. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.902087,
+   "lon": 2.276843
+  },
+  {
+   "matricula": "B-9177",
+   "nom": "Camí Santa Eugènia de Berga - Mont-rodon. Paratge Can Terrers. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.896879,
+   "lon": 2.269307
+  },
+  {
+   "matricula": "B-9178",
+   "nom": "Camí Santa Eugènia de Berga - Mont-rodon. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.889986,
+   "lon": 2.257742
+  },
+  {
+   "matricula": "B-9179",
+   "nom": "Camí de la Casa Nova del Coniller - Tona. Cruïlla carretera BV-5306 . (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.880643,
+   "lon": 2.250306
+  },
+  {
+   "matricula": "B-9180",
+   "nom": "Camí de la Casa Nova del Coniller - Tona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.866495,
+   "lon": 2.246374
+  },
+  {
+   "matricula": "B-9181",
+   "nom": "Camí de la Casa Nova del Coniller - Tona. Nucli urbà de Tona. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.859137,
+   "lon": 2.235617
+  },
+  {
+   "matricula": "B-9182",
+   "nom": "Camí Santa Eugènia de Berga - Mont-rodon. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.891902,
+   "lon": 2.258744
+  },
+  {
+   "matricula": "B-9183",
+   "nom": "Camí d'Alboquers. Collet de l'Horta del Sunyer. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.92543,
+   "lon": 2.132155
+  },
+  {
+   "matricula": "B-9184",
+   "nom": "Camí d'Alboquers. Collet de l'Horta del Sunyer. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.925927,
+   "lon": 2.132341
+  },
+  {
+   "matricula": "G-5000",
+   "nom": "Espai Xenacs a Les Preses",
+   "zona": "la Garrotxa",
+   "lat": 42.139972,
+   "lon": 2.475749
+  },
+  {
+   "matricula": "G-5001",
+   "nom": "La Cot",
+   "zona": "la Garrotxa",
+   "lat": 42.139203,
+   "lon": 2.531034
+  },
+  {
+   "matricula": "G-5002",
+   "nom": "Entrada Cementiri Olot",
+   "zona": "la Garrotxa",
+   "lat": 42.185962,
+   "lon": 2.485643
+  },
+  {
+   "matricula": "G-5003",
+   "nom": "Coll de Bas - Carril Bici",
+   "zona": "la Garrotxa",
+   "lat": 42.119782,
+   "lon": 2.490008
+  },
+  {
+   "matricula": "G-5004",
+   "nom": "Lloc Alou Camí Vell",
+   "zona": "la Garrotxa",
+   "lat": 42.214272,
+   "lon": 2.489642
+  },
+  {
+   "matricula": "G-5005",
+   "nom": "Santuari de la Salut",
+   "zona": "la Garrotxa",
+   "lat": 42.06149,
+   "lon": 2.494983
+  },
+  {
+   "matricula": "G-5006",
+   "nom": "Entrada Sant Feliu - Carril Bici",
+   "zona": "la Garrotxa",
+   "lat": 42.077929,
+   "lon": 2.505843
+  },
+  {
+   "matricula": "G-5007",
+   "nom": "Sant Joan Les Fonts",
+   "zona": "la Garrotxa",
+   "lat": 42.212832,
+   "lon": 2.511959
+  },
+  {
+   "matricula": "G-5008",
+   "nom": "Carretera Santa Pau - Ca la Guapa - Els ossos",
+   "zona": "la Garrotxa",
+   "lat": 42.153669,
+   "lon": 2.517952
+  },
+  {
+   "matricula": "G-5009",
+   "nom": "Sant Iscle Colltort",
+   "zona": "la Garrotxa",
+   "lat": 42.118268,
+   "lon": 2.526377
+  },
+  {
+   "matricula": "G-5010",
+   "nom": "Entrada Parc Nou",
+   "zona": "la Garrotxa",
+   "lat": 42.172023,
+   "lon": 2.479483
+  },
+  {
+   "matricula": "G-5011",
+   "nom": "Collada de Colltort",
+   "zona": "la Garrotxa",
+   "lat": 42.132233,
+   "lon": 2.532938
+  },
+  {
+   "matricula": "G-5012",
+   "nom": "Aparcament Croscat",
+   "zona": "la Garrotxa",
+   "lat": 42.155723,
+   "lon": 2.54095
+  },
+  {
+   "matricula": "G-5013",
+   "nom": "Aparc. Pujada Volcà Santa Magarida",
+   "zona": "la Garrotxa",
+   "lat": 42.147464,
+   "lon": 2.544155
+  },
+  {
+   "matricula": "G-5014",
+   "nom": "Camí La Fageda - Santa Pau",
+   "zona": "la Garrotxa",
+   "lat": 42.139282,
+   "lon": 2.551784
+  },
+  {
+   "matricula": "G-5015",
+   "nom": "Castellfollit - Inici carretera d'Oix",
+   "zona": "la Garrotxa",
+   "lat": 42.221581,
+   "lon": 2.552507
+  },
+  {
+   "matricula": "G-5016",
+   "nom": "Carretera de Santa Pau - Mieres - Piscina Poble",
+   "zona": "la Garrotxa",
+   "lat": 42.146276,
+   "lon": 2.568537
+  },
+  {
+   "matricula": "G-5017",
+   "nom": "Aparcament Santa Pau",
+   "zona": "la Garrotxa",
+   "lat": 42.143763,
+   "lon": 2.5697
+  },
+  {
+   "matricula": "G-7000",
+   "nom": "Coll de Te",
+   "zona": "Montseny G",
+   "lat": 41.795671,
+   "lon": 2.481498
+  },
+  {
+   "matricula": "G-7001",
+   "nom": "Coll de Joan",
+   "zona": "Montseny G",
+   "lat": 41.820528,
+   "lon": 2.405844
+  },
+  {
+   "matricula": "G-7002",
+   "nom": "Sant Miquel de Barretons",
+   "zona": "Montseny G",
+   "lat": 41.821139,
+   "lon": 2.355102
+  },
   {
    "matricula": "G-9000",
    "nom": "Puig d'Arques",
@@ -30,6 +2627,797 @@
    "zona": "les Gavarres",
    "lat": 42.006993,
    "lon": 2.861549
+  },
+  {
+   "matricula": "G-9500",
+   "nom": "Camí de Vidrà a Sant Privat d'en Bas. Nucli urbà de Vidrà. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.124638,
+   "lon": 2.314714
+  },
+  {
+   "matricula": "G-9501",
+   "nom": "Camí de Vidrà a Sant Privat d'en Bas. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 42.16367,
+   "lon": 2.384385
+  },
+  {
+   "matricula": "G-9502",
+   "nom": "Camí del Veïnat de França. Nucli urbà Espinelves. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.871522,
+   "lon": 2.422143
+  },
+  {
+   "matricula": "G-9503",
+   "nom": "Camí del Veïnat de França. Cruïlla carretera BV-5201. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.887161,
+   "lon": 2.442914
+  },
+  {
+   "matricula": "G-9504",
+   "nom": "Camí de Viladrau a Espinelves. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.848928,
+   "lon": 2.39835
+  },
+  {
+   "matricula": "G-9505",
+   "nom": "Camí de Viladrau a Espinelves. (CONSELL COMARCAL D'OSONA).",
+   "zona": "",
+   "lat": 41.868731,
+   "lon": 2.410082
+  },
+  {
+   "matricula": "L-5000",
+   "nom": "Cap del Coll. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.473296,
+   "lon": 1.123636
+  },
+  {
+   "matricula": "L-5001",
+   "nom": "Cruïlla. Carrerada del Tallat, camí dels molins eòlics. 2on. Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.479999,
+   "lon": 1.131549
+  },
+  {
+   "matricula": "L-5002",
+   "nom": "Camí part darrera del Santuari del Tallat. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.481573,
+   "lon": 1.12871
+  },
+  {
+   "matricula": "L-5003",
+   "nom": "Camí del Tallat. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.49769,
+   "lon": 1.11189
+  },
+  {
+   "matricula": "L-5004",
+   "nom": "Serra de les Monges. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.50153,
+   "lon": 1.10772
+  },
+  {
+   "matricula": "L-5005",
+   "nom": "Carretera dels Omells, cruïlla camí  del Sant Esperit. Vallbona de les Monges (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.513613,
+   "lon": 1.09726
+  },
+  {
+   "matricula": "L-5006",
+   "nom": "Serra de les Monges. Vallbona de les Monges (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.504907,
+   "lon": 1.102651
+  },
+  {
+   "matricula": "L-5007",
+   "nom": "Costa dels Garrots o camí dels bosquets. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.520567,
+   "lon": 1.092404
+  },
+  {
+   "matricula": "L-5008",
+   "nom": "Cruïlla amb l'antic camí a Rocallaura. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.525338,
+   "lon": 1.095131
+  },
+  {
+   "matricula": "L-5009",
+   "nom": "Cruïlla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.52743,
+   "lon": 1.10618
+  },
+  {
+   "matricula": "L-5010",
+   "nom": "Coll de l'Olla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.52726,
+   "lon": 1.10731
+  },
+  {
+   "matricula": "L-5011",
+   "nom": "Prop camí de Nalec, Comellar de les Guineus. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.517172,
+   "lon": 1.139934
+  },
+  {
+   "matricula": "L-5012",
+   "nom": "Cruïlla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.51494,
+   "lon": 1.14352
+  },
+  {
+   "matricula": "L-5013",
+   "nom": "Riera Maldanell. Coll Roig, camí de Rocallaura 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.50199,
+   "lon": 1.17472
+  },
+  {
+   "matricula": "P-1102",
+   "nom": "Pla del Goleró. Cruïlla entre el PR-C 122 que puja a la Torreta de Cadí i el camí que va a Cornellana.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.278838,
+   "lon": 1.542143
+  },
+  {
+   "matricula": "P-1103",
+   "nom": "Torreta del Cadí. Inici del tram de carena del PR-C 122.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.282693,
+   "lon": 1.562841
+  },
+  {
+   "matricula": "P-1104",
+   "nom": "Carena del Cadí. Cruïlla entre el GR 150-1 i el PR-C 122, abans de la baixada cap a coll Jovell.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.284783,
+   "lon": 1.602224
+  },
+  {
+   "matricula": "P-1105",
+   "nom": "Punt per on transcorren dos itineraris a peu: l'itinerari de la Serra del Morral, i molt a prop, el Camí de l'Últim Càtar. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.370022,
+   "lon": 1.382842
+  },
+  {
+   "matricula": "P-1106",
+   "nom": "Punt per on transcorren dos itineraris a peu: l'itinerari de Santa Eugínia i el Camí de l'Últim Càtar. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.383373,
+   "lon": 1.42201
+  },
+  {
+   "matricula": "P-1214",
+   "nom": "Camí dels enamorats, de l’aparcament de la Farga a l’aparcament de la Molina. És l’inici de cobertura en aquesta entrada al parc. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.544813,
+   "lon": 0.842457
+  },
+  {
+   "matricula": "P-1215",
+   "nom": "Camí de Port de Rus a la carretera de Tall (tram de camins vius). Inici de cobertura telefonia. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.509065,
+   "lon": 0.876331
+  },
+  {
+   "matricula": "P-1216",
+   "nom": "Aparcament de Toirigo. Confluència de tres camins: Toirigo – Estany de Cavallers, Toirigo – Llubriqueto i Caldes – Toirigo. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.566376,
+   "lon": 0.845052
+  },
+  {
+   "matricula": "P-1307",
+   "nom": "Cobertura localitzada 20 metres a l’oest del Refugi dels Engorgs (municipi de Meranges).(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.481096,
+   "lon": 1.744979
+  },
+  {
+   "matricula": "P-1309",
+   "nom": "Refugi Pla de les Forques.(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.370146,
+   "lon": 1.95718
+  },
+  {
+   "matricula": "P-1310",
+   "nom": "Prat de Cadí, final del camí que hi puja des d'Estana.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.296102,
+   "lon": 1.663319
+  },
+  {
+   "matricula": "P-1311",
+   "nom": "Coll del Cristall.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.283003,
+   "lon": 1.656744
+  },
+  {
+   "matricula": "P-1312",
+   "nom": "Pas dels Gosolans.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.286735,
+   "lon": 1.711245
+  },
+  {
+   "matricula": "P-1313",
+   "nom": "Pla de Moixeró. Cruïlla entre el GR 150-1 i el camí de Cavalls del Vent que baixa cap al refugi del serrat de les Esposes.",
+   "zona": "Parc Natural del Cadí-moixeró",
+   "lat": 42.302849,
+   "lon": 1.833378
+  },
+  {
+   "matricula": "P-1513",
+   "nom": "Mirador de l’Estany de Sant Maurici.(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.586931,
+   "lon": 0.987403
+  },
+  {
+   "matricula": "P-1516",
+   "nom": "Camí de Mainera a la Vall d’Àssua que puja a l’Estany de Mainera. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.512092,
+   "lon": 1.050631
+  },
+  {
+   "matricula": "P-1518",
+   "nom": "Pas del Coro, en camí del Refugi del Gerdar al Refugi Pla de la Font. Cruïlla amb 3 camins.(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.625347,
+   "lon": 1.056221
+  },
+  {
+   "matricula": "P-1521",
+   "nom": "Sortida Alós d’Isil. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.702685,
+   "lon": 1.101377
+  },
+  {
+   "matricula": "P-1522",
+   "nom": "Isil. Cartellera amb teulat. (ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.679319,
+   "lon": 1.085271
+  },
+  {
+   "matricula": "P-1527",
+   "nom": "Pleta del Prat. A la carretera, a mà dreta, abans d’arribar al refugi.(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.678665,
+   "lon": 1.222912
+  },
+  {
+   "matricula": "P-1530",
+   "nom": "Tavascan. A la sortida del poble en direcció pista que va cap a Boavi.(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.646772,
+   "lon": 1.260721
+  },
+  {
+   "matricula": "P-1531",
+   "nom": "Àreu. A intersecció a la Força d’Àreu i serradora.(ALT PIRINEU I ARAN).",
+   "zona": "",
+   "lat": 42.592123,
+   "lon": 1.324448
+  },
+  {
+   "matricula": "T-5000",
+   "nom": "Pista a ca l'Arnedo. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.353898,
+   "lon": 1.357016
+  },
+  {
+   "matricula": "T-5001",
+   "nom": "Camí travesser. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.352904,
+   "lon": 1.354377
+  },
+  {
+   "matricula": "T-5002",
+   "nom": "Camí dels Muntanyesos. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.356325,
+   "lon": 1.343401
+  },
+  {
+   "matricula": "T-5003",
+   "nom": "Camí travesser. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.357616,
+   "lon": 1.325188
+  },
+  {
+   "matricula": "T-5004",
+   "nom": "Camí dels Horts. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.375329,
+   "lon": 1.262562
+  },
+  {
+   "matricula": "T-5005",
+   "nom": "Cruïlla Muntanya de Jordà. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.381655,
+   "lon": 1.259713
+  },
+  {
+   "matricula": "T-5006",
+   "nom": "Cruïlla Pista dels Sarrills. Muntanya de Jordà. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.382679,
+   "lon": 1.259085
+  },
+  {
+   "matricula": "T-5007",
+   "nom": "Coll de l'Era del Caterí. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.382014,
+   "lon": 1.252615
+  },
+  {
+   "matricula": "T-5008",
+   "nom": "Enllaç variant BTT. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.381727,
+   "lon": 1.251624
+  },
+  {
+   "matricula": "T-5009",
+   "nom": "Coll de la Planota de Faló. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.379684,
+   "lon": 1.242797
+  },
+  {
+   "matricula": "T-5010",
+   "nom": "Font de Sant Salvador. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.376722,
+   "lon": 1.234866
+  },
+  {
+   "matricula": "T-5011",
+   "nom": "Enllaç GR7 i GR7-8. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.374762,
+   "lon": 1.231994
+  },
+  {
+   "matricula": "T-5012",
+   "nom": "Pista de la Barceloneta. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.375625,
+   "lon": 1.230516
+  },
+  {
+   "matricula": "T-5013",
+   "nom": "Camí a l'ermita de Santa Anna. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.382926,
+   "lon": 1.212028
+  },
+  {
+   "matricula": "T-5014",
+   "nom": "Senderó rasa de Sant Miquel. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.381882,
+   "lon": 1.20383
+  },
+  {
+   "matricula": "T-5015",
+   "nom": "Camí que porta al Mas de la Sabatera. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.381584,
+   "lon": 1.195325
+  },
+  {
+   "matricula": "T-5016",
+   "nom": "Camí de Gorrines direcció de Sant Joan. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.372875,
+   "lon": 1.145314
+  },
+  {
+   "matricula": "T-5017",
+   "nom": "Accés Ermita Sant Joan. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.373079,
+   "lon": 1.12962
+  },
+  {
+   "matricula": "T-5018",
+   "nom": "Pista de la Trinitat a la Pena. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.37238,
+   "lon": 1.12293
+  },
+  {
+   "matricula": "T-5019",
+   "nom": "Coll de la Bena 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.37128,
+   "lon": 1.103563
+  },
+  {
+   "matricula": "T-5020",
+   "nom": "Camí de la Pena. 1er Sector - Santes Creus - Poblet. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.374223,
+   "lon": 1.101036
+  },
+  {
+   "matricula": "T-5021",
+   "nom": "Camí paral·lel a l'AP2. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.407028,
+   "lon": 1.112468
+  },
+  {
+   "matricula": "T-5022",
+   "nom": "Rasa de les Comes. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.410557,
+   "lon": 1.115422
+  },
+  {
+   "matricula": "T-5023",
+   "nom": "Abocador de runes clausurat. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.414675,
+   "lon": 1.123383
+  },
+  {
+   "matricula": "T-5024",
+   "nom": "Cruïlla Camí de Montblanc a Senan amb el Camí de la Font de l'Abella. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.420832,
+   "lon": 1.120372
+  },
+  {
+   "matricula": "T-5025",
+   "nom": "Cruïlla Mas de la Bojona. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.430451,
+   "lon": 1.123374
+  },
+  {
+   "matricula": "T-5026",
+   "nom": "Cruïlla camí Mas dels Frares. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.44037,
+   "lon": 1.125423
+  },
+  {
+   "matricula": "T-5027",
+   "nom": "Cruïlla Mas d'en Llord amb el camí del Tossal Gros. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.445834,
+   "lon": 1.131113
+  },
+  {
+   "matricula": "T-5028",
+   "nom": "Camí del Tossal Gros. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.452678,
+   "lon": 1.127694
+  },
+  {
+   "matricula": "T-5029",
+   "nom": "Camí del Tossal Gros. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.457129,
+   "lon": 1.126238
+  },
+  {
+   "matricula": "T-5030",
+   "nom": "Mas d'en Jover. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.466712,
+   "lon": 1.119493
+  },
+  {
+   "matricula": "T-5031",
+   "nom": "Cruïlla Cap del Coll amb la carrerada del Tallat. 2on Sector - Poblet - Vallbona de les Monges. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.4776,
+   "lon": 1.133405
+  },
+  {
+   "matricula": "T-5032",
+   "nom": "Camí de la Serra, molins eòlics de Conesa. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.489819,
+   "lon": 1.25328
+  },
+  {
+   "matricula": "T-5033",
+   "nom": "Coll de Torrefaves. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.485286,
+   "lon": 1.261889
+  },
+  {
+   "matricula": "T-5034",
+   "nom": "Camí de Forès. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.48355,
+   "lon": 1.27247
+  },
+  {
+   "matricula": "T-5035",
+   "nom": "Cruïlla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.469998,
+   "lon": 1.287699
+  },
+  {
+   "matricula": "T-5036",
+   "nom": "Cruïlla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.469437,
+   "lon": 1.28836
+  },
+  {
+   "matricula": "T-5037",
+   "nom": "Rasa de la Font Voltada. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.46122,
+   "lon": 1.300838
+  },
+  {
+   "matricula": "T-5038",
+   "nom": "Pla del Pallisó 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.458715,
+   "lon": 1.299936
+  },
+  {
+   "matricula": "T-5039",
+   "nom": "Camí a Selmella. Coll de Maldà. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.448622,
+   "lon": 1.312067
+  },
+  {
+   "matricula": "T-5040",
+   "nom": "Bifurcació. Enllaç ruta 7 de Sarral. Senyal Refugi Sants Metges. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.44015,
+   "lon": 1.3132
+  },
+  {
+   "matricula": "T-5041",
+   "nom": "Serra de Comaverd. Camí de la cova Cativera. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.431549,
+   "lon": 1.305921
+  },
+  {
+   "matricula": "T-5042",
+   "nom": "Serra de Comaverd. Cim Cogulló. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.4299,
+   "lon": 1.305613
+  },
+  {
+   "matricula": "T-5043",
+   "nom": "Serra de Comaverd. Bifurcació cap a la Roca del Cogulló. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.428319,
+   "lon": 1.302486
+  },
+  {
+   "matricula": "T-5044",
+   "nom": "Roca del Cogulló, serra de Comaverd. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.4269,
+   "lon": 1.302933
+  },
+  {
+   "matricula": "T-5045",
+   "nom": "Cruïlla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.416733,
+   "lon": 1.309067
+  },
+  {
+   "matricula": "T-5046",
+   "nom": "Coll de Romigueres. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.413482,
+   "lon": 1.309189
+  },
+  {
+   "matricula": "T-5047",
+   "nom": "Cal Guixó. Enllaç BTT. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.412699,
+   "lon": 1.313358
+  },
+  {
+   "matricula": "T-5048",
+   "nom": "Cruïlla 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.400099,
+   "lon": 1.323915
+  },
+  {
+   "matricula": "T-5049",
+   "nom": "Urb. Can Rui-Mas del Plata. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.397504,
+   "lon": 1.328147
+  },
+  {
+   "matricula": "T-5050",
+   "nom": "Camí a Fontscaldetes. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.388363,
+   "lon": 1.348674
+  },
+  {
+   "matricula": "T-5051",
+   "nom": "Camí a Fontscaldetes. Camp de tir. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.383192,
+   "lon": 1.357562
+  },
+  {
+   "matricula": "T-5052",
+   "nom": "Camí de la Planeta a Santes Creus. 3er Sector - Vallbona - Santes Creus. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.353535,
+   "lon": 1.365574
+  },
+  {
+   "matricula": "T-5053",
+   "nom": "Serra de Comaverd. Coll de Maldà. 3er Sector - Variant BTT Cogulló . (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.4454,
+   "lon": 1.320033
+  },
+  {
+   "matricula": "T-5054",
+   "nom": "Serra de Comaverd. Puig Comaverd. 3er Sector - Variant BTT Cogulló . (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.434717,
+   "lon": 1.333
+  },
+  {
+   "matricula": "T-5055",
+   "nom": "Cruïlla camí a la Barceloneta i camí de Cabra GR7. 1er Sector - Variant BTT Prenafeta. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.380696,
+   "lon": 1.234428
+  },
+  {
+   "matricula": "T-5056",
+   "nom": "Cruïlla camí a la Barceloneta i camí de Cabra. 1er Sector - Variant BTT Prenafeta. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.384142,
+   "lon": 1.240497
+  },
+  {
+   "matricula": "T-5057",
+   "nom": "Enllaç coll de l'Era del Caterí amb camí Travesser de Dalt. 1er Sector - Variant BTT Prenafeta. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.384513,
+   "lon": 1.242175
+  },
+  {
+   "matricula": "T-5058",
+   "nom": "Coll de l'Era del Caterí 1er Sector - Variant BTT Prenafeta. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.382352,
+   "lon": 1.245125
+  },
+  {
+   "matricula": "T-5059",
+   "nom": "Camí de la Tossa, pont del Diable. 1er Sector - Variant BTT Les Masies - Sant Joan. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.382733,
+   "lon": 1.13527
+  },
+  {
+   "matricula": "T-5060",
+   "nom": "Camí de l'ermita 1er Sector - Variant BTT Les Masies - Sant Joan. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.383127,
+   "lon": 1.118492
+  },
+  {
+   "matricula": "T-5061",
+   "nom": "Camí de Blancafort a Solivella 2n Sector. Nova variant per Blancafort i Solivella. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.447479,
+   "lon": 1.165777
+  },
+  {
+   "matricula": "T-5062",
+   "nom": "Camí de Solivella a Blancafort. 2n Sector. Nova variant per Blancafort i Solivella. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.464167,
+   "lon": 1.1701
+  },
+  {
+   "matricula": "T-5063",
+   "nom": "Camí Ral del Tallat. 2n Sector. Nova variant per Blancafort i Solivella. (RUTA DEL CISTER).",
+   "zona": "",
+   "lat": 41.476789,
+   "lon": 1.152462
+  },
+  {
+   "matricula": "T-6000",
+   "nom": "Sortida estació Prat de Comte direcció el Pinell de Brai.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 41.00313,
+   "lon": 0.419941
+  },
+  {
+   "matricula": "T-6001",
+   "nom": "Àrea descans davant l'ermita de Sant Josep de Bot.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 41.006342,
+   "lon": 0.395308
+  },
+  {
+   "matricula": "T-6002",
+   "nom": "Passat primer túnel després estació de Bot direcció Horta de Sant Joan.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 40.998531,
+   "lon": 0.366066
+  },
+  {
+   "matricula": "T-6003",
+   "nom": "Abans del túnel prop de l'estació d'Horta de Sant Joan.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 40.967857,
+   "lon": 0.340767
+  },
+  {
+   "matricula": "T-6004",
+   "nom": "Després de l'estació d'Horta de Sant Joan a Arnes, abans de la carretera T-334.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 40.965079,
+   "lon": 0.319396
+  },
+  {
+   "matricula": "T-6005",
+   "nom": "Després del túnel abans de l'estació d'Arnes-Lledó.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 40.952743,
+   "lon": 0.294747
+  },
+  {
+   "matricula": "T-6006",
+   "nom": "A l'estació d'Arnes-Lledó, al costat del senyal de la Via Verda.",
+   "zona": "Consell Comarcal de la Terra Alta",
+   "lat": 40.943695,
+   "lon": 0.276258
   }
  ]
 }
