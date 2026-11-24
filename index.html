@@ -2815,7 +2815,7 @@ inicia();
       const rx = qui.map(id => Math.max(0, ...vals(id, "r", x.hores)));
       const mn = qui.map(id => Math.min(99, ...vals(id, "t", x.hores)));
       const mx = qui.map(id => Math.max(-99, ...vals(id, "t", x.hores)));
-      res.push({ i, nom: i === 0 ? "Avui" : i === 1 ? "Demà" : NOMS[x.dt.getUTCDay()], n: qui.length, pl, rx, mn, mx });
+      res.push({ i, nom: (i === 0 ? "Avui" : i === 1 ? "Demà" : NOMS[x.dt.getUTCDay()]) + " " + x.k.split("-").reverse().join("."), n: qui.length, pl, rx, mn, mx });
     });
     const num = v => v >= 10 || Number.isInteger(v) ? String(Math.round(v)) : String(Math.round(v * 10) / 10).replace(".", ",");
     const verb = n => n === 1 ? "indica" : "indiquen";
