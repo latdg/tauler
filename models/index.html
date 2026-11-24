@@ -430,7 +430,7 @@ function grafic() {
   const km = m => parseFloat(String(m.res).replace(",", ".")) || 99;
   [...amb].sort((x, y) => km(x) - km(y)).forEach(m => {
     const b = document.createElement("button");
-    b.className = "xip"; b.dataset.id = m.id; b.title = `${m.font} · quadrícula de ${m.res}`;
+    b.className = "xip"; b.dataset.id = m.id; b.title = `${m.font} · quadrícula ${/^(1|11)(,\d+)?\s/.test(m.res) ? "d'" : "de "}${m.res}`;   // «d'1,5 km», «d'11 km»
     b.innerHTML = `${esc(m.nom)}<small>${esc(m.res)}</small>`;
     b.onclick = () => triaModel(m.id);
     fm.appendChild(b);
