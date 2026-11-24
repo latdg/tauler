@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-23T14:52:44+00:00",
+ "actualitzat": "2026-11-24T14:58:06+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2021,8 +2021,8 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 241,
-   "especies": 179,
+   "observacions": 243,
+   "especies": 181,
    "observadors": 30,
    "grups": [
     [
@@ -2031,7 +2031,7 @@
     ],
     [
      "🌿 Plantes",
-     78
+     80
     ],
     [
      "🕷️ Aranyes",
@@ -2286,6 +2286,36 @@
     }
    ],
    "recents": [
+    {
+     "id": 416572435,
+     "data": "2026-11-20",
+     "url": "https://www.inaturalist.org/observations/416572435",
+     "nom": "espirant autumnal",
+     "cientific": "Spiranthes spiralis",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/767205392/small.jpg",
+     "autor": "pauoc",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
+    {
+     "id": 416572423,
+     "data": "2026-11-20",
+     "url": "https://www.inaturalist.org/observations/416572423",
+     "nom": "indiana",
+     "cientific": "Galatella sedifolia",
+     "rang": "species",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/767205346/small.jpg",
+     "autor": "pauoc",
+     "lloc": "GI-664, Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
+     "introduida": false
+    },
     {
      "id": 415054504,
      "data": "2026-11-15",
@@ -2855,36 +2885,6 @@
      "qualitat": "research",
      "amenacada": false,
      "introduida": false
-    },
-    {
-     "id": 375792293,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375792293",
-     "nom": "",
-     "cientific": "Oryctes nasicornis grypus",
-     "rang": "subspecies",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/687039709/small.jpg",
-     "autor": "Laura Justicia",
-     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
-     "qualitat": "research",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 375792177,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375792177",
-     "nom": "Vespa asiàtica",
-     "cientific": "Vespa velutina",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/687039357/small.jpg",
-     "autor": "Laura Justicia",
-     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
-     "qualitat": "research",
-     "amenacada": false,
-     "introduida": true
     }
    ]
   },
