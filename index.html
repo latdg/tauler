@@ -2651,14 +2651,8 @@ async function inicia() {
   const triat = params.get("dia");
   const sel = document.getElementById("dia");
 
-  try {
-    const dies = await json("dades/dies.json");
-    if (dies.length) {
-      sel.innerHTML = dies.map(x => `<option value="${x}">${dataCa(x)}</option>`).join("");
-      document.getElementById("selector").hidden = false;
-      sel.onchange = () => { location.search = "?dia=" + sel.value; };
-    }
-  } catch (e) {}
+  // 24.11.2026: el selector «Dia» ja no es mostra al públic (sempre el d'avui).
+  // Els dies desats es poden obrir encara amb l'adreça …/tauler/?dia=AAAA-MM-DD.
 
   try {
     const d = await json(triat ? `dades/${triat}.json` : "dades/darrer.json");
