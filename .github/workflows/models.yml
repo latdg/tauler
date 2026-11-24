@@ -1,5 +1,5 @@
 # Models de previsió — La TdG ampliada · 24.11.2026
-# Cada 6 hores baixa d'Open-Meteo els models numèrics (punt de la Bisbal i
+# Cada 3 hores (25.11.2026; abans cada 6) baixa d'Open-Meteo els models numèrics (punt de la Bisbal i
 # graella de la província de Girona) per a la pàgina tauler/models/. Les dades van a la
 # branca «models-dades», que es reescriu sencera cada vegada (sense historial),
 # perquè el repo no s'engreixi amb fitxers que es renoven tot el dia.
@@ -7,7 +7,7 @@ name: Models de previsió
 
 on:
   schedule:
-    - cron: "17 1,7,13,19 * * *"
+    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:

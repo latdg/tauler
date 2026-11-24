@@ -137,6 +137,11 @@ function horaDe(inici, h) {
   return new Date(Date.UTC(a, m - 1, dd, hh) + h * 3600e3);
 }
 const msDe = inici => horaDe(inici, 0).getTime();
+// L'hora actual de Madrid, en el mateix UTC fictici que horaDe (arrodonida a l'hora en punt)
+function horaAra() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Madrid", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" }).formatToParts(new Date()).map(x => [x.type, x.value]));
+  return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour);
+}
 const etiqHora = dt => `${DIES[dt.getUTCDay()]} ${z(dt.getUTCDate())}.${z(dt.getUTCMonth() + 1)}.${dt.getUTCFullYear()} · ${z(dt.getUTCHours())} h`;
 const etiqCurta = dt => `${DIES[dt.getUTCDay()]} ${z(dt.getUTCHours())} h`;
 const diaClau = dt => `${dt.getUTCFullYear()}-${z(dt.getUTCMonth() + 1)}-${z(dt.getUTCDate())}`;
@@ -364,7 +369,8 @@ async function triaModel(id) {
       CACHE[id] = g;
     }
     G = CACHE[id];
-    if (HORA_MS == null) HORA_MS = msDe(G.inici);
+    // 25.11.2026: el mapa arrenca a l'hora actual (hora de Madrid), no a la primera hora del fitxer
+    if (HORA_MS == null) HORA_MS = horaAra();
     $("franja").max = G.dades.t.length - 1;
     $("avis").hidden = true;
     infoModel(); llegenda(); pintaMapa();
