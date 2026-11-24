@@ -6,8 +6,6 @@
 <meta name="color-scheme" content="light only">
 <meta name="robots" content="noindex, nofollow">
 <title>Registre d'aeronaus</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 :root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
 *{box-sizing:border-box}
@@ -37,14 +35,6 @@ tr.alerta td:first-child{box-shadow:inset 4px 0 0 var(--accent)}
 .coord{display:block;color:var(--suau);font-size:.78rem}
 .buit{color:var(--suau)}
 .font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
-/* Mapa dels passos · 24.11.2026 */
-#mapa{height:520px;border-radius:10px;border:1px solid var(--linia);background:#ebe9e4;margin-bottom:8px}
-@media (max-width:600px){#mapa{height:400px}}
-.avio{background:#fff;border:2px solid #6b6b66;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;box-shadow:0 1px 3px rgba(0,0,0,.35)}
-.avio.alerta{border-color:var(--accent);border-width:3px}
-.llegenda-mapa{color:var(--suau);font-size:.8rem;margin:0 0 12px}
-tbody tr{cursor:pointer}
-tbody tr.triada td{background:#fbe1d8;color:var(--text)}
 </style>
 <!-- Visites (GoatCounter, sense galetes) · 01.11.2026 -->
 <script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -67,8 +57,6 @@ tbody tr.triada td{background:#fbe1d8;color:var(--text)}
 <main>
   <section>
     <div class="xifres" id="xifres"></div>
-    <div id="mapa"></div>
-    <p class="llegenda-mapa">Cada punt és el lloc on l'aeronau ha passat més a prop de la Bisbal, no la trajectòria. Cercle vermell: zona d'avisos (8 km); cercle gris: 40 km. Els vols comercials hi surten com a punts grisos petits. Toca una fila de la taula per situar-la al mapa.</p>
     <div class="taula" id="taula"><p class="buit">Carregant…</p></div>
     <p class="font">Una fila per cada pas d'una aeronau a menys de 40 km de la Bisbal, amb el punt on ha passat més a prop.
       Marcades amb una barra, les que entren a la zona d'avisos (aviació no comercial a menys de 8 km).
@@ -96,52 +84,6 @@ const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;
 const num = v => (v === null || v === undefined || v === "") ? "—" : String(v).replace(".", ",");
 const dataCa = iso => iso.split("-").reverse().join(".");
 let FILES = [];
-const BISBAL = [41.9597, 3.0386];
-let MAPA = null, CAPA = null, MARCADORS = {};
-
-function iniciaMapa() {
-  if (typeof L === "undefined") { document.getElementById("mapa").innerHTML = '<p class="buit" style="padding:12px">No s\'ha pogut carregar el mapa.</p>'; return; }
-  MAPA = L.map("mapa", { zoomSnap: 0.25, preferCanvas: true }).setView(BISBAL, 9);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    maxZoom: 18, subdomains: "abcd",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-  }).addTo(MAPA);
-  MAPA.attributionControl.setPrefix("");
-  const gran = L.circle(BISBAL, { radius: 40000, color: "#8a857a", weight: 1.2, dashArray: "5 5", fill: false, interactive: false }).addTo(MAPA);
-  L.circle(BISBAL, { radius: 8000, color: "#b4462c", weight: 1.5, dashArray: "5 5", fillColor: "#b4462c", fillOpacity: .05, interactive: false }).addTo(MAPA);
-  L.circleMarker(BISBAL, { radius: 4, color: "#1d1d1b", weight: 1, fillColor: "#fff", fillOpacity: 1 }).addTo(MAPA).bindTooltip("la Bisbal d'Empordà");
-  MAPA.fitBounds(gran.getBounds(), { padding: [6, 6] });
-  CAPA = L.layerGroup().addTo(MAPA);
-}
-
-function fitxa(f) {
-  const ident = [f.indicatiu, f.matricula].filter(Boolean).join(" · ") || f.icao24 || "";
-  return `<b>${ICONES[f.clau] || "✈️"} ${esc(f.categoria.charAt(0) + f.categoria.slice(1).toLowerCase())}</b><br>` +
-    `${esc(f.hora)} h${ident ? " · " + esc(ident) : ""}<br>` +
-    `${esc(f.descripcio || f.model || "")}${f.operador ? "<br>" + esc(f.operador) : ""}<br>` +
-    `${f.aTerra ? "A terra" : num(f.altitud) + " m"} · ${num(f.velocitat)} km/h<br>` +
-    `${esc(f.ubicacio)} (a ${num(f.distancia)} km de la Bisbal)` +
-    (f.avis || f.esdeveniment ? `<br><i>${esc([f.esdeveniment, f.avis].filter(Boolean).join(" · "))}</i>` : "");
-}
-
-function pintaMapa(files) {
-  if (!MAPA) return;
-  CAPA.clearLayers();
-  MARCADORS = {};
-  // Primer els comercials (a sota, petits i grisos), després la resta (a sobre, amb icona).
-  files.filter(f => f.clau === "comercial" && f.lat != null && f.lon != null).forEach(f => {
-    MARCADORS[f.id] = L.circleMarker([f.lat, f.lon], { radius: 3, color: "#8a857a", weight: 0, fillColor: "#8a857a", fillOpacity: .45 })
-      .bindPopup(fitxa(f)).addTo(CAPA);
-  });
-  files.filter(f => f.clau !== "comercial" && f.lat != null && f.lon != null).forEach(f => {
-    const c = COLORS[f.color];
-    const vora = c ? `border-color:${c[1]};background:${c[0]}` : "";
-    const icona = L.divIcon({ className: "", iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14],
-      html: `<div class="avio${f.alerta ? " alerta" : ""}" style="${vora}">${ICONES[f.clau] || "✈️"}</div>` });
-    MARCADORS[f.id] = L.marker([f.lat, f.lon], { icon: icona, zIndexOffset: f.alerta ? 1000 : 0 })
-      .bindPopup(fitxa(f)).addTo(CAPA);
-  });
-}
 
 async function json(cami) {
   const r = await fetch(BASE + cami + "?v=" + Date.now());
@@ -169,7 +111,6 @@ function pinta() {
 
   if (!files.length) {
     document.getElementById("taula").innerHTML = '<p class="buit">Cap aeronau amb aquests filtres.</p>';
-    pintaMapa([]);
     return;
   }
 
@@ -179,7 +120,7 @@ function pinta() {
     const ident = [f.indicatiu, f.matricula].filter(Boolean).join(" · ") || (f.icao24 ? f.icao24 : "—");
     const lloc = `<a href="https://www.google.com/maps?q=${f.lat},${f.lon}" target="_blank" rel="noopener">${esc(f.ubicacio)}</a>` +
       `<span class="coord">a ${num(f.distancia)} km de la Bisbal</span>`;
-    return `<tr class="${f.alerta ? "alerta" : ""}" data-id="${esc(f.id)}"${estil}>` +
+    return `<tr class="${f.alerta ? "alerta" : ""}"${estil}>` +
       `<td>${esc(f.hora)} h</td>` +
       `<td title="${esc(f.motiu)}">${ICONES[f.clau] || "✈️"} ${esc(f.categoria.charAt(0) + f.categoria.slice(1).toLowerCase())}</td>` +
       `<td>${esc(ident)}${f.operador ? `<span class="coord">${esc(f.operador)}</span>` : ""}</td>` +
@@ -194,21 +135,7 @@ function pinta() {
   document.getElementById("taula").innerHTML = `<table><thead><tr><th>Hora</th><th>Categoria</th><th>Identificació</th>` +
     `<th>Model</th><th>Altitud</th><th>km/h</th><th>Lloc més proper</th><th>Esdeveniment i avís</th></tr></thead>` +
     `<tbody>${filesHtml}</tbody></table>`;
-  pintaMapa(files);
 }
-
-// Toca una fila: el mapa hi va i n'obre la fitxa.
-document.getElementById("taula").addEventListener("click", e => {
-  if (e.target.closest("a")) return;
-  const tr = e.target.closest("tr[data-id]");
-  const m = tr && MARCADORS[tr.dataset.id];
-  if (!m) return;
-  document.querySelectorAll("tr.triada").forEach(t => t.classList.remove("triada"));
-  tr.classList.add("triada");
-  MAPA.setView(m.getLatLng(), Math.max(MAPA.getZoom(), 11));
-  m.openPopup();
-  document.getElementById("mapa").scrollIntoView({ behavior: "smooth", block: "center" });
-});
 
 async function carregaDia(dia) {
   document.getElementById("taula").innerHTML = '<p class="buit">Carregant…</p>';
@@ -243,7 +170,6 @@ async function inicia() {
     document.getElementById("taula").innerHTML = "";
   }
 }
-try { iniciaMapa(); } catch (e) { MAPA = null; }
 inicia();
 </script>
 <script src="../dates-ca.js?v=3"></script>
