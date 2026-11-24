@@ -17,6 +17,10 @@
 (() => {
   const BASE = "https://latdg.github.io/redaccio/dades/";
   const TRIA = "https://raw.githubusercontent.com/latdg/tauler/main/dades/tira.json";
+  // 24.11.2026: raw.githubusercontent.com guarda el fitxer fins a 5 minuts i no fa cas
+  // del «?v=», així que la portada podia ensenyar la tria d'abans de desar. Es llegeix
+  // primer de l'API de GitHub (màxim 1 minut de retard) i, si falla, del raw.
+  const TRIA_API = "https://api.github.com/repos/latdg/tauler/contents/dades/tira.json?ref=main";
   const MAX_GEN = 10;
   const HORES = 48;   // 15.11.2026: la generalista dura el mateix que la local
   const NOMS_GEN = [
@@ -85,6 +89,10 @@
   }
 
   async function carregaTria() {
+    try {
+      const r = await fetch(TRIA_API, { cache: "no-cache", headers: { Accept: "application/vnd.github.raw" } });
+      if (r.ok) return normal(await r.json());
+    } catch (e) {}
     try { return normal(await obtenir(TRIA + "?v=" + Date.now())); } catch (e) { return normal(null); }
   }
   const normal = t => ({
