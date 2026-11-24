@@ -145,7 +145,10 @@ def graella(mid):
     }
     try:
         j = baixa(params)
-    except ValueError as e:   # alguns models (ICON-2I) no arriben a 5 dies
+    except ValueError as e:
+        # ICON-2I: el seu domini no cobreix tota la graella; queda només a la comparativa
+        if "No data" in str(e):
+            raise
         print(f"  {e}: es torna a provar amb 3 dies")
         params["forecast_days"] = 3
         j = baixa(params)
@@ -197,7 +200,7 @@ def main():
             te_graella = os.path.exists(fitxer)   # es queda la de l'última vegada
         models.append({"id": mid, "nom": nom, "font": font, "res": res, "grup": grup,
                        "graella": te_graella})
-        time.sleep(2)
+        time.sleep(6)   # Open-Meteo limita les consultes per minut
     if not models:
         print("Cap model amb dades: no es toca res")
         sys.exit(1)
