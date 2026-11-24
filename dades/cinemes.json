@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-23T18:30:59+00:00",
+ "generat": "2026-11-24T17:59:08+00:00",
  "ambTmdb": true,
  "errors": [],
  "films": [
@@ -18,104 +18,6 @@
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "4D",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "16:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "17:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "17:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "18:00",
-     "format": "Atmos Versió VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "18:50",
-     "format": "4D",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "19:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "Atmos Versió VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "20:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "21:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "4D",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-24",
-     "hora": "15:45",
-     "format": "4D",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
      "hora": "16:00",
@@ -123,21 +25,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
      "cinema": "OCINE Girona",
-     "data": "2026-11-24",
-     "hora": "17:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-24",
      "hora": "17:00",
      "format": "Atmos",
@@ -155,13 +43,6 @@
      "data": "2026-11-24",
      "hora": "18:00",
      "format": "Atmos Versió VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "18:00",
-     "format": "",
      "preu": ""
     },
     {
@@ -473,7 +354,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-27",
      "hora": "16:00",
      "format": "Atmos",
@@ -482,7 +363,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "17:50",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-27",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -501,6 +403,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "20:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "21:00",
@@ -508,7 +417,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-27",
      "hora": "22:00",
      "format": "Atmos",
@@ -516,6 +425,13 @@
     },
     {
      "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-27",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-28",
      "hora": "16:00",
      "format": "Atmos",
@@ -524,7 +440,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "17:50",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-28",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -543,6 +480,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "20:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "21:00",
@@ -550,7 +494,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-28",
      "hora": "22:00",
      "format": "Atmos",
@@ -558,6 +502,13 @@
     },
     {
      "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-28",
+     "hora": "22:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-29",
      "hora": "16:00",
      "format": "Atmos",
@@ -566,7 +517,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "17:50",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-29",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -585,6 +557,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "20:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "21:00",
@@ -599,7 +578,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-30",
      "hora": "16:00",
      "format": "Atmos",
@@ -608,7 +587,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "17:30",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-30",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -627,6 +627,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "20:30",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
      "hora": "21:00",
@@ -641,7 +648,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-01",
      "hora": "16:00",
      "format": "Atmos",
@@ -650,7 +657,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "17:10",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-01",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -683,7 +711,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-02",
      "hora": "16:00",
      "format": "Atmos",
@@ -692,7 +720,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "17:50",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-02",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -711,9 +760,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "20:45",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "21:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "22:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -725,7 +788,7 @@
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-03",
      "hora": "16:00",
      "format": "Atmos",
@@ -734,7 +797,28 @@
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-03",
+     "hora": "16:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "17:30",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-03",
      "hora": "18:00",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "19:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -750,6 +834,13 @@
      "data": "2026-12-03",
      "hora": "20:00",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "20:30",
+     "format": "Atmos Versió VOSE",
      "preu": ""
     },
     {
@@ -772,8 +863,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10874",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.775,
-   "vots": 224,
+   "nota": 7.801,
+   "vots": 304,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -791,34 +882,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/iHqjtNxzLmfWei4poUdckHmsBBz.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "22:30",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
@@ -958,8 +1021,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11084",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.3,
-   "vots": 53,
+   "nota": 6.54,
+   "vots": 63,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -979,64 +1042,8 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "16:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "18:15",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "19:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "20:30",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
      "hora": "16:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "17:00",
      "format": "Atmos",
      "preu": ""
     },
@@ -1202,9 +1209,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
@@ -1216,6 +1237,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "17:00",
@@ -1223,9 +1251,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
@@ -1233,6 +1275,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
@@ -1251,6 +1300,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
      "hora": "19:30",
@@ -1265,9 +1321,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
      "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
@@ -1275,6 +1345,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
@@ -1289,6 +1366,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-03",
      "hora": "17:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "18:00",
      "format": "",
      "preu": ""
     },
@@ -1333,8 +1417,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10728",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.5,
-   "vots": 162,
+   "nota": 7.514,
+   "vots": 177,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1354,34 +1438,6 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-24",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-24",
      "hora": "18:00",
      "format": "",
@@ -1479,6 +1535,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "16:00",
@@ -1500,6 +1563,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "16:00",
@@ -1517,6 +1587,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "20:30",
      "format": "",
      "preu": ""
     },
@@ -1535,6 +1612,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
      "hora": "16:00",
@@ -1556,6 +1640,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "16:00",
@@ -1577,6 +1668,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "20:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-03",
      "hora": "16:00",
@@ -1587,6 +1685,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-03",
      "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "20:30",
      "format": "",
      "preu": ""
     }
@@ -1595,8 +1700,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10509",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.829,
-   "vots": 1147,
+   "nota": 7.869,
+   "vots": 1200,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -1614,41 +1719,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/fGMDeRUppQH0GRaw93TV4ynhY6l.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "20:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "20:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "20:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "22:15",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
@@ -1760,6 +1830,55 @@
      "hora": "22:15",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
     }
    ],
    "entrades": {
@@ -1788,55 +1907,6 @@
    "sessions": [
     {
      "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "22:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
      "hora": "15:45",
      "format": "",
@@ -1986,6 +2056,48 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-26",
      "hora": "22:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "15:45",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     }
@@ -2014,48 +2126,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/t1azKLExwUxKj6v6m2L535evuRa.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "21:00",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
@@ -2197,9 +2267,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "22:00",
      "format": "",
      "preu": ""
     },
@@ -2218,9 +2302,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "22:00",
      "format": "",
      "preu": ""
     },
@@ -2235,6 +2333,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "17:30",
      "format": "",
      "preu": ""
     },
@@ -2256,6 +2361,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
      "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "17:30",
      "format": "",
      "preu": ""
     },
@@ -2277,6 +2389,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
      "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "17:30",
      "format": "",
      "preu": ""
     },
@@ -2302,9 +2421,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "17:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "19:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "22:00",
      "format": "",
      "preu": ""
     },
@@ -2319,6 +2452,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-03",
      "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "17:30",
      "format": "",
      "preu": ""
     },
@@ -2357,7 +2497,7 @@
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
    "nota": 7.9,
-   "vots": 250,
+   "vots": 260,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2375,13 +2515,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-24",
@@ -2428,41 +2561,6 @@
    "sessions": [
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "19:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-24",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-24",
      "hora": "17:00",
      "format": "",
@@ -2556,6 +2654,13 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-26",
      "hora": "19:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -2563,6 +2668,13 @@
      "cinema": "Cinema Montgrí",
      "data": "2026-11-27",
      "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
@@ -2581,9 +2693,44 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Cinema Montgrí",
      "data": "2026-11-30",
      "hora": "21:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "20:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     }
@@ -2593,8 +2740,8 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11121",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 7.0,
-   "vots": 5,
+   "nota": 7.167,
+   "vots": 7,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2612,27 +2759,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/ulvGcZer26aBaNG0s4IEJGyyLIq.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "Versió VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-24",
@@ -2697,6 +2823,27 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Cinema Montgrí",
      "data": "2026-12-04",
      "hora": "21:30",
@@ -2708,8 +2855,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11150",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11150"
    },
-   "nota": 7.928,
-   "vots": 312,
+   "nota": 7.932,
+   "vots": 322,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -2727,13 +2874,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "22:30",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-24",
@@ -2771,27 +2911,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/9FKhEtXhX2Omvc7kVcjvDYk8DWG.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "19:30",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-24",
@@ -3020,13 +3139,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-23",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-24",
      "hora": "22:00",
      "format": "",
@@ -3043,38 +3155,10 @@
    "entrades": {
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.5,
-   "vots": 582,
+   "nota": 6.541,
+   "vots": 605,
    "plataformes": [],
-   "plataformesUrl": ""
-  },
-  {
-   "key": "el precio de la red",
-   "titol": "El preu de la xarxa",
-   "titolFont": "El precio de la red",
-   "sinopsi": "Inspirada en fets reals i en la denunciant que va desencadenar la crisi de les xarxes socials que estem presenciant avui dia, aquesta obra original d'Aaron",
-   "durada": "112",
-   "genere": "Biografia, Drama, Thriller",
-   "edat": "",
-   "director": "Aaron Sorkin",
-   "actors": "Mikey Madison, Jeremy Allen White, Wunmi Mosaku, Betty Gilpin, Billy Magnussen, Jeremy Strong, Bill Burr",
-   "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/ls1KWflioSJgCcKhDr6ykvYmgbI.jpg",
-   "web": "https://cinemamontgri.cat/el-precio-de-la-red/",
-   "sessions": [
-    {
-     "cinema": "Cinema Montgrí",
-     "data": "2026-11-23",
-     "hora": "21:30",
-     "format": "",
-     "preu": ""
-    }
-   ],
-   "entrades": {},
-   "nota": 6.976,
-   "vots": 145,
-   "plataformes": [],
-   "plataformesUrl": ""
+   "plataformesUrl": "https://www.themoviedb.org/movie/1400837-other-mommy/watch?locale=ES"
   },
   {
    "key": "el gato con sombrero",
@@ -3092,37 +3176,9 @@
    "sessions": [
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "17:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "17:20",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
      "data": "2026-11-24",
      "hora": "15:45",
      "format": "Atmos",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "",
      "preu": ""
     },
     {
@@ -3136,13 +3192,6 @@
      "cinema": "OCINE Girona",
      "data": "2026-11-24",
      "hora": "17:20",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "18:10",
      "format": "",
      "preu": ""
     },
@@ -3214,6 +3263,13 @@
      "data": "2026-11-26",
      "hora": "18:10",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "15:40",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3221,6 +3277,13 @@
      "data": "2026-11-27",
      "hora": "16:00",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "15:40",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3235,6 +3298,13 @@
      "data": "2026-11-28",
      "hora": "17:00",
      "format": "CAT",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "15:40",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3259,10 +3329,31 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
      "hora": "16:00",
      "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "15:40",
+     "format": "Atmos",
      "preu": ""
     },
     {
@@ -3278,6 +3369,13 @@
      "hora": "16:00",
      "format": "",
      "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
     }
    ],
    "entrades": {
@@ -3285,7 +3383,7 @@
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10863",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 6.985,
+   "nota": 7.029,
    "vots": 34,
    "plataformes": [],
    "plataformesUrl": ""
@@ -3304,13 +3402,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Girona",
      "data": "2026-11-24",
@@ -3357,36 +3448,8 @@
    "sessions": [
     {
      "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "18:15",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
      "data": "2026-11-24",
      "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "17:45",
      "format": "",
      "preu": ""
     },
@@ -3447,6 +3510,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "18:15",
@@ -3461,6 +3531,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "18:15",
@@ -3475,6 +3552,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "18:15",
@@ -3482,6 +3566,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "15:40",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
      "hora": "16:00",
@@ -3517,9 +3608,23 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "18:15",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "15:40",
      "format": "",
      "preu": ""
     },
@@ -3562,20 +3667,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/3AxfnEViGaVspgifEag5au5bVJc.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
-    {
-     "cinema": "OCINE Platja d'Aro",
-     "data": "2026-11-23",
-     "hora": "15:45",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "OCINE Girona",
-     "data": "2026-11-23",
-     "hora": "17:30",
-     "format": "",
-     "preu": ""
-    },
     {
      "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-24",
@@ -3644,8 +3735,8 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11003",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11003"
    },
-   "nota": 8.46,
-   "vots": 313,
+   "nota": 8.457,
+   "vots": 323,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -3663,13 +3754,6 @@
    "poster": "https://image.tmdb.org/t/p/w342/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
    "web": "https://odeonmulticines.com/odeon-girona",
    "sessions": [
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
     {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-25",
@@ -3709,13 +3793,6 @@
    "sessions": [
     {
      "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-24",
-     "hora": "16:00",
-     "format": "Vdc",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-25",
      "hora": "16:00",
      "format": "Vdc",
@@ -3737,7 +3814,7 @@
    "director": "Nathan Fielder i Lance Oppenheim",
    "actors": "",
    "estrena": "",
-   "poster": "https://image.tmdb.org/t/p/w342/g2PKUCpDChvYvT7IaUOYfjO0mbG.jpg",
+   "poster": "https://image.tmdb.org/t/p/w342/hcuFuAlGeQy1yKhd3I0hZ5sgCzl.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
@@ -3766,10 +3843,34 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/11227",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
    },
-   "nota": 8.796,
-   "vots": 152,
+   "nota": 8.735,
+   "vots": 166,
    "plataformes": [],
    "plataformesUrl": ""
+  },
+  {
+   "key": "el peso de la ausencia",
+   "titol": "El peso de la ausencia",
+   "titolFont": "El peso de la ausencia",
+   "sinopsi": "En motiu del pròxim 25 de novembre, Dia Internacional d'eliminació de la violència cap a les dones, l'Ajuntament de la Bisbal a programat la projecció del documental “El peso de la ausencia” d'Alberto Gómez Uriol. Documental autobiogràfic en el que el director reconstrueix la vida, assassinat i memòria de la seva germana que va morir el 24 de juny de 1973 en mans del seu marit.",
+   "durada": "",
+   "genere": "",
+   "edat": "",
+   "director": "",
+   "actors": "",
+   "estrena": "",
+   "poster": "https://www.teatremundial.cat/img/image/fotos/1895.webp?w=600&h=400&sx=&sy=&sw=&sh=&zc=1&aoe=1&q=80&f=webp",
+   "web": "https://www.teatremundial.cat/ca/programacio/c/1159-el-peso-de-la-ausencia.html",
+   "sessions": [
+    {
+     "cinema": "Teatre Mundial",
+     "data": "2026-11-26",
+     "hora": "19:00",
+     "format": "",
+     "preu": "Gratuït"
+    }
+   ],
+   "entrades": {}
   },
   {
    "key": "iv mostra de curtmetratges de palafrugell",
@@ -3817,17 +3918,405 @@
    "entrades": {}
   },
   {
+   "key": "ahora los suegros son ellos",
+   "titol": "Ara els sogres són ells",
+   "titolFont": "Ahora los suegros son ellos",
+   "sinopsi": "Quart lliurament de la saga \"Els pares d'ella\". Deu anys després dels últims esdeveniments, els papers s'inverteixen i Greg Focker s'enfronta al seu major repte: ser el sogre. Quan el seu fill Henry anuncia el seu compromís, Greg intenta ser el patriarca comprensiu que mai va tenir, però la pressió fa que aflorin en ell inseguretats i acaba recorrent a les tàctiques d'espionatge i paranoia que va aprendre del mateix Jack Byrnes...",
+   "durada": "106",
+   "genere": "Comèdia",
+   "edat": "12 anys",
+   "director": "John Hamburg",
+   "actors": "Ariana Grande, Robert de Niro, Ben Stiller",
+   "estrena": "2026-11-27",
+   "poster": "https://image.tmdb.org/t/p/w342/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
+   "sessions": [
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-27",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-27",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-27",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-27",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-28",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-28",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-28",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-28",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-29",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-29",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-29",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-29",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-30",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-30",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-30",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-11-30",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-01",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-01",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-01",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-01",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-02",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-02",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-02",
+     "hora": "20:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-02",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "22:30",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-03",
+     "hora": "16:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-03",
+     "hora": "18:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "18:10",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-03",
+     "hora": "20:00",
+     "format": "VOSE",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "20:20",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "Odeón Girona (Salt)",
+     "data": "2026-12-03",
+     "hora": "22:00",
+     "format": "",
+     "preu": ""
+    }
+   ],
+   "entrades": {
+    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11143",
+    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+   },
+   "nota": 7.3,
+   "vots": 3,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "hechizo bienvenidos a hexe",
-   "titol": "Encanteri. Benvinguts a Hexe",
+   "titol": "Encanteri: Benvinguts a Hexe",
    "titolFont": "Hechizo: Bienvenidos a Hexe",
    "sinopsi": "Compte el despertar adolescent de Billie, una noia impulsiva i poc convencional que descobreix que té poders màgics que, una vegada deslligats, la llancen a un viatge ple d'espectaculars aventures que la porta més enllà dels suburbis fins a l'immens regne de les bruixes, anomenat Hexe. Obligada a formar equip amb la seva previnguda mare, Alice, juntes descobreixen secrets familiars que podrien canviar el món de les bruixes per sempre.",
    "durada": "110",
    "genere": "Animació",
    "edat": "Pendent de qualificació",
-   "director": "Fawn Veerasunthorn i Jason Hand",
+   "director": "Fawn Veerasunthorn",
    "actors": "",
    "estrena": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/6oB6x3aTEeYihq14X8aItD8z9hY.jpg",
+   "poster": "dades/cinemes/hechizo-bienvenidos-a-hexe-5450ed42.jpg",
    "web": "https://tickets.ocinegirona.es/?idioma=ca",
    "sessions": [
     {
@@ -3852,6 +4341,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "17:00",
+     "format": "Versió Català",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "17:00",
@@ -3887,6 +4383,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "20:00",
@@ -3911,6 +4414,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-27",
      "hora": "21:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-27",
+     "hora": "21:30",
      "format": "",
      "preu": ""
     },
@@ -3943,6 +4453,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "17:00",
+     "format": "Versió Català",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "17:00",
@@ -3978,6 +4495,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "20:00",
@@ -4002,6 +4526,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-28",
      "hora": "21:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-28",
+     "hora": "21:30",
      "format": "",
      "preu": ""
     },
@@ -4034,6 +4565,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "17:00",
+     "format": "Versió Català",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "17:00",
@@ -4069,6 +4607,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-29",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-29",
      "hora": "20:00",
@@ -4077,6 +4622,13 @@
     },
     {
      "cinema": "OCINE Girona",
+     "data": "2026-11-29",
+     "hora": "20:20",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-29",
      "hora": "20:20",
      "format": "Atmos",
@@ -4118,6 +4670,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "17:00",
+     "format": "Versió Català",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
      "hora": "17:00",
@@ -4153,6 +4712,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-11-30",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-11-30",
      "hora": "20:00",
@@ -4161,6 +4727,13 @@
     },
     {
      "cinema": "OCINE Girona",
+     "data": "2026-11-30",
+     "hora": "20:20",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-30",
      "hora": "20:20",
      "format": "Atmos",
@@ -4202,6 +4775,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "17:00",
+     "format": "Versió Català",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
      "hora": "17:00",
@@ -4237,6 +4817,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-01",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-01",
      "hora": "20:00",
@@ -4245,6 +4832,13 @@
     },
     {
      "cinema": "OCINE Girona",
+     "data": "2026-12-01",
+     "hora": "20:20",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-01",
      "hora": "20:20",
      "format": "Atmos",
@@ -4286,6 +4880,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "17:00",
+     "format": "Versió Català",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "17:00",
@@ -4321,6 +4922,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "20:00",
@@ -4345,6 +4953,13 @@
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-02",
      "hora": "21:00",
+     "format": "",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-02",
+     "hora": "21:30",
      "format": "",
      "preu": ""
     },
@@ -4374,6 +4989,13 @@
      "data": "2026-12-03",
      "hora": "16:00",
      "format": "Laser Cinity",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "17:00",
+     "format": "Versió Català",
      "preu": ""
     },
     {
@@ -4412,6 +5034,13 @@
      "preu": ""
     },
     {
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "19:15",
+     "format": "",
+     "preu": ""
+    },
+    {
      "cinema": "Odeón Girona (Salt)",
      "data": "2026-12-03",
      "hora": "20:00",
@@ -4420,6 +5049,13 @@
     },
     {
      "cinema": "OCINE Girona",
+     "data": "2026-12-03",
+     "hora": "20:20",
+     "format": "Atmos",
+     "preu": ""
+    },
+    {
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-03",
      "hora": "20:20",
      "format": "Atmos",
@@ -4444,228 +5080,147 @@
     "OCINE Girona": "https://tickets.ocinegirona.es/#/DetallPelicula/10900",
     "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/10900",
     "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
-   },
-   "nota": 5.0,
-   "vots": 1,
-   "plataformes": [],
-   "plataformesUrl": ""
+   }
   },
   {
-   "key": "ahora los suegros son ellos",
-   "titol": "Ara els sogres són ells",
-   "titolFont": "Ahora los suegros son ellos",
-   "sinopsi": "Quart lliurament de la saga \"Els pares d'ella\". Deu anys després dels últims esdeveniments, els papers s'inverteixen i Greg Focker s'enfronta al seu major repte: ser el sogre. Quan el seu fill Henry anuncia el seu compromís, Greg intenta ser el patriarca comprensiu que mai va tenir, però la pressió fa que aflorin en ell inseguretats i acaba recorrent a les tàctiques d'espionatge i paranoia que va aprendre del mateix Jack Byrnes...",
-   "durada": "106",
-   "genere": "Comèdia",
-   "edat": "No recomanada per a menors de 12 anys",
-   "director": "John Hamburg",
-   "actors": "",
-   "estrena": "2026-11-27",
-   "poster": "https://image.tmdb.org/t/p/w342/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
-   "web": "https://odeonmulticines.com/odeon-girona",
+   "key": "oro sin ley",
+   "titol": "Or sense llei",
+   "titolFont": "Oro sin ley",
+   "sinopsi": "Oregon, 1933. Samuel Murphy (Ethan Hawke) és separat de la seva filla i enviat a un camp de treball. Un dia, el alcaide Clancy (Russell Crowe) li ofereix la possibilitat d'alliberar-lo si aconsegueix passar or de contraban a través d'una perillosa senda salvatge. Fins a on serà capaç d'arribar Murphy per retrobar-se amb la seva benvolguda filla?",
+   "durada": "115",
+   "genere": "Drama",
+   "edat": "",
+   "director": "Padraic McKinley",
+   "actors": "Ethan Hawke, Julia Jones, Russell Crowe",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/hTT42eBEiYcpgRormrS8re82Nt9.jpg",
+   "web": "https://tickets.ocineplatjadaro.es/?idioma=ca",
    "sessions": [
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-27",
-     "hora": "16:00",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-27",
-     "hora": "18:00",
+     "hora": "19:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-27",
-     "hora": "20:00",
+     "hora": "22:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-27",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-28",
-     "hora": "16:00",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-28",
-     "hora": "18:00",
+     "hora": "19:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-28",
-     "hora": "20:00",
+     "hora": "22:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-28",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-29",
-     "hora": "16:00",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-29",
-     "hora": "18:00",
+     "hora": "19:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-29",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-29",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-30",
-     "hora": "16:00",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-11-30",
-     "hora": "18:00",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-30",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-11-30",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-01",
-     "hora": "16:00",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-01",
-     "hora": "18:00",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-12-01",
-     "hora": "20:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-12-01",
-     "hora": "22:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-02",
-     "hora": "16:00",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-02",
-     "hora": "18:00",
+     "hora": "19:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-02",
-     "hora": "20:00",
+     "hora": "22:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-12-02",
-     "hora": "22:00",
+     "cinema": "OCINE Platja d'Aro",
+     "data": "2026-12-03",
+     "hora": "15:45",
      "format": "",
      "preu": ""
     },
     {
-     "cinema": "Odeón Girona (Salt)",
+     "cinema": "OCINE Platja d'Aro",
      "data": "2026-12-03",
-     "hora": "16:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-12-03",
-     "hora": "18:00",
-     "format": "",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-12-03",
-     "hora": "20:00",
-     "format": "VOSE",
-     "preu": ""
-    },
-    {
-     "cinema": "Odeón Girona (Salt)",
-     "data": "2026-12-03",
-     "hora": "22:00",
+     "hora": "20:15",
      "format": "",
      "preu": ""
     }
    ],
    "entrades": {
-    "Odeón Girona (Salt)": "https://odeonmulticines.com/odeon-girona"
+    "OCINE Platja d'Aro": "https://tickets.ocineplatjadaro.es/#/DetallPelicula/11236"
    },
-   "nota": 7.3,
-   "vots": 3,
+   "nota": 6.9,
+   "vots": 127,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -4957,8 +5512,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.198,
-   "vots": 174,
+   "nota": 7.224,
+   "vots": 176,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -5020,8 +5575,8 @@
     }
    ],
    "entrades": {},
-   "nota": 7.3,
-   "vots": 248,
+   "nota": 7.296,
+   "vots": 255,
    "plataformes": [],
    "plataformesUrl": ""
   },
@@ -6079,6 +6634,34 @@
    "plataformesUrl": ""
   },
   {
+   "key": "fatherland",
+   "titol": "Fatherland",
+   "titolFont": "Fatherland",
+   "sinopsi": "L’estiu de 1949, Erika Mann acompanya el seu pare, l’escriptor Thomas Mann, en el primer retorn a Alemanya des de l’exili. En un Buick negre, travessen un",
+   "durada": "82",
+   "genere": "Drama, Històric",
+   "edat": "",
+   "director": "Paweł Pawlikowski",
+   "actors": "Sandra Hüller, Hanns Zischler, August Diehl",
+   "estrena": "",
+   "poster": "https://image.tmdb.org/t/p/w342/7VjwmvDG5mksJBXMcmK6PudqH88.jpg",
+   "web": "https://cinemamontgri.cat/fatherland/",
+   "sessions": [
+    {
+     "cinema": "Cinema Montgrí",
+     "data": "2026-12-18",
+     "hora": "21:30",
+     "format": "VOSE",
+     "preu": ""
+    }
+   ],
+   "entrades": {},
+   "nota": 7.2,
+   "vots": 84,
+   "plataformes": [],
+   "plataformesUrl": ""
+  },
+  {
    "key": "jumanji mundo abierto",
    "titol": "Jumanji: Món obert",
    "titolFont": "Jumanji: Mundo abierto",
@@ -6157,6 +6740,26 @@
    "vots": 0,
    "plataformes": [],
    "plataformesUrl": ""
+  },
+  {
+   "key": "spider man brand new day",
+   "titol": "Spider-Man: Un nou dia",
+   "titolFont": "Spider-man: Brand New Day",
+   "sinopsi": "(Versió especial amb contingut adicional) \n\nHan passat quatre anys des dels esdeveniments de No Way Home, i Peter Parker ara és un adult que viu completament només, ha desaparegut voluntàriament de les vides i records dels qui mestressa. Combatent el crim en una Nova York que ja no coneix el seu nom, s'ha dedicat per complet a protegir la seva ciutat (un Spider-Man a temps complet) , però a mesura que augmenten les exigències sobre ell, la pressió desencadena una evolució física que amenaça la seva existència, al mateix temps que un estrany nou patró de crims dona lloc a una de les amenaces més poderoses a les quals s'ha enfrontat.",
+   "durada": "152",
+   "genere": "Acció",
+   "edat": "12 anys",
+   "director": "Destin Daniel Cretton",
+   "actors": "",
+   "estrena": "2026-12-04",
+   "poster": "https://image.tmdb.org/t/p/w342/fBFjaDWfNslvrs6bJjknmG27wOS.jpg",
+   "web": "",
+   "sessions": [],
+   "entrades": {},
+   "nota": 8.457,
+   "vots": 7087,
+   "plataformes": [],
+   "plataformesUrl": "https://www.themoviedb.org/movie/969681-spider-man-brand-new-day/watch?locale=ES"
   }
  ]
 }
