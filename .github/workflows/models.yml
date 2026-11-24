@@ -1,0 +1,46 @@
+# Models de previsió — La TdG ampliada · 24.11.2026
+# Cada 3 hores baixa d'Open-Meteo els models numèrics (punt de la Bisbal i
+# graella del Baix Empordà) per a la pàgina tauler/models/. Les dades van a la
+# branca «models-dades», que es reescriu sencera cada vegada (sense historial),
+# perquè el repo no s'engreixi amb fitxers que es renoven tot el dia.
+name: Models de previsió
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: models
+  cancel-in-progress: false
+
+jobs:
+  models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Baixa els models i desa'ls a la branca models-dades
+        env:
+          TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${REPO}"
+          # Les graelles de l'última vegada, per si ara en falla alguna
+          git clone -q --depth 1 --branch models-dades "$URL" sortida 2>/dev/null || mkdir -p sortida
+          rm -rf sortida/.git
+          python models/models.py sortida
+          cd sortida
+          git init -q -b models-dades
+          git config user.name "La TdG (models)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Models de previsió ($(TZ=Europe/Madrid date '+%d.%m.%Y %H.%M'))"
+          git push -q -f "$URL" models-dades
