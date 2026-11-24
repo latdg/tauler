@@ -65,10 +65,14 @@ def baixa(params, intents=4):
     for i in range(intents):
         try:
             r = requests.get(API, params=params, timeout=60)
+            if r.status_code == 400:   # petició no vàlida per al model: no cal repetir-la
+                raise ValueError(f"HTTP 400: {r.text[:200]}")
             if r.status_code == 429 or r.status_code >= 500:
                 raise RuntimeError(f"HTTP {r.status_code}")
             r.raise_for_status()
             return r.json()
+        except ValueError:
+            raise
         except Exception as e:  # noqa: BLE001
             print(f"  intent {i + 1}: {e}")
             if i == intents - 1:
@@ -134,11 +138,17 @@ def graella(mid):
         for lo in LONS:
             lats.append(la)
             lons.append(lo)
-    j = baixa({
+    params = {
         "latitude": ",".join(map(str, lats)), "longitude": ",".join(map(str, lons)),
         "hourly": ",".join(v[0] for v in VARS),
         "models": mid, "timezone": "Europe/Madrid", "forecast_days": 5,
-    })
+    }
+    try:
+        j = baixa(params)
+    except ValueError as e:   # alguns models (ICON-2I) no arriben a 5 dies
+        print(f"  {e}: es torna a provar amb 3 dies")
+        params["forecast_days"] = 3
+        j = baixa(params)
     if isinstance(j, dict):
         j = [j]
     temps = j[0]["hourly"]["time"]
