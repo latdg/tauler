@@ -296,6 +296,8 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .temps-models a:hover{border-color:var(--accent)}
 .temps-models b{color:var(--accent);font-size:.75rem;letter-spacing:.04em;white-space:nowrap}
 .temps-models .fl{color:var(--accent);font-weight:700}
+/* 24.11.2026: al mòbil, la fletxa va enganxada a l'última paraula del text i no baixa sola a una línia */
+@media (max-width:600px){.temps-models a{display:block}.temps-models b{display:block}.temps-models .fl{margin-left:6px}}
 .temps-dies i{font-style:normal;color:var(--suau);margin-left:4px}
 .dia-sota{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-top:8px}
 @media (max-width:600px){.temps-dalt{flex:1 1 100%;margin:4px 0 0;text-align:left}.temps-linia,.temps-dies,.dia-sota{justify-content:flex-start}}
