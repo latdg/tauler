@@ -426,13 +426,15 @@ function grafic() {
   }
   const amb = INDEX.models.filter(m => m.graella);
   const fm = $("filaModels");
-  [["regional", "Alta resolució"], ["global", "Globals"]].forEach(([g]) => amb.filter(m => m.grup === g).forEach(m => {
+  // 24.11.2026: ordenats per resolució, de més fina a més grossa (km de la quadrícula del model)
+  const km = m => parseFloat(String(m.res).replace(",", ".")) || 99;
+  [...amb].sort((x, y) => km(x) - km(y)).forEach(m => {
     const b = document.createElement("button");
-    b.className = "xip"; b.dataset.id = m.id; b.title = `${m.font} · ${m.res}`;
+    b.className = "xip"; b.dataset.id = m.id; b.title = `${m.font} · quadrícula de ${m.res}`;
     b.innerHTML = `${esc(m.nom)}<small>${esc(m.res)}</small>`;
     b.onclick = () => triaModel(m.id);
     fm.appendChild(b);
-  }));
+  });
   const fv = $("filaVars");
   VARS_MAPA.forEach(([v, nom]) => { const b = document.createElement("button"); b.dataset.v = v; b.textContent = nom; b.onclick = () => triaVar(v); fv.appendChild(b); });
   const fg = $("filaGrafic");
@@ -443,7 +445,7 @@ function grafic() {
   consens();
   grafic();
   if (amb.length) {
-    const pas = INDEX.models.find(m => m.graella);
+    const pas = { id: fm.querySelector("button").dataset.id };
     await triaModel(pas.id);
     centra();
   } else $("avis").firstChild.textContent = "Cap model té ara el mapa disponible.";
