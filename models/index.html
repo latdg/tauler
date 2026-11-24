@@ -57,11 +57,15 @@ table{width:100%;border-collapse:collapse;font-size:.9rem}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--linia);white-space:nowrap}
 th{color:var(--suau);font-weight:600}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-.vots{display:inline-flex;align-items:center;gap:8px}
-.vots i{display:inline-block;width:70px;height:8px;border-radius:4px;background:var(--linia);overflow:hidden;position:relative}
-.vots i b{position:absolute;left:0;top:0;bottom:0;background:#2b7bba}
+/* 24.11.2026: consens amb gamma de color a cada cel·la i llegible al mòbil */
+#consens table{table-layout:fixed;min-width:0}
+#consens th,#consens td{text-align:center;white-space:nowrap;padding:8px 6px;border-bottom:2px solid #fff}
+#consens th:first-child,#consens td:first-child{text-align:left;width:28%}
+#consens td.c{font-weight:600;font-variant-numeric:tabular-nums;border-radius:6px}
+#consens td .dia{display:block;font-weight:600}
+#consens td .data{display:block;font-size:.8em;color:var(--suau)}
 #grafic{position:relative;height:340px}
-@media (max-width:600px){#grafic{height:300px}.fila .et{min-width:0;width:100%}#consens th,#consens td{padding:7px 5px;font-size:.82rem}.vots{gap:5px}.vots i{width:32px}}
+@media (max-width:600px){#grafic{height:300px}.fila .et{min-width:0;width:100%}#consens th,#consens td{padding:7px 3px;font-size:.8rem}}
 .leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:8px 12px}
 </style>
 <script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -95,7 +99,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 
   <section>
     <h2>🤝 Consens a la Bisbal</h2>
-    <p class="font" style="margin:0 0 8px">Quants models indiquen pluja cada dia (1 mm o més) i entre quins valors es mouen. Només hi compten els models que arriben a cobrir el dia sencer.</p>
+    <p class="font" style="margin:0 0 8px">«Models»: quants indiquen pluja cada dia (1 mm o més). La pluja i les temperatures, entre quins valors es mouen. La pluja, en blau: com més intens, més acord o més litres. Les temperatures, amb els colors del mapa: blau, fred; verd i groc, suau; taronja i vermell, calor. Només hi compten els models que arriben a cobrir el dia sencer.</p>
     <div class="taula" id="consens"><p class="buit">Carregant…</p></div>
   </section>
 
@@ -115,6 +119,7 @@ const DADES = "https://raw.githubusercontent.com/latdg/tauler/models-dades/";
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const DIES = ["Dg.", "Dl.", "Dt.", "Dc.", "Dj.", "Dv.", "Ds."];
+const DIES_LLARGS = ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"];
 const z = n => String(n).padStart(2, "0");
 const fmtNum = (v, d) => v == null ? "—" : Number(v).toFixed(d).replace(".", ",");
 
@@ -351,7 +356,9 @@ function consens() {
     if (!d) dies.push(d = { k, dt, hores: [] });
     d.hores.push(h);
   }
-  let html = '<table><thead><tr><th>Dia</th><th>Amb pluja</th><th class="num">Pluja (mm)</th><th class="num">Màx.</th><th class="num">Mín.</th></tr></thead><tbody>';
+  // color de fons suau (rgba) a partir de les escales del mapa
+  const fons = (c, a) => c ? `background:rgba(${c[0]},${c[1]},${c[2]},${a})` : "";
+  let html = '<table><thead><tr><th>Dia</th><th>Models</th><th>Pluja</th><th>Màx.</th><th>Mín.</th></tr></thead><tbody>';
   dies.forEach((d, i) => {
     const ult = d.hores[d.hores.length - 1];
     if (i > 0 && d.hores.length < 24) return;   // l'últim dia, si és a mitges, fora
@@ -363,9 +370,15 @@ function consens() {
     const amb = pl.filter(v => v >= 1).length, pct = amb / qui.length * 100;
     const f0 = (v, d0) => Math.round(v * 10 ** d0) === 0 ? "0" : fmtNum(v, d0);
     const rang = (a, d0) => { const lo = Math.min(...a), hi = Math.max(...a); return Math.round(lo * 10 ** d0) === Math.round(hi * 10 ** d0) ? f0(lo, d0) : `${f0(lo, d0)}–${f0(hi, d0)}`; };
-    const nom = i === 0 ? "Avui" + (d.hores.length < 24 ? " (la resta)" : "") : `${DIES[d.dt.getUTCDay()]} ${z(d.dt.getUTCDate())}.${z(d.dt.getUTCMonth() + 1)}.${d.dt.getUTCFullYear()}`;
-    html += `<tr><td>${esc(nom)}</td><td><span class="vots"><i><b style="width:${pct.toFixed(0)}%"></b></i>${amb} de ${qui.length}</span></td>` +
-      `<td class="num">${rang(pl, pl.some(v => v > 0 && v < 10) ? 1 : 0)}</td><td class="num">${rang(mx, 0)}°</td><td class="num">${rang(mn, 0)}°</td></tr>`;
+    const data = `${z(d.dt.getUTCDate())}.${z(d.dt.getUTCMonth() + 1)}.${d.dt.getUTCFullYear()}`;
+    const nom = i === 0 ? (d.hores.length < 24 ? "Avui (resta)" : "Avui") : DIES_LLARGS[d.dt.getUTCDay()];
+    const mitj = a => a.reduce((s, v) => s + v, 0) / a.length;
+    const plMax = Math.max(...pl);
+    html += `<tr><td><span class="dia">${esc(nom)}</span><span class="data">${data}</span></td>` +
+      `<td class="c" style="${amb ? `background:rgba(43,123,186,${(.12 + .55 * pct / 100).toFixed(2)})` : ""}">${amb}/${qui.length}</td>` +
+      `<td class="c" style="${fons(colorDe("a", plMax), .55)}">${rang(pl, pl.some(v => v > 0 && v < 10) ? 1 : 0)}</td>` +
+      `<td class="c" style="${fons(colorDe("t", mitj(mx)), .55)}">${rang(mx, 0)}°</td>` +
+      `<td class="c" style="${fons(colorDe("t", mitj(mn)), .55)}">${rang(mn, 0)}°</td></tr>`;
   });
   html += "</tbody></table>";
   $("consens").innerHTML = html;
