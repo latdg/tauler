@@ -2781,8 +2781,13 @@ inicia();
 </script>
 <script>
 // LA PREVISIÓ (24.11.2026): fitxa sota el temps amb el consens dels models de
-// previsió (tauler/models). Mostra el primer dia en què almenys un terç dels
-// models indiquen pluja (1 mm o més); si no n'hi ha cap, el primer amb pluja d'algun model.
+// previsió (tauler/models). Destaca només el fenomen més rellevant, per aquest ordre:
+//   1. pluja (1 mm o més al dia)
+//   2. ratxes fortes (50 km/h o més)
+//   3. glaçada (mínima per sota de 0 °C)
+// Surt el del dia més proper. De cada fenomen, el primer dia en què l'indiquen com a mínim un terç dels models
+// (la pluja, si no hi ha res més, també amb un sol model). Si no n'hi ha cap:
+// «Dies tranquils», amb les temperatures dels pròxims tres dies.
 (async function () {
   const el = document.getElementById("previsioModels");
   if (!el) return;
@@ -2798,18 +2803,34 @@ inicia();
       x.hores.push(h);
     }
     const NOMS = ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"];
+    const vals = (id, c, hores) => hores.map(h => (B[id][c] || [])[h]).filter(v => v != null);
     const res = [];
     dies.forEach((x, i) => {
       if (i > 0 && x.hores.length < 24) return;
-      const ult = x.hores[x.hores.length - 1], qui = ids.filter(id => (B[id].p || []).length > ult);
+      const ult = x.hores[x.hores.length - 1], qui = ids.filter(id => (B[id].t || []).length > ult);
       if (!qui.length) return;
-      const pl = qui.map(id => x.hores.reduce((s, h) => s + (B[id].p[h] || 0), 0));
-      res.push({ nom: i === 0 ? "Avui" : i === 1 ? "Demà" : NOMS[x.dt.getUTCDay()], amb: pl.filter(v => v >= 1).length, n: qui.length, max: Math.max(...pl) });
+      const pl = qui.map(id => vals(id, "p", x.hores).reduce((s, v) => s + v, 0));
+      const rx = qui.map(id => Math.max(0, ...vals(id, "r", x.hores)));
+      const mn = qui.map(id => Math.min(99, ...vals(id, "t", x.hores)));
+      const mx = qui.map(id => Math.max(-99, ...vals(id, "t", x.hores)));
+      res.push({ i, nom: i === 0 ? "Avui" : i === 1 ? "Demà" : NOMS[x.dt.getUTCDay()], n: qui.length, pl, rx, mn, mx });
     });
-    const tria = res.find(r => r.amb && r.amb / r.n >= 1 / 3) || res.find(r => r.amb);
-    if (!tria) { el.textContent = "Cap model indica pluja els pròxims dies"; return; }
-    const mm = tria.max >= 10 ? Math.round(tria.max) : String(Math.round(tria.max * 10) / 10).replace(".", ",");
-    el.textContent = `${tria.nom}: ${tria.amb} de ${tria.n} models ${tria.amb === 1 ? "indica" : "indiquen"} pluja (fins a ${mm} mm)`;
+    const num = v => v >= 10 || Number.isInteger(v) ? String(Math.round(v)) : String(Math.round(v * 10) / 10).replace(".", ",");
+    const verb = n => n === 1 ? "indica" : "indiquen";
+    const FEN = [
+      { si: r => r.pl.filter(v => v >= 1).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} pluja (fins a ${num(Math.max(...r.pl))} mm)` },
+      { si: r => r.rx.filter(v => v >= 50).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} ratxes fortes (fins a ${Math.round(Math.max(...r.rx))} km/h)` },
+      { si: r => r.mn.filter(v => v < 0).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} glaçada (fins a ${String(Math.round(Math.min(...r.mn))).replace("-", "−")}°)` }
+    ];
+    let trobats = [];
+    FEN.forEach(f => { const r = res.find(r => f.si(r) / r.n >= 1 / 3); if (r) trobats.push({ r, txt: f.txt(r, f.si(r)) }); });
+    if (!trobats.length) { const r = res.find(r => FEN[0].si(r)); if (r) trobats.push({ r, txt: FEN[0].txt(r, FEN[0].si(r)) }); }
+    // el més proper; si n'hi ha més d'un el mateix dia, mana l'ordre de dalt
+    trobats.sort((x, y) => x.r.i - y.r.i);
+    if (trobats.length) { el.textContent = trobats[0].r.nom + ": " + trobats[0].txt; return; }
+    const tres = res.slice(0, 3), mitj = a => a.reduce((s, v) => s + v, 0) / a.length;
+    const lo = Math.round(Math.min(...tres.map(r => mitj(r.mn)))), hi = Math.round(Math.max(...tres.map(r => mitj(r.mx))));
+    el.textContent = `Dies tranquils, sense pluja ni vent fort (de ${String(lo).replace("-", "−")} a ${hi}°)`;
   } catch (e) { /* es queda «Què diuen els models?» */ }
 })();
 </script>
