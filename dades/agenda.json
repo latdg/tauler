@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-24T17:25:11.571Z",
+ "actualitzat": "2026-11-24T17:25:30.493Z",
  "actes": [
   {
    "id": "28b3370050",
@@ -620,6 +620,13 @@
   {
    "id": "0uraobccyt",
    "data": "2026-12-19",
+   "hora": "18.00 h",
+   "municipi": "La Bisbal",
+   "text": "Els Pastorets, al teatre Mundial."
+  },
+  {
+   "id": "ft2ouq3jhp",
+   "data": "2026-12-20",
    "hora": "18.00 h",
    "municipi": "La Bisbal",
    "text": "Els Pastorets, al teatre Mundial."
