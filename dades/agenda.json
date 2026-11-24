@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-24T17:25:44.101Z",
+ "actualitzat": "2026-11-24T17:26:28.249Z",
  "actes": [
   {
    "id": "28b3370050",
@@ -609,6 +609,13 @@
    "hora": "",
    "municipi": "Vulpellac",
    "text": "Festival de Nadal de l'escola de Forallac."
+  },
+  {
+   "id": "hq4altfpnz",
+   "data": "2026-12-12",
+   "hora": "18.00 h",
+   "municipi": "Monells",
+   "text": "Concert de Nadal a l'església de Sant Genís. Entrada lliure."
   },
   {
    "id": "p6fcc8tver",
