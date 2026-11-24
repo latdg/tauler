@@ -53,6 +53,8 @@ VARS = [
     ("cloud_cover", "n", 0),
 ]
 VARS_PUNT = VARS + [("wind_gusts_10m", "r", 0)]
+# 24.11.2026: el mapa baixa també la direcció del vent, per a les fletxes
+VARS_GRAELLA = VARS + [("wind_direction_10m", "d", 0)]
 
 # Graella del mapa: tota la província de Girona, cada 0,1° (uns 8-11 km).
 # 24.11.2026: abans només el Baix Empordà (cada 0,06°). Són 162 punts per model:
@@ -143,7 +145,7 @@ def graella(mid):
             lons.append(lo)
     params = {
         "latitude": ",".join(map(str, lats)), "longitude": ",".join(map(str, lons)),
-        "hourly": ",".join(v[0] for v in VARS),
+        "hourly": ",".join(v[0] for v in VARS_GRAELLA),
         "models": mid, "timezone": "Europe/Madrid", "forecast_days": 5,
     }
     try:
@@ -161,7 +163,7 @@ def graella(mid):
     i0 = index_ara(temps)
     n = min(HORES_MAPA, len(temps) - i0)
     dades = {}
-    for nom, clau, dec in VARS:
+    for nom, clau, dec in VARS_GRAELLA:
         # [hora][punt]
         dades[clau] = [[arrodoneix(loc["hourly"][nom][i0 + h], dec) for loc in j] for h in range(n)]
     # fins on hi ha dades (els models regionals s'acaben abans)

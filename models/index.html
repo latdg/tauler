@@ -35,6 +35,10 @@ button.prim{border-radius:8px;background:var(--accent);border-color:var(--accent
 .fila .et{font-size:.8rem;color:var(--suau);margin-right:2px;min-width:5.5em}
 .nota-models{font-size:.8rem;color:var(--suau);margin:-2px 0 8px}
 .nota-models:empty{display:none}
+/* 24.11.2026: pluja, núvols i vent es poden combinar al mapa */
+.fletxa{background:none;border:0}
+.fletxa svg{display:block;overflow:visible;filter:drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1px #fff)}
+.llegenda .capa{margin-top:5px;padding-top:4px;border-top:1px solid #e3e1db}
 .xip small{opacity:.75;margin-left:4px}
 .marc{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--linia)}
 #mapa{width:100%;aspect-ratio:1.45;max-height:72vh;min-height:300px;background:#e8eef2}
@@ -86,6 +90,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     <div class="fila" id="filaModels"><span class="et">Model</span></div>
     <p class="nota-models" id="notaModels"></p>
     <div class="fila" id="filaVars"><span class="et">Variable</span></div>
+    <p class="nota-models" id="notaCombina">Amb «➕ Combina» pots ajuntar al mapa la pluja (o la pluja acumulada), els núvols i el vent, els que triïs, en qualsevol model.</p>
     <div class="marc">
       <div id="mapa"></div>
       <div class="rellotge" id="rellotge">—</div>
@@ -164,7 +169,7 @@ function colorDe(clau, v) {
 }
 
 // --- ESTAT ---
-let INDEX = null, MODEL = null, VAR = "t", G = null, HORA_MS = null, JUGANT = null;
+let INDEX = null, MODEL = null, VAR = "t", CAPES = new Set(["t"]), G = null, HORA_MS = null, JUGANT = null;
 const CACHE = {};
 const COLORS = ["#b4462c", "#2b7bba", "#2e9d5b", "#8e44ad", "#d68910", "#17a2b8", "#c0392b", "#5d6d7e", "#e67e22", "#16a085", "#7d3c98", "#a04000", "#1f618d"];
 
@@ -203,10 +208,11 @@ const ETIQ = ["Girona", "Figueres", "Olot", "Ripoll", "Puigcerdà", "Banyoles", 
   } catch (e) { /* sense fons: el mapa dels models es veu igualment */ }
 })();
 let overlay = null, PROV = null, MASCARA = null;
-const xifres = L.layerGroup().addTo(mapa);
+const xifres = L.layerGroup().addTo(mapa), fletxes = L.layerGroup().addTo(mapa);
 // les xifres, només quan el mapa és prou a prop perquè no s'encavalquin
 const mostraXifres = () => $("mapa").classList.toggle("lluny", mapa.getZoom() < 9);
 mapa.on("zoomend", mostraXifres); mostraXifres();
+mapa.on("zoomend", () => { if (G && CAPES.has("v")) pintaMapa(); });
 // Punt dins de la província (anells [lon, lat], parell-senar)
 function dinsProv(lat, lon) {
   let dins = false;
@@ -234,10 +240,15 @@ function valorA(dades, lat, lon) {
   });
   return w > 0 ? s / w : null;
 }
-function seriesHora(h) {
-  if (VAR === "a") return G.acum[h];
-  return (G.dades[VAR] || [])[h] || [];
+function seriesHora(h, v = VAR) {
+  if (v === "a") return G.acum[h];
+  return (G.dades[v] || [])[h] || [];
 }
+// La variable que pinta el color de base: temperatura, pluja o pluja acumulada; si no, vent; si no, núvols
+const baseDe = c => ["t", "p", "a", "v", "n"].find(x => c.has(x));
+// Els núvols fan de vel gris quan la base és una altra variable; el vent sempre surt amb fletxes (si hi ha la direcció)
+const velNuvols = () => CAPES.has("n") && VAR !== "n";
+const fletxesVent = () => CAPES.has("v") && G && Array.isArray(G.dades.d);
 function pintaMapa() {
   if (!G) return;
   const h = horaIndex();
@@ -252,15 +263,20 @@ function pintaMapa() {
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++)
       MASCARA[y * W + x] = dinsProv(lat0 + (H - y - 0.5) / H * nr * pas, lon0 + (x + 0.5) / W * nc * pas) ? 1 : 0;
   }
+  const nuv = velNuvols() ? seriesHora(h, "n") : null;
   for (let y = 0; y < H; y++) {
     const lat = lat0 + (H - y - 0.5) / H * nr * pas;
     for (let x = 0; x < W; x++) {
       const lon = lon0 + (x + 0.5) / W * nc * pas;
       if (MASCARA && !MASCARA[y * W + x]) continue;
       const c = colorDe(VAR, valorA(dades, lat, lon));
-      if (!c) continue;
+      // vel de núvols (gris, més opac com més tapat) i, a sobre, el color de la base
+      let r = 0, g = 0, b = 0, a = 0;
+      if (nuv) { const nv = valorA(nuv, lat, lon); if (nv != null && nv >= 5) { r = 120; g = 128; b = 136; a = Math.min(1, nv / 100) * .6; } }
+      if (c) { const ac = (c[3] ?? 255) / 255, ao = ac + a * (1 - ac); if (ao > 0) { r = (c[0] * ac + r * a * (1 - ac)) / ao; g = (c[1] * ac + g * a * (1 - ac)) / ao; b = (c[2] * ac + b * a * (1 - ac)) / ao; } a = ao; }
+      if (a <= 0) continue;
       const i = (y * W + x) * 4;
-      img.data[i] = c[0]; img.data[i + 1] = c[1]; img.data[i + 2] = c[2]; img.data[i + 3] = c[3] ?? 255;
+      img.data[i] = Math.round(r); img.data[i + 1] = Math.round(g); img.data[i + 2] = Math.round(b); img.data[i + 3] = Math.round(a * 255);
     }
   }
   cx.putImageData(img, 0, 0);
@@ -276,24 +292,52 @@ function pintaMapa() {
     if (e.zero != null && v < e.zero) return;
     if (PROV && !dinsProv(la, lo)) return;
     const txt = VAR === "t" ? Math.round(v) + "°" : (VAR === "p" || VAR === "a") ? fmtNum(v, v >= 10 ? 0 : 1) : String(Math.round(v));
-    L.tooltip({ permanent: true, direction: "center", className: "xifra", interactive: false }).setLatLng([la, lo]).setContent(txt).addTo(xifres);
+    L.tooltip({ permanent: true, direction: "center", className: "xifra", interactive: false, offset: fletxesVent() ? [0, -13] : [0, 0] }).setLatLng([la, lo]).setContent(txt).addTo(xifres);
   }));
+  // fletxes del vent: cap a on bufa, la mida i el color segons la força
+  fletxes.clearLayers();
+  if (fletxesVent()) {
+    const vv = seriesHora(h, "v"), dd = G.dades.d[h] || [], salta = mapa.getZoom() < 9;
+    G.lats.forEach((la, r) => G.lons.forEach((lo, c) => {
+      if (salta && (r % 2 || c % 2)) return;   // de lluny, una de cada dues per no fer-ne un garbuix
+      const v = vv[r * nc + c], d = dd[r * nc + c];
+      if (v == null || d == null) return;
+      if (PROV && !dinsProv(la, lo)) return;
+      const col = colorDe("v", Math.max(v, 25)), cs = `rgb(${col[0]},${col[1]},${col[2]})`;
+      const m = Math.round(14 + Math.min(v, 80) / 80 * 16);
+      const svg = `<svg width="${m}" height="${m}" viewBox="-10 -10 20 20" style="transform:rotate(${(d + 180) % 360}deg)"><path d="M0 9 L0 -6 M-4.5 -2 L0 -9 L4.5 -2" stroke="${v < 25 ? "#4a4740" : cs}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      L.marker([la, lo], { pane: "limits", interactive: false, keyboard: false, icon: L.divIcon({ className: "fletxa", html: svg, iconSize: [m, m], iconAnchor: [m / 2, m / 2] }) }).addTo(fletxes);
+    }));
+  }
   const dt = horaDe(G.inici, h);
   $("rellotge").textContent = etiqHora(dt);
   $("franja").value = h;
 }
 mapa.on("click", ev => {
   if (!G) return;
-  const v = valorA(seriesHora(horaIndex()), ev.latlng.lat, ev.latlng.lng);
-  const m = INDEX.models.find(x => x.id === MODEL), e = ESC[VAR];
-  L.popup().setLatLng(ev.latlng).setContent(`<b>${esc(m.nom)}</b> · ${esc(etiqHora(horaDe(G.inici, horaIndex())))}<br>${esc(e.nom)}: <b>${v == null ? "sense dada" : fmtNum(v, e.dec) + " " + e.unitat}</b>`).openOn(mapa);
+  const h = horaIndex(), m = INDEX.models.find(x => x.id === MODEL);
+  const PUNTS = ["N", "NE", "E", "SE", "S", "SO", "O", "NO"];
+  const linies = ["t", "p", "a", "n", "v"].filter(k => CAPES.has(k)).map(k => {
+    const e = ESC[k], v = valorA(seriesHora(h, k), ev.latlng.lat, ev.latlng.lng);
+    let txt = v == null ? "sense dada" : fmtNum(v, e.dec) + " " + e.unitat;
+    if (k === "v" && v != null && Array.isArray(G.dades.d)) {
+      const d = valorA(G.dades.d[h] || [], ev.latlng.lat, ev.latlng.lng);   // aproximada (prou per al punt cardinal)
+      if (d != null) txt += " de " + PUNTS[Math.round(((d % 360) + 360) % 360 / 45) % 8];
+    }
+    return `${esc(e.nom)}: <b>${esc(txt)}</b>`;
+  });
+  L.popup().setLatLng(ev.latlng).setContent(`<b>${esc(m.nom)}</b> · ${esc(etiqHora(horaDe(G.inici, h)))}<br>${linies.join("<br>")}`).openOn(mapa);
 });
 
 function llegenda() {
   const e = ESC[VAR], P = e.parades, min = P[0][0], max = P[P.length - 1][0];
   const grad = P.map(([v, c]) => `${c} ${((v - min) / (max - min) * 100).toFixed(1)}%`).join(",");
   const marques = [P[0], P[Math.floor(P.length / 2)], P[P.length - 1]].map(p => fmtNum(p[0], p[0] % 1 ? 1 : 0));
-  $("llegenda").innerHTML = `<b>${esc(e.nom)}</b> (${esc(e.unitat)})<div class="barra" style="background:linear-gradient(90deg,${grad})"></div><div class="noms"><span>${marques[0]}</span><span>${marques[1]}</span><span>${marques[2]}+</span></div>`;
+  let h = `<b>${esc(e.nom)}</b> (${esc(e.unitat)})<div class="barra" style="background:linear-gradient(90deg,${grad})"></div><div class="noms"><span>${marques[0]}</span><span>${marques[1]}</span><span>${marques[2]}+</span></div>`;
+  if (velNuvols()) h += '<div class="capa">☁️ <b>Núvols</b>: vel gris, més fosc com més tapat</div>';
+  if (CAPES.has("v") && G && !Array.isArray(G.dades.d)) h += '<div class="capa">💨 Les fletxes del vent sortiran amb la pròxima actualització dels models</div>';
+  else if (CAPES.has("v")) h += `<div class="capa">💨 <b>Vent</b>: les fletxes indiquen cap a on bufa; ${VAR === "v" ? "" : "com més grosses, més fort, i "}de color a partir de 25 km/h</div>`;
+  $("llegenda").innerHTML = h;
 }
 function horaIndex() {
   if (!G) return 0;
@@ -323,14 +367,29 @@ async function triaModel(id) {
     if (HORA_MS == null) HORA_MS = msDe(G.inici);
     $("franja").max = G.dades.t.length - 1;
     $("avis").hidden = true;
-    infoModel(); pintaMapa();
+    infoModel(); llegenda(); pintaMapa();
   } catch (e) {
     $("avis").firstChild.textContent = "Ara no es pot carregar aquest model.";
   }
 }
+// 24.11.2026: botó «➕ Combina» (a elecció, per a qualsevol model). Sense combinar, una sola variable
+// com sempre; combinant, la pluja (o la pluja acumulada), els núvols i el vent s'afegeixen o es treuen.
+// La temperatura va sola i desfà la combinació.
+let COMBINA = false;
 function triaVar(v) {
-  VAR = v;
-  document.querySelectorAll("#filaVars button").forEach(b => b.classList.toggle("actiu", b.dataset.v === v));
+  let c = new Set(CAPES);
+  if (v === "combina") {
+    COMBINA = !COMBINA;
+    if (COMBINA) c = new Set([VAR === "a" ? "a" : "p", "n", "v"]);
+    else c = new Set([VAR]);
+  } else if (v === "t" || !COMBINA) { COMBINA = false; c = new Set([v]); }
+  else {
+    if (c.has(v)) c.delete(v);
+    else { if (v === "p") c.delete("a"); if (v === "a") c.delete("p"); c.add(v); }
+    if (!c.size) return;   // n'hi ha d'haver sempre una
+  }
+  CAPES = c; VAR = baseDe(c);
+  document.querySelectorAll("#filaVars button").forEach(b => b.classList.toggle("actiu", b.dataset.v === "combina" ? COMBINA : CAPES.has(b.dataset.v)));
   llegenda(); pintaMapa();
 }
 $("franja").addEventListener("input", e => { if (!G) return; HORA_MS = horaDe(G.inici, +e.target.value).getTime(); pintaMapa(); });
@@ -461,7 +520,7 @@ function grafic() {
       : `Al mapa n'hi ha ${tots - sense.length} de ${tots}: ${noms} no hi surten perquè la seva zona de càlcul no cobreix tota la província, però sí que compten a la taula de consens i al gràfic, perquè tenen dades de la Bisbal.`;
   }
   const fv = $("filaVars");
-  VARS_MAPA.forEach(([v, nom]) => { const b = document.createElement("button"); b.dataset.v = v; b.textContent = nom; b.onclick = () => triaVar(v); fv.appendChild(b); });
+  [...VARS_MAPA, ["combina", "➕ Combina"]].forEach(([v, nom]) => { const b = document.createElement("button"); b.dataset.v = v; b.textContent = nom; b.onclick = () => triaVar(v); if (v === "combina") b.title = "Ajunta al mapa la pluja, els núvols i el vent (els que triïs)"; fv.appendChild(b); });
   const fg = $("filaGrafic");
   VARS_GRAF.forEach(([v, nom]) => { const b = document.createElement("button"); b.dataset.v = v; b.textContent = nom; b.onclick = () => { VAR_G = v; fg.querySelectorAll("button").forEach(x => x.classList.toggle("actiu", x.dataset.v === v)); grafic(); }; fg.appendChild(b); });
   fg.querySelector("button").classList.add("actiu");
