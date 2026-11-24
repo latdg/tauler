@@ -2782,7 +2782,7 @@ inicia();
 <script>
 // LA PREVISIÓ (24.11.2026): fitxa sota el temps amb el consens dels models de
 // previsió (tauler/models). Mostra el primer dia en què almenys un terç dels
-// models donen pluja (1 mm o més); si no n'hi ha cap, el primer amb pluja d'algun model.
+// models indiquen pluja (1 mm o més); si no n'hi ha cap, el primer amb pluja d'algun model.
 (async function () {
   const el = document.getElementById("previsioModels");
   if (!el) return;
@@ -2807,9 +2807,9 @@ inicia();
       res.push({ nom: i === 0 ? "Avui" : i === 1 ? "Demà" : NOMS[x.dt.getUTCDay()], amb: pl.filter(v => v >= 1).length, n: qui.length, max: Math.max(...pl) });
     });
     const tria = res.find(r => r.amb && r.amb / r.n >= 1 / 3) || res.find(r => r.amb);
-    if (!tria) { el.textContent = "Cap model dona pluja els pròxims dies"; return; }
+    if (!tria) { el.textContent = "Cap model indica pluja els pròxims dies"; return; }
     const mm = tria.max >= 10 ? Math.round(tria.max) : String(Math.round(tria.max * 10) / 10).replace(".", ",");
-    el.textContent = `${tria.nom}: ${tria.amb} de ${tria.n} models ${tria.amb === 1 ? "dona" : "donen"} pluja (fins a ${mm} mm)`;
+    el.textContent = `${tria.nom}: ${tria.amb} de ${tria.n} models ${tria.amb === 1 ? "indica" : "indiquen"} pluja (fins a ${mm} mm)`;
   } catch (e) { /* es queda «Què diuen els models?» */ }
 })();
 </script>
