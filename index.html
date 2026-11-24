@@ -330,7 +330,7 @@ a.tira-it:hover{color:var(--accent);text-decoration:underline}
     <div id="temps" class="temps-dalt">
       <div id="tempsAra" class="temps-linia buit">Carregant el temps…</div>
       <div id="tempsDies" class="temps-dies"></div>
-      <div class="dia-sota"><span class="temps-models"><a href="models/" target="_blank" rel="noopener" title="Què diu cada model de previsió per a la Bisbal i les comarques gironines"><b>LA PREVISIÓ</b><span id="previsioModels">Què diuen els models</span><span class="fl">→</span></a></span><label id="selector" hidden>Dia: <select id="dia"></select></label></div>
+      <div class="dia-sota"><span class="temps-models"><a href="models/" target="_blank" rel="noopener" title="Què diu cada model de previsió per a la Bisbal i les comarques gironines"><b>LA PREVISIÓ</b><span id="previsioModels">Què diuen els models?</span><span class="fl">→</span></a></span><label id="selector" hidden>Dia: <select id="dia"></select></label></div>
     </div>
   </div>
   <div class="tira" id="tira" hidden aria-label="Titulars de La TdG i dels mitjans">
@@ -2810,7 +2810,7 @@ inicia();
     if (!tria) { el.textContent = "Cap model dona pluja els pròxims dies"; return; }
     const mm = tria.max >= 10 ? Math.round(tria.max) : String(Math.round(tria.max * 10) / 10).replace(".", ",");
     el.textContent = `${tria.nom}: ${tria.amb} de ${tria.n} models ${tria.amb === 1 ? "dona" : "donen"} pluja (fins a ${mm} mm)`;
-  } catch (e) { /* es queda «Què diuen els models» */ }
+  } catch (e) { /* es queda «Què diuen els models?» */ }
 })();
 </script>
 </body>
