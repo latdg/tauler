@@ -1,13 +1,13 @@
 # Models de previsió — La TdG ampliada · 24.11.2026
-# Cada 3 hores baixa d'Open-Meteo els models numèrics (punt de la Bisbal i
-# graella del Baix Empordà) per a la pàgina tauler/models/. Les dades van a la
+# Cada 6 hores baixa d'Open-Meteo els models numèrics (punt de la Bisbal i
+# graella de la província de Girona) per a la pàgina tauler/models/. Les dades van a la
 # branca «models-dades», que es reescriu sencera cada vegada (sense historial),
 # perquè el repo no s'engreixi amb fitxers que es renoven tot el dia.
 name: Models de previsió
 
 on:
   schedule:
-    - cron: "17 */3 * * *"
+    - cron: "17 1,7,13,19 * * *"
   workflow_dispatch:
 
 permissions:
@@ -20,7 +20,7 @@ concurrency:
 jobs:
   models:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

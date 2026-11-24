@@ -7,7 +7,7 @@
 #
 #   index.json      la llista de models amb dades i la sèrie horària de 7 dies
 #                   a la Bisbal d'Empordà de cada model (per a la comparativa)
-#   g_<model>.json  una graella de punts sobre el Baix Empordà (4 dies, hora a
+#   g_<model>.json  una graella de punts sobre la província de Girona (4 dies, hora a
 #                   hora) per pintar el mapa del model
 #
 # Els models que no donen dades a la Bisbal (el seu domini no hi arriba) queden
@@ -54,9 +54,12 @@ VARS = [
 ]
 VARS_PUNT = VARS + [("wind_gusts_10m", "r", 0)]
 
-# Graella del mapa: Baix Empordà i voltants, cada 0,06° (uns 5-6 km)
-LATS = [round(41.76 + 0.06 * i, 2) for i in range(8)]    # 41.76 … 42.18
-LONS = [round(2.82 + 0.06 * j, 2) for j in range(9)]     # 2.82 … 3.30
+# Graella del mapa: tota la província de Girona, cada 0,1° (uns 8-11 km).
+# 24.11.2026: abans només el Baix Empordà (cada 0,06°). Són 162 punts per model:
+# Open-Meteo els compta com 162 consultes, i per això es fa cada 6 hores i amb
+# pauses entre models (límit gratuït: 600 per minut i 10.000 per dia).
+LATS = [round(41.65 + 0.1 * i, 2) for i in range(9)]     # 41.65 … 42.45
+LONS = [round(1.70 + 0.1 * j, 2) for j in range(18)]     # 1.70 … 3.40
 HORES_MAPA = 96
 HORES_PUNT = 168
 
@@ -200,7 +203,7 @@ def main():
             te_graella = os.path.exists(fitxer)   # es queda la de l'última vegada
         models.append({"id": mid, "nom": nom, "font": font, "res": res, "grup": grup,
                        "graella": te_graella})
-        time.sleep(6)   # Open-Meteo limita les consultes per minut
+        time.sleep(25)   # Open-Meteo limita les consultes per minut (600)
     if not models:
         print("Cap model amb dades: no es toca res")
         sys.exit(1)

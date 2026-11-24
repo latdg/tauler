@@ -6,9 +6,9 @@
 <meta name="color-scheme" content="light only">
 <title>Models de previsió · La TdG</title>
 <!-- MODELS DE PREVISIÓ (24.11.2026): què diu cada model numèric per a la Bisbal
-     i el Baix Empordà. Mapa animat per hores de cada model, consens per dies i
+     i la província de Girona. Mapa animat per hores de cada model, consens per dies i
      comparativa de tots els models a la Bisbal. Dades: Open-Meteo, baixades cada
-     3 hores pel workflow models.yml a la branca models-dades. -->
+     6 hores pel workflow models.yml a la branca models-dades. -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
@@ -50,7 +50,7 @@ button.prim{border-radius:8px;background:var(--accent);border-color:var(--accent
 .xifra::before{display:none}
 .etiq-mun{background:none;border:0;box-shadow:none;color:#3a3a36;font-size:11px;font-weight:600;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
 .etiq-mun::before{display:none}
-.amaga-xifres .xifra{display:none}
+.amaga-xifres .xifra,.lluny .xifra{display:none}
 .taula{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.9rem}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--linia);white-space:nowrap}
@@ -71,7 +71,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     <h1>📈 Models de previsió</h1>
     <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
   </div>
-  <p class="sub">Què preveu cada model numèric per a la Bisbal i el Baix Empordà, hora a hora. Quan els models coincideixen, la previsió és més segura; quan es contradiuen, hi ha incertesa. <a href="../">Torna a La TdG ampliada</a></p>
+  <p class="sub">Què preveu cada model numèric per a la Bisbal i les comarques gironines, hora a hora. Quan els models coincideixen, la previsió és més segura; quan es contradiuen, hi ha incertesa. <a href="../">Torna a La TdG ampliada</a></p>
 </header>
 <main>
   <section>
@@ -105,7 +105,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     <p class="font">Cada línia és un model; la negra gruixuda és la mitjana. Toca el nom d'un model a la llegenda per amagar-lo o tornar-lo a mostrar.</p>
   </section>
 
-  <p class="font" id="peu" style="margin:0 0 32px">Dades: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0), amb els models de Météo-France, DWD, ECMWF, NOAA, KNMI, DMI, Met Office, ItaliaMeteo i ECCC. Es renoven cada 3 hores.</p>
+  <p class="font" id="peu" style="margin:0 0 32px">Dades: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0), amb els models de Météo-France, DWD, ECMWF, NOAA, KNMI, DMI, Met Office, ItaliaMeteo i ECCC. Es renoven cada 6 hores.</p>
 </main>
 <script src="../dates-ca.js"></script>
 <script>
@@ -160,32 +160,49 @@ const CACHE = {};
 const COLORS = ["#b4462c", "#2b7bba", "#2e9d5b", "#8e44ad", "#d68910", "#17a2b8", "#c0392b", "#5d6d7e", "#e67e22", "#16a085", "#7d3c98", "#a04000", "#1f618d"];
 
 // --- MAPA ---
-const mapa = L.map("mapa", { zoomSnap: 0.25, scrollWheelZoom: false, maxZoom: 13, minZoom: 8 }).setView([41.97, 3.06], 10);
+const mapa = L.map("mapa", { zoomSnap: 0.25, scrollWheelZoom: false, maxZoom: 13, minZoom: 7 }).fitBounds([[41.64, 1.72], [42.50, 3.34]]);
 mapa.attributionControl.setPrefix("").addAttribution('Models: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · Límits: es-atlas (INE)');
 mapa.createPane("fons").style.zIndex = 250;
 mapa.createPane("capa").style.zIndex = 300;
 mapa.createPane("limits").style.zIndex = 350;
 mapa.getPane("limits").style.pointerEvents = "none";
-const ETIQ = ["la Bisbal d'Empordà", "Palafrugell", "Palamós", "Sant Feliu de Guíxols", "Torroella de Montgrí", "Begur", "Pals", "Corçà", "Forallac", "Calonge i Sant Antoni", "Castell-Platja d'Aro", "Llagostera", "Girona", "Verges", "l'Escala", "Ullastret"];
+const ETIQ = ["la Bisbal d'Empordà", "Girona", "Figueres", "Olot", "Ripoll", "Puigcerdà", "Banyoles", "Blanes", "Lloret de Mar", "Palamós", "Palafrugell", "Sant Feliu de Guíxols", "Torroella de Montgrí", "l'Escala", "Roses", "Santa Coloma de Farners", "Camprodon", "Cadaqués"];
 (async () => {
   try {
     const T = await fetch("../llamps/girona.json").then(r => r.json());
     const prov = topojson.feature(T, T.objects.provincies), mun = topojson.feature(T, T.objects.municipis);
     L.geoJSON(prov, { pane: "fons", interactive: false, style: f => ({ color: "#9a958a", weight: 1, fillColor: f.id === "17" ? "#ffffff" : "#f6f5f2", fillOpacity: 1 }) }).addTo(mapa);
     L.geoJSON(mun, { pane: "limits", interactive: false, style: { color: "#4a4740", weight: .6, opacity: .55, fill: false } }).addTo(mapa);
-    L.geoJSON(prov.features.filter(f => f.id === "17"), { pane: "limits", interactive: false, style: { color: "#4a4740", weight: 1.6, fill: false } }).addTo(mapa);
+    const gi = prov.features.filter(f => f.id === "17");
+    L.geoJSON(gi, { pane: "limits", interactive: false, style: { color: "#4a4740", weight: 1.6, fill: false } }).addTo(mapa);
+    // 24.11.2026: el color dels models només es pinta dins de la província
+    if (gi.length) { const g = gi[0].geometry; PROV = g.type === "Polygon" ? [g.coordinates] : g.coordinates; MASCARA = null; pintaMapa(); }
     const etiq = L.layerGroup();
     mun.features.forEach(f => {
       const n = String(f.properties && f.properties.n || "").toLowerCase(), e = ETIQ.find(x => x.toLowerCase() === n);
       if (e) L.tooltip({ permanent: true, direction: "center", className: "etiq-mun", interactive: false, offset: [0, -12] })
         .setLatLng(L.geoJSON(f).getBounds().getCenter()).setContent(e === "la Bisbal d'Empordà" ? "la Bisbal" : e).addTo(etiq);
     });
-    const mostra = () => mapa.getZoom() >= 10.5 ? etiq.addTo(mapa) : mapa.removeLayer(etiq);
+    const mostra = () => mapa.getZoom() >= 9.5 ? etiq.addTo(mapa) : mapa.removeLayer(etiq);
     mostra(); mapa.on("zoomend", mostra);
   } catch (e) { /* sense fons: el mapa dels models es veu igualment */ }
 })();
-let overlay = null;
+let overlay = null, PROV = null, MASCARA = null;
 const xifres = L.layerGroup().addTo(mapa);
+// les xifres, només quan el mapa és prou a prop perquè no s'encavalquin
+const mostraXifres = () => $("mapa").classList.toggle("lluny", mapa.getZoom() < 9);
+mapa.on("zoomend", mostraXifres); mostraXifres();
+// Punt dins de la província (anells [lon, lat], parell-senar)
+function dinsProv(lat, lon) {
+  let dins = false;
+  PROV.forEach(pol => pol.forEach(an => {
+    for (let i = 0, j = an.length - 1; i < an.length; j = i++) {
+      const [xi, yi] = an[i], [xj, yj] = an[j];
+      if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) dins = !dins;
+    }
+  }));
+  return dins;
+}
 
 // Valor interpolat (bilineal) a la graella per a una hora i variable
 function valorA(dades, lat, lon) {
@@ -211,14 +228,20 @@ function pintaMapa() {
   const h = horaIndex();
   const dades = seriesHora(h);
   const nr = G.lats.length, nc = G.lons.length, pas = G.lons[1] - G.lons[0];
-  const K = 24, W = nc * K, H = nr * K;
+  const K = 16, W = nc * K, H = nr * K;
   const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
   const cx = cv.getContext("2d"), img = cx.createImageData(W, H);
   const lat0 = G.lats[0] - pas / 2, lon0 = G.lons[0] - pas / 2;
+  if (PROV && (!MASCARA || MASCARA.length !== W * H)) {
+    MASCARA = new Uint8Array(W * H);
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++)
+      MASCARA[y * W + x] = dinsProv(lat0 + (H - y - 0.5) / H * nr * pas, lon0 + (x + 0.5) / W * nc * pas) ? 1 : 0;
+  }
   for (let y = 0; y < H; y++) {
     const lat = lat0 + (H - y - 0.5) / H * nr * pas;
     for (let x = 0; x < W; x++) {
       const lon = lon0 + (x + 0.5) / W * nc * pas;
+      if (MASCARA && !MASCARA[y * W + x]) continue;
       const c = colorDe(VAR, valorA(dades, lat, lon));
       if (!c) continue;
       const i = (y * W + x) * 4;
@@ -236,6 +259,7 @@ function pintaMapa() {
     const v = dades[r * nc + c];
     if (v == null) return;
     if (e.zero != null && v < e.zero) return;
+    if (PROV && !dinsProv(la, lo)) return;
     const txt = VAR === "t" ? Math.round(v) + "°" : (VAR === "p" || VAR === "a") ? fmtNum(v, v >= 10 ? 0 : 1) : String(Math.round(v));
     L.tooltip({ permanent: true, direction: "center", className: "xifra", interactive: false }).setLatLng([la, lo]).setContent(txt).addTo(xifres);
   }));
@@ -413,7 +437,7 @@ function grafic() {
   if (amb.length) {
     const pas = INDEX.models.find(m => m.graella);
     await triaModel(pas.id);
-    if (G) mapa.fitBounds([[G.lats[0] - .03, G.lons[0] - .03], [G.lats[G.lats.length - 1] + .03, G.lons[G.lons.length - 1] + .03]], { padding: [0, 0] });
+    mapa.fitBounds([[41.64, 1.72], [42.50, 3.34]], { padding: [0, 0] });
   } else $("avis").firstChild.textContent = "Cap model té ara el mapa disponible.";
 })();
 </script>
