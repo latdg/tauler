@@ -433,10 +433,12 @@ function consens() {
     const f0 = (v, d0) => Math.round(v * 10 ** d0) === 0 ? "0" : fmtNum(v, d0);
     const rang = (a, d0) => { const lo = Math.min(...a), hi = Math.max(...a); return Math.round(lo * 10 ** d0) === Math.round(hi * 10 ** d0) ? f0(lo, d0) : `${f0(lo, d0)}–${f0(hi, d0)}`; };
     const data = `${z(d.dt.getUTCDate())}.${z(d.dt.getUTCMonth() + 1)}.${d.dt.getUTCFullYear()}`;
-    const nom = i === 0 ? (d.hores.length < 24 ? "Avui (resta del dia)" : "Avui") : DIES_LLARGS[d.dt.getUTCDay()];
+    // 24.11.2026: «Avui» i, a sota, «(resta del dia)» en petit, perquè al mòbil no s'encavalqui amb la columna del costat
+    const nom = i === 0 ? "Avui" : DIES_LLARGS[d.dt.getUTCDay()];
+    const resta = i === 0 && d.hores.length < 24 ? '<span class="data">(resta del dia)</span>' : "";
     const mitj = a => a.reduce((s, v) => s + v, 0) / a.length;
     const plMax = Math.max(...pl);
-    html += `<tr><td><span class="dia">${esc(nom)}</span><span class="data">${data}</span></td>` +
+    html += `<tr><td><span class="dia">${esc(nom)}</span>${resta}<span class="data">${data}</span></td>` +
       `<td class="c" style="${amb ? `background:rgba(43,123,186,${(.12 + .55 * pct / 100).toFixed(2)})` : ""}">${amb}/${qui.length}</td>` +
       `<td class="c" style="${fons(colorDe("a", plMax), .55)}">${rang(pl, pl.some(v => v > 0 && v < 10) ? 1 : 0)}</td>` +
       `<td class="c" style="${fons(colorDe("t", mitj(mx)), .55)}">${rang(mx, 0)}°</td>` +
