@@ -298,7 +298,7 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .temps-models .fl{color:var(--accent);font-weight:700}
 #previsioCurt{display:none}
 /* 24.11.2026: al mòbil, «LA PREVISIÓ» és un botó més, com els de les seccions, amb el text curt */
-@media (max-width:600px){.temps-models a{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-color:var(--accent);border-radius:999px;font-size:.85rem;max-width:100%}.temps-models b,.temps-models #previsioModels{display:none}.temps-models #previsioCurt{display:inline}}
+@media (max-width:600px){.temps-models a{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-color:var(--accent);border-radius:999px;font-size:.85rem;white-space:nowrap}.temps-models b,.temps-models #previsioModels{display:none}.temps-models #previsioCurt{display:inline}}
 .temps-dies i{font-style:normal;color:var(--suau);margin-left:4px}
 .dia-sota{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-top:8px}
 @media (max-width:600px){.temps-dalt{flex:1 1 100%;margin:4px 0 0;text-align:left}.temps-linia,.temps-dies,.dia-sota{justify-content:flex-start}}
@@ -2821,9 +2821,9 @@ inicia();
     const num = v => v >= 10 || Number.isInteger(v) ? String(Math.round(v)) : String(Math.round(v * 10) / 10).replace(".", ",");
     const verb = n => n === 1 ? "indica" : "indiquen";
     const FEN = [
-      { curt: "☂", f: "pluja", fins: r => `${num(Math.max(...r.pl))} mm`, si: r => r.pl.filter(v => v >= 1).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} pluja (fins a ${num(Math.max(...r.pl))} mm)` },
-      { curt: "💨", f: "ratxes", fins: r => `${Math.round(Math.max(...r.rx))} km/h`, si: r => r.rx.filter(v => v >= 50).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} ratxes fortes (fins a ${Math.round(Math.max(...r.rx))} km/h)` },
-      { curt: "❄", f: "glaçada", fins: r => `${String(Math.round(Math.min(...r.mn))).replace("-", "−")}°`, si: r => r.mn.filter(v => v < 0).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} glaçada (fins a ${String(Math.round(Math.min(...r.mn))).replace("-", "−")}°)` }
+      { curt: "☂", f: "pluja", si: r => r.pl.filter(v => v >= 1).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} pluja (fins a ${num(Math.max(...r.pl))} mm)` },
+      { curt: "💨", f: "ratxes fortes", si: r => r.rx.filter(v => v >= 50).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} ratxes fortes (fins a ${Math.round(Math.max(...r.rx))} km/h)` },
+      { curt: "❄", f: "glaçada", si: r => r.mn.filter(v => v < 0).length, txt: (r, c) => `${c} de ${r.n} models ${verb(c)} glaçada (fins a ${String(Math.round(Math.min(...r.mn))).replace("-", "−")}°)` }
     ];
     let trobats = [];
     FEN.forEach(f => { const r = res.find(r => f.si(r) / r.n >= 1 / 3); if (r) trobats.push({ r, f, txt: f.txt(r, f.si(r)) }); });
@@ -2831,7 +2831,7 @@ inicia();
     // el més proper; si n'hi ha més d'un el mateix dia, mana l'ordre de dalt
     trobats.sort((x, y) => x.r.i - y.r.i);
     const curt = document.getElementById("previsioCurt");
-    if (trobats.length) { const t = trobats[0]; el.textContent = t.r.nom + ": " + t.txt; if (curt) curt.textContent = `${t.f.curt} ${t.r.nom}, ${t.f.f} fins a ${t.f.fins(t.r)} (${t.f.si(t.r)} de ${t.r.n} models)`; return; }
+    if (trobats.length) { const t = trobats[0]; el.textContent = t.r.nom + ": " + t.txt; if (curt) curt.textContent = `${t.f.curt} ${t.r.nom}, ${t.f.f}: ${t.f.si(t.r)} de ${t.r.n} models`; return; }
     const tres = res.slice(0, 3), mitj = a => a.reduce((s, v) => s + v, 0) / a.length;
     const lo = Math.round(Math.min(...tres.map(r => mitj(r.mn)))), hi = Math.round(Math.max(...tres.map(r => mitj(r.mx))));
     el.textContent = `Dies tranquils, sense pluja ni vent fort (de ${String(lo).replace("-", "−")} a ${hi}°)`;
