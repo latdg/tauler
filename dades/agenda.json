@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-24T17:25:30.493Z",
+ "actualitzat": "2026-11-24T17:25:44.101Z",
  "actes": [
   {
    "id": "28b3370050",
@@ -637,6 +637,13 @@
    "hora": "12.00 h",
    "municipi": "La Bisbal",
    "text": "Visita guiada al convent per descobrir la casa d'acollida de la Fundació acollida i esperança."
+  },
+  {
+   "id": "yuoyo1916o",
+   "data": "2026-12-27",
+   "hora": "18.00 h",
+   "municipi": "La Bisbal",
+   "text": "Els Pastorets, al teatre Mundial."
   }
  ]
 }
