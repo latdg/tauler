@@ -304,7 +304,8 @@ async function triaModel(id) {
   $("avis").hidden = false; $("avis").firstChild.textContent = "Carregant el model…";
   try {
     if (!CACHE[id]) {
-      const g = await fetch(DADES + "g_" + id + ".json?v=" + encodeURIComponent(INDEX.generat))   // 24.11.2026: la mateixa tanda que l'índex (sense graelles velles de la memòria cau).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+      // 24.11.2026: la mateixa tanda que l'índex (sense graelles velles de la memòria cau)
+      const g = await fetch(DADES + "g_" + id + ".json?v=" + encodeURIComponent(INDEX.generat)).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
       // pluja acumulada des de la primera hora
       const nc = g.lats.length * g.lons.length, acc = new Array(nc).fill(0);
       g.acum = g.dades.p.map(fila => fila.map((v, i) => (acc[i] += (v || 0), Math.round(acc[i] * 10) / 10)));
