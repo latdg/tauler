@@ -62,6 +62,28 @@
 "enllac": "",
 "t": 1795543123.770304
 },
+"el gato con sombrero": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El gat amb barret",
+"directors": [
+"Erica Rivinoja",
+"Alessandro Carloni"
+],
+"original": "The Cat in the Hat",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-31",
+"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"id": 1117898,
+"nota": 7.029,
+"vots": 34,
+"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"sinopsi_es": false,
+"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795543123.770304
+},
 "en el corazon de la bestia": {
 "v": 6,
 "comprovat": "director",
@@ -125,6 +147,27 @@
 "enllac": "",
 "t": 1795543123.770304
 },
+"jaleos": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Isaki Lacuesta"
+],
+"original": "Jaleos",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-09-26",
+"sinopsiCa": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
+"id": 1736729,
+"nota": 0,
+"vots": 0,
+"sinopsi": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
+"sinopsi_es": false,
+"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795574365.349977
+},
 "la bola negra": {
 "v": 6,
 "comprovat": "director",
@@ -159,14 +202,35 @@
 "dataTmdb": "2026-11-05",
 "sinopsiCa": "",
 "id": 656908,
-"nota": 7.4,
-"vots": 72,
+"nota": 7.3,
+"vots": 73,
 "sinopsi": "Una antigua epopeya sigue a un joven príncipe y a una princesa, cuyo matrimonio y posterior exilio marcan el comienzo de un viaje legendario. Su historia de amor, deber y destino prepara el terreno para desafíos aún mayores.",
 "sinopsi_es": true,
 "poster": "/nzL1ySE6vdmR6RxXhE7gLggkp41.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
+},
+"ratones al ataque operacion navidad": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Henrik Martin Dahlsbakken"
+],
+"original": "Hvis ingen går i fella",
+"idiomaOriginal": "no",
+"dataTmdb": "2025-11-06",
+"sinopsiCa": "",
+"id": 1427833,
+"nota": 6.5,
+"vots": 22,
+"sinopsi": "Una familia acude a la casa abandonada de su tía para celebrar la Navidad en el campo, sin saber que una familia de ratones ya habita la casa, y no les interesan las visitas. Así que sólo queda una cosa por hacer: poner trampas, estar atentos y defenderse.",
+"sinopsi_es": true,
+"poster": "/tEpDFz33WclWa0c1rxLhqM2DNFE.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795543123.770304
 },
 "ruega por nosotras": {
 "v": 6,
@@ -210,6 +274,27 @@
 "enllac": "",
 "t": 1795543123.770304
 },
+"wildwood": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "",
+"directors": [
+"Travis Knight"
+],
+"original": "Wildwood",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-22",
+"sinopsiCa": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
+"id": 791523,
+"nota": 8.457,
+"vots": 323,
+"sinopsi": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
+"sinopsi_es": false,
+"poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795543123.770304
+},
 "me entiendes o te lo explico": {
 "v": 6,
 "comprovat": "director",
@@ -229,7 +314,7 @@
 "poster": "/4mlzrFT2ByFDTHx30j9WDq6J1qZ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "citas la pelicula": {
 "v": 6,
@@ -273,112 +358,6 @@
 "enllac": "",
 "t": 1795543123.770304
 },
-"la otra madre": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Rob Savage"
-],
-"original": "Other Mommy",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-07",
-"sinopsiCa": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
-"id": 1400837,
-"nota": 6.541,
-"vots": 605,
-"sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
-"sinopsi_es": false,
-"poster": "/vnQtwToGRWTuHdLltq3hNdbXkii.jpg",
-"plataformes": [],
-"enllac": "https://www.themoviedb.org/movie/1400837-other-mommy/watch?locale=ES",
-"t": 1795543123.770304
-},
-"el gato con sombrero": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El gat amb barret",
-"directors": [
-"Erica Rivinoja",
-"Alessandro Carloni"
-],
-"original": "The Cat in the Hat",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-31",
-"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"id": 1117898,
-"nota": 7.029,
-"vots": 34,
-"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"sinopsi_es": false,
-"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1795543123.770304
-},
-"jaleos": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Isaki Lacuesta"
-],
-"original": "Jaleos",
-"idiomaOriginal": "es",
-"dataTmdb": "2026-09-26",
-"sinopsiCa": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
-"id": 1736729,
-"nota": 0,
-"vots": 0,
-"sinopsi": "«Què pot explicar el flamenc sobre el món en què vivim? Jaleos redescobreix aquest art universal a través d’un fascinant viatge per la seva història més desconeguda. Amb les veus de C. Tangana, Alba Flores, Soleá Morente, Rocío Molina, Georges Didi-Huberman i Pedro G. Romero, la pel·lícula revela els seus inesperats vincles amb el cinema, la tecnologia, les avantguardes artístiques i fins i tot el nazisme. Un documental sorprenent que connecta flamenc, política, art i història per a descobrir un llegat més viu i contemporani que mai»(Lastor Media)",
-"sinopsi_es": false,
-"poster": "/6eJaRsrcmguzLDAGP1nWXzLDYTY.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1795458649.312224
-},
-"ratones al ataque operacion navidad": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Henrik Martin Dahlsbakken"
-],
-"original": "Hvis ingen går i fella",
-"idiomaOriginal": "no",
-"dataTmdb": "2025-11-06",
-"sinopsiCa": "",
-"id": 1427833,
-"nota": 6.5,
-"vots": 22,
-"sinopsi": "Una familia acude a la casa abandonada de su tía para celebrar la Navidad en el campo, sin saber que una familia de ratones ya habita la casa, y no les interesan las visitas. Así que sólo queda una cosa por hacer: poner trampas, estar atentos y defenderse.",
-"sinopsi_es": true,
-"poster": "/tEpDFz33WclWa0c1rxLhqM2DNFE.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1795543123.770304
-},
-"wildwood": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "",
-"directors": [
-"Travis Knight"
-],
-"original": "Wildwood",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-22",
-"sinopsiCa": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
-"id": 791523,
-"nota": 8.457,
-"vots": 323,
-"sinopsi": "La Prue, una nena valenta, emprèn la recerca del seu germà petit, segrestat i retingut al bosc prohibit, habitat per criatures encantades, aliats inesperats i adversaris temibles. El que comença com una cerca personal esdevé aviat una aventura espectacular de proporcions colossals, en què el destí de tot un món ocult depèn ara de les seves decisions.",
-"sinopsi_es": false,
-"poster": "/3AxfnEViGaVspgifEag5au5bVJc.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1795543123.770304
-},
 "willow y las guardianas de los 4 elementos": {
 "v": 6,
 "t": 1795543123.770304
@@ -402,6 +381,27 @@
 "poster": "/dPmHrqNydDeUnX9XhtdIjKWJ2xz.jpg",
 "plataformes": [],
 "enllac": "",
+"t": 1795543123.770304
+},
+"la otra madre": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Rob Savage"
+],
+"original": "Other Mommy",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-07",
+"sinopsiCa": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
+"id": 1400837,
+"nota": 6.541,
+"vots": 605,
+"sinopsi": "Una entitat paranormal coneguda com a ‘L’altra mare’ adopta l’aparença de la mare d’una nena, n’amenaça la família i comença a turmentar-los a casa seva",
+"sinopsi_es": false,
+"poster": "/vnQtwToGRWTuHdLltq3hNdbXkii.jpg",
+"plataformes": [],
+"enllac": "https://www.themoviedb.org/movie/1400837-other-mommy/watch?locale=ES",
 "t": 1795543123.770304
 },
 "puedes verlo todo": {
@@ -440,7 +440,7 @@
 },
 "ahora los suegros son ellos": {
 "v": 6,
-"comprovat": "any",
+"comprovat": "director",
 "titolCa": "",
 "directors": [
 "John Hamburg"
@@ -450,14 +450,14 @@
 "dataTmdb": "2026-11-21",
 "sinopsiCa": "",
 "id": 1400336,
-"nota": 7.3,
-"vots": 3,
+"nota": 7.6,
+"vots": 5,
 "sinopsi": "Henry, hijo de Greg y Pam Focker, se enfrenta al caos familiar cuando decide casarse con una mujer de carácter fuerte que parece ser totalmente incompatible con él.",
 "sinopsi_es": true,
 "poster": "/iU2XxFhMxC5Z2gOPASkRmtuDjJQ.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "oro sin ley": {
 "v": 6,
@@ -499,7 +499,7 @@
 "poster": "/9CvAUMZ6OJ5vDS7RPVpRYHifPXE.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "la invitacion": {
 "v": 6,
@@ -514,13 +514,13 @@
 "sinopsiCa": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
 "id": 950028,
 "nota": 7.201,
-"vots": 995,
+"vots": 1000,
 "sinopsi": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
 "sinopsi_es": false,
 "poster": "/21JnfyCARiRkms9AZHtTXiZKbIj.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "el gat amb barret": {
 "v": 6,
@@ -535,34 +535,52 @@
 "dataTmdb": "2026-10-31",
 "sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "id": 1117898,
-"nota": 7.029,
-"vots": 34,
+"nota": 7.257,
+"vots": 35,
 "sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
 "sinopsi_es": false,
 "poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "torroella terra d hortes": {
 "v": 6,
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "redencion": {
 "v": 6,
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "la gran fiesta del cine": {
 "v": 6,
-"t": 1795458649.312224
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"María Sánchez Torregrosa",
+"Toni Agustí"
+],
+"original": "La gran fiesta del cine",
+"idiomaOriginal": "es",
+"dataTmdb": "2026-11-27",
+"sinopsiCa": "",
+"id": 1313043,
+"nota": 0,
+"vots": 0,
+"sinopsi": "Cinco años después de rodar \"La última cena\", un largometraje experimental sin presupuesto, un grupo de técnicos y artistas de cine se reúne para celebrar el inesperado éxito de la película y decidir qué hacer con los beneficios generados en cines y plataformas digitales.",
+"sinopsi_es": true,
+"poster": "/bEfj7qTSVs9TQZLp5BaL4nQhezC.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795574365.349977
 },
 "dune": {
 "v": 6,
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "dune parte dos": {
 "v": 6,
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "wildwood el bosque salvaje": {
 "v": 6,
@@ -655,11 +673,11 @@
 },
 "la meva mare es una goril la": {
 "v": 6,
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "l olivia i el terretremol invisible": {
 "v": 6,
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "2a sessio premis foc": {
 "v": 6,
@@ -732,7 +750,7 @@
 "poster": "/7bQczUMnjz8iwxNP9YrmLkfI8od.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "une si longue lettre": {
 "v": 6,
@@ -753,7 +771,7 @@
 "poster": "/ev3Gf0epb7srDa5tL7CSw72vngu.jpg",
 "plataformes": [],
 "enllac": "",
-"t": 1795458649.312224
+"t": 1795574365.349977
 },
 "fatherland": {
 "v": 6,
