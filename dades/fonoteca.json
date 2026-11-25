@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-18T23:27:45.212Z",
+ "actualitzat": "2026-11-25T20:24:09.527Z",
  "audios": [
   {
    "fitxer": "20261006lamarsellesasencer.mp3",
@@ -14,6 +14,23 @@
    "amagat": true,
    "revisar": false,
    "eliminat": true
+  },
+  {
+   "fitxer": "20261125violentometro.mp3",
+   "titol": "Els 40 graus de la violència masclista",
+   "qui": [
+    "Núria Leal",
+    "Martha Alicia Tronco Rosas",
+    "Anna Paretas Artacho"
+   ],
+   "data": "2026-11-25",
+   "categoria": "conferencies",
+   "municipi": "La Bisbal d'Empordà",
+   "lloc": "El Mundial",
+   "descripcio": "Presentació de l'aplicació digital gratuïta https://gradienteviolencia.app/ca per reconèixer comportaments de dany, control i violència en les relacions, amb exemples quotidians, basada en el *Violentómetro*.",
+   "destacat": false,
+   "amagat": false,
+   "revisar": false
   },
   {
    "fitxer": "20261118catalaitu.mp3",
