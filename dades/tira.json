@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-24T17:15:42.922Z",
+ "actualitzat": "2026-11-25T07:37:24.699Z",
  "amagats": [
   {
    "clau": "el tiempo en vulpellac",
@@ -68,8 +68,29 @@
    "clau": "mossos detenen un jove a la bisbal per causar destrosses en vehicles i a la comissaria",
    "dia": "2026-11-24",
    "titol": "Mossos detenen un jove a la Bisbal per causar destrosses en vehicles i a la comissaria de la Policia Local"
+  },
+  {
+   "clau": "l atlètic bisbalenc reclama vestuaris adaptats a l ajuntament per crear futbol femení",
+   "dia": "2026-11-25",
+   "titol": "L'Atlètic Bisbalenc diu que hi pot haver futbol femení a la Bisbal si es disposa de vestuaris adaptats o d'un conserge que els pugui controlar"
+  },
+  {
+   "clau": "el soc atorga 117.000 euros al consell comarcal per inserir 40 aturats",
+   "dia": "2026-11-25",
+   "titol": "El SOC atorga 117.000 euros al Consell Comarcal per a la inserció de 40 persones en situació d'atur"
+  },
+  {
+   "clau": "la generalitat compra dos habitatges socials a la bisbal d'empordà a inmocaixa",
+   "dia": "2026-11-25",
+   "titol": "La Generalitat adquireix dos habitatges socials a la Bisbal d'Empordà provinents d'InmoCaixa"
   }
  ],
  "mitjansAmagats": [],
- "afegits": []
+ "afegits": [
+  {
+   "id": "llnz0ozjyk",
+   "mitja": "La TdG",
+   "titol": "Soledad Tejero prenia possessió anit com a nova edil de la Bisbal"
+  }
+ ]
 }
