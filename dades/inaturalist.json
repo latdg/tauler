@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-24T14:58:06+00:00",
+ "actualitzat": "2026-11-25T14:33:52+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2022,7 +2022,7 @@
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
    "observacions": 243,
-   "especies": 181,
+   "especies": 180,
    "observadors": 30,
    "grups": [
     [
@@ -2050,11 +2050,11 @@
      7
     ],
     [
-     "🦎 Rèptils",
+     "🦊 Mamífers",
      6
     ],
     [
-     "🦊 Mamífers",
+     "🦎 Rèptils",
      6
     ],
     [
@@ -2106,6 +2106,12 @@
      "n": 2
     },
     {
+     "cientific": "Sus scrofa",
+     "nom": "porc senglar",
+     "grup": "🦊 Mamífers",
+     "n": 2
+    },
+    {
      "cientific": "Clematis flammula",
      "nom": "Vidiella",
      "grup": "🌿 Plantes",
@@ -2139,12 +2145,6 @@
      "cientific": "Phalangium opilio",
      "nom": "",
      "grup": "🕷️ Aranyes",
-     "n": 2
-    },
-    {
-     "cientific": "Pallenis spinosa",
-     "nom": "Ull de bou",
-     "grup": "🌿 Plantes",
      "n": 2
     }
    ],
@@ -2434,6 +2434,21 @@
      "lloc": "Spain",
      "qualitat": "research",
      "amenacada": true,
+     "introduida": false
+    },
+    {
+     "id": 416854159,
+     "data": "2026-10-04",
+     "url": "https://www.inaturalist.org/observations/416854159",
+     "nom": "porc senglar",
+     "cientific": "Sus scrofa",
+     "rang": "species",
+     "grup": "🦊 Mamífers",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/767769152/small.jpg",
+     "autor": "Anna Wintle Taylor",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "research",
+     "amenacada": false,
      "introduida": false
     },
     {
@@ -2868,21 +2883,6 @@
      "autor": "Laura Justicia",
      "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
      "qualitat": "needs_id",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 375792375,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375792375",
-     "nom": "Bruna boscana",
-     "cientific": "Pararge aegeria",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/687039903/small.jpg",
-     "autor": "Laura Justicia",
-     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
-     "qualitat": "research",
      "amenacada": false,
      "introduida": false
     }
