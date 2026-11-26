@@ -1,5 +1,5 @@
 {
- "generat": "2026-11-25T18:47:52+00:00",
+ "generat": "2026-11-26T17:39:34+00:00",
  "municipis": {
   "17022": "la Bisbal d'Empordà",
   "17057": "Corçà",
@@ -8,21 +8,8 @@
   "17205": "Ullastret"
  },
  "farmacies": {
-  "quan": "2026-11-25T18:48:14+00:00",
+  "quan": "2026-11-26T17:39:55+00:00",
   "dies": [
-   {
-    "data": "2026-11-22",
-    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 22/11/2026",
-    "farmacies": [
-     {
-      "farmacia": "J. GISPERT DOMÈNECH",
-      "poblacio": "VULPELLAC",
-      "horari": "09:00 - 09:00 (dia seg.)",
-      "adreca": "C/Carme Carles, 16",
-      "telefon": "674038640"
-     }
-    ]
-   },
    {
     "data": "2026-11-23",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 23/11/2026",
@@ -137,6 +124,19 @@
    {
     "data": "2026-12-01",
     "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 01/12/2026",
+    "farmacies": [
+     {
+      "farmacia": "C. CECILIA NEDEA",
+      "poblacio": "LA BISBAL D'EMPORDA",
+      "horari": "09:00 - 09:00 (dia seg.)",
+      "adreca": "C/Jaume II, 14",
+      "telefon": "674038640"
+     }
+    ]
+   },
+   {
+    "data": "2026-12-02",
+    "titol": "FARMÀCIES DE GUÀRDIA A LA BISBAL D'EMPORDÀ DEL DIA 02/12/2026",
     "farmacies": [
      {
       "farmacia": "C. CECILIA NEDEA",
