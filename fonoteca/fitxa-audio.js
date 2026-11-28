@@ -58,11 +58,72 @@
   }
 
   /* ----- Format de la descripció: **negreta**, *cursiva*, __subratllat__ ----- */
+  // 28.11.2026: ENLLAÇOS. Es desen com [text](https://…); una adreça sola
+  // (https://… o www.…) també surt clicable. El botó 🔗 de l'editor els posa i els treu.
+  function enllacA(t, k) {
+    const resta = t.slice(k);
+    let m = t[k] === "[" && resta.match(/^\[([^\[\]\n]+)\]\((https?:\/\/[^\s()]+)\)/i);
+    if (m) return { text: m[1], href: m[2], fi: k + m[0].length };
+    if (k > 0 && !/[\s(«"'“‘>\[]/.test(t[k - 1])) return null;
+    m = resta.match(/^(?:https?:\/\/|www\.)[^\s<>"«»]+/i);
+    if (!m) return null;
+    const u = m[0].replace(/[.,;:!?'")\]’”]+$/, "");
+    if (!/^(https?:\/\/|www\.)[^./]+\./i.test(u)) return null;
+    return { text: u, href: /^www\./i.test(u) ? "https://" + u : u, fi: k + u.length };
+  }
+  function enllacAMarca(text, href) {
+    href = String(href).replace(/\s/g, "%20").replace(/\(/g, "%28").replace(/\)/g, "%29");
+    text = String(text).replace(/[\[\]]/g, "").replace(/\s+/g, " ").trim() || href;
+    return text === href ? href : "[" + text + "](" + href + ")";
+  }
+  function adrecaEnllac(u) {
+    u = String(u || "").trim();
+    if (!u) return "";
+    if (!/^https?:\/\//i.test(u)) u = "https://" + u.replace(/^\/+/, "");
+    return /^https?:\/\/[^\s/.]+\.[^\s]+$/i.test(u) ? u : "";
+  }
+  function posaEnllac(caixa) {
+    const sel = document.getSelection();
+    let rang = sel.rangeCount && caixa.contains(sel.anchorNode) ? sel.getRangeAt(0).cloneRange() : null;
+    const n = rang && rang.startContainer, el = n && (n.nodeType === 1 ? n : n.parentElement);
+    const a = el && el.closest("a");
+    if (a && caixa.contains(a)) {
+      const nou = prompt("Adreça de l'enllaç (deixa-la en blanc per treure l'enllaç):", a.getAttribute("href") || "");
+      if (nou === null) return false;
+      if (!nou.trim()) { a.replaceWith(...a.childNodes); return true; }
+      const u = adrecaEnllac(nou);
+      if (!u) { alert("Aquesta adreça no és vàlida: " + nou); return false; }
+      a.setAttribute("href", u);
+      return true;
+    }
+    const buit = !rang || rang.collapsed;
+    const nou = prompt(buit ? "Adreça de l'enllaç (si vols que l'enllaç sigui un text, selecciona'l abans de prémer 🔗):" : "Adreça de l'enllaç per al text seleccionat:", "https://");
+    if (nou === null) return false;
+    const u = adrecaEnllac(nou);
+    if (!u) { if (nou.trim() && nou.trim() !== "https://") alert("Aquesta adreça no és vàlida: " + nou); return false; }
+    caixa.focus();
+    if (!rang) { rang = document.createRange(); rang.selectNodeContents(caixa); rang.collapse(false); }
+    sel.removeAllRanges(); sel.addRange(rang);
+    const e = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    if (buit) document.execCommand("insertHTML", false, '<a href="' + e(u) + '">' + e(u) + "</a>&nbsp;");
+    else document.execCommand("createLink", false, u);
+    return true;
+  }
+  // Ctrl+clic (o Cmd+clic) sobre un enllaç de l'editor l'obre en una pestanya nova.
+  if (!window.enllacCtrlClic) {
+    window.enllacCtrlClic = true;
+    document.addEventListener("click", ev => {
+      const a = ev.target && ev.target.closest && ev.target.closest('[contenteditable="true"] a[href]');
+      if (a && (ev.ctrlKey || ev.metaKey)) { ev.preventDefault(); window.open(a.href, "_blank", "noopener"); }
+    });
+  }
   function trossosMarca(t) {
     const surt = [], estil = { b: false, i: false, u: false };
     let buf = "";
     const tanca = () => { if (buf) surt.push({ t: buf, ...estil }); buf = ""; };
     for (let k = 0; k < t.length; k++) {
+      const enl = enllacA(t, k);   // 28.11.2026: enllaços
+      if (enl) { tanca(); surt.push({ t: enl.text, href: enl.href, ...estil }); k = enl.fi - 1; continue; }
       if (t.startsWith("**", k)) { tanca(); estil.b = !estil.b; k++; continue; }
       if (t.startsWith("__", k)) { tanca(); estil.u = !estil.u; k++; continue; }
       if (t[k] === "*") { tanca(); estil.i = !estil.i; continue; }
@@ -75,6 +136,7 @@
     return String(text || "").replace(/\r\n/g, "\n").split(/\n\s*\n/).map(x => x.trim()).filter(Boolean)
       .map(par => "<p>" + trossosMarca(par).map(x => {
         let h = esc(x.t).replace(/\n/g, "<br>");
+      if (x.href) h = '<a href="' + esc(x.href) + '" target="_blank" rel="noopener">' + h + "</a>";
         if (x.u) h = "<u>" + h + "</u>";
         if (x.i) h = "<i>" + h + "</i>";
         if (x.b) h = "<b>" + h + "</b>";
@@ -86,11 +148,18 @@
     let trossos = [];
     const tancaPar = () => {
       let t = "";
+      // 28.11.2026: els trossos seguits d'un mateix enllaç fan un sol [text](adreça)
+      const junts = [];
       trossos.forEach(x => {
+        const p = junts[junts.length - 1];
+        if (x.href && p && p.href === x.href) { p.t += x.t; p.b = p.b && x.b; p.i = p.i && x.i; p.u = p.u && x.u; }
+        else junts.push({ ...x });
+      });
+      junts.forEach(x => {
         if (x.t === "\n") { t += "\n"; return; }
         const m = x.t.match(/^(\s*)([\s\S]*?)(\s*)$/);
         if (!m[2]) { t += x.t; return; }
-        t += m[1] + (x.b ? "**" : "") + (x.i ? "*" : "") + (x.u ? "__" : "") + m[2] +
+        t += m[1] + (x.b ? "**" : "") + (x.i ? "*" : "") + (x.u ? "__" : "") + (x.href ? enllacAMarca(m[2], x.href) : m[2]) +
           (x.u ? "__" : "") + (x.i ? "*" : "") + (x.b ? "**" : "") + m[3];
       });
       t = t.replace(/\*\*\*\*/g, "").replace(/____/g, "").replace(/ /g, " ").replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").trim();
@@ -106,6 +175,7 @@
       if (tag === "B" || tag === "STRONG" || /^(bold|[6-9]00)$/.test(st.fontWeight || "")) e.b = true;
       if (tag === "I" || tag === "EM" || st.fontStyle === "italic") e.i = true;
       if (tag === "U" || /underline/.test((st.textDecoration || "") + (st.textDecorationLine || ""))) e.u = true;
+      if (tag === "A" && /^https?:\/\//i.test(node.getAttribute("href") || "")) e.href = node.getAttribute("href");
       const bloc = /^(P|DIV|LI|H\d)$/.test(tag);
       if (bloc) tancaPar();
       node.childNodes.forEach(c => camina(c, e));
@@ -132,6 +202,7 @@
 .fa-text{min-height:110px;padding:10px 12px;border:1px solid #e3e1db;border-radius:8px;background:#fff;color:#1d1d1b;font-size:1rem;line-height:1.55;outline:none;overflow-wrap:anywhere;overflow:auto}
 .fa-text:focus{border-color:#1d1d1b}
 .fa-text p{margin:0 0 .9em}
+.fa-text a{color:#b4462c}
 .fa-text:empty::before{content:attr(data-ph);color:#6b6b66}`;
     document.head.appendChild(st);
   }
@@ -159,6 +230,7 @@
           <button type="button" data-cmd="bold" title="Negreta (Ctrl+B)"><b>N</b></button>
           <button type="button" data-cmd="italic" title="Cursiva (Ctrl+I)"><i>C</i></button>
           <button type="button" data-cmd="underline" title="Subratllat (Ctrl+U)"><u>S</u></button>
+          <button type="button" data-enl title="Enllaç: selecciona el text i prem-lo per posar-hi l'adreça (si ja és un enllaç, el canvies o el treus). Ctrl+clic sobre un enllaç l'obre.">🔗</button>
           <button type="button" data-cmd="removeFormat" title="Treu el format del que hagis seleccionat">✕ format</button>
         </div>
         <div class="fa-text" contenteditable="true" spellcheck="true" lang="ca" data-ph="Context: de què parla, en quin acte… Cada Intro és un paràgraf nou."></div>
@@ -166,8 +238,9 @@
     </div>`;
     const c = n => caixa.querySelector(`[data-c="${n}"]`);
     const text = caixa.querySelector(".fa-text"), barra = caixa.querySelector(".fa-barra");
-    barra.addEventListener("mousedown", e => { if (e.target.closest("button[data-cmd]")) e.preventDefault(); });
+    barra.addEventListener("mousedown", e => { if (e.target.closest("button[data-cmd], button[data-enl]")) e.preventDefault(); });
     barra.addEventListener("click", e => {
+      if (e.target.closest("button[data-enl]")) { if (posaEnllac(text)) text.dispatchEvent(new Event("input", { bubbles: true })); return; }
       const b = e.target.closest("button[data-cmd]");
       if (!b) return;
       if (!text.contains(document.getSelection().anchorNode)) text.focus();
@@ -249,7 +322,7 @@
 
   window.FitxaAudio = {
     WORKER, CATALEG, INVENTARI, FONOTECA_AUDIOS, COMPRIMITS, CATEGORIES,
-    esc, dataCa, nomComprimit, esAudio, dataDelNom, marcaAHtml, htmlAMarca,
+    esc, dataCa, nomComprimit, esAudio, dataDelNom, marcaAHtml, htmlAMarca, posaEnllac,
     editor, crida, llegeix, desaFitxes, baixaJson
   };
 })();

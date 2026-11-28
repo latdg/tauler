@@ -728,9 +728,41 @@ function rivalAmbLloc(e, p) {
 const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀", "Tennis taula": "🏓" };
 
 // 31.10.2026: el text de l'agenda pot portar format de l'editor (**negreta**, *cursiva*, __subratllat__).
+// 28.11.2026: i enllaços: [text](https://…) i adreces soles, clicables.
+function enllacA(t, k) {
+  const resta = t.slice(k);
+  let m = t[k] === "[" && resta.match(/^\[([^\[\]\n]+)\]\((https?:\/\/[^\s()]+)\)/i);
+  if (m) return { text: m[1], href: m[2], fi: k + m[0].length };
+  if (k > 0 && !/[\s(«"'“‘>\[]/.test(t[k - 1])) return null;
+  m = resta.match(/^(?:https?:\/\/|www\.)[^\s<>"«»]+/i);
+  if (!m) return null;
+  const u = m[0].replace(/[.,;:!?'")\]’”]+$/, "");
+  if (!/^(https?:\/\/|www\.)[^./]+\./i.test(u)) return null;
+  return { text: u, href: /^www\./i.test(u) ? "https://" + u : u, fi: k + u.length };
+}
 function textAgendaHtml(t) {
-  return esc(String(t || "")).replace(/\*\*([\s\S]+?)\*\*/g, "<b>$1</b>").replace(/__([\s\S]+?)__/g, "<u>$1</u>")
-    .replace(/\*([^*]+?)\*/g, "<i>$1</i>").replace(/\n\s*\n/g, "<br><br>").replace(/\n/g, "<br>");
+  t = String(t || "").replace(/\r\n/g, "\n");
+  const estil = { b: false, i: false, u: false };
+  let h = "", buf = "";
+  const pinta = (x, href) => {
+    let r = esc(x).replace(/\n\s*\n/g, "<br><br>").replace(/\n/g, "<br>");
+    if (href) r = '<a href="' + esc(href) + '" target="_blank" rel="noopener">' + r + "</a>";
+    if (estil.u) r = "<u>" + r + "</u>";
+    if (estil.i) r = "<i>" + r + "</i>";
+    if (estil.b) r = "<b>" + r + "</b>";
+    return r;
+  };
+  const tanca = () => { if (buf) h += pinta(buf); buf = ""; };
+  for (let k = 0; k < t.length; k++) {
+    const enl = enllacA(t, k);
+    if (enl) { tanca(); h += pinta(enl.text, enl.href); k = enl.fi - 1; continue; }
+    if (t.startsWith("**", k)) { tanca(); estil.b = !estil.b; k++; continue; }
+    if (t.startsWith("__", k)) { tanca(); estil.u = !estil.u; k++; continue; }
+    if (t[k] === "*") { tanca(); estil.i = !estil.i; continue; }
+    buf += t[k];
+  }
+  tanca();
+  return h.trim();
 }
 
 function esportsDataCurta(iso) {
