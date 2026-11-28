@@ -1,5 +1,5 @@
 {
- "actualitzat": "2026-11-27T13:58:46+00:00",
+ "actualitzat": "2026-11-28T13:13:19+00:00",
  "dies": 365,
  "font": "https://www.inaturalist.org",
  "municipis": {
@@ -2021,7 +2021,7 @@
   },
   "17901": {
    "nom": "Cruïlles, Monells i Sant Sadurní de l'Heura",
-   "observacions": 243,
+   "observacions": 244,
    "especies": 180,
    "observadors": 30,
    "grups": [
@@ -2031,7 +2031,7 @@
     ],
     [
      "🌿 Plantes",
-     80
+     81
     ],
     [
      "🕷️ Aranyes",
@@ -2286,6 +2286,21 @@
     }
    ],
    "recents": [
+    {
+     "id": 417416519,
+     "data": "2026-11-28",
+     "url": "https://www.inaturalist.org/observations/417416519",
+     "nom": "Polipodis",
+     "cientific": "Polypodium",
+     "rang": "genus",
+     "grup": "🌿 Plantes",
+     "foto": "https://inaturalist-open-data.s3.amazonaws.com/photos/768897247/small.jpg",
+     "autor": "inaturalistcomrade534",
+     "lloc": "Cruïlles, Monells i Sant Sadurní de l'Heura, Girona, ES",
+     "qualitat": "needs_id",
+     "amenacada": false,
+     "introduida": false
+    },
     {
      "id": 416572435,
      "data": "2026-11-20",
@@ -2868,21 +2883,6 @@
      "autor": "Laura Justicia",
      "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
      "qualitat": "research",
-     "amenacada": false,
-     "introduida": false
-    },
-    {
-     "id": 375792508,
-     "data": "2026-06-24",
-     "url": "https://www.inaturalist.org/observations/375792508",
-     "nom": "",
-     "cientific": "Catocala nymphagoga",
-     "rang": "species",
-     "grup": "🦋 Insectes",
-     "foto": "https://static.inaturalist.org/photos/687040188/small.jpg",
-     "autor": "Laura Justicia",
-     "lloc": "Monells (Dir. la Bisbal), 17121 Monells, Girona, España",
-     "qualitat": "needs_id",
      "amenacada": false,
      "introduida": false
     }
