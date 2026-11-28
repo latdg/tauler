@@ -570,7 +570,7 @@ function probabilitats() {
   E.dies.forEach((d, i) => {
     const [a, m, dd] = d.d.split("-").map(Number), dt = new Date(Date.UTC(a, m - 1, dd));
     html += `<tr>${celDia(i, dt, d.resta)}` +
-      cel(d.p1, "43,123,186", d.p1 ? `<small>fins a ${mm(d.p90)} mm</small>` : "") +
+      cel(d.p1, "43,123,186", d.p1 && d.p90 >= 0.5 ? `<small>fins a ${mm(d.p90)} mm</small>` : "") +
       cel(d.p10, "8,81,156") +
       cel(d.r50, "244,109,67", d.r70 ? `<small>70 km/h o més: ${d.r70} %</small>` : "") +
       cel(d.g0, "94,60,153") + "</tr>";
@@ -625,8 +625,8 @@ function postes() {
   const valor = hhmm => {   // hora del dia «07:52» → índex mitjà dels models (o null)
     return d => {
       const [hh, mi] = hhmm.split(":").map(Number), [a, m, dd] = d.split("-").map(Number);
-      const h = Math.round((Date.UTC(a, m - 1, dd, hh, mi) - t0) / 3600e3);
-      if (h < 0) return null;
+      const brut = (Date.UTC(a, m - 1, dd, hh, mi) - t0) / 3600e3, h = Math.round(brut);
+      if (brut < 0) return null;   // ja ha passat
       const v = ids.map(id => {
         const s = B[id], hs = [h - 1, h, h + 1].filter(x => x >= 0 && x < s.na.length);
         const mit = k => { const a2 = hs.map(x => (s[k] || [])[x]).filter(x => x != null); return a2.length ? a2.reduce((q, w) => q + w, 0) / a2.length : null; };
