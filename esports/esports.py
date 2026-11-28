@@ -72,8 +72,8 @@ EQUIPS = [
     {"id": "sol_girones_sots25", "nom": "Sol Gironès Bisbal Bàsquet sots-25 femení", "esport": "Bàsquet",
      "font": "manual", "categoria": "Copa Catalunya sots-25 femení", "competicio": "C.C. Sots-25 Femení",
      "grup": "U25 Femení 01", "escutDe": "sol_girones"},   # 27.10.2026: mateix escut que el sènior
-    # 28.11.2026: tennis taula, CTT la Bisbal (1a Divisió masculina, grup 4, RFETM).
-    {"id": "ctt_la_bisbal", "nom": "CTT la Bisbal", "esport": "Tennis taula", "font": "rfetm",
+    # 28.11.2026: tennis taula, CTT La Bisbal (1a Divisió masculina, grup 4, RFETM).
+    {"id": "ctt_la_bisbal", "nom": "CTT La Bisbal", "esport": "Tennis taula", "font": "rfetm",
      "categoria": "1a Divisió masculina, grup 4", "competicio": "1a Divisió masculina", "grup": "Grup 4",
      "escutFix": "https://latdg.github.io/tauler/escuts/ctt-la-bisbal.png",
      "youtube": "https://www.youtube.com/@cttlabisbal"},
@@ -693,7 +693,7 @@ def llegeix_rfetm(eq):
     nostre = next((f["equip"] for f in files if norm(f["equip"]) == norm(RFETM["nostre"])), None) or \
         next((f["equip"] for f in files if "bisbal" in norm(f["equip"])), None)
     if not nostre:
-        raise RuntimeError("el CTT la Bisbal no surt a la classificació de la RFETM")
+        raise RuntimeError("el CTT La Bisbal no surt a la classificació de la RFETM")
     tots = rfetm_partits(tk, [f["equip"] for f in files])
     avui = ara().date().isoformat()
 
@@ -729,7 +729,7 @@ def llegeix_rfetm(eq):
             "idFont": clau, "nota": p["nota"],
         })
     if not partits:
-        raise RuntimeError("la RFETM no ha donat cap partit del CTT la Bisbal")
+        raise RuntimeError("la RFETM no ha donat cap partit del CTT La Bisbal")
     return partits, {"tipus": "tennistaula", "files": files}
 
 
