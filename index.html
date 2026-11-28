@@ -30,6 +30,7 @@ h3{margin:12px 0 4px;font-size:1rem}
 a{color:var(--accent)}
 .font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
 .font.dalt{margin:0 0 8px}
+.esp-yt{display:inline-block;vertical-align:-3px;line-height:0}
 .taula{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.9rem}
 th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--linia);white-space:nowrap;vertical-align:top}
@@ -802,7 +803,7 @@ async function carregaEsports() {
       const proper = e.partits.find(p => p.data && p.data >= avuiIso && !p.resultat && !/descans/i.test(p.rival) && !/susp[eè]s|ajornat/i.test(p.estat || "")); // 15.11.2026: els suspesos i ajornats no es queden com a pròxim
       const g = darrer ? esportsGuanyat(darrer.resultat) : "";
       return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
-        <p class="font dalt">${e.esport === "Tennis taula" ? "🏓 " : ""}${esc(e.categoria)}${e.youtube ? ` · <a href="${esc(e.youtube)}" target="_blank" rel="noopener">▶️ YouTube</a>` : ""}</p>` +
+        <p class="font dalt">${esc(e.categoria)}${e.youtube ? ` · <a class="esp-yt" href="${esc(e.youtube)}" target="_blank" rel="noopener" title="Canal de YouTube del ${esc(e.nom)}" aria-label="Canal de YouTube del ${esc(e.nom)}"><svg viewBox="0 0 28 20" width="22" height="16" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5v9l7.8-4.5z" fill="#fff"/></svg></a>` : ""}</p>` +
         (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
           ${esc(rivalAmbLloc(e, darrer))} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
         (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
