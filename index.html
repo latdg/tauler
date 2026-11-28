@@ -313,44 +313,6 @@ a.tira-it:hover{color:var(--accent);text-decoration:underline}
 .tira-it b::after{content:" ·"}
 .tira-titol{flex:0 0 auto;display:flex;align-items:center;padding:0 12px;background:#c8102e;color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
 /* VIOLENTÒMETRE (28.11.2026): regle vertical al marge esquerre; s'obre en un plafó lateral. */
-.vm-regle{position:fixed;z-index:1100;top:50%;transform:translateY(-50%);left:max(10px,calc((100vw - 1100px)/2 - 100px));width:78px;height:min(84vh,760px);display:flex;gap:6px;padding:10px 8px;background:#fff;border:1px solid var(--linia);border-radius:14px;box-shadow:0 4px 18px rgba(60,40,120,.12);cursor:pointer;font:inherit;color:var(--text);text-align:left}
-.vm-regle:hover,.vm-regle:focus-visible{box-shadow:0 6px 22px rgba(60,40,120,.25);outline:none}
-.vm-nom{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:900;font-size:1.02rem;letter-spacing:.06em;color:#3f3fb0;display:flex;align-items:center;justify-content:space-between;white-space:nowrap}
-.vm-nom small{font-weight:700;font-size:.68rem;letter-spacing:.04em;color:#c0502e}
-.vm-barra{position:relative;flex:1;border-radius:6px;background:linear-gradient(180deg,#b9a8ee 0%,#9b86e0 18%,#d98aa6 30%,#f29a6b 42%,#d983b8 52%,#a586e2 64%,#7f8ae6 76%,#6a7fe0 100%);overflow:hidden}
-.vm-marca{position:absolute;left:0;right:0;height:calc(100%/33);display:flex;align-items:center;justify-content:flex-end;gap:3px;padding-right:4px;color:#fff;font-size:.62rem;font-weight:700;line-height:1;border-top:1px solid rgba(255,255,255,.45)}
-.vm-marca::before{content:"";width:8px;height:1px;background:rgba(255,255,255,.9);margin-right:auto}
-.vm-marca.d10::before{width:16px;height:2px}
-.vm-marca:hover{background:rgba(255,255,255,.22)}
-.vm-pestanya{position:fixed;z-index:1100;left:0;top:50%;transform:translateY(-50%);width:30px;padding:12px 0;border:0;border-radius:10px 0 0 10px;background:linear-gradient(0deg,#b9a8ee,#f29a6b 45%,#d983b8 60%,#6a7fe0);color:#fff;font:800 .72rem/1 system-ui,sans-serif;letter-spacing:.08em;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);cursor:pointer;box-shadow:0 2px 10px rgba(60,40,120,.25);display:none}
-@media (max-width:1339px){.vm-regle{display:none}.vm-pestanya{display:block}}
-.vm-fons{position:fixed;inset:0;z-index:2000;background:rgba(20,15,45,.45);opacity:0;pointer-events:none;transition:opacity .2s}
-.vm-fons.obert{opacity:1;pointer-events:auto}
-.vm-plafo{position:fixed;z-index:2001;top:0;bottom:0;left:0;width:min(440px,94vw);background:#fff;overflow-y:auto;transform:translateX(-105%);transition:transform .25s ease;box-shadow:4px 0 24px rgba(0,0,0,.2);padding:18px 16px 24px}
-.vm-plafo.obert{transform:none}
-.vm-plafo h2{text-transform:none;color:#3f3fb0;font-size:1.35rem;margin:0 36px 2px 0;letter-spacing:.02em}
-.vm-lema{margin:0;color:#c0502e;font-size:.9rem}
-.vm-lema2{margin:0 0 12px;color:#3a6fc4;font-size:.9rem}
-.vm-tanca{position:absolute;top:12px;right:12px;width:32px;height:32px;border:1px solid var(--linia);border-radius:50%;background:#fff;font-size:1.1rem;line-height:1;cursor:pointer;color:var(--text)}
-.vm-taula{display:grid;grid-template-columns:42px 30px minmax(0,1fr);grid-auto-rows:minmax(34px,auto);border-radius:10px;overflow:hidden;color:#fff;background:linear-gradient(180deg,#b9a8ee 0%,#9b86e0 18%,#d98aa6 30%,#f29a6b 42%,#d983b8 52%,#a586e2 64%,#7f8ae6 76%,#6a7fe0 100%)}
-.vm-sec{grid-column:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:.76rem;line-height:1.15;padding:6px 4px;text-align:center;border-top:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.1)}
-.vm-sec .ic{font-size:1.1rem}.vm-sec .tx{writing-mode:vertical-rl;transform:rotate(180deg)}
-.vm-num{grid-column:2;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;background:rgba(40,20,90,.18);border-top:1px solid rgba(255,255,255,.25)}
-.vm-it{grid-column:3;padding:0;font-weight:600;font-size:.9rem;line-height:1.2;border-top:1px solid rgba(255,255,255,.25);min-height:34px;display:flex;flex-direction:column;justify-content:center}
-.vm-q{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:8px;width:100%;min-height:34px;padding:5px 10px;cursor:pointer;color:#fff;font-weight:600}
-.vm-q::after{content:"▾";margin-left:auto;opacity:.75;font-size:.8rem;transition:transform .2s}
-.vm-q[aria-expanded="true"]::after{transform:rotate(180deg)}
-.vm-q:focus-visible{outline:2px solid #fff;outline-offset:-3px}
-.vm-exp a{color:#fff;font-weight:700;white-space:nowrap}
-.vm-exp{margin:0;padding:2px 12px 10px;font-weight:500;font-size:.86rem;line-height:1.4;color:#fff;text-shadow:0 1px 2px rgba(30,15,70,.35)}
-.vm-it.marcat{background:rgba(255,255,255,.28);outline:2px solid #fff;outline-offset:-2px}
-.vm-ajuda{margin-top:14px;padding:12px;border-radius:10px;background:#f3f0fc;border:1px solid #ddd5f6}
-.vm-ajuda h3{margin:0 0 6px;color:#3f3fb0}
-.vm-ajuda ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:.9rem}
-.vm-ajuda a.tel{display:block;font-weight:800;font-size:1.05rem;color:#3f3fb0;text-decoration:none}
-.vm-mes{margin:14px 0 0;text-align:center}.vm-mes a{display:inline-block;padding:9px 14px;border-radius:10px;background:#3f3fb0;color:#fff;font-weight:700;text-decoration:none;font-size:.92rem}.vm-mes a:hover{background:#2f2f95}
-.vm-credits{margin:12px 0 0;font-size:.78rem;color:var(--suau)}
-@media print{.vm-regle,.vm-pestanya,.vm-fons,.vm-plafo{display:none!important}}
 </style>
 <!-- Visites (GoatCounter, sense galetes) · 01.11.2026 -->
 <script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -2947,86 +2909,7 @@ inicia();
   }, true);
 })();
 </script>
-<!-- VIOLENTÒMETRE (28.11.2026): regle vertical al marge esquerre (pestanya en pantalles estretes) i plafó amb les 33 mesures i on demanar ajuda. -->
-<button type="button" class="vm-regle" id="vmRegle" aria-label="Obre el Violentòmetre" title="Violentòmetre: la violència també es mesura">
-  <span class="vm-nom">VIOLENTÒMETRE <small>2.0</small></span>
-  <span class="vm-barra" id="vmBarra" aria-hidden="true"></span>
-</button>
-<button type="button" class="vm-pestanya" id="vmPestanya" aria-label="Obre el Violentòmetre">VIOLENTÒMETRE</button>
-<div class="vm-fons" id="vmFons"></div>
-<aside class="vm-plafo" id="vmPlafo" role="dialog" aria-modal="true" aria-labelledby="vmTitol" aria-hidden="true">
-  <button type="button" class="vm-tanca" id="vmTanca" aria-label="Tanca">✕</button>
-  <h2 id="vmTitol">VIOLENTÒMETRE 2.0</h2>
-  <p class="vm-lema">…Sí, la violència també es mesura</p>
-  <p class="vm-lema2">El control i allò virtual també són reals</p>
-  <p class="vm-credits" style="margin:0 0 10px">Toca cada mesura per veure'n l'explicació.</p>
-  <div class="vm-taula" id="vmTaula"></div>
-  <div class="vm-ajuda">
-    <h3>On demanar ajuda</h3>
-    <ul>
-      <li><a class="tel" href="tel:900900120">900 900 120</a> Línia d'atenció contra la violència masclista (Generalitat). 24 hores, gratuïta, confidencial i no queda registrada al mòbil.</li>
-      <li><a class="tel" href="tel:016">016</a> Atenció a totes les formes de violència contra les dones (Govern d'Espanya).</li>
-      <li><a class="tel" href="tel:112">112</a> Emergències. Si hi ha perill imminent, truca-hi.</li>
-    </ul>
-  </div>
-  <p class="vm-mes"><a href="https://gradienteviolencia.app/ca" target="_blank" rel="noopener">Consulta les 64 fitxes d'Els Graus de la Violència →</a></p>
-  <p class="vm-credits">Violentòmetre 2.0 © Instituto Politécnico Nacional (Mèxic).<br>Explicacions: <a href="https://gradienteviolencia.app/ca" target="_blank" rel="noopener">Els Graus de la Violència</a>, d'Anna Paretas-Artacho.</p>
-</aside>
-<script>
-(function(){
-  var SEC=[
-    {t:"No és normal, no t'hi acostumis",ic:"🔍",d:1,a:7},
-    {t:"Estàs en risc, allunya-te'n",ic:"🔒",d:8,a:15},
-    {t:"El món virtual impacta, el real ho pateix",ic:"📱",d:16,a:23},
-    {t:"Demana ajuda urgent!",ic:"📣",d:24,a:33}
-  ];
-  var IT=["Bromes feridores","Fa xantatge","Menteix, enganya","Llum de gas","Indiferència, llei del gel","Desapareix sense explicació","Té gelosia","Bombardeig amorós","Et dona la culpa","Crítica constant","Ridiculitza, ofèn, humilia en públic","Controla, prohibeix","Control econòmic","Persegueix o espia","Destrueix objectes personals","Avergonyeix i humilia a les xarxes","Intimida","Assetjament a internet","Colpeja jugant, pessiga o esgarrapa","Empeny, estira, dona bufetades o puntades","Tocaments i carícies agressives","Revelació d'informació personal","Imatges o vídeos manipulats amb IA","Tanca i aïlla","Amenaça amb objectes o armes","Amenaça de mort","Atacs amb àcid o substàncies corrosives","Extorsió sexual","Ciberseducció de menors","Abús sexual","Violació","Mutilació","Assassinat/Feminicidi"];
-  var EXP=["Fa comentaris que et fereixen o et ridiculitzen i els presenta com una broma. Si et queixes, et diu que «no aguantes res».", "Et pressiona amb amenaces, culpa o recompenses perquè facis el que vol: «Si m’estimessis, ho faries».", "Et menteix, t’amaga informació o deforma el que ha passat perquè acceptis la seva versió i es pugui sortir amb la seva.", "Nega una vegada i una altra coses que han passat i et diu que exageres o que t’ho imagines. Pots acabar dubtant del que recordes.", "Quan expresses una opinió o poses un límit, deixa de parlar-te o t’ignora com a càstig. Pots sentir que has de cedir perquè et torni a parlar.", "Després d’haver establert un vincle amb tu, deixa de respondre’t sense donar-te’n cap explicació. El silenci, per si sol, no revela el motiu. Qui s’allunya per protegir-se no té l’obligació de donar explicacions.", "Desconfia de tu sense motiu i vigila amb qui parles. Et diu que ho fa perquè t’estima.", "T’omple d’atencions i et fa promeses mentre et pressiona perquè la relació avanci més de pressa del que vols.", "Et culpa del que va malament, fins i tot de la seva manera de tractar-te. Et pot dir, per exemple: «M’has fet enfadar».", "Critica sovint el teu cos, les teves idees o el que fas. Aquestes crítiques poden afectar la teva autoestima.", "Davant d’altres persones, es burla de tu, t’insulta o t’humilia per fer-te quedar malament.", "Decideix quina roba pots portar, on pots anar o amb qui pots parlar. Aquestes prohibicions limiten la teva llibertat.", "Controla els teus diners, te’ls pren o t’impedeix treballar o estudiar perquè en depenguis.", "Et persegueix i et vigila, en persona o a les xarxes. Pot mirar-te el telèfon, seguir-te el rastre o presentar-se allà on ets.", "Trenca o fa malbé les teves coses —el telèfon, la roba, objectes de valor— com a amenaça i càstig.", "Davant d’altres persones, t’exposa a la burla o et fa passar vergonya. Això et pot fer més difícil expressar-te i et pot aïllar.", "Crida, et mira o fa gestos de manera amenaçadora, o dona cops a objectes. Et pot fer por desobeir o portar-li la contrària.", "T’assetja per internet, per missatgeria o a les xarxes socials. Per exemple, t’insulta o escampa rumors sobre tu.", "Et pessiga, t’esgarrapa o et dona cops que et fan mal. Diu que ho fa jugant o per afecte i treu importància al mal que t’ha fet.", "Fa servir la força física contra tu: empentes, estrebades, bufetades o puntades de peu.", "Et toca o t’acaricia de manera agressiva o sense el teu consentiment.", "Publica o fa circular dades privades, com ara l’adreça, el número de telèfon o fotografies teves. En fer-ho, t’exposa o et posa en perill.", "Crea imatges, vídeos o enregistraments de veu falsos en què sembla que siguis tu qui parla o actua. Els fa servir per humiliar-te, desacreditar-te o pressionar-te.", "Et tanca o t’aïlla de la família i les amistats per deixar-te sense suport i sota el seu control.", "T’amenaça amb objectes o armes per intimidar-te o sotmetre’t.", "T’amenaça de matar-te o de matar algú del teu entorn.", "T’agredeix amb àcid o amb una altra substància corrosiva per ferir-te i deixar-te marques permanents.", "Et fa xantatge amb imatges o informació de caràcter sexual per obligar-te a fer alguna cosa o perquè continuïs en la relació.", "Es guanya la teva confiança de mica en mica i se n’aprofita per explotar-te o abusar de tu. Pot passar tant en persona com per internet i afecta especialment els menors d’edat.", "Fa un acte sexual amb tu sense el teu consentiment.", "T’obliga a tenir relacions sexuals fent servir la força o les amenaces, o quan no pots donar-hi el consentiment.", "Et causa ferides greus o mutilacions al cos.", "El feminicidi és l’assassinat d’una dona per raó de gènere."];
-  var FITXA=["bromas-hirientes", "chantajear", "mentir-enganar", "gaslighting", "indiferencia-ley-del-hielo", "ghosting", "celar", "love-bombing", "culpabilizar", "critica-constante", "ridiculizar-ofender", "controlar-prohibir", "dependencia-economica-forzada", "acechar-stalkear", "destruir-articulos-personales", "humillar-en-publico", "intimidar-amenazar", "ciberacoso", "golpear-jugando", "empujar-jalonear", "manosear", "doxing", "deepfakes", "encerrar-aislar", "amenazar-con-objetos-o-armas", "amenazar-de-muerte", "ataques-con-acido", "sextorsion", "grooming", "abuso-sexual", "violar", "mutilar", "asesinar-feminicidio"];
-  var barra=document.getElementById("vmBarra"),taula=document.getElementById("vmTaula");
-  var regle=document.getElementById("vmRegle"),pest=document.getElementById("vmPestanya");
-  var fons=document.getElementById("vmFons"),plafo=document.getElementById("vmPlafo");
-  function seccio(n){for(var s=0;s<SEC.length;s++)if(n>=SEC[s].d&&n<=SEC[s].a)return SEC[s];}
-  IT.forEach(function(t,i){
-    var n=i+1,m=document.createElement("span");
-    m.className="vm-marca"+(n%10===0?" d10":"");m.style.top=(i*100/33)+"%";m.textContent=n;m.dataset.n=n;
-    m.title=n+". "+t+" — "+seccio(n).t;
-    barra.appendChild(m);
-  });
-  SEC.forEach(function(s){
-    var c=document.createElement("div");c.className="vm-sec";c.style.gridRow=s.d+" / "+(s.a+1);
-    c.innerHTML='<span class="ic" aria-hidden="true">'+s.ic+'</span><span class="tx"></span>';c.lastChild.textContent=s.t;taula.appendChild(c);
-  });
-  IT.forEach(function(t,i){
-    var n=i+1,a=document.createElement("div"),b=document.createElement("div");
-    a.className="vm-num";a.style.gridRow=n;a.textContent=n;
-    b.className="vm-it";b.style.gridRow=n;b.id="vmIt"+n;
-    var q=document.createElement("button");q.type="button";q.className="vm-q";q.setAttribute("aria-expanded","false");q.textContent=t;
-    var x=document.createElement("p");x.className="vm-exp";x.hidden=true;x.textContent=EXP[i]+" ";
-    var lk=document.createElement("a");lk.href="https://gradienteviolencia.app/ca/"+FITXA[i];lk.target="_blank";lk.rel="noopener";lk.textContent="Fitxa completa →";x.appendChild(lk);
-    q.addEventListener("click",function(){desplega(n,x.hidden);});
-    b.appendChild(q);b.appendChild(x);
-    taula.appendChild(a);taula.appendChild(b);
-  });
-  function desplega(n,obrir){
-    var b=document.getElementById("vmIt"+n);if(!b)return;
-    b.querySelector(".vm-exp").hidden=!obrir;b.querySelector(".vm-q").setAttribute("aria-expanded",obrir?"true":"false");
-    b.classList.toggle("marcat",obrir);
-  }
-  var origen=null;
-  function obre(n,de){
-    origen=de||null;fons.classList.add("obert");plafo.classList.add("obert");plafo.setAttribute("aria-hidden","false");
-    if(n){desplega(n,true);var e=document.getElementById("vmIt"+n);if(e){setTimeout(function(){e.scrollIntoView({block:"center",behavior:"smooth"});},260);}}
-    else plafo.scrollTop=0;
-    document.getElementById("vmTanca").focus({preventScroll:true});
-  }
-  function tanca(){fons.classList.remove("obert");plafo.classList.remove("obert");plafo.setAttribute("aria-hidden","true");if(origen)origen.focus({preventScroll:true});}
-  regle.addEventListener("click",function(e){var m=e.target.closest(".vm-marca");obre(m?+m.dataset.n:0,regle);});
-  pest.addEventListener("click",function(){obre(0,pest);});
-  fons.addEventListener("click",tanca);
-  document.getElementById("vmTanca").addEventListener("click",tanca);
-  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&plafo.classList.contains("obert"))tanca();});
-})();
-</script>
+<!-- VIOLENTÒMETRE (28.11.2026): ara és a violentometre.js, compartit amb les subpàgines públiques. -->
+<script src="violentometre.js"></script>
 </body>
 </html>
