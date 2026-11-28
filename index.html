@@ -271,6 +271,10 @@ figure.camera figcaption{color:var(--suau);font-size:.85rem;margin-top:4px}
 .cin-sessions{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:10px}
 .cin-compra{display:inline-block;margin-top:10px;padding:4px 12px;border:1px solid var(--accent);border-radius:999px;color:var(--accent);font-weight:600;font-size:.85rem;text-decoration:none}
 .cin-compra:hover{background:var(--accent);color:#fff}
+.cin-lloc{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--accent);cursor:pointer;text-align:left}
+.cin-lloc:hover,.cin-lloc:focus-visible{text-decoration:underline}
+.cin-adreca{margin:6px 0 2px;font-size:.85rem}
+.cin-adreca a{margin-left:6px;color:var(--accent);font-weight:600}
 .cin-dia{display:grid;grid-template-columns:104px minmax(0,1fr);gap:6px;font-size:.88rem;margin-top:4px}
 .cin-dia span{color:var(--suau);white-space:nowrap}
 /* 31.10.2026: La TdG slow */
@@ -2394,6 +2398,17 @@ function cinPoster(f, classe = "") {
   // El títol queda a sota: si la imatge falla, es veu ell.
   return `<span class="cin-img${classe}">${esc(f.titol)}${f.poster ? `<img src="${esc(f.poster)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}</span>`;
 }
+// 28.11.2026: on és cada cinema. En clicar-ne el nom a la fitxa, l'adreça i l'enllaç al mapa.
+const CIN_LLOCS = {
+  "Teatre Mundial": "Passeig Marimon Asprer, 10 · La Bisbal d'Empordà",
+  "Cinema Montgrí": "Carrer de Codina, 28 · Torroella de Montgrí",
+  "TeMePé Palafrugell": "Carrer de Santa Margarida, 1 · Palafrugell",
+  "OCINE Girona": "Carrer del Pont de la Barca, 12-14 · Girona",
+  "OCINE Platja d'Aro": "Polígon La Bòbila, carretera de Platja d'Aro a S'Agaró · Castell-Platja d'Aro",
+  "Odeón Girona (Salt)": "Espai Gironès, Camí dels Carlins · Salt"
+};
+const cinMapa = nom => "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent(nom.replace(/ \(Salt\)$/, "") + ", " + (CIN_LLOCS[nom] || "").replace(" · ", ", "));
 function cinFitxa(f) {
   const pendents = cinPendents(f);
   const meta = [f.genere, f.durada ? f.durada + " min" : "", f.edat, f.estrena ? "Estrena " + dataCa(f.estrena) : ""].filter(Boolean);
@@ -2414,7 +2429,8 @@ function cinFitxa(f) {
     (c.dies[s.data] = c.dies[s.data] || []).push(cinHora(s.hora) + " h" + (s.format ? ` (${s.format})` : ""));
   });
   const sessions = Object.entries(perCinema).map(([nom, c]) =>
-    `<article class="ag-acte"><div class="ag-cap"><span class="ag-hora">📍 ${esc(nom)}</span>${c.preu ? `<span class="ag-mun">${esc(c.preu)}</span>` : ""}</div><div>` +
+    `<article class="ag-acte"><div class="ag-cap"><button type="button" class="cin-lloc" aria-expanded="false">📍 ${esc(nom)}</button>${c.preu ? `<span class="ag-mun">${esc(c.preu)}</span>` : ""}</div>` +
+    `<p class="cin-adreca" hidden>${CIN_LLOCS[nom] ? esc(CIN_LLOCS[nom]) : ""}<a href="${esc(cinMapa(nom))}" target="_blank" rel="noopener">🗺️ Com hi arribo</a></p><div>` +
     Object.entries(c.dies).map(([d, hores]) => `<div class="cin-dia"><span>${cinDia(d)}</span><b>${esc(hores.join(" · "))}</b></div>`).join("") +
     // OCINE Girona, OCINE Platja d'Aro i Odeón: on comprar les entrades
     ((f.entrades || {})[nom] ? `<a class="cin-compra" href="${esc(f.entrades[nom])}" target="_blank" rel="noopener">🎟️ Compra entrades</a>` : "") +
@@ -2482,6 +2498,10 @@ function pintaCinemes() {
     fitxa.innerHTML = cinFitxa(CIN[+b.dataset.i]);
     fitxa.hidden = false;
     fitxa.querySelector(".cin-tanca").onclick = () => { tanca(); b.focus({ preventScroll: true }); };
+    fitxa.querySelectorAll(".cin-lloc").forEach(l => l.onclick = () => {
+      const a = l.closest(".ag-acte").querySelector(".cin-adreca"), obre = a.hidden;
+      a.hidden = !obre; l.setAttribute("aria-expanded", String(obre));
+    });
     fitxa.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 }
