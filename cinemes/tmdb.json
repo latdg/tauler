@@ -66,28 +66,6 @@
 "enllac": "",
 "t": 1795798255.277201
 },
-"el gato con sombrero": {
-"v": 6,
-"comprovat": "director",
-"titolCa": "El gat amb barret",
-"directors": [
-"Erica Rivinoja",
-"Alessandro Carloni"
-],
-"original": "The Cat in the Hat",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-10-31",
-"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"id": 1117898,
-"nota": 7.333,
-"vots": 36,
-"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
-"sinopsi_es": false,
-"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1795798255.277201
-},
 "en el corazon de la bestia": {
 "v": 6,
 "comprovat": "director",
@@ -320,6 +298,53 @@
 "enllac": "",
 "t": 1795798255.277201
 },
+"torroella terra d hortes": {
+"v": 6,
+"t": 1795829470.680669
+},
+"la invitacion": {
+"v": 6,
+"comprovat": "any",
+"titolCa": "",
+"directors": [
+"Olivia Wilde"
+],
+"original": "The Invite",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-06-25",
+"sinopsiCa": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
+"id": 950028,
+"nota": 7.195,
+"vots": 1010,
+"sinopsi": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
+"sinopsi_es": false,
+"poster": "/21JnfyCARiRkms9AZHtTXiZKbIj.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795829470.680669
+},
+"el gato con sombrero": {
+"v": 6,
+"comprovat": "director",
+"titolCa": "El gat amb barret",
+"directors": [
+"Erica Rivinoja",
+"Alessandro Carloni"
+],
+"original": "The Cat in the Hat",
+"idiomaOriginal": "en",
+"dataTmdb": "2026-10-31",
+"sinopsiCa": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"id": 1117898,
+"nota": 7.333,
+"vots": 36,
+"sinopsi": "Un gat astut i juganer irromp de ple en la vida de dos germans que s’enfronten a la mudança a una ciutat nova. Amb les seves entremaliadures constants, ho capgirarà tot, en una aventura esbojarrada en què regnen la màgia i el caos.",
+"sinopsi_es": false,
+"poster": "/mzJNwlopkpSLeABHoFexn1yOk5p.jpg",
+"plataformes": [],
+"enllac": "",
+"t": 1795798255.277201
+},
 "el gat amb barret": {
 "v": 6,
 "comprovat": "director",
@@ -342,34 +367,9 @@
 "enllac": "",
 "t": 1795829470.680669
 },
-"torroella terra d hortes": {
-"v": 6,
-"t": 1795829470.680669
-},
 "iv mostra de curtmetratges de palafrugell": {
 "v": 6,
 "t": 1795798255.277201
-},
-"la invitacion": {
-"v": 6,
-"comprovat": "any",
-"titolCa": "",
-"directors": [
-"Olivia Wilde"
-],
-"original": "The Invite",
-"idiomaOriginal": "en",
-"dataTmdb": "2026-06-25",
-"sinopsiCa": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
-"id": 950028,
-"nota": 7.195,
-"vots": 1010,
-"sinopsi": "El matrimoni de l’Angela (Olvia Wilde) i en Joe (Seth Rogen) no va bé. Quan conviden a sopar els seus misteriosos nous veïns de dalt (Penélope Cruz i Edward Norton), tan desinhibits en matèria amorosa i sexual que els seus gemecs nocturns no els deixen dormir... la vetllada aviat pren un rumb inesperat: hauran aconseguit revifar la flama de la seva relació o serà la metxa definitiva que ho farà esclatar tot?",
-"sinopsi_es": false,
-"poster": "/21JnfyCARiRkms9AZHtTXiZKbIj.jpg",
-"plataformes": [],
-"enllac": "",
-"t": 1795829470.680669
 },
 "redencion": {
 "v": 6,
