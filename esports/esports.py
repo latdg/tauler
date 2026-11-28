@@ -473,29 +473,57 @@ def llegeix_feb(eq):
     # Es comprova amb la ratxa numèrica de la FEB (7 = set victòries seguides,
     # -1 = una derrota); si no hi quadra, es deixa la xifra de la FEB.
     avui = ara().date().isoformat()
-    per_equip, vistos = {}, set()
-    # 23.11.2026: només els partits de les jornades que compta la classificació
-    # de la FEB (un partit avançat d'una jornada posterior encara no hi entra).
-    for pid, data, jn, loc, vis, (a, b) in sorted(resultats_grup, key=lambda r: (r[1], r[2])):
-        if pid in vistos or data > avui or (jornada_cls and jn > jornada_cls):
-            continue
-        vistos.add(pid)
-        per_equip.setdefault(loc, []).append("V" if a > b else "D")
-        per_equip.setdefault(vis, []).append("V" if b > a else "D")
+
+    # 28.11.2026: la FEB ordena la ratxa per jornada, no per data; amb un
+    # partit avançat (p. ex. Amics Castelló - Benicarló) l'ordre per data no
+    # quadrava i al tauler sortia la xifra («-1», «1») en lloc dels punts.
+    # Es proven els dos ordres i es tria el que quadra amb la xifra de la FEB.
+    def sequencies(clau):
+        per_equip, vistos = {}, set()
+        # 23.11.2026: només els partits de les jornades que compta la classificació
+        # de la FEB (un partit avançat d'una jornada posterior encara no hi entra).
+        for pid, data, jn, loc, vis, (a, b) in sorted(resultats_grup, key=clau):
+            if pid in vistos or data > avui or (jornada_cls and jn > jornada_cls):
+                continue
+            vistos.add(pid)
+            per_equip.setdefault(loc, []).append("V" if a > b else "D")
+            per_equip.setdefault(vis, []).append("V" if b > a else "D")
+        return per_equip
+
+    per_data = sequencies(lambda r: (r[1], r[2]))
+    per_jornada = sequencies(lambda r: (r[2], r[1]))
+
+    def quadra_amb(rx, n):
+        return bool(rx) and (n is None or (n != 0 and rx[0] == ("V" if n > 0 else "D")
+                             and len(rx) - len(rx.lstrip(rx[0])) == min(abs(n), len(rx))))
+
     for f in files:
-        seq = per_equip.get(f.get("idFeb"), [])
-        rx = "".join(seq[-5:])[::-1]
         try:
             n = int(str(f.get("ratxa", "")).strip())
         except ValueError:
             n = None
-        quadra = bool(rx) and len(seq) == f.get("pj") and (
-            n is None or (n != 0 and rx[0] == ("V" if n > 0 else "D")
-                          and len(rx) - len(rx.lstrip(rx[0])) == min(abs(n), len(rx))))
-        if quadra:
-            f["ratxa"] = rx
-        elif rx:
-            print(f"  ⚠️ FEB ratxa de {f.get('equip')}: calculada {rx}, la FEB diu {f.get('ratxa')}; es deixa la de la FEB")
+        candidates = [per_data.get(f.get("idFeb"), []), per_jornada.get(f.get("idFeb"), [])]
+        triada = None
+        # Primer, la que quadra amb la xifra i amb els partits jugats; després,
+        # la que quadra només amb la xifra.
+        for cal_pj in (True, False):
+            for seq in candidates:
+                rx = "".join(seq[-5:])[::-1]
+                if quadra_amb(rx, n) and (not cal_pj or len(seq) == f.get("pj")):
+                    triada = rx
+                    break
+            if triada:
+                break
+        if not triada and n:
+            # Cap no quadra: es pinta el que se sap segur per la xifra de la FEB
+            # (la ratxa i, si n'hi ha, el partit que la va començar), mai la xifra.
+            l = "V" if n > 0 else "D"
+            triada = l * min(abs(n), 5)
+            if len(triada) < 5 and (f.get("pj") or 0) > abs(n):
+                triada += "D" if l == "V" else "V"
+            print(f"  ⚠️ FEB ratxa de {f.get('equip')}: no quadra cap ordre amb {n}; es pinta {triada}")
+        if triada:
+            f["ratxa"] = triada
         f.pop("idFeb", None)
     return partits, ({"tipus": "basquet", "files": files} if files else None)
 

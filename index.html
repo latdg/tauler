@@ -541,6 +541,8 @@ function lletresRatxa(t) {
   const s = String(t || "").trim().toUpperCase();
   if (/^[VDX]+$/.test(s)) return s.split("").reverse().join("");
   if (/^[GEP](-[GEP])*$/.test(s)) return s.split("-").map(l => ({ G: "V", E: "E", P: "D" })[l]).join("");
+  // 28.11.2026: ratxa numèrica de la FEB («-1», «3»): es pinten els partits seguits, mai la xifra.
+  if (/^[-+]?\d+$/.test(s) && +s !== 0) return (+s > 0 ? "V" : "D").repeat(Math.min(Math.abs(+s), 5));
   return "";
 }
 const htmlRatxa = l => `<span class="ratxa" title="${l.split("").map(x => NOMS_RATXA[x]).join(", ")}">` + l.split("").map(x => `<i class="r${x}"></i>`).join("") + "</span>";
