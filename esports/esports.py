@@ -656,8 +656,14 @@ def rfetm_partits(tk, noms):
                 if RE_HORA.search(x) and len(x) <= 14:
                     hora = hora_neta(RE_HORA.search(x).group(0))
                     break
-        equips, notes, res, jugat = [], [], None, False
+        equips, notes, res, jugat, xifres = [], [], None, False, []
         for x in tros:
+            # 28.11.2026: la RFETM escriu el resultat en dos elements («3» i «4»), sense guionet.
+            if len(equips) == 1 and res is None and not jugat and es_enter(x) and len(x) <= 2:
+                xifres.append(int(x))
+                if len(xifres) == 2:
+                    res, jugat = (xifres[0], xifres[1]), True
+                continue
             nom, nota = equip(x)
             if nom and len(equips) < 2:
                 equips.append(nom)
