@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Violentòmetre 2.0 · La TdG</title>
+<meta name="description" content="Violentòmetre 2.0 en català: les 33 mesures de la violència, amb explicacions i on demanar ajuda.">
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+/* Pàgina sola del Violentòmetre (per enllaçar des del Classroom): el plafó, sempre obert i centrat. */
+body.vm-sol .vm-regle,body.vm-sol .vm-pestanya,body.vm-sol .vm-fons,body.vm-sol .vm-tanca{display:none!important}
+body.vm-sol .vm-plafo{position:static!important;transform:none!important;width:auto!important;max-width:620px;margin:0 auto;min-height:100vh;overflow:visible!important;box-shadow:0 0 24px rgba(0,0,0,.08)!important;padding:22px 18px 30px!important}
+body.vm-sol .vm-plafo h2{margin-right:0!important}
+.vm-peu{margin:14px 0 0;font-size:.78rem;color:var(--suau);text-align:center}
+</style>
+<script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="vm-sol">
+<script src="../violentometre.js"></script>
+<script>
+(function(){
+  var p=document.getElementById("vmPlafo");if(!p)return;
+  p.classList.add("obert");p.setAttribute("aria-hidden","false");p.removeAttribute("aria-modal");p.removeAttribute("role");
+  var peu=document.createElement("p");peu.className="vm-peu";peu.innerHTML='Una pàgina de <a href="https://latdg.github.io/tauler/">La TdG</a>.';p.appendChild(peu);
+  var n=parseInt((location.hash||"").slice(1),10);
+  if(n>=1&&n<=33){var b=document.querySelector("#vmIt"+n+" .vm-q");if(b){b.click();document.getElementById("vmIt"+n).scrollIntoView({block:"center"});}}
+})();
+</script>
+</body>
+</html>
