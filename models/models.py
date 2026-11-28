@@ -10,6 +10,12 @@
 #   g_<model>.json  una graella de punts sobre la província de Girona (4 dies, hora a
 #                   hora) per pintar el mapa del model
 #
+# 28.11.2026: index.json porta també
+#   ens   les probabilitats per dies del conjunt ECMWF ENS (51 escenaris) a la Bisbal
+#   sol   l'hora de sortida i de posta del sol de cada dia (per a l'índex de postes)
+# i cada model hi afegeix l'energia per a tempestes (CAPE) i els núvols baixos, mitjans
+# i alts; la graella del mapa porta també el CAPE (capa «Tempesta»).
+#
 # Els models que no donen dades a la Bisbal (el seu domini no hi arriba) queden
 # fora sols. Si la graella d'un model falla, es manté la de l'última vegada.
 #
@@ -25,6 +31,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 API = "https://api.open-meteo.com/v1/forecast"
+API_ENS = "https://ensemble-api.open-meteo.com/v1/ensemble"
 ZONA = ZoneInfo("Europe/Madrid")
 BISBAL = (41.9600, 3.0386)
 
@@ -55,6 +62,11 @@ VARS = [
 VARS_PUNT = VARS + [("wind_gusts_10m", "r", 0)]
 # 24.11.2026: el mapa baixa també la direcció del vent, per a les fletxes
 VARS_GRAELLA = VARS + [("wind_direction_10m", "d", 0)]
+# 28.11.2026: variables noves. Si un model no en dona alguna, Open-Meteo la torna buida;
+# si la petició fallés per culpa seva, es torna a fer sense (com abans).
+EXTRA_PUNT = [("cape", "c", 0), ("cloud_cover_low", "nb", 0),
+              ("cloud_cover_mid", "nm", 0), ("cloud_cover_high", "na", 0)]
+EXTRA_GRAELLA = [("cape", "c", 0)]
 
 # Graella del mapa: tota la província de Girona, cada 0,1° (uns 8-11 km).
 # 24.11.2026: abans només el Baix Empordà (cada 0,06°). Són 162 punts per model:
@@ -114,30 +126,50 @@ def retalla_nuls(series, n):
 def punt_bisbal():
     """Una sola consulta amb tots els models per al punt de la Bisbal."""
     ids = [m[0] for m in MODELS]
-    j = baixa({
+    variables = VARS_PUNT + EXTRA_PUNT
+    params = {
         "latitude": BISBAL[0], "longitude": BISBAL[1],
-        "hourly": ",".join(v[0] for v in VARS_PUNT),
+        "hourly": ",".join(v[0] for v in variables),
         "models": ",".join(ids), "timezone": "Europe/Madrid", "forecast_days": 8,
-    })
+    }
+    try:
+        j = baixa(params)
+    except ValueError as e:
+        print(f"  {e}: es torna a provar sense les variables noves")
+        variables = VARS_PUNT
+        params["hourly"] = ",".join(v[0] for v in variables)
+        j = baixa(params)
     h = j["hourly"]
     i0 = index_ara(h["time"])
     temps = h["time"][i0:i0 + HORES_PUNT]
     sortida = {}
     for mid in ids:
         series = {}
-        for nom, clau, dec in VARS_PUNT:
+        for nom, clau, dec in variables:
             s = h.get(f"{nom}_{mid}") or []
             series[clau] = [arrodoneix(x, dec) for x in s[i0:i0 + HORES_PUNT]]
         fi = retalla_nuls([series["t"], series["p"]], len(temps))
         if fi < 6:   # el model no arriba a la Bisbal
             print(f"  {mid}: sense dades a la Bisbal")
             continue
-        sortida[mid] = {k: v[:fi] for k, v in series.items()}
+        # les variables noves que el model no dona no s'hi desen (la pàgina ho entén)
+        sortida[mid] = {k: v[:fi] for k, v in series.items()
+                        if k in ("t", "p", "v", "n", "r") or any(x is not None for x in v[:fi])}
         print(f"  {mid}: {fi} hores")
     return temps[0] if temps else None, sortida
 
 
 def graella(mid):
+    try:
+        return graella_amb(mid, VARS_GRAELLA + EXTRA_GRAELLA)
+    except ValueError as e:
+        if "No data" in str(e):
+            raise
+        print(f"  {e}: es torna a provar sense el CAPE")
+        return graella_amb(mid, VARS_GRAELLA)
+
+
+def graella_amb(mid, variables):
     lats, lons = [], []
     for la in LATS:
         for lo in LONS:
@@ -145,7 +177,7 @@ def graella(mid):
             lons.append(lo)
     params = {
         "latitude": ",".join(map(str, lats)), "longitude": ",".join(map(str, lons)),
-        "hourly": ",".join(v[0] for v in VARS_GRAELLA),
+        "hourly": ",".join(v[0] for v in variables),
         "models": mid, "timezone": "Europe/Madrid", "forecast_days": 5,
     }
     try:
@@ -163,9 +195,12 @@ def graella(mid):
     i0 = index_ara(temps)
     n = min(HORES_MAPA, len(temps) - i0)
     dades = {}
-    for nom, clau, dec in VARS_GRAELLA:
+    for nom, clau, dec in variables:
         # [hora][punt]
-        dades[clau] = [[arrodoneix(loc["hourly"][nom][i0 + h], dec) for loc in j] for h in range(n)]
+        dades[clau] = [[arrodoneix((loc["hourly"].get(nom) or [None] * (i0 + n))[i0 + h], dec) for loc in j] for h in range(n)]
+    # el CAPE, només si el model en dona
+    if "c" in dades and not any(x is not None for fila in dades["c"] for x in fila):
+        del dades["c"]
     # fins on hi ha dades (els models regionals s'acaben abans)
     fi = 0
     for h in range(n):
@@ -180,6 +215,73 @@ def graella(mid):
         "lats": LATS, "lons": LONS,
         "dades": {k: v[:fi] for k, v in dades.items()},
     }
+
+
+def percentil(vals, q):
+    v = sorted(vals)
+    if not v:
+        return None
+    k = (len(v) - 1) * q
+    a, b = int(k), min(int(k) + 1, len(v) - 1)
+    return v[a] + (v[b] - v[a]) * (k - a)
+
+
+def membres(h, nom):
+    """Les sèries de tots els escenaris d'una variable (control + «_memberNN»)."""
+    return [s for k, s in h.items() if k == nom or k.startswith(nom + "_member")]
+
+
+def ens_bisbal():
+    """28.11.2026: probabilitats per dies del conjunt ECMWF ENS (51 escenaris) a la Bisbal.
+    Cada variable es demana a part: si n'hi ha alguna que el conjunt no dona, la resta hi és igualment."""
+    series, temps = {}, None
+    for nom in ("precipitation", "temperature_2m", "wind_gusts_10m"):
+        try:
+            j = baixa({"latitude": BISBAL[0], "longitude": BISBAL[1], "hourly": nom,
+                       "models": "ecmwf_ifs025", "timezone": "Europe/Madrid", "forecast_days": 8})
+            h = j["hourly"]
+            m = [s for s in membres(h, nom) if any(x is not None for x in s)]
+            if m:
+                series[nom], temps = m, h["time"]
+                print(f"  ENS {nom}: {len(m)} escenaris")
+        except Exception as e:  # noqa: BLE001
+            print(f"  ENS {nom}: {e}")
+        time.sleep(3)
+    if "precipitation" not in series or not temps:
+        return None
+    i0 = index_ara(temps)
+    dies = {}
+    for i in range(i0, len(temps)):
+        dies.setdefault(temps[i][:10], []).append(i)
+    claus = list(dies)
+    sortida = []
+    for n_dia, d in enumerate(claus):
+        hores = dies[d]
+        if n_dia > 0 and len(hores) < 24:
+            continue
+        pct = lambda vals, cond: round(100 * sum(1 for v in vals if cond(v)) / len(vals)) if vals else None
+        # pluja de cada escenari al dia (només els escenaris amb dades a totes les hores)
+        pl = [sum(s[i] for i in hores) for s in series["precipitation"] if all(s[i] is not None for i in hores)]
+        if not pl:
+            continue
+        fila = {"d": d, "n": len(pl), "resta": n_dia == 0 and len(hores) < 24,
+                "p1": pct(pl, lambda v: v >= 1), "p10": pct(pl, lambda v: v >= 10),
+                "pmed": round(percentil(pl, .5), 1), "p90": round(percentil(pl, .9), 1)}
+        rx = [max(s[i] for i in hores) for s in series.get("wind_gusts_10m", []) if all(s[i] is not None for i in hores)]
+        fila["r50"] = pct(rx, lambda v: v >= 50)
+        fila["r70"] = pct(rx, lambda v: v >= 70)
+        mn = [min(s[i] for i in hores) for s in series.get("temperature_2m", []) if all(s[i] is not None for i in hores)]
+        fila["g0"] = pct(mn, lambda v: v < 0)
+        sortida.append(fila)
+    return {"model": "ECMWF ENS", "membres": len(series["precipitation"]), "dies": sortida} if sortida else None
+
+
+def sol_bisbal():
+    """28.11.2026: hora de sortida i de posta del sol a la Bisbal (8 dies)."""
+    j = baixa({"latitude": BISBAL[0], "longitude": BISBAL[1], "daily": "sunrise,sunset",
+               "timezone": "Europe/Madrid", "forecast_days": 8})
+    d = j["daily"]
+    return [{"d": t, "surt": s[11:16], "pon": p[11:16]} for t, s, p in zip(d["time"], d["sunrise"], d["sunset"])]
 
 
 def main():
@@ -215,6 +317,19 @@ def main():
         "models": models,
         "bisbal": bisbal,
     }
+    # 28.11.2026: si el conjunt ENS o el sol fallen, la resta de la pàgina va igual
+    print("Conjunt ECMWF ENS…")
+    try:
+        ens = ens_bisbal()
+        if ens:
+            index["ens"] = ens
+            print(f"  {len(ens['dies'])} dies")
+    except Exception as e:  # noqa: BLE001
+        print(f"  ERROR: {e}")
+    try:
+        index["sol"] = sol_bisbal()
+    except Exception as e:  # noqa: BLE001
+        print(f"  sol: ERROR: {e}")
     with open(os.path.join(sortida, "index.json"), "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, separators=(",", ":"))
     # neteja graelles de models que ja no hi són

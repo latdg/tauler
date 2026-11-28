@@ -72,6 +72,18 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
 #consens td .data{display:block;font-size:.8em;color:var(--suau)}
 #grafic{position:relative;height:340px}
 @media (max-width:600px){#grafic{height:300px}.fila .et{min-width:0;width:100%}#consens th,#consens td{padding:7px 3px;font-size:.8rem}}
+/* 28.11.2026: probabilitats ENS, tempestes, postes de sol i exportació */
+#ens table,#tempesta table,#postes table{table-layout:fixed}
+#ens th,#ens td,#tempesta th,#tempesta td,#postes th,#postes td{text-align:center;padding:8px 6px;border-bottom:2px solid #fff}
+#ens th:first-child,#ens td:first-child,#tempesta th:first-child,#tempesta td:first-child,#postes th:first-child,#postes td:first-child{text-align:left;width:28%}
+#ens td .dia,#tempesta td .dia,#postes td .dia{display:block;font-weight:600}
+#ens td .data,#tempesta td .data,#postes td .data{display:block;font-size:.8em;color:var(--suau)}
+#ens td.c,#tempesta td.c,#postes td.c{font-weight:600;font-variant-numeric:tabular-nums;border-radius:6px}
+td.c small{display:block;font-weight:400;font-size:.78em;color:#3a3a36;white-space:normal}
+#tempesta td.risc{white-space:normal;font-size:.85rem}
+#estatExporta{font-size:.82rem;color:var(--suau)}
+#estatExporta button{margin-left:6px}
+@media (max-width:600px){#ens th,#ens td,#tempesta th,#tempesta td,#postes th,#postes td{padding:7px 3px;font-size:.8rem}}
 .leaflet-popup-content{font-size:.85rem;line-height:1.4;margin:8px 12px}
 </style>
 <script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -102,6 +114,7 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
       <input type="range" id="franja" min="0" max="0" value="0" aria-label="Hora de la previsió">
       <button id="xifres" class="actiu" title="Mostra o amaga les xifres sobre el mapa">123</button>
     </div>
+    <div class="fila" id="filaExporta" style="margin-top:10px"><span class="et">Baixa l'animació</span><button id="gif" title="Baixa l'animació del mapa en GIF, per a les xarxes">🎞️ GIF</button><button id="video" title="Baixa l'animació del mapa en vídeo, per a les xarxes">🎬 Vídeo</button><span id="estatExporta"></span></div>
     <p id="info"></p>
   </section>
 
@@ -109,6 +122,24 @@ td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
     <h2>🤝 Consens a la Bisbal</h2>
     <p class="font" style="margin:0 0 8px">«Models»: quants indiquen pluja cada dia (1 mm o més). La pluja i les temperatures, entre quins valors es mouen. La pluja, en blau: com més intens, més acord o més litres. Les temperatures, amb els colors del mapa: blau, fred; verd i groc, suau; taronja i vermell, calor. Només hi compten els models que arriben a cobrir el dia sencer.</p>
     <div class="taula" id="consens"><p class="buit">Carregant…</p></div>
+  </section>
+
+  <section>
+    <h2>🎲 Probabilitats a la Bisbal</h2>
+    <p class="font" id="notaEns" style="margin:0 0 8px">El conjunt de l'ECMWF (ENS) calcula el mateix model desenes de vegades, cada una amb unes condicions de partida una mica diferents. El percentatge diu quants d'aquests escenaris indiquen cada fenomen: com més alt, més probable. «Fins a»: la pluja que no superen 9 de cada 10 escenaris.</p>
+    <div class="taula" id="ens"><p class="buit">Carregant…</p></div>
+  </section>
+
+  <section>
+    <h2>⛈️ Risc de tempesta a la Bisbal</h2>
+    <p class="font" style="margin:0 0 8px">L'energia que té l'aire per formar tempestes (CAPE, en J/kg). Per sota de 500, risc baix; de 500 a 1.000, moderat; de 1.000 a 2.000, alt; per sobre de 2.000, molt alt i amb possibilitat de calamarsa grossa. «Models»: quants indiquen tempesta (1.000 J/kg o més i pluja). Al mapa, a la variable «⚡ Tempesta».</p>
+    <div class="taula" id="tempesta"><p class="buit">Carregant…</p></div>
+  </section>
+
+  <section>
+    <h2>🌅 Sortides i postes de sol</h2>
+    <p class="font" style="margin:0 0 8px">Índex de La TdG, de 0 a 100, de com de colorit serà el cel: les sortides i postes més vistoses es fan amb núvols alts i mitjans que agafen la llum, i sense núvols baixos ni pluja que la tapin. És orientatiu i fa la mitjana dels models.</p>
+    <div class="taula" id="postes"><p class="buit">Carregant…</p></div>
   </section>
 
   <section>
@@ -153,9 +184,11 @@ const ESC = {
   p: { nom: "Pluja per hores", unitat: "mm", dec: 1, zero: 0.1, parades: [[0.1, "#c6dbef"], [0.5, "#9ecae1"], [1, "#6baed6"], [2, "#3182bd"], [5, "#08519c"], [10, "#6a51a3"], [20, "#c51b8a"], [40, "#e7298a"]] },
   a: { nom: "Pluja acumulada", unitat: "mm", dec: 1, zero: 0.5, parades: [[0.5, "#c6dbef"], [2, "#9ecae1"], [5, "#6baed6"], [10, "#3182bd"], [20, "#08519c"], [40, "#6a51a3"], [70, "#c51b8a"], [100, "#e7298a"]] },
   v: { nom: "Vent", unitat: "km/h", dec: 0, parades: [[0, "#f7fcf5"], [10, "#d9f0d3"], [20, "#a6dba0"], [30, "#5aae61"], [40, "#fee08b"], [50, "#fdae61"], [70, "#f46d43"], [90, "#d73027"], [120, "#a50026"]] },
-  n: { nom: "Núvols", unitat: "%", dec: 0, zero: 5, parades: [[5, "#eef2f6"], [50, "#b8c2cc"], [100, "#6f7880"]] }
+  n: { nom: "Núvols", unitat: "%", dec: 0, zero: 5, parades: [[5, "#eef2f6"], [50, "#b8c2cc"], [100, "#6f7880"]] },
+  // 28.11.2026: energia per a tempestes (CAPE)
+  c: { nom: "Energia per a tempestes (CAPE)", unitat: "J/kg", dec: 0, zero: 100, parades: [[100, "#fff7bc"], [500, "#fee391"], [1000, "#fec44f"], [1500, "#fe9929"], [2000, "#ec7014"], [3000, "#cc4c02"], [4000, "#8c2d04"]] }
 };
-const VARS_MAPA = [["t", "🌡️ Temperatura"], ["p", "🌧️ Pluja"], ["a", "💧 Pluja acumulada"], ["v", "💨 Vent"], ["n", "☁️ Núvols"]];
+const VARS_MAPA = [["t", "🌡️ Temperatura"], ["p", "🌧️ Pluja"], ["a", "💧 Pluja acumulada"], ["v", "💨 Vent"], ["n", "☁️ Núvols"], ["c", "⚡ Tempesta"]];
 const hexRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
 function colorDe(clau, v) {
   const e = ESC[clau];
@@ -196,6 +229,7 @@ const ETIQ = ["Girona", "Figueres", "Olot", "Ripoll", "Puigcerdà", "Banyoles", 
   try {
     const T = await fetch("../llamps/girona.json").then(r => r.json());
     const prov = topojson.feature(T, T.objects.provincies), mun = topojson.feature(T, T.objects.municipis);
+    GEO = { prov, mun };   // 28.11.2026: per dibuixar el fons a l'animació que es baixa
     L.geoJSON(prov, { pane: "fons", interactive: false, style: f => ({ color: "#9a958a", weight: 1, fillColor: f.id === "17" ? "#ffffff" : "#f6f5f2", fillOpacity: 1 }) }).addTo(mapa);
     L.geoJSON(mun, { pane: "limits", interactive: false, style: { color: "#4a4740", weight: .6, opacity: .55, fill: false } }).addTo(mapa);
     const gi = prov.features.filter(f => f.id === "17");
@@ -212,7 +246,7 @@ const ETIQ = ["Girona", "Figueres", "Olot", "Ripoll", "Puigcerdà", "Banyoles", 
     mostra(); mapa.on("zoomend", mostra);
   } catch (e) { /* sense fons: el mapa dels models es veu igualment */ }
 })();
-let overlay = null, PROV = null, MASCARA = null;
+let overlay = null, PROV = null, MASCARA = null, GEO = null;
 const xifres = L.layerGroup().addTo(mapa), fletxes = L.layerGroup().addTo(mapa);
 // les xifres, només quan el mapa és prou a prop perquè no s'encavalquin
 const mostraXifres = () => $("mapa").classList.toggle("lluny", mapa.getZoom() < 9);
@@ -250,13 +284,12 @@ function seriesHora(h, v = VAR) {
   return (G.dades[v] || [])[h] || [];
 }
 // La variable que pinta el color de base: temperatura, pluja o pluja acumulada; si no, vent; si no, núvols
-const baseDe = c => ["t", "p", "a", "v", "n"].find(x => c.has(x));
+const baseDe = c => ["t", "c", "p", "a", "v", "n"].find(x => c.has(x));
 // Els núvols fan de vel gris quan la base és una altra variable; el vent sempre surt amb fletxes (si hi ha la direcció)
 const velNuvols = () => CAPES.has("n") && VAR !== "n";
 const fletxesVent = () => CAPES.has("v") && G && Array.isArray(G.dades.d);
-function pintaMapa() {
-  if (!G) return;
-  const h = horaIndex();
+// 28.11.2026: el color d'una hora es dibuixa a part, perquè també el fa servir l'animació que es baixa
+function rasterCapa(h) {
   const dades = seriesHora(h);
   const nr = G.lats.length, nc = G.lons.length, pas = G.lons[1] - G.lons[0];
   const K = 16, W = nc * K, H = nr * K;
@@ -285,7 +318,18 @@ function pintaMapa() {
     }
   }
   cx.putImageData(img, 0, 0);
-  const lims = [[lat0, lon0], [lat0 + nr * pas, lon0 + nc * pas]];
+  return { cv, lims: [[lat0, lon0], [lat0 + nr * pas, lon0 + nc * pas]] };
+}
+function pintaMapa() {
+  if (!G) return;
+  const h = horaIndex();
+  const dades = seriesHora(h);
+  const nc = G.lons.length;
+  const { cv, lims } = rasterCapa(h);
+  // 28.11.2026: hi ha models que no donen el CAPE
+  const senseCape = VAR === "c" && !Array.isArray(G.dades.c);
+  if (senseCape) { $("avis").hidden = false; $("avis").firstChild.textContent = "Aquest model no dona l'energia per a tempestes. Tria'n un altre."; }
+  else if ($("avis").firstChild.textContent.startsWith("Aquest model no dona")) $("avis").hidden = true;
   if (!overlay) overlay = L.imageOverlay(cv.toDataURL(), lims, { pane: "capa", opacity: .72, interactive: false }).addTo(mapa);
   else { overlay.setUrl(cv.toDataURL()); overlay.setBounds(L.latLngBounds(lims)); }
   // xifres sobre cada punt de la graella
@@ -296,6 +340,7 @@ function pintaMapa() {
     if (v == null) return;
     if (e.zero != null && v < e.zero) return;
     if (PROV && !dinsProv(la, lo)) return;
+    if (VAR === "c" && v < 100) return;
     const txt = VAR === "t" ? Math.round(v) + "°" : (VAR === "p" || VAR === "a") ? fmtNum(v, v >= 10 ? 0 : 1) : String(Math.round(v));
     L.tooltip({ permanent: true, direction: "center", className: "xifra", interactive: false, offset: fletxesVent() ? [0, -13] : [0, 0] }).setLatLng([la, lo]).setContent(txt).addTo(xifres);
   }));
@@ -322,7 +367,7 @@ mapa.on("click", ev => {
   if (!G) return;
   const h = horaIndex(), m = INDEX.models.find(x => x.id === MODEL);
   const PUNTS = ["N", "NE", "E", "SE", "S", "SO", "O", "NO"];
-  const linies = ["t", "p", "a", "n", "v"].filter(k => CAPES.has(k)).map(k => {
+  const linies = ["t", "c", "p", "a", "n", "v"].filter(k => CAPES.has(k)).map(k => {
     const e = ESC[k], v = valorA(seriesHora(h, k), ev.latlng.lat, ev.latlng.lng);
     let txt = v == null ? "sense dada" : fmtNum(v, e.dec) + " " + e.unitat;
     if (k === "v" && v != null && Array.isArray(G.dades.d)) {
@@ -339,6 +384,7 @@ function llegenda() {
   const grad = P.map(([v, c]) => `${c} ${((v - min) / (max - min) * 100).toFixed(1)}%`).join(",");
   const marques = [P[0], P[Math.floor(P.length / 2)], P[P.length - 1]].map(p => fmtNum(p[0], p[0] % 1 ? 1 : 0));
   let h = `<b>${esc(e.nom)}</b> (${esc(e.unitat)})<div class="barra" style="background:linear-gradient(90deg,${grad})"></div><div class="noms"><span>${marques[0]}</span><span>${marques[1]}</span><span>${marques[2]}+</span></div>`;
+  if (VAR === "c") h += '<div class="capa">⚡ Risc: baix (fins a 500), moderat (500–1.000), alt (1.000–2.000), molt alt i calamarsa grossa possible (més de 2.000)</div>';
   if (velNuvols()) h += '<div class="capa">☁️ <b>Núvols</b>: vel gris, més fosc com més tapat</div>';
   if (CAPES.has("v") && G && !Array.isArray(G.dades.d)) h += '<div class="capa">💨 Les fletxes del vent sortiran amb la pròxima actualització dels models</div>';
   else if (CAPES.has("v")) h += `<div class="capa">💨 <b>Vent</b>: les fletxes indiquen cap a on bufa; ${VAR === "v" ? "" : "com més grosses, més fort, i "}de color a partir de 25 km/h</div>`;
@@ -388,7 +434,7 @@ function triaVar(v) {
     COMBINA = !COMBINA;
     if (COMBINA) c = new Set([VAR === "a" ? "a" : "p", "n", "v"]);
     else c = new Set([VAR]);
-  } else if (v === "t" || !COMBINA) { COMBINA = false; c = new Set([v]); }
+  } else if (v === "t" || v === "c" || !COMBINA) { COMBINA = false; c = new Set([v]); }
   else {
     if (c.has(v)) c.delete(v);
     else { if (v === "p") c.delete("a"); if (v === "a") c.delete("p"); c.add(v); }
@@ -498,6 +544,293 @@ function grafic() {
   });
 }
 
+// --- 28.11.2026: DIES DE LA BISBAL (per a les taules noves) ---
+function diesBisbal() {
+  const dies = [];
+  for (let h = 0; h < 168; h++) {
+    const dt = horaDe(INDEX.inici, h), k = diaClau(dt);
+    let d = dies.find(x => x.k === k);
+    if (!d) dies.push(d = { k, dt, hores: [] });
+    d.hores.push(h);
+  }
+  return dies;
+}
+const dataCurta = dt => `${z(dt.getUTCDate())}.${z(dt.getUTCMonth() + 1)}.${dt.getUTCFullYear()}`;
+const celDia = (i, dt, resta) => `<td><span class="dia">${esc(i === 0 ? "Avui" : DIES_LLARGS[dt.getUTCDay()])}</span>${resta ? '<span class="data">(resta del dia)</span>' : ""}<span class="data">${dataCurta(dt)}</span></td>`;
+const mm = v => v == null ? "—" : (Math.round(v * 10) === 0 ? "0" : fmtNum(v, v >= 10 ? 0 : 1));
+
+// --- PROBABILITATS (ECMWF ENS) ---
+function probabilitats() {
+  const E = INDEX.ens;
+  if (!E || !E.dies || !E.dies.length) { $("ens").innerHTML = '<p class="buit">Les probabilitats sortiran amb la pròxima actualització dels models.</p>'; return; }
+  $("notaEns").textContent = `El conjunt de l'ECMWF (ENS) calcula el mateix model ${E.membres} vegades, cada una amb unes condicions de partida una mica diferents. El percentatge diu quants d'aquests escenaris indiquen cada fenomen: com més alt, més probable. «Fins a»: la pluja que no superen 9 de cada 10 escenaris.`;
+  const cel = (v, rgb, extra = "") => v == null ? '<td class="c">—</td>'
+    : `<td class="c" style="${v ? `background:rgba(${rgb},${(.1 + .6 * v / 100).toFixed(2)})` : ""}">${v} %${extra}</td>`;
+  let html = '<table><thead><tr><th>Dia</th><th>Pluja</th><th>10 mm o més</th><th>Ratxes de 50 km/h</th><th>Glaçada</th></tr></thead><tbody>';
+  E.dies.forEach((d, i) => {
+    const [a, m, dd] = d.d.split("-").map(Number), dt = new Date(Date.UTC(a, m - 1, dd));
+    html += `<tr>${celDia(i, dt, d.resta)}` +
+      cel(d.p1, "43,123,186", d.p1 ? `<small>fins a ${mm(d.p90)} mm</small>` : "") +
+      cel(d.p10, "8,81,156") +
+      cel(d.r50, "244,109,67", d.r70 ? `<small>70 km/h o més: ${d.r70} %</small>` : "") +
+      cel(d.g0, "94,60,153") + "</tr>";
+  });
+  $("ens").innerHTML = html + "</tbody></table>";
+}
+
+// --- RISC DE TEMPESTA ---
+function nivellCape(v) {
+  return v >= 2000 ? ["Molt alt", "#cc4c02"] : v >= 1000 ? ["Alt", "#fe9929"] : v >= 500 ? ["Moderat", "#fec44f"] : ["Baix", null];
+}
+function tempestes() {
+  const B = INDEX.bisbal, ids = INDEX.models.map(m => m.id).filter(id => B[id] && Array.isArray(B[id].c));
+  if (!ids.length) { $("tempesta").innerHTML = '<p class="buit">Ara cap model dona l\'energia per a tempestes; sortirà amb la pròxima actualització.</p>'; return; }
+  let html = '<table><thead><tr><th>Dia</th><th>Models</th><th>CAPE màx.</th><th>Risc</th></tr></thead><tbody>';
+  diesBisbal().forEach((d, i) => {
+    const ult = d.hores[d.hores.length - 1];
+    if (i > 0 && d.hores.length < 24) return;
+    const qui = ids.filter(id => B[id].c.length > ult);
+    if (!qui.length) return;
+    const cx = qui.map(id => Math.max(0, ...d.hores.map(h => B[id].c[h]).filter(v => v != null)));
+    const pl = qui.map(id => d.hores.reduce((s, h) => s + (B[id].p[h] || 0), 0));
+    const amb = qui.filter((_, k) => cx[k] >= 1000 && pl[k] >= 1).length;
+    const grossa = qui.filter((_, k) => cx[k] >= 2000 && pl[k] >= 1).length;
+    const ord = [...cx].sort((a, b) => a - b), med = ord[Math.floor((ord.length - 1) / 2)];
+    const [nom, col] = nivellCape(med), c = col ? hexRgb(col) : null;
+    const lo = Math.min(...cx), hi = Math.max(...cx), fmt = v => Math.round(v).toLocaleString("ca-ES");
+    const risc = nom + (grossa && grossa / qui.length >= 1 / 3 ? " · possible calamarsa grossa" : "");
+    html += `<tr>${celDia(i, d.dt, i === 0 && d.hores.length < 24)}` +
+      `<td class="c" style="${amb ? `background:rgba(254,153,41,${(.15 + .55 * amb / qui.length).toFixed(2)})` : ""}">${amb}/${qui.length}</td>` +
+      `<td class="c">${lo === hi ? fmt(lo) : `${fmt(lo)}–${fmt(hi)}`}</td>` +
+      `<td class="c risc" style="${c ? `background:rgba(${c[0]},${c[1]},${c[2]},.45)` : ""}">${esc(risc)}</td></tr>`;
+  });
+  $("tempesta").innerHTML = html + "</tbody></table>";
+}
+
+// --- SORTIDES I POSTES DE SOL ---
+// Índex propi (0-100): núvols alts i mitjans entre un 30 i un 70 % (agafen la llum), pocs núvols
+// baixos (la tapen a l'horitzó) i sense pluja. Es fa la mitjana dels models.
+function indexCel(nb, nm, na, p) {
+  const c = 1 - (1 - na / 100) * (1 - .8 * nm / 100);
+  const f = c < .3 ? .15 + .85 * c / .3 : c <= .7 ? 1 : Math.max(.15, 1 - (c - .7) / .3 * .85);
+  const g = Math.pow(1 - nb / 100, 2);
+  return 100 * f * g * (p >= .3 ? .4 : 1);
+}
+const nivellCel = v => v >= 75 ? ["Espectacular", "#e7298a"] : v >= 50 ? ["Bonica", "#f29e2e"] : v >= 25 ? ["Discreta", "#f9d057"] : ["Grisa", null];
+function postes() {
+  const B = INDEX.bisbal, S = INDEX.sol;
+  const ids = INDEX.models.map(m => m.id).filter(id => B[id] && Array.isArray(B[id].na) && Array.isArray(B[id].nb));
+  if (!S || !S.length || !ids.length) { $("postes").innerHTML = '<p class="buit">L\'índex sortirà amb la pròxima actualització dels models.</p>'; return; }
+  const t0 = msDe(INDEX.inici);
+  const valor = hhmm => {   // hora del dia «07:52» → índex mitjà dels models (o null)
+    return d => {
+      const [hh, mi] = hhmm.split(":").map(Number), [a, m, dd] = d.split("-").map(Number);
+      const h = Math.round((Date.UTC(a, m - 1, dd, hh, mi) - t0) / 3600e3);
+      if (h < 0) return null;
+      const v = ids.map(id => {
+        const s = B[id], hs = [h - 1, h, h + 1].filter(x => x >= 0 && x < s.na.length);
+        const mit = k => { const a2 = hs.map(x => (s[k] || [])[x]).filter(x => x != null); return a2.length ? a2.reduce((q, w) => q + w, 0) / a2.length : null; };
+        const nb = mit("nb"), nm = mit("nm"), na = mit("na"), p = mit("p");
+        return nb == null || na == null ? null : indexCel(nb, nm ?? 0, na, p ?? 0);
+      }).filter(x => x != null);
+      return v.length ? Math.round(v.reduce((q, w) => q + w, 0) / v.length) : null;
+    };
+  };
+  const cel = (v, hora) => {
+    if (v == null) return `<td class="c">—<small>${hora.replace(":", ".")} h</small></td>`;
+    const [nom, col] = nivellCel(v), c = col ? hexRgb(col) : null;
+    return `<td class="c" style="${c ? `background:rgba(${c[0]},${c[1]},${c[2]},${(.2 + .5 * v / 100).toFixed(2)})` : ""}">${v} · ${esc(nom)}<small>${hora.replace(":", ".")} h</small></td>`;
+  };
+  let html = '<table><thead><tr><th>Dia</th><th>🌄 Sortida</th><th>🌇 Posta</th></tr></thead><tbody>', files = 0;
+  const avui = diaClau(new Date(horaAra()));
+  S.filter(x => x.d >= avui).forEach((x, i) => {
+    const vs = valor(x.surt)(x.d), vp = valor(x.pon)(x.d);
+    if (vs == null && vp == null && i > 0) return;
+    const [a, m, dd] = x.d.split("-").map(Number);
+    html += `<tr>${celDia(i, new Date(Date.UTC(a, m - 1, dd)), false)}${cel(vs, x.surt)}${cel(vp, x.pon)}</tr>`;
+    files++;
+  });
+  $("postes").innerHTML = files ? html + "</tbody></table>" : '<p class="buit">Ara no hi ha dades de núvols per calcular l\'índex.</p>';
+}
+
+// --- EXPORTA L'ANIMACIÓ DEL MAPA (GIF o vídeo, per a les xarxes) ---
+let LOGO = null, EXPORTANT = false;
+function carregaLogo() {
+  if (LOGO) return Promise.resolve(LOGO);
+  return new Promise(res => {
+    const i = new Image(), t = setTimeout(() => res(null), 4000);   // sense logotip, si triga massa
+    i.onload = () => { clearTimeout(t); LOGO = i; res(i); }; i.onerror = () => { clearTimeout(t); res(null); };
+    i.src = "../logo-tdg.jpg";
+  });
+}
+function rectArrod(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h);
+}
+function fotograma(ctx, W, H, h) {
+  const mida = mapa.getSize(), s = W / mida.x;
+  const P = (lat, lon) => { const q = mapa.latLngToContainerPoint([lat, lon]); return [q.x * s, q.y * s]; };
+  const cami = geom => {
+    ctx.beginPath();
+    const pols = geom.type === "Polygon" ? [geom.coordinates] : geom.type === "MultiPolygon" ? geom.coordinates : [];
+    pols.forEach(pol => pol.forEach(an => { an.forEach(([lo, la], i) => { const [x, y] = P(la, lo); if (i) ctx.lineTo(x, y); else ctx.moveTo(x, y); }); ctx.closePath(); }));
+  };
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+  ctx.fillStyle = "#e8eef2"; ctx.fillRect(0, 0, W, H);
+  if (GEO) GEO.prov.features.forEach(f => { cami(f.geometry); ctx.fillStyle = f.id === "17" ? "#ffffff" : "#f6f5f2"; ctx.fill(); ctx.strokeStyle = "#9a958a"; ctx.lineWidth = s; ctx.stroke(); });
+  // el color del model
+  const { cv, lims } = rasterCapa(h);
+  const [x1, y1] = P(lims[1][0], lims[0][1]), [x2, y2] = P(lims[0][0], lims[1][1]);
+  ctx.globalAlpha = .72; ctx.imageSmoothingEnabled = true; ctx.drawImage(cv, x1, y1, x2 - x1, y2 - y1); ctx.globalAlpha = 1;
+  if (GEO) {
+    ctx.strokeStyle = "rgba(74,71,64,.55)"; ctx.lineWidth = .6 * s;
+    GEO.mun.features.forEach(f => { cami(f.geometry); ctx.stroke(); });
+    ctx.strokeStyle = "#4a4740"; ctx.lineWidth = 1.6 * s;
+    GEO.prov.features.filter(f => f.id === "17").forEach(f => { cami(f.geometry); ctx.stroke(); });
+  }
+  // fletxes del vent
+  if (fletxesVent()) {
+    const nc = G.lons.length, vv = seriesHora(h, "v"), dd = G.dades.d[h] || [], salta = mapa.getZoom() < 9;
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    G.lats.forEach((la, r) => G.lons.forEach((lo, c) => {
+      if (salta && (r % 2 || c % 2)) return;
+      const v = vv[r * nc + c], d = dd[r * nc + c];
+      if (v == null || d == null || (PROV && !dinsProv(la, lo))) return;
+      const col = colorDe("v", Math.max(v, 25)), m = (14 + Math.min(v, 80) / 80 * 16) * s, [x, y] = P(la, lo);
+      ctx.save(); ctx.translate(x, y); ctx.rotate(((d + 180) % 360) * Math.PI / 180); ctx.scale(m / 20, m / 20);
+      ctx.shadowColor = "#fff"; ctx.shadowBlur = 3 * s;
+      ctx.beginPath(); ctx.moveTo(0, 9); ctx.lineTo(0, -6); ctx.moveTo(-4.5, -2); ctx.lineTo(0, -9); ctx.lineTo(4.5, -2);
+      ctx.strokeStyle = v < 25 ? "#4a4740" : `rgb(${col[0]},${col[1]},${col[2]})`; ctx.lineWidth = 2.4; ctx.stroke();
+      ctx.restore();
+    }));
+  }
+  // la Bisbal
+  const [bx, by] = P(BISBAL[0], BISBAL[1]);
+  ctx.font = `${Math.round(26 * s)}px sans-serif`; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+  ctx.fillText("📍", bx, by + 2 * s);
+  // capçalera: logotip, model i variable
+  const m = INDEX.models.find(x => x.id === MODEL), e = ESC[VAR];
+  const afegits = [CAPES.has("n") && VAR !== "n" ? "núvols" : "", CAPES.has("v") && VAR !== "v" ? "vent" : ""].filter(Boolean);
+  const titol = `${m.nom} · ${e.nom}${afegits.length ? " + " + afegits.join(" + ") : ""}`;
+  const lh = 34 * s, pad = 8 * s;
+  ctx.font = `600 ${Math.round(14 * s)}px system-ui,sans-serif`; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+  const lw = LOGO ? lh * LOGO.width / LOGO.height : 0, tw = ctx.measureText(titol).width;
+  ctx.fillStyle = "rgba(255,255,255,.93)"; rectArrod(ctx, pad, pad, lw + tw + 3 * pad, lh + pad, 8 * s); ctx.fill();
+  if (LOGO) ctx.drawImage(LOGO, 1.5 * pad, 1.5 * pad, lw, lh);
+  ctx.fillStyle = "#1d1d1b"; ctx.fillText(titol, 1.5 * pad + lw + pad, pad + (lh + pad) / 2);
+  // rellotge
+  const rel = etiqHora(horaDe(G.inici, h));
+  ctx.font = `600 ${Math.round(15 * s)}px system-ui,sans-serif`; ctx.textAlign = "right";
+  const rw = ctx.measureText(rel).width + 2 * pad;
+  ctx.fillStyle = "rgba(29,29,27,.82)"; rectArrod(ctx, W - pad - rw, pad + 52 * s, rw, 28 * s, 8 * s); ctx.fill();
+  ctx.fillStyle = "#fff"; ctx.fillText(rel, W - 2 * pad, pad + 66 * s);
+  // llegenda
+  const Pp = e.parades, min = Pp[0][0], max = Pp[Pp.length - 1][0], bw = Math.min(300 * s, W - 2 * pad), bh = 46 * s, by0 = H - pad - bh;
+  ctx.fillStyle = "rgba(255,255,255,.93)"; rectArrod(ctx, pad, by0, bw, bh, 8 * s); ctx.fill();
+  ctx.fillStyle = "#1d1d1b"; ctx.textAlign = "left"; ctx.font = `600 ${Math.round(12 * s)}px system-ui,sans-serif`;
+  ctx.fillText(`${e.nom} (${e.unitat})`, 2 * pad, by0 + 11 * s);
+  const gr = ctx.createLinearGradient(2 * pad, 0, pad + bw - pad, 0);
+  Pp.forEach(([v, c]) => gr.addColorStop((v - min) / (max - min), c));
+  ctx.fillStyle = gr; rectArrod(ctx, 2 * pad, by0 + 20 * s, bw - 2 * pad, 9 * s, 3 * s); ctx.fill();
+  ctx.fillStyle = "#6b6b66"; ctx.font = `${Math.round(11 * s)}px system-ui,sans-serif`;
+  const marca = v => fmtNum(v, v % 1 ? 1 : 0);
+  ctx.textAlign = "left"; ctx.fillText(marca(min), 2 * pad, by0 + 38 * s);
+  ctx.textAlign = "center"; ctx.fillText(marca(Pp[Math.floor(Pp.length / 2)][0]), pad + bw / 2, by0 + 38 * s);
+  ctx.textAlign = "right"; ctx.fillText(marca(max) + "+", pad + bw - pad, by0 + 38 * s);
+  // font
+  ctx.font = `${Math.round(11 * s)}px system-ui,sans-serif`; ctx.fillStyle = "rgba(29,29,27,.75)"; ctx.textAlign = "right"; ctx.textBaseline = "bottom";
+  ctx.fillText("La TdG · latdg.github.io/tauler/models · Dades: Open-Meteo", W - pad, H - pad);
+}
+function horesAnimacio() {
+  const n = G.dades.t.length, h0 = horaIndex(), ini = n - h0 < 6 ? 0 : h0, resta = n - ini;
+  const pas = resta > 48 ? Math.ceil(resta / 48) : 1, hores = [];
+  for (let h = ini; h < n && hores.length < 48; h += pas) hores.push(h);
+  return hores;
+}
+const espera = ms => new Promise(r => setTimeout(r, ms));
+function nomFitxer(ext) {
+  const ara = new Date(horaAra());
+  return `latdg-${MODEL}-${(VARS_MAPA.find(x => x[0] === VAR) || [VAR])[0]}-${dataCurta(ara)}.${ext}`;
+}
+function ofereix(blob, nom) {
+  const estat = $("estatExporta"), url = URL.createObjectURL(blob);
+  const baixa = () => { const a = document.createElement("a"); a.href = url; a.download = nom; document.body.appendChild(a); a.click(); a.remove(); };
+  const file = typeof File === "function" ? new File([blob], nom, { type: blob.type }) : null;
+  const potCompartir = file && matchMedia("(pointer:coarse)").matches && navigator.canShare && navigator.canShare({ files: [file] });
+  estat.innerHTML = `Fet (${(blob.size / 1048576).toFixed(1).replace(".", ",")} MB).`;
+  const b1 = document.createElement("button"); b1.textContent = "⬇️ Desa"; b1.onclick = baixa; estat.appendChild(b1);
+  if (potCompartir) {
+    const b2 = document.createElement("button"); b2.textContent = "📤 Comparteix";
+    b2.onclick = () => navigator.share({ files: [file] }).catch(() => {});
+    estat.appendChild(b2);
+  } else baixa();
+}
+async function exporta(tipus) {
+  if (EXPORTANT || !G) return;
+  const estat = $("estatExporta");
+  if (JUGANT) $("play").click();
+  EXPORTANT = true; $("gif").disabled = $("video").disabled = true;
+  const hora = HORA_MS;
+  try {
+    await carregaLogo();
+    const mida = mapa.getSize(), W = tipus === "gif" ? 720 : 1080;
+    const H = Math.round(W * mida.y / mida.x / 2) * 2;
+    const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    cv.style.cssText = "position:fixed;left:-99999px;top:0";
+    document.body.appendChild(cv);
+    const ctx = cv.getContext("2d", { willReadFrequently: tipus === "gif" });
+    const hores = horesAnimacio();
+    let blob;
+    if (tipus === "gif") {
+      estat.textContent = "Preparant el GIF…";
+      let mod;
+      try { mod = await import("https://cdn.jsdelivr.net/npm/gifenc@1.0.3/+esm"); }
+      catch (e) { mod = await import("https://unpkg.com/gifenc@1.0.3/dist/gifenc.esm.js"); }
+      const lib = mod.GIFEncoder ? mod : mod.default;
+      const gif = lib.GIFEncoder();
+      for (let i = 0; i < hores.length; i++) {
+        fotograma(ctx, W, H, hores[i]);
+        const { data } = ctx.getImageData(0, 0, W, H);
+        const paleta = lib.quantize(data, 256), idx = lib.applyPalette(data, paleta);
+        gif.writeFrame(idx, W, H, { palette: paleta, delay: i === hores.length - 1 ? 1500 : 450 });
+        estat.textContent = `Preparant el GIF… ${i + 1}/${hores.length}`;
+        await espera(0);
+      }
+      gif.finish();
+      blob = new Blob([gif.bytes()], { type: "image/gif" });
+    } else {
+      const mime = ["video/mp4;codecs=avc1.42E01E", "video/mp4", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"]
+        .find(t => window.MediaRecorder && MediaRecorder.isTypeSupported(t));
+      if (!mime || !cv.captureStream) throw new Error("Aquest navegador no pot gravar vídeo; prova el GIF.");
+      const rec = new MediaRecorder(cv.captureStream(30), { mimeType: mime, videoBitsPerSecond: 6e6 });
+      const trossos = [];
+      rec.ondataavailable = ev => { if (ev.data && ev.data.size) trossos.push(ev.data); };
+      const parat = new Promise(r => { rec.onstop = r; });
+      fotograma(ctx, W, H, hores[0]);
+      rec.start(500);
+      for (let i = 0; i < hores.length; i++) {
+        fotograma(ctx, W, H, hores[i]);
+        estat.textContent = `Gravant el vídeo… ${i + 1}/${hores.length}`;
+        await espera(i === hores.length - 1 ? 1500 : 450);
+      }
+      rec.stop(); await parat;
+      const base = mime.split(";")[0];
+      blob = new Blob(trossos, { type: base });
+      ofereix(blob, nomFitxer(base === "video/mp4" ? "mp4" : "webm"));
+      blob = null;
+    }
+    cv.remove();
+    if (blob) ofereix(blob, nomFitxer("gif"));
+  } catch (e) {
+    estat.textContent = e && e.message && e.message.startsWith("Aquest navegador") ? e.message : "No s'ha pogut preparar l'animació. Torna-ho a provar.";
+  } finally {
+    EXPORTANT = false; $("gif").disabled = $("video").disabled = false;
+    HORA_MS = hora; pintaMapa();
+  }
+}
+$("gif").addEventListener("click", () => exporta("gif"));
+$("video").addEventListener("click", () => exporta("video"));
+
 // --- INICI ---
 (async () => {
   try {
@@ -535,6 +868,8 @@ function grafic() {
   $("peu").insertAdjacentHTML("beforeend", ` Última actualització: ${esc(fmtGenerat(INDEX.generat))}.`);
   triaVar("t");
   consens();
+  // 28.11.2026: cada taula nova, a part, perquè si una falla les altres surtin
+  [probabilitats, tempestes, postes].forEach(f => { try { f(); } catch (e) { /* es queda «Carregant…» */ } });
   grafic();
   if (amb.length) {
     const pas = { id: fm.querySelector("button").dataset.id };
