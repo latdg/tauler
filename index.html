@@ -714,7 +714,7 @@ function rivalAmbLloc(e, p) {
   const nom = String(rivalEq(e, p) || "").trim();
   if (p.localVisitant !== "Visitant") return "vs " + nom;
   if (/descans/i.test(nom)) return nom;
-  const lloc = e.esport === "Bàsquet" ? "a la pista " : "al camp ";
+  const lloc = e.esport === "Futbol" ? "al camp " : "a la pista ";   // 28.11.2026: tennis taula, com el bàsquet
   let m;
   if ((m = nom.match(/^els\s+(.*)$/i))) return lloc + "dels " + m[1];
   if ((m = nom.match(/^el\s+(.*)$/i))) return lloc + "del " + m[1];
@@ -725,7 +725,7 @@ function rivalAmbLloc(e, p) {
   const semi = primer.length > 3 && /^h?[iu][aeiouàáèéíòóú]/i.test(nom);  // «del Huesca», «del Iurreta»
   return lloc + (vocal && !semi ? "de l'" : "del ") + nom;
 }
-const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
+const ESPORTS_ICONA = { "Futbol": "⚽", "Bàsquet": "🏀", "Tennis taula": "🏓" };
 
 // 31.10.2026: el text de l'agenda pot portar format de l'editor (**negreta**, *cursiva*, __subratllat__).
 function textAgendaHtml(t) {
@@ -769,7 +769,7 @@ async function carregaEsports() {
       const proper = e.partits.find(p => p.data && p.data >= avuiIso && !p.resultat && !/descans/i.test(p.rival) && !/susp[eè]s|ajornat/i.test(p.estat || "")); // 15.11.2026: els suspesos i ajornats no es queden com a pròxim
       const g = darrer ? esportsGuanyat(darrer.resultat) : "";
       return `<article class="esp-equip"><h3>${e.escut ? escClub(e.escut) : (ESPORTS_ICONA[e.esport] || "") + " "}${esc(e.nom)}</h3>
-        <p class="font dalt">${esc(e.categoria)}</p>` +
+        <p class="font dalt">${e.esport === "Tennis taula" ? "🏓 " : ""}${esc(e.categoria)}${e.youtube ? ` · <a href="${esc(e.youtube)}" target="_blank" rel="noopener">▶️ YouTube</a>` : ""}</p>` +
         (darrer ? `<p class="esp-linia"><span class="esp-etq">Darrer</span> ${esc(esportsDataCurta(darrer.data))} ·
           ${esc(rivalAmbLloc(e, darrer))} <b class="esp-res esp-${g}">${esc(darrer.resultat)}</b></p>` : "") +
         (proper ? `<p class="esp-linia"><span class="esp-etq">Pròxim</span> ${esc(esportsDataCurta(proper.data))}${proper.hora ? " " + esc(proper.hora.replace(":", ".")) + " h" : ""} ·
@@ -793,6 +793,10 @@ async function carregaEsports() {
             c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(String(f.equip ?? "").toUpperCase()) }, f.pj, f.pg, f.pp, f.pf, f.pc, f.dif, f.pct].concat(ambPunts ? [f.punts] : []).concat(ambRatxa ? [ratxaPunts(f.ratxa)] : [])),
             i => c.files[i].propi ? "propi" : "") + "</details>";
         }
+        // 28.11.2026: tennis taula (RFETM), sense empats.
+        if (c.tipus === "tennistaula") return `<details class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Punts", "Ratxa"],
+          c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(f.equip) }, f.pj, f.pg, f.pp, f.pf, f.pc, f.punts, ratxaPunts(f.ratxa)]),
+          i => c.files[i].propi ? "propi" : "") + "</details>";
         return `<details class="classif">${titol}` + taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"],
           c.files.map(f => [f.pos, { html: escClub(f.escut) + esc(f.equip) }, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts, ratxaPunts(f.ratxa)]),
           i => c.files[i].propi ? "propi" : "") + "</details>";
@@ -1959,7 +1963,7 @@ function pinta(d) {
       : taula(["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts"],
           c.files.map(f => [f.pos, f.equip, f.pj, f.pg, f.pe, f.pp, f.pf, f.pc, f.punts]),
           i => c.files[i].propi ? "propi" : "")) + `</div>`).join("") || '<p class="buit">Carregant…</p>') + "</div>",
-    "FCF, FEB i Federació Catalana de Basquetbol", false);
+    "FCF, FEB, Federació Catalana de Basquetbol i RFETM", false);
 
   document.getElementById("blocs").innerHTML = h;
   document.getElementById("nav").innerHTML = NAV.map(n => `<a href="#${n.id}">${esc(n.nom)}</a>`).join("");
@@ -2834,6 +2838,33 @@ inicia();
     const lo = Math.round(Math.min(...tres.map(r => mitj(r.mn)))), hi = Math.round(Math.max(...tres.map(r => mitj(r.mx))));
     el.textContent = `Dies tranquils, sense pluja ni vent fort (de ${String(lo).replace("-", "−")} a ${hi}°)`;
   } catch (e) { /* es queda «Què diuen els models?» */ }
+})();
+</script>
+<script>
+// 28.11.2026: els escuts dels equips i els logotips de les benzineres s'amplien
+// en prémer-hi (també dins del títol d'una classificació, sense plegar-la).
+(function () {
+  const SEL = "img.esc-club, img.logo-benz";
+  const st = document.createElement("style");
+  st.textContent = "img.esc-club,img.logo-benz{cursor:zoom-in}" +
+    ".logo-amplia{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);cursor:zoom-out}" +
+    ".logo-amplia img{width:min(70vw,300px);height:min(70vw,300px);object-fit:contain;background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.4)}";
+  document.head.appendChild(st);
+  document.addEventListener("click", ev => {
+    const img = ev.target && ev.target.closest ? ev.target.closest(SEL) : null;
+    if (!img || !img.src) return;
+    ev.preventDefault(); ev.stopPropagation();
+    const capa = document.createElement("div");
+    capa.className = "logo-amplia";
+    const gran = document.createElement("img");
+    gran.src = img.src; gran.alt = ""; gran.referrerPolicy = "no-referrer";
+    capa.appendChild(gran);
+    const tanca = () => { capa.remove(); document.removeEventListener("keydown", tecla); };
+    const tecla = e => { if (e.key === "Escape") tanca(); };
+    capa.onclick = tanca;
+    document.addEventListener("keydown", tecla);
+    document.body.appendChild(capa);
+  }, true);
 })();
 </script>
 </body>

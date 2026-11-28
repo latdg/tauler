@@ -63,7 +63,7 @@ tr.avui td{background:#fdf3ef}
 <body>
 <header>
   <div class="capcalera">
-    <h1>⚽🏀 Esports de La TdG</h1>
+    <h1>⚽🏀🏓 Esports de La TdG</h1>
     <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
   </div>
   <p class="sub" id="sub">Carregant…</p>
@@ -141,7 +141,7 @@ tr.avui td{background:#fdf3ef}
     </div>
     <div class="fila" id="triaJornada" hidden><label>Jornada <select id="jornada"></select></label></div>
     <div id="vista"><p class="buit">Carregant…</p></div>
-    <p class="font">Futbol: Federació Catalana de Futbol. Bàsquet sènior: FEB. El sots-25 femení, la Copa, la Lliga Catalana i
+    <p class="font">Futbol: Federació Catalana de Futbol. Bàsquet sènior: FEB. Tennis taula: RFETM. El sots-25 femení, la Copa, la Lliga Catalana i
       els amistosos s'entren a mà. <a href="../">Tornar a La TdG ampliada</a></p>
   </section>
 </main>
@@ -150,7 +150,7 @@ tr.avui td{background:#fdf3ef}
 const FONT = "https://raw.githubusercontent.com/latdg/tauler/main/dades/esports.json";
 const WORKER = "https://latdg-agenda.ignasicorney.workers.dev";
 const CLAU_DESADA = "llampsPin";
-const ICONA = { "Futbol": "⚽", "Bàsquet": "🏀" };
+const ICONA = { "Futbol": "⚽", "Bàsquet": "🏀", "Tennis taula": "🏓" };
 const DIES = ["dg", "dl", "dt", "dc", "dj", "dv", "ds"];
 
 const $ = id => document.getElementById(id);
@@ -227,7 +227,7 @@ function rivalAmbLloc(e, p) {
   const nom = String(rivalEq(e, p) || "").trim();
   if (p.localVisitant !== "Visitant") return (p.localVisitant === "Local" ? "vs " : "") + nom;
   if (/descans/i.test(nom)) return nom;
-  const lloc = e.esport === "Bàsquet" ? "a la pista " : "al camp ";
+  const lloc = e.esport === "Futbol" ? "al camp " : "a la pista ";   // 28.11.2026: tennis taula, com el bàsquet
   let m;
   if ((m = nom.match(/^els\s+(.*)$/i))) return lloc + "dels " + m[1];
   if ((m = nom.match(/^el\s+(.*)$/i))) return lloc + "del " + m[1];
@@ -292,6 +292,12 @@ function pinta() {
     h = eqs.map(e => {
       const c = e.classificacio;
       if (!c || !c.files.length) return `<h3>${esc(e.nom)}</h3><p class="buit">Sense classificació.</p>`;
+      const tt = c.tipus === "tennistaula";   // 28.11.2026: tennis taula, sense empats
+      if (tt) return `<h3>${e.escut ? escClub(e.escut) : (ICONA[e.esport] || "") + " "}${esc(e.nom)} (${esc(e.categoria)})</h3><div class="taula"><table><thead><tr>` +
+        ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Punts", "Ratxa"].map(x => `<th>${x}</th>`).join("") + "</tr></thead><tbody>" +
+        c.files.map(f => `<tr class="${f.propi ? "propi" : ""}"><td>${esc(f.pos)}</td><td>${escClub(f.escut)}${esc(f.equip)}</td>` +
+          [f.pj, f.pg, f.pp, f.pf, f.pc, f.punts].map(x => `<td>${esc(x)}</td>`).join("") + `<td>${ratxaPunts(f.ratxa)}</td></tr>`).join("") + "</tbody></table></div>" +
+        (e.classificacioManual ? `<p class="font">Entrada a mà.</p>` : "");
       const bas = c.tipus === "basquet", ambPunts = bas && c.files.some(f => f.punts !== undefined && f.punts !== "");
       const ambRatxa = bas && c.files.some(f => f.ratxa !== undefined && f.ratxa !== "");
       const cap = bas ? ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Dif.", "%"].concat(ambPunts ? ["Punts"] : []).concat(ambRatxa ? ["Ratxa"] : []) : ["Pos.", "Equip", "PJ", "PG", "PE", "PP", "PF", "PC", "Punts", "Ratxa"];
@@ -411,14 +417,14 @@ function pintaEdicioClassificacio() {
   if (!PIN || !D) return;
   const eqId = $("fEquip").value;
   const e = D.equips.find(x => x.id === eqId);
-  if (!e || e.font !== "manual") { $("edcls").innerHTML = ""; return; }
+  if (!e || (e.font !== "manual" && e.font !== "rfetm")) { $("edcls").innerHTML = ""; return; }   // 28.11.2026: tennis taula, de reserva
   const files = (manualDe(eqId).classificacio || []).slice().sort((a, b) => (a.pos || 99) - (b.pos || 99));
   const camps = ["pos", "equip", "pj", "pg", "pp", "pf", "pc", "punts", "ratxa"];
   const fila = f => `<tr>${camps.map(c => `<td><input class="${c === "equip" ? "nom" : ""}" data-c="${c}" value="${esc(f[c] ?? "")}"></td>`).join("")}<td><button type="button" class="icona" data-treu-cls>🗑️</button></td></tr>`;
   $("edcls").innerHTML = `<h3>🏆 Classificació de ${esc(e.nom)} (a mà)</h3><div class="taula edcls"><table><thead><tr>` +
     ["Pos.", "Equip", "PJ", "PG", "PP", "PF", "PC", "Punts", "Ratxa", ""].map(x => `<th>${x}</th>`).join("") + `</tr></thead><tbody id="clsCos">` +
     files.map(fila).join("") + `</tbody></table></div><div class="fila" style="margin-top:8px"><button type="button" class="suau" id="afegeixCls">➕ Fila</button>` +
-    `<button type="button" id="desaCls">Desa la classificació</button></div><p class="font">DIF i % es calculen sols. Ratxa: V (guanyat), D (perdut), X (sense partit), en l'ordre de la federació; p. ex. XDVVV.</p>`;
+    `<button type="button" id="desaCls">Desa la classificació</button></div><p class="font">${e.font === "rfetm" ? "Només es fa servir si la RFETM no respon. " : "DIF i % es calculen sols. "}Ratxa: V (guanyat), D (perdut), X (sense partit), en l'ordre de la federació; p. ex. XDVVV.</p>`;
   $("afegeixCls").onclick = () => $("clsCos").insertAdjacentHTML("beforeend", fila({}));
   $("desaCls").onclick = () => {
     const llista = Array.from($("clsCos").rows).map(tr => Object.fromEntries(Array.from(tr.querySelectorAll("input")).map(i => [i.dataset.c, i.dataset.c === "ratxa" ? i.value.trim().toUpperCase().replace(/[^VDX]/g, "") : i.value.trim()]))).filter(f => f.equip);
@@ -743,5 +749,32 @@ $("recorda").checked = !!desada;
 carrega().then(() => { if (desada) { $("pin").value = desada; $("entrada").hidden = true; $("clau").hidden = false; entra(); } else if (location.hash === "#gestio") $("obre").click(); });
 </script>
 <script src="../dates-ca.js?v=3"></script>
+<script>
+// 28.11.2026: els escuts dels equips i els logotips de les benzineres s'amplien
+// en prémer-hi (també dins del títol d'una classificació, sense plegar-la).
+(function () {
+  const SEL = "img.esc-club, img.logo-benz";
+  const st = document.createElement("style");
+  st.textContent = "img.esc-club,img.logo-benz{cursor:zoom-in}" +
+    ".logo-amplia{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);cursor:zoom-out}" +
+    ".logo-amplia img{width:min(70vw,300px);height:min(70vw,300px);object-fit:contain;background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.4)}";
+  document.head.appendChild(st);
+  document.addEventListener("click", ev => {
+    const img = ev.target && ev.target.closest ? ev.target.closest(SEL) : null;
+    if (!img || !img.src) return;
+    ev.preventDefault(); ev.stopPropagation();
+    const capa = document.createElement("div");
+    capa.className = "logo-amplia";
+    const gran = document.createElement("img");
+    gran.src = img.src; gran.alt = ""; gran.referrerPolicy = "no-referrer";
+    capa.appendChild(gran);
+    const tanca = () => { capa.remove(); document.removeEventListener("keydown", tecla); };
+    const tecla = e => { if (e.key === "Escape") tanca(); };
+    capa.onclick = tanca;
+    document.addEventListener("keydown", tecla);
+    document.body.appendChild(capa);
+  }, true);
+})();
+</script>
 </body>
 </html>

@@ -72,6 +72,11 @@ EQUIPS = [
     {"id": "sol_girones_sots25", "nom": "Sol Gironès Bisbal Bàsquet sots-25 femení", "esport": "Bàsquet",
      "font": "manual", "categoria": "Copa Catalunya sots-25 femení", "competicio": "C.C. Sots-25 Femení",
      "grup": "U25 Femení 01", "escutDe": "sol_girones"},   # 27.10.2026: mateix escut que el sènior
+    # 28.11.2026: tennis taula, CTT la Bisbal (1a Divisió masculina, grup 4, RFETM).
+    {"id": "ctt_la_bisbal", "nom": "CTT la Bisbal", "esport": "Tennis taula", "font": "rfetm",
+     "categoria": "1a Divisió masculina, grup 4", "competicio": "1a Divisió masculina", "grup": "Grup 4",
+     "escutFix": "https://latdg.github.io/tauler/escuts/ctt-la-bisbal.png",
+     "youtube": "https://www.youtube.com/@cttlabisbal"},
 ]
 
 CAP_PARTITS = ["CLAU_PARTIT", "Equip", "Competició", "Grup", "Jornada", "Data", "Hora", "Local/Visitant",
@@ -560,6 +565,175 @@ def feb_pot_esperar(prev):
 
 
 # -----------------------------------------------------------------------------
+# TENNIS TAULA — RFETM (28.11.2026)
+# Una sola pàgina amb la classificació i totes les jornades del grup
+# (jornada=0). Es llegeix com a text, sense dependre de com està maquetada:
+# la classificació va després de la capçalera EQUIPO · EJ · EG · EP · PF · PC ·
+# PTOS., i cada partit és una data (dd/mm/aaaa), l'hora, el local, el resultat
+# («4-3», o «-» si no s'ha jugat) i el visitant.
+# -----------------------------------------------------------------------------
+RFETM = {
+    "url": "https://rfetm.es/public/resultados/2026-2027/view.php?liga=Mw==&grupo=4&subgrupo=S&jornada=0&sexo=M",
+    "nostre": "CLUB TENNIS TAULA LA BISBAL",
+}
+
+
+def rfetm_tokens(h):
+    h = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", h)
+    h = re.sub(r"(?s)<!--.*?-->", " ", h)
+    trossos = re.split(r"<[^>]+>", h)
+    return [t for t in (re.sub(r"\s+", " ", htmlmod.unescape(x)).strip() for x in trossos) if t]
+
+
+def es_enter(t):
+    return re.fullmatch(r"-?\d+", t or "") is not None
+
+
+RE_DATA = re.compile(r"(\d{1,2})/(\d{1,2})/(\d{4})")
+RE_HORA = re.compile(r"(?<!\d)(\d{1,2})[:.](\d{2})(?!\d)")
+RE_RES = re.compile(r"^(\d{1,2})\s*[-–]\s*(\d{1,2})$")
+RE_SENSE = re.compile(r"^[-–]$")
+
+
+def rfetm_classificacio(tk):
+    """Files de la classificació: [pos], equip, EJ, EG, EP, PF, PC, PTOS."""
+    try:
+        i = next(k for k in range(len(tk)) if norm(tk[k]) == "equipo" and
+                 [norm(x) for x in tk[k + 1:k + 7]] == ["ej", "eg", "ep", "pf", "pc", "ptos"])
+    except StopIteration:
+        return []
+    k, files = i + 7, []
+    while k < len(tk):
+        pos = None
+        if es_enter(tk[k]) and k + 1 < len(tk) and not es_enter(tk[k + 1]):
+            pos, k = int(tk[k]), k + 1
+        if k + 6 >= len(tk) or es_enter(tk[k]) or not all(es_enter(x) for x in tk[k + 1:k + 7]):
+            break
+        n = [int(x) for x in tk[k + 1:k + 7]]
+        files.append({"pos": pos if pos is not None else len(files) + 1, "equip": arregla_codif(tk[k]),
+                      "pj": n[0], "pg": n[1], "pp": n[2], "pf": n[3], "pc": n[4], "punts": n[5]})
+        k += 7
+    return files
+
+
+def rfetm_partits(tk, noms):
+    """Tots els partits del grup. «noms»: els equips de la classificació."""
+    nn = sorted({norm(x): x for x in noms}.items(), key=lambda x: -len(x[0]))
+
+    def equip(t):
+        n = norm(t)
+        for clau, nom in nn:
+            if n.startswith(clau):
+                nota = t.strip()[len(nom):].strip(" ()") if t.strip().upper().startswith(nom.upper()) else ""
+                return nom, nota
+        return None, ""
+
+    partits, jornada, k = [], "", 0
+    while k < len(tk):
+        t = tk[k]
+        mj = re.match(r"^jornada\s*(\d{1,2})\b", t, re.I)
+        if mj:
+            jornada = mj.group(1)
+        md = RE_DATA.search(t)
+        if not md:
+            k += 1
+            continue
+        data = f"{md.group(3)}-{int(md.group(2)):02d}-{int(md.group(1)):02d}"
+        hora = ""
+        mh = RE_HORA.search(t[md.end():])
+        # Els elements que segueixen la data, fins a la data següent.
+        fi = k + 1
+        while fi < len(tk) and fi < k + 14 and not RE_DATA.search(tk[fi]) and not re.match(r"^jornada\s*\d", tk[fi], re.I):
+            fi += 1
+        tros = tk[k + 1:fi]
+        if mh:
+            hora = hora_neta(mh.group(0))
+        else:
+            # L'hora, en un element propi just després de la data («16:00», «Hora: 16:00»).
+            for x in tros[:3]:
+                if equip(x)[0]:
+                    break
+                if RE_HORA.search(x) and len(x) <= 14:
+                    hora = hora_neta(RE_HORA.search(x).group(0))
+                    break
+        equips, notes, res, jugat = [], [], None, False
+        for x in tros:
+            nom, nota = equip(x)
+            if nom and len(equips) < 2:
+                equips.append(nom)
+                if nota:
+                    notes.append(nota)
+                continue
+            mr = RE_RES.match(x)
+            if mr and res is None and not jugat and len(equips) == 1:
+                res, jugat = (int(mr.group(1)), int(mr.group(2))), True
+            elif RE_SENSE.match(x) and len(equips) == 1 and not jugat:
+                jugat = True   # «-»: encara no s'ha jugat
+        if res is None and not jugat and len(equips) == 2:
+            # Per si el resultat va després dels dos equips.
+            mr = next((RE_RES.match(x) for x in tros if RE_RES.match(x)), None)
+            if mr:
+                res = (int(mr.group(1)), int(mr.group(2)))
+        if len(equips) == 2:
+            partits.append({"jornada": jornada, "data": data, "hora": hora, "local": equips[0],
+                            "visitant": equips[1], "resultat": res, "nota": "; ".join(notes)})
+        k = fi
+    return partits
+
+
+def llegeix_rfetm(eq):
+    r = requests.get(RFETM["url"], timeout=60, headers={"User-Agent": UA, "Accept-Language": "es,ca"})
+    r.raise_for_status()
+    if "charset" not in (r.headers.get("Content-Type") or "").lower():
+        r.encoding = r.apparent_encoding or "utf-8"
+    tk = rfetm_tokens(r.text)
+    files = rfetm_classificacio(tk)
+    if not files:
+        raise RuntimeError("no s'ha trobat la classificació a la pàgina de la RFETM")
+    nostre = next((f["equip"] for f in files if norm(f["equip"]) == norm(RFETM["nostre"])), None) or \
+        next((f["equip"] for f in files if "bisbal" in norm(f["equip"])), None)
+    if not nostre:
+        raise RuntimeError("el CTT la Bisbal no surt a la classificació de la RFETM")
+    tots = rfetm_partits(tk, [f["equip"] for f in files])
+    avui = ara().date().isoformat()
+
+    # Ratxa (cinc darrers partits jugats fins avui, del més antic al més recent).
+    per_equip = {}
+    for p in sorted((p for p in tots if p["resultat"] and p["data"] <= avui), key=lambda p: (p["data"], p["hora"])):
+        a, b = p["resultat"]
+        per_equip.setdefault(p["local"], []).append("G" if a > b else "E" if a == b else "P")
+        per_equip.setdefault(p["visitant"], []).append("G" if b > a else "E" if a == b else "P")
+    for f in files:
+        f["ratxa"] = "-".join(per_equip.get(f["equip"], [])[-5:])
+        f["propi"] = f["equip"] == nostre
+        f["escut"] = eq["escutFix"] if f["propi"] else ""
+
+    partits, vistos = [], set()
+    for p in tots:
+        if nostre not in (p["local"], p["visitant"]):
+            continue
+        local = p["local"] == nostre
+        clau = f"RFETM-{p['jornada']}-{p['data']}-{norm(p['local'])[:12]}-{norm(p['visitant'])[:12]}"
+        if clau in vistos:
+            continue
+        vistos.add(clau)
+        res = ""
+        if p["resultat"]:
+            a, b = p["resultat"]
+            res = f"{a} - {b}" if local else f"{b} - {a}"
+        partits.append({
+            "clau": clau, "competicio": eq["competicio"], "grup": eq["grup"], "jornada": p["jornada"],
+            "data": p["data"], "hora": p["hora"], "localVisitant": "Local" if local else "Visitant",
+            "rival": p["visitant"] if local else p["local"], "resultat": res,
+            "estat": "Finalitzat" if res else "Programat", "camp": "", "font": "RFETM (rfetm.es)",
+            "idFont": clau, "nota": p["nota"],
+        })
+    if not partits:
+        raise RuntimeError("la RFETM no ha donat cap partit del CTT la Bisbal")
+    return partits, {"tipus": "tennistaula", "files": files}
+
+
+# -----------------------------------------------------------------------------
 # DADES MANUALS (dades/esports-manual.json)
 # -----------------------------------------------------------------------------
 def partit_manual(eq, m):
@@ -584,6 +758,10 @@ def classificacio_manual(eq, files):
         pj, pg, pf, pc = (num(f.get(k)) for k in ("pj", "pg", "pf", "pc"))
         fila = {"pos": num(f.get("pos")), "equip": f["equip"].strip(), "pj": pj, "pg": pg,
                 "pp": num(f.get("pp")), "pf": pf, "pc": pc, "punts": num(f.get("punts")), "ratxa": f.get("ratxa", "")}
+        if eq["esport"] == "Tennis taula":   # 28.11.2026: sense empats ni diferència
+            fila["propi"] = bool(f.get("propi")) or "bisbal" in norm(fila["equip"])
+            sortida.append(fila)
+            continue
         if eq["esport"] == "Bàsquet":
             fila["dif"] = (pf - pc) if isinstance(pf, (int, float)) and isinstance(pc, (int, float)) else ""
             fila["pct"] = pct_ca(pg / pj) if isinstance(pj, (int, float)) and pj else ""
@@ -592,7 +770,8 @@ def classificacio_manual(eq, files):
         fila["propi"] = bool(f.get("propi")) or ("bisbal" in norm(fila["equip"]) if eq["esport"] == "Bàsquet" else False)
         sortida.append(fila)
     sortida.sort(key=lambda f: f["pos"] if isinstance(f["pos"], (int, float)) else 999)
-    return {"tipus": "basquet" if eq["esport"] == "Bàsquet" else "futbol", "files": sortida} if sortida else None
+    tipus = {"Bàsquet": "basquet", "Tennis taula": "tennistaula"}.get(eq["esport"], "futbol")
+    return {"tipus": tipus, "files": sortida} if sortida else None
 
 
 # -----------------------------------------------------------------------------
@@ -607,7 +786,7 @@ def files_full(eq, partits, quan):
 def full_classificacio(eq, cls, quan):
     if not cls:
         return []
-    font = "A mà" if eq["font"] == "manual" else ("FEB (feb.es)" if eq["font"] == "feb" else "FCF")
+    font = {"manual": "A mà", "feb": "FEB (feb.es)", "rfetm": "RFETM"}.get(eq["font"], "FCF")
     if cls["tipus"] == "basquet":
         files = [[eq["competicio"], eq["grup"], f["pos"], f["equip"], f["pj"], f["pg"], f["pp"], f["pf"], f["pc"],
                   f.get("dif", ""), f.get("pct", ""), f.get("ratxa", "") or f.get("punts", ""), font, quan]
@@ -618,8 +797,9 @@ def full_classificacio(eq, cls, quan):
             for fila, f in zip(files, cls["files"]):
                 fila[11] = f.get("punts", "")
         return [cap] + files
-    return [CAP_CLASS_FUTBOL] + [[eq["competicio"], eq["grup"], f["pos"], f["equip"], f["pj"], f["pg"], f["pe"],
-                                  f["pp"], f["pf"], f["pc"], f["punts"], f["ratxa"], font, quan] for f in cls["files"]]
+    # 28.11.2026: el tennis taula, amb les columnes del futbol (sense empats).
+    return [CAP_CLASS_FUTBOL] + [[eq["competicio"], eq["grup"], f["pos"], f["equip"], f["pj"], f["pg"], f.get("pe", ""),
+                                  f["pp"], f["pf"], f["pc"], f["punts"], f.get("ratxa", ""), font, quan] for f in cls["files"]]
 
 
 # -----------------------------------------------------------------------------
@@ -650,6 +830,8 @@ def main():
                 print("  (FEB llegida fa menys d'una hora: es reaprofita)")
             elif eq["font"] == "feb":
                 partits, cls = llegeix_feb(eq)
+            elif eq["font"] == "rfetm":
+                partits, cls = llegeix_rfetm(eq)
         except Exception as e:
             print("  ⚠️", e)
             partits = [p for p in prev.get("partits", []) if not p.get("manual")]
@@ -683,9 +865,13 @@ def main():
         partits.sort(key=lambda p: (p.get("data") or "9999", p.get("hora") or "99"))
 
         # 27.10.2026: escut del club (el dels partits o el de la classificació).
-        escut = next((p.get("escutPropi") for p in partits if p.get("escutPropi")), "") or \
+        escut = eq.get("escutFix") or next((p.get("escutPropi") for p in partits if p.get("escutPropi")), "") or \
             next((f.get("escut") for f in (cls or {}).get("files", []) if f.get("propi") and f.get("escut")), "") or \
             prev.get("escut", "")
+        if eq.get("escutFix"):   # 28.11.2026: també a la classificació entrada a mà
+            for f in (cls or {}).get("files", []):
+                if f.get("propi") and not f.get("escut"):
+                    f["escut"] = eq["escutFix"]
         sortida.append({
             "id": eq["id"], "nom": eq["nom"], "esport": eq["esport"], "categoria": eq["categoria"], "escut": escut,
             "competicio": eq["competicio"], "grup": eq["grup"], "font": eq["font"], "estatFont": estat,
@@ -694,6 +880,8 @@ def main():
             "full": files_full(eq, partits, quan),
             "fullClassificacio": full_classificacio(eq, cls, quan),
         })
+        if eq.get("youtube"):   # 28.11.2026: canal del club
+            sortida[-1]["youtube"] = eq["youtube"]
         print(f"  {len(partits)} partits, {len((cls or {}).get('files', []))} equips a la classificació"
               + ("" if estat["ok"] else " (dades anteriors)"))
 

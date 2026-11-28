@@ -49,7 +49,7 @@ const FONOTECA = { repo: "latdg/tauler", cami: "dades/fonoteca.json" };
 const TIRA = { repo: "latdg/tauler", cami: "dades/tira.json" };   // 15.11.2026
 const FCF = { repo: "latdg/tauler", cami: "dades/esports-fcf.json" };   // 09.11.2026
 const GRUPS_FCF = ["58161863", "58161891", "58161893", "58162320"];
-const EQUIPS_ESPORTS = ["atletic_bisbalenc", "monells_a", "monells_b", "la_pera", "la_pera_femeni", "sol_girones", "sol_girones_sots25"];
+const EQUIPS_ESPORTS = ["atletic_bisbalenc", "monells_a", "monells_b", "la_pera", "la_pera_femeni", "sol_girones", "sol_girones_sots25", "ctt_la_bisbal"];   // 28.11.2026: + tennis taula
 const ORIGENS = ["https://latdg.github.io"];
 
 export default {
