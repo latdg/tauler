@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex, nofollow">
+<title>Històric de subhastes</title>
+<!--
+  HISTÒRIC DE SUBHASTES — La TdG ampliada · 28.11.2026
+  Totes les subhastes públiques de béns dels cinc municipis que han sortit al bloc
+  «Subhastes públiques de béns» del tauler (Portal de Subhastes de l'Agència Estatal BOE).
+  dades/subhastes.json l'omple el tauler en directe (viu/tauler_viu.py, desa_subhastes);
+  el que hi havia abans d'aquesta data s'ha recuperat de l'historial de Git
+  (el bloc hi és des del 07.11.2026). Amb cercador i filtres per municipi, situació,
+  origen i any. Fins a 50 subhastes es veuen totes; a partir de 50, pàgines de 50, 100 o 200.
+-->
+<style>
+:root{--fons:#f6f5f2;--targeta:#fff;--text:#1d1d1b;--suau:#6b6b66;--linia:#e3e1db;--accent:#b4462c}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--fons);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main{max-width:1100px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{margin:0;font-size:1.6rem}
+.capcalera{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.capcalera .acces{font-size:1.6rem;line-height:1;text-decoration:none}
+a{color:var(--accent)}
+.sub{color:var(--suau);margin:4px 0 12px;font-size:.9rem}
+.controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;align-items:end;margin:8px 0 16px}
+input,select{font:inherit;padding:6px 8px;border:1px solid var(--linia);border-radius:8px;background:var(--targeta);color:var(--text);max-width:100%}
+.controls label{display:flex;flex-direction:column;gap:2px;font-size:.8rem;color:var(--suau)}
+.controls label.cerca{grid-column:1/-1}
+.controls select,.controls input{width:100%;height:2.25em}
+.controls button{font:inherit;font-size:.9rem;padding:6px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer;justify-self:start}
+section{background:var(--targeta);border:1px solid var(--linia);border-radius:12px;padding:16px;margin-bottom:16px}
+.dia{margin:18px 0 8px;font-size:1rem}
+.dia:first-child{margin-top:0}
+.llista{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.fitxa{background:var(--fons);border:1px solid var(--linia);border-left:4px solid var(--accent);border-radius:10px;padding:10px 12px;font-size:.95rem;line-height:1.45}
+.fitxa .text{margin:4px 0}
+.etiq{display:inline-block;font-size:.75rem;padding:1px 8px;margin:0 4px 4px 0;border-radius:999px;border:1px solid var(--linia);background:var(--targeta);color:var(--suau)}
+.etiq.oberta{border-color:#2e8b57;color:#2e8b57}
+.etiq.pendent{border-color:#c98a00;color:#9a6a00}
+.etiq.tancada{color:var(--suau)}
+.fitxa.tancada{border-left-color:#9a958a}
+.coord{display:block;color:var(--suau);font-size:.85rem}
+.resum{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;font-size:.9rem;color:var(--suau)}
+.resum b{color:var(--text)}
+.pagines{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.pagines button{font:inherit;font-size:.9rem;padding:4px 12px;border:1px solid var(--linia);border-radius:999px;background:var(--targeta);color:var(--text);cursor:pointer}
+.pagines button.actiu{border-color:var(--accent);color:var(--accent);font-weight:700}
+.pagines button:disabled{opacity:.4;cursor:default}
+.buit{color:var(--suau)}
+.avis{color:var(--suau);font-size:.85rem;margin:0 0 12px}
+.font{color:var(--suau);font-size:.85rem;margin:8px 0 0}
+</style>
+<!-- Visites (GoatCounter, sense galetes) -->
+<script data-goatcounter="https://latdg.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header>
+  <div class="capcalera">
+    <h1>🔨 Històric de subhastes</h1>
+    <a class="acces" href="../" title="La TdG ampliada" aria-label="La TdG ampliada">➕</a>
+  </div>
+  <p class="sub" id="sub">Carregant…</p>
+  <div class="controls">
+    <label class="cerca">Text (béns, adreça, finca, autoritat…)
+      <input type="search" id="cerca" placeholder="Escriu per cercar…">
+    </label>
+    <label>Municipi
+      <select id="municipi"><option value="">Tots</option></select>
+    </label>
+    <label>Situació
+      <select id="situacio"><option value="">Totes</option></select>
+    </label>
+    <label>Origen
+      <select id="origen"><option value="">Tots</option></select>
+    </label>
+    <label>Any
+      <select id="any"><option value="">Tots</option></select>
+    </label>
+    <label id="midaLabel" hidden>Subhastes per pàgina
+      <select id="mida"></select>
+    </label>
+    <button type="button" id="netejar" hidden>Treure els filtres</button>
+  </div>
+</header>
+<main>
+  <section>
+    <div class="resum" id="resum"></div>
+    <p class="avis" id="avisMes" hidden></p>
+    <div id="cos"><p class="buit">Carregant…</p></div>
+    <div class="pagines" id="pagines"></div>
+    <p class="font">Subhastes públiques de béns de la Bisbal d'Empordà, Corçà, Forallac, Cruïlles, Monells i Sant Sadurní de l'Heura
+      i Ullastret, a mesura que van sortint. Font: Portal de Subhastes de l'Agència Estatal BOE.
+      <a href="../">Tornar a La TdG ampliada</a></p>
+  </section>
+</main>
+<script>
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dataCa = iso => iso ? iso.split("-").reverse().join(".") : "";
+const pla = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const art = d => /^(01|11)\./.test(d) ? "l'" : "el ";            // «l'01.11.2026», «l'11.12.2026»
+const deD = d => (/^(01|11)\./.test(d) ? "de l'" : "del ") + d;
+const isoDe = d => { const m = /^(\d{2})\.(\d{2})\.(\d{4})/.exec(d || ""); return m ? `${m[3]}-${m[2]}-${m[1]}` : ""; };
+const AVUI = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Madrid" });
+
+// Situació de cada subhasta segons les dates del portal (i si encara hi surt).
+let DARRER = "";
+function situacio(x) {
+  const ini = isoDe(x.inici), fi = isoDe(x.fi);
+  if (fi && fi < AVUI) return "Finalitzada";
+  if (ini && ini > AVUI) return "Pendent d'obrir";
+  if (x.darrer && DARRER && x.darrer < DARRER) return "Ja no surt al portal";
+  return "Oberta";
+}
+const CLASSE = { "Oberta": "oberta", "Pendent d'obrir": "pendent", "Finalitzada": "tancada", "Ja no surt al portal": "tancada" };
+const ORDRE = ["Oberta", "Pendent d'obrir", "Finalitzada", "Ja no surt al portal"];
+
+let TOTS = [], PAGINA = 1, MIDA = 50;
+
+function fitxa(x) {
+  const c = CLASSE[x._sit];
+  const dades = [x.valor ? "Valor de subhasta: " + esc(x.valor) : "", x.taxacio ? "Taxació: " + esc(x.taxacio) : "",
+    x.inici || x.fi ? "📅 " + [x.inici ? "Inici: " + esc(x.inici) : "", x.fi ? "Final: " + esc(x.fi) : ""].filter(Boolean).join(" · ") : "",
+    x.estat ? "Estat: " + esc(x.estat) : "", x.autoritat ? "Autoritat: " + esc(x.autoritat) : ""].filter(Boolean).join(" · ");
+  const vista = x.primer === x.darrer ? `Vista al portal ${art(dataCa(x.primer))}${dataCa(x.primer)}`
+    : `Vista al portal ${deD(dataCa(x.primer))} ${/^(01|11)\./.test(dataCa(x.darrer)) ? "a l'" : "al "}${dataCa(x.darrer)}`;
+  return `<article class="fitxa${c === "tancada" ? " tancada" : ""}"><b>${esc(x.municipi)}</b>` +
+    `<div><span class="etiq ${c}">${esc(x._sit)}</span>${[x.origen, x.tipus].filter(Boolean).map(t => `<span class="etiq">${esc(t)}</span>`).join("")}</div>` +
+    (x.descripcio ? `<div class="text">${esc(x.descripcio)}</div>` : "") +
+    (x.lloc ? `<div>📍 ${esc(x.lloc)}</div>` : "") +
+    `<span class="coord">${dades}</span>` +
+    `<span class="coord">${vista} · ${esc(x.id)}${x.link ? ` · <a href="${esc(x.link)}" target="_blank" rel="noopener">fitxa al Portal de Subhastes</a>` : ""}</span></article>`;
+}
+
+function pinta() {
+  const t = pla(document.getElementById("cerca").value.trim());
+  const mun = document.getElementById("municipi").value, sit = document.getElementById("situacio").value,
+        ori = document.getElementById("origen").value, any = document.getElementById("any").value;
+  const filtrat = !!(t || mun || sit || ori || any);
+  document.getElementById("netejar").hidden = !filtrat;
+  const llista = TOTS.filter(x => (!t || x._cerca.includes(t)) && (!mun || x.municipi === mun) &&
+    (!sit || x._sit === sit) && (!ori || x.origen === ori) && (!any || x._any === any));
+
+  const n = (x, u, v) => `<span><b>${x}</b> ${x === 1 ? u : v}</span>`;
+  const obertes = llista.filter(x => x._sit === "Oberta" || x._sit === "Pendent d'obrir").length;
+  document.getElementById("resum").innerHTML = n(llista.length, "subhasta", "subhastes") +
+    n(obertes, "oberta o pendent d'obrir", "obertes o pendents d'obrir") + n(llista.length - obertes, "tancada", "tancades");
+
+  // Fins a 50, totes; a partir de 50, pàgines de 50, 100 o 200 (com a l'històric del BORME).
+  const paginat = llista.length > 50;
+  const sel = document.getElementById("mida");
+  document.getElementById("midaLabel").hidden = !paginat;
+  if (paginat) {
+    const opcions = [50, 100, 200].filter((n, i, v) => i === 0 || llista.length > v[i - 1]);
+    if (!opcions.includes(MIDA)) MIDA = opcions[opcions.length - 1];
+    sel.innerHTML = opcions.map(n => `<option value="${n}"${n === MIDA ? " selected" : ""}>${n}</option>`).join("");
+  }
+  const mida = paginat ? MIDA : Math.max(1, llista.length), pagines = Math.max(1, Math.ceil(llista.length / mida));
+  PAGINA = Math.min(Math.max(1, PAGINA), pagines);
+  const tros = llista.slice((PAGINA - 1) * mida, PAGINA * mida);
+  const avis = document.getElementById("avisMes");
+  avis.hidden = !paginat;
+  const ini = (PAGINA - 1) * mida + 1;
+  avis.textContent = `Subhastes ${ini === 1 || ini === 11 ? "de l'" : "de la "}${ini} a la ${Math.min(PAGINA * mida, llista.length)} de ${llista.length}.`;
+
+  document.getElementById("cos").innerHTML = tros.length
+    ? `<div class="llista">${tros.map(fitxa).join("")}</div>`
+    : `<p class="buit">${filtrat ? "Cap subhasta no coincideix amb la cerca." : "Encara no hi ha cap subhasta recollida."}</p>`;
+
+  const p = document.getElementById("pagines");
+  if (pagines < 2) { p.innerHTML = ""; return; }
+  let h = `<button data-p="${PAGINA - 1}"${PAGINA === 1 ? " disabled" : ""}>← Més recents</button>`;
+  for (let i = 1; i <= pagines; i++) h += `<button data-p="${i}" class="${i === PAGINA ? "actiu" : ""}">${i}</button>`;
+  h += `<button data-p="${PAGINA + 1}"${PAGINA === pagines ? " disabled" : ""}>Més antigues →</button>`;
+  p.innerHTML = h;
+  p.querySelectorAll("button").forEach(b => b.onclick = () => { PAGINA = +b.dataset.p; pinta(); scrollTo(0, 0); });
+}
+
+(async () => {
+  let d;
+  try { d = await (await fetch("../dades/subhastes.json?v=" + Date.now(), { cache: "no-store" })).json(); }
+  catch (e) { document.getElementById("cos").innerHTML = '<p class="buit">No s\'ha pogut carregar l\'històric.</p>'; document.getElementById("sub").textContent = ""; return; }
+  const brut = (d.llista || []).filter(x => x && x.id);
+  DARRER = brut.reduce((m, x) => x.darrer > m ? x.darrer : m, "");
+  TOTS = brut.map(x => ({ ...x, _sit: situacio(x), _any: (isoDe(x.inici) || x.primer || "").slice(0, 4),
+    _cerca: pla([x.municipi, x.descripcio, x.lloc, x.origen, x.tipus, x.autoritat, x.id].join(" ")) }))
+    .sort((a, b) => ORDRE.indexOf(a._sit) - ORDRE.indexOf(b._sit) || (b.primer || "").localeCompare(a.primer || ""));
+  const vella = brut.reduce((m, x) => !m || x.primer < m ? x.primer : m, "");
+  document.getElementById("sub").textContent = `${TOTS.length} ${TOTS.length === 1 ? "subhasta recollida" : "subhastes recollides"}` +
+    (vella ? ` des ${deD(dataCa(vella))}` : "") +
+    (d.actualitzat ? `. Actualitzat ${art(dataCa(d.actualitzat.slice(0, 10)))}${dataCa(d.actualitzat.slice(0, 10))}.` : ".");
+  const compta = f => TOTS.reduce((o, x) => { const k = f(x); if (k) o[k] = (o[k] || 0) + 1; return o; }, {});
+  const opt = (id, o, ordre) => document.getElementById(id).innerHTML += (ordre || Object.keys(o).sort((a, b) => a.localeCompare(b, "ca")))
+    .filter(k => o[k]).map(k => `<option value="${esc(k)}">${esc(k)} (${o[k]})</option>`).join("");
+  opt("municipi", compta(x => x.municipi));
+  opt("situacio", compta(x => x._sit), ORDRE);
+  opt("origen", compta(x => x.origen));
+  opt("any", compta(x => x._any), Object.keys(compta(x => x._any)).sort().reverse());
+  const torna = () => { PAGINA = 1; pinta(); };
+  document.getElementById("cerca").oninput = torna;
+  document.getElementById("mida").onchange = ev => { MIDA = +ev.target.value; torna(); };
+  ["municipi", "situacio", "origen", "any"].forEach(id => document.getElementById(id).onchange = torna);
+  document.getElementById("netejar").onclick = () => {
+    document.getElementById("cerca").value = "";
+    ["municipi", "situacio", "origen", "any"].forEach(id => document.getElementById(id).selectedIndex = 0);
+    torna();
+  };
+  pinta();
+})();
+</script>
+<script src="../dates-ca.js?v=3"></script>
+</body>
+</html>

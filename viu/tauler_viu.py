@@ -1606,6 +1606,39 @@ def desa_borme(bloc):
 
 
 # -----------------------------------------------------------------------------
+# HISTÒRIC DE SUBHASTES (28.11.2026; recuperat de l'historial de Git des del 07.11.2026).
+# Cada subhasta que surt al bloc «Subhastes públiques de béns» s'acumula a
+# dades/subhastes.json amb el primer i el darrer dia que s'ha vist al portal;
+# si canvia alguna dada (estat, dates, valor…), es desa la més nova.
+# La pàgina subhastes/ en fa la consulta. El bloc del dia no canvia.
+# -----------------------------------------------------------------------------
+def desa_subhastes(bloc):
+    if not isinstance(bloc, dict) or not isinstance(bloc.get("subhastes"), list):
+        return
+    iso = ara().date().isoformat()
+    cami = DADES / "subhastes.json"
+    arxiu = llegeix(cami, {})
+    llista = arxiu.get("llista") or []
+    per_id = {x.get("id"): x for x in llista if x.get("id")}
+    canvi = not arxiu
+    for s in bloc["subhastes"]:
+        if not isinstance(s, dict) or not s.get("id"):
+            continue
+        r = per_id.get(s["id"])
+        if r is None:
+            r = per_id[s["id"]] = {"primer": iso, "darrer": iso}
+            llista.append(r)
+            canvi = True
+        abans = dict(r)
+        r.update({k: v for k, v in s.items() if v not in (None, "")})
+        r["darrer"] = max(r.get("darrer") or iso, iso)
+        canvi = canvi or r != abans
+    if canvi:
+        llista.sort(key=lambda x: (x.get("primer") or "", x.get("id") or ""), reverse=True)
+        escriu(cami, {"actualitzat": ara().isoformat(), "llista": llista})
+
+
+# -----------------------------------------------------------------------------
 # NECROLÒGIQUES (31.10.2026): les defuncions que el bucle dels bots prepara per al
 # guió (branca «dades-guio» de latdg/bots: Mémora i Diari de Girona ja creuats, els
 # últims 5 dies). El tauler les acumula a dades/necrologiques.json (historial).
@@ -2908,6 +2941,11 @@ def fusiona():
         desa_borme(vius.get("borme"))
     except Exception as e:
         print(f"❌ històric del BORME: {e}", file=sys.stderr)
+    # 28.11.2026: les subhastes continuen al bloc del dia i, a més, s'acumulen a l'històric.
+    try:
+        desa_subhastes(vius.get("subhastes"))
+    except Exception as e:
+        print(f"❌ històric de subhastes: {e}", file=sys.stderr)
 
     for nom, valor in vius.items():
         blocs_vius[nom] = valor

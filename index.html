@@ -1930,7 +1930,7 @@ function pinta(d) {
   if (b.subhastes && b.subhastes.subhastes) {
     const llista = b.subhastes.subhastes;
     h += seccio("🔨 Subhastes públiques de béns",
-      llista.length
+      (llista.length
         ? "<ul>" + llista.map(s =>
             `<li style="margin-bottom:12px">` +
             `<b>${esc(s.municipi)}</b>${s.origen || s.tipus ? " · " + esc([s.origen, s.tipus].filter(Boolean).join(" · ")) : ""}` +
@@ -1944,7 +1944,8 @@ function pinta(d) {
                s.autoritat ? "Autoritat: " + esc(s.autoritat) : ""].filter(Boolean).join(" · ") +
               ` · <a href="${esc(s.link)}" target="_blank" rel="noopener">fitxa al Portal de Subhastes</a>` +
             `</span></li>`).join("") + "</ul>"
-        : '<p class="buit">Ara mateix no hi ha cap subhasta oberta ni pendent d\'obrir de béns dels cinc municipis.</p>',
+        : '<p class="buit">Ara mateix no hi ha cap subhasta oberta ni pendent d\'obrir de béns dels cinc municipis.</p>') +
+      '<p class="font"><a href="subhastes/">Històric de subhastes</a></p>',   // 28.11.2026
       "Portal de Subhastes de l'Agència Estatal BOE");
   }
   
