@@ -336,7 +336,12 @@ a.tira-it:hover{color:var(--accent);text-decoration:underline}
 .vm-sec{grid-column:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:.76rem;line-height:1.15;padding:6px 4px;text-align:center;border-top:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.1)}
 .vm-sec .ic{font-size:1.1rem}.vm-sec .tx{writing-mode:vertical-rl;transform:rotate(180deg)}
 .vm-num{grid-column:2;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;background:rgba(40,20,90,.18);border-top:1px solid rgba(255,255,255,.25)}
-.vm-it{grid-column:3;padding:5px 10px;font-weight:600;font-size:.9rem;line-height:1.2;border-top:1px solid rgba(255,255,255,.25);min-height:30px;display:flex;align-items:center}
+.vm-it{grid-column:3;padding:0;font-weight:600;font-size:.9rem;line-height:1.2;border-top:1px solid rgba(255,255,255,.25);min-height:34px;display:flex;flex-direction:column;justify-content:center}
+.vm-q{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:8px;width:100%;min-height:34px;padding:5px 10px;cursor:pointer;color:#fff;font-weight:600}
+.vm-q::after{content:"▾";margin-left:auto;opacity:.75;font-size:.8rem;transition:transform .2s}
+.vm-q[aria-expanded="true"]::after{transform:rotate(180deg)}
+.vm-q:focus-visible{outline:2px solid #fff;outline-offset:-3px}
+.vm-exp{margin:0;padding:2px 12px 10px;font-weight:500;font-size:.86rem;line-height:1.4;color:#fff;text-shadow:0 1px 2px rgba(30,15,70,.35)}
 .vm-it.marcat{background:rgba(255,255,255,.28);outline:2px solid #fff;outline-offset:-2px}
 .vm-ajuda{margin-top:14px;padding:12px;border-radius:10px;background:#f3f0fc;border:1px solid #ddd5f6}
 .vm-ajuda h3{margin:0 0 6px;color:#3f3fb0}
@@ -2952,6 +2957,7 @@ inicia();
   <h2 id="vmTitol">VIOLENTÒMETRE 2.0</h2>
   <p class="vm-lema">…Sí, la violència també es mesura</p>
   <p class="vm-lema2">El control i allò virtual també són reals</p>
+  <p class="vm-credits" style="margin:0 0 10px">Toca cada mesura per veure'n l'explicació.</p>
   <div class="vm-taula" id="vmTaula"></div>
   <div class="vm-ajuda">
     <h3>On demanar ajuda</h3>
@@ -2972,6 +2978,7 @@ inicia();
     {t:"Demana ajuda urgent!",ic:"📣",d:24,a:33}
   ];
   var IT=["Bromes feridores","Fa xantatge","Menteix, enganya","Llum de gas","Indiferència, llei del gel","Desapareix sense explicació","Té gelosia","Bombardeig amorós","Et dona la culpa","Crítica constant","Ridiculitza, ofèn, humilia en públic","Controla, prohibeix","Control econòmic","Persegueix o espia","Destrueix objectes personals","Avergonyeix i humilia a les xarxes","Intimida","Assetjament a internet","Colpeja jugant, pessiga o esgarrapa","Empeny, estira, dona bufetades o puntades","Tocaments i carícies agressives","Revelació d'informació personal","Imatges o vídeos manipulats amb IA","Tanca i aïlla","Amenaça amb objectes o armes","Amenaça de mort","Atacs amb àcid o substàncies corrosives","Extorsió sexual","Ciberseducció de menors","Abús sexual","Violació","Mutilació","Assassinat/Feminicidi"];
+  var EXP=["Riure's de tu amb comentaris sobre el teu cos, la teva manera de ser o els teus errors, i dir que «només és broma» quan et queixes. Si fa mal, no és broma.", "Et pressiona amb amenaces o amb la culpa perquè facis el que vol: «si m'estimessis…», «si no ho fas, ho deixem» o «ho explicaré a tothom».", "T'amaga coses o et diu mentides de manera repetida, fins que no saps què és veritat i perds la confiança en tu.", "Et fa dubtar del que has vist, sentit o viscut: nega fets que han passat, diu que exageres o que t'ho inventes, fins que creus que el problema ets tu.", "Deixa de parlar-te o t'ignora per castigar-te, sovint sense dir per què, perquè siguis tu qui acabi demanant perdó.", "Talla el contacte de cop durant hores o dies (no respon, et bloqueja) i després torna com si res, perquè visquis en la incertesa.", "S'enfada quan parles o surts amb altres persones, et demana explicacions i ho presenta com una prova d'amor. La gelosia no és amor: és control.", "Al principi t'omple d'atencions, regals, missatges i promeses exagerades perquè depenguis de la relació; després fa servir aquest afecte per controlar-te.", "Fa que et sentis responsable del que fa o sent: «m'has fet enfadar», «per culpa teva…». No ets responsable de la violència que reps.", "Res del que fas està bé: la roba, les amistats, els estudis, com parles. A poc a poc t'enfonsa l'autoestima.", "Et deixa en evidència davant d'altres persones, se'n riu de tu o t'insulta perquè et sentis petita i avergonyida.", "Decideix per tu com vesteixes, amb qui quedes o on vas, o et demana el mòbil i les contrasenyes per revisar-los.", "Et controla els diners i les despeses, te'n demana o no et deixa decidir què fas amb el que és teu, perquè en depenguis.", "Et segueix, et vigila la ubicació, et revisa el mòbil o les xarxes, o es presenta on ets sense avisar.", "Trenca, llença o fa malbé coses teves o que estimes. És una manera d'intimidar-te.", "Publica comentaris, mems, fotos o missatges per riure's de tu o deixar-te malament davant de molta gent.", "Crits, cops a la taula o a la porta, mirades o gestos amenaçadors perquè tinguis por i facis el que vol.", "Missatges insistents, insults, amenaces o perfils falsos per molestar-te, vigilar-te o fer-te mal a través de la xarxa.", "Fer mal «de broma» o «jugant» també és violència física, i sovint és el primer pas cap a agressions més greus.", "Agressions físiques directes. Ja no hi ha cap dubte: és violència i cal demanar ajuda.", "Et toca sense el teu consentiment o d'una manera que et fa mal o et fa sentir incòmoda. Sense consentiment, no.", "Difon dades, secrets, converses, fotos o informació privada teva (adreça, telèfon…) sense el teu permís.", "Crea o difon imatges, vídeos o àudios falsos fets amb intel·ligència artificial per humiliar-te o fer-te xantatge. Encara que siguin falsos, el mal és real i és delicte.", "T'allunya de la família i de les amistats, no et deixa sortir o et tanca, perquè no tinguis ningú a qui demanar ajuda.", "Mostra o fa servir un ganivet, una arma o qualsevol objecte per atemorir-te. És una situació de perill: truca al 112.", "Diu que et matarà, que farà mal a algú que estimes o que es farà mal si el deixes. Cal prendre-s'ho seriosament i demanar ajuda de seguida.", "Agressió amb productes que cremen per desfigurar i deixar seqüeles per sempre. És extremadament greu.", "T'amenaça amb difondre fotos, vídeos o converses íntimes si no li envies més contingut, diners o fas el que et demana. No cedeixis: guarda les proves i demana ajuda.", "Una persona adulta contacta per internet amb una persona menor, sovint fent-se passar per algú altre, per guanyar-se'n la confiança amb finalitat sexual. Si et passa, explica-ho a una persona adulta de confiança.", "Qualsevol acte sexual sense consentiment lliure, sovint aprofitant una relació de confiança, de poder o de dependència.", "Agressió sexual amb penetració sense consentiment. Mai no és culpa de qui la pateix. Truca al 112 o al 900 900 120.", "Agressió que causa la pèrdua o el dany permanent d'una part del cos, com la mutilació genital femenina.", "Matar una dona pel fet de ser dona. És l'extrem de l'escala: per això cal actuar als primers graons."];
   var barra=document.getElementById("vmBarra"),taula=document.getElementById("vmTaula");
   var regle=document.getElementById("vmRegle"),pest=document.getElementById("vmPestanya");
   var fons=document.getElementById("vmFons"),plafo=document.getElementById("vmPlafo");
@@ -2989,14 +2996,22 @@ inicia();
   IT.forEach(function(t,i){
     var n=i+1,a=document.createElement("div"),b=document.createElement("div");
     a.className="vm-num";a.style.gridRow=n;a.textContent=n;
-    b.className="vm-it";b.style.gridRow=n;b.id="vmIt"+n;b.textContent=t;
+    b.className="vm-it";b.style.gridRow=n;b.id="vmIt"+n;
+    var q=document.createElement("button");q.type="button";q.className="vm-q";q.setAttribute("aria-expanded","false");q.textContent=t;
+    var x=document.createElement("p");x.className="vm-exp";x.hidden=true;x.textContent=EXP[i];
+    q.addEventListener("click",function(){desplega(n,x.hidden);});
+    b.appendChild(q);b.appendChild(x);
     taula.appendChild(a);taula.appendChild(b);
   });
+  function desplega(n,obrir){
+    var b=document.getElementById("vmIt"+n);if(!b)return;
+    b.querySelector(".vm-exp").hidden=!obrir;b.querySelector(".vm-q").setAttribute("aria-expanded",obrir?"true":"false");
+    b.classList.toggle("marcat",obrir);
+  }
   var origen=null;
   function obre(n,de){
     origen=de||null;fons.classList.add("obert");plafo.classList.add("obert");plafo.setAttribute("aria-hidden","false");
-    var ant=taula.querySelector(".marcat");if(ant)ant.classList.remove("marcat");
-    if(n){var e=document.getElementById("vmIt"+n);if(e){e.classList.add("marcat");setTimeout(function(){e.scrollIntoView({block:"center",behavior:"smooth"});},260);}}
+    if(n){desplega(n,true);var e=document.getElementById("vmIt"+n);if(e){setTimeout(function(){e.scrollIntoView({block:"center",behavior:"smooth"});},260);}}
     else plafo.scrollTop=0;
     document.getElementById("vmTanca").focus({preventScroll:true});
   }
