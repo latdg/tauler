@@ -2884,14 +2884,50 @@ inicia();
 </script>
 <script>
 // 28.11.2026: els escuts dels equips i els logotips de les benzineres s'amplien
-// en prémer-hi (també dins del títol d'una classificació, sense plegar-la).
+// en passar-hi per sobre amb el ratolí (sense clicar i sense lupa). Als mòbils,
+// que no tenen «per sobre», s'amplien en tocar-los.
 (function () {
   const SEL = "img.esc-club, img.logo-benz";
   const st = document.createElement("style");
-  st.textContent = "img.esc-club,img.logo-benz{cursor:zoom-in}" +
-    ".logo-amplia{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);cursor:zoom-out}" +
+  st.textContent =
+    ".logo-sobre{position:fixed;z-index:9999;width:150px;height:150px;pointer-events:none;background:#fff;border-radius:14px;padding:12px;box-shadow:0 6px 24px rgba(0,0,0,.3);opacity:0;transform:scale(.6);transition:opacity .12s,transform .12s}" +
+    ".logo-sobre.vist{opacity:1;transform:scale(1)}" +
+    ".logo-sobre img{width:100%;height:100%;object-fit:contain}" +
+    ".logo-amplia{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55)}" +
     ".logo-amplia img{width:min(70vw,300px);height:min(70vw,300px);object-fit:contain;background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.4)}";
   document.head.appendChild(st);
+  const ambRatoli = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (ambRatoli) {
+    let caixa = null;
+    const amaga = () => { if (caixa) { caixa.remove(); caixa = null; } };
+    document.addEventListener("mouseover", ev => {
+      const img = ev.target && ev.target.closest ? ev.target.closest(SEL) : null;
+      if (!img || !img.src) return;
+      amaga();
+      caixa = document.createElement("div");
+      caixa.className = "logo-sobre";
+      const gran = document.createElement("img");
+      gran.src = img.src; gran.alt = ""; gran.referrerPolicy = "no-referrer";
+      caixa.appendChild(gran);
+      document.body.appendChild(caixa);
+      // a la dreta de la icona; si no hi cap, a l'esquerra; centrada en vertical
+      const r = img.getBoundingClientRect(), M = 150, G = 10;
+      let x = r.right + G;
+      if (x + M > window.innerWidth - 4) x = Math.max(4, r.left - G - M);
+      let y = r.top + r.height / 2 - M / 2;
+      y = Math.min(Math.max(4, y), window.innerHeight - M - 4);
+      caixa.style.left = x + "px"; caixa.style.top = y + "px";
+      requestAnimationFrame(() => caixa && caixa.classList.add("vist"));
+    });
+    document.addEventListener("mouseout", ev => {
+      const img = ev.target && ev.target.closest ? ev.target.closest(SEL) : null;
+      if (img && !(ev.relatedTarget && img.contains(ev.relatedTarget))) amaga();
+    });
+    window.addEventListener("scroll", amaga, { passive: true });
+    return;
+  }
+
   document.addEventListener("click", ev => {
     const img = ev.target && ev.target.closest ? ev.target.closest(SEL) : null;
     if (!img || !img.src) return;
@@ -2901,10 +2937,7 @@ inicia();
     const gran = document.createElement("img");
     gran.src = img.src; gran.alt = ""; gran.referrerPolicy = "no-referrer";
     capa.appendChild(gran);
-    const tanca = () => { capa.remove(); document.removeEventListener("keydown", tecla); };
-    const tecla = e => { if (e.key === "Escape") tanca(); };
-    capa.onclick = tanca;
-    document.addEventListener("keydown", tecla);
+    capa.onclick = () => capa.remove();
     document.body.appendChild(capa);
   }, true);
 })();
