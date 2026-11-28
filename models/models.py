@@ -78,10 +78,10 @@ HORES_MAPA = 96
 HORES_PUNT = 168
 
 
-def baixa(params, intents=4):
+def baixa(params, intents=4, url=API):
     for i in range(intents):
         try:
-            r = requests.get(API, params=params, timeout=60)
+            r = requests.get(url, params=params, timeout=60)
             if r.status_code == 400:   # petició no vàlida per al model: no cal repetir-la
                 raise ValueError(f"HTTP 400: {r.text[:200]}")
             if r.status_code == 429 or r.status_code >= 500:
@@ -238,7 +238,7 @@ def ens_bisbal():
     for nom in ("precipitation", "temperature_2m", "wind_gusts_10m"):
         try:
             j = baixa({"latitude": BISBAL[0], "longitude": BISBAL[1], "hourly": nom,
-                       "models": "ecmwf_ifs025", "timezone": "Europe/Madrid", "forecast_days": 8})
+                       "models": "ecmwf_ifs025", "timezone": "Europe/Madrid", "forecast_days": 8}, url=API_ENS)
             h = j["hourly"]
             m = [s for s in membres(h, nom) if any(x is not None for x in s)]
             if m:
